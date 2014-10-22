@@ -32,14 +32,16 @@ def process_shot(shotdir):
         start, end = duration[shot_id]
         clip = clip.subclip(start/24.0, end/24.0)
 
+
     if OVERLAY_SHOT_DATA:
         d = clip.duration
         frameno, nFrames = 0, clip.duration * 24
         frames = "frame %d/%d" % (frameno, nFrames)
-        gitrev = "git %s" % os.popen("git rev-parse HEAD").read(12)
+        gitdirty = "*dirty*" if os.system("git diff --quiet HEAD") else ""
+        gitrev = "git %s %s" % (os.popen("git rev-parse HEAD").read(12), gitdirty)
         kwargs = dict(color='white', fontsize=25, method='caption', align='West', size=(1920,1280))
         overlay_source  = TextClip(os.path.basename(source), **kwargs).set_position((10, -590))
-        overlay_git     = TextClip(gitrev,        **kwargs).set_position((900, -590))
+        overlay_git     = TextClip(gitrev,        **kwargs).set_position((850, -590))
         overlay_date    = TextClip(str(date),     **kwargs).set_position((1500, -590))
         overlay_login   = TextClip(os.getlogin(), **kwargs).set_position((10, 610))
         overlay_shot_id = TextClip(shot_id,       **kwargs).set_position((900, 610))
