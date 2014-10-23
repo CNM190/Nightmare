@@ -2,6 +2,11 @@
 
 # From: https://developers.google.com/youtube/v3/code_samples/python#upload_a_video
 
+EMAIL=True
+import smtplib
+from email.mime.text import MIMEText
+                
+
 import httplib
 import httplib2
 import os
@@ -138,6 +143,14 @@ def resumable_upload(insert_request):
         url = "https://www.youtube.com/watch?v=%s" % response['id']
         print "Video id '%s' was successfully uploaded." % response['id']
         print "Watch it at: %s" % url
+	if EMAIL:
+                msg = MIMEText("Watch it at %s ." % url)
+                msg['Subject'] = 'Latest Nightmare Video Uploaded'
+                msg['From'] = "jenkins@telperion.cs.berkeley.edu"
+                msg['To'] = os.popen("git log --format=\%ae -n 1").read()
+                s = smtplib.SMTP('localhost')
+                s.sendmail(msg['From'], [msg['To']], msg.as_string())
+                s.quit()
       else:
         exit("The upload failed with an unexpected response: %s" % response)
     except HttpError, e:
