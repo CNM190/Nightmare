@@ -135,7 +135,9 @@ def resumable_upload(insert_request):
       print "Uploading file..."
       status, response = insert_request.next_chunk()
       if 'id' in response:
+        url = "https://www.youtube.com/watch?v=%s" % response['id']
         print "Video id '%s' was successfully uploaded." % response['id']
+        print "Watch it at: %s" % url
       else:
         exit("The upload failed with an unexpected response: %s" % response)
     except HttpError, e:
