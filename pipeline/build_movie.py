@@ -31,18 +31,15 @@ def process_shot(shotdir):
     video = os.path.join(shotdir, "shot.mp4")
     image = os.path.join(shotdir, "board.png")
     if os.path.exists(video):
-        source = video
-        clip = VideoFileClip(video)
+        source, clip = video, VideoFileClip(video)
     elif os.path.exists(image):
-        source = image
-        clip = ImageClip(image)
+        source, clip = image, ImageClip(image)
     else:
         raise Exception("No video/storyboard file in %s." % shotdir)
 
     if shot_id in duration or clip.duration == None:
         start, end = duration[shot_id]
         clip = clip.subclip(start/24.0, end/24.0)
-
 
     if OVERLAY_SHOT_DATA:
         d = clip.duration
