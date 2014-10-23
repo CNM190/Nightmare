@@ -1,4 +1,5 @@
-import os
+import os, re
+from glob import glob
 from datetime import datetime
 from textwrap import dedent
 from collections import defaultdict
@@ -24,16 +25,29 @@ class AnimatedTextClip(VideoClip):
     def get_frame(self, t):
         return TextClip(self.gentext(t), **self.kwargs).get_frame(0)
 
+def build_storyboard_clip(imagedir):
+    boards = sorted(glob(os.path.join(imagedir, "*.png")))
+    if not boards:
+        return TextClip("missing storyboards", color='white', size=(1920,1080)).set_duration(1.0/24)
+    else:
+        clips = []
+        for board in boards:
+            basename = os.path.basename(board)
+            frameSpecifier = re.findall("_(\d+).png", basename)
+            assert len(frameSpecifier), "Expect storyboard file with name like NNN_fXX.png for board #NNN that lasts XX frames, not %s." % basename
+            nFrames = int(frameSpecifier[0])
+            clips.append( ImageClip(board).set_duration(nFrames/24.0) )
+        return concatenate(clips)
 
 def process_shot(shotdir):
     shot_id = os.path.basename(shotdir)
 
     video = os.path.join(shotdir, "shot.mp4")
-    image = os.path.join(shotdir, "board.png")
+    image = os.path.join(shotdir, "boards")
     if os.path.exists(video):
         source, clip = video, VideoFileClip(video)
     elif os.path.exists(image):
-        source, clip = image, ImageClip(image)
+        source, clip = image, build_storyboard_clip(image)
     else:
         raise Exception("No video/storyboard file in %s." % shotdir)
 
@@ -50,7 +64,7 @@ def process_shot(shotdir):
 
         def get_overlay_text(t):
             frame = "frame %d/%d" % ((t+0.5/24.0)*24+1, nFrames)
-            header = "%s %s %s" % (source.ljust(42)[:42], gitrev.center(40)[:40], str(date).rjust(42)[:42])
+            header = "%s %s %s" % (os.path.basename(source).ljust(42)[:42], gitrev.center(40)[:40], str(date).rjust(42)[:42])
             footer = "%s %s %s" % (login.ljust(42)[:42], shot_id.center(40)[:40], frame.rjust(42)[:42])
             return "%s%s%s" % (header, "\n"*45, footer)
 
@@ -65,7 +79,7 @@ def process_shot(shotdir):
 
 def main():
     shotdir = os.path.abspath(SHOT_DIR)
-    shots = [os.path.join(shotdir,f) for f in sorted(os.listdir(shotdir))]
+    shots = [os.path.join(shotdir,f) for f in sorted(glob(os.path.join(shotdir, "shot*")))]
     clips = [process_shot(s) for s in shots]
     concatenate(clips).write_videofile(OUTPUT_FILENAME, fps=24, audio=False)
 
