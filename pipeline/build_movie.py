@@ -5,8 +5,13 @@ from textwrap import dedent
 from collections import defaultdict
 from moviepy.editor import *
 
-SHOT_DIR = "/Users/mbdriscoll/Nightmare/shots"
-OUTPUT_FILENAME = "/Users/mbdriscoll/Desktop/movie.mp4"
+try:
+    WORKSPACE = os.environ['WORKSPACE']
+except KeyError:
+    WORKSPACE = os.getcwd()
+
+SHOT_DIR = os.path.join(WORKSPACE, "shots")
+OUTPUT_FILENAME = os.path.join(WORKSPACE, "movie.mp4")
 OVERLAY_SHOT_DATA = True
 
 """ start/stop time of each shot, in frame numbers. """
