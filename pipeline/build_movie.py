@@ -65,7 +65,10 @@ def process_shot(shotdir):
         nFrames = clip.duration * 24
         gitdirty = "*dirty*" if os.system("git diff --quiet HEAD") else ""
         gitrev = "git %s %s" % (os.popen("git rev-parse HEAD").read(12), gitdirty)
-        login = os.getlogin()
+        try:
+            login = os.getlogin()
+        except OSError:
+            login = "jenkins"
 
         def get_overlay_text(t):
             frame = "frame %d/%d" % ((t+0.5/24.0)*24+1, nFrames)
