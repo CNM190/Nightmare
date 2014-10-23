@@ -34,7 +34,7 @@ def build_storyboard_clip(imagedir):
         for board in boards:
             basename = os.path.basename(board)
             frameSpecifier = re.findall("_(\d+).png", basename)
-            assert len(frameSpecifier), "Expect storyboard file with name like NNN_fXX.png for board #NNN that lasts XX frames, not %s." % basename
+            assert len(frameSpecifier), "Expect storyboard file with name like NNN_XX.png for board #NNN that lasts XX frames, not %s." % basename
             nFrames = int(frameSpecifier[0])
             clips.append( ImageClip(board).set_duration(nFrames/24.0) )
         return concatenate(clips)
