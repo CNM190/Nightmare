@@ -28,7 +28,7 @@ class AnimatedTextClip(VideoClip):
         self.kwargs = kwargs
 
     def get_frame(self, t):
-        return TextClip(self.gentext(t), **self.kwargs).get_frame(0)
+        return TextClip(self.gentext(t), **self.kwargs).get_frame(4)
 
 def build_storyboard_clip(imagedir):
     boards = sorted(glob(os.path.join(imagedir, "*.png")))
@@ -63,22 +63,23 @@ def process_shot(shotdir):
     if OVERLAY_SHOT_DATA:
         d = clip.duration
         nFrames = clip.duration * 24
-        gitdirty = "*dirty*" if os.system("git diff --quiet HEAD") else ""
-        gitrev = "git %s %s" % (os.popen("git rev-parse HEAD").read(12), gitdirty)
+        gitdirty = "*%s*" if os.system("git diff --quiet HEAD") else "%s"
+        gitrev = gitdirty % ("git %s" % (os.popen("git rev-parse --short HEAD").read(12)[:-1]))
         try:
             login = os.getlogin()
         except OSError:
             login = "jenkins"
 
         def get_overlay_text(t):
-            frame = "frame %d/%d" % ((t+0.5/24.0)*24+1, nFrames)
-            header = "%s %s %s" % (os.path.basename(source).ljust(42)[:42], gitrev.center(40)[:40], str(date).rjust(42)[:42])
-            footer = "%s %s %s" % (login.ljust(42)[:42], shot_id.center(40)[:40], frame.rjust(42)[:42])
-            return "%s%s%s" % (header, "\n"*45, footer)
+            frame = "frame % 2d/%d" % ((t+0.5/24.0)*24+1, nFrames)
+            d = date.strftime("%c")[:19]
+            src = os.path.basename(source)
+            header = "%s %s %s" % (  src.ljust(29)[:29],  gitrev.center(29)[:29],     d.rjust(29)[:29])
+            footer = "%s %s %s" % (login.ljust(29)[:29], shot_id.center(29)[:29], frame.rjust(29)[:29])
+            return "%s%s%s" % (header, "\n"*41, footer)
 
-        kwargs = dict(color='white', fontsize=25, method='caption', size=(1920,1280))
+        kwargs = dict(color='white', fontsize=35, method='caption', size=(1920,1280), bg_color='grey10', font='Courier')
         overlay_frame = AnimatedTextClip(get_overlay_text, **kwargs)
-
         clips = [overlay_frame, clip.set_position((0, 100))]
         clip = CompositeVideoClip(clips, size=(1920,1280)).set_duration(d)
 
