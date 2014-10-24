@@ -71,7 +71,7 @@ def process_shot(shotdir):
             login = "jenkins"
 
         def get_overlay_text(t):
-            frame = "frame %2d/%d" % ((t+0.5/24.0)*24+1, nFrames)
+            frame = "frame %3d / %3d" % ((t+0.5/24.0)*24+1, nFrames)
             d = date.strftime("%c")[:19]
             src = os.path.basename(source)
             header = " %s %s %s" % (  src.ljust(29)[:29],  gitrev.center(29)[:29],     d.rjust(29)[:29])
