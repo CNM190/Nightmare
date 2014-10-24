@@ -33,7 +33,7 @@ class AnimatedTextClip(VideoClip):
 def build_storyboard_clip(imagedir):
     boards = sorted(glob(os.path.join(imagedir, "*.png")))
     if not boards:
-        return TextClip("missing storyboards", color='white', size=(1920,1080)).set_duration(1.0/24)
+        return TextClip("missing storyboards", align="West", color='white', method='caption', size=(1920,1080)).set_duration(1.0/24)
     else:
         clips = []
         for board in boards:
@@ -71,14 +71,14 @@ def process_shot(shotdir):
             login = "jenkins"
 
         def get_overlay_text(t):
-            frame = "frame % 2d/%d" % ((t+0.5/24.0)*24+1, nFrames)
+            frame = "frame %2d/%d" % ((t+0.5/24.0)*24+1, nFrames)
             d = date.strftime("%c")[:19]
             src = os.path.basename(source)
-            header = "%s %s %s" % (  src.ljust(29)[:29],  gitrev.center(29)[:29],     d.rjust(29)[:29])
-            footer = "%s %s %s" % (login.ljust(29)[:29], shot_id.center(29)[:29], frame.rjust(29)[:29])
+            header = " %s %s %s" % (  src.ljust(29)[:29],  gitrev.center(29)[:29],     d.rjust(29)[:29])
+            footer = " %s %s %s" % (login.ljust(29)[:29], shot_id.center(29)[:29], frame.rjust(29)[:29])
             return "%s%s%s" % (header, "\n"*41, footer)
 
-        kwargs = dict(color='white', fontsize=35, method='caption', size=(1920,1280), bg_color='grey10', font='Courier')
+        kwargs = dict(color='white', fontsize=35, align='West', method='caption', size=(1920,1280), bg_color='grey10', font='Courier')
         overlay_frame = AnimatedTextClip(get_overlay_text, **kwargs)
         clips = [overlay_frame, clip.set_position((0, 100))]
         clip = CompositeVideoClip(clips, size=(1920,1280)).set_duration(d)
