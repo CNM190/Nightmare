@@ -1,9 +1,11 @@
 import os, re
+import numpy as np
 from glob import glob
 from datetime import datetime
 from textwrap import dedent
 from collections import defaultdict
 from moviepy.editor import *
+from PIL import Image, ImageDraw, ImageFont
 
 try:
     WORKSPACE = os.environ['WORKSPACE']
@@ -14,21 +16,20 @@ SHOT_DIR = os.path.join(WORKSPACE, "shots")
 OUTPUT_FILENAME = os.path.join(WORKSPACE, "movie.mp4")
 OVERLAY_SHOT_DATA = True
 
-""" start/stop time of each shot, in frame numbers. """
-duration = defaultdict(lambda: (0, 3),
-    #shot010 = (0, 12),
-)
-
 date = datetime.now()
+font = ImageFont.truetype('/System/Library/Fonts/Courier.dfont', 25) # check platform
 
 class AnimatedTextClip(VideoClip):
-    def __init__(self, genfn, *args, **kwargs):
+    def __init__(self, genfn, size=(1920,1080)):
         VideoClip.__init__(self)
         self.gentext = genfn
-        self.kwargs = kwargs
+        self.size = size
 
     def get_frame(self, t):
-        return TextClip(self.gentext(t), **self.kwargs).get_frame(4)
+        frame = Image.new('RGB', self.size, (0,0,0))
+        d = ImageDraw.Draw(frame)
+        d.text((10,10), self.gentext(t), font=font, fill=(255,255,255))
+        return np.array(frame)
 
 def build_storyboard_clip(imagedir):
     boards = sorted(glob(os.path.join(imagedir, "*.png")))
@@ -56,8 +57,8 @@ def process_shot(shotdir):
     else:
         raise Exception("No video/storyboard file in %s." % shotdir)
 
-    if shot_id in duration or clip.duration == None:
-        start, end = duration[shot_id]
+    if clip.duration == None:
+        start, end = 1, 24
         clip = clip.subclip(start/24.0, end/24.0)
 
     if OVERLAY_SHOT_DATA:
@@ -78,10 +79,9 @@ def process_shot(shotdir):
             footer = " %s %s %s" % (login.ljust(29)[:29], shot_id.center(29)[:29], frame.rjust(29)[:29])
             return "%s%s%s" % (header, "\n"*41, footer)
 
-        kwargs = dict(color='white', fontsize=35, align='West', method='caption', size=(1920,1280), bg_color='grey10', font='Courier')
-        overlay_frame = AnimatedTextClip(get_overlay_text, **kwargs)
-        clips = [overlay_frame, clip.set_position((0, 100))]
-        clip = CompositeVideoClip(clips, size=(1920,1280)).set_duration(d)
+        overlay_frame = AnimatedTextClip(get_overlay_text, size=(1920,1170))
+        clips = [overlay_frame, clip.set_position((0, 45))]
+        clip = CompositeVideoClip(clips, size=(1920,1170)).set_duration(d)
 
     print "processing: %s (%d frames) from %s" % (os.path.basename(shotdir), 24*clip.duration, source)
     return clip
