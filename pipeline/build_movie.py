@@ -1,4 +1,4 @@
-import os, re
+import os, re, platform
 import numpy as np
 from glob import glob
 from datetime import datetime
@@ -17,7 +17,11 @@ OUTPUT_FILENAME = os.path.join(WORKSPACE, "movie.mp4")
 OVERLAY_SHOT_DATA = True
 
 date = datetime.now()
-font = ImageFont.truetype('/System/Library/Fonts/Courier.dfont', 25) # check platform
+
+if platform.system() == 'Darwin':
+    font = ImageFont.truetype('/System/Library/Fonts/Courier.dfont', 25)
+else:
+    font = ImageFont.truetype('/usr/share/fonts/webcore/cour.ttf', 25)
 
 class AnimatedTextClip(VideoClip):
     def __init__(self, genfn, size=(1920,1080)):
@@ -28,7 +32,9 @@ class AnimatedTextClip(VideoClip):
     def get_frame(self, t):
         frame = Image.new('RGB', self.size, (0,0,0))
         d = ImageDraw.Draw(frame)
-        d.text((10,10), self.gentext(t), font=font, fill=(255,255,255))
+        header, footer = self.gentext(t)
+        d.text((10,10), header, font=font, fill=(255,255,255))
+        d.text((10,1135), footer, font=font, fill=(255,255,255))
         return np.array(frame)
 
 def build_storyboard_clip(imagedir):
@@ -75,9 +81,9 @@ def process_shot(shotdir):
             frame = "frame %3d / %3d" % ((t+0.5/24.0)*24+1, nFrames)
             d = date.strftime("%c")[:19]
             src = os.path.basename(source)
-            header = " %s %s %s" % (  src.ljust(29)[:29],  gitrev.center(29)[:29],     d.rjust(29)[:29])
-            footer = " %s %s %s" % (login.ljust(29)[:29], shot_id.center(29)[:29], frame.rjust(29)[:29])
-            return "%s%s%s" % (header, "\n"*41, footer)
+            header = "%s %s %s" % (  src.ljust(42)[:42],  gitrev.center(41)[:41],     d.rjust(42)[:42])
+            footer = "%s %s %s" % (login.ljust(42)[:42], shot_id.center(41)[:41], frame.rjust(42)[:42])
+            return header, footer
 
         overlay_frame = AnimatedTextClip(get_overlay_text, size=(1920,1170))
         clips = [overlay_frame, clip.set_position((0, 45))]
