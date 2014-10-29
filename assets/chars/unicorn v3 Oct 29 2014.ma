@@ -1,6 +1,6 @@
 //Maya ASCII 2014 scene
 //Name: unicorn v3 Oct 29 2014.ma
-//Last modified: Wed, Oct 29, 2014 11:36:03 AM
+//Last modified: Wed, Oct 29, 2014 11:42:22 AM
 //Codeset: UTF-8
 requires maya "2014";
 currentUnit -l centimeter -a degree -t film;
@@ -12,17 +12,17 @@ fileInfo "osv" "Mac OS X 10.9";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.334802172076464 11.15293430841233 8.9266953274685843 ;
-	setAttr ".r" -type "double3" -4.8000000000000007 -68.39999999994312 -1.0799859240100351e-15 ;
-	setAttr ".rpt" -type "double3" 3.7722351293763331e-16 2.9065578189775148e-17 -2.1717739522657752e-15 ;
+	setAttr ".t" -type "double3" -30.702316354345371 2.934535329728317 -3.0900044865245868 ;
+	setAttr ".r" -type "double3" 7.7999999999828491 -97.999999999998479 0 ;
+	setAttr ".rpt" -type "double3" 3.8011489019593129e-16 -8.8709946756881417e-19 -2.0877554316930299e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 9.5629016162602891;
+	setAttr ".coi" 32.384360755638205;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0.011884391307828663 6.0290558282285929 -0.050008773803710938 ;
+	setAttr ".tp" -type "double3" -0.86411876370621199 6.0290558282285929 -0.050008773803710938 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -3587,6 +3587,7 @@ createNode transform -n "polySurface3";
 createNode transform -n "transform3" -p "polySurface3";
 	setAttr ".v" no;
 createNode transform -n "polySurface4";
+	setAttr ".t" -type "double3" -0.0061030103774106781 0 0 ;
 createNode mesh -n "polySurface4Shape" -p "polySurface4";
 	setAttr -k off ".v";
 	setAttr -s 6 ".iog[0].og";
@@ -3598,7 +3599,7 @@ createNode mesh -n "polySurface4Shape" -p "polySurface4";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 9 ".pt";
+	setAttr -s 91 ".pt";
 	setAttr ".pt[408]" -type "float3" 0.35093039 0 0 ;
 	setAttr ".pt[441]" -type "float3" -0.11605541 0 0 ;
 	setAttr ".pt[451]" -type "float3" -2.9802322e-08 0 0 ;
@@ -6651,6 +6652,8 @@ select -ne :hardwareRenderingGlobals;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr ".fn" -type "string" "im";
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "unicorn_final:groupId1.id" "|unicorn_final:polySurface5|transform1|unicorn_final:polySurface5Shape.iog.og[0].gid"
 		;
 connectAttr "unicorn_final:lambert2SG.mwc" "|unicorn_final:polySurface5|transform1|unicorn_final:polySurface5Shape.iog.og[0].gco"
