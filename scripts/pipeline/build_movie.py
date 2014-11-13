@@ -12,7 +12,7 @@ try:
 except KeyError:
     WORKSPACE = os.getcwd()
 
-SHOT_DIR = os.path.join(WORKSPACE, "shots")
+SCENE_DIR = os.path.join(WORKSPACE, "scenes")
 OUTPUT_FILENAME = os.path.join(WORKSPACE, "movie.mp4")
 OVERLAY_SHOT_DATA = True
 
@@ -51,17 +51,17 @@ def build_storyboard_clip(imagedir):
             clips.append( ImageClip(board).set_duration(nFrames/24.0) )
         return concatenate(clips)
 
-def process_shot(shotdir):
-    shot_id = os.path.basename(shotdir)
+def process_scene(scenedir):
+    scene_id = os.path.basename(scenedir)
 
-    video = os.path.join(shotdir, "shot.mp4")
-    image = os.path.join(shotdir, "boards")
+    video = os.path.join(scenedir, "scene.mp4")
+    image = os.path.join(scenedir, "boards")
     if os.path.exists(video):
         source, clip = video, VideoFileClip(video)
     elif os.path.exists(image):
         source, clip = image, build_storyboard_clip(image)
     else:
-        raise Exception("No video/storyboard file in %s." % shotdir)
+        raise Exception("No video/storyboard file in %s." % scenedir)
 
     if clip.duration == None:
         start, end = 1, 24
@@ -72,30 +72,27 @@ def process_shot(shotdir):
         nFrames = clip.duration * 24
         gitdirty = "*%s*" if os.system("git diff --quiet HEAD") else "%s"
         gitrev = gitdirty % ("git %s" % (os.popen("git rev-parse --short HEAD").read(12)[:-1]))
-        try:
-            login = os.getlogin()
-        except OSError:
-            login = "jenkins"
+        cam = "?camera?"
 
         def get_overlay_text(t):
             frame = "frame %3d / %3d" % ((t+0.5/24.0)*24+1, nFrames)
             d = date.strftime("%c")[:19]
             src = os.path.basename(source)
-            header = "%s %s %s" % (  src.ljust(42)[:42],  gitrev.center(41)[:41],     d.rjust(42)[:42])
-            footer = "%s %s %s" % (login.ljust(42)[:42], shot_id.center(41)[:41], frame.rjust(42)[:42])
+            header = "%s %s %s" % (src.ljust(42)[:42],  gitrev.center(41)[:41],     d.rjust(42)[:42])
+            footer = "%s %s %s" % (cam.ljust(42)[:42], scene_id.center(41)[:41], frame.rjust(42)[:42])
             return header, footer
 
         overlay_frame = AnimatedTextClip(get_overlay_text, size=(1920,1170))
         clips = [overlay_frame, clip.set_position((0, 45))]
         clip = CompositeVideoClip(clips, size=(1920,1170)).set_duration(d)
 
-    print "processing: %s (%d frames) from %s" % (os.path.basename(shotdir), 24*clip.duration, source)
+    print "processing: %s (%d frames) from %s" % (os.path.basename(scenedir), 24*clip.duration, source)
     return clip
 
 def main():
-    shotdir = os.path.abspath(SHOT_DIR)
-    shots = [os.path.join(shotdir,f) for f in sorted(glob(os.path.join(shotdir, "shot*")))]
-    clips = [process_shot(s) for s in shots]
+    scenedir = os.path.abspath(SCENE_DIR)
+    scenes = [os.path.join(scenedir,f) for f in sorted(glob(os.path.join(scenedir, "scene*")))]
+    clips = [process_scene(s) for s in scenes]
     concatenate(clips).write_videofile(OUTPUT_FILENAME, fps=24, audio=False)
 
 if __name__ == '__main__':
