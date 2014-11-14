@@ -48,6 +48,7 @@ def Render(mafile, camera, start, end):
         "-s", str(start), "-e", str(end),
         "-fnc", "name.#.ext", "-pad", "4",
         "-rfs", "0",
+        "-r", "hw2",
         str(mafile),
     ]
     subprocess.check_call(render_args)
