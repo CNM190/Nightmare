@@ -40,7 +40,7 @@ class AnimatedTextClip(VideoClip):
 def Render(mafile, camera, start, end):
     imgdir = tempfile.mkdtemp()
     render_args = [
-        "Render",
+        "/Applications/Autodesk/maya2013/Maya.app/Contents/bin/Render",
         "-rd", str(imgdir),
         "-cam", str(camera),
         "-im", "frame", "-of", "png",
