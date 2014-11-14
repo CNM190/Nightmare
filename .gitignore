@@ -1,9 +1,10 @@
 venv-*
 .*.swp
 .DS_Store
-movie.mp4
+*.mp4
+*.mov
+*.avi
 
 *.png
-*.mp4
 *.iff
 *.ng
