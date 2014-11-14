@@ -1,0 +1,27 @@
+# ---------------------------------------------------------------------------
+# Act I
+
+- file       : "scene010.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 37
+
+- file       : "scene010.ma"
+  camera     : 'camera2'
+  startFrame : 37
+  endFrame   : 75
+
+- file       : "title.png"
+  duration   : 38
+
+
+# ---------------------------------------------------------------------------
+# Act II
+
+
+
+# ---------------------------------------------------------------------------
+# Act III
+
+- file       : "credits.png"
+  duration   : 48
