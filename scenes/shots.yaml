@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# Act I
+
+- file       : "bedroom1.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 37
+
+- file       : "bedroom1.ma"
+  camera     : 'camera2'
+  startFrame : 37
+  endFrame   : 73
+
+- file       : "title.png"
+  duration   : 29
+
+
+# ---------------------------------------------------------------------------
+# Act II
+
+- file       : "hallway1.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 102
+
+- file       : "hallway2.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 54
+
+- file       : "charge.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 236
+
+- file       : "charge.ma"
+  camera     : 'camera2'
+  startFrame : 236
+  endFrame   : 353
+
+- file       : "charge.ma"
+  camera     : 'camera3'
+  startFrame : 353
+  endFrame   : 371
+
+- file       : "charge.ma"
+  camera     : 'camera4'
+  startFrame : 371
+  endFrame   : 509
+
+
+# ---------------------------------------------------------------------------
+# Act III
+
+- file       : "bedroom2.ma" # face close up
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 25
+
+- file       : "bedroom2.ma" # face close up
+  camera     : 'camera2'
+  startFrame : 25
+  endFrame   : 67
+
+- file       : "credits.png"
+  duration   : 48

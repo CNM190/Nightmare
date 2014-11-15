@@ -2,7 +2,7 @@
 
 # From: https://developers.google.com/youtube/v3/code_samples/python#upload_a_video
 
-EMAIL=True
+EMAIL=False
 import smtplib
 from email.mime.text import MIMEText
                 
