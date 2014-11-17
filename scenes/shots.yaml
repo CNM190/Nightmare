@@ -33,18 +33,18 @@
   startFrame : 1
   endFrame   : 236
 
-- file       : "charge.ma"
-  camera     : 'camera2'
+- file       : "charge2.ma"
+  camera     : 'camera1'
   startFrame : 236
   endFrame   : 353
 
-- file       : "charge.ma"
-  camera     : 'camera3'
+- file       : "charge3.ma"
+  camera     : 'camera1'
   startFrame : 353
   endFrame   : 371
 
-- file       : "charge.ma"
-  camera     : 'camera4'
+- file       : "charge4.ma"
+  camera     : 'camera1'
   startFrame : 371
   endFrame   : 509
 
