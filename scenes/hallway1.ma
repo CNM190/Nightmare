@@ -1,12 +1,12 @@
 //Maya ASCII 2013 scene
 //Name: hallway1.ma
-//Last modified: Mon, Nov 17, 2014 02:58:02 PM
+//Last modified: Mon, Nov 17, 2014 03:06:41 PM
 //Codeset: UTF-8
-file -rdi 1 -ns "Emily_Pre_Vis" -rfn "Emily_Pre_VisRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare/assets/chars/rigs/Emily Pre-Vis.ma";
-file -rdi 2 -ns "model" -rfn "Emily_Pre_Vis:modelRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//models/Emily.ma";
-file -rdi 1 -ns "ghost" -rfn "ghostRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare/assets/chars/ghost.ma";
-file -r -ns "Emily_Pre_Vis" -dr 1 -rfn "Emily_Pre_VisRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare/assets/chars/rigs/Emily Pre-Vis.ma";
-file -r -ns "ghost" -dr 1 -rfn "ghostRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare/assets/chars/ghost.ma";
+file -rdi 1 -ns "Emily_Pre_Vis" -rfn "Emily_Pre_VisRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
+file -rdi 2 -ns "model" -rfn "Emily_Pre_Vis:modelRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
+file -rdi 1 -ns "ghost" -rfn "ghostRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/ghost.ma";
+file -r -ns "Emily_Pre_Vis" -dr 1 -rfn "Emily_Pre_VisRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
+file -r -ns "ghost" -dr 1 -rfn "ghostRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/ghost.ma";
 requires maya "2013";
 requires "Mayatomr" "2013.0 - 3.10.1.9 ";
 requires "stereoCamera" "10.0";
