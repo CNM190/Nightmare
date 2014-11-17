@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
-//Name: charge.ma
-//Last modified: Mon, Nov 17, 2014 02:38:18 PM
+//Name: charge3.ma
+//Last modified: Mon, Nov 17, 2014 02:38:49 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "unicorn" -rfn "unicornRN" "/Users/Simon/Documents/CNM190/Nightmare//assets/chars/unicorn.ma";
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "/Users/Simon/Documents/CNM190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
@@ -1009,4 +1009,4 @@ connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Floor.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-// End of charge.ma
+// End of charge3.ma
