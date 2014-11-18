@@ -1,33 +1,33 @@
 //Maya ASCII 2013 scene
 //Name: bedroom2.ma
-//Last modified: Fri, Nov 14, 2014 11:32:39 AM
-//Codeset: 1252
+//Last modified: Mon, Nov 17, 2014 05:58:44 PM
+//Codeset: UTF-8
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
-file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "C:/Users/Kenny/Documents/Nightmare/assets/props/bin.ma";
-file -rdi 2 -ns "desk" -rfn "bedroom:deskRN" "C:/Users/Kenny/Documents/Nightmare/assets/props/desk.ma";
-file -rdi 2 -ns "bookshelf" -rfn "bedroom:bookshelfRN" "C:/Users/Kenny/Documents/Nightmare/assets/props/bookshelf.ma";
-file -rdi 2 -ns "bed" -rfn "bedroom:bedRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/bed.ma";
-file -rdi 2 -ns "soft_toy" -rfn "bedroom:soft_toyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/soft toy.ma";
-file -rdi 1 -ns "Emily_Pre_Vis" -rfn "Emily_Pre_VisRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/rigs/Emily Pre-Vis.ma";
-file -rdi 2 -ns "model" -rfn "Emily_Pre_Vis:modelRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
+file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
+file -rdi 2 -ns "desk" -rfn "bedroom:deskRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/desk.ma";
+file -rdi 2 -ns "bookshelf" -rfn "bedroom:bookshelfRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bookshelf.ma";
+file -rdi 2 -ns "bed" -rfn "bedroom:bedRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bed.ma";
+file -rdi 2 -ns "soft_toy" -rfn "bedroom:soft_toyRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/soft toy.ma";
+file -rdi 1 -ns "Emily_Pre_Vis" -rfn "Emily_Pre_VisRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
+file -rdi 2 -ns "model" -rfn "Emily_Pre_Vis:modelRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
 file -rdi 1 -ns "goldenRetriever" -rfn "goldenRetrieverRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/goldenRetriever.ma";
 file -r -ns "bedroom" -dr 1 -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
-file -r -ns "Emily_Pre_Vis" -dr 1 -rfn "Emily_Pre_VisRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/rigs/Emily Pre-Vis.ma";
+file -r -ns "Emily_Pre_Vis" -dr 1 -rfn "Emily_Pre_VisRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
 file -r -ns "goldenRetriever" -dr 1 -rfn "goldenRetrieverRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/goldenRetriever.ma";
 requires maya "2013";
-requires "Mayatomr" "2013.0 - 3.10.1.4 ";
+requires "Mayatomr" "2013.0 - 3.10.1.9 ";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
 fileInfo "version" "2013 x64";
-fileInfo "cutIdentifier" "201202220241-825136";
-fileInfo "osv" "Microsoft Home Premium Edition, 64-bit  (Build 9200)\n";
+fileInfo "cutIdentifier" "201207040330-835994";
+fileInfo "osv" "Mac OS X 10.9";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 4.6998560101011249 9.555747880681718 -0.58470049739673868 ;
-	setAttr ".r" -type "double3" -60.938352729699496 -334.19999999993314 -1.7663491990241323e-015 ;
+	setAttr ".r" -type "double3" -60.938352729699496 -334.19999999993314 -1.7663491990241329e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
@@ -79,7 +79,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
 	setAttr ".t" -type "double3" -8.9731763612700597 4.763577627284449 6.4188074725208102 ;
-	setAttr ".r" -type "double3" -5.3999999999999959 -49.600000000000428 -6.1341942213284601e-016 ;
+	setAttr ".r" -type "double3" -5.3999999999999959 -49.600000000000442 -6.1341942213284611e-16 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -96,7 +96,7 @@ createNode transform -n "imagePlane1" -p "cameraShape1";
 createNode imagePlane -n "imagePlaneShape1" -p "|camera1|cameraShape1->|imagePlane1";
 	setAttr -k off ".v";
 	setAttr ".fc" 0;
-	setAttr ".imn" -type "string" "C:/Users/Mark/Documents/GitHub/Nightmare//sourceimages/board38.png";
+	setAttr ".imn" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//sourceimages/board38.png";
 	setAttr ".cov" -type "short2" 800 450 ;
 	setAttr ".s" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ic" -type "double3" 0 3.1241634335187611 3.9274200522501839 ;
@@ -104,7 +104,7 @@ createNode imagePlane -n "imagePlaneShape1" -p "|camera1|cameraShape1->|imagePla
 	setAttr ".h" 30;
 createNode transform -n "camera2";
 	setAttr ".t" -type "double3" 3.1083261050878273 9.8591189899765919 -2.0224895722763714 ;
-	setAttr ".r" -type "double3" -70.800000000000097 -0.10345708253651859 4.3484216924287911e-017 ;
+	setAttr ".r" -type "double3" -70.800000000000097 -0.1034570825365186 4.3484216924287911e-17 ;
 createNode camera -n "cameraShape2" -p "camera2";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -122,7 +122,7 @@ createNode transform -n "imagePlane1" -p "cameraShape2";
 createNode imagePlane -n "imagePlaneShape2" -p "|camera2|cameraShape2->|imagePlane1";
 	setAttr -k off ".v";
 	setAttr ".fc" 0;
-	setAttr ".imn" -type "string" "C:/Users/Mark/Documents/GitHub/Nightmare//sourceimages/board39.png";
+	setAttr ".imn" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//sourceimages/board39.png";
 	setAttr ".cov" -type "short2" 800 600 ;
 	setAttr ".s" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ic" -type "double3" 9.2729794204707225 6.0294043976477534 -1.3196562422099327 ;
@@ -132,7 +132,7 @@ createNode transform -n "bedroom1";
 	setAttr ".s" -type "double3" 0.14047397097817024 0.14047397097817024 0.14047397097817024 ;
 createNode transform -n "Clyde";
 	setAttr ".t" -type "double3" 4.3136105767028816 2.5273523789691925 -2.1283225225233777 ;
-	setAttr ".r" -type "double3" -139.19033282224703 3.6980207620827397 -94.271831257627255 ;
+	setAttr ".r" -type "double3" -139.19033282224703 3.6980207620827397 -94.271831257627241 ;
 	setAttr ".s" -type "double3" 0.45811834320839706 0.45811834320839706 0.45811834320839706 ;
 createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 19 ".lnk";
@@ -203,9 +203,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
 		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
 		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
-		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 1 100 -ps 2 99 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Outliner\")) \n\t\t\t\t\t\"outlinerPanel\"\n\t\t\t\t\t\"$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 1\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 1\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"outlinerPanel -edit -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 1\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 1\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
-		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
@@ -232,7 +230,7 @@ createNode reference -n "bedroomRN";
 		0 "|bedroom:desk:back1" "|bedroom1" "-s -r "
 		"bedroom:binRN" 1
 		0 "|bedroom:bin:pCube1" "|bedroom1" "-s -r "
-		"bedroomRN" 14
+		"bedroomRN" 15
 		0 "|bedroom:pPlane1" "|bedroom1" "-s -r "
 		0 "|bedroom:group" "|bedroom1" "-s -r "
 		0 "|bedroom:Lamp" "|bedroom1" "-s -r "
@@ -247,6 +245,8 @@ createNode reference -n "bedroomRN";
 		0 "|bedroom:group3" "|bedroom1" "-s -r "
 		0 "|bedroom:group4" "|bedroom1" "-s -r "
 		0 "|bedroom:orb" "|bedroom1" "-s -r "
+		2 "bedroom:binRN" "fileNames[0]" " -type \"string\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma\""
+		
 		"bedroom:bookshelfRN" 1
 		0 "|bedroom:bookshelf:pCube1" "|bedroom1" "-s -r "
 		"bedroom:bedRN" 17
@@ -288,8 +288,8 @@ createNode reference -n "bedroomRN";
 		2 "|bedroom1|bedroom:bed:Bed|bedroom:bed:Blanket|bedroom:bed:BlanketShape" 
 		"pt[830:995]" (" 0.354239 0.3204 0 0.268299 0.317874 0 0.219261 0.321964 0 0.224304 0.315552 0 0.435723 0.388835 0 0.44271 0.384249 0 0.441194 0.434935 0 0.443888 0.400506 0 0.441682 0.44968 0 0.453405 0.445534 0 0.447599 0.527837 0 0.436215 0.527142 0 0.460198 0.495287 0 0.442839 0.504956 0 0.462719 0.483292 0 0.459904 0.458028 0 0.452485 0.497179 0 0.467082 0.497179 0 0.467082 0.45834 0 0.467082 0.484232 0 0.405819 0.445984 0 0.306662 0.440722 0 0.445032 0.391788 0 0.443408 0.429154 0 0.410248 0.375392 0 0.310431 0.372041 0 0.247162 0.423082 0 0.249409 0.387348 0 0.411729 0.570489 0 0.314735 0.584953 0 0.443579 0.563886 0 0.454094 0.565248 0 0.40188 0.579279 0 0.324465 0.585727 0 0.276728 0.56992 0 0.278214 0.574016 0 0.406679 0.445569 0 0.299834 0.446816 0 0.44058 0.497406 0 0.442582 0.462808 0 0.400537 0.514188 0 0.295093 0.516505 0 0.238358 0.464879 0 0.236581 0.499774 0 0.359164 0.319988 0 0.271505 0.314155 0 0.421983 0.338236 0 0.401679 0.33014 0 0.397537 0.329356 0 0.297352 0.310373 0 0.222753 0.31249 0 0.231567 0.31"
 		+ "0096 0 0.464224 0.44518 0 0.476467 0.445058 0 0.444442 0.427749 0 0.446579 0.392902 0 0.467133 0.376709 0 0.477929 0.378306 0 0.476412 0.42734 0 0.476995 0.393826 0 -0.0173242 0.362027 0 -0.0160954 0.391982 0 -0.206475 0.474811 0 -0.217404 0.393615 0 -0.0808151 0.353657 0 -0.169057 0.379319 0 -0.190856 0.459833 0 -0.20228 0.429423 0 -0.19594 0.390651 0 -0.18783 0.423251 0 -0.0766119 0.421634 0 -0.16143 0.450042 0 -0.00993068 0.548755 0 -0.00994373 0.53051 0 0.175426 0.560428 0 0.0512836 0.552669 0 0.235841 0.555006 0 0.238933 0.528804 0 0.0521346 0.516004 0 0.178758 0.512425 0 -0.0113751 0.55827 0 0.0120775 0.561374 0 -0.206755 0.54671 0 -0.228483 0.564106 0 -0.0862587 0.546333 0 -0.182821 0.56769 0 -0.208216 0.545871 0 -0.279022 0.596939 0 -0.224379 0.590964 0 -0.23949 0.592393 0 -0.0666108 0.615043 0 -0.222583 0.610233 0 0.00275993 0.576175 0 0.0196826 0.594878 0 0.180451 0.574643 0 0.0660574 0.571935 0 0.253857 0.575177 0 0.276878 0.576927 0 0.166306 0.60485 0 0.230705 0.584937 0 -0.0135965 0.551647 0 -0.0"
-		+ "138661 0.523285 0 -0.250299 0.547041 0 -0.264498 0.537159 0 -0.079077 0.547371 0 -0.19746 0.560303 0 -0.233769 0.479161 0 -0.244779 0.481755 0 -0.236872 0.524835 0 -0.226156 0.503392 0 -0.0776883 0.489261 0 -0.189535 0.492874 0 -0.00944362 0.337706 0 -0.00942638 0.360582 0 0.180458 0.317394 0 0.0532115 0.321862 0 0.244119 0.328285 0 0.244061 0.358563 0 0.0529615 0.376218 0 0.180375 0.375932 0 -0.00610341 0.317772 0 5.24348e-005 0.304595 0 -0.215581 0.337734 0 -0.227217 0.32919 0 -0.0640154 0.322467 0 -0.169074 0.323888 0 -0.206478 0.347532 0 -0.216102 0.317726 0 -0.200529 0.311863 0 -0.193365 0.300046 0 -0.0540318 0.300987 0 -0.153888 0.300172 0 -0.0191641 0.331973 0 -0.0184314 0.309133 0 0.176156 0.333527 0 0.0479977 0.340983 0 0.234414 0.32025 0 0.223814 0.308989 0 0.0443659 0.305276 0 0.162666 0.308051 0 0.423042 0.337437 0 0.455489 0.363051 0 0.393038 0.323443 0 0.399013 0.318582 0 0.43303 0.330993 0 0.458716 0.357189 0 0.46295 0.374567 0 0.463733 0.371607 0 0.463178 0.447546 0 0.477228 0.442161 0 0.43896"
-		+ "6 0.467273 0 0.438103 0.506407 0 0.459475 0.524397 0 0.476038 0.510655 0 0.478694 0.457164 0 0.479031 0.489068 0 0.474685 0.545302 0 0.485952 0.524637 0 0.44977 0.5473 0 0.445312 0.54284 0 0.46854 0.531784 0 0.477884 0.523986 0 0.480541 0.510946 0 0.476591 0.514463 0 0.43277 0.348134 0 0.440209 0.361342 0"
+		+ "138661 0.523285 0 -0.250299 0.547041 0 -0.264498 0.537159 0 -0.079077 0.547371 0 -0.19746 0.560303 0 -0.233769 0.479161 0 -0.244779 0.481755 0 -0.236872 0.524835 0 -0.226156 0.503392 0 -0.0776883 0.489261 0 -0.189535 0.492874 0 -0.00944362 0.337706 0 -0.00942638 0.360582 0 0.180458 0.317394 0 0.0532115 0.321862 0 0.244119 0.328285 0 0.244061 0.358563 0 0.0529615 0.376218 0 0.180375 0.375932 0 -0.00610341 0.317772 0 5.24348e-05 0.304595 0 -0.215581 0.337734 0 -0.227217 0.32919 0 -0.0640154 0.322467 0 -0.169074 0.323888 0 -0.206478 0.347532 0 -0.216102 0.317726 0 -0.200529 0.311863 0 -0.193365 0.300046 0 -0.0540318 0.300987 0 -0.153888 0.300172 0 -0.0191641 0.331973 0 -0.0184314 0.309133 0 0.176156 0.333527 0 0.0479977 0.340983 0 0.234414 0.32025 0 0.223814 0.308989 0 0.0443659 0.305276 0 0.162666 0.308051 0 0.423042 0.337437 0 0.455489 0.363051 0 0.393038 0.323443 0 0.399013 0.318582 0 0.43303 0.330993 0 0.458716 0.357189 0 0.46295 0.374567 0 0.463733 0.371607 0 0.463178 0.447546 0 0.477228 0.442161 0 0.438966"
+		+ " 0.467273 0 0.438103 0.506407 0 0.459475 0.524397 0 0.476038 0.510655 0 0.478694 0.457164 0 0.479031 0.489068 0 0.474685 0.545302 0 0.485952 0.524637 0 0.44977 0.5473 0 0.445312 0.54284 0 0.46854 0.531784 0 0.477884 0.523986 0 0.480541 0.510946 0 0.476591 0.514463 0 0.43277 0.348134 0 0.440209 0.361342 0"
 		)
 		2 "|bedroom1|bedroom:bed:Bed|bedroom:bed:Blanket|bedroom:bed:BlanketShape" 
 		"pt[996:1161]" (" 0.398556 0.337509 0 0.299366 0.330522 0 0.241466 0.34288 0 0.244678 0.36263 0 0.050126 0.392321 0 0.181801 0.377102 0 -0.0150479 0.42232 0 -0.013733 0.451603 0 0.181835 0.444209 0 0.0514159 0.45594 0 0.407767 0.577191 0 0.425516 0.572067 0 0.377558 0.57654 0 0.290997 0.569534 0 0.237389 0.573198 0 0.257299 0.581812 0 0.103996 0.567824 0 0.210646 0.574571 0 0.0418987 0.582702 0 0.0483258 0.567607 0 0.242655 0.568313 0 0.146896 0.560558 0 0.430364 0.544616 0 0.439463 0.526556 0 0.392641 0.558271 0 0.300851 0.568038 0 0.239523 0.560144 0 0.23602 0.532748 0 0.0491452 0.511105 0 0.174984 0.516708 0 -0.0135251 0.489831 0 -0.0106932 0.46518 0 0.17821 0.447348 0 0.0521743 0.4482 0 0.440724 0.339726 0 0.442829 0.343808 0 0.408567 0.329108 0 0.307531 0.317236 0 0.244127 0.310837 0 0.242739 0.306954 0 0.0582404 0.303254 0 0.177328 0.306294 0 0.000549517 0.302238 0 -0.00391303 0.303523 0 0.166679 0.311183 0 0.0506828 0.306388 0 0.44912 0.36175 0 0.441756 0.343516 0 0.457799 0.352364 0 0.476125 0.368724 0 0.466626 0.3789"
@@ -500,39 +500,39 @@ createNode reference -n "Emily_Pre_VisRN";
 		"Emily_Pre_VisRN" 0
 		"Emily_Pre_Vis:modelRN" 0
 		"Emily_Pre_VisRN" 17
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "translate" " -type \"double3\" 2.600901 3.073543 -0.831106"
-		
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "rotate" " -type \"double3\" -90 0 0"
-		
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "scale" " -type \"double3\" 1.568889 1.568889 1.568889"
-		
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "translate" 
+		" -type \"double3\" 2.600901 3.073543 -0.831106"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "rotate" 
+		" -type \"double3\" -90 0 0"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "scale" 
+		" -type \"double3\" 1.568889 1.568889 1.568889"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M" 
 		"rotate" " -type \"double3\" 51.454876 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M|Emily_Pre_Vis:FKXOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupRoot_M|Emily_Pre_Vis:FKXRoot_M|Emily_Pre_Vis:HipSwingerStabalizeRoot_M|Emily_Pre_Vis:FKOffsetSpine1_M|Emily_Pre_Vis:FKExtraSpine1_M|Emily_Pre_Vis:FKSpine1_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M|Emily_Pre_Vis:FKXOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupRoot_M|Emily_Pre_Vis:FKXRoot_M|Emily_Pre_Vis:HipSwingerStabalizeRoot_M|Emily_Pre_Vis:FKOffsetSpine1_M|Emily_Pre_Vis:FKExtraSpine1_M|Emily_Pre_Vis:FKSpine1_M" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M|Emily_Pre_Vis:FKXOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupRoot_M|Emily_Pre_Vis:FKXRoot_M|Emily_Pre_Vis:HipSwingerStabalizeRoot_M|Emily_Pre_Vis:FKOffsetSpine1_M|Emily_Pre_Vis:FKExtraSpine1_M|Emily_Pre_Vis:FKSpine1_M|Emily_Pre_Vis:FKXOffsetSpine1_M|Emily_Pre_Vis:FKXSpine1_M|Emily_Pre_Vis:FKOffsetChest_M|Emily_Pre_Vis:FKExtraChest_M|Emily_Pre_Vis:FKChest_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKOffsetRoot_M|Emily_Pre_Vis:FKExtraRoot_M|Emily_Pre_Vis:FKRoot_M|Emily_Pre_Vis:FKXOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupOffsetRoot_M|Emily_Pre_Vis:HipSwingerGroupRoot_M|Emily_Pre_Vis:FKXRoot_M|Emily_Pre_Vis:HipSwingerStabalizeRoot_M|Emily_Pre_Vis:FKOffsetSpine1_M|Emily_Pre_Vis:FKExtraSpine1_M|Emily_Pre_Vis:FKSpine1_M|Emily_Pre_Vis:FKXOffsetSpine1_M|Emily_Pre_Vis:FKXSpine1_M|Emily_Pre_Vis:FKOffsetChest_M|Emily_Pre_Vis:FKExtraChest_M|Emily_Pre_Vis:FKChest_M" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
 		"rotate" " -type \"double3\" 11.275683 12.703443 14.596431"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R" 
 		"rotate" " -type \"double3\" 25.989806 64.794365 83.570917"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R" 
 		"rotate" " -type \"double3\" -54.933738 2.597208 53.748414"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R|Emily_Pre_Vis:FKXOffsetElbow_R|Emily_Pre_Vis:FKXElbow_R|Emily_Pre_Vis:FKOffsetWrist_R|Emily_Pre_Vis:FKExtraWrist_R|Emily_Pre_Vis:FKWrist_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R|Emily_Pre_Vis:FKXOffsetElbow_R|Emily_Pre_Vis:FKXElbow_R|Emily_Pre_Vis:FKOffsetWrist_R|Emily_Pre_Vis:FKExtraWrist_R|Emily_Pre_Vis:FKWrist_R" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R|Emily_Pre_Vis:FKXOffsetElbow_R|Emily_Pre_Vis:FKXElbow_R|Emily_Pre_Vis:FKOffsetWrist_R|Emily_Pre_Vis:FKExtraWrist_R|Emily_Pre_Vis:FKWrist_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R|Emily_Pre_Vis:FKXOffsetShoulder_R|Emily_Pre_Vis:FKXShoulder_R|Emily_Pre_Vis:FKOffsetElbow_R|Emily_Pre_Vis:FKExtraElbow_R|Emily_Pre_Vis:FKElbow_R|Emily_Pre_Vis:FKXOffsetElbow_R|Emily_Pre_Vis:FKXElbow_R|Emily_Pre_Vis:FKOffsetWrist_R|Emily_Pre_Vis:FKExtraWrist_R|Emily_Pre_Vis:FKWrist_R" 
 		"rotate" " -type \"double3\" 100.600039 13.10186 -4.458406"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.075255 -0.00108957"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90 3.046919 90"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKOffsetLeg_R|Emily_Pre_Vis:IKExtraLeg_R|Emily_Pre_Vis:IKLeg_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKOffsetLeg_R|Emily_Pre_Vis:IKExtraLeg_R|Emily_Pre_Vis:IKLeg_R" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKOffsetLeg_R|Emily_Pre_Vis:IKExtraLeg_R|Emily_Pre_Vis:IKLeg_R" 
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKOffsetLeg_R|Emily_Pre_Vis:IKExtraLeg_R|Emily_Pre_Vis:IKLeg_R" 
 		"rotate" " -type \"double3\" 0 0 0";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -732,14 +732,14 @@ createNode reference -n "goldenRetrieverRN";
 		"instObjGroups.objectGroups" " -s 2"
 		2 "|Clyde|goldenRetriever:persp1" "rotate" " -type \"double3\" 719.061647 -385 0"
 		
+		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.worldMatrix" 
+		"goldenRetriever:polyMergeVert1.manipMatrix" ""
 		3 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1]" 
 		"goldenRetriever:ear.dagSetMembers" "-na"
 		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0]" 
 		"goldenRetriever:ear.dagSetMembers" "-na"
 		3 "|Clyde|goldenRetriever:pSphere4|goldenRetriever:pSphereShape4.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.worldMatrix" 
-		"goldenRetriever:polyMergeVert1.manipMatrix" ""
 		3 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "goldenRetriever:groupId20.groupId" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGroupId" 
@@ -781,32 +781,174 @@ createNode reference -n "goldenRetrieverRN";
 		"goldenRetrieverRN.placeHolderList[17]" "goldenRetriever:polyMergeVert1.mp";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
+createNode reference -n "sharedReferenceNode";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"sharedReferenceNode";
 select -ne :time1;
-	setAttr ".o" 250;
-	setAttr ".unw" 250;
+	setAttr -av -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -k on ".o" 250;
+	setAttr -av ".unw" 250;
 select -ne :renderPartition;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
 	setAttr -s 19 ".st";
+	setAttr -cb on ".an";
+	setAttr -cb on ".pt";
 select -ne :initialShadingGroup;
-	setAttr -s 89 ".dsm";
-	setAttr ".ro" yes;
-	setAttr -s 7 ".gn";
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 40 ".dsm";
+	setAttr -k on ".mwc";
+	setAttr -cb on ".an";
+	setAttr -cb on ".il";
+	setAttr -cb on ".vo";
+	setAttr -cb on ".eo";
+	setAttr -cb on ".fo";
+	setAttr -cb on ".epo";
+	setAttr -k on ".ro" yes;
+	setAttr -s 6 ".gn";
+	setAttr -cb on ".mimt";
+	setAttr -cb on ".miop";
+	setAttr -k on ".mico";
+	setAttr -cb on ".mise";
+	setAttr -cb on ".mism";
+	setAttr -cb on ".mice";
+	setAttr -av -cb on ".micc";
+	setAttr -k on ".micr";
+	setAttr -k on ".micg";
+	setAttr -k on ".micb";
+	setAttr -cb on ".mica";
+	setAttr -cb on ".micw";
+	setAttr -cb on ".mirw";
 select -ne :initialParticleSE;
-	setAttr ".ro" yes;
+	setAttr -av -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -av -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -k on ".mwc";
+	setAttr -cb on ".an";
+	setAttr -cb on ".il";
+	setAttr -cb on ".vo";
+	setAttr -cb on ".eo";
+	setAttr -cb on ".fo";
+	setAttr -cb on ".epo";
+	setAttr -k on ".ro" yes;
+	setAttr -cb on ".mimt";
+	setAttr -cb on ".miop";
+	setAttr -k on ".mico";
+	setAttr -cb on ".mise";
+	setAttr -cb on ".mism";
+	setAttr -cb on ".mice";
+	setAttr -av -cb on ".micc";
+	setAttr -k on ".micr";
+	setAttr -k on ".micg";
+	setAttr -k on ".micb";
+	setAttr -cb on ".mica";
+	setAttr -av -cb on ".micw";
+	setAttr -cb on ".mirw";
 select -ne :defaultShaderList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
 	setAttr -s 19 ".s";
 select -ne :postProcessList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
-	setAttr -s 10 ".r";
+	setAttr -s 9 ".r";
 select -ne :renderGlobalsList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
 select -ne :hardwareRenderGlobals;
-	setAttr ".ctrs" 256;
-	setAttr ".btrs" 512;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -k off ".ctrs" 256;
+	setAttr -av -k off ".btrs" 512;
+	setAttr -k off ".fbfm";
+	setAttr -k off -cb on ".ehql";
+	setAttr -k off -cb on ".eams";
+	setAttr -k off -cb on ".eeaa";
+	setAttr -k off -cb on ".engm";
+	setAttr -k off -cb on ".mes";
+	setAttr -k off -cb on ".emb";
+	setAttr -av -k off -cb on ".mbbf";
+	setAttr -k off -cb on ".mbs";
+	setAttr -k off -cb on ".trm";
+	setAttr -k off -cb on ".tshc";
+	setAttr -k off ".enpt";
+	setAttr -k off -cb on ".clmt";
+	setAttr -k off -cb on ".tcov";
+	setAttr -k off -cb on ".lith";
+	setAttr -k off -cb on ".sobc";
+	setAttr -k off -cb on ".cuth";
+	setAttr -k off -cb on ".hgcd";
+	setAttr -k off -cb on ".hgci";
+	setAttr -k off -cb on ".mgcs";
+	setAttr -k off -cb on ".twa";
+	setAttr -k off -cb on ".twz";
+	setAttr -k on ".hwcc";
+	setAttr -k on ".hwdp";
+	setAttr -k on ".hwql";
+	setAttr -k on ".hwfr";
+	setAttr -k on ".soll";
+	setAttr -k on ".sosl";
+	setAttr -k on ".bswa";
+	setAttr -k on ".shml";
+	setAttr -k on ".hwel";
 select -ne :defaultHardwareRenderGlobals;
-	setAttr ".fn" -type "string" "im";
-	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -av -k on ".rp";
+	setAttr -k on ".cai";
+	setAttr -k on ".coi";
+	setAttr -cb on ".bc";
+	setAttr -av -k on ".bcb";
+	setAttr -av -k on ".bcg";
+	setAttr -av -k on ".bcr";
+	setAttr -k on ".ei";
+	setAttr -k on ".ex";
+	setAttr -av -k on ".es";
+	setAttr -av -k on ".ef";
+	setAttr -av -k on ".bf";
+	setAttr -k on ".fii";
+	setAttr -av -k on ".sf";
+	setAttr -k on ".gr";
+	setAttr -k on ".li";
+	setAttr -k on ".ls";
+	setAttr -k on ".mb";
+	setAttr -k on ".ti";
+	setAttr -k on ".txt";
+	setAttr -k on ".mpr";
+	setAttr -k on ".wzd";
+	setAttr -k on ".fn" -type "string" "im";
+	setAttr -k on ".if";
+	setAttr -k on ".res" -type "string" "ntsc_4d 646 485 1.333";
+	setAttr -k on ".as";
+	setAttr -k on ".ds";
+	setAttr -k on ".lm";
+	setAttr -k on ".fir";
+	setAttr -k on ".aap";
+	setAttr -k on ".gh";
+	setAttr -cb on ".sd";
 select -ne :ikSystem;
-	setAttr -s 4 ".sol";
+	setAttr -s 3 ".sol";
 connectAttr "goldenRetrieverRN.phl[1]" ":initialShadingGroup.dsm" -na;
 connectAttr "goldenRetrieverRN.phl[2]" "goldenRetrieverRN.phl[3]";
 connectAttr "goldenRetrieverRN.phl[4]" "goldenRetrieverRN.phl[5]";
@@ -825,5 +967,6 @@ relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defau
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "sharedReferenceNode.sr" "bedroomRN.sr";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of bedroom2.ma
