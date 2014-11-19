@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: bedroom1.ma
-//Last modified: Tue, Nov 18, 2014 11:43:32 AM
+//Last modified: Wed, Nov 19, 2014 01:36:22 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
@@ -76,14 +76,14 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
-	setAttr ".t" -type "double3" -7.1154227353793233 5.7028637384323 7.9615445874235169 ;
-	setAttr ".r" -type "double3" -16.200000000000152 -37.999999999999936 0 ;
+	setAttr ".t" -type "double3" -0.81165650466591366 7.7502220150032057 5.7478773039873836 ;
+	setAttr ".r" -type "double3" -38.40000000000019 -5.6000000000001435 7.9895174749046827e-16 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 11.772717902038984;
+	setAttr ".coi" 8.5838540109720682;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -125,8 +125,8 @@ createNode imagePlane -n "imagePlaneShape2" -p "|camera2|cameraShape2->|imagePla
 createNode transform -n "bedroom1";
 	setAttr ".s" -type "double3" 0.10740860773732924 0.10740860773732924 0.10740860773732924 ;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 19 ".lnk";
-	setAttr -s 19 ".slnk";
+	setAttr -s 20 ".lnk";
+	setAttr -s 20 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -212,7 +212,8 @@ createNode reference -n "bedroomRN";
 		"bedroomRN"
 		"bedroom:deskRN" 0
 		"bedroom:soft_toyRN" 0
-		"bedroom:binRN" 0
+		"bedroom:binRN" 1
+		0 "|bedroom:bin:pCube1" "|bedroom1" "-s -r "
 		"bedroomRN" 0
 		"bedroom:bookshelfRN" 0
 		"bedroom:bedRN" 0
@@ -224,9 +225,12 @@ createNode reference -n "bedroomRN";
 		"bedroom:deskRN" 2
 		0 "|bedroom:desk:pCube1" "|bedroom1" "-s -r "
 		0 "|bedroom:desk:back1" "|bedroom1" "-s -r "
-		"bedroom:binRN" 1
-		0 "|bedroom:bin:pCube1" "|bedroom1" "-s -r "
-		"bedroomRN" 14
+		"bedroom:binRN" 2
+		2 "|bedroom:bin:bin_test:pCube1" "translate" " -type \"double3\" 0.959205 0 -1.548592"
+		
+		2 "|bedroom:bin:bin_test:pCube1" "scale" " -type \"double3\" 0.173941 0.173941 0.173941"
+		
+		"bedroomRN" 15
 		0 "|bedroom:pPlane1" "|bedroom1" "-s -r "
 		0 "|bedroom:group" "|bedroom1" "-s -r "
 		0 "|bedroom:Lamp" "|bedroom1" "-s -r "
@@ -241,6 +245,8 @@ createNode reference -n "bedroomRN";
 		0 "|bedroom:group3" "|bedroom1" "-s -r "
 		0 "|bedroom:group4" "|bedroom1" "-s -r "
 		0 "|bedroom:orb" "|bedroom1" "-s -r "
+		2 "|bedroom1|bedroom:group|bedroom:bin1:pCube1" "translate" " -type \"double3\" -0.0768847 2.285547 5.117262"
+		
 		"bedroom:bookshelfRN" 1
 		0 "|bedroom:bookshelf:pCube1" "|bedroom1" "-s -r "
 		"bedroom:bedRN" 17
@@ -666,7 +672,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 19 ".st";
+	setAttr -s 20 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
@@ -675,7 +681,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 37 ".dsm";
+	setAttr -s 36 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -729,7 +735,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 19 ".s";
+	setAttr -s 20 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
