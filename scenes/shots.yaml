@@ -4,15 +4,15 @@
 - file       : "bedroom1.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 72
+  endFrame   : 48
 
 - file       : "bedroom1.ma"
   camera     : 'camera2'
-  startFrame : 72
-  endFrame   : 228
+  startFrame : 48
+  endFrame   : 84
 
 - file       : "title.png"
-  duration   : 29
+  duration   : 30
 
 
 # ---------------------------------------------------------------------------
@@ -21,32 +21,37 @@
 - file       : "hallway1.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 336
+  endFrame   : 102
 
 - file       : "hallway2.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 72
+  endFrame   : 54
 
 - file       : "charge.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 216
+  endFrame   : 236
 
 - file       : "charge2.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 24
+  endFrame   : 116
 
 - file       : "charge3.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 192
+  endFrame   : 19
+
+- file       : "charge3.ma"
+  camera     : 'camera2'
+  startFrame : 1
+  endFrame   : 18
 
 - file       : "charge4.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 144
+  endFrame   : 159
 
 
 # ---------------------------------------------------------------------------
@@ -55,12 +60,12 @@
 - file       : "bedroom2.ma" # face close up
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 48
+  endFrame   : 24
 
 - file       : "bedroom2.ma" # face close up
   camera     : 'camera2'
-  startFrame : 48
-  endFrame   : 67
+  startFrame : 24
+  endFrame   : 57
 
 - file       : "credits.png"
   duration   : 48
