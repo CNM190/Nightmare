@@ -1,0 +1,26 @@
+Nuke at: /Users/shared/ptsoi/Applications/Nuke6.3v4/
+
+empress:~ cs198-iq$ /Applications/Autodesk/maya2011/Maya.app/Contents/bin/Render -listRenderers
+        default: Use the renderer stored in the Maya file
+        file: Use the renderer stored in the Maya file
+        hw: Maya hardware renderer
+        interBatch: Interactive batch rendering
+        lightmap: Mentalray lightmap
+        mi: Mentalray Exporter
+        mr: Mentalray renderer
+        rib: RenderMan renderer
+        rman: RenderMan renderer
+        sw: Maya software renderer
+        vr: Vector renderer
+
+empress:~ cs198-iq$ /Applications/Autodesk/maya2013/Maya.app/Contents/bin/Render -listRenderers
+        default: Use the renderer stored in the Maya file
+        file: Use the renderer stored in the Maya file
+        hw2: Maya hardware renderer 2
+        hw: Maya hardware renderer
+        interBatch: Interactive batch rendering
+        lightmap: Mentalray lightmap
+        mi: Mentalray Exporter
+        mr: Mentalray renderer
+        sw: Maya software renderer
+        vr: Vector renderer
