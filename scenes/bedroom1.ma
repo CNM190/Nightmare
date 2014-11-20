@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: bedroom1.ma
-//Last modified: Wed, Nov 19, 2014 01:36:22 PM
+//Last modified: Thu, Nov 20, 2014 01:35:08 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
@@ -20,7 +20,7 @@ fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
 fileInfo "version" "2013 x64";
 fileInfo "cutIdentifier" "201207040330-835994";
-fileInfo "osv" "Mac OS X 10.9";
+fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
@@ -76,46 +76,50 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
-	setAttr ".t" -type "double3" -0.81165650466591366 7.7502220150032057 5.7478773039873836 ;
-	setAttr ".r" -type "double3" -38.40000000000019 -5.6000000000001435 7.9895174749046827e-16 ;
+	setAttr ".t" -type "double3" -6.4484103892739162 4.7809719641284101 0.98027774958511849 ;
+	setAttr ".r" -type "double3" -16.200000000001889 -77.199999999999434 0 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 8.5838540109720682;
+	setAttr ".ovr" 1.3;
+	setAttr ".coi" 6.8712889217452418;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
 	setAttr ".man" -type "string" "camera1_mask";
+	setAttr ".dfg" yes;
 createNode transform -n "imagePlane1" -p "cameraShape1";
 createNode imagePlane -n "imagePlaneShape1" -p "|camera1|cameraShape1->|imagePlane1";
 	setAttr -k off ".v";
 	setAttr ".fc" 0;
-	setAttr ".imn" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//sourceimages/board01.png";
+	setAttr ".imn" -type "string" "/Users/mbdriscoll/Nightmare//sourceimages/board01.png";
 	setAttr ".cov" -type "short2" 800 450 ;
 	setAttr ".s" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ic" -type "double3" 0 3.1241634335187611 3.9274200522501839 ;
 	setAttr ".w" 30;
 	setAttr ".h" 30;
 createNode transform -n "camera2";
-	setAttr ".t" -type "double3" 2.0318655032111064 7.9657278859839344 -4.1063414307778991 ;
+	setAttr ".t" -type "double3" 1.8970003565889693 4.7416542445404533 -3.8405250232808266 ;
 	setAttr ".r" -type "double3" -92.721130396871402 -1.1637991552106259 -0.83329040124463261 ;
 createNode camera -n "cameraShape2" -p "camera2";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 2.8733491423371098;
+	setAttr ".ovr" 1.3;
+	setAttr ".coi" 0.76146110359746566;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera2";
 	setAttr ".den" -type "string" "camera2_depth";
 	setAttr ".man" -type "string" "camera2_mask";
+	setAttr ".dfg" yes;
 createNode transform -n "imagePlane1" -p "cameraShape2";
 createNode imagePlane -n "imagePlaneShape2" -p "|camera2|cameraShape2->|imagePlane1";
 	setAttr -k off ".v";
 	setAttr ".fc" 0;
-	setAttr ".imn" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//sourceimages/board02.png";
+	setAttr ".imn" -type "string" "/Users/mbdriscoll/Nightmare//sourceimages/board02.png";
 	setAttr ".cov" -type "short2" 1920 1080 ;
 	setAttr ".d" 120;
 	setAttr ".s" -type "double2" 1.41732 0.94488 ;
@@ -205,7 +209,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 250 -ast 1 -aet 250 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 84 -ast -10 -aet 94 ";
 	setAttr ".st" 6;
 createNode reference -n "bedroomRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
@@ -641,15 +645,37 @@ createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
 	setAttr ".maxr" 3;
 	setAttr ".shrd" 1;
 createNode reference -n "Emily_Pre_VisRN";
+	setAttr -s 3 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Pre_VisRN"
 		"Emily_Pre_VisRN" 0
 		"Emily_Pre_Vis:modelRN" 0
-		"Emily_Pre_VisRN" 6
+		"Emily_Pre_VisRN" 19
+		2 "|Emily_Pre_Vis:Emily_Rig" "visibility" " 1"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group" "visibility" " 0"
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "translate" 
 		" -type \"double3\" 1.876096 2.224725 -1.358303"
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "rotate" 
 		" -type \"double3\" -90 0 0"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"visibility" " 1"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"rotateX" " -av"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"rotateY" " -av"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"scale" " -type \"double3\" 1 1 1"
+		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M" 
+		"Global" " -k 1 0"
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_R|Emily_Pre_Vis:FKExtraScapula_R|Emily_Pre_Vis:FKScapula_R|Emily_Pre_Vis:FKXOffsetScapula_R|Emily_Pre_Vis:FKXScapula_R|Emily_Pre_Vis:FKOffsetShoulder_R|Emily_Pre_Vis:FKGlobalStaticShoulder_R|Emily_Pre_Vis:FKGlobalShoulder_R|Emily_Pre_Vis:FKExtraShoulder_R|Emily_Pre_Vis:FKShoulder_R" 
 		"rotate" " -type \"double3\" -9.931811 83.725444 -23.063514"
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetScapula_L|Emily_Pre_Vis:FKExtraScapula_L|Emily_Pre_Vis:FKScapula_L" 
@@ -657,16 +683,41 @@ createNode reference -n "Emily_Pre_VisRN";
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.075255 -0.00108957"
 		2 "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -90 3.046919 90";
+		"rotate" " -type \"double3\" -90 3.046919 90"
+		5 4 "Emily_Pre_VisRN" "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M.rotateX" 
+		"Emily_Pre_VisRN.placeHolderList[1]" ""
+		5 4 "Emily_Pre_VisRN" "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M.rotateY" 
+		"Emily_Pre_VisRN.placeHolderList[2]" ""
+		5 4 "Emily_Pre_VisRN" "|Emily_Pre_Vis:Emily_Rig|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:FKSystem|Emily_Pre_Vis:FKParentConstraintToChest_M|Emily_Pre_Vis:FKOffsetNeck_M|Emily_Pre_Vis:FKGlobalStaticNeck_M|Emily_Pre_Vis:FKGlobalNeck_M|Emily_Pre_Vis:FKExtraNeck_M|Emily_Pre_Vis:FKNeck_M|Emily_Pre_Vis:FKXOffsetNeck_M|Emily_Pre_Vis:FKXNeck_M|Emily_Pre_Vis:FKOffsetHead_M|Emily_Pre_Vis:FKGlobalStaticHead_M|Emily_Pre_Vis:FKGlobalHead_M|Emily_Pre_Vis:FKExtraHead_M|Emily_Pre_Vis:FKHead_M.rotateZ" 
+		"Emily_Pre_VisRN.placeHolderList[3]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
+createNode animCurveTA -n "Emily_Pre_Vis:FKHead_M_rotateX";
+	setAttr ".tan" 10;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  37 0 43 34.141980547434493 55 -73.526267079232966
+		 74 72.527632342932989;
+	setAttr -s 4 ".kit[3]"  18;
+	setAttr -s 4 ".kot[0:3]"  5 5 5 18;
+createNode animCurveTA -n "Emily_Pre_Vis:FKHead_M_rotateY";
+	setAttr ".tan" 10;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  37 0 55 -5.5765420265034376 74 -11.250779382678152;
+	setAttr -s 3 ".kit[2]"  18;
+	setAttr -s 3 ".kot[0:2]"  5 5 18;
+createNode animCurveTA -n "Emily_Pre_Vis:FKHead_M_rotateZ";
+	setAttr ".tan" 10;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  37 0 55 3.5900535326711673 74 1.844302887412713;
+	setAttr -s 3 ".kit[2]"  18;
+	setAttr -s 3 ".kot[0:2]"  5 5 18;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 250;
-	setAttr -av ".unw" 250;
+	setAttr -k on ".o" 29;
+	setAttr -av ".unw" 29;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -858,6 +909,9 @@ select -ne :ikSystem;
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
 	setAttr -s 3 ".sol";
+connectAttr "Emily_Pre_Vis:FKHead_M_rotateX.o" "Emily_Pre_VisRN.phl[1]";
+connectAttr "Emily_Pre_Vis:FKHead_M_rotateY.o" "Emily_Pre_VisRN.phl[2]";
+connectAttr "Emily_Pre_Vis:FKHead_M_rotateZ.o" "Emily_Pre_VisRN.phl[3]";
 connectAttr "imagePlaneShape1.msg" "cameraShape1.ip" -na;
 connectAttr "imagePlaneShape2.msg" "cameraShape2.ip" -na;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
