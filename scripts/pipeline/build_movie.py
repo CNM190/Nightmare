@@ -41,6 +41,7 @@ def Render(mafile, camera, start, end):
     imgdir = tempfile.mkdtemp()
     render_args = [
         "/Applications/Autodesk/maya2013/Maya.app/Contents/bin/Render",
+        "-verb",
         "-rd", str(imgdir),
         "-cam", str(camera),
         "-im", "frame", "-of", "png",
@@ -50,6 +51,7 @@ def Render(mafile, camera, start, end):
         "-rfs", "0",
         str(mafile),
     ]
+    print "Calling: %s" % " ".join(render_args)
     subprocess.check_call(render_args)
 
     vid = os.path.join(imgdir, "shot.mp4")
@@ -60,6 +62,7 @@ def Render(mafile, camera, start, end):
         "-i", str(imgs),
         str(vid),
     ]
+    print "Calling: %s" % " ".join(ffmpeg_args)
     subprocess.check_call(ffmpeg_args)
     return VideoFileClip(vid)
 
