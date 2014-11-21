@@ -48,7 +48,7 @@ def Render(mafile, camera, start, end):
         "-s", str(start), "-e", str(end),
         "-fnc", "name.#.ext", "-pad", "4",
         "-rfs", "0",
-        "-r", "mr",
+        "-r", "sw",
         str(mafile),
     ]
     print "Calling: %s" % " ".join(render_args)
@@ -86,7 +86,7 @@ def process_shot(scenedir, data):
         nFrames = clip.duration * 24
         gitdirty = "*%s*" if os.system("git diff --quiet HEAD") else "%s"
         gitrev = gitdirty % ("git %s" % (os.popen("git rev-parse --short HEAD").read(12)[:-1]))
-        author = os.popen("git log -n 1 --pretty=format:%an").read()
+        author = os.popen("git log -n 1 --pretty=format:%an %s" % absfilename).read()
 
         def get_overlay_text(t):
             frame = "frame %3d / %3d" % ((t+0.5/24.0)*24+1, nFrames)
