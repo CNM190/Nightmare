@@ -41,7 +41,6 @@ def Render(mafile, camera, start, end):
     imgdir = tempfile.mkdtemp()
     render_args = [
         "/Applications/Autodesk/maya2013/Maya.app/Contents/bin/Render",
-        "-verb",
         "-rd", str(imgdir),
         "-cam", str(camera),
         "-im", "frame", "-of", "png",
@@ -49,7 +48,7 @@ def Render(mafile, camera, start, end):
         "-s", str(start), "-e", str(end),
         "-fnc", "name.#.ext", "-pad", "4",
         "-rfs", "0",
-        "-r", "hw2",
+        "-r", "mr",
         str(mafile),
     ]
     print "Calling: %s" % " ".join(render_args)
