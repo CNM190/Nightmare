@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: bedroom2.ma
-//Last modified: Mon, Nov 17, 2014 05:58:44 PM
+//Last modified: Fri, Nov 21, 2014 12:53:18 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
@@ -78,8 +78,8 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
-	setAttr ".t" -type "double3" -8.9731763612700597 4.763577627284449 6.4188074725208102 ;
-	setAttr ".r" -type "double3" -5.3999999999999959 -49.600000000000442 -6.1341942213284611e-16 ;
+	setAttr ".t" -type "double3" -11.288214988626178 3.8941636901960308 2.3437288449426408 ;
+	setAttr ".r" -type "double3" -1.1999999999965718 -72.400000000000105 0 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -135,8 +135,8 @@ createNode transform -n "Clyde";
 	setAttr ".r" -type "double3" -139.19033282224703 3.6980207620827397 -94.271831257627241 ;
 	setAttr ".s" -type "double3" 0.45811834320839706 0.45811834320839706 0.45811834320839706 ;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 19 ".lnk";
-	setAttr -s 19 ".slnk";
+	setAttr -s 20 ".lnk";
+	setAttr -s 20 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -216,7 +216,8 @@ createNode reference -n "bedroomRN";
 		"bedroomRN"
 		"bedroom:soft_toyRN" 0
 		"bedroom:deskRN" 0
-		"bedroom:binRN" 0
+		"bedroom:binRN" 1
+		0 "|bedroom:bin:pCube1" "|bedroom1" "-s -r "
 		"bedroomRN" 0
 		"bedroom:bookshelfRN" 0
 		"bedroom:bedRN" 0
@@ -228,8 +229,11 @@ createNode reference -n "bedroomRN";
 		"bedroom:deskRN" 2
 		0 "|bedroom:desk:pCube1" "|bedroom1" "-s -r "
 		0 "|bedroom:desk:back1" "|bedroom1" "-s -r "
-		"bedroom:binRN" 1
-		0 "|bedroom:bin:pCube1" "|bedroom1" "-s -r "
+		"bedroom:binRN" 2
+		2 "|bedroom:bin:bin_test:pCube1" "translate" " -type \"double3\" 1.477161 0 -2.765549"
+		
+		2 "|bedroom:bin:bin_test:pCube1" "scale" " -type \"double3\" 0.229147 0.229147 0.229147"
+		
 		"bedroomRN" 15
 		0 "|bedroom:pPlane1" "|bedroom1" "-s -r "
 		0 "|bedroom:group" "|bedroom1" "-s -r "
@@ -698,11 +702,6 @@ createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
 	setAttr ".shrd" 1;
 createNode reference -n "goldenRetrieverRN";
 	setAttr -s 17 ".phl";
-	setAttr ".phl[1]" 0;
-	setAttr ".phl[2]" 0;
-	setAttr ".phl[3]" 0;
-	setAttr ".phl[4]" 0;
-	setAttr ".phl[5]" 0;
 	setAttr ".phl[6]" 0;
 	setAttr ".phl[7]" 0;
 	setAttr ".phl[8]" 0;
@@ -715,32 +714,18 @@ createNode reference -n "goldenRetrieverRN";
 	setAttr ".phl[15]" 0;
 	setAttr ".phl[16]" 0;
 	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"goldenRetrieverRN"
-		"goldenRetrieverRN" 0
-		"goldenRetrieverRN" 29
+		"goldenRetrieverRN" 7
 		0 "|goldenRetriever:polySurface5" "|Clyde" "-s -r "
-		0 "|goldenRetriever:polySurface6" "|Clyde" "-s -r "
-		0 "|goldenRetriever:back" "|Clyde" "-s -r "
-		0 "|goldenRetriever:pSphere4" "|Clyde" "-s -r "
-		0 "|goldenRetriever:persp1" "|Clyde" "-s -r "
-		2 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape" 
-		"instObjGroups" " -s 2"
-		2 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape" 
-		"instObjGroups.objectGroups" " -s 2"
-		2 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape" 
-		"instObjGroups.objectGroups" " -s 2"
-		2 "|Clyde|goldenRetriever:persp1" "rotate" " -type \"double3\" 719.061647 -385 0"
-		
-		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.worldMatrix" 
-		"goldenRetriever:polyMergeVert1.manipMatrix" ""
 		3 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1]" 
 		"goldenRetriever:ear.dagSetMembers" "-na"
-		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0]" 
-		"goldenRetriever:ear.dagSetMembers" "-na"
 		3 "|Clyde|goldenRetriever:pSphere4|goldenRetriever:pSphereShape4.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "goldenRetriever:groupId20.groupId" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGroupId" 
 		""
@@ -748,37 +733,54 @@ createNode reference -n "goldenRetrieverRN";
 		""
 		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
+		5 3 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups" 
+		"goldenRetrieverRN.placeHolderList[6]" ":initialShadingGroup.dsm"
+		"goldenRetrieverRN" 21
+		0 "|goldenRetriever:polySurface6" "|Clyde" "-s -r "
+		0 "|goldenRetriever:back" "|Clyde" "-s -r "
+		0 "|goldenRetriever:pSphere4" "|Clyde" "-s -r "
+		0 "|goldenRetriever:persp1" "|Clyde" "-s -r "
+		2 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape" 
+		"instObjGroups.objectGroups" " -s 4"
+		2 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape" 
+		"instObjGroups.objectGroups[0].objectGrpColor" " -av"
+		2 "|Clyde|goldenRetriever:persp1" "rotate" " -type \"double3\" 719.061647 -385 0"
+		
+		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.worldMatrix" 
+		"goldenRetriever:polyMergeVert1.manipMatrix" ""
+		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0]" 
+		"goldenRetriever:ear.dagSetMembers" "-na"
+		3 "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "goldenRetriever:ear.memberWireframeColor" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0].objectGrpColor" 
 		""
 		3 "goldenRetriever:groupId21.groupId" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0].objectGroupId" 
 		""
-		5 3 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups" 
-		"goldenRetrieverRN.placeHolderList[1]" ":initialShadingGroup.dsm"
-		5 0 "goldenRetrieverRN" "goldenRetriever:groupId20.groupId" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGroupId" 
-		"goldenRetrieverRN.placeHolderList[2]" "goldenRetrieverRN.placeHolderList[3]" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.iog.og[1].gid"
-		
-		5 0 "goldenRetrieverRN" "goldenRetriever:ear.memberWireframeColor" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGrpColor" 
-		"goldenRetrieverRN.placeHolderList[4]" "goldenRetrieverRN.placeHolderList[5]" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.iog.og[1].gco"
-		
 		5 3 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups" 
-		"goldenRetrieverRN.placeHolderList[6]" ":initialShadingGroup.dsm"
+		"goldenRetrieverRN.placeHolderList[7]" ":initialShadingGroup.dsm"
 		5 0 "goldenRetrieverRN" "goldenRetriever:ear.memberWireframeColor" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0].objectGrpColor" 
-		"goldenRetrieverRN.placeHolderList[7]" "goldenRetrieverRN.placeHolderList[8]" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.iog.og[1].gco"
+		"goldenRetrieverRN.placeHolderList[8]" "goldenRetrieverRN.placeHolderList[9]" "goldenRetriever:polySurface4Shape.iog.og[0].gco"
 		
 		5 0 "goldenRetrieverRN" "goldenRetriever:groupId21.groupId" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0].objectGroupId" 
-		"goldenRetrieverRN.placeHolderList[9]" "goldenRetrieverRN.placeHolderList[10]" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.iog.og[0].gid"
+		"goldenRetrieverRN.placeHolderList[10]" "goldenRetrieverRN.placeHolderList[11]" "goldenRetriever:polySurface4Shape.iog.og[0].gid"
 		
-		5 3 "goldenRetrieverRN" "|Clyde|goldenRetriever:pSphere4|goldenRetriever:pSphereShape4.instObjGroups" 
-		"goldenRetrieverRN.placeHolderList[11]" ":initialShadingGroup.dsm"
-		5 0 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface5|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1]" 
-		"goldenRetriever:ear.dagSetMembers" "goldenRetrieverRN.placeHolderList[12]" "goldenRetrieverRN.placeHolderList[13]" 
-		"goldenRetriever:ear.dsm"
+		5 0 "goldenRetrieverRN" "goldenRetriever:groupId20.groupId" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGroupId" 
+		"goldenRetrieverRN.placeHolderList[12]" "goldenRetrieverRN.placeHolderList[13]" ""
+		
+		5 0 "goldenRetrieverRN" "goldenRetriever:ear.memberWireframeColor" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1].objectGrpColor" 
+		"goldenRetrieverRN.placeHolderList[14]" "goldenRetrieverRN.placeHolderList[15]" "goldenRetriever:polySurface4Shape.iog.og[0].gco"
+		
+		5 3 "goldenRetrieverRN" "|Clyde|goldenRetriever:pSphere4|goldenRetriever:transform1|goldenRetriever:pSphereShape4.instObjGroups" 
+		"goldenRetrieverRN.placeHolderList[16]" ""
+		5 0 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[1]" 
+		"goldenRetriever:ear.dagSetMembers" "goldenRetrieverRN.placeHolderList[17]" "goldenRetrieverRN.placeHolderList[18]" 
+		""
 		5 0 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.instObjGroups.objectGroups[0]" 
-		"goldenRetriever:ear.dagSetMembers" "goldenRetrieverRN.placeHolderList[14]" "goldenRetrieverRN.placeHolderList[15]" 
+		"goldenRetriever:ear.dagSetMembers" "goldenRetrieverRN.placeHolderList[19]" "goldenRetrieverRN.placeHolderList[20]" 
 		"goldenRetriever:ear.dsm"
 		5 0 "goldenRetrieverRN" "|Clyde|goldenRetriever:polySurface6|goldenRetriever:polySurface4Shape.worldMatrix" 
-		"goldenRetriever:polyMergeVert1.manipMatrix" "goldenRetrieverRN.placeHolderList[16]" 
-		"goldenRetrieverRN.placeHolderList[17]" "goldenRetriever:polyMergeVert1.mp";
+		"goldenRetriever:polyMergeVert1.manipMatrix" "goldenRetrieverRN.placeHolderList[21]" 
+		"goldenRetrieverRN.placeHolderList[22]" "goldenRetriever:polyMergeVert1.mp";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "sharedReferenceNode";
@@ -796,7 +798,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 19 ".st";
+	setAttr -s 20 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :initialShadingGroup;
@@ -804,7 +806,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 40 ".dsm";
+	setAttr -s 46 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -813,7 +815,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 6 ".gn";
+	setAttr -s 13 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -858,7 +860,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 19 ".s";
+	setAttr -s 20 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -866,7 +868,7 @@ select -ne :postProcessList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
-	setAttr -s 9 ".r";
+	setAttr -s 10 ".r";
 select -ne :renderGlobalsList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -949,16 +951,15 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr -cb on ".sd";
 select -ne :ikSystem;
 	setAttr -s 3 ".sol";
-connectAttr "goldenRetrieverRN.phl[1]" ":initialShadingGroup.dsm" -na;
-connectAttr "goldenRetrieverRN.phl[2]" "goldenRetrieverRN.phl[3]";
-connectAttr "goldenRetrieverRN.phl[4]" "goldenRetrieverRN.phl[5]";
-connectAttr "goldenRetrieverRN.phl[6]" ":initialShadingGroup.dsm" -na;
-connectAttr "goldenRetrieverRN.phl[7]" "goldenRetrieverRN.phl[8]";
-connectAttr "goldenRetrieverRN.phl[9]" "goldenRetrieverRN.phl[10]";
-connectAttr "goldenRetrieverRN.phl[11]" ":initialShadingGroup.dsm" -na;
+connectAttr "goldenRetrieverRN.phl[7]" ":initialShadingGroup.dsm" -na;
+connectAttr "goldenRetrieverRN.phl[8]" "goldenRetrieverRN.phl[9]";
+connectAttr "goldenRetrieverRN.phl[10]" "goldenRetrieverRN.phl[11]";
 connectAttr "goldenRetrieverRN.phl[12]" "goldenRetrieverRN.phl[13]";
 connectAttr "goldenRetrieverRN.phl[14]" "goldenRetrieverRN.phl[15]";
-connectAttr "goldenRetrieverRN.phl[16]" "goldenRetrieverRN.phl[17]";
+connectAttr "goldenRetrieverRN.phl[16]" ":initialShadingGroup.dsm" -na;
+connectAttr "goldenRetrieverRN.phl[17]" "goldenRetrieverRN.phl[18]";
+connectAttr "goldenRetrieverRN.phl[19]" "goldenRetrieverRN.phl[20]";
+connectAttr "goldenRetrieverRN.phl[21]" "goldenRetrieverRN.phl[22]";
 connectAttr "imagePlaneShape1.msg" "cameraShape1.ip" -na;
 connectAttr "imagePlaneShape2.msg" "cameraShape2.ip" -na;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -968,5 +969,6 @@ relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":default
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "sharedReferenceNode.sr" "bedroomRN.sr";
+connectAttr "goldenRetrieverRN.phl[6]" ":initialShadingGroup.dsm" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of bedroom2.ma
