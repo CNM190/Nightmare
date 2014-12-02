@@ -2,12 +2,12 @@
 # Act I
 
 - file       : "bedroom1.ma"
-  camera     : 'camera1'
+  camera     : 'Full_Bedroom_shot'
   startFrame : 1
   endFrame   : 48
 
 - file       : "bedroom1.ma"
-  camera     : 'camera2'
+  camera     : 'Face_Close_Up'
   startFrame : 48
   endFrame   : 84
 
