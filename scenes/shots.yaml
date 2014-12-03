@@ -9,7 +9,7 @@
 - file       : "bedroom1.ma"
   camera     : 'Face_Close_Up'
   startFrame : 48
-  endFrame   : 84
+  endFrame   : 125
 
 - file       : "title.png"
   duration   : 30
