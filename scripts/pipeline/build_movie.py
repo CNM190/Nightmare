@@ -48,7 +48,7 @@ def Render(mafile, camera, start, end):
         "-s", str(start), "-e", str(end),
         "-fnc", "name.#.ext", "-pad", "4",
         "-rfs", "0",
-        "-r", "mr",
+        "-r", "sw",
         str(mafile),
     ]
     print "Calling: %s" % " ".join(render_args)
