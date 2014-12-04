@@ -26,7 +26,7 @@
 - file       : "hallway2.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 54
+  endFrame   : 60
 
 - file       : "charge.ma"
   camera     : 'camera1'
