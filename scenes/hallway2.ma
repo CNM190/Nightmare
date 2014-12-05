@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: hallway2.ma
-//Last modified: Thu, Dec 04, 2014 03:46:04 PM
+//Last modified: Thu, Dec 04, 2014 06:21:33 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "hallway" -rfn "hallwayRN" "/Users/mbdriscoll/Nightmare//assets/sets/hallway.ma";
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
@@ -25,12 +25,12 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 7.6789433829856648 1.7385417262678067 7.6667348558361219 ;
-	setAttr ".r" -type "double3" -3.3383527296365751 56.600000000000037 -3.6111103098861762e-16 ;
+	setAttr ".t" -type "double3" 22.099255801988502 2.7460967258562827 17.175178971198182 ;
+	setAttr ".r" -type "double3" -3.3383527296365751 56.600000000000037 -3.6111103098861757e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 8.0498019607745341;
+	setAttr ".coi" 25.352145352171185;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -100,8 +100,8 @@ createNode nurbsCurve -n "curveShape1" -p "curve1";
 		6 0 0 0 1 1 1
 		4
 		-9.8748028159589474 0 4.9590067686843931
-		-6.950871416705783 0 7.4662276233859481
-		-3.3589473630758802 0.6843737842609432 13.753357098779297
+		-6.950871416705783 0 7.466227623385949
+		-3.3589473630758802 0.6843737842609432 13.753357098779295
 		-0.753964734021768 0 9.3326828973380795
 		;
 createNode transform -n "positionMarker1" -p "curveShape1";
@@ -133,7 +133,7 @@ createNode nurbsCurve -n "curveShape3" -p "curve3";
 		6 0 0 0 1 1 1
 		4
 		-11.16845500661633 0 2.5103252028180028
-		-7.7975509856981269 0 -2.0898677467330455
+		-7.797550985698126 0 -2.0898677467330455
 		-4.407383640987673 2.8211683379983952 1.503671986681471
 		0.99805237944150571 0.45533289824553536 2.7500265881010924
 		;
@@ -157,7 +157,7 @@ createNode positionMarker -n "positionMarkerShape10" -p "positionMarker10";
 createNode transform -n "ghost2";
 createNode transform -n "curve2" -p "ghost2";
 	setAttr ".t" -type "double3" -9.4032699016366639 0 9.776446248062248 ;
-	setAttr ".r" -type "double3" 0 180.35694839418062 0 ;
+	setAttr ".r" -type "double3" 0 180.35694839418065 0 ;
 createNode nurbsCurve -n "curveShape2" -p "curve2";
 	setAttr -k off ".v";
 	setAttr ".cc" -type "nurbsCurve" 
@@ -234,7 +234,6 @@ createNode reference -n "hallwayRN";
 lockNode -l 1 ;
 createNode displayLayer -n "HallwaySetLayer";
 	setAttr ".dt" 2;
-	setAttr ".v" no;
 	setAttr ".do" 1;
 createNode script -n "uiConfigurationScriptNode";
 	setAttr ".b" -type "string" (
@@ -493,9 +492,9 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main" 
 		"rotate" " -type \"double3\" 6.862734 88.816877 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main" 
-		"rotateY" " -av"
-		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main" 
 		"rotateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main" 
+		"rotateY" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MainShape" 
@@ -3991,7 +3990,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
 		"translate" " -type \"double3\" 1.782952 2.267594 3.389618"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 176.610028 -10.244966 43.151664"
+		"rotate" " -type \"double3\" 176.610029 -10.244966 43.151664"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceDeformationSystem" 
 		"visibility" " 1"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceDeformationSystem|anim_ready_Emily:FaceAttachToHead|anim_ready_Emily:FaceAttachToHead_parentConstraint1" 
@@ -4360,9 +4359,9 @@ createNode reference -n "anim_ready_EmilyRN";
 		"anim_ready_EmilyRN.placeHolderList[13]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main.translateZ" 
 		"anim_ready_EmilyRN.placeHolderList[14]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[15]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main.rotateX" 
+		"anim_ready_EmilyRN.placeHolderList[15]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[16]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[17]" ""
@@ -5259,7 +5258,7 @@ createNode animCurveTA -n "anim_ready_Emily:FKHead_M_rotateY";
 createNode animCurveTA -n "anim_ready_Emily:FKHead_M_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  8 -8.6436016243141456 28 -7.0028044110734839
+	setAttr -s 3 ".ktv[0:2]"  8 -8.6436016243141456 28 -7.0028044110734848
 		 51 -26.234511369630365;
 	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode animCurveTU -n "anim_ready_Emily:FKHead_M_Global";
@@ -5351,28 +5350,28 @@ createNode animCurveTU -n "anim_ready_Emily:IKLeg_L_volume";
 createNode animCurveTL -n "anim_ready_Emily:AimEye_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  8 -1.1068108774184333 28 -0.02485268092875529;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr -s 2 ".ktv[0:1]"  8 -1.1068108774184331 28 -0.02485268092875529;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "anim_ready_Emily:AimEye_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  8 -0.21047325598997602 28 -0.65613864407590305;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr -s 2 ".ktv[0:1]"  8 -0.21047325598997599 28 -0.65613864407590305;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "anim_ready_Emily:AimEye_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  8 0.39291287822447374 28 0.76891131152126058;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr -s 2 ".ktv[0:1]"  8 0.39291287822447374 28 0.76891131152126069;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTU -n "anim_ready_Emily:AimEye_M_aim";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  8 10 28 10;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTU -n "anim_ready_Emily:AimEye_M_follow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  8 10 28 10;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTA -n "anim_ready_Emily:IKArm_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5411,7 +5410,7 @@ createNode animCurveTL -n "anim_ready_Emily:IKArm_L_translateY";
 createNode animCurveTL -n "anim_ready_Emily:IKArm_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  8 0.46492397950004316 28 1.1795094729770139
+	setAttr -s 3 ".ktv[0:2]"  8 0.46492397950004322 28 1.1795094729770139
 		 51 1.1386615482607334;
 	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode animCurveTU -n "anim_ready_Emily:IKArm_L_scaleX";
@@ -5559,7 +5558,7 @@ createNode animCurveTA -n "anim_ready_Emily:FKRoot_M_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  8 -45.720581516502186 28 -8.2694638458742258
 		 51 0;
-	setAttr -s 3 ".kot[0:2]"  5 18 5;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode animCurveTA -n "anim_ready_Emily:FKRoot_M_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5719,17 +5718,17 @@ createNode reference -n "nightmareRN";
 		2 "|ghost1|nightmare:group1" "scale" " -type \"double3\" 0.381318 0.381318 0.381318"
 		
 		2 "|ghost1|nightmare:group1" "showManipDefault" " 7"
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateX" "nightmareRN.placeHolderList[1]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateX" "nightmareRN.placeHolderList[1]" 
 		""
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateY" "nightmareRN.placeHolderList[2]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateY" "nightmareRN.placeHolderList[2]" 
 		""
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateZ" "nightmareRN.placeHolderList[3]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateZ" "nightmareRN.placeHolderList[3]" 
 		""
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateX" "nightmareRN.placeHolderList[4]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateX" "nightmareRN.placeHolderList[4]" 
 		""
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateY" "nightmareRN.placeHolderList[5]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateY" "nightmareRN.placeHolderList[5]" 
 		""
-		5 4 "nightmareRN" "|ghost1|nightmare:group1.translateZ" "nightmareRN.placeHolderList[6]" 
+		5 4 "nightmareRN" "|ghost1|nightmare:group1.rotateZ" "nightmareRN.placeHolderList[6]" 
 		""
 		5 3 "nightmareRN" "|ghost1|nightmare:group1.transMinusRotatePivotX" 
 		"nightmareRN.placeHolderList[7]" ""
@@ -5767,7 +5766,7 @@ createNode addDoubleLinear -n "addDoubleLinear3";
 createNode hyperGraphInfo -n "nodeEditorPanel2Info";
 createNode hyperView -n "hyperView1";
 	setAttr ".vl" -type "double2" -113.2728866740495 -43002.380952380961 ;
-	setAttr ".vh" -type "double2" 1673.9871723883355 -41948.809523809534 ;
+	setAttr ".vh" -type "double2" 1673.9871723883357 -41948.809523809534 ;
 	setAttr ".dag" no;
 createNode hyperLayout -n "hyperLayout1";
 	setAttr ".ihi" 0;
@@ -5965,7 +5964,7 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr ".fn" -type "string" "im";
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
 select -ne :ikSystem;
-	setAttr -s 4 ".sol";
+	setAttr -s 3 ".sol";
 connectAttr "HallwaySetLayer.di" "hallwayRN.phl[1]";
 connectAttr "anim_ready_Emily:Main_FaceVis.o" "anim_ready_EmilyRN.phl[1]";
 connectAttr "anim_ready_Emily:Main_Resolution.o" "anim_ready_EmilyRN.phl[2]";
@@ -5981,8 +5980,8 @@ connectAttr "anim_ready_Emily:Main_scaleZ.o" "anim_ready_EmilyRN.phl[11]";
 connectAttr "anim_ready_Emily:Main_translateX.o" "anim_ready_EmilyRN.phl[12]";
 connectAttr "anim_ready_Emily:Main_translateY.o" "anim_ready_EmilyRN.phl[13]";
 connectAttr "anim_ready_Emily:Main_translateZ.o" "anim_ready_EmilyRN.phl[14]";
-connectAttr "anim_ready_Emily:Main_rotateY.o" "anim_ready_EmilyRN.phl[15]";
-connectAttr "anim_ready_Emily:Main_rotateX.o" "anim_ready_EmilyRN.phl[16]";
+connectAttr "anim_ready_Emily:Main_rotateX.o" "anim_ready_EmilyRN.phl[15]";
+connectAttr "anim_ready_Emily:Main_rotateY.o" "anim_ready_EmilyRN.phl[16]";
 connectAttr "anim_ready_Emily:Main_rotateZ.o" "anim_ready_EmilyRN.phl[17]";
 connectAttr "anim_ready_Emily:FKRoot_M_rotateX.o" "anim_ready_EmilyRN.phl[18]";
 connectAttr "anim_ready_Emily:FKRoot_M_rotateY.o" "anim_ready_EmilyRN.phl[19]";
@@ -6161,12 +6160,12 @@ connectAttr "anim_ready_Emily:squashTop_M_translateY.o" "anim_ready_EmilyRN.phl[
 		;
 connectAttr "anim_ready_Emily:squashTop_M_translateZ.o" "anim_ready_EmilyRN.phl[144]"
 		;
-connectAttr "motionPath1.rx" "nightmareRN.phl[1]";
-connectAttr "motionPath1.ry" "nightmareRN.phl[2]";
-connectAttr "motionPath1.rz" "nightmareRN.phl[3]";
-connectAttr "addDoubleLinear1.o" "nightmareRN.phl[4]";
-connectAttr "addDoubleLinear2.o" "nightmareRN.phl[5]";
-connectAttr "addDoubleLinear3.o" "nightmareRN.phl[6]";
+connectAttr "addDoubleLinear1.o" "nightmareRN.phl[1]";
+connectAttr "addDoubleLinear2.o" "nightmareRN.phl[2]";
+connectAttr "addDoubleLinear3.o" "nightmareRN.phl[3]";
+connectAttr "motionPath1.rx" "nightmareRN.phl[4]";
+connectAttr "motionPath1.ry" "nightmareRN.phl[5]";
+connectAttr "motionPath1.rz" "nightmareRN.phl[6]";
 connectAttr "nightmareRN.phl[7]" "addDoubleLinear1.i1";
 connectAttr "nightmareRN.phl[8]" "addDoubleLinear2.i1";
 connectAttr "nightmareRN.phl[9]" "addDoubleLinear3.i1";
