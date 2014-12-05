@@ -18,10 +18,10 @@
 # ---------------------------------------------------------------------------
 # Act II
 
-- file       : "hallway1.ma"
-  camera     : 'camera1'
+- file       : "Alternative_Hallway.ma"
+  camera     : 'Hallway_Medium_Shot'
   startFrame : 1
-  endFrame   : 102
+  endFrame   : 73
 
 - file       : "hallway2.ma"
   camera     : 'camera1'
