@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: bedroom2.ma
-//Last modified: Wed, Dec 03, 2014 02:53:12 AM
+//Last modified: Wed, Dec 03, 2014 03:53:53 AM
 //Codeset: 1252
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
