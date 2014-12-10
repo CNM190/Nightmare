@@ -11,8 +11,8 @@
   startFrame : 48
   endFrame   : 125
 
-- file       : "title01a.mov"
-  duration   : 30
+#- file       : "title01a.mov"
+#  duration   : 30
 
 
 # ---------------------------------------------------------------------------
@@ -28,11 +28,13 @@
   startFrame : 1
   endFrame   : 60
 
+#Blade of the Heart
 - file       : "charge.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 236
 
+#Steel thy Resolve
 - file       : "charge2.ma"
   camera     : 'camera1'
   startFrame : 1
@@ -48,15 +50,17 @@
   startFrame : 117
   endFrame   : 135
 
-- file       : "charge2.ma"
-  camera     : 'camera4'
-  startFrame : 136
-  endFrame   : 154
+#- file       : "charge2.ma"
+#  camera     : 'camera4'
+#  startFrame : 136
+#  endFrame   : 154
 
-#- file       : "charge4.ma"
-#  camera     : 'camera1'
-#  startFrame : 1
-#  endFrame   : 159
+#CHARGE!
+- file       : "charge3.ma"
+  camera     : 'camera1'
+  startFrame : 117
+  endFrame   : 135
+
 
 
 # ---------------------------------------------------------------------------
