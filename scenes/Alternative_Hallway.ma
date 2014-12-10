@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: Alternative_Hallway.ma
-//Last modified: Fri, Dec 05, 2014 03:55:18 AM
+//Last modified: Wed, Dec 10, 2014 12:20:01 PM
 //Codeset: 1252
 file -rdi 1 -ns "Hallway_Stand_In" -rfn "Hallway_Stand_InRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/sets/Hallway_Stand_In.ma";
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
@@ -19,12 +19,12 @@ fileInfo "osv" "Microsoft Business Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.145387796518412 9.396685621397161 3.297361004649344 ;
-	setAttr ".r" -type "double3" -39.938352729539098 889.79999999967458 0 ;
+	setAttr ".t" -type "double3" 3.3661490297862597 5.2219757823800226 -3.5332320081643669 ;
+	setAttr ".r" -type "double3" -17.73835272950323 881.79999999945619 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 5.6060648769867143;
+	setAttr ".coi" 8.4649138956895928;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -450,7 +450,7 @@ createNode reference -n "Hallway_Stand_InRN";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "anim_ready_EmilyRN";
-	setAttr -s 63 ".phl";
+	setAttr -s 96 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -514,11 +514,44 @@ createNode reference -n "anim_ready_EmilyRN";
 	setAttr ".phl[61]" 0;
 	setAttr ".phl[62]" 0;
 	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"anim_ready_EmilyRN"
 		"anim_ready_Emily:modelRN" 0
 		"anim_ready_EmilyRN" 0
-		"anim_ready_EmilyRN" 155
+		"anim_ready_EmilyRN" 220
 		0 "|anim_ready_EmilyRNfosterParent1|IKArm_R_parentConstraint1" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"-s -r "
 		1 |anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R 
@@ -568,7 +601,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:HipSwingerOffset_M|anim_ready_Emily:HipSwinger_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M" 
-		"rotate" " -type \"double3\" 6.221929 -6.284467 7.75758"
+		"rotate" " -type \"double3\" 6.221929 1.796282 22.208068"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M" 
@@ -583,8 +616,18 @@ createNode reference -n "anim_ready_EmilyRN";
 		"rotateY" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
 		"rotateZ" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
+		"Global" " -k 1 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
-		"rotate" " -type \"double3\" 0 7.581007 -6.68713"
+		"translate" " -type \"double3\" -0.000525441 0.00160491 0.0211679"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
+		"translateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
+		"translateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
+		"translateZ" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
+		"rotate" " -type \"double3\" 2.413021 7.581007 -6.68713"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R" 
@@ -594,11 +637,61 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R|anim_ready_Emily:FKXOffsetScapula_R|anim_ready_Emily:FKXScapula_R|anim_ready_Emily:FKOffsetShoulder_R|anim_ready_Emily:FKGlobalStaticShoulder_R|anim_ready_Emily:FKGlobalShoulder_R|anim_ready_Emily:FKExtraShoulder_R|anim_ready_Emily:FKShoulder_R" 
 		"rotate" " -type \"double3\" 19.096787 75.926108 4.979328"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"translate" " -type \"double3\" 0 0 -0.0762595"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"translateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"translateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"translateZ" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
 		"rotate" " -type \"double3\" 0 0 22.170691"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"rotateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L" 
+		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L" 
-		"rotate" " -type \"double3\" 20.257184 87.641938 4.428863"
+		"rotate" " -type \"double3\" 66.708857 20.617769 -12.089882"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L" 
+		"rotateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L" 
+		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L" 
-		"rotate" " -type \"double3\" -51.198091 18.51485 0.55156"
+		"rotate" " -type \"double3\" 11.174031 31.898821 114.600744"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L" 
+		"rotateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L" 
+		"rotateZ" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L" 
+		"rotate" " -type \"double3\" 68.411 -8.093 23.612"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L" 
+		"rotateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L" 
+		"rotateZ" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetIndexFinger1_L|anim_ready_Emily:SDK1FKIndexFinger1_L|anim_ready_Emily:SDK2FKIndexFinger1_L|anim_ready_Emily:FKExtraIndexFinger1_L|anim_ready_Emily:FKIndexFinger1_L|anim_ready_Emily:FKXOffsetIndexFinger1_L|anim_ready_Emily:FKXIndexFinger1_L|anim_ready_Emily:FKOffsetIndexFinger2_L|anim_ready_Emily:SDK1FKIndexFinger2_L|anim_ready_Emily:FKExtraIndexFinger2_L|anim_ready_Emily:FKIndexFinger2_L|anim_ready_Emily:FKXOffsetIndexFinger2_L|anim_ready_Emily:FKXIndexFinger2_L|anim_ready_Emily:FKOffsetIndexFinger3_L|anim_ready_Emily:SDK1FKIndexFinger3_L|anim_ready_Emily:FKExtraIndexFinger3_L|anim_ready_Emily:FKIndexFinger3_L" 
+		"rotate" " -type \"double3\" 0 72 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetIndexFinger1_L|anim_ready_Emily:SDK1FKIndexFinger1_L|anim_ready_Emily:SDK2FKIndexFinger1_L|anim_ready_Emily:FKExtraIndexFinger1_L|anim_ready_Emily:FKIndexFinger1_L|anim_ready_Emily:FKXOffsetIndexFinger1_L|anim_ready_Emily:FKXIndexFinger1_L|anim_ready_Emily:FKOffsetIndexFinger2_L|anim_ready_Emily:SDK1FKIndexFinger2_L|anim_ready_Emily:FKExtraIndexFinger2_L|anim_ready_Emily:FKIndexFinger2_L|anim_ready_Emily:FKXOffsetIndexFinger2_L|anim_ready_Emily:FKXIndexFinger2_L|anim_ready_Emily:FKOffsetIndexFinger3_L|anim_ready_Emily:SDK1FKIndexFinger3_L|anim_ready_Emily:FKExtraIndexFinger3_L|anim_ready_Emily:FKIndexFinger3_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetMiddleFinger1_L|anim_ready_Emily:SDK1FKMiddleFinger1_L|anim_ready_Emily:FKExtraMiddleFinger1_L|anim_ready_Emily:FKMiddleFinger1_L|anim_ready_Emily:FKXOffsetMiddleFinger1_L|anim_ready_Emily:FKXMiddleFinger1_L|anim_ready_Emily:FKOffsetMiddleFinger2_L|anim_ready_Emily:SDK1FKMiddleFinger2_L|anim_ready_Emily:FKExtraMiddleFinger2_L|anim_ready_Emily:FKMiddleFinger2_L|anim_ready_Emily:FKXOffsetMiddleFinger2_L|anim_ready_Emily:FKXMiddleFinger2_L|anim_ready_Emily:FKOffsetMiddleFinger3_L|anim_ready_Emily:SDK1FKMiddleFinger3_L|anim_ready_Emily:FKExtraMiddleFinger3_L|anim_ready_Emily:FKMiddleFinger3_L" 
+		"rotate" " -type \"double3\" 0 72 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetMiddleFinger1_L|anim_ready_Emily:SDK1FKMiddleFinger1_L|anim_ready_Emily:FKExtraMiddleFinger1_L|anim_ready_Emily:FKMiddleFinger1_L|anim_ready_Emily:FKXOffsetMiddleFinger1_L|anim_ready_Emily:FKXMiddleFinger1_L|anim_ready_Emily:FKOffsetMiddleFinger2_L|anim_ready_Emily:SDK1FKMiddleFinger2_L|anim_ready_Emily:FKExtraMiddleFinger2_L|anim_ready_Emily:FKMiddleFinger2_L|anim_ready_Emily:FKXOffsetMiddleFinger2_L|anim_ready_Emily:FKXMiddleFinger2_L|anim_ready_Emily:FKOffsetMiddleFinger3_L|anim_ready_Emily:SDK1FKMiddleFinger3_L|anim_ready_Emily:FKExtraMiddleFinger3_L|anim_ready_Emily:FKMiddleFinger3_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetRingFinger1_L|anim_ready_Emily:SDK1FKRingFinger1_L|anim_ready_Emily:SDK2FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraRingFinger1_L|anim_ready_Emily:FKRingFinger1_L|anim_ready_Emily:FKXOffsetRingFinger1_L|anim_ready_Emily:FKXRingFinger1_L|anim_ready_Emily:FKOffsetRingFinger2_L|anim_ready_Emily:SDK1FKRingFinger2_L|anim_ready_Emily:FKExtraRingFinger2_L|anim_ready_Emily:FKRingFinger2_L|anim_ready_Emily:FKXOffsetRingFinger2_L|anim_ready_Emily:FKXRingFinger2_L|anim_ready_Emily:FKOffsetRingFinger3_L|anim_ready_Emily:SDK1FKRingFinger3_L|anim_ready_Emily:FKExtraRingFinger3_L|anim_ready_Emily:FKRingFinger3_L" 
+		"rotate" " -type \"double3\" 0 72 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetRingFinger1_L|anim_ready_Emily:SDK1FKRingFinger1_L|anim_ready_Emily:SDK2FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraRingFinger1_L|anim_ready_Emily:FKRingFinger1_L|anim_ready_Emily:FKXOffsetRingFinger1_L|anim_ready_Emily:FKXRingFinger1_L|anim_ready_Emily:FKOffsetRingFinger2_L|anim_ready_Emily:SDK1FKRingFinger2_L|anim_ready_Emily:FKExtraRingFinger2_L|anim_ready_Emily:FKRingFinger2_L|anim_ready_Emily:FKXOffsetRingFinger2_L|anim_ready_Emily:FKXRingFinger2_L|anim_ready_Emily:FKOffsetRingFinger3_L|anim_ready_Emily:SDK1FKRingFinger3_L|anim_ready_Emily:FKExtraRingFinger3_L|anim_ready_Emily:FKRingFinger3_L" 
+		"rotateY" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetPinkyFinger1_L|anim_ready_Emily:SDK1FKPinkyFinger1_L|anim_ready_Emily:SDK2FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraPinkyFinger1_L|anim_ready_Emily:FKPinkyFinger1_L|anim_ready_Emily:FKXOffsetPinkyFinger1_L|anim_ready_Emily:FKXPinkyFinger1_L|anim_ready_Emily:FKOffsetPinkyFinger2_L|anim_ready_Emily:SDK1FKPinkyFinger2_L|anim_ready_Emily:FKExtraPinkyFinger2_L|anim_ready_Emily:FKPinkyFinger2_L|anim_ready_Emily:FKXOffsetPinkyFinger2_L|anim_ready_Emily:FKXPinkyFinger2_L|anim_ready_Emily:FKOffsetPinkyFinger3_L|anim_ready_Emily:SDK1FKPinkyFinger3_L|anim_ready_Emily:FKExtraPinkyFinger3_L|anim_ready_Emily:FKPinkyFinger3_L" 
+		"rotate" " -type \"double3\" 0 72 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetPinkyFinger1_L|anim_ready_Emily:SDK1FKPinkyFinger1_L|anim_ready_Emily:SDK2FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraPinkyFinger1_L|anim_ready_Emily:FKPinkyFinger1_L|anim_ready_Emily:FKXOffsetPinkyFinger1_L|anim_ready_Emily:FKXPinkyFinger1_L|anim_ready_Emily:FKOffsetPinkyFinger2_L|anim_ready_Emily:SDK1FKPinkyFinger2_L|anim_ready_Emily:FKExtraPinkyFinger2_L|anim_ready_Emily:FKPinkyFinger2_L|anim_ready_Emily:FKXOffsetPinkyFinger2_L|anim_ready_Emily:FKXPinkyFinger2_L|anim_ready_Emily:FKOffsetPinkyFinger3_L|anim_ready_Emily:SDK1FKPinkyFinger3_L|anim_ready_Emily:FKExtraPinkyFinger3_L|anim_ready_Emily:FKPinkyFinger3_L" 
+		"rotateY" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetThumbFinger1_L|anim_ready_Emily:FKExtraThumbFinger1_L|anim_ready_Emily:FKThumbFinger1_L" 
 		"rotate" " -type \"double3\" 0 16.487271 -21.623146"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKSpineHandle_M" 
@@ -606,7 +699,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90 3.046919 90"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
-		"translate" " -type \"double3\" 0.443515 -0.521297 3.268767"
+		"translate" " -type \"double3\" 0.67355 0.32407 3.770527"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
@@ -614,7 +707,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
-		"rotate" " -type \"double3\" 83.838482 35.631162 33.198438"
+		"rotate" " -type \"double3\" 89.549736 -79.11468 -254.458407"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
@@ -624,7 +717,11 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"blendParent1" " -av -k 1 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
-		"translate" " -type \"double3\" -0.834648 0 2.844"
+		"translate" " -type \"double3\" -1.067766 -1.043096 3.627416"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
+		"translateX" " -av"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
+		"translateY" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
@@ -684,21 +781,21 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_R" 
 		"pinkyCurl" " -k 1 3.3"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L" 
-		"indexCurl" " -k 1 1.5"
+		"indexCurl" " -av -k 1 1.2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L" 
-		"middleCurl" " -k 1 1.5"
+		"middleCurl" " -av -k 1 1.2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L" 
-		"ringCurl" " -k 1 1.5"
+		"ringCurl" " -av -k 1 1.2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L" 
-		"pinkyCurl" " -k 1 1.5"
+		"pinkyCurl" " -av -k 1 1.2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"translate" " -type \"double3\" 0.0783434 -0.370036 0.768442"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"aim" " -k 1 10"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 0.311777 4.20245 2.47113"
+		"translate" " -type \"double3\" 0.366603 4.161386 2.221607"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" -85.706565 -1.73995 95.840756"
+		"rotate" " -type \"double3\" -89.213986 14.214287 92.771753"
 		2 "|anim_ready_Emily:modelRNfosterParent1|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
 		"dispResolution" " 3"
 		2 "|anim_ready_Emily:modelRNfosterParent1|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
@@ -755,80 +852,146 @@ createNode reference -n "anim_ready_EmilyRN";
 		"anim_ready_EmilyRN.placeHolderList[25]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.translateZ" 
 		"anim_ready_EmilyRN.placeHolderList[26]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[27]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[28]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[29]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotatePivot" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.translateX" 
 		"anim_ready_EmilyRN.placeHolderList[30]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotatePivotTranslate" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.translateY" 
 		"anim_ready_EmilyRN.placeHolderList[31]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L.translateZ" 
 		"anim_ready_EmilyRN.placeHolderList[32]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[33]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[34]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateOrder" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[35]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateOrder" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[36]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.blendParent1" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[37]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.blendParent1" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[38]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.parentInverseMatrix" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[39]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[40]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_L|anim_ready_Emily:FKGlobalStaticScapula_L|anim_ready_Emily:FKGlobalScapula_L|anim_ready_Emily:FKExtraScapula_L|anim_ready_Emily:FKScapula_L|anim_ready_Emily:FKXOffsetScapula_L|anim_ready_Emily:FKXScapula_L|anim_ready_Emily:FKOffsetShoulder_L|anim_ready_Emily:FKGlobalStaticShoulder_L|anim_ready_Emily:FKGlobalShoulder_L|anim_ready_Emily:FKExtraShoulder_L|anim_ready_Emily:FKShoulder_L|anim_ready_Emily:FKXOffsetShoulder_L|anim_ready_Emily:FKXShoulder_L|anim_ready_Emily:FKOffsetElbow_L|anim_ready_Emily:FKExtraElbow_L|anim_ready_Emily:FKElbow_L|anim_ready_Emily:FKXOffsetElbow_L|anim_ready_Emily:FKXElbow_L|anim_ready_Emily:FKOffsetWrist_L|anim_ready_Emily:FKExtraWrist_L|anim_ready_Emily:FKWrist_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[41]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetIndexFinger1_L|anim_ready_Emily:SDK1FKIndexFinger1_L|anim_ready_Emily:SDK2FKIndexFinger1_L|anim_ready_Emily:FKExtraIndexFinger1_L|anim_ready_Emily:FKIndexFinger1_L|anim_ready_Emily:FKXOffsetIndexFinger1_L|anim_ready_Emily:FKXIndexFinger1_L|anim_ready_Emily:FKOffsetIndexFinger2_L|anim_ready_Emily:SDK1FKIndexFinger2_L|anim_ready_Emily:FKExtraIndexFinger2_L|anim_ready_Emily:FKIndexFinger2_L|anim_ready_Emily:FKXOffsetIndexFinger2_L|anim_ready_Emily:FKXIndexFinger2_L|anim_ready_Emily:FKOffsetIndexFinger3_L|anim_ready_Emily:SDK1FKIndexFinger3_L|anim_ready_Emily:FKExtraIndexFinger3_L|anim_ready_Emily:FKIndexFinger3_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[42]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetIndexFinger1_L|anim_ready_Emily:SDK1FKIndexFinger1_L|anim_ready_Emily:SDK2FKIndexFinger1_L|anim_ready_Emily:FKExtraIndexFinger1_L|anim_ready_Emily:FKIndexFinger1_L|anim_ready_Emily:FKXOffsetIndexFinger1_L|anim_ready_Emily:FKXIndexFinger1_L|anim_ready_Emily:FKOffsetIndexFinger2_L|anim_ready_Emily:SDK1FKIndexFinger2_L|anim_ready_Emily:FKExtraIndexFinger2_L|anim_ready_Emily:FKIndexFinger2_L|anim_ready_Emily:FKXOffsetIndexFinger2_L|anim_ready_Emily:FKXIndexFinger2_L|anim_ready_Emily:FKOffsetIndexFinger3_L|anim_ready_Emily:SDK1FKIndexFinger3_L|anim_ready_Emily:FKExtraIndexFinger3_L|anim_ready_Emily:FKIndexFinger3_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[43]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetIndexFinger1_L|anim_ready_Emily:SDK1FKIndexFinger1_L|anim_ready_Emily:SDK2FKIndexFinger1_L|anim_ready_Emily:FKExtraIndexFinger1_L|anim_ready_Emily:FKIndexFinger1_L|anim_ready_Emily:FKXOffsetIndexFinger1_L|anim_ready_Emily:FKXIndexFinger1_L|anim_ready_Emily:FKOffsetIndexFinger2_L|anim_ready_Emily:SDK1FKIndexFinger2_L|anim_ready_Emily:FKExtraIndexFinger2_L|anim_ready_Emily:FKIndexFinger2_L|anim_ready_Emily:FKXOffsetIndexFinger2_L|anim_ready_Emily:FKXIndexFinger2_L|anim_ready_Emily:FKOffsetIndexFinger3_L|anim_ready_Emily:SDK1FKIndexFinger3_L|anim_ready_Emily:FKExtraIndexFinger3_L|anim_ready_Emily:FKIndexFinger3_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[44]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetMiddleFinger1_L|anim_ready_Emily:SDK1FKMiddleFinger1_L|anim_ready_Emily:FKExtraMiddleFinger1_L|anim_ready_Emily:FKMiddleFinger1_L|anim_ready_Emily:FKXOffsetMiddleFinger1_L|anim_ready_Emily:FKXMiddleFinger1_L|anim_ready_Emily:FKOffsetMiddleFinger2_L|anim_ready_Emily:SDK1FKMiddleFinger2_L|anim_ready_Emily:FKExtraMiddleFinger2_L|anim_ready_Emily:FKMiddleFinger2_L|anim_ready_Emily:FKXOffsetMiddleFinger2_L|anim_ready_Emily:FKXMiddleFinger2_L|anim_ready_Emily:FKOffsetMiddleFinger3_L|anim_ready_Emily:SDK1FKMiddleFinger3_L|anim_ready_Emily:FKExtraMiddleFinger3_L|anim_ready_Emily:FKMiddleFinger3_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[45]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetMiddleFinger1_L|anim_ready_Emily:SDK1FKMiddleFinger1_L|anim_ready_Emily:FKExtraMiddleFinger1_L|anim_ready_Emily:FKMiddleFinger1_L|anim_ready_Emily:FKXOffsetMiddleFinger1_L|anim_ready_Emily:FKXMiddleFinger1_L|anim_ready_Emily:FKOffsetMiddleFinger2_L|anim_ready_Emily:SDK1FKMiddleFinger2_L|anim_ready_Emily:FKExtraMiddleFinger2_L|anim_ready_Emily:FKMiddleFinger2_L|anim_ready_Emily:FKXOffsetMiddleFinger2_L|anim_ready_Emily:FKXMiddleFinger2_L|anim_ready_Emily:FKOffsetMiddleFinger3_L|anim_ready_Emily:SDK1FKMiddleFinger3_L|anim_ready_Emily:FKExtraMiddleFinger3_L|anim_ready_Emily:FKMiddleFinger3_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[46]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.roll" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetMiddleFinger1_L|anim_ready_Emily:SDK1FKMiddleFinger1_L|anim_ready_Emily:FKExtraMiddleFinger1_L|anim_ready_Emily:FKMiddleFinger1_L|anim_ready_Emily:FKXOffsetMiddleFinger1_L|anim_ready_Emily:FKXMiddleFinger1_L|anim_ready_Emily:FKOffsetMiddleFinger2_L|anim_ready_Emily:SDK1FKMiddleFinger2_L|anim_ready_Emily:FKExtraMiddleFinger2_L|anim_ready_Emily:FKMiddleFinger2_L|anim_ready_Emily:FKXOffsetMiddleFinger2_L|anim_ready_Emily:FKXMiddleFinger2_L|anim_ready_Emily:FKOffsetMiddleFinger3_L|anim_ready_Emily:SDK1FKMiddleFinger3_L|anim_ready_Emily:FKExtraMiddleFinger3_L|anim_ready_Emily:FKMiddleFinger3_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[47]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetRingFinger1_L|anim_ready_Emily:SDK1FKRingFinger1_L|anim_ready_Emily:SDK2FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraRingFinger1_L|anim_ready_Emily:FKRingFinger1_L|anim_ready_Emily:FKXOffsetRingFinger1_L|anim_ready_Emily:FKXRingFinger1_L|anim_ready_Emily:FKOffsetRingFinger2_L|anim_ready_Emily:SDK1FKRingFinger2_L|anim_ready_Emily:FKExtraRingFinger2_L|anim_ready_Emily:FKRingFinger2_L|anim_ready_Emily:FKXOffsetRingFinger2_L|anim_ready_Emily:FKXRingFinger2_L|anim_ready_Emily:FKOffsetRingFinger3_L|anim_ready_Emily:SDK1FKRingFinger3_L|anim_ready_Emily:FKExtraRingFinger3_L|anim_ready_Emily:FKRingFinger3_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[48]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetRingFinger1_L|anim_ready_Emily:SDK1FKRingFinger1_L|anim_ready_Emily:SDK2FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraRingFinger1_L|anim_ready_Emily:FKRingFinger1_L|anim_ready_Emily:FKXOffsetRingFinger1_L|anim_ready_Emily:FKXRingFinger1_L|anim_ready_Emily:FKOffsetRingFinger2_L|anim_ready_Emily:SDK1FKRingFinger2_L|anim_ready_Emily:FKExtraRingFinger2_L|anim_ready_Emily:FKRingFinger2_L|anim_ready_Emily:FKXOffsetRingFinger2_L|anim_ready_Emily:FKXRingFinger2_L|anim_ready_Emily:FKOffsetRingFinger3_L|anim_ready_Emily:SDK1FKRingFinger3_L|anim_ready_Emily:FKExtraRingFinger3_L|anim_ready_Emily:FKRingFinger3_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[49]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetRingFinger1_L|anim_ready_Emily:SDK1FKRingFinger1_L|anim_ready_Emily:SDK2FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKRingFinger1_L|anim_ready_Emily:SDK3FKRingFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraRingFinger1_L|anim_ready_Emily:FKRingFinger1_L|anim_ready_Emily:FKXOffsetRingFinger1_L|anim_ready_Emily:FKXRingFinger1_L|anim_ready_Emily:FKOffsetRingFinger2_L|anim_ready_Emily:SDK1FKRingFinger2_L|anim_ready_Emily:FKExtraRingFinger2_L|anim_ready_Emily:FKRingFinger2_L|anim_ready_Emily:FKXOffsetRingFinger2_L|anim_ready_Emily:FKXRingFinger2_L|anim_ready_Emily:FKOffsetRingFinger3_L|anim_ready_Emily:SDK1FKRingFinger3_L|anim_ready_Emily:FKExtraRingFinger3_L|anim_ready_Emily:FKRingFinger3_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[50]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetPinkyFinger1_L|anim_ready_Emily:SDK1FKPinkyFinger1_L|anim_ready_Emily:SDK2FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraPinkyFinger1_L|anim_ready_Emily:FKPinkyFinger1_L|anim_ready_Emily:FKXOffsetPinkyFinger1_L|anim_ready_Emily:FKXPinkyFinger1_L|anim_ready_Emily:FKOffsetPinkyFinger2_L|anim_ready_Emily:SDK1FKPinkyFinger2_L|anim_ready_Emily:FKExtraPinkyFinger2_L|anim_ready_Emily:FKPinkyFinger2_L|anim_ready_Emily:FKXOffsetPinkyFinger2_L|anim_ready_Emily:FKXPinkyFinger2_L|anim_ready_Emily:FKOffsetPinkyFinger3_L|anim_ready_Emily:SDK1FKPinkyFinger3_L|anim_ready_Emily:FKExtraPinkyFinger3_L|anim_ready_Emily:FKPinkyFinger3_L.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[51]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateY" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetPinkyFinger1_L|anim_ready_Emily:SDK1FKPinkyFinger1_L|anim_ready_Emily:SDK2FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraPinkyFinger1_L|anim_ready_Emily:FKPinkyFinger1_L|anim_ready_Emily:FKXOffsetPinkyFinger1_L|anim_ready_Emily:FKXPinkyFinger1_L|anim_ready_Emily:FKOffsetPinkyFinger2_L|anim_ready_Emily:SDK1FKPinkyFinger2_L|anim_ready_Emily:FKExtraPinkyFinger2_L|anim_ready_Emily:FKPinkyFinger2_L|anim_ready_Emily:FKXOffsetPinkyFinger2_L|anim_ready_Emily:FKXPinkyFinger2_L|anim_ready_Emily:FKOffsetPinkyFinger3_L|anim_ready_Emily:SDK1FKPinkyFinger3_L|anim_ready_Emily:FKExtraPinkyFinger3_L|anim_ready_Emily:FKPinkyFinger3_L.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[52]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateZ" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToWrist_L|anim_ready_Emily:FKOffsetPinkyFinger1_L|anim_ready_Emily:SDK1FKPinkyFinger1_L|anim_ready_Emily:SDK2FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|anim_ready_Emily:SDK3FKPinkyFinger1_L|anim_ready_Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|anim_ready_Emily:FKExtraPinkyFinger1_L|anim_ready_Emily:FKPinkyFinger1_L|anim_ready_Emily:FKXOffsetPinkyFinger1_L|anim_ready_Emily:FKXPinkyFinger1_L|anim_ready_Emily:FKOffsetPinkyFinger2_L|anim_ready_Emily:SDK1FKPinkyFinger2_L|anim_ready_Emily:FKExtraPinkyFinger2_L|anim_ready_Emily:FKPinkyFinger2_L|anim_ready_Emily:FKXOffsetPinkyFinger2_L|anim_ready_Emily:FKXPinkyFinger2_L|anim_ready_Emily:FKOffsetPinkyFinger3_L|anim_ready_Emily:SDK1FKPinkyFinger3_L|anim_ready_Emily:FKExtraPinkyFinger3_L|anim_ready_Emily:FKPinkyFinger3_L.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[53]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.scale" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateX" 
 		"anim_ready_EmilyRN.placeHolderList[54]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translate" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateY" 
 		"anim_ready_EmilyRN.placeHolderList[55]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateX" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateZ" 
 		"anim_ready_EmilyRN.placeHolderList[56]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateY" 
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotatePivot" 
 		"anim_ready_EmilyRN.placeHolderList[57]" ""
-		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateZ" 
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotatePivotTranslate" 
 		"anim_ready_EmilyRN.placeHolderList[58]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotatePivot" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateX" 
 		"anim_ready_EmilyRN.placeHolderList[59]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotatePivotTranslate" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[60]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotate" 
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateZ" 
 		"anim_ready_EmilyRN.placeHolderList[61]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotateOrder" 
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateOrder" 
 		"anim_ready_EmilyRN.placeHolderList[62]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateOrder" 
+		"anim_ready_EmilyRN.placeHolderList[63]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.blendParent1" 
+		"anim_ready_EmilyRN.placeHolderList[64]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.blendParent1" 
+		"anim_ready_EmilyRN.placeHolderList[65]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.parentInverseMatrix" 
+		"anim_ready_EmilyRN.placeHolderList[66]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateX" 
+		"anim_ready_EmilyRN.placeHolderList[67]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateY" 
+		"anim_ready_EmilyRN.placeHolderList[68]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateZ" 
+		"anim_ready_EmilyRN.placeHolderList[69]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateX" 
+		"anim_ready_EmilyRN.placeHolderList[70]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateY" 
+		"anim_ready_EmilyRN.placeHolderList[71]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.translateZ" 
+		"anim_ready_EmilyRN.placeHolderList[72]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateX" 
+		"anim_ready_EmilyRN.placeHolderList[73]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateY" 
+		"anim_ready_EmilyRN.placeHolderList[74]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.rotateZ" 
+		"anim_ready_EmilyRN.placeHolderList[75]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R.roll" 
+		"anim_ready_EmilyRN.placeHolderList[76]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateX" 
+		"anim_ready_EmilyRN.placeHolderList[77]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateY" 
+		"anim_ready_EmilyRN.placeHolderList[78]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.translateZ" 
+		"anim_ready_EmilyRN.placeHolderList[79]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateX" 
+		"anim_ready_EmilyRN.placeHolderList[80]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateY" 
+		"anim_ready_EmilyRN.placeHolderList[81]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L.rotateZ" 
+		"anim_ready_EmilyRN.placeHolderList[82]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.scale" 
+		"anim_ready_EmilyRN.placeHolderList[83]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translate" 
+		"anim_ready_EmilyRN.placeHolderList[84]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateX" 
+		"anim_ready_EmilyRN.placeHolderList[85]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateY" 
+		"anim_ready_EmilyRN.placeHolderList[86]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.translateZ" 
+		"anim_ready_EmilyRN.placeHolderList[87]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotatePivot" 
+		"anim_ready_EmilyRN.placeHolderList[88]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotatePivotTranslate" 
+		"anim_ready_EmilyRN.placeHolderList[89]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotate" 
+		"anim_ready_EmilyRN.placeHolderList[90]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.rotateOrder" 
+		"anim_ready_EmilyRN.placeHolderList[91]" ""
 		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M.parentMatrix" 
-		"anim_ready_EmilyRN.placeHolderList[63]" "";
+		"anim_ready_EmilyRN.placeHolderList[92]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L.indexCurl" 
+		"anim_ready_EmilyRN.placeHolderList[93]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L.middleCurl" 
+		"anim_ready_EmilyRN.placeHolderList[94]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L.ringCurl" 
+		"anim_ready_EmilyRN.placeHolderList[95]" ""
+		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_L.pinkyCurl" 
+		"anim_ready_EmilyRN.placeHolderList[96]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
@@ -1213,10 +1376,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n"
 		+ "\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
 		+ "                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n"
-		+ "                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 0\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
+		+ "                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 0\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
 		+ "                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n"
 		+ "            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 0\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tmodelPanel -e -to $panelName;\n\t}\n"
+		+ "            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 0\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tmodelPanel -e -to $panelName;\n\t}\n"
 		+ "\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Hallway_Medium_Shot\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 0\\n    -planes 0\\n    -lights 0\\n    -cameras 0\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 0\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 0\\n    -fluids 0\\n    -hairSystems 0\\n    -follicles 0\\n    -nCloths 0\\n    -nParticles 0\\n    -nRigids 0\\n    -dynamicConstraints 0\\n    -locators 0\\n    -manipulators 0\\n    -dimensions 0\\n    -handles 0\\n    -pivots 0\\n    -textures 0\\n    -strokes 0\\n    -motionTrails 0\\n    -clipGhosts 0\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Hallway_Medium_Shot\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 0\\n    -planes 0\\n    -lights 0\\n    -cameras 0\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 0\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 0\\n    -fluids 0\\n    -hairSystems 0\\n    -follicles 0\\n    -nCloths 0\\n    -nParticles 0\\n    -nRigids 0\\n    -dynamicConstraints 0\\n    -locators 0\\n    -manipulators 0\\n    -dimensions 0\\n    -handles 0\\n    -pivots 0\\n    -textures 0\\n    -strokes 0\\n    -motionTrails 0\\n    -clipGhosts 0\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
@@ -1274,13 +1437,13 @@ createNode shadingEngine -n "lambert4SG";
 createNode materialInfo -n "materialInfo3";
 createNode animCurveTL -n "anim_ready_Emily:Main_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 2.0363795579977908 68 1.4219136291054442;
+	setAttr -s 2 ".ktv[0:1]"  1 2.0363795579977908 76 1.4219136291054442;
 createNode animCurveTL -n "anim_ready_Emily:Main_translateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 1.032626306757906;
 createNode animCurveTL -n "anim_ready_Emily:Main_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 7.5569017126263294 68 6.1008583094161111;
+	setAttr -s 2 ".ktv[0:1]"  1 7.5569017126263294 76 6.1008583094161111;
 createNode animCurveTL -n "Hallway_Medium_Shot_translateX";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 4.9844382304403698;
@@ -1311,43 +1474,52 @@ createNode materialInfo -n "materialInfo4";
 createNode animCurveTL -n "anim_ready_Emily:RootX_M_translateZ";
 	setAttr ".tan" 1;
 	setAttr -s 9 ".ktv[0:8]"  1 0.480395 31 2.1787988661866744 36 2.4242351315678854
-		 44 2.3012978308348933 52 2.3012978308348933 58 2.2668341114518977 63 2.2668341114518977
-		 69 2.9863735435372716 73 3.460812099973424;
+		 49 2.3012978308348933 61 2.3012978308348933 70 2.2668341114518977 71 2.2668341114518977
+		 77 2.9863735435372716 81 3.460812099973424;
 	setAttr -s 9 ".kit[1:8]"  18 1 1 1 18 1 1 18;
 	setAttr -s 9 ".kot[1:8]"  18 1 1 1 18 1 1 18;
 	setAttr -s 9 ".ktl[2:8]" no no yes yes no yes yes;
 	setAttr -s 9 ".kwl[2:8]" no no yes yes no yes yes;
 	setAttr -s 9 ".kix[0:8]"  0.81767153739929199 1.25 0.20833331346511841 
-		0.4027220606803894 0.49999988079071045 0.25 0.20833349227905273 0.21340370178222656 
+		0.4027220606803894 0.49999988079071045 0.375 0.20833349227905273 0.21340370178222656 
 		0.16666674613952637;
 	setAttr -s 9 ".kiy[0:8]"  1.2703061103820801 1.6661486625671387 0 
 		0 0 0 0 0.75753343105316162 0;
 	setAttr -s 9 ".kox[0:8]"  0.81767159700393677 0.20833337306976318 
-		0.2412494421005249 0.49999988079071045 0.24999988079071045 0.20833325386047363 0.33598423004150391 
+		0.2412494421005249 0.49999988079071045 0.24999988079071045 0.041666507720947266 0.33598423004150391 
 		0.079065799713134766 0.16666674613952637;
 	setAttr -s 9 ".koy[0:8]"  1.2703061103820801 0.27769148349761963 
 		0 0 0 0 0 0.28066456317901611 0;
 createNode animCurveTL -n "anim_ready_Emily:IKArm_R_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  1 0.824341 31 2.523 36 2.768 64 2.6331439486901518
-		 68 3.024634682780909 72 3.2687669884752091;
+	setAttr -s 9 ".ktv[0:8]"  1 0.824341 31 2.523 36 2.768 55 1.9547956049255135
+		 56 1.7457328278110038 58 2.0772636102486559 69 2.0772636102486559 75 2.4830028149626986
+		 81 3.7705268305944744;
+	setAttr -s 9 ".kit[3:8]"  1 18 18 1 18 18;
+	setAttr -s 9 ".kot[3:8]"  1 18 18 1 18 18;
+	setAttr -s 9 ".kix[3:8]"  0.041666746139526367 0.041666507720947266 
+		0.083333492279052734 0.625 0.25 0.25;
+	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0.84663158655166626 0;
+	setAttr -s 9 ".kox[3:8]"  0.083333253860473633 0.083333492279052734 
+		0.45833325386047363 0.54166674613952637 0.25 0.25;
+	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0.84663158655166626 0;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr -s 4 ".ktv[0:3]"  1 0.12011828178067804 16 1.686686607976124
-		 67 1.686686607976124 73 3.5132387948607664;
+		 75 1.686686607976124 81 3.5132387948607664;
 	setAttr -s 4 ".kit[1:3]"  1 18 18;
 	setAttr -s 4 ".kot[1:3]"  1 18 18;
-	setAttr -s 4 ".kix[1:3]"  0.4583333432674408 2.125 0.25;
+	setAttr -s 4 ".kix[1:3]"  0.4583333432674408 2.4583332538604736 0.25;
 	setAttr -s 4 ".kiy[1:3]"  0 0 0;
 	setAttr -s 4 ".kox[1:3]"  2.2916667461395264 0.25 0.25;
 	setAttr -s 4 ".koy[1:3]"  0 0 0;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 -0.21901699999999977 67 -0.21901699999999977
-		 73 -0.084220823257665473;
+	setAttr -s 3 ".ktv[0:2]"  1 -0.21901699999999977 75 -0.21901699999999977
+		 81 -0.084220823257665473;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateY";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 2.2204460492503114e-016 67 0 73 0.48485424220273288;
+	setAttr -s 3 ".ktv[0:2]"  1 2.2204460492503114e-016 75 0 81 0.48485424220273288;
 createNode animCurveTA -n "anim_ready_Emily:HipSwinger_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr -s 3 ".ktv[0:2]"  1 -11.270357657237591 16 42.2407026775563
@@ -1355,56 +1527,57 @@ createNode animCurveTA -n "anim_ready_Emily:HipSwinger_M_rotateX";
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateX";
 	setAttr ".tan" 18;
 	setAttr -s 3 ".ktv[0:2]"  1 -0.092557342383274718 16 -0.092557342383274718
-		 70 -0.092557342383274718;
+		 78 -0.092557342383274718;
 	setAttr -s 3 ".kit[1:2]"  1 18;
 	setAttr -s 3 ".kot[1:2]"  1 18;
-	setAttr -s 3 ".kix[1:2]"  0.4583333432674408 2.25;
+	setAttr -s 3 ".kix[1:2]"  0.4583333432674408 2.5833332538604736;
 	setAttr -s 3 ".kiy[1:2]"  0 0;
-	setAttr -s 3 ".kox[1:2]"  2.4166667461395264 2.25;
+	setAttr -s 3 ".kox[1:2]"  2.4166667461395264 2.5833332538604736;
 	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateY";
 	setAttr ".tan" 18;
 	setAttr -s 4 ".ktv[0:3]"  1 -0.047119028659082574 16 -0.047119028659082574
-		 70 -0.047119028659082574 73 0.38835738594423641;
+		 78 -0.047119028659082574 81 0.38835738594423641;
 	setAttr -s 4 ".kit[1:3]"  1 18 18;
 	setAttr -s 4 ".kot[1:3]"  1 18 18;
-	setAttr -s 4 ".kix[1:3]"  0.4583333432674408 2.25 0.125;
+	setAttr -s 4 ".kix[1:3]"  0.4583333432674408 2.5833332538604736 0.125;
 	setAttr -s 4 ".kiy[1:3]"  0 0 0;
 	setAttr -s 4 ".kox[1:3]"  2.4166667461395264 0.125 0.125;
 	setAttr -s 4 ".koy[1:3]"  0 0 0;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr -s 5 ".ktv[0:4]"  1 0.705853 16 0.705853 31 2.4509369340876801
-		 70 2.4509369340876801 73 2.6560640256457404;
+		 78 2.4509369340876801 81 2.6560640256457404;
 	setAttr -s 5 ".kit[1:4]"  1 18 18 18;
 	setAttr -s 5 ".kot[1:4]"  1 18 18 18;
 	setAttr -s 5 ".kix[1:4]"  0.4583333432674408 0.62499994039535522 
-		1.6250001192092896 0.125;
+		1.9583333730697632 0.125;
 	setAttr -s 5 ".kiy[1:4]"  0 0 0 0;
-	setAttr -s 5 ".kox[1:4]"  0.79166662693023682 1.6250001192092896 
+	setAttr -s 5 ".kox[1:4]"  0.79166662693023682 1.9583333730697632 
 		0.125 0.125;
 	setAttr -s 5 ".koy[1:4]"  0 0 0 0;
 createNode animCurveTL -n "anim_ready_Emily:PoleArm_R_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 0.900066 31 2.599 36 2.844;
+	setAttr -s 7 ".ktv[0:6]"  1 0.900066 31 2.599 36 2.844 47 2.844 52 1.5714664094994959
+		 67 1.2305303227104183 81 3.6274159296471855;
 createNode animCurveTL -n "anim_ready_Emily:RootX_M_translateY";
 	setAttr ".tan" 1;
 	setAttr -s 11 ".ktv[0:10]"  1 -0.051346306314934795 6 -0.057567295580350418
-		 12 -0.021717148407695473 21 -0.044370155702235896 28 -0.026254759099667169 52 -0.026254759099667169
-		 60 0.021021983289596587 63 0.022040910442727629 66 -0.06557177226004289 70 0.0099010928048088032
-		 73 0.077855459015216788;
+		 12 -0.021717148407695473 21 -0.044370155702235896 28 -0.026254759099667169 46 -0.026254759099667169
+		 54 0.021021983289596587 66 0.022040910442727629 73 -0.06557177226004289 77 0.0099010928048088032
+		 80 0.077855459015216788;
 	setAttr -s 11 ".kit[5:10]"  18 1 1 1 1 18;
 	setAttr -s 11 ".kot[4:10]"  18 1 18 1 1 1 18;
 	setAttr -s 11 ".ktl[1:10]" no no no no no no yes yes yes yes;
 	setAttr -s 11 ".kwl[1:10]" no no no no no no yes no yes yes;
 	setAttr -s 11 ".kix[0:10]"  0.1434302031993866 0.16179750859737396 
-		0.20861443877220154 0.32025754451751709 0.37420850992202759 1.0000001192092896 0.50704324245452881 
+		0.20861443877220154 0.32025754451751709 0.37420850992202759 0.75 0.50704324245452881 
 		0.125 0.26054048538208008 0.12998771667480469 0.125;
 	setAttr -s 11 ".kiy[0:10]"  0.00081292481627315283 0 0 0 0 0 0.012399363331496716 
 		0 0 0.070408321917057037 0;
 	setAttr -s 11 ".kox[0:10]"  0.1434301882982254 0.18573965132236481 
-		0.24045258760452271 0.2104688435792923 1.0000001192092896 0.12744686007499695 0.125 
-		0.1250002384185791 0.26627755165100098 0.03787994384765625 0.125;
+		0.24045258760452271 0.2104688435792923 0.75 0.12744686007499695 0.5 0.1250002384185791 
+		0.26627755165100098 0.03787994384765625 0.125;
 	setAttr -s 11 ".koy[0:10]"  0.00081292568938806653 0 0 0 0 0.023154396563768387 
 		0.0030567813664674759 0 0 0.020517721772193909 0;
 createNode animCurveTL -n "anim_ready_Emily:RootX_M_translateX";
@@ -1423,29 +1596,52 @@ createNode animCurveTL -n "anim_ready_Emily:RootX_M_translateX";
 createNode pairBlend -n "pairBlend1";
 createNode animCurveTA -n "anim_ready_Emily:FKHead_M_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  31 4.401742 41 -54.799940925012557 64 -54.799940925012557
-		 68 -38.196285408957117 72 -18.538263331367673;
-	setAttr -s 5 ".kit[4]"  1;
-	setAttr -s 5 ".kot[2:4]"  1 18 1;
-	setAttr -s 5 ".ktl[2:4]" no yes yes;
-	setAttr -s 5 ".kwl[2:4]" no yes yes;
-	setAttr -s 5 ".kix[4]"  0.25;
-	setAttr -s 5 ".kiy[4]"  0;
-	setAttr -s 5 ".kox[2:4]"  0.33542364835739136 0.16666674613952637 
+	setAttr -s 8 ".ktv[0:7]"  31 4.401742 35 -24.834137992492739 39 -54.799940925012557
+		 47 -54.799940925012557 52 -54.352548870242579 72 -54.799940925012557 76 -38.196285408957117
+		 80 -18.538263331367673;
+	setAttr -s 8 ".kit[7]"  1;
+	setAttr -s 8 ".kot[5:7]"  1 18 1;
+	setAttr -s 8 ".ktl[5:7]" no yes yes;
+	setAttr -s 8 ".kwl[5:7]" no yes yes;
+	setAttr -s 8 ".kix[7]"  0.25;
+	setAttr -s 8 ".kiy[7]"  0;
+	setAttr -s 8 ".kox[5:7]"  0.33542364835739136 0.16666650772094727 
 		0.25;
-	setAttr -s 5 ".koy[2:4]"  0 0.3164430558681488 0;
+	setAttr -s 8 ".koy[5:7]"  0 0.31644260883331299 0;
 createNode animCurveTA -n "anim_ready_Emily:FKHead_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  31 -0.166831 41 0.70355949199926149 63 0.70355949199926149
-		 68 5.5741684641952345 72 -4.4935365749480125;
+	setAttr -s 9 ".ktv[0:8]"  31 -0.166831 35 4.4237923857195227 39 0.70355949199926149
+		 47 0.70355949199926149 52 -0.50645559999362033 63 -0.50645559999362033 68 0.70355949199926149
+		 76 5.5741684641952345 80 -4.4935365749480125;
+	setAttr -s 9 ".kit[4:8]"  1 1 1 18 18;
+	setAttr -s 9 ".kot[4:8]"  1 1 1 18 18;
+	setAttr -s 9 ".kix[4:8]"  0.20833337306976318 0.29166698455810547 
+		0.20833325386047363 0.33333349227905273 0.16666650772094727;
+	setAttr -s 9 ".kiy[4:8]"  0 0.013451526872813702 0.022109765559434891 
+		0 0;
+	setAttr -s 9 ".kox[4:8]"  0.29166662693023682 0.20833325386047363 
+		0.5 0.16666650772094727 0.16666650772094727;
+	setAttr -s 9 ".koy[4:8]"  0 0.0096082305535674095 0.053063463419675827 
+		0 0;
 createNode animCurveTA -n "anim_ready_Emily:FKHead_M_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  31 10.129616 41 -8.3187261826776684 63 -8.3187261826776684
-		 68 -2.1643848555996894 72 -23.506419859198409;
+	setAttr -s 9 ".ktv[0:8]"  31 10.129616 35 9.7976618509699929 39 -8.3187261826776684
+		 47 -8.3187261826776684 52 -20.54416318235246 63 -18.689865934022453 68 -8.3187261826776684
+		 76 -2.1643848555996894 80 -23.506419859198409;
+	setAttr -s 9 ".kit[4:8]"  1 1 1 18 18;
+	setAttr -s 9 ".kot[4:8]"  1 1 1 18 18;
+	setAttr -s 9 ".kix[4:8]"  0.20833337306976318 0.29166698455810547 
+		0.20833325386047363 0.33333349227905273 0.16666650772094727;
+	setAttr -s 9 ".kiy[4:8]"  0 0.16787160933017731 0.066830739378929138 
+		0 0;
+	setAttr -s 9 ".kox[4:8]"  0.29166662693023682 0.20833325386047363 
+		0.5 0.16666650772094727 0.16666650772094727;
+	setAttr -s 9 ".koy[4:8]"  0 0.11990826576948166 0.1603938490152359 
+		0 0;
 createNode animCurveTA -n "anim_ready_Emily:FKSpine1_M_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  31 -6.747108 41 -31.726050350122669 64 -31.726050350122669
-		 66 -26.647682332048326 72 -5.9605854771079683;
+	setAttr -s 5 ".ktv[0:4]"  31 -6.747108 39 -31.726050350122669 72 -31.726050350122669
+		 74 -26.647682332048326 80 -5.9605854771079683;
 	setAttr -s 5 ".kit[4]"  1;
 	setAttr -s 5 ".kot[2:4]"  1 18 1;
 	setAttr -s 5 ".ktl[2:4]" no yes yes;
@@ -1456,8 +1652,8 @@ createNode animCurveTA -n "anim_ready_Emily:FKSpine1_M_rotateX";
 	setAttr -s 5 ".koy[2:4]"  0 0.33726921677589417 0;
 createNode animCurveTA -n "anim_ready_Emily:FKChest_M_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  31 0 41 -21.468869414898482 65 -21.468869414898482
-		 66 -20.790078499404856 73 3.9982769039588728;
+	setAttr -s 5 ".ktv[0:4]"  31 0 39 -21.468869414898482 73 -21.468869414898482
+		 74 -20.790078499404856 81 3.9982769039588728;
 	setAttr -s 5 ".kit[4]"  1;
 	setAttr -s 5 ".kot[2:4]"  1 18 1;
 	setAttr -s 5 ".ktl[2:4]" no yes yes;
@@ -1466,51 +1662,53 @@ createNode animCurveTA -n "anim_ready_Emily:FKChest_M_rotateX";
 	setAttr -s 5 ".kiy[4]"  0;
 	setAttr -s 5 ".kox[2:4]"  0.49023455381393433 0.29166674613952637 
 		0.70833325386047363;
-	setAttr -s 5 ".koy[2:4]"  0 0.2487894594669342 0;
+	setAttr -s 5 ".koy[2:4]"  0 0.24879087507724762 0;
 createNode animCurveTA -n "anim_ready_Emily:FKNeck_M_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 4 ".ktv[0:3]"  31 0 41 -19.338071629574873 64 -19.338071629574873
-		 71 6.221928616770283;
-	setAttr -s 4 ".kit[2:3]"  1 1;
-	setAttr -s 4 ".kot[2:3]"  1 1;
-	setAttr -s 4 ".ktl[2:3]" no yes;
-	setAttr -s 4 ".kwl[2:3]" no yes;
-	setAttr -s 4 ".kix[2:3]"  0.875 0.70833325386047363;
-	setAttr -s 4 ".kiy[2:3]"  0 0;
-	setAttr -s 4 ".kox[2:3]"  0.466621994972229 0.70833325386047363;
-	setAttr -s 4 ".koy[2:3]"  0 0;
+	setAttr -s 6 ".ktv[0:5]"  31 0 39 -19.258090372865492 47 -19.283200514832345
+		 52 -19.551548200355619 72 -19.338071629574873 79 6.221928616770283;
+	setAttr -s 6 ".kit[4:5]"  1 1;
+	setAttr -s 6 ".kot[4:5]"  1 1;
+	setAttr -s 6 ".ktl[4:5]" no yes;
+	setAttr -s 6 ".kwl[4:5]" no yes;
+	setAttr -s 6 ".kix[4:5]"  0.875 0.70833325386047363;
+	setAttr -s 6 ".kiy[4:5]"  0 0;
+	setAttr -s 6 ".kox[4:5]"  0.466621994972229 0.70833325386047363;
+	setAttr -s 6 ".koy[4:5]"  0 0;
 createNode animCurveTA -n "anim_ready_Emily:FKNeck_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  31 -6.2844670000000011;
+	setAttr -s 4 ".ktv[0:3]"  31 -6.2844670000000011 39 -3.6592858044048437
+		 47 -3.6592858044048437 52 1.7962817494259524;
 createNode animCurveTA -n "anim_ready_Emily:FKNeck_M_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  31 7.7575800000000008;
+	setAttr -s 4 ".ktv[0:3]"  31 7.7575800000000008 39 6.8349821848017767
+		 47 6.8349821848017767 52 22.208068210674806;
 createNode animCurveTA -n "anim_ready_Emily:FKRoot_M_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  31 0 41 -24.016319650310191 63 -24.016319650310191
-		 66 -15.400617788309532 71 1.5436805960349638 72 1.5015504827865769;
+	setAttr -s 6 ".ktv[0:5]"  31 0 39 -24.016319650310191 71 -24.016319650310191
+		 74 -15.400617788309532 79 1.5436805960349638 80 1.5015504827865769;
 	setAttr -s 6 ".kit[4:5]"  1 18;
 	setAttr -s 6 ".kot[2:5]"  1 18 1 18;
 	setAttr -s 6 ".ktl[2:5]" no yes yes yes;
 	setAttr -s 6 ".kwl[2:5]" no yes yes yes;
-	setAttr -s 6 ".kix[4:5]"  0.70833325386047363 0.041666746139526367;
+	setAttr -s 6 ".kix[4:5]"  0.70833325386047363 0.041666507720947266;
 	setAttr -s 6 ".kiy[4:5]"  0 0;
-	setAttr -s 6 ".kox[2:5]"  0.53917109966278076 0.20833325386047363 
-		0.70833325386047363 0.041666746139526367;
-	setAttr -s 6 ".koy[2:5]"  0 0.27881631255149841 0 0;
+	setAttr -s 6 ".kox[2:5]"  0.53917109966278076 0.20833349227905273 
+		0.70833325386047363 0.041666507720947266;
+	setAttr -s 6 ".koy[2:5]"  0 0.27881643176078796 0 0;
 createNode animCurveTU -n "anim_ready_Emily:IKLeg_R_roll";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  65 0 68 10 73 0;
+	setAttr -s 3 ".ktv[0:2]"  73 0 76 10 81 0;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  67 0 73 44.797315250100731;
+	setAttr -s 2 ".ktv[0:1]"  75 0 81 44.797315250100731;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 6.5822277529254807 67 6.5822277529254807
-		 73 10.763986000479008;
+	setAttr -s 3 ".ktv[0:2]"  1 6.5822277529254807 75 6.5822277529254807
+		 81 10.763986000479008;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 0 67 0 73 4.4015739463730119;
+	setAttr -s 3 ".ktv[0:2]"  1 0 75 0 81 4.4015739463730119;
 createNode mute -n "Main_translateX";
 	setAttr ".ihi" 0;
 	setAttr ".h" 1.4219136291054442;
@@ -1543,8 +1741,8 @@ createNode shadingEngine -n "blinn1SG";
 createNode materialInfo -n "materialInfo5";
 createNode animCurveTL -n "pCylinder1_translateX";
 	setAttr ".tan" 1;
-	setAttr -s 3 ".ktv[0:2]"  35 3.4869946754086958 41 3.327589683594824
-		 74 2.0127079653531625;
+	setAttr -s 3 ".ktv[0:2]"  51 3.4869946754086958 57 3.327589683594824
+		 90 2.0127079653531625;
 	setAttr -s 3 ".kix[0:2]"  0.54166674613952637 0.24913893640041351 
 		0.87736713886260986;
 	setAttr -s 3 ".kiy[0:2]"  0 -0.014401846565306187 -1.8381541967391968;
@@ -1553,7 +1751,7 @@ createNode animCurveTL -n "pCylinder1_translateX";
 	setAttr -s 3 ".koy[0:2]"  0 -0.017037810757756233 -1.8381550312042236;
 createNode animCurveTL -n "pCylinder1_translateY";
 	setAttr ".tan" 1;
-	setAttr -s 2 ".ktv[0:1]"  48 2.834625021518355 74 3.0737501105121643;
+	setAttr -s 2 ".ktv[0:1]"  64 2.834625021518355 90 3.0737501105121643;
 	setAttr -s 2 ".kit[0:1]"  18 1;
 	setAttr -s 2 ".ktl[0:1]" no yes;
 	setAttr -s 2 ".kwl[0:1]" no yes;
@@ -1563,8 +1761,8 @@ createNode animCurveTL -n "pCylinder1_translateY";
 	setAttr -s 2 ".koy[0:1]"  0 0.32546433806419373;
 createNode animCurveTL -n "pCylinder1_translateZ";
 	setAttr ".tan" 1;
-	setAttr -s 3 ".ktv[0:2]"  35 20.401716552065263 41 19.698620663448786
-		 74 12.933888965141904;
+	setAttr -s 3 ".ktv[0:2]"  51 20.401716552065263 57 19.698620663448786
+		 90 12.933888965141904;
 	setAttr -s 3 ".kix[0:2]"  0.54166674613952637 0.21791106462478638 
 		0.69779312610626221;
 	setAttr -s 3 ".kiy[0:2]"  0 -0.38938635587692261 -13.871975898742676;
@@ -1573,77 +1771,177 @@ createNode animCurveTL -n "pCylinder1_translateZ";
 	setAttr -s 3 ".koy[0:2]"  0 -0.51325434446334839 -13.87197208404541;
 createNode animCurveTA -n "pCylinder1_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  48 -26.212896866559788;
+	setAttr ".ktv[0]"  64 -26.212896866559788;
 createNode animCurveTA -n "pCylinder1_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  48 6.7036097274824638;
+	setAttr ".ktv[0]"  64 6.7036097274824638;
 createNode animCurveTA -n "pCylinder1_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  48 11.124871290222885;
+	setAttr ".ktv[0]"  64 11.124871290222885;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  70 0 73 64.659180050206103;
+	setAttr -s 2 ".ktv[0:1]"  78 0 81 64.659180050206103;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  70 14.376011022419252;
+	setAttr ".ktv[0]"  78 14.376011022419252;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  70 0;
+	setAttr ".ktv[0]"  78 0;
 createNode animCurveTA -n "anim_ready_Emily:FKRoot_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 72 0.35822522227437803;
+	setAttr -s 2 ".ktv[0:1]"  74 0 80 0.35822522227437803;
 createNode animCurveTA -n "anim_ready_Emily:FKRoot_M_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 72 -13.415203975572677;
+	setAttr -s 2 ".ktv[0:1]"  74 0 80 -13.415203975572677;
 createNode animCurveTA -n "anim_ready_Emily:FKSpine1_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 72 -1.5813357407733422;
+	setAttr -s 2 ".ktv[0:1]"  74 0 80 -1.5813357407733422;
 createNode animCurveTA -n "anim_ready_Emily:FKSpine1_M_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 72 -14.805141616578256;
+	setAttr -s 2 ".ktv[0:1]"  74 0 80 -14.805141616578256;
 createNode animCurveTA -n "anim_ready_Emily:FKChest_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 73 -0.86738396187159794;
+	setAttr -s 2 ".ktv[0:1]"  74 0 81 -0.86738396187159794;
 createNode animCurveTA -n "anim_ready_Emily:FKChest_M_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  66 0 73 12.22032013444008;
+	setAttr -s 2 ".ktv[0:1]"  74 0 81 12.22032013444008;
 createNode animCurveTL -n "pairBlend1_inTranslateX1";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 0.92640271761530213 72 0.44351529948774854;
+	setAttr -s 7 ".ktv[0:6]"  52 0.41689763451616307 55 0.49761391184008458
+		 56 0.81763508792857076 57 0.88760712713663392 58 0.92640271761530535 69 0.92640271761530535
+		 81 0.67354953861514411;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 18 1 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 18 1 18;
+	setAttr -s 7 ".kix[1:6]"  0.041666746139526367 0.041666507720947266 
+		0.041666746139526367 0.041666746139526367 0.54166674613952637 0.5;
+	setAttr -s 7 ".kiy[1:6]"  0.16920377314090729 0.19499604403972626 
+		0.054383814334869385 0 0 0;
+	setAttr -s 7 ".kox[1:6]"  0.041666746139526367 0.041666746139526367 
+		0.041666746139526367 0.45833325386047363 0.54166674613952637 0.5;
+	setAttr -s 7 ".koy[1:6]"  0.16920377314090729 0.1949971616268158 
+		0.054383814334869385 0 0 0;
 createNode animCurveTL -n "pairBlend1_inTranslateY1";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  64 -0.42330592694298375 68 -0.71083899335817291
-		 72 -0.52129710187927447;
+	setAttr -s 7 ".ktv[0:6]"  52 0.1874114335291279 55 0.18673465513874318
+		 56 0.28563539073118666 58 0.2506003656480531 69 0.2506003656480531 75 0.26793298795246495
+		 81 0.32406956538821774;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kix[1:6]"  0.16666662693023682 0.041666507720947266 
+		0.083333492279052734 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".kiy[1:6]"  0 0 0 0 0.036734599620103836 0;
+	setAttr -s 7 ".kox[1:6]"  0.083333253860473633 0.083333492279052734 
+		0.45833325386047363 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  0 0 0 0 0.036734599620103836 0;
 createNode animCurveTA -n "pairBlend1_inRotateX1";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 62.583235000000009 72 83.838481948821965;
+	setAttr -s 7 ".ktv[0:6]"  52 39.278203029614524 55 -21.244431135947284
+		 56 -58.944278117600646 58 56.747641171898643 69 56.747641171898643 75 91.027823692921004
+		 81 89.549736050034909;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kix[1:6]"  0.041666746139526367 0.041666507720947266 
+		0.083333492279052734 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".kiy[1:6]"  0.51584839820861816 0 0 0 0 0;
+	setAttr -s 7 ".kox[1:6]"  0.083333253860473633 0.083333492279052734 
+		0.45833325386047363 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  1.0316938161849976 0 0 0 0 0;
 createNode animCurveTA -n "pairBlend1_inRotateY1";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 166.609973 72 35.631162494642176;
+	setAttr -s 7 ".ktv[0:6]"  52 -12.494929025075105 55 26.698074709713154
+		 56 52.581863886405351 58 -24.381564863354072 69 -24.381564863354072 75 -44.733321893817994
+		 81 -79.114679837132542;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kix[1:6]"  0.041666746139526367 0.041666507720947266 
+		0.083333492279052734 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".kiy[1:6]"  -0.35078063607215881 0 0 0 -0.47763654589653015 
+		0;
+	setAttr -s 7 ".kox[1:6]"  0.083333253860473633 0.083333492279052734 
+		0.45833325386047363 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  -0.70155924558639526 0 0 0 -0.47763654589653015 
+		0;
 createNode animCurveTA -n "pairBlend1_inRotateZ1";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 -18.013405999999989 72 33.198437702360152;
+	setAttr -s 7 ".ktv[0:6]"  52 8.3621403506995051 55 -28.697178109989963
+		 56 -43.601922664435449 58 -162.71176971291848 69 -162.71176971291848 75 -191.17294418063935
+		 81 -254.4584070798943;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 1 18 18;
+	setAttr -s 7 ".kix[1:6]"  0.041666746139526367 0.041666507720947266 
+		0.083333492279052734 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".kiy[1:6]"  -0.99344342947006226 -0.77966231107711792 
+		0 0 -0.80064046382904053 0;
+	setAttr -s 7 ".kox[1:6]"  0.083333253860473633 0.083333492279052734 
+		0.45833325386047363 0.54166674613952637 0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  -1.9868811368942261 -1.5593335628509521 
+		0 0 -0.80064046382904053 0;
 createNode animCurveTU -n "anim_ready_Emily:IKArm_R_blendParent1";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  63 1 64 0;
+	setAttr -s 3 ".ktv[0:2]"  47 1 58 0 69 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  0.375;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  0.5;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "anim_ready_Emily:FKScapula_R_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  64 -0.00052544099999999997;
+	setAttr -s 3 ".ktv[0:2]"  47 -0.00052544099999999997 58 -0.00052544099999999997
+		 72 -0.00052544099999999997;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  0.45833325386047363;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  0.58333349227905273;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "anim_ready_Emily:FKScapula_R_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  64 0.00160491;
+	setAttr -s 3 ".ktv[0:2]"  47 0.00160491 58 0.00160491 72 0.00160491;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  0.45833325386047363;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  0.58333349227905273;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "anim_ready_Emily:FKScapula_R_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  64 0.0211679;
+	setAttr -s 3 ".ktv[0:2]"  47 0.0211679 58 0.0211679 72 0.0211679;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  0.45833325386047363;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  0.58333349227905273;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTA -n "anim_ready_Emily:FKScapula_R_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  64 0;
+	setAttr -s 3 ".ktv[0:2]"  47 0 58 0 72 2.4130206862785286;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  0.45833325386047363;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  0.58333349227905273;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTA -n "anim_ready_Emily:FKScapula_R_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 0 72 7.5810069735994725;
+	setAttr -s 4 ".ktv[0:3]"  47 0 58 -24.149859548122787 72 -24.036196414219368
+		 80 7.5810069735994725;
+	setAttr -s 4 ".kit[2:3]"  1 18;
+	setAttr -s 4 ".kot[2:3]"  1 18;
+	setAttr -s 4 ".kix[2:3]"  0.45833325386047363 0.33333325386047363;
+	setAttr -s 4 ".kiy[2:3]"  0 0;
+	setAttr -s 4 ".kox[2:3]"  0.58333349227905273 0.33333325386047363;
+	setAttr -s 4 ".koy[2:3]"  0 0;
 createNode animCurveTA -n "anim_ready_Emily:FKScapula_R_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  64 21.470335 72 -6.6871296429521951;
+	setAttr -s 4 ".ktv[0:3]"  47 21.470335 58 21.470335 72 16.077385510945099
+		 80 -6.6871296429521951;
+	setAttr -s 4 ".kit[2:3]"  1 18;
+	setAttr -s 4 ".kot[2:3]"  1 18;
+	setAttr -s 4 ".kix[2:3]"  0.45833325386047363 0.33333325386047363;
+	setAttr -s 4 ".kiy[2:3]"  0 0;
+	setAttr -s 4 ".kox[2:3]"  0.58333349227905273 0.33333325386047363;
+	setAttr -s 4 ".koy[2:3]"  0 0;
 createNode animCurveTL -n "pCylinder2_translateX";
 	setAttr ".tan" 18;
 	setAttr -s 2 ".ktv[0:1]"  40 4.3881464000526647 60 1.9228526237425361;
@@ -1657,7 +1955,7 @@ createNode animCurveTL -n "pCylinder2_translateY";
 createNode animCurveTL -n "pCylinder2_translateZ";
 	setAttr ".tan" 18;
 	setAttr -s 3 ".ktv[0:2]"  40 12.933888965141904 60 12.933888965141904
-		 73 10.338200685946649;
+		 73 10.338200685946648;
 createNode animCurveTA -n "pCylinder2_rotateX";
 	setAttr ".tan" 18;
 	setAttr -s 4 ".ktv[0:3]"  40 -121.14985804289618 53 -122.40979776742562
@@ -1668,6 +1966,108 @@ createNode animCurveTA -n "pCylinder2_rotateY";
 createNode animCurveTA -n "pCylinder2_rotateZ";
 	setAttr ".tan" 18;
 	setAttr -s 2 ".ktv[0:1]"  40 -5.1377819015544546 60 8.2347628391394814;
+createNode animCurveTL -n "anim_ready_Emily:PoleArm_R_translateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 -1.0677663897845602;
+createNode animCurveTL -n "anim_ready_Emily:PoleArm_R_translateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 2.6645352591003757e-015 55 -1.0430962738154257;
+createNode animCurveTA -n "anim_ready_Emily:FKShoulder_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 20.257184 58 66.708856978754824;
+createNode animCurveTA -n "anim_ready_Emily:FKShoulder_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 87.641938 58 20.617768645776042;
+createNode animCurveTA -n "anim_ready_Emily:FKShoulder_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 4.428863 58 -12.089882245327736;
+createNode animCurveTA -n "anim_ready_Emily:FKElbow_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  47 -51.198091 58 4.2230629556067569 73 4.2230629556067569
+		 76 11.174030897607121;
+createNode animCurveTA -n "anim_ready_Emily:FKElbow_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  47 18.51485 58 33.367914888999628 73 33.367914888999628
+		 76 31.898820757376821;
+createNode animCurveTA -n "anim_ready_Emily:FKElbow_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  47 0.55156 58 101.75031698129511 73 101.75031698129511
+		 76 114.60074429808897;
+createNode animCurveTA -n "anim_ready_Emily:FKWrist_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 68.411;
+createNode animCurveTA -n "anim_ready_Emily:FKWrist_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 -8.093;
+createNode animCurveTA -n "anim_ready_Emily:FKWrist_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 23.612;
+createNode animCurveTU -n "anim_ready_Emily:Fingers_L_indexCurl";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 1.5 58 1.2;
+createNode animCurveTU -n "anim_ready_Emily:Fingers_L_middleCurl";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 1.5 58 1.2;
+createNode animCurveTU -n "anim_ready_Emily:Fingers_L_ringCurl";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 1.5 58 1.2;
+createNode animCurveTU -n "anim_ready_Emily:Fingers_L_pinkyCurl";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 1.5 58 1.2;
+createNode animCurveTA -n "anim_ready_Emily:FKPinkyFinger3_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKIndexFinger3_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKMiddleFinger3_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKRingFinger3_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKPinkyFinger3_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 72;
+createNode animCurveTA -n "anim_ready_Emily:FKIndexFinger3_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 72;
+createNode animCurveTA -n "anim_ready_Emily:FKMiddleFinger3_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 72;
+createNode animCurveTA -n "anim_ready_Emily:FKRingFinger3_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 72;
+createNode animCurveTA -n "anim_ready_Emily:FKPinkyFinger3_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKIndexFinger3_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKMiddleFinger3_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKRingFinger3_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTL -n "anim_ready_Emily:FKScapula_L_translateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTL -n "anim_ready_Emily:FKScapula_L_translateY";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTL -n "anim_ready_Emily:FKScapula_L_translateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  47 0 58 -0.076259541979170564;
+createNode animCurveTA -n "anim_ready_Emily:FKScapula_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKScapula_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 0;
+createNode animCurveTA -n "anim_ready_Emily:FKScapula_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  47 22.170691;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -1924,54 +2324,114 @@ connectAttr "anim_ready_Emily:FKScapula_R_translateY.o" "anim_ready_EmilyRN.phl[
 		;
 connectAttr "anim_ready_Emily:FKScapula_R_translateZ.o" "anim_ready_EmilyRN.phl[26]"
 		;
-connectAttr "pairBlend1.otx" "anim_ready_EmilyRN.phl[27]";
-connectAttr "pairBlend1.oty" "anim_ready_EmilyRN.phl[28]";
-connectAttr "pairBlend1.otz" "anim_ready_EmilyRN.phl[29]";
-connectAttr "anim_ready_EmilyRN.phl[30]" "IKArm_R_parentConstraint1.crp";
-connectAttr "anim_ready_EmilyRN.phl[31]" "IKArm_R_parentConstraint1.crt";
-connectAttr "pairBlend1.orx" "anim_ready_EmilyRN.phl[32]";
-connectAttr "pairBlend1.ory" "anim_ready_EmilyRN.phl[33]";
-connectAttr "pairBlend1.orz" "anim_ready_EmilyRN.phl[34]";
-connectAttr "anim_ready_EmilyRN.phl[35]" "pairBlend1.ro";
-connectAttr "anim_ready_EmilyRN.phl[36]" "IKArm_R_parentConstraint1.cro";
-connectAttr "anim_ready_Emily:IKArm_R_blendParent1.o" "anim_ready_EmilyRN.phl[37]"
+connectAttr "anim_ready_Emily:FKScapula_L_rotateX.o" "anim_ready_EmilyRN.phl[27]"
 		;
-connectAttr "anim_ready_EmilyRN.phl[38]" "pairBlend1.w";
-connectAttr "anim_ready_EmilyRN.phl[39]" "IKArm_R_parentConstraint1.cpim";
-connectAttr "anim_ready_Emily:PoleArm_R_translateZ.o" "anim_ready_EmilyRN.phl[40]"
+connectAttr "anim_ready_Emily:FKScapula_L_rotateY.o" "anim_ready_EmilyRN.phl[28]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_R_translateX.o" "anim_ready_EmilyRN.phl[41]"
+connectAttr "anim_ready_Emily:FKScapula_L_rotateZ.o" "anim_ready_EmilyRN.phl[29]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_R_translateY.o" "anim_ready_EmilyRN.phl[42]"
+connectAttr "anim_ready_Emily:FKScapula_L_translateX.o" "anim_ready_EmilyRN.phl[30]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_R_translateZ.o" "anim_ready_EmilyRN.phl[43]"
+connectAttr "anim_ready_Emily:FKScapula_L_translateY.o" "anim_ready_EmilyRN.phl[31]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_R_rotateX.o" "anim_ready_EmilyRN.phl[44]";
-connectAttr "anim_ready_Emily:IKLeg_R_rotateY.o" "anim_ready_EmilyRN.phl[45]";
-connectAttr "anim_ready_Emily:IKLeg_R_rotateZ.o" "anim_ready_EmilyRN.phl[46]";
-connectAttr "anim_ready_Emily:IKLeg_R_roll.o" "anim_ready_EmilyRN.phl[47]";
-connectAttr "anim_ready_Emily:IKLeg_L_translateX.o" "anim_ready_EmilyRN.phl[48]"
+connectAttr "anim_ready_Emily:FKScapula_L_translateZ.o" "anim_ready_EmilyRN.phl[32]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_L_translateY.o" "anim_ready_EmilyRN.phl[49]"
+connectAttr "anim_ready_Emily:FKShoulder_L_rotateX.o" "anim_ready_EmilyRN.phl[33]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_L_translateZ.o" "anim_ready_EmilyRN.phl[50]"
+connectAttr "anim_ready_Emily:FKShoulder_L_rotateY.o" "anim_ready_EmilyRN.phl[34]"
 		;
-connectAttr "anim_ready_Emily:IKLeg_L_rotateX.o" "anim_ready_EmilyRN.phl[51]";
-connectAttr "anim_ready_Emily:IKLeg_L_rotateY.o" "anim_ready_EmilyRN.phl[52]";
-connectAttr "anim_ready_Emily:IKLeg_L_rotateZ.o" "anim_ready_EmilyRN.phl[53]";
-connectAttr "anim_ready_EmilyRN.phl[54]" "IKArm_R_parentConstraint1.tg[0].ts";
-connectAttr "anim_ready_EmilyRN.phl[55]" "IKArm_R_parentConstraint1.tg[0].tt";
-connectAttr "anim_ready_Emily:RootX_M_translateX.o" "anim_ready_EmilyRN.phl[56]"
+connectAttr "anim_ready_Emily:FKShoulder_L_rotateZ.o" "anim_ready_EmilyRN.phl[35]"
 		;
-connectAttr "anim_ready_Emily:RootX_M_translateY.o" "anim_ready_EmilyRN.phl[57]"
+connectAttr "anim_ready_Emily:FKElbow_L_rotateX.o" "anim_ready_EmilyRN.phl[36]";
+connectAttr "anim_ready_Emily:FKElbow_L_rotateY.o" "anim_ready_EmilyRN.phl[37]";
+connectAttr "anim_ready_Emily:FKElbow_L_rotateZ.o" "anim_ready_EmilyRN.phl[38]";
+connectAttr "anim_ready_Emily:FKWrist_L_rotateX.o" "anim_ready_EmilyRN.phl[39]";
+connectAttr "anim_ready_Emily:FKWrist_L_rotateY.o" "anim_ready_EmilyRN.phl[40]";
+connectAttr "anim_ready_Emily:FKWrist_L_rotateZ.o" "anim_ready_EmilyRN.phl[41]";
+connectAttr "anim_ready_Emily:FKIndexFinger3_L_rotateY.o" "anim_ready_EmilyRN.phl[42]"
 		;
-connectAttr "anim_ready_Emily:RootX_M_translateZ.o" "anim_ready_EmilyRN.phl[58]"
+connectAttr "anim_ready_Emily:FKIndexFinger3_L_rotateX.o" "anim_ready_EmilyRN.phl[43]"
 		;
-connectAttr "anim_ready_EmilyRN.phl[59]" "IKArm_R_parentConstraint1.tg[0].trp";
-connectAttr "anim_ready_EmilyRN.phl[60]" "IKArm_R_parentConstraint1.tg[0].trt";
-connectAttr "anim_ready_EmilyRN.phl[61]" "IKArm_R_parentConstraint1.tg[0].tr";
-connectAttr "anim_ready_EmilyRN.phl[62]" "IKArm_R_parentConstraint1.tg[0].tro";
-connectAttr "anim_ready_EmilyRN.phl[63]" "IKArm_R_parentConstraint1.tg[0].tpm";
+connectAttr "anim_ready_Emily:FKIndexFinger3_L_rotateZ.o" "anim_ready_EmilyRN.phl[44]"
+		;
+connectAttr "anim_ready_Emily:FKMiddleFinger3_L_rotateY.o" "anim_ready_EmilyRN.phl[45]"
+		;
+connectAttr "anim_ready_Emily:FKMiddleFinger3_L_rotateX.o" "anim_ready_EmilyRN.phl[46]"
+		;
+connectAttr "anim_ready_Emily:FKMiddleFinger3_L_rotateZ.o" "anim_ready_EmilyRN.phl[47]"
+		;
+connectAttr "anim_ready_Emily:FKRingFinger3_L_rotateY.o" "anim_ready_EmilyRN.phl[48]"
+		;
+connectAttr "anim_ready_Emily:FKRingFinger3_L_rotateX.o" "anim_ready_EmilyRN.phl[49]"
+		;
+connectAttr "anim_ready_Emily:FKRingFinger3_L_rotateZ.o" "anim_ready_EmilyRN.phl[50]"
+		;
+connectAttr "anim_ready_Emily:FKPinkyFinger3_L_rotateY.o" "anim_ready_EmilyRN.phl[51]"
+		;
+connectAttr "anim_ready_Emily:FKPinkyFinger3_L_rotateX.o" "anim_ready_EmilyRN.phl[52]"
+		;
+connectAttr "anim_ready_Emily:FKPinkyFinger3_L_rotateZ.o" "anim_ready_EmilyRN.phl[53]"
+		;
+connectAttr "pairBlend1.otx" "anim_ready_EmilyRN.phl[54]";
+connectAttr "pairBlend1.oty" "anim_ready_EmilyRN.phl[55]";
+connectAttr "pairBlend1.otz" "anim_ready_EmilyRN.phl[56]";
+connectAttr "anim_ready_EmilyRN.phl[57]" "IKArm_R_parentConstraint1.crp";
+connectAttr "anim_ready_EmilyRN.phl[58]" "IKArm_R_parentConstraint1.crt";
+connectAttr "pairBlend1.orx" "anim_ready_EmilyRN.phl[59]";
+connectAttr "pairBlend1.ory" "anim_ready_EmilyRN.phl[60]";
+connectAttr "pairBlend1.orz" "anim_ready_EmilyRN.phl[61]";
+connectAttr "anim_ready_EmilyRN.phl[62]" "pairBlend1.ro";
+connectAttr "anim_ready_EmilyRN.phl[63]" "IKArm_R_parentConstraint1.cro";
+connectAttr "anim_ready_Emily:IKArm_R_blendParent1.o" "anim_ready_EmilyRN.phl[64]"
+		;
+connectAttr "anim_ready_EmilyRN.phl[65]" "pairBlend1.w";
+connectAttr "anim_ready_EmilyRN.phl[66]" "IKArm_R_parentConstraint1.cpim";
+connectAttr "anim_ready_Emily:PoleArm_R_translateX.o" "anim_ready_EmilyRN.phl[67]"
+		;
+connectAttr "anim_ready_Emily:PoleArm_R_translateY.o" "anim_ready_EmilyRN.phl[68]"
+		;
+connectAttr "anim_ready_Emily:PoleArm_R_translateZ.o" "anim_ready_EmilyRN.phl[69]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_R_translateX.o" "anim_ready_EmilyRN.phl[70]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_R_translateY.o" "anim_ready_EmilyRN.phl[71]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_R_translateZ.o" "anim_ready_EmilyRN.phl[72]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_R_rotateX.o" "anim_ready_EmilyRN.phl[73]";
+connectAttr "anim_ready_Emily:IKLeg_R_rotateY.o" "anim_ready_EmilyRN.phl[74]";
+connectAttr "anim_ready_Emily:IKLeg_R_rotateZ.o" "anim_ready_EmilyRN.phl[75]";
+connectAttr "anim_ready_Emily:IKLeg_R_roll.o" "anim_ready_EmilyRN.phl[76]";
+connectAttr "anim_ready_Emily:IKLeg_L_translateX.o" "anim_ready_EmilyRN.phl[77]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_L_translateY.o" "anim_ready_EmilyRN.phl[78]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_L_translateZ.o" "anim_ready_EmilyRN.phl[79]"
+		;
+connectAttr "anim_ready_Emily:IKLeg_L_rotateX.o" "anim_ready_EmilyRN.phl[80]";
+connectAttr "anim_ready_Emily:IKLeg_L_rotateY.o" "anim_ready_EmilyRN.phl[81]";
+connectAttr "anim_ready_Emily:IKLeg_L_rotateZ.o" "anim_ready_EmilyRN.phl[82]";
+connectAttr "anim_ready_EmilyRN.phl[83]" "IKArm_R_parentConstraint1.tg[0].ts";
+connectAttr "anim_ready_EmilyRN.phl[84]" "IKArm_R_parentConstraint1.tg[0].tt";
+connectAttr "anim_ready_Emily:RootX_M_translateX.o" "anim_ready_EmilyRN.phl[85]"
+		;
+connectAttr "anim_ready_Emily:RootX_M_translateY.o" "anim_ready_EmilyRN.phl[86]"
+		;
+connectAttr "anim_ready_Emily:RootX_M_translateZ.o" "anim_ready_EmilyRN.phl[87]"
+		;
+connectAttr "anim_ready_EmilyRN.phl[88]" "IKArm_R_parentConstraint1.tg[0].trp";
+connectAttr "anim_ready_EmilyRN.phl[89]" "IKArm_R_parentConstraint1.tg[0].trt";
+connectAttr "anim_ready_EmilyRN.phl[90]" "IKArm_R_parentConstraint1.tg[0].tr";
+connectAttr "anim_ready_EmilyRN.phl[91]" "IKArm_R_parentConstraint1.tg[0].tro";
+connectAttr "anim_ready_EmilyRN.phl[92]" "IKArm_R_parentConstraint1.tg[0].tpm";
+connectAttr "anim_ready_Emily:Fingers_L_indexCurl.o" "anim_ready_EmilyRN.phl[93]"
+		;
+connectAttr "anim_ready_Emily:Fingers_L_middleCurl.o" "anim_ready_EmilyRN.phl[94]"
+		;
+connectAttr "anim_ready_Emily:Fingers_L_ringCurl.o" "anim_ready_EmilyRN.phl[95]"
+		;
+connectAttr "anim_ready_Emily:Fingers_L_pinkyCurl.o" "anim_ready_EmilyRN.phl[96]"
+		;
 connectAttr "Hallway_Medium_Shot_translateX.o" "Hallway_Medium_Shot.tx" -l on;
 connectAttr "Hallway_Medium_Shot_translateY.o" "Hallway_Medium_Shot.ty" -l on;
 connectAttr "Hallway_Medium_Shot_translateZ.o" "Hallway_Medium_Shot.tz" -l on;
