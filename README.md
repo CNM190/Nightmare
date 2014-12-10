@@ -14,3 +14,6 @@ Getting started
   * [Push](https://www.kernel.org/pub/software/scm/git/docs/git-push.html) changes to the central repository.
 
 You may find it useful to use Github's GUI client for [Mac](https://mac.github.com/) or [Windows](https://windows.github.com/).
+
+
+Render shots here: http://telperion.eecs.berkeley.edu:8080/job/RenderShot/build
