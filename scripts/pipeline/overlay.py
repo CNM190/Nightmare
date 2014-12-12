@@ -28,6 +28,7 @@ def main():
     OVERLAY     = os.environ["OVERLAY_METADATA"] != "false"
     filename    = os.environ["MAYA_FILE"]
     camera      = os.environ["CAMERA"]
+    shot_name   = os.environ["SHOT_NAME"]
     renderer    = os.environ["RENDERER"]
     start_frame = int(os.environ["START_FRAME"])
     end_frame   = int(os.environ["END_FRAME"])
@@ -44,7 +45,7 @@ def main():
         d = clip.duration
         nFrames = clip.duration * 24
         gitrev = os.popen("git rev-parse --short HEAD").read(12)[:-1]
-        gitjenkins = "git %s, jenkins %d" % (gitrev, build_number)
+        namegitjenkins = "%s @ git %s, jenkins %d" % (shot_name, gitrev, build_number)
         author = os.popen('git log -n 1 --pretty=format:%%an "%s"' % filename).read()
         rcam = "%s: %s" % (renderer, camera)
 
@@ -52,7 +53,7 @@ def main():
             frame_in_shot = int((t+0.5/24.0)*24+1)
             frame_in_file = start_frame + frame_in_shot - 1
             frame = "frame %3d/%d (shot), %3d/%d (file)" % (frame_in_shot, nFrames, frame_in_file, end_frame)
-            header = "%s %s %s" % (author.ljust(42)[:42], gitjenkins.center(41)[:41], date_now.rjust(42)[:42])
+            header = "%s %s %s" % (author.ljust(32)[:32], namegitjenkins.center(61)[:61], date_now.rjust(32)[:32])
             footer = "%s %s %s" % (rcam.ljust(42)[:42],   filename.center(41)[:41],   frame.rjust(42)[:42])
             return header, footer
 
