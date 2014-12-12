@@ -1,10 +1,11 @@
 //Maya ASCII 2013 scene
-//Name: hallway.ma
-//Last modified: Wed, Dec 10, 2014 10:36:39 PM
+//Name: hallway_sara.ma
+//Last modified: Fri, Dec 12, 2014 07:26:51 AM
 //Codeset: 1252
-file -rdi 1 -ns "locker" -rfn "lockerRN" "C:/Users/Sara/Documents/Fa14/CNM 190/locker.ma";
-file -r -ns "locker" -dr 1 -rfn "lockerRN" "C:/Users/Sara/Documents/Fa14/CNM 190/locker.ma";
+file -rdi 1 -ns "locker" -rfn "lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
+file -r -ns "locker" -dr 1 -rfn "lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
 requires maya "2013";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
@@ -14,12 +15,12 @@ fileInfo "osv" "Microsoft Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -64.193899669260773 22.184835872255896 -37.417706674371132 ;
-	setAttr ".r" -type "double3" -11.738352729021891 613.80000000017253 0 ;
+	setAttr ".t" -type "double3" 191.3155658870723 55.445522350252084 -76.276542407595159 ;
+	setAttr ".r" -type "double3" -12.93835272902029 854.60000000015623 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 94.48552612706392;
+	setAttr ".coi" 178.82322821707396;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -397,8 +398,8 @@ createNode mesh -n "wall_planeShape" -p "|lockers_right|wall_plane";
 	setAttr ".dr" 1;
 createNode transform -n "lockers_left";
 	setAttr ".t" -type "double3" 0 0 -4.2564557071788798 ;
-	setAttr ".rp" -type "double3" 76.54030368669666 22.844260895845146 -35.249483303984483 ;
-	setAttr ".sp" -type "double3" 76.54030368669666 22.844260895845146 -35.249483303984483 ;
+	setAttr ".rp" -type "double3" 76.54030368669666 22.844260895845142 -35.249483303984483 ;
+	setAttr ".sp" -type "double3" 76.54030368669666 22.844260895845142 -35.249483303984483 ;
 createNode transform -n "lockers_right1" -p "lockers_left";
 	setAttr ".t" -type "double3" 0 0 -35 ;
 	setAttr ".r" -type "double3" 0 -180 0 ;
@@ -526,6 +527,9 @@ createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode displayLayerManager -n "layerManager";
+	setAttr ".cdl" 1;
+	setAttr ".dli[1]"  1;
+	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
 createNode renderLayer -n "defaultRenderLayer";
@@ -952,7 +956,197 @@ createNode reference -n "lockerRN";
 	setAttr ".phl[418]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"lockerRN"
-		"lockerRN" 4147
+		"lockerRN" 4267
+		2 "|lockers_right|locker:pCube1" "miDeriveFromMaya" " 1"
+		2 "|lockers_right|locker:pCube1" "miHide" " 0"
+		2 "|lockers_right|locker:pCube1" "miVisible" " 2"
+		2 "|lockers_right|locker:pCube1" "miTrace" " 2"
+		2 "|lockers_right|locker:pCube1" "miShadow" " 2"
+		2 "|lockers_right|locker:pCube1" "miCaustic" " 5"
+		2 "|lockers_right|locker:pCube1" "miGlobillum" " 5"
+		2 "|lockers_right|locker:pCube1" "miExportGeoShader" " 0"
+		2 "|lockers_right|locker:pCube1" "miProxyRenderable" " 1"
+		2 "|lockers_right|locker:bevelPolygon1" "miDeriveFromMaya" " 1"
+		2 "|lockers_right|locker:bevelPolygon1" "miHide" " 0"
+		2 "|lockers_right|locker:bevelPolygon1" "miVisible" " 2"
+		2 "|lockers_right|locker:bevelPolygon1" "miTrace" " 2"
+		2 "|lockers_right|locker:bevelPolygon1" "miShadow" " 2"
+		2 "|lockers_right|locker:bevelPolygon1" "miCaustic" " 5"
+		2 "|lockers_right|locker:bevelPolygon1" "miGlobillum" " 5"
+		2 "|lockers_right|locker:bevelPolygon1" "miExportGeoShader" " 0"
+		2 "|lockers_right|locker:bevelPolygon1" "miProxyRenderable" " 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideCaustics" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miCausticAccuracy" 
+		" 64"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miCausticRadius" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideGlobalIllumination" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miGlobillumAccuracy" 
+		" 64"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miGlobillumRadius" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideFinalGather" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherRays" 
+		" 1000"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherMinRadius" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherMaxRadius" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherFilter" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherView" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideSamples" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMinSamples" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxSamples" 
+		" 2"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherCast" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherReceive" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miTransparencyCast" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miTransparencyReceive" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miReflectionReceive" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miRefractionReceive" 
+		" 1"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miUpdateProxyBoundingBoxMode" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miProxyBoundingBoxMin" 
+		" -type \"double3\" 0 0 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miProxyBoundingBoxMax" 
+		" -type \"double3\" 0 0 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miShadingSamplesOverride" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miShadingSamples" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxDisplaceOverride" 
+		" 0"
+		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxDisplace" 
+		" 0"
+		2 "|lockers_right|locker:pCube2" "miDeriveFromMaya" " 1"
+		2 "|lockers_right|locker:pCube2" "miHide" " 0"
+		2 "|lockers_right|locker:pCube2" "miVisible" " 2"
+		2 "|lockers_right|locker:pCube2" "miTrace" " 2"
+		2 "|lockers_right|locker:pCube2" "miShadow" " 2"
+		2 "|lockers_right|locker:pCube2" "miCaustic" " 5"
+		2 "|lockers_right|locker:pCube2" "miGlobillum" " 5"
+		2 "|lockers_right|locker:pCube2" "miExportGeoShader" " 0"
+		2 "|lockers_right|locker:pCube2" "miProxyRenderable" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideCaustics" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miCausticAccuracy" " 64"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miCausticRadius" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideGlobalIllumination" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miGlobillumAccuracy" " 64"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miGlobillumRadius" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideFinalGather" " 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherRays" " 1000"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherMinRadius" " 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherMaxRadius" " 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherFilter" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherView" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideSamples" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMinSamples" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxSamples" " 2"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherCast" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherReceive" " 1"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miTransparencyCast" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miTransparencyReceive" " 1"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miReflectionReceive" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miRefractionReceive" " 1"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miUpdateProxyBoundingBoxMode" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miProxyBoundingBoxMin" " -type \"double3\" 0 0 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miProxyBoundingBoxMax" " -type \"double3\" 0 0 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miShadingSamplesOverride" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miShadingSamples" " 0"
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxDisplaceOverride" " 0"
+		
+		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxDisplace" " 0"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miDeriveFromMaya" " 1"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miHide" " 0"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miVisible" " 2"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miTrace" " 2"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miShadow" " 2"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miCaustic" " 5"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miGlobillum" " 5"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miExportGeoShader" " 0"
+		2 "|lockers_right|pCube26|locker:polySurface2" "miProxyRenderable" " 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideCaustics" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miCausticAccuracy" 
+		" 64"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miCausticRadius" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideGlobalIllumination" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miGlobillumAccuracy" 
+		" 64"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miGlobillumRadius" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideFinalGather" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherRays" 
+		" 1000"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherMinRadius" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherMaxRadius" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherFilter" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherView" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideSamples" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMinSamples" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxSamples" 
+		" 2"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherCast" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherReceive" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miTransparencyCast" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miTransparencyReceive" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miReflectionReceive" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miRefractionReceive" 
+		" 1"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miUpdateProxyBoundingBoxMode" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miProxyBoundingBoxMin" 
+		" -type \"double3\" 0 0 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miProxyBoundingBoxMax" 
+		" -type \"double3\" 0 0 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miShadingSamplesOverride" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miShadingSamples" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxDisplaceOverride" 
+		" 0"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxDisplace" 
+		" 0"
+		2 "locker:defaultRenderLayer" "globalIllum" " 0"
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
@@ -1740,6727 +1934,6725 @@ createNode reference -n "lockerRN";
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
 		3 "" ":initialShadingGroup.dagSetMembers" "-na"
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
+		
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|lockers_right|pCube103|locker:pCubeShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ".instObjGroups.objectGroups[0]" ":initialShadingGroup.dagSetMembers" "-na"
-		
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
 		3 "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "locker:groupId1.groupId" "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGroupId" 
-		""
 		3 ":initialShadingGroup.memberWireframeColor" "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
 		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 ":initialShadingGroup.memberWireframeColor" ".instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		"lockerRN" 815
+		"lockerRN" 696
 		0 "|locker:pCube1" "|lockers_right" "-s -r "
 		0 "|lockers_right|locker:pCube1" "|lockers_left|lockers_right1" "-s -r -add "
 		
@@ -8882,204 +9074,19 @@ createNode reference -n "lockerRN";
 		0 "|locker:bevelPolygon1" "|lockers_right" "-s -r "
 		0 "|lockers_right|locker:bevelPolygon1" "|lockers_left|lockers_right1" "-s -r -add "
 		
-		2 "|lockers_right|locker:pCube1" "miDeriveFromMaya" " 1"
-		2 "|lockers_right|locker:pCube1" "miHide" " 0"
-		2 "|lockers_right|locker:pCube1" "miVisible" " 2"
-		2 "|lockers_right|locker:pCube1" "miTrace" " 2"
-		2 "|lockers_right|locker:pCube1" "miShadow" " 2"
-		2 "|lockers_right|locker:pCube1" "miCaustic" " 5"
-		2 "|lockers_right|locker:pCube1" "miGlobillum" " 5"
-		2 "|lockers_right|locker:pCube1" "miExportGeoShader" " 0"
-		2 "|lockers_right|locker:pCube1" "miProxyRenderable" " 1"
-		2 "|lockers_right|locker:bevelPolygon1" "miDeriveFromMaya" " 1"
-		2 "|lockers_right|locker:bevelPolygon1" "miHide" " 0"
-		2 "|lockers_right|locker:bevelPolygon1" "miVisible" " 2"
-		2 "|lockers_right|locker:bevelPolygon1" "miTrace" " 2"
-		2 "|lockers_right|locker:bevelPolygon1" "miShadow" " 2"
-		2 "|lockers_right|locker:bevelPolygon1" "miCaustic" " 5"
-		2 "|lockers_right|locker:bevelPolygon1" "miGlobillum" " 5"
-		2 "|lockers_right|locker:bevelPolygon1" "miExportGeoShader" " 0"
-		2 "|lockers_right|locker:bevelPolygon1" "miProxyRenderable" " 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideCaustics" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miCausticAccuracy" 
-		" 64"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miCausticRadius" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideGlobalIllumination" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miGlobillumAccuracy" 
-		" 64"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miGlobillumRadius" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideFinalGather" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherRays" 
-		" 1000"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherMinRadius" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherMaxRadius" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherFilter" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherView" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miOverrideSamples" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMinSamples" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxSamples" 
-		" 2"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherCast" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miFinalGatherReceive" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miTransparencyCast" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miTransparencyReceive" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miReflectionReceive" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miRefractionReceive" 
-		" 1"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miUpdateProxyBoundingBoxMode" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miProxyBoundingBoxMin" 
-		" -type \"double3\" 0 0 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miProxyBoundingBoxMax" 
-		" -type \"double3\" 0 0 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miShadingSamplesOverride" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miShadingSamples" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxDisplaceOverride" 
-		" 0"
-		2 "|lockers_right|locker:bevelPolygon1|locker:bevelPolygonShape1" "miMaxDisplace" 
-		" 0"
 		2 "|lockers_right|locker:pCube2" "translate" " -type \"double3\" 0 0 0"
-		2 "|lockers_right|locker:pCube2" "miDeriveFromMaya" " 1"
-		2 "|lockers_right|locker:pCube2" "miHide" " 0"
-		2 "|lockers_right|locker:pCube2" "miVisible" " 2"
-		2 "|lockers_right|locker:pCube2" "miTrace" " 2"
-		2 "|lockers_right|locker:pCube2" "miShadow" " 2"
-		2 "|lockers_right|locker:pCube2" "miCaustic" " 5"
-		2 "|lockers_right|locker:pCube2" "miGlobillum" " 5"
-		2 "|lockers_right|locker:pCube2" "miExportGeoShader" " 0"
-		2 "|lockers_right|locker:pCube2" "miProxyRenderable" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideCaustics" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miCausticAccuracy" " 64"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miCausticRadius" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideGlobalIllumination" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miGlobillumAccuracy" " 64"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miGlobillumRadius" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideFinalGather" " 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherRays" " 1000"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherMinRadius" " 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherMaxRadius" " 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherFilter" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherView" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miOverrideSamples" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMinSamples" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxSamples" " 2"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherCast" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miFinalGatherReceive" " 1"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miTransparencyCast" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miTransparencyReceive" " 1"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miReflectionReceive" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miRefractionReceive" " 1"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miUpdateProxyBoundingBoxMode" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miProxyBoundingBoxMin" " -type \"double3\" 0 0 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miProxyBoundingBoxMax" " -type \"double3\" 0 0 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miShadingSamplesOverride" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miShadingSamples" " 0"
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxDisplaceOverride" " 0"
-		
-		2 "|lockers_right|pCube26|locker:pCubeShape2" "miMaxDisplace" " 0"
 		2 "|lockers_right|pCube26|locker:polySurface2" "translate" " -type \"double3\" -0.0812942 0.56537 3.87338"
 		
-		2 "|lockers_right|pCube26|locker:polySurface2" "miDeriveFromMaya" " 1"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miHide" " 0"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miVisible" " 2"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miTrace" " 2"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miShadow" " 2"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miCaustic" " 5"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miGlobillum" " 5"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miExportGeoShader" " 0"
-		2 "|lockers_right|pCube26|locker:polySurface2" "miProxyRenderable" " 1"
 		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "instObjGroups" 
 		" -s 208"
 		2 "|lockers_right|locker:pCube2|locker:polySurface2|locker:polySurfaceShape2" 
 		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
 		
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideCaustics" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miCausticAccuracy" 
-		" 64"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miCausticRadius" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideGlobalIllumination" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miGlobillumAccuracy" 
-		" 64"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miGlobillumRadius" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideFinalGather" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherRays" 
-		" 1000"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherMinRadius" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherMaxRadius" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherFilter" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherView" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miOverrideSamples" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMinSamples" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxSamples" 
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "dispResolution" 
+		" 3"
+		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "displaySmoothMesh" 
 		" 2"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherCast" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miFinalGatherReceive" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miTransparencyCast" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miTransparencyReceive" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miReflectionReceive" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miRefractionReceive" 
-		" 1"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miUpdateProxyBoundingBoxMode" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miProxyBoundingBoxMin" 
-		" -type \"double3\" 0 0 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miProxyBoundingBoxMax" 
-		" -type \"double3\" 0 0 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miShadingSamplesOverride" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miShadingSamples" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxDisplaceOverride" 
-		" 0"
-		2 "|lockers_right|pCube26|locker:polySurface2|locker:polySurfaceShape2" "miMaxDisplace" 
-		" 0"
-		2 "locker:defaultRenderLayer" "globalIllum" " 0"
+		3 "locker:groupId1.message" ":initialShadingGroup.groupNodes" "-na"
 		3 "|lockers_right|pCube103|locker:pCubeShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		3 "|lockers_right|pCube79|locker:pCubeShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
@@ -9134,7 +9141,6 @@ createNode reference -n "lockerRN";
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|lockers_left|lockers_right1|locker:bevelPolygon1|locker:bevelPolygonShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "locker:groupId1.message" ":initialShadingGroup.groupNodes" "-na"
 		3 "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 ":initialShadingGroup.memberWireframeColor" "|lockers_right|pCube103|locker:polySurface2|locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
@@ -13084,59 +13090,66 @@ createNode groupId -n "groupId1522";
 createNode script -n "uiConfigurationScriptNode";
 	setAttr ".b" -type "string" (
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"top\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n"
-		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n"
-		+ "                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n"
-		+ "                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n"
-		+ "            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n"
+		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n"
+		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n"
+		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
+		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n"
+		+ "            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
+		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n"
+		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n"
+		+ "            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
-		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n"
-		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n"
-		+ "                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
+		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
+		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
+		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
+		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n"
+		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
+		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
+		+ "                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n"
+		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
+		+ "            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
 		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\n"
-		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n"
-		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n"
-		+ "                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n"
-		+ "                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
-		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
-		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
-		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
-		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\n"
-		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n"
-		+ "            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n"
-		+ "            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
-		+ "                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n"
-		+ "            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n"
-		+ "            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n"
-		+ "                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n"
-		+ "                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n"
-		+ "                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n"
-		+ "                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n"
-		+ "                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n"
+		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n"
+		+ "                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
+		+ "                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n"
+		+ "            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n"
+		+ "                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
+		+ "                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n"
+		+ "                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n"
+		+ "                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n"
+		+ "                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n"
+		+ "                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n"
+		+ "                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n"
 		+ "                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n"
 		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n"
-		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n"
-		+ "                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n"
-		+ "                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n"
-		+ "                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
-		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n"
-		+ "                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n"
-		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n"
-		+ "                -extendToShapes 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n"
-		+ "\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 16 100 -ps 2 84 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Outliner\")) \n\t\t\t\t\t\"outlinerPanel\"\n\t\t\t\t\t\"$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"outlinerPanel -edit -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
+		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n"
+		+ "                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n"
+		+ "                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n"
+		+ "                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n"
+		+ "                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n"
+		+ "                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n"
+		+ "\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
+		+ "                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n"
+		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n"
+		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n"
+		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
+		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
+		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
+		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 20 100 -ps 2 80 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Outliner\")) \n\t\t\t\t\t\"outlinerPanel\"\n\t\t\t\t\t\"$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"outlinerPanel -edit -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    $editorName\"\n"
 		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
@@ -13725,15 +13738,846 @@ createNode polyPlane -n "polyPlane2";
 	setAttr ".sw" 1;
 	setAttr ".sh" 1;
 	setAttr ".cuv" 2;
+createNode groupId -n "groupId1807";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1808";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1809";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1810";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1811";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1812";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1813";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1814";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1815";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1816";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1817";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1818";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1819";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1820";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1821";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1822";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1823";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1824";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1825";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1826";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1827";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1828";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1829";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1830";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1831";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1832";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1833";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1834";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1835";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1836";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1837";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1838";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1839";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1840";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1841";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1842";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1843";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1844";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1845";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1846";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1847";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1848";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1849";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1850";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1851";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1852";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1853";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1854";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1855";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1856";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1857";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1858";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1859";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1860";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1861";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1862";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1863";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1864";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1865";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1866";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1867";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1868";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1869";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1870";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1871";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1872";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1873";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1874";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1875";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1876";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1877";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1878";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1879";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1880";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1881";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1882";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1883";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1884";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1885";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1886";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1887";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1888";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1889";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1890";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1891";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1892";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1893";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1894";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1895";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1896";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1897";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1898";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1899";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1900";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1901";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1902";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1903";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1904";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1905";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1906";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1907";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1908";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1909";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1910";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1911";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1912";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1913";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1914";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1915";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1916";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1917";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1918";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1919";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1920";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1921";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1922";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1923";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1924";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1925";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1926";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1927";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1928";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1929";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1930";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1931";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1932";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1933";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1934";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1935";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1936";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1937";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1938";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1939";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1940";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1941";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1942";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1943";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1944";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1945";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1946";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1947";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1948";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1949";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1950";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1951";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1952";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1953";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1954";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1955";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1956";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1957";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1958";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1959";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1960";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1961";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1962";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1963";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1964";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1965";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1966";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1967";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1968";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1969";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1970";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1971";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1972";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1973";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1974";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1975";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1976";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1977";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1978";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1979";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1980";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1981";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1982";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1983";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1984";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1985";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1986";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1987";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1988";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1989";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1990";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1991";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1992";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1993";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1994";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1995";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1996";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1997";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1998";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId1999";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2000";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2001";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2002";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2003";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2004";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2005";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2006";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2007";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2008";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2009";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2010";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2011";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2012";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2013";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2014";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2015";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2016";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2017";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2018";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2019";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2020";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2021";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2022";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2023";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2024";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2025";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2026";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2027";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2028";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2029";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2030";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2031";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2032";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2033";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2034";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2035";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2036";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2037";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2038";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2039";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2040";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2041";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2042";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2043";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2044";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2045";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2046";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2047";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2048";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2049";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2050";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2051";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2052";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2053";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2054";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2055";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2056";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2057";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2058";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2059";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2060";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2061";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2062";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2063";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2064";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2065";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2066";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2067";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2068";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2069";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2070";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2071";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2072";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2073";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2074";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2075";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2076";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2077";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2078";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2079";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2080";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2081";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2082";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2083";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2084";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2085";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2086";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2087";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2088";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2089";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2090";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2091";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2092";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2093";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2094";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2095";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2096";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2097";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2098";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2099";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2100";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2101";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2102";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2103";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2104";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2105";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2106";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2107";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2108";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2109";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2110";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2111";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2112";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2113";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2114";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2115";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2116";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2117";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2118";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2119";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2120";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2121";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2122";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2123";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2124";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2125";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2126";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2127";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2128";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2129";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2130";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2131";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2132";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2133";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2134";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2135";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2136";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2137";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2138";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2139";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2140";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2141";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2142";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2143";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2144";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2145";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2146";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2147";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2148";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2149";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2150";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2151";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2152";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2153";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2154";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2155";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2156";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2157";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2158";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2159";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2160";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2161";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2162";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2163";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2164";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2165";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2166";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2167";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2168";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2169";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2170";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2171";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2172";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2173";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2174";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2175";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2176";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2177";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2178";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2179";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2180";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2181";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2182";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2183";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2184";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2185";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2186";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2187";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2188";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2189";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2190";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2191";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2192";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2193";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2194";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2195";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2196";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2197";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2198";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2199";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2200";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2201";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2202";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2203";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2204";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2205";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2206";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2207";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2208";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2209";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2210";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2211";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2212";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2213";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2214";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2215";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2216";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2217";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2218";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2219";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId2220";
+	setAttr ".ihi" 0;
+createNode displayLayer -n "lockers_right_side";
+	setAttr ".v" no;
+	setAttr ".do" 1;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
 select -ne :renderPartition;
 	setAttr -s 2 ".st";
 select -ne :initialShadingGroup;
-	setAttr -s 421 ".dsm";
+	setAttr -s 604 ".dsm";
 	setAttr ".ro" yes;
-	setAttr -s 1703 ".gn";
+	setAttr -s 2117 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultShaderList1;
@@ -14167,6 +15011,7 @@ connectAttr "lockerRN.phl[415]" ":initialShadingGroup.dsm" -na;
 connectAttr "lockerRN.phl[416]" ":initialShadingGroup.dsm" -na;
 connectAttr "lockerRN.phl[417]" ":initialShadingGroup.dsm" -na;
 connectAttr "lockerRN.phl[418]" ":initialShadingGroup.dsm" -na;
+connectAttr "lockers_right_side.di" "lockers_right.do";
 connectAttr "polyPlane1.out" "|lockers_right|wall_plane|wall_planeShape.i";
 connectAttr "polyPlane2.out" "floorShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -14175,6 +15020,7 @@ relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defau
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "layerManager.dli[1]" "lockers_right_side.id";
 connectAttr "|lockers_right|wall_plane|wall_planeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
 connectAttr "|lockers_left|lockers_right1|wall_plane|wall_planeShape.iog" ":initialShadingGroup.dsm"
@@ -15883,5 +16729,419 @@ connectAttr "groupId1803.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId1804.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId1805.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId1806.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1807.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1808.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1809.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1810.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1811.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1812.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1813.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1814.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1815.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1816.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1817.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1818.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1819.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1820.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1821.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1822.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1823.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1824.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1825.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1826.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1827.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1828.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1829.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1830.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1831.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1832.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1833.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1834.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1835.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1836.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1837.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1838.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1839.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1840.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1841.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1842.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1843.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1844.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1845.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1846.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1847.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1848.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1849.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1850.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1851.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1852.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1853.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1854.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1855.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1856.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1857.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1858.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1859.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1860.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1861.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1862.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1863.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1864.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1865.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1866.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1867.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1868.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1869.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1870.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1871.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1872.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1873.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1874.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1875.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1876.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1877.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1878.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1879.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1880.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1881.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1882.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1883.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1884.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1885.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1886.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1887.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1888.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1889.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1890.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1891.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1892.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1893.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1894.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1895.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1896.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1897.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1898.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1899.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1900.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1901.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1902.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1903.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1904.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1905.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1906.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1907.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1908.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1909.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1910.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1911.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1912.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1913.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1914.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1915.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1916.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1917.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1918.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1919.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1920.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1921.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1922.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1923.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1924.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1925.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1926.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1927.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1928.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1929.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1930.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1931.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1932.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1933.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1934.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1935.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1936.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1937.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1938.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1939.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1940.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1941.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1942.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1943.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1944.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1945.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1946.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1947.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1948.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1949.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1950.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1951.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1952.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1953.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1954.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1955.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1956.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1957.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1958.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1959.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1960.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1961.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1962.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1963.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1964.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1965.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1966.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1967.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1968.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1969.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1970.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1971.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1972.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1973.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1974.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1975.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1976.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1977.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1978.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1979.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1980.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1981.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1982.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1983.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1984.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1985.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1986.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1987.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1988.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1989.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1990.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1991.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1992.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1993.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1994.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1995.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1996.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1997.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1998.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId1999.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2000.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2001.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2002.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2003.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2004.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2005.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2006.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2007.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2008.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2009.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2010.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2011.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2012.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2013.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2014.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2015.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2016.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2017.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2018.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2019.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2020.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2021.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2022.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2023.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2024.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2025.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2026.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2027.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2028.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2029.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2030.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2031.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2032.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2033.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2034.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2035.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2036.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2037.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2038.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2039.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2040.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2041.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2042.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2043.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2044.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2045.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2046.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2047.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2048.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2049.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2050.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2051.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2052.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2053.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2054.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2055.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2056.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2057.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2058.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2059.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2060.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2061.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2062.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2063.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2064.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2065.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2066.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2067.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2068.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2069.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2070.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2071.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2072.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2073.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2074.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2075.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2076.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2077.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2078.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2079.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2080.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2081.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2082.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2083.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2084.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2085.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2086.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2087.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2088.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2089.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2090.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2091.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2092.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2093.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2094.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2095.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2096.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2097.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2098.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2099.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2100.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2101.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2102.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2103.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2104.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2105.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2106.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2107.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2108.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2109.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2110.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2111.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2112.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2113.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2114.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2115.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2116.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2117.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2118.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2119.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2120.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2121.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2122.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2123.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2124.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2125.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2126.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2127.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2128.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2129.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2130.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2131.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2132.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2133.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2134.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2135.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2136.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2137.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2138.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2139.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2140.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2141.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2142.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2143.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2144.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2145.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2146.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2147.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2148.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2149.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2150.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2151.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2152.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2153.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2154.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2155.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2156.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2157.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2158.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2159.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2160.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2161.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2162.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2163.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2164.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2165.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2166.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2167.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2168.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2169.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2170.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2171.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2172.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2173.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2174.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2175.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2176.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2177.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2178.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2179.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2180.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2181.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2182.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2183.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2184.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2185.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2186.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2187.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2188.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2189.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2190.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2191.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2192.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2193.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2194.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2195.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2196.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2197.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2198.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2199.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2200.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2201.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2202.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2203.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2204.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2205.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2206.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2207.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2208.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2209.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2210.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2211.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2212.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2213.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2214.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2215.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2216.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2217.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2218.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2219.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId2220.msg" ":initialShadingGroup.gn" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-// End of hallway.ma
+// End of hallway_sara.ma
