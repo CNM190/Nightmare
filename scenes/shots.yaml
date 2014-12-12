@@ -1,80 +1,78 @@
 # ---------------------------------------------------------------------------
 # Act I
 
-- file       : "bedroom1.ma"
+# names must be unique, and alphanumeric with spaces.
+
+- name       : "Bedroom Establishing"
+  file       : "bedroom1.ma"
   camera     : 'Full_Bedroom_shot'
   startFrame : 1
   endFrame   : 48
 
-- file       : "bedroom1.ma"
+- name       : "Bedroom Closeup"
+  file       : "bedroom1.ma"
   camera     : 'Face_Close_Up'
   startFrame : 48
   endFrame   : 125
 
-#- file       : "title01a.mov"
-#  duration   : 30
-
-
 # ---------------------------------------------------------------------------
 # Act II
 
-- file       : "Alternative_Hallway.ma"
+- name       : "Hallway Walking"
+  file       : "Alternative_Hallway.ma"
   camera     : 'Hallway_Medium_Shot'
   startFrame : 1
   endFrame   : 73
 
-- file       : "hallway2.ma"
+- name       : "Hallway Running"
+  file       : "hallway2.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 60
 
-#Blade of the Heart
-- file       : "charge.ma"
+- name       : "Blade of the Heart"
+  file       : "charge.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 236
 
-#Steel thy Resolve
-- file       : "charge2.ma"
+- name       : "Steel thy Resolve"
+  file       : "charge2.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 67
-  
-- file       : "charge2.ma"
+
+- name       : "Charge 2 Cam 2"
+  file       : "charge2.ma"
   camera     : 'camera2'
   startFrame : 68
   endFrame   : 116
 
-- file       : "charge2.ma"
+- name       : "Charge 2 Cam 3"
+  file       : "charge2.ma"
   camera     : 'camera3'
   startFrame : 117
   endFrame   : 135
 
-#- file       : "charge2.ma"
-#  camera     : 'camera4'
-#  startFrame : 136
-#  endFrame   : 154
-
 #CHARGE!
-- file       : "charge3.ma"
+- name       : "Charge 3 Cam 1"
+  file       : "charge3.ma"
   camera     : 'camera1'
   startFrame : 117
   endFrame   : 135
-
 
 
 # ---------------------------------------------------------------------------
 # Act III
 
-- file       : "bedroom2.ma" # face close up
+- name       : "Bedroom Cuddle"
+  file       : "bedroom2.ma" # face close up
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 24
 
-- file       : "bedroom2.ma" # face close up
+- name       : "Bedroom Departure"
+  file       : "bedroom2.ma" # face close up
   camera     : 'camera2'
   startFrame : 24
   endFrame   : 57
-
-- file       : "credits.png"
-  duration   : 48
