@@ -50,7 +50,7 @@ def main():
 
         def get_overlay_text(t):
             frame_in_shot = int((t+0.5/24.0)*24+1)
-            frame_in_file = start_frame + frame_in_shot
+            frame_in_file = start_frame + frame_in_shot - 1
             frame = "frame %3d/%d (shot), %3d/%d (file)" % (frame_in_shot, nFrames, frame_in_file, end_frame)
             header = "%s %s %s" % (author.ljust(42)[:42], gitjenkins.center(41)[:41], date_now.rjust(42)[:42])
             footer = "%s %s %s" % (rcam.ljust(42)[:42],   filename.center(41)[:41],   frame.rjust(42)[:42])
