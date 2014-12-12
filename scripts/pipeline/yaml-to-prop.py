@@ -3,6 +3,7 @@ import yaml, sys, os
 yamlfile = sys.argv[1]
 
 requested_shots = os.environ["SHOTS"].split(',')
+print "Requested shots: %s" % requested_shots
 
 with open(yamlfile) as yamltext:
     shots = yaml.load(yamltext)
@@ -11,6 +12,7 @@ for shot in shots:
     name = shot['name']
     if name in requested_shots:
         safe_name = name.replace(' ', '_')
+        print "writing properties file for %s" % safe_name
         with open("%s.properties" % safe_name, 'w') as props:
             print >>props, "SHOT_NAME=%s"       % shot['name']
             print >>props, "MAYAFILE=scenes/%s" % shot['file']
