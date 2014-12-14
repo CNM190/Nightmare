@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: charge.ma
-//Last modified: Sat, Dec 13, 2014 05:12:42 PM
+//Last modified: Sat, Dec 13, 2014 05:20:35 PM
 //Codeset: 1252
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
 file -rdi 2 -ns "model" -rfn "Emily_Body_Rig:modelRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
