@@ -58,8 +58,8 @@
 - name       : "Charge 3 Cam 1"
   file       : "charge3.ma"
   camera     : 'camera1'
-  startFrame : 117
-  endFrame   : 135
+  startFrame : 1
+  endFrame   : 72
 
 
 # ---------------------------------------------------------------------------
