@@ -28,7 +28,7 @@
   file       : "hallway2.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 60
+  endFrame   : 64
 
 - name       : "Blade of the Heart"
   file       : "charge.ma"
@@ -54,7 +54,6 @@
   startFrame : 117
   endFrame   : 201
 
-#CHARGE!
 - name       : "Charge 3 Cam 1"
   file       : "charge3.ma"
   camera     : 'camera1'
