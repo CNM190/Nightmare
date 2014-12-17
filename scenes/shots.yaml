@@ -7,7 +7,7 @@
   file       : "bedroom1.ma"
   camera     : 'Full_Bedroom_shot'
   startFrame : 1
-  endFrame   : 48
+  endFrame   : 47
 
 - name       : "Bedroom Closeup"
   file       : "bedroom1.ma"
@@ -66,12 +66,12 @@
 
 - name       : "Bedroom Cuddle"
   file       : "bedroom2.ma" # face close up
-  camera     : 'camera1'
+  camera     : 'camera2'
   startFrame : 1
   endFrame   : 24
 
 - name       : "Bedroom Departure"
-  file       : "bedroom2.ma" # face close up
-  camera     : 'camera2'
+  file       : "bedroom2.ma" # medium shot
+  camera     : 'camera1'
   startFrame : 24
   endFrame   : 57
