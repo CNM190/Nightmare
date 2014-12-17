@@ -1,6 +1,6 @@
-//Maya ASCII 2013 scene 
+//Maya ASCII 2013 scene
 //Name: Candy.ma
-//Last modified: Wed, Dec 17, 2014 01:05:16 AM
+//Last modified: Wed, Dec 17, 2014 02:26:09 AM
 //Codeset: 1252
 requires maya "2013";
 requires "stereoCamera" "10.0";
@@ -13,17 +13,18 @@ fileInfo "osv" "Microsoft Windows 7 Home Premium Edition, 64-bit Windows 7 Servi
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 15.589473060618028 8.7643094961595551 -4.0394174649398611 ;
-	setAttr ".r" -type "double3" -21.599999999982572 1167.1999999999252 0 ;
-	setAttr ".rpt" -type "double3" 2.0055742791172934e-015 8.349358214867891e-016 1.7798398189032634e-015 ;
+	setAttr ".t" -type "double3" 11.129518718912868 5.1511482116465936 5.9655457439768886 ;
+	setAttr ".r" -type "double3" -13.200000000000287 64.799999999990916 0 ;
+	setAttr ".rp" -type "double3" 0 4.4408920985006262e-016 0 ;
+	setAttr ".rpt" -type "double3" 2.1450752352111207e-015 1.1188033802554522e-015 1.2968325806938743e-015 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 16.430991367714046;
+	setAttr ".coi" 13.370245845376378;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0.23511352133259233 0.21591898600830539 0.93289845819437767 ;
+	setAttr ".tp" -type "double3" 0.036755404928213053 2.7134798058786194 1.8816747253995574 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -54,7 +55,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".o" yes;
 createNode transform -s -n "side";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.0234389823329062 1.4606338616613941 0.53264097531311727 ;
+	setAttr ".t" -type "double3" 3.0234389823329062 3.036668406295091 1.624376018539353 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 	setAttr ".rp" -type "double3" 2.2204460492503131e-016 0 -4.4408920985006262e-016 ;
 	setAttr ".rpt" -type "double3" 9.665817862927814e-016 0 -1.5221547949148535e-015 ;
@@ -62,7 +63,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 2.9866835774046963;
-	setAttr ".ow" 8.4462439433422816;
+	setAttr ".ow" 5.1223515011904244;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
@@ -94,6 +95,9 @@ createNode transform -n "Groups" -p "Master_CTRL";
 	setAttr ".r" -type "double3" 0 180 0 ;
 	setAttr ".s" -type "double3" 0.161575 0.161575 0.161575 ;
 createNode transform -n "Joints_Group" -p "Groups";
+	setAttr ".t" -type "double3" -9.8607613152626476e-032 -1.3322676295501878e-015 
+		1.9428902930940239e-016 ;
+	setAttr ".r" -type "double3" 0 -1.4033418597069752e-014 0 ;
 createNode joint -n "COG" -p "Joints_Group";
 	addAttr -ci true -k true -sn "blendParent1" -ln "blendParent1" -dv 1 -smn 0 -smx 
 		1 -at "double";
@@ -101,7 +105,7 @@ createNode joint -n "COG" -p "Joints_Group";
 	setAttr ".uoc" yes;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 90.000000000000071 76.568971129318385 -90.000000000000114 ;
+	setAttr ".jo" -type "double3" 90.000000000000057 76.568971129318385 -90.000000000000114 ;
 	setAttr ".bps" -type "matrix" 5.2507659609773779e-017 -0.037529781753168429 0.15715596109139335 0
 		 5.1808358910557666e-016 -0.15715596109139335 -0.037529781753168429 0 0.161575 5.2021442709104792e-016 5.5664087697985295e-017 0
 		 5.9182412526723025e-017 2.3441094323515377 -0.68433979867657235 1;
@@ -121,7 +125,7 @@ createNode joint -n "BackLeg_R_1" -p "Spine_Connector_Pelvis";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -1.5740285839117956 2.2298519808492561 -1.6211977778639883 ;
-	setAttr ".r" -type "double3" -0.39872249975916713 -0.07425015843994727 -0.0038698477456492854 ;
+	setAttr ".r" -type "double3" 1.3158522558208265 -0.55526273093047418 0.3920337860073197 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "yzx";
@@ -135,7 +139,7 @@ createNode joint -n "candyRigFix_5:Candy_ryanRIG:BackLeg_R_2" -p "BackLeg_R_1";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 4.5871181099016409 -0.95225328430499301 0.07221009372986778 ;
-	setAttr ".r" -type "double3" 5.4139500208897612e-006 1.7088667188226961e-007 -0.00028137792423717716 ;
+	setAttr ".r" -type "double3" -0.0029219760895476208 0.0025526648216659537 0.37816291253991474 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "yzx";
@@ -149,7 +153,7 @@ createNode joint -n "candyRigFix_5:Candy_ryanRIG:BackLeg_R_3" -p "candyRigFix_5:
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.51887480935824104 4.602112906616183 -0.044037878074918463 ;
-	setAttr ".r" -type "double3" -6.7227354316013524e-008 5.1342403139442689e-006 -4.3813416341783988e-005 ;
+	setAttr ".r" -type "double3" 0.00019091204011625445 -0.0045390266805588808 0.24493581046360147 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 179.99999999999997 -1.141909588509989e-014 128.32460603873434 ;
@@ -209,7 +213,7 @@ createNode orientConstraint -n "BackLeg_R_4_BASE_orientConstraint1" -p "candyRig
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -88.932656494933795 -1.965385082004772 172.60667785900759 ;
+	setAttr ".lr" -type "double3" -88.800255204834343 -2.3483484104224459 172.32600891909229 ;
 	setAttr ".o" -type "double3" 91.372851931252427 172.63252468474383 1.7602250639084795 ;
 	setAttr ".rsrr" -type "double3" 179.99999999999997 180 180 ;
 	setAttr -k on ".w0";
@@ -221,7 +225,7 @@ createNode joint -n "BackLeg_L_1" -p "Spine_Connector_Pelvis";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" -1.5740433618552476 2.2298058607503606 1.6211999999999966 ;
-	setAttr ".r" -type "double3" 0.3841311316458676 0.2152755723115172 -5.847304636375962 ;
+	setAttr ".r" -type "double3" 2.1443997419396608 -0.070201456067853288 -6.3484402472424319 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "yzx";
@@ -235,7 +239,7 @@ createNode joint -n "BackLeg_L_2" -p "BackLeg_L_1";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 4.5871701617613709 -0.9522585934220702 -0.072209999999998331 ;
-	setAttr ".r" -type "double3" -0.12655919571428703 0.0049456314377795746 -6.9103896555431241 ;
+	setAttr ".r" -type "double3" -0.13305097968024571 0.0051993148677991459 -7.2648542719717604 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "yzx";
@@ -249,7 +253,7 @@ createNode joint -n "BackLeg_L_3" -p "BackLeg_L_2";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 4;
 	setAttr ".t" -type "double3" -0.51887150223510226 4.6021126835800388 0.044039999999996755 ;
-	setAttr ".r" -type "double3" 0.013166620464994646 -0.11121540844492389 -0.10085140830459763 ;
+	setAttr ".r" -type "double3" 0.013841994981544821 -0.1169201413269202 -0.10602452552994857 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 179.99999879258181 3.0970777885321932e-014 128.32460603873434 ;
@@ -308,7 +312,7 @@ createNode orientConstraint -n "BackLeg_L_5_orientConstraint1" -p "BackLeg_L_5";
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -69.447543441800136 17.399650609713561 135.00976416271797 ;
+	setAttr ".lr" -type "double3" -69.447543441800107 17.399650609713511 135.00976416271797 ;
 	setAttr ".o" -type "double3" 267.15767327813649 380.96028186775771 -184.38497995851071 ;
 	setAttr ".rsrr" -type "double3" 333.7768561590002 354.56028008740509 -26.853328832392172 ;
 	setAttr -k on ".w0";
@@ -327,19 +331,41 @@ createNode orientConstraint -n "BackLeg_L_4_BASE_orientConstraint1" -p "BackLeg_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 89.59386747937333 178.3219620820683 -0.86732338614918147 ;
+	setAttr ".lr" -type "double3" 89.685493599969092 178.73051043880912 -0.72071740770987625 ;
 	setAttr ".o" -type "double3" 297.73496904192797 387.86387003481946 181.96348278749741 ;
 	setAttr ".rsrr" -type "double3" 566.06586511223668 543.50871343076801 207.05923138968967 ;
 	setAttr -k on ".w0";
 createNode ikEffector -n "L_BackLeg_Effector" -p "BackLeg_L_3";
 	setAttr ".v" no;
 	setAttr ".hd" yes;
+createNode parentConstraint -n "Spine_Connector_Pelvis_parentConstraint1" -p "Spine_Connector_Pelvis";
+	addAttr -ci true -k true -sn "w0" -ln "Hips_Sashay_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.019202728144301767 -0.0043081472412027644 
+		-0.0034731611488378888 ;
+	setAttr ".tg[0].tor" -type "double3" -89.999999999999972 -76.568971129318399 -89.999999999999815 ;
+	setAttr ".lr" -type "double3" 6.0430538947806815e-014 -6.3611093629270564e-015 4.2142349529391588e-014 ;
+	setAttr ".rst" -type "double3" 0 -1.7763568394002505e-015 0 ;
+	setAttr ".rsrr" -type "double3" 3.7371517507196309e-014 1.1409947780459655e-029 
+		-3.4986101496098675e-014 ;
+	setAttr -k on ".w0";
 createNode joint -n "Spine_1" -p "COG";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 1.978861519091879e-012 3.4674485505092889e-012 -5.7934216843291283e-014 ;
-	setAttr ".r" -type "double3" -3.9605358458774699e-017 2.0235611432585841e-013 -0.019922865377001855 ;
+	setAttr ".t" -type "double3" 1.978861519091879e-012 3.4692249073486892e-012 -5.8175686490358203e-014 ;
+	setAttr ".r" -type "double3" -0.00035447464697490737 1.607990150916593 -0.025259567421262119 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 5.2507659609773779e-017 -0.037529781753168429 0.15715596109139335 0
@@ -351,7 +377,7 @@ createNode joint -n "Spine_2" -p "Spine_1";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 2.2557065570228509 0 -5.0086747128094076e-016 ;
-	setAttr ".r" -type "double3" 4.4645509150950958e-017 2.1580180064314563e-013 0.020720983364861192 ;
+	setAttr ".r" -type "double3" 0.00023892805864594792 0.48044773784346517 0.05698637727190211 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 0 -12.748968477508974 ;
@@ -364,7 +390,7 @@ createNode joint -n "Spine_3" -p "Spine_2";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 3;
 	setAttr ".t" -type "double3" 2.7508984101143037 0 -7.4653271265619981e-016 ;
-	setAttr ".r" -type "double3" 4.0083113702374911e-017 -2.610677742748482e-013 -0.014164897028952796 ;
+	setAttr ".r" -type "double3" -3.1058007432310009e-006 0.045128665858124993 -0.0078863073717577049 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 180 0 -17.609573457319701 ;
@@ -395,12 +421,235 @@ createNode joint -n "Spine_Front_Connector" -p "Spine_4_END";
 		 -4.4784971745170142e-016 0.16157500000000002 6.9388939039072469e-018 0 -3.2603175388855151e-017 6.9388939039068948e-018 -0.16157500000000002 0
 		 -9.1943927034280556e-016 2.3652734760476029 0.47968260460698742 1;
 	setAttr ".radi" 0.57043977328062723;
+createNode transform -n "GRP_Neck_Clusters" -p "Spine_Front_Connector";
+	setAttr ".t" -type "double3" 0.014851310900537193 -0.13385363569130604 7.2047549359437193 ;
+	setAttr ".r" -type "double3" 81.423831033427618 76.454686150239212 -98.731833082733004 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 1 0.99999999999999967 ;
+createNode transform -n "GRP_Cluster_Neck_1" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575376 13.12730169868569 -5.0487392044828994e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912295 17.227946064464007 7.5532639109908386 ;
+	setAttr ".rpt" -type "double3" 1.7977991239611368 -35.739143759002758 -6.005994840899624 ;
+	setAttr ".sp" -type "double3" 0.2499999999999904 2.7836053853657701 1.2204186164183444 ;
+	setAttr ".spt" -type "double3" 1.297269070091239 14.44434067909823 6.3328452945724942 ;
+createNode transform -n "Cluster_Neck_1" -p "GRP_Cluster_Neck_1";
+	setAttr ".rp" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
+	setAttr ".sp" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
+createNode clusterHandle -n "Cluster_Neck_1Shape" -p "Cluster_Neck_1";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
+createNode parentConstraint -n "Cluster_Neck_1_parentConstraint1" -p "Cluster_Neck_1";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_1_STARTW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 9.375611398354522e-012 1.6973089600469393e-012 
+		6.381660151482499e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 58.786730816078069 89.999999999999815 0 ;
+	setAttr ".lr" -type "double3" -0.089497340356908331 -1.8823197276190804 -4.2846695371957751e-012 ;
+	setAttr ".rst" -type "double3" -4.7331654313260708e-030 -4.4408920985006262e-016 
+		-2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" 7.1127638872570945e-015 -1.0180059082930575e-013 
+		2.073783629124305e-013 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Cluster_Neck_2" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575393 13.127301698685686 -5.1125770283988459e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912299 17.73347923449715 7.8920234665126259 ;
+	setAttr ".rpt" -type "double3" 2.0098711275915804 -36.815069151753953 -6.3447543964214113 ;
+	setAttr ".sp" -type "double3" 0.24999999999999045 2.8652869073138763 1.2751536916017772 ;
+	setAttr ".spt" -type "double3" 1.2972690700912395 14.868192327183273 6.6168697749108487 ;
+createNode transform -n "Cluster_Neck_2" -p "GRP_Cluster_Neck_2";
+	setAttr ".rp" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
+	setAttr ".sp" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
+createNode clusterHandle -n "Cluster_Neck_2Shape" -p "Cluster_Neck_2";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
+createNode parentConstraint -n "Cluster_Neck_2_parentConstraint1" -p "Cluster_Neck_2";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_2W0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -1.4247901878401024 -0.05531307390952156 6.6566460176874764e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 59.100434181985996 89.999999999999801 0 ;
+	setAttr ".lr" -type "double3" -0.089497340356906513 -1.8823197276191066 -4.2589334187098212e-012 ;
+	setAttr ".rst" -type "double3" -1.5777218104420236e-030 0 -2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" 9.5416640443907128e-015 1.0177774980683256e-013 
+		1.7811106216195699e-013 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Cluster_Neck_3" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575376 13.127301698685695 -5.0459636469213365e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912255 18.758449810386832 8.6188345461326605 ;
+	setAttr ".rpt" -type "double3" 2.4787293775250543 -39.005797407595786 -7.0715654760414512 ;
+	setAttr ".sp" -type "double3" 0.24999999999998973 3.0308965281132516 1.3925881917913843 ;
+	setAttr ".spt" -type "double3" 1.2972690700912357 15.727553282273581 7.2262463543412769 ;
+createNode transform -n "Cluster_Neck_3" -p "GRP_Cluster_Neck_3";
+	setAttr ".rp" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
+	setAttr ".sp" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
+createNode clusterHandle -n "Cluster_Neck_3Shape" -p "Cluster_Neck_3";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
+createNode parentConstraint -n "Cluster_Neck_3_parentConstraint1" -p "Cluster_Neck_3";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_3W0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -1.2692129365120906 -0.56183529268322463 7.248339014724155e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 52.557469465921422 89.999999999999801 0 ;
+	setAttr ".lr" -type "double3" 3.0728657761496748e-012 -1.8823197276191177 -4.2621030586615067e-012 ;
+	setAttr ".rst" -type "double3" -1.5777218104420236e-030 0 -2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" -3.180554681463376e-015 8.746525374024671e-014 1.8447217152488398e-013 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Cluster_Neck_4" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575367 13.127301698685686 -5.0126569561825818e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912222 20.593127659802157 9.0126456459279893 ;
+	setAttr ".rpt" -type "double3" 2.4356206206063753 -42.716447439250004 -7.4653765758367836 ;
+	setAttr ".sp" -type "double3" 0.24999999999998923 3.3273346016325327 1.4562182202408145 ;
+	setAttr ".spt" -type "double3" 1.297269070091233 17.265793058169624 7.5564274256871737 ;
+createNode transform -n "Cluster_Neck_4" -p "GRP_Cluster_Neck_4";
+	setAttr ".rp" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
+	setAttr ".sp" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
+createNode clusterHandle -n "Cluster_Neck_4Shape" -p "Cluster_Neck_4";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
+createNode parentConstraint -n "Cluster_Neck_4_parentConstraint1" -p "Cluster_Neck_4";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_4W0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.81705981154609475 -0.5090424468102217 7.6204016108175072e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 27.627744133338158 89.999999999999801 0 ;
+	setAttr ".lr" -type "double3" 3.0902908397253277e-012 -1.8823197276191856 -4.3546378453431695e-012 ;
+	setAttr ".rst" -type "double3" -3.1554436208840472e-030 -1.3322676295501878e-015 
+		-2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" 1.5902773407317612e-014 3.0215269473903395e-014 
+		1.1131941385122308e-013 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Cluster_Neck_5" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575411 13.127301698685692 -5.0681681074138396e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912166 21.664560071298645 9.6132496649087376 ;
+	setAttr ".rpt" -type "double3" 2.7709316357481963 -44.969513940956134 -8.0659805948175389 ;
+	setAttr ".sp" -type "double3" 0.24999999999998834 3.500451293520078 1.5532608146076288 ;
+	setAttr ".spt" -type "double3" 1.2972690700912284 18.164108777778566 8.0599888503011083 ;
+createNode transform -n "Cluster_Neck_5" -p "GRP_Cluster_Neck_5";
+	setAttr ".rp" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
+	setAttr ".sp" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
+createNode clusterHandle -n "Cluster_Neck_5Shape" -p "Cluster_Neck_5";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
+createNode parentConstraint -n "Cluster_Neck_5_parentConstraint1" -p "Cluster_Neck_5";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_5_EndW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.3117518449711012 0.53648522560580858 -8.4211392150902784e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 174.57961926336296 -89.999999999999801 0 ;
+	setAttr ".lr" -type "double3" 3.1114204530543433e-012 -1.8823197276192059 -4.4790433279429492e-012 ;
+	setAttr ".rst" -type "double3" 0 4.4408920985006262e-016 2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" 1.272221872585407e-014 -3.1805546814635128e-015 
+		-4.1347210859025721e-014 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Cluster_Neck_6" -p "GRP_Neck_Clusters";
+	setAttr ".t" -type "double3" 7.4894045269575376 13.127301698685695 -5.1653126220685408e-014 ;
+	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
+	setAttr ".s" -type "double3" 6.189076280365156 6.1890762803651569 6.1890762803651569 ;
+	setAttr ".rp" -type "double3" 1.5472690700912166 22.167672137724701 9.9731938765373798 ;
+	setAttr ".rpt" -type "double3" 3.0041712611074853 -46.045584002378959 -8.4259248064461829 ;
+	setAttr ".sp" -type "double3" 0.24999999999998834 3.5817416256528678 1.6114188006015269 ;
+	setAttr ".spt" -type "double3" 1.2972690700912284 18.585930512071833 8.3617750759358529 ;
+createNode transform -n "Cluster_Neck_6" -p "GRP_Cluster_Neck_6";
+	setAttr ".rp" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
+	setAttr ".sp" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
+createNode clusterHandle -n "Cluster_Neck_6Shape" -p "Cluster_Neck_6";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
+createNode parentConstraint -n "Cluster_Neck_6_parentConstraint1" -p "Cluster_Neck_6";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_5_EndW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.00094234364250223024 0.0016216535125863629 
+		-8.6417415905300755e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 174.57961926336296 -89.999999999999801 0 ;
+	setAttr ".lr" -type "double3" 3.1114204530543433e-012 -1.8823197276192059 -4.4790433279429492e-012 ;
+	setAttr ".rst" -type "double3" 1.5777218104420236e-030 0 0 ;
+	setAttr ".rsrr" -type "double3" 1.272221872585407e-014 -3.1805546814635128e-015 
+		-4.1347210859025721e-014 ;
+	setAttr -k on ".w0";
 createNode joint -n "Head_1_NeckSplineIK_START" -p "Spine_Front_Connector";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" -3.5344390024870426e-015 1.0424775604701484 -3.0365693585761329 ;
-	setAttr ".r" -type "double3" -2.9485982893810073e-016 3.402757727666161e-016 -0.54891970567432979 ;
+	setAttr ".t" -type "double3" 0.33575580763727875 1.0424771397676249 -3.0349584222050576 ;
+	setAttr ".r" -type "double3" 0.017070155404468716 -0.94688828664303437 -0.071420687252081103 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 89.999999999999986 31.108808828545115 89.999999999999972 ;
@@ -413,7 +662,7 @@ createNode joint -n "Head_2" -p "Head_1_NeckSplineIK_START";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 7;
 	setAttr ".t" -type "double3" 2.0323740325229598 0.035370960168883178 -1.0636571338481804e-015 ;
-	setAttr ".r" -type "double3" -5.655172765386957e-015 2.5397029734569796e-014 0.63446015351592078 ;
+	setAttr ".r" -type "double3" -0.073247248842142676 0.33191518320134744 0.61694343960466924 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -8.859404653784903e-018 3.1650471112610551e-015 -0.32075678629364246 ;
@@ -425,7 +674,7 @@ createNode joint -n "Head_3" -p "Head_2";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".t" -type "double3" 1.1529141252178932 0.26094233253631649 9.9388426828146505e-017 ;
-	setAttr ".r" -type "double3" 1.0755516926450493e-014 -3.9583429846934612e-014 -1.5416722147962194 ;
+	setAttr ".r" -type "double3" 0.034898517994686303 -0.12765055889336441 -1.5325009614082585 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -1.3650412715496326e-016 3.1256495141882522e-015 -5.0012925053234865 ;
@@ -438,7 +687,7 @@ createNode joint -n "Head_4" -p "Head_3";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" 1.3823731602259175 0.35813039918462408 -6.2221478253177395e-017 ;
-	setAttr ".r" -type "double3" -1.5588295936456059e-014 2.8265710224858867e-014 2.074365373346601 ;
+	setAttr ".r" -type "double3" 0.12681938648782182 -0.22955113830149215 2.0778652912622828 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -6.0454046186960269e-016 2.5176963011724857e-015 -27.004090702759743 ;
@@ -12230,11 +12479,32 @@ createNode mesh -n "MESH_HornShape" -p "MESH_Horn";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".dr" 3;
 	setAttr ".dsm" 2;
+createNode orientConstraint -n "Head_7_orientConstraint1" -p "Head_7";
+	addAttr -ci true -k true -sn "w0" -ln "Head_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 33.171690587003745 -89.18532420204545 88.635543659544737 ;
+	setAttr ".o" -type "double3" -90.000000000000114 -31.807782532281411 -89.999999999999773 ;
+	setAttr ".rsrr" -type "double3" 6.3611093629270335e-015 6.3611093629270335e-015 
+		3.5311250384401269e-031 ;
+	setAttr -k on ".w0";
 createNode ikEffector -n "Neck_Spline_IK_Effector" -p "Head_4";
 	setAttr ".v" no;
 	setAttr ".hd" yes;
 createNode joint -n "MVB_Neck_1_START" -p "Spine_Front_Connector";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	addAttr -ci true -k true -sn "blendParent1" -ln "blendParent1" -dv 1 -smn 0 -smx 
+		1 -at "double";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -12244,6 +12514,7 @@ createNode joint -n "MVB_Neck_1_START" -p "Spine_Front_Connector";
 		 -2.8621033914429576e-016 0.083480142185924741 -0.13833852133667543 0 -0.16157500000000005 -5.2844080267566849e-016 4.0236240922174892e-017 0
 		 -7.1328103521767407e-016 2.5337117878801387 0.97031629871876213 1;
 	setAttr ".radi" 0.3;
+	setAttr -k on ".blendParent1";
 createNode joint -n "MVB_Neck_2" -p "MVB_Neck_1_START";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
@@ -12309,7 +12580,7 @@ createNode parentConstraint -n "MVB_Neck_3_parentConstraint1" -p "MVB_Neck_3";
 	setAttr ".tg[0].tot" -type "double3" -1.149019333231656e-007 0.00093009697409707215 
 		-0.0063059289715312605 ;
 	setAttr ".tg[0].tor" -type "double3" -89.999999999999986 -37.442530534078571 90.000000000000156 ;
-	setAttr ".lr" -type "double3" 1.2656690183381467e-013 -3.1930440277566233e-013 -1.5416722107410794 ;
+	setAttr ".lr" -type "double3" 1.3252275352077621e-013 -3.0772418449445698e-013 -1.6311695511010686 ;
 	setAttr ".rst" -type "double3" 1.1529141252178903 0.26094233253631716 9.9388541950859813e-017 ;
 	setAttr ".rsrr" -type "double3" 1.2656690183381465e-013 -3.1930440277566228e-013 
 		-1.5416722107410887 ;
@@ -12328,19 +12599,20 @@ createNode parentConstraint -n "MVB_Neck_1_START_parentConstraint1" -p "MVB_Neck
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -1.1490193222911893e-007 -1.4375167722846527e-012 
-		-5.5111470942392771e-013 ;
-	setAttr ".tg[0].tor" -type "double3" -89.999999999999986 -31.213269183921902 90.000000000000156 ;
-	setAttr ".lr" -type "double3" 6.3458008570268532e-015 3.2109892388257445e-015 -0.54891970545013813 ;
-	setAttr ".rst" -type "double3" -5.0054834679463643e-015 1.0424775604612471 -3.036569358572724 ;
-	setAttr ".rsrr" -type "double3" 6.3561393229645922e-015 6.366075522745484e-015 -0.089497340359983357 ;
+	setAttr ".tg[0].tot" -type "double3" -1.1490193222911892e-007 -1.4330758801861521e-012 
+		-5.6255000657756682e-013 ;
+	setAttr ".tg[0].tor" -type "double3" -89.999999999999986 -31.123771843561926 90.000000000000171 ;
+	setAttr ".lr" -type "double3" 0.30448150208522362 -0.27396815039188643 0.016378310860097386 ;
+	setAttr ".rst" -type "double3" -3.5344390844093673e-015 1.0424775604612773 -3.0365693585726539 ;
+	setAttr ".rsrr" -type "double3" 1.5902773407317584e-014 1.4312496066585827e-014 
+		-9.5416640443905487e-015 ;
 	setAttr -k on ".w0";
 createNode joint -n "FrontLeg_R_1" -p "Spine_Front_Connector";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" 0.56452899999999862 -0.25019664520538321 -2.3587154669884152 ;
-	setAttr ".r" -type "double3" 0.0002008718443283941 0.0017063510852637373 -0.013987279440232042 ;
+	setAttr ".r" -type "double3" 0.046113856981483445 -0.51271341262320091 -0.085525094874011123 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 90.000000000000014 24.842389105455148 -89.999999999999886 ;
@@ -12366,7 +12638,7 @@ createNode joint -n "FrontLeg_R_3" -p "FrontLeg_R_2";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".t" -type "double3" 3.1433028169351904 0.78024391043222252 1.80102694756732e-015 ;
-	setAttr ".r" -type "double3" 0.45793451772129568 -0.17838797791822142 1.2403325026642782 ;
+	setAttr ".r" -type "double3" 0.45979969418951766 -0.17584177056524589 1.3686842875603478 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 5.8903168847810481e-015 -3.7246453454331615e-014 -17.973162096140818 ;
@@ -12380,7 +12652,7 @@ createNode joint -n "FrontLeg_R_4" -p "FrontLeg_R_3";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" 3.7123727158295456 -1.1260276277014216 0.001386360176822033 ;
-	setAttr ".r" -type "double3" 5.9761748768990607e-006 6.46823734785178e-006 -2.633618368952098 ;
+	setAttr ".r" -type "double3" 1.7112602774303735e-005 -0.00049200055526641101 -2.9342352632930186 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 0 -6.1347820916389715 ;
@@ -12442,7 +12714,7 @@ createNode orientConstraint -n "FrontLeg_R_6_orientConstraint1" -p "candyRigFix_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 90.247094013132454 -0.041313109001328861 -167.16645976595947 ;
+	setAttr ".lr" -type "double3" 90.247094013132511 -0.041313109001189709 -167.16645976595822 ;
 	setAttr ".o" -type "double3" 450.2534247218428 12.833597021403438 -539.98502237751734 ;
 	setAttr ".rsrr" -type "double3" 720 1.1211455252158922e-013 -720.00000000000512 ;
 	setAttr -k on ".w0";
@@ -12461,7 +12733,7 @@ createNode orientConstraint -n "FrontLeg_R_5_FOOT_BASE_orientConstraint1" -p "ca
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 90.076067621090331 -0.60730407555523513 -155.29051877211583 ;
+	setAttr ".lr" -type "double3" 90.076861449271803 -0.60360626829563158 -155.11823692213187 ;
 	setAttr ".o" -type "double3" 449.78658448213673 1464.7510415371598 179.24575706160837 ;
 	setAttr ".rsrr" -type "double3" 719.7790281052703 1439.8347142059934 -0.040645614778752268 ;
 	setAttr -k on ".w0";
@@ -12482,7 +12754,7 @@ createNode orientConstraint -n "FrontLeg_R_2_orientConstraint1" -p "FrontLeg_R_2
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -58.444621244651046 -89.998281866267206 120.40979362068444 ;
+	setAttr ".lr" -type "double3" 120.70271106446307 -89.89234122966127 -58.683405317526308 ;
 	setAttr ".o" -type "double3" -89.999999999998238 28.033851892004748 -89.999999999989527 ;
 	setAttr ".rsrr" -type "double3" -0.0014817503878187691 -0.00086971221537789556 -0.00097572127423741157 ;
 	setAttr -k on ".w0";
@@ -12494,7 +12766,7 @@ createNode joint -n "FrontLeg_L_1" -p "Spine_Front_Connector";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 6;
 	setAttr ".t" -type "double3" -0.56452877438471871 -0.25020565682876494 -2.3587168854554941 ;
-	setAttr ".r" -type "double3" -0.00020106395293613324 -0.0017063289004507843 -0.01398734241097364 ;
+	setAttr ".r" -type "double3" 0.071545923433622011 -0.51841112103178455 -0.10212487057277839 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 90.000000000000071 24.842389105455148 -89.999999999999901 ;
@@ -12520,7 +12792,7 @@ createNode joint -n "FrontLeg_L_3" -p "FrontLeg_L_2";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" yes;
 	setAttr ".t" -type "double3" 3.1432764152705959 0.78025964849992924 -3.1719100745178509e-015 ;
-	setAttr ".r" -type "double3" -0.084748058939512122 -0.76360893299957777 1.2478402414071401 ;
+	setAttr ".r" -type "double3" -0.079981141203738823 -0.75981779767191238 1.0895104838362488 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 0 -17.973162096140822 ;
@@ -12534,7 +12806,7 @@ createNode joint -n "FrontLeg_L_4" -p "FrontLeg_L_3";
 	setAttr ".uoc" yes;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" 3.7131236911215 -1.1246094719164199 1.6531379092866428e-008 ;
-	setAttr ".r" -type "double3" 1.9123930729688272e-012 -3.6124751806736774e-007 -2.6475130429879838 ;
+	setAttr ".r" -type "double3" 5.5119001986738736e-010 -3.6260787949308284e-007 -2.2767144921297593 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 0 -6.1347820916390319 ;
@@ -12596,7 +12868,7 @@ createNode orientConstraint -n "FrontLeg_L_6_orientConstraint1" -p "FrontLeg_L_6
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 90.107081169951599 0.47303138406540512 -167.1922831897742 ;
+	setAttr ".lr" -type "double3" 90.107081169951627 0.47303138406541545 -167.19228318977528 ;
 	setAttr ".o" -type "double3" -89.890190605243419 167.19318998286818 0.49737304042147984 ;
 	setAttr ".rsrr" -type "double3" 180.00000014766653 179.99999999885907 -179.99999999997868 ;
 	setAttr -k on ".w0";
@@ -12615,7 +12887,7 @@ createNode orientConstraint -n "FrontLeg_L_5_BASE_orientConstraint1" -p "FrontLe
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 89.809113447826832 -1.3594061498422969 -155.28145607888067 ;
+	setAttr ".lr" -type "double3" 89.809975560026714 -1.3546633793798217 -155.49396489406138 ;
 	setAttr ".o" -type "double3" 89.757278007307434 384.72762614413995 179.76597412364987 ;
 	setAttr ".rsrr" -type "double3" -3.973724107511423e-024 360.00000014316851 -3.1805546814635168e-015 ;
 	setAttr -k on ".w0";
@@ -12636,7 +12908,7 @@ createNode orientConstraint -n "FrontLeg_L_2_orientConstraint1" -p "FrontLeg_L_2
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -58.438172248686939 -90.001718134171085 120.40334468752943 ;
+	setAttr ".lr" -type "double3" 107.62766328176849 -89.886261492432709 -45.591788463766811 ;
 	setAttr ".o" -type "double3" -89.999999999999901 28.033851891485391 -89.999999999999844 ;
 	setAttr ".rsrr" -type "double3" 0.0014818486448317024 0.00086954564211210556 -0.00097565832391287896 ;
 	setAttr -k on ".w0";
@@ -12716,7 +12988,7 @@ createNode parentConstraint -n "MVB_Spine_4_END_parentConstraint1" -p "MVB_Spine
 		-0.25479430848364681 ;
 	setAttr ".tg[0].tor" -type "double3" 0.014963015231608289 -2.6034676043624985e-013 
 		1.6206763975094051e-013 ;
-	setAttr ".lr" -type "double3" -9.5416640443907649e-015 2.7670825728732598e-013 -8.9055531080978495e-014 ;
+	setAttr ".lr" -type "double3" 3.1805546814630845e-015 4.1029155390879367e-013 -1.2086107789561361e-013 ;
 	setAttr ".rst" -type "double3" 0.3816135897778028 9.0466384613322166e-016 0 ;
 	setAttr ".rsrr" -type "double3" -9.5416640443907649e-015 2.7670825728732598e-013 
 		-8.9055531080978495e-014 ;
@@ -12739,7 +13011,7 @@ createNode parentConstraint -n "MVB_Spine_3_parentConstraint1" -p "MVB_Spine_3";
 		-0.61990306691984043 ;
 	setAttr ".tg[0].tor" -type "double3" -6.6798990691022555e-013 -73.087449951084537 
 		90.000000000000753 ;
-	setAttr ".lr" -type "double3" 7.7159598336478293e-013 -0.014164897492123404 2.6084502692499603e-014 ;
+	setAttr ".lr" -type "double3" 7.6915982867502778e-013 -0.014164897492126585 4.1800172666072739e-014 ;
 	setAttr ".rst" -type "double3" 0.44447641061421828 5.3861919316469993e-016 8.8817841970012523e-016 ;
 	setAttr ".rsrr" -type "double3" 7.7159598336478293e-013 -0.014164897492123404 2.6084502692499603e-014 ;
 	setAttr -k on ".w0";
@@ -12760,7 +13032,7 @@ createNode parentConstraint -n "MVB_Spine_2_parentConstraint1" -p "MVB_Spine_2";
 	setAttr ".tg[0].tot" -type "double3" -7.2837275879424166e-015 0.38499448925727364 
 		-0.096400756228790685 ;
 	setAttr ".tg[0].tor" -type "double3" -179.99999999998369 -89.317141489087888 -90.000000000015632 ;
-	setAttr ".lr" -type "double3" 7.1929867832779165e-013 -0.020720983171298699 3.5423806933609685e-014 ;
+	setAttr ".lr" -type "double3" 0.021748595319066623 -0.02107823970986019 1.8821861244719829 ;
 	setAttr ".rst" -type "double3" 0.36446578695096665 8.6049246946481571e-017 -1.3322676295501878e-015 ;
 	setAttr ".rsrr" -type "double3" 7.1929867832779165e-013 -0.020720983171298699 3.5423806933609685e-014 ;
 	setAttr -k on ".w0";
@@ -12787,29 +13059,6 @@ createNode nurbsCurve -n "Spine_Spline_IK_CurveShapeOrig" -p "Spine_Spline_IK_Cu
 		-7.2275662226065786e-015 2.319258453911111 0.3561534413841958
 		-7.2275662226065786e-015 2.3652734760471681 0.47968260460710216
 		;
-createNode parentConstraint -n "COG_parentConstraint1" -p "COG";
-	addAttr -ci true -k true -sn "w0" -ln "Hips_Sashay_CTRLW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 0.019202728144301778 -0.0043081472412036526 
-		-0.0034731611488376668 ;
-	setAttr ".tg[0].tor" -type "double3" -89.999999999999972 -76.568971129318385 -89.999999999999858 ;
-	setAttr ".lr" -type "double3" -9.5416640443905503e-015 -5.9587735023677139e-031 
-		-7.1562480332929135e-015 ;
-	setAttr ".rst" -type "double3" -1.5662559996849894e-015 14.79101076436946 4.0611389129643465 ;
-	setAttr ".rsrr" -type "double3" -9.5416640443905503e-015 -5.9587735023677139e-031 
-		-7.1562480332929135e-015 ;
-	setAttr -k on ".w0";
 createNode transform -n "GRP_Spine_Clusters" -p "COG";
 createNode transform -n "GRP_Cluster_Spine_1" -p "GRP_Spine_Clusters";
 	setAttr ".t" -type "double3" 7.4894045269575278 13.127301698685688 -4.2594209067828631e-014 ;
@@ -12829,6 +13078,7 @@ createNode clusterHandle -n "Cluster_Spine_1Shape" -p "Cluster_Spine_1";
 createNode parentConstraint -n "Cluster_Spine_1_parentConstraint1" -p "Cluster_Spine_1";
 	addAttr -ci true -k true -sn "w0" -ln "Cluster_Spine_2W0" -dv 1 -min 0 -at "double";
 	addAttr -ci true -k true -sn "w1" -ln "Hips_Sashay_CTRLW1" -dv 1 -min 0 -at "double";
+	addAttr -ci true -k true -sn "w2" -ln "Butt_Body_CTRLW2" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -12841,7 +13091,7 @@ createNode parentConstraint -n "Cluster_Spine_1_parentConstraint1" -p "Cluster_S
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr -s 2 ".tg";
+	setAttr -s 3 ".tg";
 	setAttr ".tg[0].tot" -type "double3" 3.4239578150572659e-016 0.035384431926394733 
 		-0.12810392528666081 ;
 	setAttr ".tg[0].tor" -type "double3" 0 4.5198400492033624e-029 7.6443539988791734e-030 ;
@@ -12849,9 +13099,16 @@ createNode parentConstraint -n "Cluster_Spine_1_parentConstraint1" -p "Cluster_S
 		-0.0034731611486585878 ;
 	setAttr ".tg[1].tor" -type "double3" 1.5902773407317634e-014 -1.9750667867804497e-013 
 		1.3866890722620333e-013 ;
-	setAttr ".rst" -type "double3" 4.0763425070151497e-017 0 0 ;
+	setAttr ".tg[2].tot" -type "double3" -0.0001244439213847863 0.42014553767607876 
+		0.23991782162210495 ;
+	setAttr ".tg[2].tor" -type "double3" 1.6039112301446802e-014 1.8823197276346419 
+		1.0851219100132208e-013 ;
+	setAttr ".lr" -type "double3" 0 6.3611093629270335e-014 0 ;
+	setAttr ".rst" -type "double3" 1.633079301510119e-017 -4.4408920985006262e-016 2.2204460492503131e-016 ;
+	setAttr ".rsrr" -type "double3" 0 6.3611093629270335e-014 0 ;
 	setAttr -k on ".w0";
 	setAttr -k on ".w1";
+	setAttr -k on ".w2";
 createNode transform -n "GRP_Cluster_Spine_2" -p "GRP_Spine_Clusters";
 	setAttr ".t" -type "double3" 7.4894045269575269 13.127301698685683 -4.2179803039459946e-014 ;
 	setAttr ".r" -type "double3" 166.56897112931841 -89.999999999999815 0 ;
@@ -12901,8 +13158,7 @@ createNode parentConstraint -n "Cluster_Spine_3_parentConstraint1" -p "Cluster_S
 		0.02003375886828529 ;
 	setAttr ".tg[0].tor" -type "double3" -90.682858510912169 3.7905364696163664e-017 
 		-90 ;
-	setAttr ".lr" -type "double3" -7.3152757673660883e-014 -6.3611093629270335e-015 
-		4.0607937942061458e-030 ;
+	setAttr ".lr" -type "double3" -9.2136635716422616e-014 -1.8823197276348271 5.7409069231325889e-013 ;
 	setAttr ".rst" -type "double3" 0 0 2.7755575615628914e-016 ;
 	setAttr ".rsrr" -type "double3" -9.5416640443905519e-015 -3.1805546814635168e-015 
 		6.3611093629270351e-015 ;
@@ -12940,7 +13196,7 @@ createNode parentConstraint -n "Cluster_Spine_4_parentConstraint1" -p "Cluster_S
 		0.023529739411103368 ;
 	setAttr ".tg[0].tor" -type "double3" -73.087449951084551 -9.2526078165884593e-016 
 		-90 ;
-	setAttr ".lr" -type "double3" -2.2263882770244624e-014 3.1805546814634746e-015 -2.1627771833951915e-013 ;
+	setAttr ".lr" -type "double3" -3.8404536341817668e-014 -1.8823197276348205 4.0143486468748657e-013 ;
 	setAttr ".rst" -type "double3" 1.577721810442024e-030 4.4408920985006262e-016 3.4694469519536142e-016 ;
 	setAttr ".rsrr" -type "double3" 0 0 -2.1627771833951915e-013 ;
 	setAttr -k on ".w0";
@@ -12977,8 +13233,7 @@ createNode parentConstraint -n "Cluster_Spine_5_parentConstraint1" -p "Cluster_S
 		-0.12357548244409766 ;
 	setAttr ".tg[0].tor" -type "double3" -0.014963015231602317 4.3651391971225299e-014 
 		-2.0901563606113969e-014 ;
-	setAttr ".lr" -type "double3" -6.3611093629270446e-015 -6.3611093629270335e-014 
-		1.9083328088781104e-014 ;
+	setAttr ".lr" -type "double3" -3.2361147250501666e-014 -1.882319727634884 6.1446150132200491e-013 ;
 	setAttr ".rst" -type "double3" 3.1554436208840479e-030 0 7.2164496600635165e-016 ;
 	setAttr ".rsrr" -type "double3" -9.5416640443905598e-015 -4.7708320221952755e-014 
 		1.908332808878111e-014 ;
@@ -13016,30 +13271,14 @@ createNode parentConstraint -n "Cluster_Spine_6_parentConstraint1" -p "Cluster_S
 		-5.8340435135306734e-005 ;
 	setAttr ".tg[0].tor" -type "double3" -0.014963015231602317 4.3651391971225299e-014 
 		-2.0901563606113969e-014 ;
-	setAttr ".lr" -type "double3" -6.3611093629270446e-015 -6.3611093629270335e-014 
-		1.9083328088781104e-014 ;
+	setAttr ".lr" -type "double3" -3.2361147250501666e-014 -1.882319727634884 6.1446150132200491e-013 ;
 	setAttr ".rst" -type "double3" 3.1554436208840479e-030 -4.4408920985006262e-016 
 		6.6613381477509392e-016 ;
 	setAttr ".rsrr" -type "double3" -9.5416640443905598e-015 -4.7708320221952755e-014 
 		1.908332808878111e-014 ;
 	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_1" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912295 17.227946064464 7.5532639109908377 ;
-	setAttr ".rpt" -type "double3" 1.7977991239611368 -35.739143759002744 -6.0059948408996231 ;
-	setAttr ".sp" -type "double3" 0.2499999999999904 2.7836053853657701 1.2204186164183444 ;
-	setAttr ".spt" -type "double3" 1.297269070091239 14.444340679098227 6.3328452945724933 ;
-createNode transform -n "Cluster_Neck_1" -p "GRP_Cluster_Neck_1";
-	setAttr ".rp" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
-	setAttr ".sp" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
-createNode clusterHandle -n "Cluster_Neck_1Shape" -p "Cluster_Neck_1";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -9.5859342706683292e-015 2.5336053853657701 0.97041861641834437 ;
-createNode parentConstraint -n "Cluster_Neck_1_parentConstraint1" -p "Cluster_Neck_1";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_1_STARTW0" -dv 1 -min 0 -at "double";
+createNode parentConstraint -n "COG_parentConstraint1" -p "COG";
+	addAttr -ci true -k true -sn "w0" -ln "Butt_Body_CTRLW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -13052,195 +13291,12 @@ createNode parentConstraint -n "Cluster_Neck_1_parentConstraint1" -p "Cluster_Ne
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 9.375611398354522e-012 1.6973089600469393e-012 
-		6.381660151482499e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 58.786730816078069 89.999999999999815 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509015716 -1.0251421857424172e-013 2.1014934503677877e-013 ;
-	setAttr ".rst" -type "double3" -4.7331654313260708e-030 -4.4408920985006262e-016 
-		-2.2204460492503131e-016 ;
-	setAttr ".rsrr" -type "double3" 7.1127638872570945e-015 -1.0180059082930575e-013 
-		2.073783629124305e-013 ;
-	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_2" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912297 17.733479234497146 7.892023466512625 ;
-	setAttr ".rpt" -type "double3" 2.0098711275915786 -36.815069151753953 -6.3447543964214113 ;
-	setAttr ".sp" -type "double3" 0.24999999999999045 2.8652869073138763 1.2751536916017772 ;
-	setAttr ".spt" -type "double3" 1.2972690700912393 14.868192327183271 6.6168697749108478 ;
-createNode transform -n "Cluster_Neck_2" -p "GRP_Cluster_Neck_2";
-	setAttr ".rp" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
-	setAttr ".sp" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
-createNode clusterHandle -n "Cluster_Neck_2Shape" -p "Cluster_Neck_2";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -9.5736160113415884e-015 2.6152869073138763 1.0251536916017772 ;
-createNode parentConstraint -n "Cluster_Neck_2_parentConstraint1" -p "Cluster_Neck_2";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_2W0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -1.4247901878401024 -0.05531307390952156 6.6566460176874764e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 59.100434181985996 89.999999999999801 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509016621 8.8251470974729285e-014 2.0073037648421441e-013 ;
-	setAttr ".rst" -type "double3" -1.5777218104420236e-030 0 -2.2204460492503131e-016 ;
-	setAttr ".rsrr" -type "double3" 9.5416640443907128e-015 1.0177774980683256e-013 
-		1.7811106216195699e-013 ;
-	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_3" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912253 18.758449810386828 8.6188345461326588 ;
-	setAttr ".rpt" -type "double3" 2.4787293775250543 -39.005797407595765 -7.0715654760414504 ;
-	setAttr ".sp" -type "double3" 0.24999999999998973 3.0308965281132516 1.3925881917913843 ;
-	setAttr ".spt" -type "double3" 1.2972690700912355 15.727553282273576 7.2262463543412743 ;
-createNode transform -n "Cluster_Neck_3" -p "GRP_Cluster_Neck_3";
-	setAttr ".rp" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
-	setAttr ".sp" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
-createNode clusterHandle -n "Cluster_Neck_3Shape" -p "Cluster_Neck_3";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -1.0256587294045562e-014 2.7808965281132516 1.1425881917913843 ;
-createNode parentConstraint -n "Cluster_Neck_3_parentConstraint1" -p "Cluster_Neck_3";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_3W0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -1.2692129365120906 -0.56183529268322463 7.248339014724155e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 52.557469465921422 89.999999999999801 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509014384 9.1406497098335013e-014 2.0710418622158985e-013 ;
-	setAttr ".rst" -type "double3" -1.5777218104420236e-030 0 -2.2204460492503131e-016 ;
-	setAttr ".rsrr" -type "double3" -3.180554681463376e-015 8.746525374024671e-014 1.8447217152488398e-013 ;
-	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_4" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912222 20.593127659802153 9.0126456459279876 ;
-	setAttr ".rpt" -type "double3" 2.4356206206063753 -42.716447439249997 -7.4653765758367818 ;
-	setAttr ".sp" -type "double3" 0.24999999999998923 3.3273346016325327 1.4562182202408145 ;
-	setAttr ".spt" -type "double3" 1.2972690700912328 17.265793058169621 7.5564274256871728 ;
-createNode transform -n "Cluster_Neck_4" -p "GRP_Cluster_Neck_4";
-	setAttr ".rp" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
-	setAttr ".sp" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
-createNode clusterHandle -n "Cluster_Neck_4Shape" -p "Cluster_Neck_4";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -1.0765154166995467e-014 3.0773346016325327 1.2062182202408145 ;
-createNode parentConstraint -n "Cluster_Neck_4_parentConstraint1" -p "Cluster_Neck_4";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_4W0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -0.81705981154609475 -0.5090424468102217 7.6204016108175072e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 27.627744133338158 89.999999999999801 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509015971 2.3343908476221787e-014 1.2731680102210024e-013 ;
-	setAttr ".rst" -type "double3" -3.1554436208840472e-030 -1.3322676295501878e-015 
-		-2.2204460492503131e-016 ;
-	setAttr ".rsrr" -type "double3" 1.5902773407317612e-014 3.0215269473903395e-014 
-		1.1131941385122308e-013 ;
-	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_5" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912166 21.664560071298645 9.6132496649087358 ;
-	setAttr ".rpt" -type "double3" 2.7709316357481946 -44.969513940956134 -8.0659805948175372 ;
-	setAttr ".sp" -type "double3" 0.24999999999998834 3.500451293520078 1.5532608146076288 ;
-	setAttr ".spt" -type "double3" 1.2972690700912284 18.164108777778566 8.0599888503011066 ;
-createNode transform -n "Cluster_Neck_5" -p "GRP_Cluster_Neck_5";
-	setAttr ".rp" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
-	setAttr ".sp" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
-createNode clusterHandle -n "Cluster_Neck_5Shape" -p "Cluster_Neck_5";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -1.1683143207637736e-014 3.250451293520078 1.3032608146076288 ;
-createNode parentConstraint -n "Cluster_Neck_5_parentConstraint1" -p "Cluster_Neck_5";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_5_EndW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -0.3117518449711012 0.53648522560580858 -8.4211392150902784e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 174.57961926336296 -89.999999999999801 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509017098 -5.079099333236108e-015 -2.228442502200281e-014 ;
-	setAttr ".rst" -type "double3" 0 4.4408920985006262e-016 2.2204460492503131e-016 ;
-	setAttr ".rsrr" -type "double3" 1.272221872585407e-014 -3.1805546814635128e-015 
-		-4.1347210859025721e-014 ;
-	setAttr -k on ".w0";
-createNode transform -n "GRP_Cluster_Neck_6" -p "COG";
-	setAttr ".t" -type "double3" 7.4894045269575402 13.127301698685688 -4.6458554284908091e-014 ;
-	setAttr ".r" -type "double3" 166.56897112931838 -89.999999999999815 0 ;
-	setAttr ".s" -type "double3" 6.1890762803651551 6.189076280365156 6.189076280365156 ;
-	setAttr ".rp" -type "double3" 1.5472690700912166 22.167672137724697 9.9731938765373798 ;
-	setAttr ".rpt" -type "double3" 3.0041712611074889 -46.045584002378945 -8.4259248064461829 ;
-	setAttr ".sp" -type "double3" 0.24999999999998834 3.5817416256528678 1.6114188006015269 ;
-	setAttr ".spt" -type "double3" 1.2972690700912284 18.58593051207183 8.3617750759358529 ;
-createNode transform -n "Cluster_Neck_6" -p "GRP_Cluster_Neck_6";
-	setAttr ".rp" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
-	setAttr ".sp" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
-createNode clusterHandle -n "Cluster_Neck_6Shape" -p "Cluster_Neck_6";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -1.1670137379032448e-014 3.3317416256528678 1.3614188006015269 ;
-createNode parentConstraint -n "Cluster_Neck_6_parentConstraint1" -p "Cluster_Neck_6";
-	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_5_EndW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -0.00094234364250223024 0.0016216535125863629 
-		-8.6417415905300755e-014 ;
-	setAttr ".tg[0].tor" -type "double3" 174.57961926336296 -89.999999999999801 0 ;
-	setAttr ".lr" -type "double3" 0.45942236509017098 -5.079099333236108e-015 -2.228442502200281e-014 ;
-	setAttr ".rst" -type "double3" 1.5777218104420236e-030 0 0 ;
-	setAttr ".rsrr" -type "double3" 1.272221872585407e-014 -3.1805546814635128e-015 
-		-4.1347210859025721e-014 ;
+	setAttr ".tg[0].tot" -type "double3" -0.0001244439213783794 0.42014553767669827 
+		0.23991782162192521 ;
+	setAttr ".tg[0].tor" -type "double3" -98.053312285782511 -76.440113520517869 -82.168345863274354 ;
+	setAttr ".lr" -type "double3" -0.43736408423774603 -1.8308209426687319 0.0069883624832634012 ;
+	setAttr ".rst" -type "double3" 0.00077019292203788252 14.791010764369462 4.0650310585730436 ;
+	setAttr ".rsrr" -type "double3" -0.43736408423774603 -1.8308209426687319 0.0069883624832634012 ;
 	setAttr -k on ".w0";
 createNode transform -n "CTRL_Group" -p "Groups";
 	setAttr ".t" -type "double3" -1.524062625475341e-016 11.699408943215229 -0.17429230273469842 ;
@@ -13326,6 +13382,7 @@ createNode orientConstraint -n "R_ReverseLock_BackHoof_2_orientConstraint1" -p "
 createNode transform -n "R_FrontHoof_CTRL" -p "CTRL_Group";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 13;
+	setAttr ".t" -type "double3" -1.5064514515640953e-016 -2.2204460492503131e-016 0 ;
 	setAttr ".rp" -type "double3" -0.23585233278361992 -1.6812686936322947 0.88288589821151298 ;
 	setAttr ".sp" -type "double3" -0.23585233278361992 -1.6812686936322947 0.88288589821151298 ;
 createNode nurbsCurve -n "R_FrontHoof_CTRLShape" -p "R_FrontHoof_CTRL";
@@ -13661,9 +13718,6 @@ createNode nurbsCurve -n "R_Back_Knee_CTRLShape" -p "R_Back_Knee_CTRL";
 		;
 createNode transform -n "Rear_and_Twist_CTRL" -p "CTRL_Group";
 	setAttr -l on ".v";
-	setAttr -l on ".tx";
-	setAttr -l on ".ty";
-	setAttr -l on ".tz";
 	setAttr -l on ".sx";
 	setAttr -l on ".sy";
 	setAttr -l on ".sz";
@@ -13787,10 +13841,10 @@ createNode transform -n "Front_Body_CTRL" -p "GRP_CTRL_FrontShoulders";
 	setAttr ".rp" -type "double3" 9.2444637330587321e-033 1.9879491523594743 0.73453525920382368 ;
 	setAttr ".sp" -type "double3" 9.2444637330587321e-033 1.9879491523594743 0.73453525920382368 ;
 	setAttr -k on ".LockBodySeg" 1;
-	setAttr -k on ".Neck_Base_CTRLs";
-	setAttr -k on ".Neck_Base_Curl";
-	setAttr -k on ".Neck_Base_Sway";
-	setAttr -k on ".Neck_Base_Twist";
+	setAttr -l on -k on ".Neck_Base_CTRLs";
+	setAttr -l on -k on ".Neck_Base_Curl";
+	setAttr -l on -k on ".Neck_Base_Sway";
+	setAttr -l on -k on ".Neck_Base_Twist";
 createNode nurbsCurve -n "Front_Body_CTRLShape" -p "Front_Body_CTRL";
 	setAttr -k off ".v";
 	setAttr ".ove" yes;
@@ -13890,7 +13944,152 @@ createNode parentConstraint -n "GRP_CTRL_FrontShoulders_parentConstraint1" -p "G
 	setAttr ".tg[0].tot" -type "double3" -1.0393846366797037e-014 0.490713170934447 
 		0.71315284607832941 ;
 	setAttr -k on ".w0";
+createNode transform -n "GRP_Neck_CTRLs" -p "GRP_CTRL_FrontShoulders";
+	setAttr ".t" -type "double3" -9.2444637330587321e-033 0 2.2642405841048335e-048 ;
+createNode transform -n "GRP_Neck_2" -p "GRP_Neck_CTRLs";
+createNode parentConstraint -n "GRP_Neck_2_parentConstraint1" -p "GRP_Neck_2";
+	addAttr -ci true -k true -sn "w0" -ln "Neck_1_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -1.1490192264318466e-007 -2.5336053853657696 
+		-0.97041861641834415 ;
+	setAttr ".lr" -type "double3" 0.45942236509015061 0 0 ;
+	setAttr -k on ".w0";
+createNode transform -n "Neck_2_CTRL" -p "GRP_Neck_2";
+	addAttr -ci true -sn "Lock_Neck" -ln "Lock_Neck" -min 0 -max 1 -at "double";
+	setAttr -l on ".v";
+	setAttr ".r" -type "double3" 0 -1.4033418597069752e-014 0 ;
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
+	setAttr ".rp" -type "double3" 1.1490192264318466e-007 2.9979771880912169 1.2014966011047363 ;
+	setAttr ".sp" -type "double3" 1.1490192264318466e-007 2.9979771880912169 1.2014966011047363 ;
+	setAttr -k on ".Lock_Neck";
+createNode nurbsCurve -n "Neck_2_CTRLShape" -p "Neck_2_CTRL";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		1 13 0 no 3
+		14 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+		14
+		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
+		1.1490192264318466e-007 3.5555825083981292 1.1584629416697478
+		1.1490192264318466e-007 3.4609155018367921 1.0637959351084105
+		1.1490192264318466e-007 3.5555825083981292 0.96912892854707333
+		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
+		0.094667121463259452 3.5555825083981292 1.0637959351084105
+		1.1490192264318466e-007 3.4609155018367921 1.0637959351084105
+		-0.094666891659414554 3.5555825083981292 1.0637959351084105
+		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
+		-0.094666891659414554 3.5555825083981292 1.0637959351084105
+		1.1490192264318466e-007 3.5555825083981292 1.1584629416697478
+		0.094667121463259452 3.5555825083981292 1.0637959351084105
+		1.1490192264318466e-007 3.5555825083981292 0.96912892854707333
+		-0.094666891659414554 3.5555825083981292 1.0637959351084105
+		;
+createNode transform -n "Head_CTRL" -p "Neck_2_CTRL";
+	setAttr -l on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
+	setAttr ".rp" -type "double3" 9.2444637330587321e-033 3.2843874083273605 1.6119400760527574 ;
+	setAttr ".sp" -type "double3" 9.2444637330587321e-033 3.2843874083273605 1.6119400760527574 ;
+createNode nurbsCurve -n "Head_CTRLShape" -p "Head_CTRL";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		1 18 0 no 3
+		19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+		19
+		0.19221436458752253 2.6453075441689773 2.2477279996632609
+		-0.19221436458752253 2.6453075441689773 2.2477279996632609
+		-0.34721188504503847 3.6371639815725487 1.4767151109662358
+		0.34721188504503847 3.6371639815725487 1.4767151109662358
+		0.19221436458752253 2.6453075441689773 2.2477279996632609
+		0.19221436458752253 2.3386461782554129 1.9680256192033561
+		0.34721188504503847 2.765480516124645 1.2591635028075683
+		0.34721188504503847 3.6371639815725487 1.4767151109662358
+		0.34721188504503847 2.765480516124645 1.2591635028075683
+		-0.34721188504503847 2.765480516124645 1.2591635028075683
+		-0.34721188504503847 3.6371639815725487 1.4767151109662358
+		-0.34721188504503847 2.765480516124645 1.2591635028075683
+		-0.19221436458752253 2.3386461782554129 1.9680256192033561
+		-0.19221436458752253 2.6453075441689773 2.2477279996632609
+		-0.19221436458752253 2.3386461782554129 1.9680256192033561
+		-0.34721188504503847 2.765480516124645 1.2591635028075683
+		0.34721188504503847 2.765480516124645 1.2591635028075683
+		0.19221436458752253 2.3386461782554129 1.9680256192033561
+		-0.19221436458752253 2.3386461782554129 1.9680256192033561
+		;
+createNode parentConstraint -n "Head_CTRL_parentConstraint1" -p "Head_CTRL";
+	addAttr -ci true -k true -sn "w0" -ln "MVB_Neck_5_EndW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 1.5703047304193216 0.1469264258201477 7.0665464665081409e-014 ;
+	setAttr ".tg[0].tor" -type "double3" 174.57961926336293 -89.999999999999829 0 ;
+	setAttr ".lr" -type "double3" -9.5416640443907507e-015 -1.6022044207872464e-013 
+		1.4312496066585827e-013 ;
+	setAttr ".rst" -type "double3" -3.0660804714644795e-030 0 0 ;
+	setAttr ".rsrr" -type "double3" -1.5902773407317757e-014 -1.5067877803433413e-013 
+		1.2722218725854072e-013 ;
+	setAttr -k on ".w0";
+createNode transform -n "GRP_Neck1" -p "GRP_Neck_CTRLs";
+createNode transform -n "Neck_1_CTRL" -p "GRP_Neck1";
+	setAttr -l on ".v";
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
+	setAttr ".rp" -type "double3" 1.1490192264318466e-007 2.5336053853657701 0.97041861641834415 ;
+	setAttr ".sp" -type "double3" 1.1490192264318466e-007 2.5336053853657701 0.97041861641834415 ;
+createNode nurbsCurve -n "Neck_1_CTRLShape" -p "Neck_1_CTRL";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".cc" -type "nurbsCurve" 
+		1 13 0 no 3
+		14 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+		14
+		1.1490192264318466e-007 3.2712318235318656 0.782166353476621
+		1.1490192264318466e-007 3.1758087873660119 0.87607124382562573
+		1.1490192264318466e-007 3.081903897017007 0.7806482076597715
+		1.1490192264318466e-007 3.1773269331828615 0.68674331731076688
+		1.1490192264318466e-007 3.2712318235318656 0.782166353476621
+		0.094667121463259452 3.1765678602744365 0.78140728056819619
+		1.1490192264318466e-007 3.081903897017007 0.7806482076597715
+		-0.094666891659414554 3.1765678602744365 0.78140728056819619
+		1.1490192264318466e-007 3.2712318235318656 0.782166353476621
+		-0.094666891659414554 3.1765678602744365 0.78140728056819619
+		1.1490192264318466e-007 3.1758087873660119 0.87607124382562573
+		0.094667121463259452 3.1765678602744365 0.78140728056819619
+		1.1490192264318466e-007 3.1773269331828615 0.68674331731076688
+		-0.094666891659414554 3.1765678602744365 0.78140728056819619
+		;
 createNode transform -n "Hips_Sashay_CTRL" -p "CTRL_Group";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 23;
+	setAttr ".r" -type "double3" 0 1.8823197276348336 0 ;
 	setAttr ".rp" -type "double3" -0.019202728144301632 0.5038337114941982 -0.68086663752773535 ;
 	setAttr ".sp" -type "double3" -0.019202728144301632 0.5038337114941982 -0.68086663752773535 ;
 createNode nurbsCurve -n "Hips_Sashay_CTRLShape" -p "Hips_Sashay_CTRL";
@@ -13918,8 +14117,12 @@ createNode nurbsCurve -n "Hips_Sashay_CTRLShape" -p "Hips_Sashay_CTRL";
 		1.2542374071467879 0.370931612859416 -0.6808666375277358
 		;
 createNode transform -n "L_FrontHoof_CTRL" -p "CTRL_Group";
+	setAttr -l on ".v";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 13;
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
 	setAttr ".rp" -type "double3" 0.21390762163672117 -1.6812686936322954 0.88288589821151275 ;
 	setAttr ".sp" -type "double3" 0.21390762163672117 -1.6812686936322954 0.88288589821151275 ;
 createNode nurbsCurve -n "L_FrontHoof_CTRLShape" -p "L_FrontHoof_CTRL";
@@ -13972,92 +14175,6 @@ createNode joint -n "L_ReverseLock_FrontHoof_3_END" -p "L_ReverseLock_FrontHoof_
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -143.28504455398036 0.39398856863623566 -90.528269242748095 ;
 	setAttr ".radi" 0.05;
-createNode transform -n "GRP_Neck_CTRLs" -p "CTRL_Group";
-	setAttr ".t" -type "double3" -9.2444637330587321e-033 -1.8445838680985431 2.2642405841048335e-048 ;
-	setAttr ".r" -type "double3" 0 1.4033418597069752e-014 0 ;
-createNode transform -n "GRP_Neck_2" -p "GRP_Neck_CTRLs";
-createNode parentConstraint -n "GRP_Neck_2_parentConstraint1" -p "GRP_Neck_2";
-	addAttr -ci true -k true -sn "w0" -ln "Neck_1_CTRLW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -1.1490192264318466e-007 -2.5336053853657696 
-		-0.97041861641834415 ;
-	setAttr ".lr" -type "double3" 0.45942236509015061 0 0 ;
-	setAttr -k on ".w0";
-createNode transform -n "Neck_2_CTRL" -p "GRP_Neck_2";
-	addAttr -ci true -sn "Lock_Neck" -ln "Lock_Neck" -min 0 -max 1 -at "double";
-	setAttr -l on ".v";
-	setAttr ".r" -type "double3" 0 -1.4033418597069752e-014 0 ;
-	setAttr -l on ".sx";
-	setAttr -l on ".sy";
-	setAttr -l on ".sz";
-	setAttr ".rp" -type "double3" 1.1490192264318466e-007 2.9979771880912169 1.2014966011047363 ;
-	setAttr ".sp" -type "double3" 1.1490192264318466e-007 2.9979771880912169 1.2014966011047363 ;
-	setAttr -k on ".Lock_Neck" 1;
-createNode nurbsCurve -n "Neck_2_CTRLShape" -p "Neck_2_CTRL";
-	setAttr -k off ".v";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 4;
-	setAttr ".cc" -type "nurbsCurve" 
-		1 13 0 no 3
-		14 0 1 2 3 4 5 6 7 8 9 10 11 12 13
-		14
-		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
-		1.1490192264318466e-007 3.5555825083981292 1.1584629416697478
-		1.1490192264318466e-007 3.4609155018367921 1.0637959351084105
-		1.1490192264318466e-007 3.5555825083981292 0.96912892854707333
-		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
-		0.094667121463259452 3.5555825083981292 1.0637959351084105
-		1.1490192264318466e-007 3.4609155018367921 1.0637959351084105
-		-0.094666891659414554 3.5555825083981292 1.0637959351084105
-		1.1490192264318466e-007 3.6502495149594663 1.0637959351084105
-		-0.094666891659414554 3.5555825083981292 1.0637959351084105
-		1.1490192264318466e-007 3.5555825083981292 1.1584629416697478
-		0.094667121463259452 3.5555825083981292 1.0637959351084105
-		1.1490192264318466e-007 3.5555825083981292 0.96912892854707333
-		-0.094666891659414554 3.5555825083981292 1.0637959351084105
-		;
-createNode transform -n "Neck_1_CTRL" -p "GRP_Neck_CTRLs";
-	setAttr -l on ".v";
-	setAttr ".r" -type "double3" 0.45942236509015061 0 0 ;
-	setAttr -l on ".sx";
-	setAttr -l on ".sy";
-	setAttr -l on ".sz";
-	setAttr ".rp" -type "double3" 1.1490192264318466e-007 2.5336053853657696 0.97041861641834415 ;
-	setAttr ".sp" -type "double3" 1.1490192264318466e-007 2.5336053853657696 0.97041861641834415 ;
-createNode nurbsCurve -n "Neck_1_CTRLShape" -p "Neck_1_CTRL";
-	setAttr -k off ".v";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 6;
-	setAttr ".cc" -type "nurbsCurve" 
-		1 13 0 no 3
-		14 0 1 2 3 4 5 6 7 8 9 10 11 12 13
-		14
-		1.1490192264318466e-007 3.2696986387461355 0.77625786056848367
-		1.1490192264318466e-007 3.1750316321847984 0.87092486712982098
-		1.1490192264318466e-007 3.0803646256234614 0.77625786056848367
-		1.1490192264318466e-007 3.1750316321847984 0.68159085400714647
-		1.1490192264318466e-007 3.2696986387461355 0.77625786056848367
-		0.094667121463259452 3.1750316321847984 0.77625786056848367
-		1.1490192264318466e-007 3.0803646256234614 0.77625786056848367
-		-0.094666891659414554 3.1750316321847984 0.77625786056848367
-		1.1490192264318466e-007 3.2696986387461355 0.77625786056848367
-		-0.094666891659414554 3.1750316321847984 0.77625786056848367
-		1.1490192264318466e-007 3.1750316321847984 0.87092486712982098
-		0.094667121463259452 3.1750316321847984 0.77625786056848367
-		1.1490192264318466e-007 3.1750316321847984 0.68159085400714647
-		-0.094666891659414554 3.1750316321847984 0.77625786056848367
-		;
 createNode transform -n "IK_Group" -p "Groups";
 createNode ikHandle -n "FrontLeg_R_IK_Top_Handle" -p "IK_Group";
 	setAttr ".r" -type "double3" 89.999999999999957 24.84238910545514 -89.999999999999957 ;
@@ -14272,14 +14389,14 @@ createNode pointConstraint -n "L_FrontLeg_IK_pointConstraint1" -p "L_FrontLeg_IK
 	setAttr ".rst" -type "double3" -1.4249802199294868 1.8316372387126714 -4.8704570719548652 ;
 	setAttr -k on ".w0";
 createNode ikHandle -n "Spine_Spline_IK" -p "IK_Group";
-	setAttr ".t" -type "double3" 6.1543073930590298e-014 14.922131159329078 -3.1434456415525505 ;
-	setAttr ".r" -type "double3" 89.999999999999943 73.087449950869754 89.999999999999758 ;
+	setAttr ".t" -type "double3" 3.4131987251993141e-013 14.920778344748749 -3.1398138964633588 ;
+	setAttr ".r" -type "double3" 89.590406511303982 73.104556226249386 89.999999999982208 ;
 	setAttr ".s" -type "double3" 6.189076280365156 6.189076280365156 6.189076280365156 ;
 	setAttr ".pv" -type "double3" -7.5794324564279961e-016 0 -6.189076280365156 ;
 	setAttr ".roc" yes;
 createNode ikHandle -n "Neck_Spline_IK" -p "IK_Group";
-	setAttr ".t" -type "double3" 7.3044388481240609e-014 20.885495694308084 -8.6408512636124559 ;
-	setAttr ".r" -type "double3" 90.000000000000057 62.831678231546839 89.999999999999872 ;
+	setAttr ".t" -type "double3" 0.38569239163446462 20.904853338405907 -8.5957337255255961 ;
+	setAttr ".r" -type "double3" 88.529849535531625 62.362660055058072 88.251759377469583 ;
 	setAttr ".s" -type "double3" 6.189076280365156 6.189076280365156 6.189076280365156 ;
 	setAttr ".pv" -type "double3" -7.5794324564279961e-016 0 -6.189076280365156 ;
 	setAttr ".roc" yes;
@@ -25156,7 +25273,7 @@ createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	setAttr ".cdl" 8;
+	setAttr ".cdl" 5;
 	setAttr -s 9 ".dli[1:8]"  1 2 3 4 5 6 7 8;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
@@ -25183,10 +25300,10 @@ createNode script -n "candyRigFix_4:uiConfigurationScriptNode";
 		+ "                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n"
-		+ "            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
+		+ "            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
 		+ "                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
 		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
-		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n"
+		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n"
 		+ "            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n"
 		+ "            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n"
@@ -25265,8 +25382,8 @@ createNode script -n "candyRigFix_4:uiConfigurationScriptNode";
 		+ "                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput4\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n"
 		+ "                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"webBrowserPanel\" (localizedPanelLabel(\"Web Browser\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"webBrowserPanel\" -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"wireframe\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"wireframe\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "candyRigFix_4:sceneConfigurationScriptNode";
@@ -25332,7 +25449,6 @@ createNode hyperLayout -n "Candy:hyperLayout1";
 	setAttr ".hyp[2].nvs" 1696;
 	setAttr ".anf" yes;
 createNode displayLayer -n "MESH";
-	setAttr ".dt" 2;
 	setAttr ".do" 2;
 createNode skinCluster -n "skinCluster1";
 	setAttr -s 3569 ".wl";
@@ -38335,6 +38451,16 @@ createNode groupId -n "cluster12GroupId";
 createNode groupParts -n "cluster12GroupParts";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "cv[5]";
+createNode unitConversion -n "unitConversion6";
+	setAttr ".cf" 0.017453292519943295;
+createNode unitConversion -n "unitConversion7";
+	setAttr ".cf" 0.017453292519943295;
+createNode unitConversion -n "unitConversion8";
+	setAttr ".cf" 0.017453292519943295;
+createNode pairBlend -n "pairBlend1";
+	setAttr ".txm" 2;
+	setAttr ".tym" 2;
+	setAttr ".tzm" 2;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
@@ -38515,6 +38641,18 @@ connectAttr "COG_parentConstraint1.cry" "COG.ry";
 connectAttr "COG_parentConstraint1.crz" "COG.rz";
 connectAttr "COG.s" "Spine_Connector_Pelvis.is";
 connectAttr "RIG.di" "Spine_Connector_Pelvis.do";
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.ctx" "Spine_Connector_Pelvis.tx"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.cty" "Spine_Connector_Pelvis.ty"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.ctz" "Spine_Connector_Pelvis.tz"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.crx" "Spine_Connector_Pelvis.rx"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.cry" "Spine_Connector_Pelvis.ry"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.crz" "Spine_Connector_Pelvis.rz"
+		;
 connectAttr "Spine_Connector_Pelvis.s" "BackLeg_R_1.is";
 connectAttr "BackLeg_R_1.s" "candyRigFix_5:Candy_ryanRIG:BackLeg_R_2.is";
 connectAttr "candyRigFix_5:Candy_ryanRIG:BackLeg_R_2.s" "candyRigFix_5:Candy_ryanRIG:BackLeg_R_3.is"
@@ -38591,11 +38729,157 @@ connectAttr "BackLeg_L_4_BASE_orientConstraint1.w0" "BackLeg_L_4_BASE_orientCons
 connectAttr "BackLeg_L_4_BASE.tx" "L_BackLeg_Effector.tx";
 connectAttr "BackLeg_L_4_BASE.ty" "L_BackLeg_Effector.ty";
 connectAttr "BackLeg_L_4_BASE.tz" "L_BackLeg_Effector.tz";
+connectAttr "Spine_Connector_Pelvis.ro" "Spine_Connector_Pelvis_parentConstraint1.cro"
+		;
+connectAttr "Spine_Connector_Pelvis.pim" "Spine_Connector_Pelvis_parentConstraint1.cpim"
+		;
+connectAttr "Spine_Connector_Pelvis.rp" "Spine_Connector_Pelvis_parentConstraint1.crp"
+		;
+connectAttr "Spine_Connector_Pelvis.rpt" "Spine_Connector_Pelvis_parentConstraint1.crt"
+		;
+connectAttr "Spine_Connector_Pelvis.jo" "Spine_Connector_Pelvis_parentConstraint1.cjo"
+		;
+connectAttr "Hips_Sashay_CTRL.t" "Spine_Connector_Pelvis_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Hips_Sashay_CTRL.rp" "Spine_Connector_Pelvis_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Hips_Sashay_CTRL.rpt" "Spine_Connector_Pelvis_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Hips_Sashay_CTRL.r" "Spine_Connector_Pelvis_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Hips_Sashay_CTRL.ro" "Spine_Connector_Pelvis_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Hips_Sashay_CTRL.s" "Spine_Connector_Pelvis_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Hips_Sashay_CTRL.pm" "Spine_Connector_Pelvis_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Spine_Connector_Pelvis_parentConstraint1.w0" "Spine_Connector_Pelvis_parentConstraint1.tg[0].tw"
+		;
 connectAttr "COG.s" "Spine_1.is";
 connectAttr "Spine_1.s" "Spine_2.is";
 connectAttr "Spine_2.s" "Spine_3.is";
 connectAttr "Spine_3.s" "Spine_4_END.is";
 connectAttr "Spine_4_END.s" "Spine_Front_Connector.is";
+connectAttr "Cluster_Neck_1_parentConstraint1.ctx" "Cluster_Neck_1.tx";
+connectAttr "Cluster_Neck_1_parentConstraint1.cty" "Cluster_Neck_1.ty";
+connectAttr "Cluster_Neck_1_parentConstraint1.ctz" "Cluster_Neck_1.tz";
+connectAttr "Cluster_Neck_1_parentConstraint1.crx" "Cluster_Neck_1.rx";
+connectAttr "Cluster_Neck_1_parentConstraint1.cry" "Cluster_Neck_1.ry";
+connectAttr "Cluster_Neck_1_parentConstraint1.crz" "Cluster_Neck_1.rz";
+connectAttr "Cluster_Neck_1.ro" "Cluster_Neck_1_parentConstraint1.cro";
+connectAttr "Cluster_Neck_1.pim" "Cluster_Neck_1_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_1.rp" "Cluster_Neck_1_parentConstraint1.crp";
+connectAttr "Cluster_Neck_1.rpt" "Cluster_Neck_1_parentConstraint1.crt";
+connectAttr "MVB_Neck_1_START.t" "Cluster_Neck_1_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_1_START.rp" "Cluster_Neck_1_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_1_START.rpt" "Cluster_Neck_1_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_1_START.r" "Cluster_Neck_1_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_1_START.ro" "Cluster_Neck_1_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_1_START.s" "Cluster_Neck_1_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_1_START.pm" "Cluster_Neck_1_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_1_START.jo" "Cluster_Neck_1_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_1_parentConstraint1.w0" "Cluster_Neck_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Cluster_Neck_2_parentConstraint1.ctx" "Cluster_Neck_2.tx";
+connectAttr "Cluster_Neck_2_parentConstraint1.cty" "Cluster_Neck_2.ty";
+connectAttr "Cluster_Neck_2_parentConstraint1.ctz" "Cluster_Neck_2.tz";
+connectAttr "Cluster_Neck_2_parentConstraint1.crx" "Cluster_Neck_2.rx";
+connectAttr "Cluster_Neck_2_parentConstraint1.cry" "Cluster_Neck_2.ry";
+connectAttr "Cluster_Neck_2_parentConstraint1.crz" "Cluster_Neck_2.rz";
+connectAttr "Cluster_Neck_2.ro" "Cluster_Neck_2_parentConstraint1.cro";
+connectAttr "Cluster_Neck_2.pim" "Cluster_Neck_2_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_2.rp" "Cluster_Neck_2_parentConstraint1.crp";
+connectAttr "Cluster_Neck_2.rpt" "Cluster_Neck_2_parentConstraint1.crt";
+connectAttr "MVB_Neck_2.t" "Cluster_Neck_2_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_2.rp" "Cluster_Neck_2_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_2.rpt" "Cluster_Neck_2_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_2.r" "Cluster_Neck_2_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_2.ro" "Cluster_Neck_2_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_2.s" "Cluster_Neck_2_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_2.pm" "Cluster_Neck_2_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_2.jo" "Cluster_Neck_2_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_2_parentConstraint1.w0" "Cluster_Neck_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Cluster_Neck_3_parentConstraint1.ctx" "Cluster_Neck_3.tx";
+connectAttr "Cluster_Neck_3_parentConstraint1.cty" "Cluster_Neck_3.ty";
+connectAttr "Cluster_Neck_3_parentConstraint1.ctz" "Cluster_Neck_3.tz";
+connectAttr "Cluster_Neck_3_parentConstraint1.crx" "Cluster_Neck_3.rx";
+connectAttr "Cluster_Neck_3_parentConstraint1.cry" "Cluster_Neck_3.ry";
+connectAttr "Cluster_Neck_3_parentConstraint1.crz" "Cluster_Neck_3.rz";
+connectAttr "Cluster_Neck_3.ro" "Cluster_Neck_3_parentConstraint1.cro";
+connectAttr "Cluster_Neck_3.pim" "Cluster_Neck_3_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_3.rp" "Cluster_Neck_3_parentConstraint1.crp";
+connectAttr "Cluster_Neck_3.rpt" "Cluster_Neck_3_parentConstraint1.crt";
+connectAttr "MVB_Neck_3.t" "Cluster_Neck_3_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_3.rp" "Cluster_Neck_3_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_3.rpt" "Cluster_Neck_3_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_3.r" "Cluster_Neck_3_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_3.ro" "Cluster_Neck_3_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_3.s" "Cluster_Neck_3_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_3.pm" "Cluster_Neck_3_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_3.jo" "Cluster_Neck_3_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_3_parentConstraint1.w0" "Cluster_Neck_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Cluster_Neck_4_parentConstraint1.ctx" "Cluster_Neck_4.tx";
+connectAttr "Cluster_Neck_4_parentConstraint1.cty" "Cluster_Neck_4.ty";
+connectAttr "Cluster_Neck_4_parentConstraint1.ctz" "Cluster_Neck_4.tz";
+connectAttr "Cluster_Neck_4_parentConstraint1.crx" "Cluster_Neck_4.rx";
+connectAttr "Cluster_Neck_4_parentConstraint1.cry" "Cluster_Neck_4.ry";
+connectAttr "Cluster_Neck_4_parentConstraint1.crz" "Cluster_Neck_4.rz";
+connectAttr "Cluster_Neck_4.ro" "Cluster_Neck_4_parentConstraint1.cro";
+connectAttr "Cluster_Neck_4.pim" "Cluster_Neck_4_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_4.rp" "Cluster_Neck_4_parentConstraint1.crp";
+connectAttr "Cluster_Neck_4.rpt" "Cluster_Neck_4_parentConstraint1.crt";
+connectAttr "MVB_Neck_4.t" "Cluster_Neck_4_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_4.rp" "Cluster_Neck_4_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_4.rpt" "Cluster_Neck_4_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_4.r" "Cluster_Neck_4_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_4.ro" "Cluster_Neck_4_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_4.s" "Cluster_Neck_4_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_4.pm" "Cluster_Neck_4_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_4.jo" "Cluster_Neck_4_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_4_parentConstraint1.w0" "Cluster_Neck_4_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Cluster_Neck_5_parentConstraint1.ctx" "Cluster_Neck_5.tx";
+connectAttr "Cluster_Neck_5_parentConstraint1.cty" "Cluster_Neck_5.ty";
+connectAttr "Cluster_Neck_5_parentConstraint1.ctz" "Cluster_Neck_5.tz";
+connectAttr "Cluster_Neck_5_parentConstraint1.crx" "Cluster_Neck_5.rx";
+connectAttr "Cluster_Neck_5_parentConstraint1.cry" "Cluster_Neck_5.ry";
+connectAttr "Cluster_Neck_5_parentConstraint1.crz" "Cluster_Neck_5.rz";
+connectAttr "Cluster_Neck_5.ro" "Cluster_Neck_5_parentConstraint1.cro";
+connectAttr "Cluster_Neck_5.pim" "Cluster_Neck_5_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_5.rp" "Cluster_Neck_5_parentConstraint1.crp";
+connectAttr "Cluster_Neck_5.rpt" "Cluster_Neck_5_parentConstraint1.crt";
+connectAttr "MVB_Neck_5_End.t" "Cluster_Neck_5_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_5_End.rp" "Cluster_Neck_5_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_5_End.rpt" "Cluster_Neck_5_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_5_End.r" "Cluster_Neck_5_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_5_End.ro" "Cluster_Neck_5_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_5_End.s" "Cluster_Neck_5_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_5_End.pm" "Cluster_Neck_5_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_5_End.jo" "Cluster_Neck_5_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_5_parentConstraint1.w0" "Cluster_Neck_5_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Cluster_Neck_6_parentConstraint1.ctx" "Cluster_Neck_6.tx";
+connectAttr "Cluster_Neck_6_parentConstraint1.cty" "Cluster_Neck_6.ty";
+connectAttr "Cluster_Neck_6_parentConstraint1.ctz" "Cluster_Neck_6.tz";
+connectAttr "Cluster_Neck_6_parentConstraint1.crx" "Cluster_Neck_6.rx";
+connectAttr "Cluster_Neck_6_parentConstraint1.cry" "Cluster_Neck_6.ry";
+connectAttr "Cluster_Neck_6_parentConstraint1.crz" "Cluster_Neck_6.rz";
+connectAttr "Cluster_Neck_6.ro" "Cluster_Neck_6_parentConstraint1.cro";
+connectAttr "Cluster_Neck_6.pim" "Cluster_Neck_6_parentConstraint1.cpim";
+connectAttr "Cluster_Neck_6.rp" "Cluster_Neck_6_parentConstraint1.crp";
+connectAttr "Cluster_Neck_6.rpt" "Cluster_Neck_6_parentConstraint1.crt";
+connectAttr "MVB_Neck_5_End.t" "Cluster_Neck_6_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_5_End.rp" "Cluster_Neck_6_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_5_End.rpt" "Cluster_Neck_6_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_5_End.r" "Cluster_Neck_6_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_5_End.ro" "Cluster_Neck_6_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_5_End.s" "Cluster_Neck_6_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_5_End.pm" "Cluster_Neck_6_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_5_End.jo" "Cluster_Neck_6_parentConstraint1.tg[0].tjo";
+connectAttr "Cluster_Neck_6_parentConstraint1.w0" "Cluster_Neck_6_parentConstraint1.tg[0].tw"
+		;
 connectAttr "Spine_Front_Connector.s" "Head_1_NeckSplineIK_START.is";
 connectAttr "Head_1_NeckSplineIK_START.s" "Head_2.is";
 connectAttr "Head_2.s" "Head_3.is";
@@ -38603,6 +38887,9 @@ connectAttr "Head_3.s" "Head_4.is";
 connectAttr "Head_4.s" "Head_5_NeckSplineIK_END.is";
 connectAttr "Head_5_NeckSplineIK_END.s" "Head_6.is";
 connectAttr "Head_6.s" "Head_7.is";
+connectAttr "Head_7_orientConstraint1.crx" "Head_7.rx";
+connectAttr "Head_7_orientConstraint1.cry" "Head_7.ry";
+connectAttr "Head_7_orientConstraint1.crz" "Head_7.rz";
 connectAttr "Head_7.s" "Head_8_END.is";
 connectAttr "Head_7.s" "L_Ear_1.is";
 connectAttr "L_Ear_1.s" "candyRigFix_5:Candy_ryanRIG:L_Ear_2.is";
@@ -38623,16 +38910,23 @@ connectAttr ":initialShadingGroup.mwc" "MESH_Right_EyeShape.iog.og[0].gco";
 connectAttr "MESH.di" "MESH_Horn.do";
 connectAttr "Candy:groupId14.id" "MESH_HornShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "MESH_HornShape.iog.og[0].gco";
+connectAttr "Head_7.ro" "Head_7_orientConstraint1.cro";
+connectAttr "Head_7.pim" "Head_7_orientConstraint1.cpim";
+connectAttr "Head_7.jo" "Head_7_orientConstraint1.cjo";
+connectAttr "Head_CTRL.r" "Head_7_orientConstraint1.tg[0].tr";
+connectAttr "Head_CTRL.ro" "Head_7_orientConstraint1.tg[0].tro";
+connectAttr "Head_CTRL.pm" "Head_7_orientConstraint1.tg[0].tpm";
+connectAttr "Head_7_orientConstraint1.w0" "Head_7_orientConstraint1.tg[0].tw";
 connectAttr "Head_5_NeckSplineIK_END.tx" "Neck_Spline_IK_Effector.tx";
 connectAttr "Head_5_NeckSplineIK_END.ty" "Neck_Spline_IK_Effector.ty";
 connectAttr "Head_5_NeckSplineIK_END.tz" "Neck_Spline_IK_Effector.tz";
 connectAttr "Spine_Front_Connector.s" "MVB_Neck_1_START.is";
-connectAttr "MVB_Neck_1_START_parentConstraint1.ctx" "MVB_Neck_1_START.tx";
-connectAttr "MVB_Neck_1_START_parentConstraint1.cty" "MVB_Neck_1_START.ty";
-connectAttr "MVB_Neck_1_START_parentConstraint1.ctz" "MVB_Neck_1_START.tz";
-connectAttr "MVB_Neck_1_START_parentConstraint1.crx" "MVB_Neck_1_START.rx";
-connectAttr "MVB_Neck_1_START_parentConstraint1.cry" "MVB_Neck_1_START.ry";
-connectAttr "MVB_Neck_1_START_parentConstraint1.crz" "MVB_Neck_1_START.rz";
+connectAttr "pairBlend1.otx" "MVB_Neck_1_START.tx";
+connectAttr "pairBlend1.oty" "MVB_Neck_1_START.ty";
+connectAttr "pairBlend1.otz" "MVB_Neck_1_START.tz";
+connectAttr "pairBlend1.orx" "MVB_Neck_1_START.rx";
+connectAttr "pairBlend1.ory" "MVB_Neck_1_START.ry";
+connectAttr "pairBlend1.orz" "MVB_Neck_1_START.rz";
 connectAttr "MVB_Neck_1_START.s" "MVB_Neck_2.is";
 connectAttr "MVB_Neck_2.s" "MVB_Neck_3.is";
 connectAttr "MVB_Neck_3_parentConstraint1.ctx" "MVB_Neck_3.tx";
@@ -38899,19 +39193,6 @@ connectAttr "cluster5GroupId.id" "Spine_Spline_IK_CurveShape.iog.og[5].gid";
 connectAttr "cluster5Set.mwc" "Spine_Spline_IK_CurveShape.iog.og[5].gco";
 connectAttr "cluster6GroupId.id" "Spine_Spline_IK_CurveShape.iog.og[6].gid";
 connectAttr "cluster6Set.mwc" "Spine_Spline_IK_CurveShape.iog.og[6].gco";
-connectAttr "COG.ro" "COG_parentConstraint1.cro";
-connectAttr "COG.pim" "COG_parentConstraint1.cpim";
-connectAttr "COG.rp" "COG_parentConstraint1.crp";
-connectAttr "COG.rpt" "COG_parentConstraint1.crt";
-connectAttr "COG.jo" "COG_parentConstraint1.cjo";
-connectAttr "Hips_Sashay_CTRL.t" "COG_parentConstraint1.tg[0].tt";
-connectAttr "Hips_Sashay_CTRL.rp" "COG_parentConstraint1.tg[0].trp";
-connectAttr "Hips_Sashay_CTRL.rpt" "COG_parentConstraint1.tg[0].trt";
-connectAttr "Hips_Sashay_CTRL.r" "COG_parentConstraint1.tg[0].tr";
-connectAttr "Hips_Sashay_CTRL.ro" "COG_parentConstraint1.tg[0].tro";
-connectAttr "Hips_Sashay_CTRL.s" "COG_parentConstraint1.tg[0].ts";
-connectAttr "Hips_Sashay_CTRL.pm" "COG_parentConstraint1.tg[0].tpm";
-connectAttr "COG_parentConstraint1.w0" "COG_parentConstraint1.tg[0].tw";
 connectAttr "Cluster_Spine_1_parentConstraint1.ctx" "Cluster_Spine_1.tx";
 connectAttr "Cluster_Spine_1_parentConstraint1.cty" "Cluster_Spine_1.ty";
 connectAttr "Cluster_Spine_1_parentConstraint1.ctz" "Cluster_Spine_1.tz";
@@ -38940,6 +39221,15 @@ connectAttr "Hips_Sashay_CTRL.ro" "Cluster_Spine_1_parentConstraint1.tg[1].tro";
 connectAttr "Hips_Sashay_CTRL.s" "Cluster_Spine_1_parentConstraint1.tg[1].ts";
 connectAttr "Hips_Sashay_CTRL.pm" "Cluster_Spine_1_parentConstraint1.tg[1].tpm";
 connectAttr "Cluster_Spine_1_parentConstraint1.w1" "Cluster_Spine_1_parentConstraint1.tg[1].tw"
+		;
+connectAttr "Butt_Body_CTRL.t" "Cluster_Spine_1_parentConstraint1.tg[2].tt";
+connectAttr "Butt_Body_CTRL.rp" "Cluster_Spine_1_parentConstraint1.tg[2].trp";
+connectAttr "Butt_Body_CTRL.rpt" "Cluster_Spine_1_parentConstraint1.tg[2].trt";
+connectAttr "Butt_Body_CTRL.r" "Cluster_Spine_1_parentConstraint1.tg[2].tr";
+connectAttr "Butt_Body_CTRL.ro" "Cluster_Spine_1_parentConstraint1.tg[2].tro";
+connectAttr "Butt_Body_CTRL.s" "Cluster_Spine_1_parentConstraint1.tg[2].ts";
+connectAttr "Butt_Body_CTRL.pm" "Cluster_Spine_1_parentConstraint1.tg[2].tpm";
+connectAttr "Cluster_Spine_1_parentConstraint1.w2" "Cluster_Spine_1_parentConstraint1.tg[2].tw"
 		;
 connectAttr "Cluster_Spine_3_parentConstraint1.ctx" "Cluster_Spine_3.tx";
 connectAttr "Cluster_Spine_3_parentConstraint1.cty" "Cluster_Spine_3.ty";
@@ -39021,126 +39311,19 @@ connectAttr "MVB_Spine_4_END.pm" "Cluster_Spine_6_parentConstraint1.tg[0].tpm";
 connectAttr "MVB_Spine_4_END.jo" "Cluster_Spine_6_parentConstraint1.tg[0].tjo";
 connectAttr "Cluster_Spine_6_parentConstraint1.w0" "Cluster_Spine_6_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Cluster_Neck_1_parentConstraint1.ctx" "Cluster_Neck_1.tx";
-connectAttr "Cluster_Neck_1_parentConstraint1.cty" "Cluster_Neck_1.ty";
-connectAttr "Cluster_Neck_1_parentConstraint1.ctz" "Cluster_Neck_1.tz";
-connectAttr "Cluster_Neck_1_parentConstraint1.crx" "Cluster_Neck_1.rx";
-connectAttr "Cluster_Neck_1_parentConstraint1.cry" "Cluster_Neck_1.ry";
-connectAttr "Cluster_Neck_1_parentConstraint1.crz" "Cluster_Neck_1.rz";
-connectAttr "Cluster_Neck_1.ro" "Cluster_Neck_1_parentConstraint1.cro";
-connectAttr "Cluster_Neck_1.pim" "Cluster_Neck_1_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_1.rp" "Cluster_Neck_1_parentConstraint1.crp";
-connectAttr "Cluster_Neck_1.rpt" "Cluster_Neck_1_parentConstraint1.crt";
-connectAttr "MVB_Neck_1_START.t" "Cluster_Neck_1_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_1_START.rp" "Cluster_Neck_1_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_1_START.rpt" "Cluster_Neck_1_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_1_START.r" "Cluster_Neck_1_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_1_START.ro" "Cluster_Neck_1_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_1_START.s" "Cluster_Neck_1_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_1_START.pm" "Cluster_Neck_1_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_1_START.jo" "Cluster_Neck_1_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_1_parentConstraint1.w0" "Cluster_Neck_1_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Cluster_Neck_2_parentConstraint1.ctx" "Cluster_Neck_2.tx";
-connectAttr "Cluster_Neck_2_parentConstraint1.cty" "Cluster_Neck_2.ty";
-connectAttr "Cluster_Neck_2_parentConstraint1.ctz" "Cluster_Neck_2.tz";
-connectAttr "Cluster_Neck_2_parentConstraint1.crx" "Cluster_Neck_2.rx";
-connectAttr "Cluster_Neck_2_parentConstraint1.cry" "Cluster_Neck_2.ry";
-connectAttr "Cluster_Neck_2_parentConstraint1.crz" "Cluster_Neck_2.rz";
-connectAttr "Cluster_Neck_2.ro" "Cluster_Neck_2_parentConstraint1.cro";
-connectAttr "Cluster_Neck_2.pim" "Cluster_Neck_2_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_2.rp" "Cluster_Neck_2_parentConstraint1.crp";
-connectAttr "Cluster_Neck_2.rpt" "Cluster_Neck_2_parentConstraint1.crt";
-connectAttr "MVB_Neck_2.t" "Cluster_Neck_2_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_2.rp" "Cluster_Neck_2_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_2.rpt" "Cluster_Neck_2_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_2.r" "Cluster_Neck_2_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_2.ro" "Cluster_Neck_2_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_2.s" "Cluster_Neck_2_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_2.pm" "Cluster_Neck_2_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_2.jo" "Cluster_Neck_2_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_2_parentConstraint1.w0" "Cluster_Neck_2_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Cluster_Neck_3_parentConstraint1.ctx" "Cluster_Neck_3.tx";
-connectAttr "Cluster_Neck_3_parentConstraint1.cty" "Cluster_Neck_3.ty";
-connectAttr "Cluster_Neck_3_parentConstraint1.ctz" "Cluster_Neck_3.tz";
-connectAttr "Cluster_Neck_3_parentConstraint1.crx" "Cluster_Neck_3.rx";
-connectAttr "Cluster_Neck_3_parentConstraint1.cry" "Cluster_Neck_3.ry";
-connectAttr "Cluster_Neck_3_parentConstraint1.crz" "Cluster_Neck_3.rz";
-connectAttr "Cluster_Neck_3.ro" "Cluster_Neck_3_parentConstraint1.cro";
-connectAttr "Cluster_Neck_3.pim" "Cluster_Neck_3_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_3.rp" "Cluster_Neck_3_parentConstraint1.crp";
-connectAttr "Cluster_Neck_3.rpt" "Cluster_Neck_3_parentConstraint1.crt";
-connectAttr "MVB_Neck_3.t" "Cluster_Neck_3_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_3.rp" "Cluster_Neck_3_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_3.rpt" "Cluster_Neck_3_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_3.r" "Cluster_Neck_3_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_3.ro" "Cluster_Neck_3_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_3.s" "Cluster_Neck_3_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_3.pm" "Cluster_Neck_3_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_3.jo" "Cluster_Neck_3_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_3_parentConstraint1.w0" "Cluster_Neck_3_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Cluster_Neck_4_parentConstraint1.ctx" "Cluster_Neck_4.tx";
-connectAttr "Cluster_Neck_4_parentConstraint1.cty" "Cluster_Neck_4.ty";
-connectAttr "Cluster_Neck_4_parentConstraint1.ctz" "Cluster_Neck_4.tz";
-connectAttr "Cluster_Neck_4_parentConstraint1.crx" "Cluster_Neck_4.rx";
-connectAttr "Cluster_Neck_4_parentConstraint1.cry" "Cluster_Neck_4.ry";
-connectAttr "Cluster_Neck_4_parentConstraint1.crz" "Cluster_Neck_4.rz";
-connectAttr "Cluster_Neck_4.ro" "Cluster_Neck_4_parentConstraint1.cro";
-connectAttr "Cluster_Neck_4.pim" "Cluster_Neck_4_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_4.rp" "Cluster_Neck_4_parentConstraint1.crp";
-connectAttr "Cluster_Neck_4.rpt" "Cluster_Neck_4_parentConstraint1.crt";
-connectAttr "MVB_Neck_4.t" "Cluster_Neck_4_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_4.rp" "Cluster_Neck_4_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_4.rpt" "Cluster_Neck_4_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_4.r" "Cluster_Neck_4_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_4.ro" "Cluster_Neck_4_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_4.s" "Cluster_Neck_4_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_4.pm" "Cluster_Neck_4_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_4.jo" "Cluster_Neck_4_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_4_parentConstraint1.w0" "Cluster_Neck_4_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Cluster_Neck_5_parentConstraint1.ctx" "Cluster_Neck_5.tx";
-connectAttr "Cluster_Neck_5_parentConstraint1.cty" "Cluster_Neck_5.ty";
-connectAttr "Cluster_Neck_5_parentConstraint1.ctz" "Cluster_Neck_5.tz";
-connectAttr "Cluster_Neck_5_parentConstraint1.crx" "Cluster_Neck_5.rx";
-connectAttr "Cluster_Neck_5_parentConstraint1.cry" "Cluster_Neck_5.ry";
-connectAttr "Cluster_Neck_5_parentConstraint1.crz" "Cluster_Neck_5.rz";
-connectAttr "Cluster_Neck_5.ro" "Cluster_Neck_5_parentConstraint1.cro";
-connectAttr "Cluster_Neck_5.pim" "Cluster_Neck_5_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_5.rp" "Cluster_Neck_5_parentConstraint1.crp";
-connectAttr "Cluster_Neck_5.rpt" "Cluster_Neck_5_parentConstraint1.crt";
-connectAttr "MVB_Neck_5_End.t" "Cluster_Neck_5_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_5_End.rp" "Cluster_Neck_5_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_5_End.rpt" "Cluster_Neck_5_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_5_End.r" "Cluster_Neck_5_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_5_End.ro" "Cluster_Neck_5_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_5_End.s" "Cluster_Neck_5_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_5_End.pm" "Cluster_Neck_5_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_5_End.jo" "Cluster_Neck_5_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_5_parentConstraint1.w0" "Cluster_Neck_5_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Cluster_Neck_6_parentConstraint1.ctx" "Cluster_Neck_6.tx";
-connectAttr "Cluster_Neck_6_parentConstraint1.cty" "Cluster_Neck_6.ty";
-connectAttr "Cluster_Neck_6_parentConstraint1.ctz" "Cluster_Neck_6.tz";
-connectAttr "Cluster_Neck_6_parentConstraint1.crx" "Cluster_Neck_6.rx";
-connectAttr "Cluster_Neck_6_parentConstraint1.cry" "Cluster_Neck_6.ry";
-connectAttr "Cluster_Neck_6_parentConstraint1.crz" "Cluster_Neck_6.rz";
-connectAttr "Cluster_Neck_6.ro" "Cluster_Neck_6_parentConstraint1.cro";
-connectAttr "Cluster_Neck_6.pim" "Cluster_Neck_6_parentConstraint1.cpim";
-connectAttr "Cluster_Neck_6.rp" "Cluster_Neck_6_parentConstraint1.crp";
-connectAttr "Cluster_Neck_6.rpt" "Cluster_Neck_6_parentConstraint1.crt";
-connectAttr "MVB_Neck_5_End.t" "Cluster_Neck_6_parentConstraint1.tg[0].tt";
-connectAttr "MVB_Neck_5_End.rp" "Cluster_Neck_6_parentConstraint1.tg[0].trp";
-connectAttr "MVB_Neck_5_End.rpt" "Cluster_Neck_6_parentConstraint1.tg[0].trt";
-connectAttr "MVB_Neck_5_End.r" "Cluster_Neck_6_parentConstraint1.tg[0].tr";
-connectAttr "MVB_Neck_5_End.ro" "Cluster_Neck_6_parentConstraint1.tg[0].tro";
-connectAttr "MVB_Neck_5_End.s" "Cluster_Neck_6_parentConstraint1.tg[0].ts";
-connectAttr "MVB_Neck_5_End.pm" "Cluster_Neck_6_parentConstraint1.tg[0].tpm";
-connectAttr "MVB_Neck_5_End.jo" "Cluster_Neck_6_parentConstraint1.tg[0].tjo";
-connectAttr "Cluster_Neck_6_parentConstraint1.w0" "Cluster_Neck_6_parentConstraint1.tg[0].tw"
-		;
+connectAttr "COG.ro" "COG_parentConstraint1.cro";
+connectAttr "COG.pim" "COG_parentConstraint1.cpim";
+connectAttr "COG.rp" "COG_parentConstraint1.crp";
+connectAttr "COG.rpt" "COG_parentConstraint1.crt";
+connectAttr "COG.jo" "COG_parentConstraint1.cjo";
+connectAttr "Butt_Body_CTRL.t" "COG_parentConstraint1.tg[0].tt";
+connectAttr "Butt_Body_CTRL.rp" "COG_parentConstraint1.tg[0].trp";
+connectAttr "Butt_Body_CTRL.rpt" "COG_parentConstraint1.tg[0].trt";
+connectAttr "Butt_Body_CTRL.r" "COG_parentConstraint1.tg[0].tr";
+connectAttr "Butt_Body_CTRL.ro" "COG_parentConstraint1.tg[0].tro";
+connectAttr "Butt_Body_CTRL.s" "COG_parentConstraint1.tg[0].ts";
+connectAttr "Butt_Body_CTRL.pm" "COG_parentConstraint1.tg[0].tpm";
+connectAttr "COG_parentConstraint1.w0" "COG_parentConstraint1.tg[0].tw";
 connectAttr "unitConversion4.o" "R_ReverseLock_BackHoof_1_BASE.rx";
 connectAttr "RIG.di" "R_ReverseLock_BackHoof_1_BASE.do";
 connectAttr "unitConversion5.o" "R_ReverseLock_BackHoof_2.rx";
@@ -39211,8 +39394,6 @@ connectAttr "GRP_CTRL_FrontShoulders_parentConstraint1.w0" "GRP_CTRL_FrontShould
 		;
 connectAttr "Front_Body_CTRL.LockBodySeg" "GRP_CTRL_FrontShoulders_parentConstraint1.w0"
 		;
-connectAttr "L_ReverseLock_FrontHoof_1_BASE.s" "L_ReverseLock_FrontHoof_2.is";
-connectAttr "L_ReverseLock_FrontHoof_2.s" "L_ReverseLock_FrontHoof_3_END.is";
 connectAttr "GRP_Neck_2_parentConstraint1.ctx" "GRP_Neck_2.tx";
 connectAttr "GRP_Neck_2_parentConstraint1.cty" "GRP_Neck_2.ty";
 connectAttr "GRP_Neck_2_parentConstraint1.ctz" "GRP_Neck_2.tz";
@@ -39233,6 +39414,28 @@ connectAttr "Neck_1_CTRL.pm" "GRP_Neck_2_parentConstraint1.tg[0].tpm";
 connectAttr "GRP_Neck_2_parentConstraint1.w0" "GRP_Neck_2_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Neck_2_CTRL.Lock_Neck" "GRP_Neck_2_parentConstraint1.w0";
+connectAttr "Head_CTRL_parentConstraint1.crx" "Head_CTRL.rx";
+connectAttr "Head_CTRL_parentConstraint1.cry" "Head_CTRL.ry";
+connectAttr "Head_CTRL_parentConstraint1.crz" "Head_CTRL.rz";
+connectAttr "Head_CTRL_parentConstraint1.ctx" "Head_CTRL.tx" -l on;
+connectAttr "Head_CTRL_parentConstraint1.cty" "Head_CTRL.ty" -l on;
+connectAttr "Head_CTRL_parentConstraint1.ctz" "Head_CTRL.tz" -l on;
+connectAttr "Head_CTRL.ro" "Head_CTRL_parentConstraint1.cro";
+connectAttr "Head_CTRL.pim" "Head_CTRL_parentConstraint1.cpim";
+connectAttr "Head_CTRL.rp" "Head_CTRL_parentConstraint1.crp";
+connectAttr "Head_CTRL.rpt" "Head_CTRL_parentConstraint1.crt";
+connectAttr "MVB_Neck_5_End.t" "Head_CTRL_parentConstraint1.tg[0].tt";
+connectAttr "MVB_Neck_5_End.rp" "Head_CTRL_parentConstraint1.tg[0].trp";
+connectAttr "MVB_Neck_5_End.rpt" "Head_CTRL_parentConstraint1.tg[0].trt";
+connectAttr "MVB_Neck_5_End.r" "Head_CTRL_parentConstraint1.tg[0].tr";
+connectAttr "MVB_Neck_5_End.ro" "Head_CTRL_parentConstraint1.tg[0].tro";
+connectAttr "MVB_Neck_5_End.s" "Head_CTRL_parentConstraint1.tg[0].ts";
+connectAttr "MVB_Neck_5_End.pm" "Head_CTRL_parentConstraint1.tg[0].tpm";
+connectAttr "MVB_Neck_5_End.jo" "Head_CTRL_parentConstraint1.tg[0].tjo";
+connectAttr "Head_CTRL_parentConstraint1.w0" "Head_CTRL_parentConstraint1.tg[0].tw"
+		;
+connectAttr "L_ReverseLock_FrontHoof_1_BASE.s" "L_ReverseLock_FrontHoof_2.is";
+connectAttr "L_ReverseLock_FrontHoof_2.s" "L_ReverseLock_FrontHoof_3_END.is";
 connectAttr "FrontLeg_R_1.msg" "FrontLeg_R_IK_Top_Handle.hsj";
 connectAttr "L_FrontLeg_Effector.hp" "FrontLeg_R_IK_Top_Handle.hee";
 connectAttr "candyRigFix_5:Candy_ryanRIG:ikSCsolver.msg" "FrontLeg_R_IK_Top_Handle.hsv"
@@ -39882,6 +40085,20 @@ connectAttr "Neck_Spline_IK_CurveShape.iog.og[6]" "cluster12Set.dsm" -na;
 connectAttr "Cluster_Neck_6Cluster.msg" "cluster12Set.ub[0]";
 connectAttr "Cluster_Neck_5Cluster.og[0]" "cluster12GroupParts.ig";
 connectAttr "cluster12GroupId.id" "cluster12GroupParts.gi";
+connectAttr "Front_Body_CTRL.Neck_Base_Curl" "unitConversion6.i";
+connectAttr "Front_Body_CTRL.Neck_Base_Sway" "unitConversion7.i";
+connectAttr "Front_Body_CTRL.Neck_Base_Twist" "unitConversion8.i";
+connectAttr "unitConversion6.o" "pairBlend1.irx1";
+connectAttr "unitConversion8.o" "pairBlend1.iry1";
+connectAttr "unitConversion7.o" "pairBlend1.irz1";
+connectAttr "MVB_Neck_1_START.blendParent1" "pairBlend1.w";
+connectAttr "MVB_Neck_1_START.ro" "pairBlend1.ro";
+connectAttr "MVB_Neck_1_START_parentConstraint1.ctx" "pairBlend1.itx2";
+connectAttr "MVB_Neck_1_START_parentConstraint1.cty" "pairBlend1.ity2";
+connectAttr "MVB_Neck_1_START_parentConstraint1.ctz" "pairBlend1.itz2";
+connectAttr "MVB_Neck_1_START_parentConstraint1.crx" "pairBlend1.irx2";
+connectAttr "MVB_Neck_1_START_parentConstraint1.cry" "pairBlend1.iry2";
+connectAttr "MVB_Neck_1_START_parentConstraint1.crz" "pairBlend1.irz2";
 connectAttr "Candy:groupId5.msg" ":initialShadingGroup.gn" -na;
 connectAttr "Candy:groupId9.msg" ":initialShadingGroup.gn" -na;
 connectAttr "Candy:groupId14.msg" ":initialShadingGroup.gn" -na;
