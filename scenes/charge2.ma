@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: charge2.ma
-//Last modified: Wed, Dec 17, 2014 02:45:18 PM
+//Last modified: Wed, Dec 17, 2014 02:49:56 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
 file -rdi 2 -ns "model" -rfn "Emily_Body_Rig:modelRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
@@ -24,7 +24,7 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" -24.851632982229532 3.1615133981604324 8.55527198647221 ;
-	setAttr ".r" -type "double3" -11.13835274272742 595.79999999986467 -360.00000000003132 ;
+	setAttr ".r" -type "double3" -11.13835274272742 595.79999999986478 -360.00000000003132 ;
 	setAttr ".rp" -type "double3" 3.5527136788005009e-15 -3.5527136788005009e-15 7.1054273576010019e-15 ;
 	setAttr ".rpt" -type "double3" 1.7781230530209768e-15 1.2734698033359082e-15 -8.5604549419601653e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -102,17 +102,13 @@ createNode imagePlane -n "imagePlaneShape1" -p "|camera1|cameraShape1->|imagePla
 	setAttr ".w" 30;
 	setAttr ".h" 30;
 createNode transform -n "camera3";
-	setAttr ".t" -type "double3" 2.3856842448813351 -2.6914099712717072 14.088432996696334 ;
-	setAttr -av ".tx";
-	setAttr -av ".ty";
-	setAttr -av ".tz";
 createNode camera -n "cameraShape3" -p "camera3";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 17.660187498841328;
+	setAttr ".coi" 27.80837874202064;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera3";
 	setAttr ".den" -type "string" "camera3_depth";
@@ -227,7 +223,7 @@ createNode parentConstraint -n "Sword_parentConstraint1" -p "swordRNfosterParent
 	setAttr ".tg[0].tot" -type "double3" 0.053957505586138599 -0.041973974928196878 
 		0.011720184267762336 ;
 	setAttr ".tg[0].tor" -type "double3" -107.02382685118954 8.9616029865902149 24.286876601249801 ;
-	setAttr ".lr" -type "double3" -4.7177983019142617 -61.843280637323367 151.38974060740827 ;
+	setAttr ".lr" -type "double3" -2.9780419819195467 -63.267487740331624 149.84563765694955 ;
 	setAttr ".rst" -type "double3" -6.2830321178611266 -2.3863699140644572 18.330660659797445 ;
 	setAttr ".rsrr" -type "double3" 78.993987385691398 -8.6964931039397069 91.525429457235091 ;
 	setAttr -k on ".w0";
@@ -1492,7 +1488,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily" "translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group" "visibility" " 1"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translate" 
-		" -type \"double3\" 6.672364 -2.76425 -4.251585"
+		" -type \"double3\" 5.208262 -2.763814 -1.857344"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translateX" 
 		" -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translateY" 
@@ -1500,7 +1496,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translateZ" 
 		" -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotate" 
-		" -type \"double3\" 0 160.196585 0"
+		" -type \"double3\" 0 161.830865 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotateX" 
 		" -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotateY" 
@@ -2068,7 +2064,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotate" " -type \"double3\" -8.898079 -7.737808 2.50448e-06"
+		"rotate" " -type \"double3\" -5.32342 -13.835257 2.50448e-06"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -2114,9 +2110,9 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:JawSetup|Emily_Body_Rig:JawSetupFollowHead|Emily_Body_Rig:FKOffsetJaw_M|Emily_Body_Rig:FKSDK1Jaw_M|Emily_Body_Rig:FKSDK2Jaw_M|Emily_Body_Rig:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"translate" " -type \"double3\" 7.090299 0.245815 -4.766547"
+		"translate" " -type \"double3\" 5.611341 0.246252 -2.384016"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"rotate" " -type \"double3\" -133.525876 11.351885 68.380334"
+		"rotate" " -type \"double3\" -131.972934 11.949902 68.69397"
 		2 "Emily_Body_Rig:HiRes" "visibility" " -av 1"
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.FaceVis" 
 		"Emily_Body_RigRN.placeHolderList[27]" ""
@@ -3605,12 +3601,12 @@ createNode reference -n "swordRN";
 		0 "|swordRNfosterParent1|Sword_parentConstraint1" "|sword:Sword" "-s -r "
 		
 		2 "|sword:Sword" "visibility" " -av 1"
-		2 "|sword:Sword" "translate" " -type \"double3\" 7.798614 -1.977978 -5.742892"
+		2 "|sword:Sword" "translate" " -type \"double3\" 6.311891 -1.977542 -3.376463"
 		
 		2 "|sword:Sword" "translateX" " -av"
 		2 "|sword:Sword" "translateY" " -av"
 		2 "|sword:Sword" "translateZ" " -av"
-		2 "|sword:Sword" "rotate" " -type \"double3\" -4.717798 -61.843281 151.389741"
+		2 "|sword:Sword" "rotate" " -type \"double3\" -2.978042 -63.267488 149.845638"
 		
 		2 "|sword:Sword" "rotateX" " -av"
 		2 "|sword:Sword" "rotateY" " -av"
@@ -7015,12 +7011,12 @@ createNode reference -n "CandyRN";
 		"CandyRN"
 		"CandyRN" 0
 		"CandyRN" 28
-		2 "|Candy:Master_CTRL" "translate" " -type \"double3\" 6.291071 -3.832025 -2.404222"
+		2 "|Candy:Master_CTRL" "translate" " -type \"double3\" 4.889467 -3.832025 -0.0237669"
 		
 		2 "|Candy:Master_CTRL" "translateX" " -av"
 		2 "|Candy:Master_CTRL" "translateY" " -av"
 		2 "|Candy:Master_CTRL" "translateZ" " -av"
-		2 "|Candy:Master_CTRL" "rotate" " -type \"double3\" 3.006084 155.601456 0"
+		2 "|Candy:Master_CTRL" "rotate" " -type \"double3\" 3.006084 156.223416 0"
 		
 		2 "|Candy:Master_CTRL" "rotateX" " -av"
 		2 "|Candy:Master_CTRL" "rotateY" " -av"
@@ -7144,35 +7140,35 @@ createNode animCurveTA -n "camera3_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 4 ".ktv[0:3]"  115 5.1620000000000292 117 -2.0185628924333687
-		 165 -2.0185628924333692 201 -2.0185628924333723;
+		 165 0.78143710756662699 201 -2.0185628924333723;
 createNode animCurveTA -n "camera3_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 4 ".ktv[0:3]"  115 5.5190000000000046 117 12.719000000000085
-		 165 12.406180224598826 201 10.319000000000081;
+		 165 5.8061802245988519 201 10.319000000000081;
 createNode animCurveTL -n "camera3_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  115 32.611871051929882 117 32.859650434260814
-		 165 29.637582162849629 201 14.088432996696334;
-	setAttr -s 4 ".ktl[0:3]" no no no yes;
+	setAttr -s 4 ".ktv[0:3]"  115 32.611871051929882 117 34.657313898980952
+		 165 38.308607044046646 201 14.088432996696334;
+	setAttr -s 4 ".ktl[0:3]" no yes yes yes;
 createNode animCurveTL -n "camera3_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  115 -2.1226949072108061 117 -2.4521105603335842
-		 165 -2.3798496068755473 201 -2.6914099712717072;
+	setAttr -s 4 ".ktv[0:3]"  115 -2.1226949072108061 117 -2.858109904631994
+		 165 -0.46162645125530932 201 -2.6914099712717072;
 createNode animCurveTL -n "camera3_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  115 -2.9835120682595182 117 -3.2650437075638368
-		 165 -2.5011899076884605 201 2.3856842448813351;
+	setAttr -s 4 ".ktv[0:3]"  115 -2.9835120682595182 117 -3.3284026293527589
+		 165 -0.0096332847141165079 201 2.3856842448813351;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 201;
-	setAttr -av ".unw" 201;
+	setAttr -k on ".o" 191;
+	setAttr -av ".unw" 191;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
