@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: hallway2.ma
-//Last modified: Wed, Dec 17, 2014 01:58:20 AM
+//Last modified: Wed, Dec 17, 2014 02:07:57 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "hallway_sara" -rfn "hallway_saraRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/hallway_sara.ma";
 file -rdi 2 -ns "locker" -rfn "hallway_sara:lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
@@ -30,12 +30,12 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.8335624591417199 2.7785377301664775 21.074561889330329 ;
-	setAttr ".r" -type "double3" -3.9383527334694728 -6.6000000000000361 -5.0027712273580411e-17 ;
+	setAttr ".t" -type "double3" 2.1236147216899663 17.111772486059156 32.130922139102331 ;
+	setAttr ".r" -type "double3" -24.338352733469748 -12.600000000000074 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 23.657225523632256;
+	setAttr ".coi" 36.746227220558268;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -161,11 +161,6 @@ createNode camera -n "stereoCameraRightShape" -p "stereoCameraRight";
 	setAttr ".imn" -type "string" "camera2";
 	setAttr ".den" -type "string" "camera2_depth";
 	setAttr ".man" -type "string" "camera2_mask";
-createNode transform -n "pointLight1";
-	setAttr ".t" -type "double3" 8.3972775832799549 1.939516927756963 0.53500622104100337 ;
-createNode pointLight -n "pointLightShape1" -p "pointLight1";
-	setAttr -k off ".v";
-	setAttr ".us" no;
 createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 38 ".lnk";
 	setAttr -s 38 ".slnk";
@@ -287,10 +282,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel10\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n"
 		+ "            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -dimensions 0\n"
-		+ "            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 20 100 -ps 2 80 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Top View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Top View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Top View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
@@ -4296,6 +4288,30 @@ createNode reference -n "nightmareRN1";
 		"rotate" " -type \"double3\" 1.739784 35.610281 3.966126"
 		2 "nightmare1:Body" "displayType" " 2"
 		2 "nightmare1:skinCluster1" "matrix" " -s 16"
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
+		"nightmare1:tweakSet1.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere1|nightmare1:pSphereShape1.instObjGroups" 
+		"nightmare1:surfaceShader1SG.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
+		"nightmare1:surfaceShader1SG.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2.handlePath" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:R_Hand_CTRL|nightmare1:ikHandle2.endEffector" 
+		""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
+		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3.parentInverseMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.constraintParentInverseMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL.parentMatrix" "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.target[0].targetParentMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShapeOrig.worldMesh" 
+		"nightmare1:groupParts2.inputGeometry" ""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
+		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton.worldMatrix" "nightmare1:skinCluster1.matrix[0]" 
 		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2.worldMatrix" 
@@ -4328,20 +4344,6 @@ createNode reference -n "nightmareRN1";
 		"nightmare1:skinCluster1.matrix[14]" ""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:R_Hand|nightmare1:R_Fingers.worldMatrix" 
 		"nightmare1:skinCluster1.matrix[15]" ""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
-		"nightmare1:tweakSet1.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere1|nightmare1:pSphereShape1.instObjGroups" 
-		"nightmare1:surfaceShader1SG.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
-		"nightmare1:surfaceShader1SG.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShapeOrig.worldMesh" 
-		"nightmare1:groupParts2.inputGeometry" ""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
-		""
 		3 "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
 		""
 		3 "nightmare1:skinCluster1Set.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGrpColor" 
@@ -4350,21 +4352,11 @@ createNode reference -n "nightmareRN1";
 		""
 		3 "nightmare1:tweakSet1.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGrpColor" 
 		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3.parentInverseMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.constraintParentInverseMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL.parentMatrix" "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.target[0].targetParentMatrix" 
-		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1.handlePath" 
 		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:L_Hand_CTRL|nightmare1:ikHandle1.endEffector" 
 		""
 		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups" 
 		"nightmare1:blinn1SG.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2.handlePath" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:R_Hand_CTRL|nightmare1:ikHandle2.endEffector" 
-		""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
-		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
 		5 0 "nightmareRN1" "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
 		"nightmareRN1.placeHolderList[1]" "nightmareRN1.placeHolderList[2]" "nightmare1:Nightmare_MeshShape.iog.og[4].gid"
 		
@@ -5055,10 +5047,6 @@ createNode animCurveTU -n "nightmare4:Nightmare_Master_CTRL_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  0.5 2.3035691685817477 28 2.3035691685817477;
-createNode animCurveTU -n "pointLightShape1_intensity";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  25 1 32 0;
 createNode groupId -n "hallway_sara:groupId3049";
 	setAttr ".ihi" 0;
 createNode groupId -n "hallway_sara:groupId3050";
@@ -7724,6 +7712,420 @@ createNode groupId -n "hallway_sara:groupId4082";
 	setAttr ".ihi" 0;
 createNode groupId -n "hallway_sara:groupId4083";
 	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4084";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4085";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4086";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4087";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4088";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4089";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4090";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4091";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4092";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4093";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4094";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4095";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4096";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4097";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4098";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4099";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4100";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4101";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4102";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4103";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4104";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4105";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4106";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4107";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4108";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4109";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4110";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4111";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4112";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4113";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4114";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4115";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4116";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4117";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4118";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4119";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4120";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4121";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4122";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4123";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4124";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4125";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4126";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4127";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4128";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4129";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4130";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4131";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4132";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4133";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4134";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4135";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4136";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4137";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4138";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4139";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4140";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4141";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4142";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4143";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4144";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4145";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4146";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4147";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4148";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4149";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4150";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4151";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4152";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4153";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4154";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4155";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4156";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4157";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4158";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4159";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4160";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4161";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4162";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4163";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4164";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4165";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4166";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4167";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4168";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4169";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4170";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4171";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4172";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4173";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4174";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4175";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4176";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4177";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4178";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4179";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4180";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4181";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4182";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4183";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4184";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4185";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4186";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4187";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4188";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4189";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4190";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4191";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4192";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4193";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4194";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4195";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4196";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4197";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4198";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4199";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4200";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4201";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4202";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4203";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4204";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4205";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4206";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4207";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4208";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4209";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4210";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4211";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4212";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4213";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4214";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4215";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4216";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4217";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4218";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4219";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4220";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4221";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4222";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4223";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4224";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4225";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4226";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4227";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4228";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4229";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4230";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4231";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4232";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4233";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4234";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4235";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4236";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4237";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4238";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4239";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4240";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4241";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4242";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4243";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4244";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4245";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4246";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4247";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4248";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4249";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4250";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4251";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4252";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4253";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4254";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4255";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4256";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4257";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4258";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4259";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4260";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4261";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4262";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4263";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4264";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4265";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4266";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4267";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4268";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4269";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4270";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4271";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4272";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4273";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4274";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4275";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4276";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4277";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4278";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4279";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4280";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4281";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4282";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4283";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4284";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4285";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4286";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4287";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4288";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4289";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId4290";
+	setAttr ".ihi" 0;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -7754,7 +8156,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 3989 ".gn";
+	setAttr -s 4196 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -7800,7 +8202,6 @@ select -ne :defaultShaderList1;
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
 	setAttr -s 38 ".s";
-select -ne :lightList1;
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -8596,7 +8997,6 @@ connectAttr "stereoCameraCenterCamShape.dr" "stereoCameraRightShape.dr";
 connectAttr "stereoCameraCenterCamShape.ncp" "stereoCameraRightShape.ncp";
 connectAttr "stereoCameraCenterCamShape.fcp" "stereoCameraRightShape.fcp";
 connectAttr "stereoCamera.fbor" "stereoCameraRightShape.hfo";
-connectAttr "pointLightShape1_intensity.o" "pointLightShape1.in";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -10471,7 +10871,212 @@ connectAttr "hallway_sara:groupId4080.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId4081.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId4082.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId4083.msg" ":initialShadingGroup.gn" -na;
-connectAttr "pointLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "hallway_sara:groupId4084.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4085.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4086.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4087.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4088.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4089.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4090.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4091.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4092.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4093.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4094.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4095.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4096.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4097.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4098.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4099.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4100.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4101.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4102.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4103.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4104.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4105.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4106.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4107.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4108.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4109.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4110.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4111.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4112.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4113.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4114.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4115.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4116.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4117.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4118.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4119.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4120.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4121.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4122.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4123.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4124.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4125.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4126.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4127.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4128.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4129.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4130.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4131.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4132.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4133.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4134.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4135.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4136.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4137.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4138.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4139.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4140.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4141.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4142.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4143.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4144.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4145.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4146.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4147.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4148.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4149.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4150.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4151.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4152.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4153.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4154.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4155.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4156.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4157.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4158.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4159.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4160.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4161.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4162.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4163.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4164.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4165.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4166.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4167.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4168.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4169.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4170.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4171.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4172.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4173.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4174.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4175.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4176.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4177.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4178.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4179.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4180.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4181.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4182.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4183.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4184.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4185.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4186.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4187.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4188.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4189.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4190.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4191.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4192.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4193.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4194.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4195.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4196.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4197.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4198.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4199.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4200.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4201.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4202.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4203.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4204.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4205.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4206.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4207.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4208.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4209.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4210.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4211.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4212.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4213.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4214.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4215.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4216.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4217.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4218.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4219.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4220.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4221.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4222.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4223.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4224.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4225.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4226.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4227.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4228.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4229.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4230.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4231.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4232.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4233.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4234.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4235.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4236.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4237.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4238.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4239.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4240.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4241.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4242.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4243.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4244.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4245.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4246.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4247.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4248.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4249.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4250.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4251.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4252.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4253.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4254.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4255.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4256.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4257.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4258.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4259.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4260.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4261.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4262.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4263.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4264.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4265.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4266.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4267.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4268.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4269.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4270.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4271.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4272.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4273.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4274.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4275.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4276.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4277.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4278.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4279.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4280.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4281.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4282.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4283.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4284.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4285.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4286.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4287.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4288.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4289.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId4290.msg" ":initialShadingGroup.gn" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "pointLight1.iog" ":defaultLightSet.dsm" -na;
 // End of hallway2.ma
