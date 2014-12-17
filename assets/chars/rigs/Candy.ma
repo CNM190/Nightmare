@@ -1,4 +1,4 @@
-//Maya ASCII 2013 scene
+//Maya ASCII 2013 scene 
 //Name: Candy.ma
 //Last modified: Wed, Dec 17, 2014 01:05:16 AM
 //Codeset: 1252
