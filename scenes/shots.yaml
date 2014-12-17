@@ -19,7 +19,7 @@
 # Act II
 
 - name       : "Hallway Walking"
-  file       : "Alternative_Hallway.ma"
+  file       : "hallway1.ma"
   camera     : 'Hallway_Medium_Shot'
   startFrame : 1
   endFrame   : 73
