@@ -69,9 +69,3 @@
   camera     : 'camera2'
   startFrame : 1
   endFrame   : 24
-
-- name       : "Bedroom Departure"
-  file       : "bedroom2.ma" # medium shot
-  camera     : 'camera1'
-  startFrame : 24
-  endFrame   : 57
