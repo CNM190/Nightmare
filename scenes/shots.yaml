@@ -7,7 +7,7 @@
   file       : "bedroom1.ma"
   camera     : 'Full_Bedroom_shot'
   startFrame : 1
-  endFrame   : 48
+  endFrame   : 47
 
 - name       : "Bedroom Closeup"
   file       : "bedroom1.ma"
