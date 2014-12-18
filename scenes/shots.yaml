@@ -58,7 +58,7 @@
   file       : "charge3.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 72
+  endFrame   : 90
 
 
 # ---------------------------------------------------------------------------
@@ -66,6 +66,6 @@
 
 - name       : "Bedroom Cuddle"
   file       : "bedroom2.ma" # face close up
-  camera     : 'camera2'
-  startFrame : 1
-  endFrame   : 24
+  camera     : 'camera1'
+  startFrame : 70
+  endFrame   : 94
