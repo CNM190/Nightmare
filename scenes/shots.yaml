@@ -67,5 +67,5 @@
 - name       : "Bedroom Cuddle"
   file       : "bedroom2.ma" # face close up
   camera     : 'camera1'
-  startFrame : 1
-  endFrame   : 150
+  startFrame : 55
+  endFrame   : 75
