@@ -3,7 +3,7 @@ from moviepy.editor import *
 from PIL import Image, ImageDraw, ImageFont
 
 import moviepy.config as mpcf
-mpcf.change_settings({"FFMPEG_BINARY": "/home/cc/cs198/fa14/class/cs198-iq/opt/bin/ffmpeg"})
+mpcf.change_settings({"FFMPEG_BINARY": "/home/cc/cs198/sp15/staff/cs198-re/opt/local/bin/ffmpeg"})
 
 date = datetime.datetime.now()
 date_now = date.strftime("%c")[:19]

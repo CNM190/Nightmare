@@ -4,13 +4,13 @@
 # names must be unique, and alphanumeric with spaces.
 
 - name       : "Bedroom Establishing"
-  file       : "bedroom1.ma"
+  file       : "scenes/bedroom1.ma"
   camera     : 'Full_Bedroom_shot'
   startFrame : 1
   endFrame   : 47
 
 - name       : "Bedroom Closeup"
-  file       : "bedroom1.ma"
+  file       : "scenes/bedroom1.ma"
   camera     : 'Face_Close_Up'
   startFrame : 48
   endFrame   : 125
@@ -19,43 +19,43 @@
 # Act II
 
 - name       : "Hallway Walking"
-  file       : "hallway1.ma"
+  file       : "scenes/hallway1.ma"
   camera     : 'Hallway_Medium_Shot'
   startFrame : 1
   endFrame   : 73
 
 - name       : "Hallway Running"
-  file       : "hallway2.ma"
+  file       : "scenes/hallway2.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 64
 
 - name       : "Blade of the Heart"
-  file       : "charge.ma"
+  file       : "scenes/charge.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 236
 
 - name       : "Steel thy Resolve"
-  file       : "charge2.ma"
+  file       : "scenes/charge2.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 67
 
 - name       : "Charge 2 Cam 2"
-  file       : "charge2.ma"
+  file       : "scenes/charge2.ma"
   camera     : 'camera2'
   startFrame : 68
   endFrame   : 116
 
 - name       : "Charge 2 Cam 3"
-  file       : "charge2.ma"
+  file       : "scenes/charge2.ma"
   camera     : 'camera3'
   startFrame : 117
   endFrame   : 201
 
 - name       : "Charge 3 Cam 1"
-  file       : "charge3.ma"
+  file       : "scenes/charge3.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 90
@@ -65,7 +65,7 @@
 # Act III
 
 - name       : "Bedroom Cuddle"
-  file       : "bedroom2.ma" # face close up
+  file       : "scenes/bedroom2.ma" # face close up
   camera     : 'camera1'
   startFrame : 55
   endFrame   : 75
