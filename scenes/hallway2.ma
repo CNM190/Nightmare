@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: hallway2.ma
-//Last modified: Mon, Feb 02, 2015 08:23:28 AM
+//Last modified: Mon, Feb 02, 2015 03:43:23 PM
 //Codeset: 1252
 file -rdi 1 -ns "hallway_sara" -rfn "hallway_saraRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/hallway_sara.ma";
 file -rdi 2 -ns "locker" -rfn "hallway_sara:lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
@@ -35,7 +35,7 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 68.965784986585078 18.330769478382404 16.334747609515183 ;
-	setAttr ".r" -type "double3" -12.938352732996846 74.599999999975608 2.9942397030418559e-015 ;
+	setAttr ".r" -type "double3" -12.938352732996846 74.599999999975623 2.9942397030418563e-015 ;
 	setAttr ".rp" -type "double3" 2.4424906541753444e-015 0 1.7763568394002505e-015 ;
 	setAttr ".rpt" -type "double3" 4.7712973888797056e-016 -8.2452142742630945e-017 
 		-1.1622333697847046e-015 ;
@@ -93,6 +93,7 @@ createNode transform -n "camera1";
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
+	setAttr ".ovr" 1.3;
 	setAttr ".pn" -type "double2" 0.077780778874685985 0.060328762281740757 ;
 	setAttr ".zom" 0.24654433413411392;
 	setAttr ".fl" 34.999999999999986;
@@ -101,6 +102,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".den" -type "string" "persp1_depth";
 	setAttr ".man" -type "string" "persp1_mask";
 	setAttr ".hc" -type "string" "viewSet -p %camera";
+	setAttr ".dr" yes;
 createNode transform -n "Nightmare1";
 createNode stereoRigTransform -n "stereoCamera";
 	setAttr ".t" -type "double3" 28 21 28 ;
@@ -190,11 +192,13 @@ createNode camera -n "cameraShape2" -p "camera2";
 	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.4173 0.9449 ;
 	setAttr ".ff" 0;
-	setAttr ".coi" 7.6629193241606197;
+	setAttr ".ovr" 1.3;
+	setAttr ".coi" 7.6629193241606188;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera2";
 	setAttr ".den" -type "string" "camera2_depth";
 	setAttr ".man" -type "string" "camera2_mask";
+	setAttr ".dfg" yes;
 createNode stereoRigTransform -n "stereoCamera1";
 	addAttr -ci true -sn "stereoRigType" -ln "stereoRigType" -dt "string";
 	addAttr -ci true -sn "centerCam" -ln "centerCam" -at "message";
@@ -293,10 +297,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
 		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera2\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
 		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
 		+ "                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n"
-		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
+		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera2\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
 		+ "            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
 		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\n"
 		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n"
@@ -335,8 +339,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n"
 		+ "                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -rigRoot \"|stereoCamera1\" \n"
 		+ "                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -2722,7 +2726,7 @@ createNode animCurveTL -n "anim_ready_Emily:IKArm_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0 0.13063913781753689 9 0.069115337216382855
-		 11 0.090180604436390935 14 0.15585841248162846 16 0.18538424006099488 18 0.21610418881520926
+		 11 0.090180604436390935 14 0.15585841248162846 16 0.18538424006099488 18 0.21610418881520929
 		 19 0.199885604210679 19.5 0.043356415642814998 27 -0.43739154631430965 32 -0.62229431552662851;
 	setAttr -s 10 ".kit[0:9]"  9 9 9 18 18 18 9 18 
 		18 18;
@@ -2747,14 +2751,14 @@ createNode animCurveTA -n "anim_ready_Emily:IKArm_R_rotateX";
 createNode animCurveTA -n "anim_ready_Emily:IKArm_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0.5 -57.100231820041735 9 -114.26262189906741
-		 11 -110.23540166412742 14 -125.84952795222215 16 -89.969294657744058 19 -78.550804393817529
+	setAttr -s 9 ".ktv[0:8]"  0.5 -57.100231820041735 9 -114.2626218990674
+		 11 -110.23540166412742 14 -125.84952795222216 16 -89.969294657744058 19 -78.550804393817529
 		 19.5 -129.91134803215851 27 -93.526214858532043 32 -101.53985142501264;
 createNode animCurveTA -n "anim_ready_Emily:IKArm_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  0.5 99.270181451418324 11 106.6660292626751
-		 14 110.81627230587986 16 109.06418216949957 19 107.34654667835197 19.5 110.76288755208948
+		 14 110.81627230587986 16 109.06418216949956 19 107.34654667835196 19.5 110.76288755208948
 		 27 152.86523412536658 32 185.65539987352508;
 createNode animCurveTU -n "anim_ready_Emily:IKArm_R_scaleX";
 	setAttr ".tan" 18;
@@ -2808,8 +2812,8 @@ createNode animCurveTL -n "anim_ready_Emily:IKArm_L_translateX";
 createNode animCurveTL -n "anim_ready_Emily:IKArm_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0.5 0.10707611120240568 4 0.10959499143994475
-		 6 0.11390409196257813 13 0.25618925302303519 19 0.22522831061407028 19.5 0.15497642924431851
+	setAttr -s 8 ".ktv[0:7]"  0.5 0.10707611120240568 4 0.10959499143994476
+		 6 0.11390409196257811 13 0.25618925302303519 19 0.22522831061407028 19.5 0.15497642924431851
 		 27 -0.43174451894115218 31 -0.65741382239389989;
 	setAttr -s 8 ".kit[7]"  9;
 	setAttr -s 8 ".kot[7]"  9;
@@ -2817,7 +2821,7 @@ createNode animCurveTL -n "anim_ready_Emily:IKArm_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  0.5 1.4818915536510433 4 1.4023008145385552
-		 6 1.2886018846367537 13 1.3092585662390179 19 1.2964187641251712 19.5 1.6518640572492906
+		 6 1.2886018846367535 13 1.3092585662390179 19 1.2964187641251712 19.5 1.6518640572492906
 		 27 1.8878122955121064 31 1.6338359387305714;
 	setAttr -s 8 ".kit[7]"  9;
 	setAttr -s 8 ".kot[7]"  9;
@@ -2825,7 +2829,7 @@ createNode animCurveTA -n "anim_ready_Emily:IKArm_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0.5 109.29689045337342 6 101.14003643914545
-		 13 -28.830717169906482 16 -16.728852866406857 18 -143.08253900109091 19 -110.06330111743547
+		 13 -28.830717169906482 16 -16.728852866406857 18 -143.08253900109091 19 -110.06330111743549
 		 19.5 -70.335284033031741 24 108.02368726273548 27 148.56119329231981 31 144.32002073325867;
 	setAttr -s 10 ".kit[7:9]"  9 18 9;
 	setAttr -s 10 ".kot[7:9]"  9 18 9;
@@ -2833,7 +2837,7 @@ createNode animCurveTA -n "anim_ready_Emily:IKArm_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0.5 -267.13827036688161 6 -260.40890924467135
-		 13 -183.70057742996664 16 -176.1116463759752 18 -32.82074797129664 19 -61.911946760704026
+		 13 -183.70057742996667 16 -176.1116463759752 18 -32.82074797129664 19 -61.911946760704026
 		 19.5 -99.483939542098668 24 -254.21734958376882 27 -281.44720737454054 31 -229.90062084551226;
 	setAttr -s 10 ".kit[7:9]"  9 18 9;
 	setAttr -s 10 ".kot[7:9]"  9 18 9;
@@ -2841,7 +2845,7 @@ createNode animCurveTA -n "anim_ready_Emily:IKArm_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0.5 -68.881358096388098 6 -75.987424932657703
-		 13 -77.311229559167259 16 -74.024579809977581 18 -97.183858078236455 19 -106.7762274669127
+		 13 -77.311229559167259 16 -74.024579809977581 18 -97.183858078236455 19 -106.77622746691272
 		 19.5 -108.66283233050724 24 -158.5556591205912 27 -165.91030556597664 31 -163.33064111757844;
 	setAttr -s 10 ".kit[7:9]"  9 18 9;
 	setAttr -s 10 ".kot[7:9]"  9 18 9;
@@ -2907,7 +2911,7 @@ createNode animCurveTU -n "anim_ready_Emily:PoleArm_L_lock";
 createNode animCurveTL -n "anim_ready_Emily:PoleArm_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  0 -0.15235027437893361 11 0.31275109777068244
+	setAttr -s 6 ".ktv[0:5]"  0 -0.15235027437893359 11 0.31275109777068244
 		 14 0.34017934524374915 19 0.24126662369261184 26 0.19849242431354769 32 0.15535455099044138;
 	setAttr -s 6 ".kit[3:5]"  9 9 9;
 	setAttr -s 6 ".kot[3:5]"  9 9 9;
@@ -3511,11 +3515,11 @@ createNode reference -n "nightmareRN";
 		2 "|Nightmare|nightmare:Master_CTRL" "translate" " -type \"double3\" 0 0 0"
 		
 		2 "|Nightmare|nightmare:Master_CTRL" "scale" " -type \"double3\" 1 1 1"
+		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere1|nightmare:pSphereShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		"nightmareRN" 35
 		0 "|nightmare:Nightmare_Master_CTRL" "|Nightmare1" "-s -r "
@@ -3540,7 +3544,7 @@ createNode reference -n "nightmareRN";
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
 		"translate" " -type \"double3\" -0.112272 -0.0758852 0.261205"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
-		"rotate" " -type \"double3\" 3.765666 -10.377881 3.188699"
+		"rotate" " -type \"double3\" 3.765663 -10.377887 3.188701"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
 		"segmentScaleCompensate" " 1"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Hip_CTRL" "translate" 
@@ -3554,11 +3558,11 @@ createNode reference -n "nightmareRN";
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Hip_CTRL|nightmare:Head_CTRL" 
 		"rotate" " -type \"double3\" 12.85758 29.645144 -15.413763"
 		2 "nightmare:Body" "displayType" " 2"
-		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
+		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere1|nightmare:pSphereShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
+		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		5 4 "nightmareRN" "|Nightmare1|nightmare:Nightmare_Master_CTRL.translateX" 
 		"nightmareRN.placeHolderList[1]" ""
@@ -4564,39 +4568,6 @@ createNode reference -n "nightmareRN1";
 		"rotate" " -type \"double3\" 1.739784 35.610281 3.966126"
 		2 "nightmare1:Body" "displayType" " 2"
 		2 "nightmare1:skinCluster1" "matrix" " -s 16"
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
-		"nightmare1:tweakSet1.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2.handlePath" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:R_Hand_CTRL|nightmare1:ikHandle2.endEffector" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3.parentInverseMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.constraintParentInverseMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL.parentMatrix" "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.target[0].targetParentMatrix" 
-		""
-		3 "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
-		""
-		3 "nightmare1:skinCluster1Set.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGrpColor" 
-		""
-		3 "nightmare1:groupId2.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGroupId" 
-		""
-		3 "nightmare1:tweakSet1.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGrpColor" 
-		""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1.handlePath" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:L_Hand_CTRL|nightmare1:ikHandle1.endEffector" 
-		""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
-		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
-		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton.worldMatrix" "nightmare1:skinCluster1.matrix[0]" 
 		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2.worldMatrix" 
@@ -4629,10 +4600,43 @@ createNode reference -n "nightmareRN1";
 		"nightmare1:skinCluster1.matrix[14]" ""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:R_Hand|nightmare1:R_Fingers.worldMatrix" 
 		"nightmare1:skinCluster1.matrix[15]" ""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
+		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
+		"nightmare1:tweakSet1.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2.handlePath" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:R_Hand_CTRL|nightmare1:ikHandle2.endEffector" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3.parentInverseMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.constraintParentInverseMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL.parentMatrix" "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.target[0].targetParentMatrix" 
+		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere1|nightmare1:pSphereShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShapeOrig.worldMesh" 
 		"nightmare1:groupParts2.inputGeometry" ""
+		3 "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
+		""
+		3 "nightmare1:skinCluster1Set.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGrpColor" 
+		""
+		3 "nightmare1:groupId2.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGroupId" 
+		""
+		3 "nightmare1:tweakSet1.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGrpColor" 
+		""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1.handlePath" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:L_Hand_CTRL|nightmare1:ikHandle1.endEffector" 
+		""
 		5 0 "nightmareRN1" "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
 		"nightmareRN1.placeHolderList[1]" "nightmareRN1.placeHolderList[2]" "nightmare1:Nightmare_MeshShape.iog.og[4].gid"
 		
@@ -6656,7 +6660,7 @@ createNode animCurveTU -n "anim_ready_Emily:ctrlEye_R_Scrunch";
 createNode animCurveTL -n "anim_ready_Emily:ctrlEye_L_translateX";
 	setAttr ".tan" 9;
 	setAttr -s 7 ".ktv[0:6]"  0 0.24239673855074975 7 0.25672277659275983
-		 10 0.093918015908290312 13 -0.081234614370695096 23 0.051039988627326505 38 0.165722
+		 10 0.093918015908290298 13 -0.08123461437069511 23 0.051039988627326505 38 0.165722
 		 47 -0.99163295614711788;
 	setAttr -s 7 ".kit[1:6]"  18 18 18 9 9 9;
 	setAttr -s 7 ".kot[1:6]"  18 18 18 9 9 9;
@@ -6725,7 +6729,7 @@ createNode animCurveTL -n "anim_ready_Emily:lowerLid1_R_translateX";
 createNode animCurveTL -n "anim_ready_Emily:lowerLid1_R_translateY";
 	setAttr ".tan" 9;
 	setAttr -s 8 ".ktv[0:7]"  5 0.086802205684861564 7 0.085526060343138588
-		 19 0.094858750778878745 38 0.0093511199999999992 42 0.05528406941183394 44 0.0066450071320631795
+		 19 0.094858750778878759 38 0.0093511199999999992 42 0.05528406941183394 44 0.0066450071320631795
 		 56 0.0066450071320631795 58 0.1246235377301658;
 	setAttr -s 8 ".kit[0:7]"  18 18 18 9 9 9 9 9;
 	setAttr -s 8 ".kot[0:7]"  18 18 18 9 9 9 9 9;
@@ -6770,7 +6774,7 @@ createNode animCurveTL -n "anim_ready_Emily:lowerLid1_L_translateY";
 	setAttr -s 8 ".kot[0:7]"  18 18 18 9 9 9 9 9;
 createNode animCurveTL -n "anim_ready_Emily:lowerLid1_L_translateZ";
 	setAttr ".tan" 9;
-	setAttr -s 8 ".ktv[0:7]"  5 -0.081651097191785912 7 -0.08514256189614286
+	setAttr -s 8 ".ktv[0:7]"  5 -0.081651097191785926 7 -0.08514256189614286
 		 19 -0.090122614793828659 38 -0.020933400000000001 42 -0.047011658179413905 44 -0.030710608634023553
 		 56 -0.030710608634023553 58 -0.035635930612042822;
 	setAttr -s 8 ".kit[0:7]"  18 18 18 9 9 9 9 9;
@@ -10122,8 +10126,8 @@ createNode groupId -n "hallway_sara:groupId5118";
 	setAttr ".ihi" 0;
 createNode animCurveTA -n "anim_ready_Emily:RollToes_L_rotateX";
 	setAttr ".tan" 9;
-	setAttr -s 5 ".ktv[0:4]"  9 0 10 24.225214463910515 12 -7.7307949716963433
-		 19 -7.7307949716963433 20 -31.961393914941947;
+	setAttr -s 5 ".ktv[0:4]"  9 0 10 24.225214463910515 12 -7.7307949716963442
+		 19 -7.7307949716963442 20 -31.961393914941947;
 createNode animCurveTA -n "anim_ready_Emily:RollToes_L_rotateY";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  9 0 19 0;
@@ -10168,13 +10172,13 @@ createNode animCurveTU -n "camera2_visibility";
 createNode animCurveTL -n "camera2_translateX";
 	setAttr ".tan" 18;
 	setAttr -s 6 ".ktv[0:5]"  0 5.7372475705647901 4 6.7687309552345365
-		 6 7.1870443023731481 11 8.2679731254462343 17 10.396235499939767 34 12.132172086484616;
+		 6 7.1870443023731481 11 8.2679731254462343 17 10.396235499939769 34 12.132172086484616;
 	setAttr -s 6 ".kit[0:5]"  9 18 18 18 9 9;
 	setAttr -s 6 ".kot[0:5]"  9 18 18 18 9 9;
 createNode animCurveTL -n "camera2_translateY";
 	setAttr ".tan" 18;
 	setAttr -s 6 ".ktv[0:5]"  0 1.0936824133067398 4 1.0144580255393858
-		 6 0.98222527529197035 11 0.89874335770194824 17 0.81780514879620714 34 0.61950791177270026;
+		 6 0.98222527529197035 11 0.89874335770194813 17 0.81780514879620725 34 0.61950791177270026;
 	setAttr -s 6 ".kit[0:5]"  9 18 18 18 9 9;
 	setAttr -s 6 ".kot[0:5]"  9 18 18 18 9 9;
 createNode animCurveTL -n "camera2_translateZ";
@@ -10664,32 +10668,32 @@ createNode reference -n "nightmareRN5";
 		"nightmareRN5" 17
 		2 "|nightmare5:Nightmare_Master_CTRL" "translate" " -type \"double3\" 6.147221 0 5.047729"
 		
-		2 "|nightmare5:Nightmare_Master_CTRL" "translateZ" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "translateX" " -av"
+		2 "|nightmare5:Nightmare_Master_CTRL" "translateZ" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "scale" " -type \"double3\" 3.055615 3.055615 3.055615"
 		
 		2 "|nightmare5:Nightmare_Master_CTRL" "scaleX" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "scaleY" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "scaleZ" " -av"
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateZ" "nightmareRN5.placeHolderList[1]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateX" "nightmareRN5.placeHolderList[1]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateX" "nightmareRN5.placeHolderList[2]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateY" "nightmareRN5.placeHolderList[2]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateY" "nightmareRN5.placeHolderList[3]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.translateZ" "nightmareRN5.placeHolderList[3]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateY" "nightmareRN5.placeHolderList[4]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleX" "nightmareRN5.placeHolderList[4]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateX" "nightmareRN5.placeHolderList[5]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleY" "nightmareRN5.placeHolderList[5]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateZ" "nightmareRN5.placeHolderList[6]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleZ" "nightmareRN5.placeHolderList[6]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.visibility" "nightmareRN5.placeHolderList[7]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateY" "nightmareRN5.placeHolderList[7]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleX" "nightmareRN5.placeHolderList[8]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateX" "nightmareRN5.placeHolderList[8]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleY" "nightmareRN5.placeHolderList[9]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.rotateZ" "nightmareRN5.placeHolderList[9]" 
 		""
-		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.scaleZ" "nightmareRN5.placeHolderList[10]" 
+		5 4 "nightmareRN5" "|nightmare5:Nightmare_Master_CTRL.visibility" "nightmareRN5.placeHolderList[10]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -10734,6 +10738,420 @@ createNode animCurveTU -n "nightmare5:Nightmare_Master_CTRL_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  31 1 60 3.0556154059984562;
+createNode groupId -n "hallway_sara:groupId5326";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5327";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5328";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5329";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5330";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5331";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5332";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5333";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5334";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5335";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5336";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5337";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5338";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5339";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5340";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5341";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5342";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5343";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5344";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5345";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5346";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5347";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5348";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5349";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5350";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5351";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5352";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5353";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5354";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5355";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5356";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5357";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5358";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5359";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5360";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5361";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5362";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5363";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5364";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5365";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5366";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5367";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5368";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5369";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5370";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5371";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5372";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5373";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5374";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5375";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5376";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5377";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5378";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5379";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5380";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5381";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5382";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5383";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5384";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5385";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5386";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5387";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5388";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5389";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5390";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5391";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5392";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5393";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5394";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5395";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5396";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5397";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5398";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5399";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5400";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5401";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5402";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5403";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5404";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5405";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5406";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5407";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5408";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5409";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5410";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5411";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5412";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5413";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5414";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5415";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5416";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5417";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5418";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5419";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5420";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5421";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5422";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5423";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5424";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5425";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5426";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5427";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5428";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5429";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5430";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5431";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5432";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5433";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5434";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5435";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5436";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5437";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5438";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5439";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5440";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5441";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5442";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5443";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5444";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5445";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5446";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5447";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5448";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5449";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5450";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5451";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5452";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5453";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5454";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5455";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5456";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5457";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5458";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5459";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5460";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5461";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5462";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5463";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5464";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5465";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5466";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5467";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5468";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5469";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5470";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5471";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5472";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5473";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5474";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5475";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5476";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5477";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5478";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5479";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5480";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5481";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5482";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5483";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5484";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5485";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5486";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5487";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5488";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5489";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5490";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5491";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5492";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5493";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5494";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5495";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5496";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5497";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5498";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5499";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5500";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5501";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5502";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5503";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5504";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5505";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5506";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5507";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5508";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5509";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5510";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5511";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5512";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5513";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5514";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5515";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5516";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5517";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5518";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5519";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5520";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5521";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5522";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5523";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5524";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5525";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5526";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5527";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5528";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5529";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5530";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5531";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5532";
+	setAttr ".ihi" 0;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -10764,7 +11182,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 5240 ".gn";
+	setAttr -s 5447 ".gn";
 select -ne :initialParticleSE;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -10981,7 +11399,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 10 ".sol";
+	setAttr -s 9 ".sol";
 connectAttr "anim_ready_Emily:Main_FaceVis.o" "anim_ready_EmilyRN.phl[1]";
 connectAttr "anim_ready_Emily:Main_Resolution.o" "anim_ready_EmilyRN.phl[2]";
 connectAttr "anim_ready_Emily:Main_fkVis.o" "anim_ready_EmilyRN.phl[3]";
@@ -11168,8 +11586,8 @@ connectAttr "anim_ready_Emily:RootX_M_rotateY.o" "anim_ready_EmilyRN.phl[136]";
 connectAttr "anim_ready_Emily:RootX_M_rotateZ.o" "anim_ready_EmilyRN.phl[137]";
 connectAttr "anim_ready_EmilyRN.phl[138]" "motionTrail1.im";
 connectAttr "anim_ready_EmilyRN.phl[139]" "motionTrail1.lp";
-connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1.so";
-connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1HandleShape.tr";
+connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1HandleShape.tr";
+connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1.so";
 connectAttr "anim_ready_Emily:browInner_R_translateX.o" "anim_ready_EmilyRN.phl[142]"
 		;
 connectAttr "anim_ready_Emily:browInner_R_translateY.o" "anim_ready_EmilyRN.phl[143]"
@@ -11555,20 +11973,20 @@ connectAttr "nightmare4:Nightmare_Master_CTRL_scaleY.o" "nightmareRN4.phl[8]";
 connectAttr "nightmare4:Nightmare_Master_CTRL_scaleZ.o" "nightmareRN4.phl[9]";
 connectAttr "nightmare4:Nightmare_Master_CTRL_visibility.o" "nightmareRN4.phl[10]"
 		;
-connectAttr "nightmare5:Nightmare_Master_CTRL_translateZ.o" "nightmareRN5.phl[1]"
+connectAttr "nightmare5:Nightmare_Master_CTRL_translateX.o" "nightmareRN5.phl[1]"
 		;
-connectAttr "nightmare5:Nightmare_Master_CTRL_translateX.o" "nightmareRN5.phl[2]"
+connectAttr "nightmare5:Nightmare_Master_CTRL_translateY.o" "nightmareRN5.phl[2]"
 		;
-connectAttr "nightmare5:Nightmare_Master_CTRL_translateY.o" "nightmareRN5.phl[3]"
+connectAttr "nightmare5:Nightmare_Master_CTRL_translateZ.o" "nightmareRN5.phl[3]"
 		;
-connectAttr "nightmare5:Nightmare_Master_CTRL_rotateY.o" "nightmareRN5.phl[4]";
-connectAttr "nightmare5:Nightmare_Master_CTRL_rotateX.o" "nightmareRN5.phl[5]";
-connectAttr "nightmare5:Nightmare_Master_CTRL_rotateZ.o" "nightmareRN5.phl[6]";
-connectAttr "nightmare5:Nightmare_Master_CTRL_visibility.o" "nightmareRN5.phl[7]"
+connectAttr "nightmare5:Nightmare_Master_CTRL_scaleX.o" "nightmareRN5.phl[4]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_scaleY.o" "nightmareRN5.phl[5]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_scaleZ.o" "nightmareRN5.phl[6]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_rotateY.o" "nightmareRN5.phl[7]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_rotateX.o" "nightmareRN5.phl[8]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_rotateZ.o" "nightmareRN5.phl[9]";
+connectAttr "nightmare5:Nightmare_Master_CTRL_visibility.o" "nightmareRN5.phl[10]"
 		;
-connectAttr "nightmare5:Nightmare_Master_CTRL_scaleX.o" "nightmareRN5.phl[8]";
-connectAttr "nightmare5:Nightmare_Master_CTRL_scaleY.o" "nightmareRN5.phl[9]";
-connectAttr "nightmare5:Nightmare_Master_CTRL_scaleZ.o" "nightmareRN5.phl[10]";
 connectAttr "camera1_translateX.o" "camera1.tx";
 connectAttr "camera1_translateY.o" "camera1.ty";
 connectAttr "camera1_translateZ.o" "camera1.tz";
@@ -14833,5 +15251,212 @@ connectAttr "hallway_sara:groupId5322.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5323.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5324.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5325.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5326.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5327.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5328.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5329.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5330.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5331.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5332.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5333.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5334.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5335.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5336.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5337.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5338.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5339.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5340.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5341.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5342.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5343.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5344.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5345.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5346.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5347.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5348.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5349.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5350.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5351.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5352.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5353.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5354.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5355.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5356.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5357.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5358.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5359.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5360.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5361.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5362.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5363.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5364.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5365.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5366.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5367.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5368.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5369.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5370.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5371.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5372.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5373.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5374.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5375.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5376.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5377.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5378.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5379.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5380.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5381.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5382.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5383.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5384.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5385.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5386.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5387.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5388.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5389.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5390.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5391.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5392.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5393.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5394.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5395.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5396.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5397.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5398.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5399.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5400.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5401.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5402.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5403.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5404.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5405.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5406.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5407.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5408.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5409.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5410.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5411.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5412.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5413.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5414.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5415.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5416.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5417.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5418.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5419.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5420.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5421.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5422.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5423.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5424.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5425.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5426.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5427.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5428.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5429.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5430.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5431.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5432.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5433.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5434.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5435.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5436.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5437.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5438.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5439.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5440.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5441.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5442.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5443.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5444.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5445.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5446.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5447.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5448.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5449.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5450.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5451.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5452.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5453.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5454.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5455.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5456.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5457.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5458.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5459.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5460.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5461.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5462.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5463.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5464.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5465.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5466.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5467.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5468.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5469.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5470.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5471.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5472.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5473.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5474.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5475.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5476.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5477.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5478.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5479.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5480.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5481.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5482.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5483.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5484.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5485.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5486.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5487.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5488.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5489.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5490.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5491.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5492.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5493.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5494.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5495.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5496.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5497.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5498.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5499.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5500.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5501.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5502.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5503.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5504.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5505.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5506.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5507.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5508.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5509.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5510.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5511.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5512.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5513.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5514.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5515.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5516.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5517.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5518.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5519.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5520.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5521.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5522.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5523.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5524.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5525.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5526.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5527.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5528.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5529.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5530.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5531.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5532.msg" ":initialShadingGroup.gn" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of hallway2.ma
