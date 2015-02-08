@@ -1,7 +1,7 @@
 //Maya ASCII 2013 scene
 //Name: hallway2.ma
-//Last modified: Mon, Feb 02, 2015 03:43:23 PM
-//Codeset: 1252
+//Last modified: Fri, Feb 06, 2015 03:05:07 PM
+//Codeset: UTF-8
 file -rdi 1 -ns "hallway_sara" -rfn "hallway_saraRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/hallway_sara.ma";
 file -rdi 2 -ns "locker" -rfn "hallway_sara:lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
@@ -23,22 +23,21 @@ file -r -ns "nightmare3" -dr 1 -rfn "nightmareRN3" "C:/Users/Mark/Documents/GitH
 file -r -ns "nightmare4" -dr 1 -rfn "nightmareRN4" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "nightmare5" -dr 1 -rfn "nightmareRN5" "X:/Documents/Suchaaver/Nightmare//assets/chars/nightmare.ma";
 requires maya "2013";
-requires "Mayatomr" "2013.0 - 3.10.1.4 ";
+requires "Mayatomr" "2013.0 - 3.10.1.9 ";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
 fileInfo "version" "2013 x64";
-fileInfo "cutIdentifier" "201202220241-825136";
-fileInfo "osv" "Microsoft Business Edition, 64-bit  (Build 9200)\n";
+fileInfo "cutIdentifier" "201207040330-835994";
+fileInfo "osv" "Mac OS X 10.9";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 68.965784986585078 18.330769478382404 16.334747609515183 ;
-	setAttr ".r" -type "double3" -12.938352732996846 74.599999999975623 2.9942397030418563e-015 ;
-	setAttr ".rp" -type "double3" 2.4424906541753444e-015 0 1.7763568394002505e-015 ;
-	setAttr ".rpt" -type "double3" 4.7712973888797056e-016 -8.2452142742630945e-017 
-		-1.1622333697847046e-015 ;
+	setAttr ".r" -type "double3" -12.938352732996846 74.599999999975623 2.9942397030418567e-15 ;
+	setAttr ".rp" -type "double3" 2.4424906541753444e-15 0 1.7763568394002505e-15 ;
+	setAttr ".rpt" -type "double3" 4.7712973888797056e-16 -8.2452142742630945e-17 -1.1622333697847046e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
@@ -106,7 +105,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 createNode transform -n "Nightmare1";
 createNode stereoRigTransform -n "stereoCamera";
 	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 createNode stereoRigCamera -n "stereoCameraCenterCamShape" -p "stereoCamera";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -176,7 +175,7 @@ createNode motionTrailShape -n "motionTrail1HandleShape" -p "motionTrail1Handle"
 instanceable -a 0;
 createNode transform -n "persp1";
 	setAttr ".t" -type "double3" 16.775698105102443 12.581773578826825 16.775698105102435 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 createNode camera -n "perspShape2" -p "persp1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -193,7 +192,7 @@ createNode camera -n "cameraShape2" -p "camera2";
 	setAttr ".cap" -type "double2" 1.4173 0.9449 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 7.6629193241606188;
+	setAttr ".coi" 7.6629193241605806;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera2";
 	setAttr ".den" -type "string" "camera2_depth";
@@ -205,7 +204,7 @@ createNode stereoRigTransform -n "stereoCamera1";
 	addAttr -ci true -sn "leftCam" -ln "leftCam" -at "message";
 	addAttr -ci true -sn "rightCam" -ln "rightCam" -at "message";
 	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 	setAttr ".stereoRigType" -type "string" "StereoCamera";
 createNode stereoRigCamera -n "stereoCamera1CenterCamShape" -p "stereoCamera1";
 	setAttr -k off ".v";
@@ -1546,7 +1545,7 @@ createNode groupId -n "hallway_sara:groupId2633";
 createNode groupId -n "hallway_sara:groupId2634";
 	setAttr ".ihi" 0;
 createNode reference -n "anim_ready_EmilyRN";
-	setAttr ".fn[0]" -type "string" "X:/Documents/Suchaaver/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
+	setAttr ".fn[0]" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
 	setAttr -s 256 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
@@ -1852,7 +1851,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
-		"rotate" " -type \"double3\" -1.127826 3.99447 -24.414144"
+		"rotate" " -type \"double3\" 0.687596 1.15713 -34.392602"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
@@ -1880,7 +1879,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -7.619677 -3.311639 -2.629967"
+		"rotate" " -type \"double3\" -29.050162 -1.347036 -19.984827"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
@@ -1932,7 +1931,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
-		"translate" " -type \"double3\" -0.168955 0.660908 0.729407"
+		"translate" " -type \"double3\" 0.0261016 0.218312 0.276632"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
@@ -1940,7 +1939,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
-		"rotate" " -type \"double3\" 76.62991 -156.074626 -144.896395"
+		"rotate" " -type \"double3\" 83.50944 -165.064648 -155.634024"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
@@ -1984,7 +1983,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_L|anim_ready_Emily:PoleExtraArm_L|anim_ready_Emily:PoleArm_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
-		"translate" " -type \"double3\" -0.0276832 0.643701 0.644688"
+		"translate" " -type \"double3\" -0.0156142 0.26402 0.547768"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
@@ -1992,7 +1991,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
-		"rotate" " -type \"double3\" 84.787632 94.763416 94.675757"
+		"rotate" " -type \"double3\" 67.221096 158.157757 157.300751"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
@@ -2032,7 +2031,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.0224358 -0.0956474 0.00177773"
+		"translate" " -type \"double3\" 0.0389865 0.0393023 0.0100057"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
@@ -2044,7 +2043,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R" 
-		"translate" " -type \"double3\" -0.00172012 0.0947379 -0.022018"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R" 
@@ -2052,7 +2051,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.00935783 -0.108444 -0.0157877"
+		"translate" " -type \"double3\" -0.0438351 0.0396341 -0.00268979"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
@@ -2060,7 +2059,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L" 
-		"translate" " -type \"double3\" -0.0152595 0.076346 -0.00492151"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L" 
@@ -2074,7 +2073,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
-		"translate" " -type \"double3\" 0.0422034 -0.16814 0.0619928"
+		"translate" " -type \"double3\" 0.0295738 -0.157452 -0.0163873"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
@@ -2082,7 +2081,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" 0.0336556 0.124624 -0.0332769"
+		"translate" " -type \"double3\" 0.00375408 0.0480381 -0.0132707"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
@@ -2098,7 +2097,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
-		"translate" " -type \"double3\" 0.194206 -0.072351 0.00524592"
+		"translate" " -type \"double3\" 0.0393935 -0.174755 0.0886746"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
@@ -2106,7 +2105,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" 0.0305068 0.143106 -0.0356359"
+		"translate" " -type \"double3\" -0.000326065 0.0718713 -0.0416689"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
@@ -2134,7 +2133,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
-		"rotate" " -type \"double3\" -60.708987 1.30884 2.50448e-006"
+		"rotate" " -type \"double3\" -54.08782 26.615674 2.50448e-06"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
@@ -2148,13 +2147,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxBrow_R|anim_ready_Emily:ctrlBrow_R" 
 		"translateY" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_R|anim_ready_Emily:ctrlEye_R" 
-		"translateX" " -av -1"
+		"translateX" " -av -0.100455"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_R|anim_ready_Emily:ctrlEye_R" 
-		"translateY" " -av 0.368231"
+		"translateY" " -av -0.279332"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_L|anim_ready_Emily:ctrlEye_L" 
-		"translateX" " -av -0.991633"
+		"translateX" " -av -0.106529"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_L|anim_ready_Emily:ctrlEye_L" 
-		"translateY" " -av 0.403673"
+		"translateY" " -av -0.270471"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R" 
 		"translateX" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R" 
@@ -2182,9 +2181,9 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 9.522354 0.840657 -1.089274"
+		"translate" " -type \"double3\" 9.501463 0.845128 -0.988398"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Group|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 175.197771 9.095286 12.056747"
+		"rotate" " -type \"double3\" 155.571384 3.323274 19.154308"
 		2 "|anim_ready_Emily:modelRNfosterParent1|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
 		"dispResolution" " 3"
 		2 "|anim_ready_Emily:modelRNfosterParent1|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
@@ -2980,77 +2979,83 @@ createNode animCurveTU -n "anim_ready_Emily:FKHead_M_Global";
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  -50 0 1 -41.702638277191419 5 -22.162261455363627
-		 6 -44.431899609116115 7 -19.544272766810277 8 -2.921716501997607 10 9.9166636803806973
-		 11 58.085759485969731 12 76.57729098974329 15 110.57026261436712 19.5 77.381678896560189
-		 23 84.78763205871337 32 63.535462511680727 60 84.78763205871337;
-	setAttr -s 14 ".kit[0:13]"  18 18 9 9 9 9 9 9 
-		9 18 9 9 9 9;
-	setAttr -s 14 ".kot[0:13]"  18 18 9 9 9 9 9 9 
-		9 18 9 9 9 9;
+	setAttr -s 16 ".ktv[0:15]"  -50 0 1 -41.702638277191419 4 -24.634735795916043
+		 5 -21.914951905070655 6 -44.431899609116115 7 -19.544272766810277 8 -2.921716501997607
+		 10 9.9166636803806973 11 58.085759485969731 12 76.57729098974329 15 110.57026261436712
+		 19.5 77.381678896560189 20 73.956589212278871 23 84.78763205871337 32 63.535462511680727
+		 60 84.78763205871337;
+	setAttr -s 16 ".kit[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 9 9 9;
+	setAttr -s 16 ".kot[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 9 9 9;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  1 0 5 -0.88296069674205879 6 -5.4006424654748164
-		 7 -3.5510011696381518 8 -0.67815145669909116 10 1.4380135140454509 11 4.048805447699217
-		 12 -1.0843689684477005 15 -9.1286735052395205 16 8.2120368190411579 19.5 24.030707045847333
-		 23 94.763415848394374 32 171.45851621519307 60 94.763415848394374;
-	setAttr -s 14 ".kit[0:13]"  18 9 9 9 9 9 9 9 
-		9 9 9 1 9 9;
-	setAttr -s 14 ".kot[0:13]"  18 9 9 9 9 9 9 9 
-		9 9 9 1 9 9;
-	setAttr -s 14 ".kix[11:13]"  0.74561452865600586 1 0.65703845024108887;
-	setAttr -s 14 ".kiy[11:13]"  -0.66637754440307617 0 -0.75385701656341553;
-	setAttr -s 14 ".kox[11:13]"  0.74561452865600586 1 0.65703845024108887;
-	setAttr -s 14 ".koy[11:13]"  -0.6663774847984314 0 -0.75385701656341553;
+	setAttr -s 16 ".ktv[0:15]"  1 0 4 -4.7802771962765389 5 -4.0586337586989396
+		 6 -5.4006424654748164 7 -3.5510011696381518 8 -0.67815145669909116 10 1.4380135140454509
+		 11 4.048805447699217 12 -1.0843689684477005 15 -9.1286735052395205 16 8.2120368190411579
+		 19.5 24.030707045847333 20 26.461144199574747 23 94.763415848394374 32 171.45851621519307
+		 60 94.763415848394374;
+	setAttr -s 16 ".kit[0:15]"  18 9 9 9 9 9 9 9 
+		9 9 9 9 9 1 9 9;
+	setAttr -s 16 ".kot[0:15]"  18 9 9 9 9 9 9 9 
+		9 9 9 9 9 1 9 9;
+	setAttr -s 16 ".kix[13:15]"  0.74561452865600586 1 0.65703845024108887;
+	setAttr -s 16 ".kiy[13:15]"  -0.66637754440307617 0 -0.75385701656341553;
+	setAttr -s 16 ".kox[13:15]"  0.74561452865600586 1 0.65703845024108887;
+	setAttr -s 16 ".koy[13:15]"  -0.6663774847984314 0 -0.75385701656341553;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_L_rotateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  1 0 5 4.2052692607755224 6 7.1919527400594481
-		 7 7.0619069935378027 8 9.159033674166265 10 8.6692294744302458 11 9.498503993769658
-		 12 4.2390531579126263 15 -5.8253954632774869 16 11.412785335335393 19.5 24.486532834109685
-		 23 94.675756972649253 32 170.44009384663192 60 94.675756972649253;
-	setAttr -s 14 ".kit[0:13]"  18 9 9 9 9 9 9 9 
-		9 9 9 1 9 9;
-	setAttr -s 14 ".kot[0:13]"  18 9 9 9 9 9 9 9 
-		9 9 9 1 9 9;
-	setAttr -s 14 ".kix[11:13]"  0.74780070781707764 1 0.66158926486968994;
-	setAttr -s 14 ".kiy[11:13]"  -0.66392332315444946 0 -0.74986636638641357;
-	setAttr -s 14 ".kox[11:13]"  0.74780076742172241 1 0.66158926486968994;
-	setAttr -s 14 ".koy[11:13]"  -0.66392326354980469 0 -0.74986636638641357;
+	setAttr -s 16 ".ktv[0:15]"  1 0 4 4.6853470997094409 5 5.3971460010151127
+		 6 7.1919527400594481 7 7.0619069935378027 8 9.159033674166265 10 8.6692294744302458
+		 11 9.498503993769658 12 4.2390531579126263 15 -5.8253954632774869 16 11.412785335335393
+		 19.5 24.486532834109685 20 26.912590151186841 23 94.675756972649253 32 170.44009384663192
+		 60 94.675756972649253;
+	setAttr -s 16 ".kit[0:15]"  18 9 9 9 9 9 9 9 
+		9 9 9 9 9 1 9 9;
+	setAttr -s 16 ".kot[0:15]"  18 9 9 9 9 9 9 9 
+		9 9 9 9 9 1 9 9;
+	setAttr -s 16 ".kix[13:15]"  0.74780070781707764 1 0.66158926486968994;
+	setAttr -s 16 ".kiy[13:15]"  -0.66392332315444946 0 -0.74986636638641357;
+	setAttr -s 16 ".kox[13:15]"  0.74780076742172241 1 0.66158926486968994;
+	setAttr -s 16 ".koy[13:15]"  -0.66392326354980469 0 -0.74986636638641357;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  -50 0 1 0.043158380139791848 5 0.070749885780563709
-		 7 0.083218368844914639 8 0.12072037761787564 9 0.162153943231369 10 0.19361000436071552
-		 12 0.23060369919405604 15 0.26754970279462637 19.5 0.10876921700953848 20 0.11042330702927738
-		 23 0.17651181229225127 32 0.0038647437728384242 60 -0.027683215332557645;
-	setAttr -s 14 ".kit[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
-	setAttr -s 14 ".kot[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
+	setAttr -s 16 ".ktv[0:15]"  -50 0 1 0.043158380139791848 4 -0.039812325439042673
+		 5 -0.018162615822600616 7 -0.012227843116732738 8 0.0004656479364721685 9 0.053485380691163251
+		 10 0.095330800624461601 11 0.12325360319603025 12 0.23060369919405604 15 0.26754970279462637
+		 19.5 0.10876921700953848 20 0.11042330702927738 23 0.17651181229225127 32 0.0038647437728384242
+		 60 -0.027683215332557645;
+	setAttr -s 16 ".kit[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
+	setAttr -s 16 ".kot[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  -50 0 1 0.2174325178286062 5 0.11711508732201618
-		 7 0.001961535144695447 8 0.16003626347966624 9 0.18737496364298892 10 0.16686422133977868
-		 12 0.30282400116916469 15 0.8287031252243936 19.5 0.2288586166188786 20 0.29428568703856706
-		 23 0.36516587019326618 32 0.18435927600862617 60 0.64370121970480265;
-	setAttr -s 14 ".kit[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
-	setAttr -s 14 ".kot[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
+	setAttr -s 16 ".ktv[0:15]"  -50 0 1 0.2174325178286062 4 0.15299209404348305
+		 5 0.11711619670692586 7 0.0019575751488140041 8 0.16002836705752485 9 0.18736570391438676
+		 10 0.16685422445206588 11 0.21136285539849664 12 0.30282400116916469 15 0.8287031252243936
+		 19.5 0.2288586166188786 20 0.29428568703856706 23 0.36516587019326618 32 0.18435927600862617
+		 60 0.64370121970480265;
+	setAttr -s 16 ".kit[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
+	setAttr -s 16 ".kot[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_L_translateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 14 ".ktv[0:13]"  -50 0 1 1.3885790447446569 5 1.2343847267222396
-		 7 1.1796646189347535 8 0.88401897630588955 9 0.54972989211538115 10 0.28931507475210239
-		 12 -0.043326744818161463 15 -0.37644862026284109 19.5 0.78499451347250981 20 0.77426196751131426
-		 23 0.30402938834941473 32 0.48127247858499822 60 0.64468827767273162;
-	setAttr -s 14 ".kit[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
-	setAttr -s 14 ".kot[0:13]"  18 18 9 9 9 9 9 9 
-		18 9 9 18 18 9;
+	setAttr -s 16 ".ktv[0:15]"  -50 0 1 1.3885790447446569 4 1.2648024739647175
+		 5 1.2228884416824175 7 1.1672280726425299 8 0.86828962323254777 9 0.53546549369523433
+		 10 0.27637087598296178 11 0.094869798126130944 12 -0.043326744818161463 15 -0.37644862026284109
+		 19.5 0.78499451347250981 20 0.77426196751131426 23 0.30402938834941473 32 0.48127247858499822
+		 60 0.64468827767273162;
+	setAttr -s 16 ".kit[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
+	setAttr -s 16 ".kot[0:15]"  18 18 9 9 9 9 9 9 
+		9 9 18 9 9 18 18 9;
 createNode animCurveTU -n "anim_ready_Emily:IKLeg_L_swivel";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3108,62 +3113,63 @@ createNode animCurveTU -n "anim_ready_Emily:IKLeg_L_volume";
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -50 0 0.5 118.98987603808374 6.5 128.87320394883508
-		 10 82.576634103396785 15 -47.274975650253126 19.5 -9.1934008596439352 22 0.82242666130932307
-		 32 76.629910243495019 52 76.629910243495019;
-	setAttr -s 9 ".kit[0:8]"  18 18 9 18 18 9 9 9 
-		9;
-	setAttr -s 9 ".kot[0:8]"  18 18 9 18 18 9 9 9 
-		9;
+	setAttr -s 10 ".ktv[0:9]"  -50 0 0.5 118.98987603808374 6.5 128.87320394883508
+		 10 82.576634103396785 15 -47.274975650253126 19 -9.1934008596439352 20 -4.1955121952536727
+		 22 0.82242666130932307 32 76.629910243495019 52 76.629910243495019;
+	setAttr -s 10 ".kit[0:9]"  18 18 9 18 18 9 9 9 
+		9 9;
+	setAttr -s 10 ".kot[0:9]"  18 18 9 18 18 9 9 9 
+		9 9;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0.5 0 6.5 -2.8753998673694481 10 -25.781033885615283
-		 15 -5.7057001064028068 19.5 -9.7068632582424712 22 -57.01103370787034 32 -156.07462648136195
-		 52 -156.07462648136195;
-	setAttr -s 8 ".kit[0:7]"  18 9 18 18 9 9 9 9;
-	setAttr -s 8 ".kot[0:7]"  18 9 18 18 9 9 9 9;
+	setAttr -s 9 ".ktv[0:8]"  0.5 0 6.5 -2.8753998673694481 10 -25.781033885615283
+		 15 -5.7057001064028068 19 -9.7068632582424712 20 -12.814453007827868 22 -57.01103370787034
+		 32 -156.07462648136195 52 -156.07462648136195;
+	setAttr -s 9 ".kit[0:8]"  18 9 18 18 9 9 9 9 
+		9;
+	setAttr -s 9 ".kot[0:8]"  18 9 18 18 9 9 9 9 
+		9;
 createNode animCurveTA -n "anim_ready_Emily:IKLeg_R_rotateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0.5 0 6.5 0.79872831374910847 10 -19.69231783804576
-		 15 -7.5855372469637921 19.5 1.7373973552359594 22 -26.575427766674377 32 -144.89639546619759
-		 52 -144.89639546619759;
-	setAttr -s 8 ".kit[0:7]"  18 9 18 18 9 9 9 9;
-	setAttr -s 8 ".kot[0:7]"  18 9 18 18 9 9 9 9;
+	setAttr -s 9 ".ktv[0:8]"  0.5 0 6.5 0.79872831374910847 10 -19.69231783804576
+		 15 -7.5855372469637921 19 1.7373973552359594 20 -5.0994966329077718 22 -26.575427766674377
+		 32 -144.89639546619759 52 -144.89639546619759;
+	setAttr -s 9 ".kit[0:8]"  18 9 18 18 9 9 9 9 
+		9;
+	setAttr -s 9 ".kot[0:8]"  18 9 18 18 9 9 9 9 
+		9;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  -50 0 0.5 0.044603338606919542 6.5 -0.00062382384174781589
-		 10 -0.068453862355625644 15 -0.16676532856273907 17 -0.14724138626890818 19 -0.10168440056195537
-		 19.5 -0.08585444393816026 22 -0.014770783493291136 32 0.0096728412504300618 52 0.0096728412504300618
-		 60 -0.16895467622867089;
-	setAttr -s 12 ".kit[0:11]"  18 18 18 9 9 9 9 9 
-		9 9 9 9;
-	setAttr -s 12 ".kot[0:11]"  18 18 18 9 9 9 9 9 
-		9 9 9 9;
+	setAttr -s 11 ".ktv[0:10]"  -50 0 0.5 0.044603338606919542 6.5 -0.00062382384174781589
+		 10 -0.068453862355625644 15 -0.10812072835041665 17 -0.085755646863500207 19 -0.038305135973812611
+		 22 -0.014770783493291136 32 0.0096728412504300618 52 0.0096728412504300618 60 -0.16895467622867089;
+	setAttr -s 11 ".kit[0:10]"  18 18 18 9 9 9 9 9 
+		9 9 9;
+	setAttr -s 11 ".kot[0:10]"  18 18 18 9 9 9 9 9 
+		9 9 9;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  -50 0 0.5 0.794576930411523 6.5 0.99090777155980525
-		 10 0.55479222750485746 15 0.37290474515153554 17 0.14956890438090251 19 0.16453121013855168
-		 19.5 0.15638693361254771 22 0.11456769855379811 32 0.24035354595469879 52 0.24035354595469879
-		 60 0.66090806420709902;
-	setAttr -s 12 ".kit[0:11]"  18 18 18 9 18 9 9 9 
-		9 9 9 9;
-	setAttr -s 12 ".kot[0:11]"  18 18 18 9 18 9 9 9 
-		9 9 9 9;
+	setAttr -s 11 ".ktv[0:10]"  -50 0 0.5 0.794576930411523 6.5 0.99090777155980525
+		 10 0.55479222750485746 15 0.37291627422860674 17 0.14958566667570278 19 0.16455610447800503
+		 22 0.11456769855379811 32 0.24035354595469879 52 0.24035354595469879 60 0.66090806420709902;
+	setAttr -s 11 ".kit[0:10]"  18 18 18 9 18 9 9 9 
+		9 9 9;
+	setAttr -s 11 ".kot[0:10]"  18 18 18 9 18 9 9 9 
+		9 9 9;
 createNode animCurveTL -n "anim_ready_Emily:IKLeg_R_translateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 12 ".ktv[0:11]"  -50 0 0.5 -0.43884157014379754 6.5 -0.16727050114981712
-		 10 0.61206033274668692 15 1.4709853485957447 17 1.2913765475583658 19 0.93672211801437266
-		 19.5 0.83035715520946252 22 0.36189533423580761 32 0.31402214784227417 52 0.31402214784227417
-		 60 0.72940686725023429;
-	setAttr -s 12 ".kit[0:11]"  18 18 18 9 18 9 9 9 
-		9 9 9 9;
-	setAttr -s 12 ".kot[0:11]"  18 18 18 9 18 9 9 9 
-		9 9 9 9;
+	setAttr -s 11 ".ktv[0:10]"  -50 0 0.5 -0.43884157014379754 6.5 -0.16727050114981712
+		 10 0.61206033274668692 15 1.4788505308099715 17 1.2997044238738955 19 0.94541509002211344
+		 22 0.36189533423580761 32 0.31402214784227417 52 0.31402214784227417 60 0.72940686725023429;
+	setAttr -s 11 ".kit[0:10]"  18 18 18 9 18 9 9 9 
+		9 9 9;
+	setAttr -s 11 ".kot[0:10]"  18 18 18 9 18 9 9 9 
+		9 9 9;
 createNode animCurveTU -n "anim_ready_Emily:IKLeg_R_swivel";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -3515,16 +3521,16 @@ createNode reference -n "nightmareRN";
 		2 "|Nightmare|nightmare:Master_CTRL" "translate" " -type \"double3\" 0 0 0"
 		
 		2 "|Nightmare|nightmare:Master_CTRL" "scale" " -type \"double3\" 1 1 1"
-		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
+		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere1|nightmare:pSphereShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
+		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		"nightmareRN" 35
 		0 "|nightmare:Nightmare_Master_CTRL" "|Nightmare1" "-s -r "
 		0 "|nightmare:Nightmare_Mesh" "|Nightmare1" "-s -r "
-		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL" "translate" " -type \"double3\" 5.450338 0 -1.482795"
+		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL" "translate" " -type \"double3\" 3.630092 0 -1.482795"
 		
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL" "translateX" " -av"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL" "translateY" " -av"
@@ -3544,7 +3550,7 @@ createNode reference -n "nightmareRN";
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
 		"translate" " -type \"double3\" -0.112272 -0.0758852 0.261205"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
-		"rotate" " -type \"double3\" 3.765663 -10.377887 3.188701"
+		"rotate" " -type \"double3\" 3.765664 -10.377887 3.188701"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:R_Arm" 
 		"segmentScaleCompensate" " 1"
 		2 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Hip_CTRL" "translate" 
@@ -3560,9 +3566,9 @@ createNode reference -n "nightmareRN";
 		2 "nightmare:Body" "displayType" " 2"
 		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere2|nightmare:pSphereShape2.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere1|nightmare:pSphereShape1.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Nightmare1|nightmare:Nightmare_Mesh|nightmare:Nightmare_MeshShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|Nightmare1|nightmare:Nightmare_Master_CTRL|nightmare:Skeleton|nightmare:joint2|nightmare:joint3|nightmare:joint4|nightmare:joint5|nightmare:joint6|nightmare:joint7|nightmare:pSphere1|nightmare:pSphereShape1.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		5 4 "nightmareRN" "|Nightmare1|nightmare:Nightmare_Master_CTRL.translateX" 
 		"nightmareRN.placeHolderList[1]" ""
@@ -4526,17 +4532,17 @@ createNode reference -n "nightmareRN1";
 		"nightmareRN1" 128
 		2 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape" "instObjGroups.objectGroups" 
 		" -s 4"
-		2 "|nightmare1:Nightmare_Master_CTRL" "translate" " -type \"double3\" 7.473596 0 0.739603"
+		2 "|nightmare1:Nightmare_Master_CTRL" "translate" " -type \"double3\" 6.153562 0 0.739603"
 		
 		2 "|nightmare1:Nightmare_Master_CTRL" "translateX" " -av"
-		2 "|nightmare1:Nightmare_Master_CTRL" "rotate" " -type \"double3\" 0 106.498581 0"
+		2 "|nightmare1:Nightmare_Master_CTRL" "rotate" " -type \"double3\" 0 80.751289 0"
 		
 		2 "|nightmare1:Nightmare_Master_CTRL" "rotateY" " -av"
 		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1" 
 		"visibility" " 0"
 		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2" 
 		"visibility" " 0"
-		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "translate" " -type \"double3\" 0.183436 -0.142157 0.242655"
+		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "translate" " -type \"double3\" 0.185105 0.865469 0.515723"
 		
 		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "translateX" " -av"
 		
@@ -4544,7 +4550,7 @@ createNode reference -n "nightmareRN1";
 		
 		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "translateZ" " -av"
 		
-		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "rotate" " -type \"double3\" 24.8346 0 0"
+		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "rotate" " -type \"double3\" 52.493293 0 0"
 		
 		2 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL" "rotateX" " -av"
 		
@@ -4568,6 +4574,33 @@ createNode reference -n "nightmareRN1";
 		"rotate" " -type \"double3\" 1.739784 35.610281 3.966126"
 		2 "nightmare1:Body" "displayType" " 2"
 		2 "nightmare1:skinCluster1" "matrix" " -s 16"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1.handlePath" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:L_Hand_CTRL|nightmare1:ikHandle1.endEffector" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere1|nightmare1:pSphereShape1.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
+		"nightmare1:tweakSet1.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
+		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
+		""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
+		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
+		3 "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
+		""
+		3 "nightmare1:skinCluster1Set.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGrpColor" 
+		""
+		3 "nightmare1:groupId2.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGroupId" 
+		""
+		3 "nightmare1:tweakSet1.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGrpColor" 
+		""
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton.worldMatrix" "nightmare1:skinCluster1.matrix[0]" 
 		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2.worldMatrix" 
@@ -4600,42 +4633,15 @@ createNode reference -n "nightmareRN1";
 		"nightmare1:skinCluster1.matrix[14]" ""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:R_Hand|nightmare1:R_Fingers.worldMatrix" 
 		"nightmare1:skinCluster1.matrix[15]" ""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4]" 
-		"nightmare1:skinCluster1Set.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5]" 
-		"nightmare1:tweakSet1.dagSetMembers" "-na"
+		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShapeOrig.worldMesh" 
+		"nightmare1:groupParts2.inputGeometry" ""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:R_Arm|nightmare1:R_Elbow|nightmare1:effector2.handlePath" 
 		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:R_Hand_CTRL|nightmare1:ikHandle2.endEffector" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7.parentInverseMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.constraintParentInverseMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:Head_CTRL.parentMatrix" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:joint7_orientConstraint1.target[0].targetParentMatrix" 
 		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3.parentInverseMatrix" 
 		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.constraintParentInverseMatrix" 
 		""
 		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL.parentMatrix" "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint3_parentConstraint1.target[0].targetParentMatrix" 
-		""
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere1|nightmare1:pSphereShape1.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShapeOrig.worldMesh" 
-		"nightmare1:groupParts2.inputGeometry" ""
-		3 "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
-		""
-		3 "nightmare1:skinCluster1Set.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGrpColor" 
-		""
-		3 "nightmare1:groupId2.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGroupId" 
-		""
-		3 "nightmare1:tweakSet1.memberWireframeColor" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[5].objectGrpColor" 
-		""
-		3 "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:joint7|nightmare1:pSphere2|nightmare1:pSphereShape2.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|nightmare1:Nightmare_Master_CTRL|nightmare1:Skeleton|nightmare1:joint2|nightmare1:joint3|nightmare1:joint4|nightmare1:joint5|nightmare1:joint6|nightmare1:L_Arm|nightmare1:L_Elbow|nightmare1:effector1.handlePath" 
-		"|nightmare1:Nightmare_Master_CTRL|nightmare1:Hip_CTRL|nightmare1:L_Hand_CTRL|nightmare1:ikHandle1.endEffector" 
 		""
 		5 0 "nightmareRN1" "nightmare1:skinCluster1GroupId.groupId" "|nightmare1:Nightmare_Mesh|nightmare1:Nightmare_MeshShape.instObjGroups.objectGroups[4].objectGroupId" 
 		"nightmareRN1.placeHolderList[1]" "nightmareRN1.placeHolderList[2]" "nightmare1:Nightmare_MeshShape.iog.og[4].gid"
@@ -4953,7 +4959,7 @@ createNode reference -n "nightmareRN2";
 		" 3"
 		2 "|nightmare2:Nightmare_Mesh|nightmare2:Nightmare_MeshShape" "displaySmoothMesh" 
 		" 2"
-		2 "|nightmare2:Nightmare_Master_CTRL" "translate" " -type \"double3\" 7.544008 0 -2.004489"
+		2 "|nightmare2:Nightmare_Master_CTRL" "translate" " -type \"double3\" 5.24267 0 -2.004489"
 		
 		2 "|nightmare2:Nightmare_Master_CTRL" "translateX" " -av"
 		2 "|nightmare2:Nightmare_Master_CTRL" "translateZ" " -av"
@@ -5131,10 +5137,10 @@ createNode reference -n "nightmareRN3";
 		"nightmareRN3"
 		"nightmareRN3" 0
 		"nightmareRN3" 33
-		2 "|nightmare3:Nightmare_Master_CTRL" "translate" " -type \"double3\" 5.761161 -0.121417 0.21886"
+		2 "|nightmare3:Nightmare_Master_CTRL" "translate" " -type \"double3\" 4.512335 -0.121417 0.21886"
 		
 		2 "|nightmare3:Nightmare_Master_CTRL" "translateX" " -av"
-		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "translate" " -type \"double3\" 0.0128771 -0.114759 0.371201"
+		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "translate" " -type \"double3\" 0.0133124 -0.118638 0.383749"
 		
 		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "translateX" " -av"
 		
@@ -5142,7 +5148,7 @@ createNode reference -n "nightmareRN3";
 		
 		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "translateZ" " -av"
 		
-		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "rotate" " -type \"double3\" 16.670907 -23.170566 35.567214"
+		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "rotate" " -type \"double3\" 67.456399 -21.981737 50.09045"
 		
 		2 "|nightmare3:Nightmare_Master_CTRL|nightmare3:Hip_CTRL" "rotateX" " -av"
 		
@@ -5258,7 +5264,7 @@ createNode reference -n "nightmareRN4";
 		"nightmareRN4"
 		"nightmareRN4" 0
 		"nightmareRN4" 14
-		2 "|nightmare4:Nightmare_Master_CTRL" "translate" " -type \"double3\" 4.370073 0 0"
+		2 "|nightmare4:Nightmare_Master_CTRL" "translate" " -type \"double3\" 3.00508 0 0"
 		
 		2 "|nightmare4:Nightmare_Master_CTRL" "translateX" " -av"
 		2 "|nightmare4:Nightmare_Master_CTRL|nightmare4:Hip_CTRL" "translate" " -type \"double3\" 0 0 0"
@@ -10158,43 +10164,48 @@ createNode animCurveTU -n "anim_ready_Emily:RollToes_L_scaleZ";
 	setAttr -s 2 ".ktv[0:1]"  9 1 19 1;
 createNode animCurveTA -n "camera2_rotateX";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 4.7998306699125406;
+	setAttr -s 3 ".ktv[0:2]"  0 4.7998306699125406 4 8.3997036723467495
+		 21 8.3997036723467495;
 createNode animCurveTA -n "camera2_rotateY";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 90;
+	setAttr -s 3 ".ktv[0:2]"  0 90 4 91.999999999999574 21 91.999999999999574;
 createNode animCurveTA -n "camera2_rotateZ";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 1.4238753646194626e-014;
+	setAttr -s 2 ".ktv[0:1]"  0 1.4238753646194626e-14 21 1.4238753646194626e-14;
 createNode animCurveTU -n "camera2_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  0 1 21 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "camera2_translateX";
-	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  0 5.7372475705647901 4 6.7687309552345365
-		 6 7.1870443023731481 11 8.2679731254462343 17 10.396235499939769 34 12.132172086484616;
-	setAttr -s 6 ".kit[0:5]"  9 18 18 18 9 9;
-	setAttr -s 6 ".kot[0:5]"  9 18 18 18 9 9;
+	setAttr ".tan" 9;
+	setAttr -s 8 ".ktv[0:7]"  0 5.7372475705647901 4 6.7729871849070404
+		 8 7.1595235863159798 13 8.2875117581441078 17 10.383845799200454 21 10.945659337451632
+		 24 11.247479520336448 28 12.132172086484616;
+	setAttr -s 8 ".kit[1:7]"  18 18 18 9 9 9 9;
+	setAttr -s 8 ".kot[1:7]"  18 18 18 9 9 9 9;
 createNode animCurveTL -n "camera2_translateY";
-	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  0 1.0936824133067398 4 1.0144580255393858
-		 6 0.98222527529197035 11 0.89874335770194813 17 0.81780514879620725 34 0.61950791177270026;
-	setAttr -s 6 ".kit[0:5]"  9 18 18 18 9 9;
-	setAttr -s 6 ".kot[0:5]"  9 18 18 18 9 9;
+	setAttr ".tan" 9;
+	setAttr -s 8 ".ktv[0:7]"  0 1.0936824133067398 4 0.90407700523486667
+		 8 0.79832115519950353 13 1.0285580307083906 17 0.73126203345858132 21 0.67874324805809672
+		 24 0.7165289311632248 28 0.61950791177270026;
+	setAttr -s 8 ".kit[1:7]"  18 18 18 9 9 9 9;
+	setAttr -s 8 ".kot[1:7]"  18 18 18 9 9 9 9;
 createNode animCurveTL -n "camera2_translateZ";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  0 -0.86384196387023793 17 -0.90812145069190076;
-	setAttr -s 2 ".kit[1]"  18;
-	setAttr -s 2 ".kot[1]"  18;
+	setAttr -s 7 ".ktv[0:6]"  0 -0.86384196387023793 4 -0.85845230700193953
+		 8 -0.89516587696667149 13 -0.88924388428362444 17 -0.89674693709008646 21 -0.89674693709008646
+		 24 -0.91579250469601137;
+	setAttr -s 7 ".kit[4:6]"  18 9 9;
+	setAttr -s 7 ".kot[4:6]"  18 9 9;
 createNode animCurveTU -n "camera2_scaleX";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 1;
+	setAttr -s 2 ".ktv[0:1]"  0 1 21 1;
 createNode animCurveTU -n "camera2_scaleY";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 1;
+	setAttr -s 2 ".ktv[0:1]"  0 1 21 1;
 createNode animCurveTU -n "camera2_scaleZ";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  0 1;
+	setAttr -s 2 ".ktv[0:1]"  0 1 21 1;
 createNode groupId -n "hallway_sara:groupId5119";
 	setAttr ".ihi" 0;
 createNode groupId -n "hallway_sara:groupId5120";
@@ -10637,7 +10648,7 @@ createNode animCurveTA -n "camera1_rotateY";
 createNode animCurveTA -n "camera1_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  27 6.2126264441509002e-018 56 0;
+	setAttr -s 2 ".ktv[0:1]"  27 6.2126264441509002e-18 56 0;
 createNode animCurveTU -n "camera1_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -10666,11 +10677,11 @@ createNode reference -n "nightmareRN5";
 		"nightmareRN5"
 		"nightmareRN5" 0
 		"nightmareRN5" 17
-		2 "|nightmare5:Nightmare_Master_CTRL" "translate" " -type \"double3\" 6.147221 0 5.047729"
+		2 "|nightmare5:Nightmare_Master_CTRL" "translate" " -type \"double3\" -0.00640206 0 16.941576"
 		
 		2 "|nightmare5:Nightmare_Master_CTRL" "translateX" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "translateZ" " -av"
-		2 "|nightmare5:Nightmare_Master_CTRL" "scale" " -type \"double3\" 3.055615 3.055615 3.055615"
+		2 "|nightmare5:Nightmare_Master_CTRL" "scale" " -type \"double3\" 1.564707 1.564707 1.564707"
 		
 		2 "|nightmare5:Nightmare_Master_CTRL" "scaleX" " -av"
 		2 "|nightmare5:Nightmare_Master_CTRL" "scaleY" " -av"
@@ -11152,13 +11163,427 @@ createNode groupId -n "hallway_sara:groupId5531";
 	setAttr ".ihi" 0;
 createNode groupId -n "hallway_sara:groupId5532";
 	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5533";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5534";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5535";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5536";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5537";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5538";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5539";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5540";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5541";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5542";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5543";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5544";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5545";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5546";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5547";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5548";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5549";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5550";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5551";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5552";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5553";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5554";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5555";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5556";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5557";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5558";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5559";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5560";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5561";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5562";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5563";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5564";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5565";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5566";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5567";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5568";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5569";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5570";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5571";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5572";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5573";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5574";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5575";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5576";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5577";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5578";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5579";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5580";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5581";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5582";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5583";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5584";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5585";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5586";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5587";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5588";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5589";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5590";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5591";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5592";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5593";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5594";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5595";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5596";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5597";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5598";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5599";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5600";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5601";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5602";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5603";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5604";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5605";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5606";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5607";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5608";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5609";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5610";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5611";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5612";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5613";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5614";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5615";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5616";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5617";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5618";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5619";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5620";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5621";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5622";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5623";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5624";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5625";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5626";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5627";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5628";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5629";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5630";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5631";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5632";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5633";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5634";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5635";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5636";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5637";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5638";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5639";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5640";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5641";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5642";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5643";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5644";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5645";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5646";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5647";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5648";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5649";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5650";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5651";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5652";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5653";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5654";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5655";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5656";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5657";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5658";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5659";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5660";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5661";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5662";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5663";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5664";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5665";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5666";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5667";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5668";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5669";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5670";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5671";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5672";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5673";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5674";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5675";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5676";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5677";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5678";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5679";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5680";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5681";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5682";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5683";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5684";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5685";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5686";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5687";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5688";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5689";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5690";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5691";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5692";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5693";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5694";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5695";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5696";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5697";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5698";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5699";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5700";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5701";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5702";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5703";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5704";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5705";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5706";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5707";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5708";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5709";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5710";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5711";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5712";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5713";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5714";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5715";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5716";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5717";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5718";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5719";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5720";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5721";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5722";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5723";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5724";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5725";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5726";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5727";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5728";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5729";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5730";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5731";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5732";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5733";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5734";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5735";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5736";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5737";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5738";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId5739";
+	setAttr ".ihi" 0;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 64;
-	setAttr -av ".unw" 64;
+	setAttr -k on ".o" 41;
+	setAttr -av ".unw" 41;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -11182,7 +11607,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 5447 ".gn";
+	setAttr -s 5654 ".gn";
 select -ne :initialParticleSE;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -11586,8 +12011,8 @@ connectAttr "anim_ready_Emily:RootX_M_rotateY.o" "anim_ready_EmilyRN.phl[136]";
 connectAttr "anim_ready_Emily:RootX_M_rotateZ.o" "anim_ready_EmilyRN.phl[137]";
 connectAttr "anim_ready_EmilyRN.phl[138]" "motionTrail1.im";
 connectAttr "anim_ready_EmilyRN.phl[139]" "motionTrail1.lp";
-connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1HandleShape.tr";
-connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1.so";
+connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1.so";
+connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1HandleShape.tr";
 connectAttr "anim_ready_Emily:browInner_R_translateX.o" "anim_ready_EmilyRN.phl[142]"
 		;
 connectAttr "anim_ready_Emily:browInner_R_translateY.o" "anim_ready_EmilyRN.phl[143]"
@@ -15458,5 +15883,212 @@ connectAttr "hallway_sara:groupId5529.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5530.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5531.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId5532.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5533.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5534.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5535.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5536.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5537.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5538.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5539.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5540.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5541.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5542.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5543.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5544.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5545.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5546.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5547.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5548.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5549.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5550.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5551.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5552.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5553.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5554.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5555.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5556.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5557.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5558.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5559.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5560.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5561.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5562.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5563.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5564.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5565.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5566.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5567.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5568.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5569.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5570.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5571.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5572.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5573.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5574.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5575.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5576.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5577.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5578.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5579.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5580.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5581.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5582.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5583.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5584.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5585.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5586.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5587.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5588.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5589.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5590.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5591.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5592.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5593.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5594.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5595.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5596.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5597.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5598.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5599.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5600.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5601.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5602.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5603.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5604.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5605.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5606.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5607.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5608.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5609.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5610.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5611.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5612.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5613.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5614.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5615.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5616.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5617.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5618.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5619.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5620.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5621.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5622.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5623.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5624.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5625.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5626.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5627.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5628.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5629.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5630.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5631.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5632.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5633.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5634.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5635.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5636.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5637.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5638.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5639.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5640.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5641.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5642.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5643.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5644.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5645.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5646.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5647.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5648.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5649.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5650.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5651.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5652.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5653.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5654.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5655.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5656.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5657.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5658.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5659.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5660.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5661.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5662.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5663.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5664.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5665.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5666.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5667.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5668.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5669.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5670.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5671.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5672.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5673.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5674.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5675.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5676.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5677.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5678.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5679.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5680.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5681.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5682.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5683.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5684.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5685.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5686.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5687.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5688.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5689.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5690.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5691.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5692.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5693.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5694.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5695.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5696.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5697.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5698.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5699.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5700.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5701.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5702.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5703.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5704.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5705.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5706.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5707.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5708.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5709.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5710.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5711.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5712.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5713.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5714.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5715.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5716.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5717.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5718.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5719.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5720.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5721.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5722.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5723.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5724.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5725.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5726.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5727.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5728.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5729.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5730.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5731.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5732.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5733.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5734.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5735.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5736.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5737.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5738.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId5739.msg" ":initialShadingGroup.gn" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of hallway2.ma
