@@ -1,37 +1,37 @@
 //Maya ASCII 2013 scene
 //Name: test_charge_light.ma
-//Last modified: Fri, Feb 06, 2015 02:25:50 PM
-//Codeset: UTF-8
-file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
-file -rdi 2 -ns "model" -rfn "Emily_Body_Rig:modelRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
-file -rdi 2 -ns "emilyHair001" -rfn "Emily_Body_Rig:emilyHair001RN" "C:/Users/Kenny/Documents/Nightmare//assets/chars/emilyHair001.ma";
-file -rdi 2 -ns "Dress" -rfn "Emily_Body_Rig:DressRN" "C:/Users/Kenny/Documents/Nightmare//assets/props/Dress.ma";
-file -rdi 1 -ns "unicorn" -dr 1 -rfn "unicornRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Candy.ma";
+//Last modified: Wed, Feb 11, 2015 12:57:44 PM
+//Codeset: 1252
+file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
+file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Body_Rig:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
+file -rdi 2 -ns "Dress_Emily" -rfn "Emily_Body_Rig:Dress_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Dress_Emily.ma";
+file -rdi 1 -ns "unicorn" -rfn "unicornRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Candy.ma";
+file -rdi 2 -ns "CandyHair" -rfn "unicorn:CandyHairRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/CandyHair.ma";
 file -rdi 1 -ns "sword" -rfn "toy_swordRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/props/sword.ma";
 file -rdi 1 -ns "Candy" -rfn "CandyRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/rigs/Candy.ma";
-file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
+file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -r -ns "unicorn" -dr 1 -rfn "unicornRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Candy.ma";
 file -r -ns "sword" -dr 1 -rfn "toy_swordRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/props/sword.ma";
 file -r -ns "Candy" -dr 1 -rfn "CandyRN" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/rigs/Candy.ma";
 requires maya "2013";
-requires "Mayatomr" "2013.0 - 3.10.1.9 ";
+requires "Mayatomr" "2013.0 - 3.10.1.4 ";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
 fileInfo "version" "2013 x64";
-fileInfo "cutIdentifier" "201207040330-835994";
-fileInfo "osv" "Mac OS X 10.9.2";
+fileInfo "cutIdentifier" "201202220241-825136";
+fileInfo "osv" "Microsoft Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 13.004438769982475 -11.950568315280446 9.4764215503681459 ;
-	setAttr ".r" -type "double3" -11.738352758640975 -1786.600000000383 2.04347858580806e-16 ;
+	setAttr ".t" -type "double3" 8.7710057204696117 -13.336926930190755 7.4969684433820145 ;
+	setAttr ".r" -type "double3" -7.5383527586419063 -1803.0000000003679 4.9764367233638499e-017 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 13.063700266538962;
+	setAttr ".coi" 10.848837327137995;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -79,12 +79,16 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "camera1";
+	setAttr ".t" -type "double3" 11.982943404612932 -13.827887013969162 5.1454766137806303 ;
+	setAttr -av ".tx";
+	setAttr -av ".ty";
+	setAttr -av ".tz";
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 532.17127698191882;
+	setAttr ".coi" 532.87168242715222;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -229,44 +233,45 @@ createNode mesh -n "pPlaneShape2" -p "pPlane2";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 121 ".vt[0:120]"  -0.5 -1.110223e-16 0.5 -0.40000001 -1.110223e-16 0.5
-		 -0.30000001 -1.110223e-16 0.5 -0.19999999 -1.110223e-16 0.5 -0.099999994 -1.110223e-16 0.5
-		 0 -1.110223e-16 0.5 0.10000002 -1.110223e-16 0.5 0.19999999 -1.110223e-16 0.5 0.30000001 -1.110223e-16 0.5
-		 0.40000004 -1.110223e-16 0.5 0.5 -1.110223e-16 0.5 -0.5 -8.8817843e-17 0.40000001
-		 -0.40000001 -8.8817843e-17 0.40000001 -0.30000001 -8.8817843e-17 0.40000001 -0.19999999 -8.8817843e-17 0.40000001
-		 -0.099999994 -8.8817843e-17 0.40000001 0 -8.8817843e-17 0.40000001 0.10000002 -8.8817843e-17 0.40000001
-		 0.19999999 -8.8817843e-17 0.40000001 0.30000001 -8.8817843e-17 0.40000001 0.40000004 -8.8817843e-17 0.40000001
-		 0.5 -8.8817843e-17 0.40000001 -0.5 -6.6613384e-17 0.30000001 -0.40000001 -6.6613384e-17 0.30000001
-		 -0.30000001 -6.6613384e-17 0.30000001 -0.19999999 -6.6613384e-17 0.30000001 -0.099999994 -6.6613384e-17 0.30000001
-		 0 -6.6613384e-17 0.30000001 0.10000002 -6.6613384e-17 0.30000001 0.19999999 -6.6613384e-17 0.30000001
-		 0.30000001 -6.6613384e-17 0.30000001 0.40000004 -6.6613384e-17 0.30000001 0.5 -6.6613384e-17 0.30000001
-		 -0.5 -4.4408918e-17 0.19999999 -0.40000001 -4.4408918e-17 0.19999999 -0.30000001 -4.4408918e-17 0.19999999
-		 -0.19999999 -4.4408918e-17 0.19999999 -0.099999994 -4.4408918e-17 0.19999999 0 -4.4408918e-17 0.19999999
-		 0.10000002 -4.4408918e-17 0.19999999 0.19999999 -4.4408918e-17 0.19999999 0.30000001 -4.4408918e-17 0.19999999
-		 0.40000004 -4.4408918e-17 0.19999999 0.5 -4.4408918e-17 0.19999999 -0.5 -2.2204459e-17 0.099999994
-		 -0.40000001 -2.2204459e-17 0.099999994 -0.30000001 -2.2204459e-17 0.099999994 -0.19999999 -2.2204459e-17 0.099999994
-		 -0.099999994 -2.2204459e-17 0.099999994 0 -2.2204459e-17 0.099999994 0.10000002 -2.2204459e-17 0.099999994
-		 0.19999999 -2.2204459e-17 0.099999994 0.30000001 -2.2204459e-17 0.099999994 0.40000004 -2.2204459e-17 0.099999994
-		 0.5 -2.2204459e-17 0.099999994 -0.5 0 0 -0.40000001 0 0 -0.30000001 0 0 -0.19999999 0 0
-		 -0.099999994 0 0 0 0 0 0.10000002 0 0 0.19999999 0 0 0.30000001 0 0 0.40000004 0 0
-		 0.5 0 0 -0.5 2.2204466e-17 -0.10000002 -0.40000001 2.2204466e-17 -0.10000002 -0.30000001 2.2204466e-17 -0.10000002
-		 -0.19999999 2.2204466e-17 -0.10000002 -0.099999994 2.2204466e-17 -0.10000002 0 2.2204466e-17 -0.10000002
-		 0.10000002 2.2204466e-17 -0.10000002 0.19999999 2.2204466e-17 -0.10000002 0.30000001 2.2204466e-17 -0.10000002
-		 0.40000004 2.2204466e-17 -0.10000002 0.5 2.2204466e-17 -0.10000002 -0.5 4.4408918e-17 -0.19999999
-		 -0.40000001 4.4408918e-17 -0.19999999 -0.30000001 4.4408918e-17 -0.19999999 -0.19999999 4.4408918e-17 -0.19999999
-		 -0.099999994 4.4408918e-17 -0.19999999 0 4.4408918e-17 -0.19999999 0.10000002 4.4408918e-17 -0.19999999
-		 0.19999999 4.4408918e-17 -0.19999999 0.30000001 4.4408918e-17 -0.19999999 0.40000004 4.4408918e-17 -0.19999999
-		 0.5 4.4408918e-17 -0.19999999 -0.5 6.6613384e-17 -0.30000001 -0.40000001 6.6613384e-17 -0.30000001
-		 -0.30000001 6.6613384e-17 -0.30000001 -0.19999999 6.6613384e-17 -0.30000001 -0.099999994 6.6613384e-17 -0.30000001
-		 0 6.6613384e-17 -0.30000001 0.10000002 6.6613384e-17 -0.30000001 0.19999999 6.6613384e-17 -0.30000001
-		 0.30000001 6.6613384e-17 -0.30000001 0.40000004 6.6613384e-17 -0.30000001 0.5 6.6613384e-17 -0.30000001
-		 -0.5 8.881785e-17 -0.40000004 -0.40000001 8.881785e-17 -0.40000004 -0.30000001 8.881785e-17 -0.40000004
-		 -0.19999999 8.881785e-17 -0.40000004 -0.099999994 8.881785e-17 -0.40000004 0 8.881785e-17 -0.40000004
-		 0.10000002 8.881785e-17 -0.40000004 0.19999999 8.881785e-17 -0.40000004 0.30000001 8.881785e-17 -0.40000004
-		 0.40000004 8.881785e-17 -0.40000004 0.5 8.881785e-17 -0.40000004 -0.5 1.110223e-16 -0.5
-		 -0.40000001 1.110223e-16 -0.5 -0.30000001 1.110223e-16 -0.5 -0.19999999 1.110223e-16 -0.5
-		 -0.099999994 1.110223e-16 -0.5 0 1.110223e-16 -0.5 0.10000002 1.110223e-16 -0.5 0.19999999 1.110223e-16 -0.5
-		 0.30000001 1.110223e-16 -0.5 0.40000004 1.110223e-16 -0.5 0.5 1.110223e-16 -0.5;
+	setAttr -s 121 ".vt[0:120]"  -0.5 -1.110223e-016 0.5 -0.40000001 -1.110223e-016 0.5
+		 -0.30000001 -1.110223e-016 0.5 -0.19999999 -1.110223e-016 0.5 -0.099999994 -1.110223e-016 0.5
+		 0 -1.110223e-016 0.5 0.10000002 -1.110223e-016 0.5 0.19999999 -1.110223e-016 0.5
+		 0.30000001 -1.110223e-016 0.5 0.40000004 -1.110223e-016 0.5 0.5 -1.110223e-016 0.5
+		 -0.5 -8.8817843e-017 0.40000001 -0.40000001 -8.8817843e-017 0.40000001 -0.30000001 -8.8817843e-017 0.40000001
+		 -0.19999999 -8.8817843e-017 0.40000001 -0.099999994 -8.8817843e-017 0.40000001 0 -8.8817843e-017 0.40000001
+		 0.10000002 -8.8817843e-017 0.40000001 0.19999999 -8.8817843e-017 0.40000001 0.30000001 -8.8817843e-017 0.40000001
+		 0.40000004 -8.8817843e-017 0.40000001 0.5 -8.8817843e-017 0.40000001 -0.5 -6.6613384e-017 0.30000001
+		 -0.40000001 -6.6613384e-017 0.30000001 -0.30000001 -6.6613384e-017 0.30000001 -0.19999999 -6.6613384e-017 0.30000001
+		 -0.099999994 -6.6613384e-017 0.30000001 0 -6.6613384e-017 0.30000001 0.10000002 -6.6613384e-017 0.30000001
+		 0.19999999 -6.6613384e-017 0.30000001 0.30000001 -6.6613384e-017 0.30000001 0.40000004 -6.6613384e-017 0.30000001
+		 0.5 -6.6613384e-017 0.30000001 -0.5 -4.4408918e-017 0.19999999 -0.40000001 -4.4408918e-017 0.19999999
+		 -0.30000001 -4.4408918e-017 0.19999999 -0.19999999 -4.4408918e-017 0.19999999 -0.099999994 -4.4408918e-017 0.19999999
+		 0 -4.4408918e-017 0.19999999 0.10000002 -4.4408918e-017 0.19999999 0.19999999 -4.4408918e-017 0.19999999
+		 0.30000001 -4.4408918e-017 0.19999999 0.40000004 -4.4408918e-017 0.19999999 0.5 -4.4408918e-017 0.19999999
+		 -0.5 -2.2204459e-017 0.099999994 -0.40000001 -2.2204459e-017 0.099999994 -0.30000001 -2.2204459e-017 0.099999994
+		 -0.19999999 -2.2204459e-017 0.099999994 -0.099999994 -2.2204459e-017 0.099999994
+		 0 -2.2204459e-017 0.099999994 0.10000002 -2.2204459e-017 0.099999994 0.19999999 -2.2204459e-017 0.099999994
+		 0.30000001 -2.2204459e-017 0.099999994 0.40000004 -2.2204459e-017 0.099999994 0.5 -2.2204459e-017 0.099999994
+		 -0.5 0 0 -0.40000001 0 0 -0.30000001 0 0 -0.19999999 0 0 -0.099999994 0 0 0 0 0 0.10000002 0 0
+		 0.19999999 0 0 0.30000001 0 0 0.40000004 0 0 0.5 0 0 -0.5 2.2204466e-017 -0.10000002
+		 -0.40000001 2.2204466e-017 -0.10000002 -0.30000001 2.2204466e-017 -0.10000002 -0.19999999 2.2204466e-017 -0.10000002
+		 -0.099999994 2.2204466e-017 -0.10000002 0 2.2204466e-017 -0.10000002 0.10000002 2.2204466e-017 -0.10000002
+		 0.19999999 2.2204466e-017 -0.10000002 0.30000001 2.2204466e-017 -0.10000002 0.40000004 2.2204466e-017 -0.10000002
+		 0.5 2.2204466e-017 -0.10000002 -0.5 4.4408918e-017 -0.19999999 -0.40000001 4.4408918e-017 -0.19999999
+		 -0.30000001 4.4408918e-017 -0.19999999 -0.19999999 4.4408918e-017 -0.19999999 -0.099999994 4.4408918e-017 -0.19999999
+		 0 4.4408918e-017 -0.19999999 0.10000002 4.4408918e-017 -0.19999999 0.19999999 4.4408918e-017 -0.19999999
+		 0.30000001 4.4408918e-017 -0.19999999 0.40000004 4.4408918e-017 -0.19999999 0.5 4.4408918e-017 -0.19999999
+		 -0.5 6.6613384e-017 -0.30000001 -0.40000001 6.6613384e-017 -0.30000001 -0.30000001 6.6613384e-017 -0.30000001
+		 -0.19999999 6.6613384e-017 -0.30000001 -0.099999994 6.6613384e-017 -0.30000001 0 6.6613384e-017 -0.30000001
+		 0.10000002 6.6613384e-017 -0.30000001 0.19999999 6.6613384e-017 -0.30000001 0.30000001 6.6613384e-017 -0.30000001
+		 0.40000004 6.6613384e-017 -0.30000001 0.5 6.6613384e-017 -0.30000001 -0.5 8.881785e-017 -0.40000004
+		 -0.40000001 8.881785e-017 -0.40000004 -0.30000001 8.881785e-017 -0.40000004 -0.19999999 8.881785e-017 -0.40000004
+		 -0.099999994 8.881785e-017 -0.40000004 0 8.881785e-017 -0.40000004 0.10000002 8.881785e-017 -0.40000004
+		 0.19999999 8.881785e-017 -0.40000004 0.30000001 8.881785e-017 -0.40000004 0.40000004 8.881785e-017 -0.40000004
+		 0.5 8.881785e-017 -0.40000004 -0.5 1.110223e-016 -0.5 -0.40000001 1.110223e-016 -0.5
+		 -0.30000001 1.110223e-016 -0.5 -0.19999999 1.110223e-016 -0.5 -0.099999994 1.110223e-016 -0.5
+		 0 1.110223e-016 -0.5 0.10000002 1.110223e-016 -0.5 0.19999999 1.110223e-016 -0.5
+		 0.30000001 1.110223e-016 -0.5 0.40000004 1.110223e-016 -0.5 0.5 1.110223e-016 -0.5;
 	setAttr -s 220 ".ed";
 	setAttr ".ed[0:165]"  0 1 0 0 11 0 1 2 0 1 12 1 2 3 0 2 13 1 3 4 0 3 14 1
 		 4 5 0 4 15 1 5 6 0 5 16 1 6 7 0 6 17 1 7 8 0 7 18 1 8 9 0 8 19 1 9 10 0 9 20 1 10 21 0
@@ -563,15 +568,21 @@ createNode pointLight -n "Back_LightShape" -p "Back_Light";
 	setAttr -k off ".v";
 	setAttr ".in" 5;
 createNode transform -n "spotLight1";
-	setAttr ".t" -type "double3" 11.934047800983105 -13.301193036631217 -0.22014397967221838 ;
-	setAttr ".r" -type "double3" -25.360905032020906 88.306570926893144 -5.3813559992130206e-14 ;
+	setAttr ".t" -type "double3" 11.934047800983103 -13.301193036631217 -0.22014397967221841 ;
+	setAttr ".r" -type "double3" -25.360905032020906 88.306570926893158 -5.3813559992130206e-014 ;
 createNode spotLight -n "spotLightShape1" -p "spotLight1";
 	setAttr -k off ".v";
 	setAttr ".in" 2;
 	setAttr ".ca" 90;
+createNode transform -n "group1";
+	setAttr ".t" -type "double3" 0.62250737911965004 -0.36653460018833606 0 ;
+	setAttr ".r" -type "double3" 0 9.9908027315248038 0 ;
+	setAttr ".s" -type "double3" 0.77400308989449107 0.77400308989449107 0.77400308989449107 ;
+	setAttr ".rp" -type "double3" 7.9334198849396671 -14.309830406947206 -0.99288187517792204 ;
+	setAttr ".sp" -type "double3" 7.9334198849396671 -14.309830406947206 -0.99288187517792204 ;
 createNode transform -n "CandyRNfosterParent1";
 createNode transform -n "Key_Light" -p "CandyRNfosterParent1";
-	setAttr ".t" -type "double3" -0.028402030189175736 1.4831155078390779 1.7544434582132558 ;
+	setAttr ".t" -type "double3" -0.028402030189175736 1.4831155078390781 1.7544434582132558 ;
 	setAttr ".r" -type "double3" 66.270882312004218 -88.82309369243211 -66.266428793482746 ;
 	setAttr ".s" -type "double3" 0.99999999999999967 1 1 ;
 createNode pointLight -n "Key_LightShape" -p "Key_Light";
@@ -579,9 +590,9 @@ createNode pointLight -n "Key_LightShape" -p "Key_Light";
 	setAttr ".in" 4;
 	setAttr ".us" no;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 48 ".lnk";
+	setAttr -s 58 ".lnk";
 	setAttr -s 3 ".ign";
-	setAttr -s 48 ".slnk";
+	setAttr -s 58 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -607,18 +618,18 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
 		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
-		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"all\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
+		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"hwRender_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
 		+ "                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n"
-		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
-		+ "            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
+		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"all\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
+		+ "            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"hwRender_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
 		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\n"
 		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 1\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n"
 		+ "                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
 		+ "                -sortOrder \"dagName\" \n                -longNames 1\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 1\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n"
 		+ "            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 0\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"dagName\" \n            -longNames 1\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n"
-		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n"
-		+ "                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n"
+		+ "                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
 		+ "                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n"
 		+ "                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n"
 		+ "                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n"
@@ -638,8 +649,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n"
 		+ "                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n"
 		+ "\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"camera1\" \n"
 		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
@@ -707,14 +718,15 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
 		+ "            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
 		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"all\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"hwRender_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"all\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"hwRender_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 234 -ast -50 -aet 234 ";
 	setAttr ".st" 6;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
+	setAttr -s 17 ".opt";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
 	addAttr -ci true -h true -sn "sunAndSkyShader" -ln "sunAndSkyShader" -at "message";
 	setAttr ".rvb" 3;
@@ -1256,7 +1268,7 @@ createNode rigidSolver -n "rigidSolver";
 	setAttr ".stm" 1;
 	setAttr -s 2 ".t[0:1]" -type "double3" 0 -16.840493361304326 -6.0202085850861629 
 		-39.3458390485794 -8.2847722383204019 -8.3618179983865701;
-	setAttr -s 2 ".r[0:1]" -type "double3" 0.019402794794631389 1.8756520828198675 
+	setAttr -s 2 ".r[0:1]" -type "double3" 0.019402794794631389 1.8756520828198668 
 		0.59278435404921226 0 58.806869099084857 0;
 	setAttr ".cur" yes;
 createNode choice -n "rigidBody_tx";
@@ -1274,7 +1286,7 @@ createNode choice -n "rigidBody_tz";
 createNode choice -n "rigidBody_rx";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".i";
-	setAttr ".i[1]" 0.00033864265325513488;
+	setAttr ".i[1]" 0.00033864265325513472;
 createNode choice -n "rigidBody_ry";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".i";
@@ -1282,12 +1294,13 @@ createNode choice -n "rigidBody_ry";
 createNode choice -n "rigidBody_rz";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".i";
-	setAttr ".i[1]" 0.010346038732466537;
+	setAttr ".i[1]" 0.010346038732466534;
 createNode reference -n "Emily_Body_RigRN";
-	setAttr -s 2 ".fn";
-	setAttr ".fn[0]" -type "string" "/Users/leowu/Dropbox/School Things/cnm190/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
-	setAttr ".fn[1]" -type "string" "/Users/leowu/Dropbox/School Things/cnm190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
-	setAttr -s 349 ".phl";
+	setAttr -s 3 ".fn";
+	setAttr ".fn[0]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
+	setAttr ".fn[1]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
+	setAttr ".fn[2]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
+	setAttr -s 352 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -1637,1328 +1650,2531 @@ createNode reference -n "Emily_Body_RigRN";
 	setAttr ".phl[347]" 0;
 	setAttr ".phl[348]" 0;
 	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Body_RigRN"
-		"Emily_Body_Rig:emilyHair001RN" 0
-		"Emily_Body_Rig:modelRN" 0
-		"Emily_Body_RigRN" 0
-		"Emily_Body_Rig:DressRN" 0
-		"Emily_Body_RigRN" 647
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translate" 
-		" -type \"double3\" 12.20224 -16.680919 -0.18565"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "translateY" 
-		" -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotate" 
-		" -type \"double3\" 0 -52.860977 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotateX" 
-		" -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotateY" 
-		" -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "rotateZ" 
-		" -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main" "FaceVis" 
-		" -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotate" " -type \"double3\" 0 0 -4.687906"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotate" " -type \"double3\" -11.808 2.129851 5.303909"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"rotate" " -type \"double3\" 18.018095 -1.121939 -11.030483"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
-		"rotate" " -type \"double3\" -11.743037 85.501457 15.352264"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
-		"rotate" " -type \"double3\" -129.038161 -172.274773 211.965248"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
-		"rotate" " -type \"double3\" -11.673566 48.452142 11.635223"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"rotate" " -type \"double3\" 2.151311 1.882565 15.498353"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
-		"rotate" " -type \"double3\" 22.288357 81.215899 14.995607"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
-		"rotate" " -type \"double3\" -17.527046 9.056891 71.616398"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
-		"rotate" " -type \"double3\" 100.613092 55.15537 5.276759"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R|Emily_Body_Rig:FKXOffsetIndexFinger2_R|Emily_Body_Rig:FKXIndexFinger2_R|Emily_Body_Rig:FKOffsetIndexFinger3_R|Emily_Body_Rig:SDK1FKIndexFinger3_R|Emily_Body_Rig:FKExtraIndexFinger3_R|Emily_Body_Rig:FKIndexFinger3_R" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R|Emily_Body_Rig:FKXOffsetMiddleFinger2_R|Emily_Body_Rig:FKXMiddleFinger2_R|Emily_Body_Rig:FKOffsetMiddleFinger3_R|Emily_Body_Rig:SDK1FKMiddleFinger3_R|Emily_Body_Rig:FKExtraMiddleFinger3_R|Emily_Body_Rig:FKMiddleFinger3_R" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R" 
-		"rotate" " -type \"double3\" 0 16.23388 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
-		"rotate" " -type \"double3\" -0.919608 -34.124851 0.761633"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
-		"rotate" " -type \"double3\" -17.448939 14.147748 4.530925"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
-		"rotate" " -type \"double3\" -64.467114 -0.732115 -14.317081"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_R|Emily_Body_Rig:IKXOffsetHip_R|Emily_Body_Rig:IKXHip_R|Emily_Body_Rig:IKXKnee_R|Emily_Body_Rig:IKXAnkle_R|Emily_Body_Rig:IKXToes_R|Emily_Body_Rig:IKToesEndEffector_R" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_R|Emily_Body_Rig:IKXOffsetHip_R|Emily_Body_Rig:IKXHip_R|Emily_Body_Rig:IKXKnee_R|Emily_Body_Rig:IKXAnkle_R|Emily_Body_Rig:IKToesEffector_R" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_L|Emily_Body_Rig:IKXOffsetHip_L|Emily_Body_Rig:IKXHip_L|Emily_Body_Rig:IKXKnee_L|Emily_Body_Rig:IKXAnkle_L|Emily_Body_Rig:IKXToes_L|Emily_Body_Rig:IKToesEndEffector_L" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_L|Emily_Body_Rig:IKXOffsetHip_L|Emily_Body_Rig:IKXHip_L|Emily_Body_Rig:IKXKnee_L|Emily_Body_Rig:IKXAnkle_L|Emily_Body_Rig:IKToesEffector_L" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKSpSpineOffset_M|Emily_Body_Rig:IKSpRoot_M" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
-		"translate" " -type \"double3\" -0.0252867 2.053467 -0.00409353"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -101.245332 5.146048 89.405667"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translate" " -type \"double3\" -0.0707216 -0.0321345 0.0734125"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKIKSystem|Emily_Body_Rig:FKIKParentConstraintArm_R|Emily_Body_Rig:FKIKArm_R" 
-		"FKIKBlend" " -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"translate" " -type \"double3\" -0.0328465 -0.0198334 0.0237355"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"rotate" " -type \"double3\" -2.1163 -11.199722 0.419222"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"rotateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"rotateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
-		"CenterBtwFeet" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetChest_M|Emily_Body_Rig:TwistFollowParentChest_M|Emily_Body_Rig:UnTwistChest_M|Emily_Body_Rig:effector1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetNeck_M|Emily_Body_Rig:TwistFollowParentNeck_M|Emily_Body_Rig:UnTwistNeck_M|Emily_Body_Rig:effector2" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHead_M|Emily_Body_Rig:TwistFollowParentHead_M|Emily_Body_Rig:UnTwistHead_M|Emily_Body_Rig:effector3" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetShoulder_R|Emily_Body_Rig:TwistFollowParentShoulder_R|Emily_Body_Rig:UnTwistShoulder_R|Emily_Body_Rig:effector4" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetElbow_R|Emily_Body_Rig:TwistFollowParentElbow_R|Emily_Body_Rig:UnTwistElbow_R|Emily_Body_Rig:effector5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetWrist_R|Emily_Body_Rig:TwistFollowParentWrist_R|Emily_Body_Rig:UnTwistWrist_R|Emily_Body_Rig:effector6" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHip_R|Emily_Body_Rig:TwistFollowParentHip_R|Emily_Body_Rig:UnTwistHip_R|Emily_Body_Rig:effector7" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetKnee_R|Emily_Body_Rig:TwistFollowParentKnee_R|Emily_Body_Rig:UnTwistKnee_R|Emily_Body_Rig:effector8" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetAnkle_R|Emily_Body_Rig:TwistFollowParentAnkle_R|Emily_Body_Rig:UnTwistAnkle_R|Emily_Body_Rig:effector9" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetShoulder_L|Emily_Body_Rig:TwistFollowParentShoulder_L|Emily_Body_Rig:UnTwistShoulder_L|Emily_Body_Rig:effector10" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetElbow_L|Emily_Body_Rig:TwistFollowParentElbow_L|Emily_Body_Rig:UnTwistElbow_L|Emily_Body_Rig:effector11" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetWrist_L|Emily_Body_Rig:TwistFollowParentWrist_L|Emily_Body_Rig:UnTwistWrist_L|Emily_Body_Rig:effector12" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHip_L|Emily_Body_Rig:TwistFollowParentHip_L|Emily_Body_Rig:UnTwistHip_L|Emily_Body_Rig:effector13" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetKnee_L|Emily_Body_Rig:TwistFollowParentKnee_L|Emily_Body_Rig:UnTwistKnee_L|Emily_Body_Rig:effector14" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetAnkle_L|Emily_Body_Rig:TwistFollowParentAnkle_L|Emily_Body_Rig:UnTwistAnkle_L|Emily_Body_Rig:effector15" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"indexCurl" " -av -k 1 3.595973"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"middleCurl" " -av -k 1 2.870525"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"ringCurl" " -av -k 1 4.022954"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"pinkyCurl" " -av -k 1 4.902251"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"thumbCurl" " -av -k 1 1.806086"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"spread" " -av -k 1 -0.6"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
-		"cup" " -av -k 1 5.2"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"indexCurl" " -av -k 1 3.6"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"middleCurl" " -av -k 1 1.4"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"ringCurl" " -av -k 1 1.8"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"pinkyCurl" " -av -k 1 1.9"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"thumbCurl" " -av -k 1 1.9"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"spread" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
-		"cup" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:Spine1_MAngleSamplerBaseParent|Emily_Body_Rig:Spine1_MAngleSamplerBase|Emily_Body_Rig:Spine1_MAngleXUnTwist|Emily_Body_Rig:effector16" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:IndexFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:IndexFinger1_RAngleSamplerBase|Emily_Body_Rig:IndexFinger1_RAngleXUnTwist|Emily_Body_Rig:effector17" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:IndexFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:IndexFinger1_LAngleSamplerBase|Emily_Body_Rig:IndexFinger1_LAngleXUnTwist|Emily_Body_Rig:effector18" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:MiddleFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:MiddleFinger1_RAngleSamplerBase|Emily_Body_Rig:MiddleFinger1_RAngleXUnTwist|Emily_Body_Rig:effector19" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:MiddleFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:MiddleFinger1_LAngleSamplerBase|Emily_Body_Rig:MiddleFinger1_LAngleXUnTwist|Emily_Body_Rig:effector20" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:RingFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:RingFinger1_RAngleSamplerBase|Emily_Body_Rig:RingFinger1_RAngleXUnTwist|Emily_Body_Rig:effector21" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:RingFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:RingFinger1_LAngleSamplerBase|Emily_Body_Rig:RingFinger1_LAngleXUnTwist|Emily_Body_Rig:effector22" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:PinkyFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:PinkyFinger1_RAngleSamplerBase|Emily_Body_Rig:PinkyFinger1_RAngleXUnTwist|Emily_Body_Rig:effector23" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:PinkyFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:PinkyFinger1_LAngleSamplerBase|Emily_Body_Rig:PinkyFinger1_LAngleXUnTwist|Emily_Body_Rig:effector24" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitSkeletonShape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitSkeletonHeightShape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:upperEyeLidMain0|Emily_Body_Rig:upperEyeLidMain0Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:upperEyeLidMain0|Emily_Body_Rig:upperEyeLidMain1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0|Emily_Body_Rig:lowerEyeLidMain1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:upperEyeLidMain6|Emily_Body_Rig:upperEyeLidMain6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:upperEyeLidMain6|Emily_Body_Rig:upperEyeLidMain5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6|Emily_Body_Rig:lowerEyeLidMain5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainLoc|Emily_Body_Rig:EyeBrowMain0|Emily_Body_Rig:EyeBrowMain1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainLoc|Emily_Body_Rig:EyeBrowMain6|Emily_Body_Rig:EyeBrowMain5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterLoc|Emily_Body_Rig:EyeBrowOuter0|Emily_Body_Rig:EyeBrowOuter1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterLoc|Emily_Body_Rig:EyeBrowOuter6|Emily_Body_Rig:EyeBrowOuter5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitnoseCorner|Emily_Body_Rig:FaceFitnoseCornerCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitcheek|Emily_Body_Rig:FaceFitcheekCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainLoc|Emily_Body_Rig:JawMain0|Emily_Body_Rig:JawMain1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainLoc|Emily_Body_Rig:JawMain6|Emily_Body_Rig:JawMain5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterLoc|Emily_Body_Rig:JawOuter0|Emily_Body_Rig:JawOuter1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterLoc|Emily_Body_Rig:JawOuter6|Emily_Body_Rig:JawOuter5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseLoc|Emily_Body_Rig:Nose0|Emily_Body_Rig:Nose1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseLoc|Emily_Body_Rig:Nose6|Emily_Body_Rig:Nose5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueLoc|Emily_Body_Rig:Tongue0|Emily_Body_Rig:Tongue1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueLoc|Emily_Body_Rig:Tongue6|Emily_Body_Rig:Tongue5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipGeo|Emily_Body_Rig:upperLipTwistHandle" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipGeo|Emily_Body_Rig:lowerLipTwistHandle" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipCurve" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:upperLip0|Emily_Body_Rig:upperLip1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:lowerLip0|Emily_Body_Rig:lowerLip1" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:upperLip6|Emily_Body_Rig:upperLip6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:upperLip6|Emily_Body_Rig:upperLip5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:lowerLip6|Emily_Body_Rig:lowerLip6Shape" 
-		"visibility" " -k 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:lowerLip6|Emily_Body_Rig:lowerLip5" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translate" " -type \"double3\" 0.00249337 -0.0362156 0.00219473"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translate" " -type \"double3\" 0.00252442 -0.065009 0.013188"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
-		"translate" " -type \"double3\" -0.00184309 0.0263899 -0.00196126"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
-		"translate" " -type \"double3\" 0.000937495 -0.000285259 -0.00341862"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
-		"translate" " -type \"double3\" -0.00104218 0.0125474 -0.00366989"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_L|Emily_Body_Rig:upperLip3Offset_L|Emily_Body_Rig:upperLip3Subtract_L|Emily_Body_Rig:upperLip3_L" 
-		"translate" " -type \"double3\" 7.60629e-05 -0.00372873 0.00113507"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
-		"translate" " -type \"double3\" 0.00148442 -0.0276941 0.00424465"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translate" " -type \"double3\" 0.000915851 -0.0213785 0.00650789"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
-		"translate" " -type \"double3\" 0.000516878 -0.00750755 0.000454971"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
-		"translate" " -type \"double3\" -0.000349488 0.0171325 -0.00521534"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translate" " -type \"double3\" -0.000552249 -7.47293e-06 0.000291742"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translate" " -type \"double3\" -0.00227315 -0.0191616 0.0108059"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translateX" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translateY" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"rotateZ" " -av"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"translate" " -type \"double3\" 0 0 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotate" " -type \"double3\" 72.315648 148.773242 2.50448e-06"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotateX" " -av -k 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotateY" " -av -k 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotateZ" " -av -k 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox" 
-		"translate" " -type \"double3\" 0.600745 2.769406 0.126142"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
-		"translateX" " -av 0.076503"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
-		"translateY" " -av -1"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
-		"translateX" " -av 0.0295844"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
-		"translateY" " -av -0.711076"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateX" " -av 0.0343228"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateY" " -av -0.448014"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"blink" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"blinkCenter" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"upperLidFollow" " -av -k 1 1.6"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"lowerLidFollow" " -av -k 1 6.9"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"squint" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"Scrunch" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateX" " -av 0.0480878"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateY" " -av -0.45256"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"blink" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"blinkCenter" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"upperLidFollow" " -av -k 1 3.249995"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"lowerLidFollow" " -av -k 1 8.827779"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"squint" " -av -k 1 2.599999"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"Scrunch" " -av -k 1 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
-		"translateX" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
-		"translateY" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
-		"translateX" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
-		"translateY" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
-		"translateX" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
-		"translateY" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
-		"translateX" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
-		"translateY" " -av 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateX" " -av 0.177577"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateY" " -av -0.104397"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
-		"translateX" " -av 0.315767"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
-		"translateY" " -av -0.134161"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
-		"translateX" " -av 0.0920617"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
-		"translateY" " -av 0.108263"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_R|Emily_Body_Rig:upperLidCurveClose_RBaseWire" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_R|Emily_Body_Rig:lowerLidCurveClose_RBaseWire" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_L|Emily_Body_Rig:upperLidCurveClose_LBaseWire" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_L|Emily_Body_Rig:lowerLidCurveClose_LBaseWire" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"translate" " -type \"double3\" 11.834943 -13.597583 -0.0668113"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"rotate" " -type \"double3\" 14.072272 -5.358859 106.121831"
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceDeformationSystem|Emily_Body_Rig:FaceAttachToHead|Emily_Body_Rig:squashIKX1|Emily_Body_Rig:squashIKX2|Emily_Body_Rig:squashIKX3|Emily_Body_Rig:squashIKX4|Emily_Body_Rig:squashIKX5|Emily_Body_Rig:squashIKX6|Emily_Body_Rig:squashIKX7|Emily_Body_Rig:squashIKX8|Emily_Body_Rig:squashIKEffector" 
-		"visibility" " 0"
-		2 "|Emily_Body_Rig:modelRNfosterParent1|Emily_Body_Rig:model:BodyBase2" "visibility" 
-		" 0"
-		2 "|Emily_Body_Rig:modelRNfosterParent1|Emily_Body_Rig:Body1" "visibility" 
-		" 0"
-		2 "|Emily_Body_Rig:modelRNfosterParent1|Emily_Body_Rig:model:BodyBase" "visibility" 
-		" 0"
-		2 "|Emily_Body_Rig:modelRNfosterParent1|Emily_Body_Rig:model:BodyBase1" "visibility" 
-		" 0"
-		2 "|Emily_Body_Rig:modelRNfosterParent1|Emily_Body_Rig:Body" "visibility" 
-		" 0"
-		2 "Emily_Body_Rig:Mannequin" "visibility" " -av 0"
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.Resolution" 
-		"Emily_Body_RigRN.placeHolderList[1]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.fkVis" 
-		"Emily_Body_RigRN.placeHolderList[2]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.fingerVis" 
-		"Emily_Body_RigRN.placeHolderList[3]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.ikVis" 
-		"Emily_Body_RigRN.placeHolderList[4]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.arrowVis" 
-		"Emily_Body_RigRN.placeHolderList[5]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.fkIkVis" 
-		"Emily_Body_RigRN.placeHolderList[6]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.bendVis" 
-		"Emily_Body_RigRN.placeHolderList[7]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[8]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[9]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[10]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.translateX" 
-		"Emily_Body_RigRN.placeHolderList[11]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.translateY" 
-		"Emily_Body_RigRN.placeHolderList[12]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[13]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[14]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[15]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[16]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[17]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[18]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[19]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[20]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[21]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[22]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[23]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[24]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[25]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[26]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[27]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[28]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[29]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[30]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[31]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[32]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[33]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[34]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[35]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[36]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[37]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[38]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[39]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[40]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.Global" 
-		"Emily_Body_RigRN.placeHolderList[41]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.Global" 
-		"Emily_Body_RigRN.placeHolderList[42]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[43]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[44]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[45]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[46]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[47]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[48]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.Global" 
-		"Emily_Body_RigRN.placeHolderList[49]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[50]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[51]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[52]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[53]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[54]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[55]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[56]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[57]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[58]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.Global" 
-		"Emily_Body_RigRN.placeHolderList[59]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[60]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[61]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[62]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[63]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[64]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[65]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.Global" 
-		"Emily_Body_RigRN.placeHolderList[66]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[67]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[68]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[69]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[70]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[71]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[72]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[73]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[74]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[75]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[76]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[77]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[78]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[79]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[80]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[81]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[82]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[83]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[84]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[85]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[86]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[87]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[88]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[89]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[90]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[91]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[92]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[93]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[94]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[95]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[96]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[97]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[98]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[99]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[100]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[101]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[102]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[103]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[104]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[105]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[106]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[107]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[108]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[109]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[110]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[111]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[112]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[113]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[114]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[115]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[116]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[117]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[118]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[119]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[120]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[121]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[122]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[123]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[124]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[125]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[126]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.swivel" 
-		"Emily_Body_RigRN.placeHolderList[127]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.toe" 
-		"Emily_Body_RigRN.placeHolderList[128]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rollAngle" 
-		"Emily_Body_RigRN.placeHolderList[129]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.roll" 
-		"Emily_Body_RigRN.placeHolderList[130]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.stretchy" 
-		"Emily_Body_RigRN.placeHolderList[131]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.antiPop" 
-		"Emily_Body_RigRN.placeHolderList[132]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.Lenght1" 
-		"Emily_Body_RigRN.placeHolderList[133]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.Lenght2" 
-		"Emily_Body_RigRN.placeHolderList[134]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.volume" 
-		"Emily_Body_RigRN.placeHolderList[135]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[136]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[137]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[138]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[139]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[140]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[141]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.swivel" 
-		"Emily_Body_RigRN.placeHolderList[142]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.toe" 
-		"Emily_Body_RigRN.placeHolderList[143]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rollAngle" 
-		"Emily_Body_RigRN.placeHolderList[144]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.roll" 
-		"Emily_Body_RigRN.placeHolderList[145]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.stretchy" 
-		"Emily_Body_RigRN.placeHolderList[146]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.antiPop" 
-		"Emily_Body_RigRN.placeHolderList[147]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.Lenght1" 
-		"Emily_Body_RigRN.placeHolderList[148]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.Lenght2" 
-		"Emily_Body_RigRN.placeHolderList[149]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.volume" 
-		"Emily_Body_RigRN.placeHolderList[150]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.CenterBtwFeet" 
-		"Emily_Body_RigRN.placeHolderList[151]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[152]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[153]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[154]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[155]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[156]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[157]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.FingerControlVis" 
-		"Emily_Body_RigRN.placeHolderList[158]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.indexCurl" 
-		"Emily_Body_RigRN.placeHolderList[159]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.middleCurl" 
-		"Emily_Body_RigRN.placeHolderList[160]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.ringCurl" 
-		"Emily_Body_RigRN.placeHolderList[161]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.pinkyCurl" 
-		"Emily_Body_RigRN.placeHolderList[162]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.thumbCurl" 
-		"Emily_Body_RigRN.placeHolderList[163]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.spread" 
-		"Emily_Body_RigRN.placeHolderList[164]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.cup" 
-		"Emily_Body_RigRN.placeHolderList[165]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.FingerControlVis" 
-		"Emily_Body_RigRN.placeHolderList[166]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.indexCurl" 
-		"Emily_Body_RigRN.placeHolderList[167]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.middleCurl" 
-		"Emily_Body_RigRN.placeHolderList[168]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.ringCurl" 
-		"Emily_Body_RigRN.placeHolderList[169]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.pinkyCurl" 
-		"Emily_Body_RigRN.placeHolderList[170]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.thumbCurl" 
-		"Emily_Body_RigRN.placeHolderList[171]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.spread" 
-		"Emily_Body_RigRN.placeHolderList[172]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.cup" 
-		"Emily_Body_RigRN.placeHolderList[173]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[174]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[175]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[176]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[177]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[178]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[179]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[180]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[181]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[182]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[183]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[184]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[185]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[186]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[187]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[188]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[189]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[190]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[191]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[192]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[193]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[194]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[195]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[196]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[197]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[198]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[199]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[200]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[201]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[202]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[203]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[204]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[205]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[206]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[207]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[208]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[209]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[210]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[211]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[212]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[213]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[214]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[215]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[216]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[217]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[218]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[219]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[220]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[221]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[222]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[223]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[224]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[225]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[226]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[227]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[228]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[229]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[230]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[231]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[232]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[233]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[234]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[235]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[236]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[237]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[238]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[239]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[240]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[241]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[242]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[243]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[244]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[245]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[246]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[247]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[248]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[249]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[250]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[251]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[252]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[253]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[254]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[255]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[256]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[257]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[258]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[259]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[260]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[261]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[262]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[263]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[264]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[265]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[266]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[267]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[268]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[269]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[270]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[271]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[272]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[273]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[274]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[275]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[276]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[277]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[278]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[279]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[280]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[281]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[282]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[283]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateZ" 
-		"Emily_Body_RigRN.placeHolderList[284]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateX" 
-		"Emily_Body_RigRN.placeHolderList[285]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateY" 
-		"Emily_Body_RigRN.placeHolderList[286]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateZ" 
-		"Emily_Body_RigRN.placeHolderList[287]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleX" 
-		"Emily_Body_RigRN.placeHolderList[288]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleY" 
-		"Emily_Body_RigRN.placeHolderList[289]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleZ" 
-		"Emily_Body_RigRN.placeHolderList[290]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[291]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[292]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.squeeze" 
-		"Emily_Body_RigRN.placeHolderList[293]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.outerUpDown" 
-		"Emily_Body_RigRN.placeHolderList[294]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[295]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[296]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.squeeze" 
-		"Emily_Body_RigRN.placeHolderList[297]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.outerUpDown" 
-		"Emily_Body_RigRN.placeHolderList[298]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[299]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[300]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.Scrunch" 
-		"Emily_Body_RigRN.placeHolderList[301]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blink" 
-		"Emily_Body_RigRN.placeHolderList[302]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blinkCenter" 
-		"Emily_Body_RigRN.placeHolderList[303]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.upperLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[304]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.lowerLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[305]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.squint" 
-		"Emily_Body_RigRN.placeHolderList[306]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[307]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[308]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.Scrunch" 
-		"Emily_Body_RigRN.placeHolderList[309]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blink" 
-		"Emily_Body_RigRN.placeHolderList[310]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blinkCenter" 
-		"Emily_Body_RigRN.placeHolderList[311]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.upperLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[312]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.lowerLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[313]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.squint" 
-		"Emily_Body_RigRN.placeHolderList[314]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[315]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[316]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[317]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[318]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[319]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[320]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[321]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[322]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[323]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[324]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawSide" 
-		"Emily_Body_RigRN.placeHolderList[325]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawForward" 
-		"Emily_Body_RigRN.placeHolderList[326]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.chinRaiser" 
-		"Emily_Body_RigRN.placeHolderList[327]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_R" 
-		"Emily_Body_RigRN.placeHolderList[328]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_L" 
-		"Emily_Body_RigRN.placeHolderList[329]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_R" 
-		"Emily_Body_RigRN.placeHolderList[330]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_L" 
-		"Emily_Body_RigRN.placeHolderList[331]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_R" 
-		"Emily_Body_RigRN.placeHolderList[332]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_L" 
-		"Emily_Body_RigRN.placeHolderList[333]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[334]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[335]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[336]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[337]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeX" 
-		"Emily_Body_RigRN.placeHolderList[338]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeY" 
-		"Emily_Body_RigRN.placeHolderList[339]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeZ" 
-		"Emily_Body_RigRN.placeHolderList[340]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX1" 
-		"Emily_Body_RigRN.placeHolderList[341]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX2" 
-		"Emily_Body_RigRN.placeHolderList[342]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX3" 
-		"Emily_Body_RigRN.placeHolderList[343]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY1" 
-		"Emily_Body_RigRN.placeHolderList[344]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY2" 
-		"Emily_Body_RigRN.placeHolderList[345]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY3" 
-		"Emily_Body_RigRN.placeHolderList[346]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ1" 
-		"Emily_Body_RigRN.placeHolderList[347]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ2" 
-		"Emily_Body_RigRN.placeHolderList[348]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Group|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ3" 
-		"Emily_Body_RigRN.placeHolderList[349]" ""
+		"Emily_Body_Rig:Hair_EmilyRN" 0
 		"Emily_Body_Rig:emilyHair001RN" 1
-		2 "Emily_Body_Rig:emilyHair001:eyebrows" "visibility" " 1";
+		2 "Emily_Body_Rig:emilyHair001:eyebrows" "visibility" " 1"
+		"Emily_Body_Rig:modelRN" 0
+		"Emily_Body_Rig:Dress_EmilyRN" 0
+		"Emily_Body_RigRN" 4
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:model:geo_Emily|Emily_Body_Rig:model:BodyBase1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:model:geo_Emily|Emily_Body_Rig:model:BodyBase" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:model:geo_Emily|Emily_Body_Rig:model:BodyBase2" 
+		"visibility" " 0"
+		2 "Emily_Body_Rig:Mannequin" "visibility" " -av 0"
+		"Emily_Body_Rig:DressRN" 0
+		"Emily_Body_RigRN" 671
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"translate" " -type \"double3\" 12.20224 -16.680919 -0.18565"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"rotate" " -type \"double3\" 0 -52.860977 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
+		"FaceVis" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
+		"rotate" " -type \"double3\" 0 0 -4.687906"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"rotate" " -type \"double3\" -11.808 2.129851 5.303909"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"rotate" " -type \"double3\" 18.018095 -1.121939 -11.030483"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
+		"rotate" " -type \"double3\" -11.743037 85.501457 15.352264"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
+		"rotate" " -type \"double3\" -129.038161 -172.274773 211.965248"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
+		"rotate" " -type \"double3\" -11.673566 48.452142 11.635223"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"rotate" " -type \"double3\" 2.151311 1.882565 15.498353"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
+		"rotate" " -type \"double3\" 22.288357 81.215899 14.995607"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
+		"rotate" " -type \"double3\" -17.527046 9.056891 71.616398"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
+		"rotate" " -type \"double3\" 100.613092 55.15537 5.276759"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R|Emily_Body_Rig:FKXOffsetIndexFinger2_R|Emily_Body_Rig:FKXIndexFinger2_R|Emily_Body_Rig:FKOffsetIndexFinger3_R|Emily_Body_Rig:SDK1FKIndexFinger3_R|Emily_Body_Rig:FKExtraIndexFinger3_R|Emily_Body_Rig:FKIndexFinger3_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R|Emily_Body_Rig:FKXOffsetMiddleFinger2_R|Emily_Body_Rig:FKXMiddleFinger2_R|Emily_Body_Rig:FKOffsetMiddleFinger3_R|Emily_Body_Rig:SDK1FKMiddleFinger3_R|Emily_Body_Rig:FKExtraMiddleFinger3_R|Emily_Body_Rig:FKMiddleFinger3_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R" 
+		"rotate" " -type \"double3\" 0 16.23388 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
+		"rotate" " -type \"double3\" -0.919608 -34.124851 0.761633"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
+		"rotate" " -type \"double3\" -17.448939 14.147748 4.530925"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
+		"rotate" " -type \"double3\" -64.467114 -0.732115 -14.317081"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_R|Emily_Body_Rig:IKXOffsetHip_R|Emily_Body_Rig:IKXHip_R|Emily_Body_Rig:IKXKnee_R|Emily_Body_Rig:IKXAnkle_R|Emily_Body_Rig:IKXToes_R|Emily_Body_Rig:IKToesEndEffector_R" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_R|Emily_Body_Rig:IKXOffsetHip_R|Emily_Body_Rig:IKXHip_R|Emily_Body_Rig:IKXKnee_R|Emily_Body_Rig:IKXAnkle_R|Emily_Body_Rig:IKToesEffector_R" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_L|Emily_Body_Rig:IKXOffsetHip_L|Emily_Body_Rig:IKXHip_L|Emily_Body_Rig:IKXKnee_L|Emily_Body_Rig:IKXAnkle_L|Emily_Body_Rig:IKXToes_L|Emily_Body_Rig:IKToesEndEffector_L" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKParentConstraintHip_L|Emily_Body_Rig:IKXOffsetHip_L|Emily_Body_Rig:IKXHip_L|Emily_Body_Rig:IKXKnee_L|Emily_Body_Rig:IKXAnkle_L|Emily_Body_Rig:IKToesEffector_L" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKJoints|Emily_Body_Rig:IKSpSpineOffset_M|Emily_Body_Rig:IKSpRoot_M" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
+		"translate" " -type \"double3\" -0.0252867 2.053467 -0.00409353"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
+		"rotate" " -type \"double3\" -101.245332 5.146048 89.405667"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
+		"translate" " -type \"double3\" -0.0707216 -0.0321345 0.0734125"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKIKSystem|Emily_Body_Rig:FKIKParentConstraintArm_R|Emily_Body_Rig:FKIKArm_R" 
+		"FKIKBlend" " -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"translate" " -type \"double3\" -0.0328465 -0.0198334 0.0237355"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"rotate" " -type \"double3\" -2.1163 -11.199722 0.419222"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"rotateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"rotateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M" 
+		"CenterBtwFeet" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetChest_M|Emily_Body_Rig:TwistFollowParentChest_M|Emily_Body_Rig:UnTwistChest_M|Emily_Body_Rig:effector1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetNeck_M|Emily_Body_Rig:TwistFollowParentNeck_M|Emily_Body_Rig:UnTwistNeck_M|Emily_Body_Rig:effector2" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHead_M|Emily_Body_Rig:TwistFollowParentHead_M|Emily_Body_Rig:UnTwistHead_M|Emily_Body_Rig:effector3" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetShoulder_R|Emily_Body_Rig:TwistFollowParentShoulder_R|Emily_Body_Rig:UnTwistShoulder_R|Emily_Body_Rig:effector4" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetElbow_R|Emily_Body_Rig:TwistFollowParentElbow_R|Emily_Body_Rig:UnTwistElbow_R|Emily_Body_Rig:effector5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetWrist_R|Emily_Body_Rig:TwistFollowParentWrist_R|Emily_Body_Rig:UnTwistWrist_R|Emily_Body_Rig:effector6" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHip_R|Emily_Body_Rig:TwistFollowParentHip_R|Emily_Body_Rig:UnTwistHip_R|Emily_Body_Rig:effector7" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetKnee_R|Emily_Body_Rig:TwistFollowParentKnee_R|Emily_Body_Rig:UnTwistKnee_R|Emily_Body_Rig:effector8" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetAnkle_R|Emily_Body_Rig:TwistFollowParentAnkle_R|Emily_Body_Rig:UnTwistAnkle_R|Emily_Body_Rig:effector9" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetShoulder_L|Emily_Body_Rig:TwistFollowParentShoulder_L|Emily_Body_Rig:UnTwistShoulder_L|Emily_Body_Rig:effector10" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetElbow_L|Emily_Body_Rig:TwistFollowParentElbow_L|Emily_Body_Rig:UnTwistElbow_L|Emily_Body_Rig:effector11" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetWrist_L|Emily_Body_Rig:TwistFollowParentWrist_L|Emily_Body_Rig:UnTwistWrist_L|Emily_Body_Rig:effector12" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetHip_L|Emily_Body_Rig:TwistFollowParentHip_L|Emily_Body_Rig:UnTwistHip_L|Emily_Body_Rig:effector13" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetKnee_L|Emily_Body_Rig:TwistFollowParentKnee_L|Emily_Body_Rig:UnTwistKnee_L|Emily_Body_Rig:effector14" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:TwistSystem|Emily_Body_Rig:TwistFollowParentOffsetAnkle_L|Emily_Body_Rig:TwistFollowParentAnkle_L|Emily_Body_Rig:UnTwistAnkle_L|Emily_Body_Rig:effector15" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"indexCurl" " -av -k 1 3.595973"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"middleCurl" " -av -k 1 2.870525"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"ringCurl" " -av -k 1 4.022954"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"pinkyCurl" " -av -k 1 4.902251"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"thumbCurl" " -av -k 1 1.806086"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"spread" " -av -k 1 -0.6"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R" 
+		"cup" " -av -k 1 5.2"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"indexCurl" " -av -k 1 3.6"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"middleCurl" " -av -k 1 1.4"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"ringCurl" " -av -k 1 1.8"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"pinkyCurl" " -av -k 1 1.9"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"thumbCurl" " -av -k 1 1.9"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"spread" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
+		"cup" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:Spine1_MAngleSamplerBaseParent|Emily_Body_Rig:Spine1_MAngleSamplerBase|Emily_Body_Rig:Spine1_MAngleXUnTwist|Emily_Body_Rig:effector16" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:IndexFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:IndexFinger1_RAngleSamplerBase|Emily_Body_Rig:IndexFinger1_RAngleXUnTwist|Emily_Body_Rig:effector17" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:IndexFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:IndexFinger1_LAngleSamplerBase|Emily_Body_Rig:IndexFinger1_LAngleXUnTwist|Emily_Body_Rig:effector18" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:MiddleFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:MiddleFinger1_RAngleSamplerBase|Emily_Body_Rig:MiddleFinger1_RAngleXUnTwist|Emily_Body_Rig:effector19" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:MiddleFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:MiddleFinger1_LAngleSamplerBase|Emily_Body_Rig:MiddleFinger1_LAngleXUnTwist|Emily_Body_Rig:effector20" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:RingFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:RingFinger1_RAngleSamplerBase|Emily_Body_Rig:RingFinger1_RAngleXUnTwist|Emily_Body_Rig:effector21" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:RingFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:RingFinger1_LAngleSamplerBase|Emily_Body_Rig:RingFinger1_LAngleXUnTwist|Emily_Body_Rig:effector22" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:PinkyFinger1_RAngleSamplerBaseParent|Emily_Body_Rig:PinkyFinger1_RAngleSamplerBase|Emily_Body_Rig:PinkyFinger1_RAngleXUnTwist|Emily_Body_Rig:effector23" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:AngleSystem|Emily_Body_Rig:PinkyFinger1_LAngleSamplerBaseParent|Emily_Body_Rig:PinkyFinger1_LAngleSamplerBase|Emily_Body_Rig:PinkyFinger1_LAngleXUnTwist|Emily_Body_Rig:effector24" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitSkeletonShape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitSkeletonHeightShape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:upperEyeLidMain0|Emily_Body_Rig:upperEyeLidMain0Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:upperEyeLidMain0|Emily_Body_Rig:upperEyeLidMain1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain0|Emily_Body_Rig:lowerEyeLidMain0|Emily_Body_Rig:lowerEyeLidMain1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:upperEyeLidMain6|Emily_Body_Rig:upperEyeLidMain6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:upperEyeLidMain6|Emily_Body_Rig:upperEyeLidMain5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidMain|Emily_Body_Rig:FaceFitEyeLidMainLoc|Emily_Body_Rig:EyeLidMain6|Emily_Body_Rig:lowerEyeLidMain6|Emily_Body_Rig:lowerEyeLidMain5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter0|Emily_Body_Rig:upperEyeLidOuter1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter0|Emily_Body_Rig:lowerEyeLidOuter1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter6|Emily_Body_Rig:upperEyeLidOuter5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeLidOuter|Emily_Body_Rig:FaceFitEyeLidOuterLoc|Emily_Body_Rig:EyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter6|Emily_Body_Rig:lowerEyeLidOuter5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainLoc|Emily_Body_Rig:EyeBrowMain0|Emily_Body_Rig:EyeBrowMain1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowMain|Emily_Body_Rig:FaceFitEyeBrowMainLoc|Emily_Body_Rig:EyeBrowMain6|Emily_Body_Rig:EyeBrowMain5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterLoc|Emily_Body_Rig:EyeBrowOuter0|Emily_Body_Rig:EyeBrowOuter1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitEyeBrowOuter|Emily_Body_Rig:FaceFitEyeBrowOuterLoc|Emily_Body_Rig:EyeBrowOuter6|Emily_Body_Rig:EyeBrowOuter5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitnoseCorner|Emily_Body_Rig:FaceFitnoseCornerCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitcheek|Emily_Body_Rig:FaceFitcheekCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainLoc|Emily_Body_Rig:JawMain0|Emily_Body_Rig:JawMain1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawMain|Emily_Body_Rig:FaceFitJawMainLoc|Emily_Body_Rig:JawMain6|Emily_Body_Rig:JawMain5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterLoc|Emily_Body_Rig:JawOuter0|Emily_Body_Rig:JawOuter1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitJawOuter|Emily_Body_Rig:FaceFitJawOuterLoc|Emily_Body_Rig:JawOuter6|Emily_Body_Rig:JawOuter5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseLoc|Emily_Body_Rig:Nose0|Emily_Body_Rig:Nose1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitNose|Emily_Body_Rig:FaceFitNoseLoc|Emily_Body_Rig:Nose6|Emily_Body_Rig:Nose5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueLoc|Emily_Body_Rig:Tongue0|Emily_Body_Rig:Tongue1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitTongue|Emily_Body_Rig:FaceFitTongueLoc|Emily_Body_Rig:Tongue6|Emily_Body_Rig:Tongue5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipGeo|Emily_Body_Rig:upperLipTwistHandle" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipGeo|Emily_Body_Rig:lowerLipTwistHandle" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipCurve" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:upperLip0|Emily_Body_Rig:upperLip1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:lowerLip0|Emily_Body_Rig:lowerLip1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:upperLip6|Emily_Body_Rig:upperLip6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:upperLip6|Emily_Body_Rig:upperLip5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:lowerLip6|Emily_Body_Rig:lowerLip6Shape" 
+		"visibility" " -k 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceFitSkeleton|Emily_Body_Rig:FaceFitLip|Emily_Body_Rig:FaceFitLipLoc|Emily_Body_Rig:Lip6|Emily_Body_Rig:lowerLip6|Emily_Body_Rig:lowerLip5" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
+		"translate" " -type \"double3\" 0.00249337 -0.0362156 0.00219473"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
+		"translate" " -type \"double3\" 0.00252442 -0.065009 0.013188"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
+		"translate" " -type \"double3\" -0.00184309 0.0263899 -0.00196126"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
+		"translate" " -type \"double3\" 0.000937495 -0.000285259 -0.00341862"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"translate" " -type \"double3\" -0.00104218 0.0125474 -0.00366989"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_L|Emily_Body_Rig:upperLip3Offset_L|Emily_Body_Rig:upperLip3Subtract_L|Emily_Body_Rig:upperLip3_L" 
+		"translate" " -type \"double3\" 7.60629e-005 -0.00372873 0.00113507"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
+		"translate" " -type \"double3\" 0.00148442 -0.0276941 0.00424465"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
+		"translate" " -type \"double3\" 0.000915851 -0.0213785 0.00650789"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
+		"translate" " -type \"double3\" 0.000516878 -0.00750755 0.000454971"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
+		"translate" " -type \"double3\" -0.000349488 0.0171325 -0.00521534"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
+		"translate" " -type \"double3\" -0.000552249 -7.47293e-006 0.000291742"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"translate" " -type \"double3\" -0.00227315 -0.0191616 0.0108059"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
+		"rotate" " -type \"double3\" 72.315648 148.773242 2.50448e-006"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
+		"rotateX" " -av -k 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
+		"rotateY" " -av -k 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
+		"rotateZ" " -av -k 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox" 
+		"translate" " -type \"double3\" 0.600745 2.769406 0.126142"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
+		"translateX" " -av 0.076503"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
+		"translateY" " -av -1"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
+		"translateX" " -av 0.0295844"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
+		"translateY" " -av -0.711076"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"translateX" " -av 0.0343228"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"translateY" " -av -0.448014"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"blink" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"blinkCenter" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"upperLidFollow" " -av -k 1 1.6"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"lowerLidFollow" " -av -k 1 6.9"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"squint" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
+		"Scrunch" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"translateX" " -av 0.0480878"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"translateY" " -av -0.45256"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"blink" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"blinkCenter" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"upperLidFollow" " -av -k 1 3.249995"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"lowerLidFollow" " -av -k 1 8.827779"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"squint" " -av -k 1 2.599999"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
+		"Scrunch" " -av -k 1 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
+		"translateX" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
+		"translateY" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
+		"translateX" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
+		"translateY" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
+		"translateX" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
+		"translateY" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
+		"translateX" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
+		"translateY" " -av 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
+		"translateX" " -av 0.177577"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
+		"translateY" " -av -0.104397"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
+		"translateX" " -av 0.315767"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
+		"translateY" " -av -0.134161"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
+		"translateX" " -av 0.0920617"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
+		"translateY" " -av 0.108263"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_R|Emily_Body_Rig:upperLidCurveClose_RBaseWire" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_R|Emily_Body_Rig:lowerLidCurveClose_RBaseWire" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_L|Emily_Body_Rig:upperLidCurveClose_LBaseWire" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:LidSetup|Emily_Body_Rig:LidCurves_L|Emily_Body_Rig:lowerLidCurveClose_LBaseWire" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
+		"translate" " -type \"double3\" 11.834943 -13.597583 -0.0668113"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
+		"rotate" " -type \"double3\" 14.072272 -5.358859 106.121831"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceDeformationSystem|Emily_Body_Rig:FaceAttachToHead|Emily_Body_Rig:squashIKX1|Emily_Body_Rig:squashIKX2|Emily_Body_Rig:squashIKX3|Emily_Body_Rig:squashIKX4|Emily_Body_Rig:squashIKX5|Emily_Body_Rig:squashIKX6|Emily_Body_Rig:squashIKX7|Emily_Body_Rig:squashIKX8|Emily_Body_Rig:squashIKEffector" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:Body" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:Body1" 
+		"visibility" " 0"
+		2 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:SkirtShapeDeformed" 
+		"instObjGroups.objectGroups" " -s 4"
+		2 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:ShouldersShapeDeformed" 
+		"instObjGroups.objectGroups" " -s 4"
+		2 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:BandShapeDeformed" 
+		"instObjGroups.objectGroups" " -s 4"
+		2 "Emily_Body_Rig:Meshes" "visibility" " -av 1"
+		2 "Emily_Body_Rig:groupParts137" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:707]\""
+		
+		2 "Emily_Body_Rig:groupParts137" "groupId" " 428"
+		2 "Emily_Body_Rig:groupParts140" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:187]\""
+		
+		2 "Emily_Body_Rig:groupParts140" "groupId" " 431"
+		2 "Emily_Body_Rig:groupParts143" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:559]\""
+		
+		2 "Emily_Body_Rig:groupParts143" "groupId" " 434"
+		3 "Emily_Body_Rig:groupId671.groupId" "Emily_Body_Rig:groupParts143.groupId" 
+		""
+		3 "Emily_Body_Rig:groupId665.groupId" "Emily_Body_Rig:groupParts137.groupId" 
+		""
+		3 "Emily_Body_Rig:groupId668.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "Emily_Body_Rig:groupId668.groupId" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "Emily_Body_Rig:groupId665.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "Emily_Body_Rig:groupId668.groupId" "Emily_Body_Rig:groupParts140.groupId" 
+		""
+		3 "Emily_Body_Rig:groupId671.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "Emily_Body_Rig:groupId665.groupId" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "Emily_Body_Rig:groupId671.groupId" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.Resolution" 
+		"Emily_Body_RigRN.placeHolderList[1]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.fkVis" 
+		"Emily_Body_RigRN.placeHolderList[2]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.fingerVis" 
+		"Emily_Body_RigRN.placeHolderList[3]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.ikVis" 
+		"Emily_Body_RigRN.placeHolderList[4]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.arrowVis" 
+		"Emily_Body_RigRN.placeHolderList[5]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.fkIkVis" 
+		"Emily_Body_RigRN.placeHolderList[6]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.bendVis" 
+		"Emily_Body_RigRN.placeHolderList[7]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[8]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[9]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[10]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.translateX" 
+		"Emily_Body_RigRN.placeHolderList[11]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.translateY" 
+		"Emily_Body_RigRN.placeHolderList[12]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[13]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[14]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[15]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[16]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[17]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[18]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[19]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[20]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[21]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[22]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[23]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[24]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[25]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[26]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[27]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[28]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[29]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[30]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[31]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[32]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[33]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[34]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[35]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[36]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[37]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[38]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[39]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[40]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M.Global" 
+		"Emily_Body_RigRN.placeHolderList[41]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.Global" 
+		"Emily_Body_RigRN.placeHolderList[42]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[43]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[44]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[45]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[46]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[47]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[48]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.Global" 
+		"Emily_Body_RigRN.placeHolderList[49]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[50]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[51]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[52]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[53]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[54]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[55]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[56]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[57]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[58]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.Global" 
+		"Emily_Body_RigRN.placeHolderList[59]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[60]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[61]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[62]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[63]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[64]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[65]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.Global" 
+		"Emily_Body_RigRN.placeHolderList[66]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[67]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[68]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[69]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[70]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[71]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[72]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[73]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[74]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L|Emily_Body_Rig:FKXOffsetScapula_L|Emily_Body_Rig:FKXScapula_L|Emily_Body_Rig:FKOffsetShoulder_L|Emily_Body_Rig:FKGlobalStaticShoulder_L|Emily_Body_Rig:FKGlobalShoulder_L|Emily_Body_Rig:FKExtraShoulder_L|Emily_Body_Rig:FKShoulder_L|Emily_Body_Rig:FKXOffsetShoulder_L|Emily_Body_Rig:FKXShoulder_L|Emily_Body_Rig:FKOffsetElbow_L|Emily_Body_Rig:FKExtraElbow_L|Emily_Body_Rig:FKElbow_L|Emily_Body_Rig:FKXOffsetElbow_L|Emily_Body_Rig:FKXElbow_L|Emily_Body_Rig:FKOffsetWrist_L|Emily_Body_Rig:FKExtraWrist_L|Emily_Body_Rig:FKWrist_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[75]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[76]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[77]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[78]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[79]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[80]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[81]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[82]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[83]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetIndexFinger1_L|Emily_Body_Rig:SDK1FKIndexFinger1_L|Emily_Body_Rig:SDK2FKIndexFinger1_L|Emily_Body_Rig:FKExtraIndexFinger1_L|Emily_Body_Rig:FKIndexFinger1_L|Emily_Body_Rig:FKXOffsetIndexFinger1_L|Emily_Body_Rig:FKXIndexFinger1_L|Emily_Body_Rig:FKOffsetIndexFinger2_L|Emily_Body_Rig:SDK1FKIndexFinger2_L|Emily_Body_Rig:FKExtraIndexFinger2_L|Emily_Body_Rig:FKIndexFinger2_L|Emily_Body_Rig:FKXOffsetIndexFinger2_L|Emily_Body_Rig:FKXIndexFinger2_L|Emily_Body_Rig:FKOffsetIndexFinger3_L|Emily_Body_Rig:SDK1FKIndexFinger3_L|Emily_Body_Rig:FKExtraIndexFinger3_L|Emily_Body_Rig:FKIndexFinger3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[84]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[85]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[86]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[87]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[88]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[89]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[90]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[91]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[92]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetMiddleFinger1_L|Emily_Body_Rig:SDK1FKMiddleFinger1_L|Emily_Body_Rig:FKExtraMiddleFinger1_L|Emily_Body_Rig:FKMiddleFinger1_L|Emily_Body_Rig:FKXOffsetMiddleFinger1_L|Emily_Body_Rig:FKXMiddleFinger1_L|Emily_Body_Rig:FKOffsetMiddleFinger2_L|Emily_Body_Rig:SDK1FKMiddleFinger2_L|Emily_Body_Rig:FKExtraMiddleFinger2_L|Emily_Body_Rig:FKMiddleFinger2_L|Emily_Body_Rig:FKXOffsetMiddleFinger2_L|Emily_Body_Rig:FKXMiddleFinger2_L|Emily_Body_Rig:FKOffsetMiddleFinger3_L|Emily_Body_Rig:SDK1FKMiddleFinger3_L|Emily_Body_Rig:FKExtraMiddleFinger3_L|Emily_Body_Rig:FKMiddleFinger3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[93]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[94]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[95]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[96]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[97]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[98]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[99]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[100]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[101]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetRingFinger1_L|Emily_Body_Rig:SDK1FKRingFinger1_L|Emily_Body_Rig:SDK2FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_L|Emily_Body_Rig:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_L|Emily_Body_Rig:FKRingFinger1_L|Emily_Body_Rig:FKXOffsetRingFinger1_L|Emily_Body_Rig:FKXRingFinger1_L|Emily_Body_Rig:FKOffsetRingFinger2_L|Emily_Body_Rig:SDK1FKRingFinger2_L|Emily_Body_Rig:FKExtraRingFinger2_L|Emily_Body_Rig:FKRingFinger2_L|Emily_Body_Rig:FKXOffsetRingFinger2_L|Emily_Body_Rig:FKXRingFinger2_L|Emily_Body_Rig:FKOffsetRingFinger3_L|Emily_Body_Rig:SDK1FKRingFinger3_L|Emily_Body_Rig:FKExtraRingFinger3_L|Emily_Body_Rig:FKRingFinger3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[102]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[103]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[104]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[105]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[106]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[107]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[108]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[109]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[110]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetPinkyFinger1_L|Emily_Body_Rig:SDK1FKPinkyFinger1_L|Emily_Body_Rig:SDK2FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_L|Emily_Body_Rig:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_L|Emily_Body_Rig:FKPinkyFinger1_L|Emily_Body_Rig:FKXOffsetPinkyFinger1_L|Emily_Body_Rig:FKXPinkyFinger1_L|Emily_Body_Rig:FKOffsetPinkyFinger2_L|Emily_Body_Rig:SDK1FKPinkyFinger2_L|Emily_Body_Rig:FKExtraPinkyFinger2_L|Emily_Body_Rig:FKPinkyFinger2_L|Emily_Body_Rig:FKXOffsetPinkyFinger2_L|Emily_Body_Rig:FKXPinkyFinger2_L|Emily_Body_Rig:FKOffsetPinkyFinger3_L|Emily_Body_Rig:SDK1FKPinkyFinger3_L|Emily_Body_Rig:FKExtraPinkyFinger3_L|Emily_Body_Rig:FKPinkyFinger3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[111]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[112]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[113]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[114]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[115]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[116]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[117]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[118]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[119]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_L|Emily_Body_Rig:FKOffsetThumbFinger1_L|Emily_Body_Rig:FKExtraThumbFinger1_L|Emily_Body_Rig:FKThumbFinger1_L|Emily_Body_Rig:FKXOffsetThumbFinger1_L|Emily_Body_Rig:FKXThumbFinger1_L|Emily_Body_Rig:FKOffsetThumbFinger2_L|Emily_Body_Rig:SDK1FKThumbFinger2_L|Emily_Body_Rig:FKExtraThumbFinger2_L|Emily_Body_Rig:FKThumbFinger2_L|Emily_Body_Rig:FKXOffsetThumbFinger2_L|Emily_Body_Rig:FKXThumbFinger2_L|Emily_Body_Rig:FKOffsetThumbFinger3_L|Emily_Body_Rig:SDK1FKThumbFinger3_L|Emily_Body_Rig:FKExtraThumbFinger3_L|Emily_Body_Rig:FKThumbFinger3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[120]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[121]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[122]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[123]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[124]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[125]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[126]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.swivel" 
+		"Emily_Body_RigRN.placeHolderList[127]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.toe" 
+		"Emily_Body_RigRN.placeHolderList[128]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.rollAngle" 
+		"Emily_Body_RigRN.placeHolderList[129]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.roll" 
+		"Emily_Body_RigRN.placeHolderList[130]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.stretchy" 
+		"Emily_Body_RigRN.placeHolderList[131]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.antiPop" 
+		"Emily_Body_RigRN.placeHolderList[132]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.Lenght1" 
+		"Emily_Body_RigRN.placeHolderList[133]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.Lenght2" 
+		"Emily_Body_RigRN.placeHolderList[134]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R.volume" 
+		"Emily_Body_RigRN.placeHolderList[135]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[136]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[137]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[138]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[139]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[140]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[141]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.swivel" 
+		"Emily_Body_RigRN.placeHolderList[142]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.toe" 
+		"Emily_Body_RigRN.placeHolderList[143]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.rollAngle" 
+		"Emily_Body_RigRN.placeHolderList[144]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.roll" 
+		"Emily_Body_RigRN.placeHolderList[145]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.stretchy" 
+		"Emily_Body_RigRN.placeHolderList[146]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.antiPop" 
+		"Emily_Body_RigRN.placeHolderList[147]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.Lenght1" 
+		"Emily_Body_RigRN.placeHolderList[148]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.Lenght2" 
+		"Emily_Body_RigRN.placeHolderList[149]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L.volume" 
+		"Emily_Body_RigRN.placeHolderList[150]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.CenterBtwFeet" 
+		"Emily_Body_RigRN.placeHolderList[151]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[152]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[153]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[154]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[155]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[156]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:RootSystem|Emily_Body_Rig:RootCenterBtwLegsBlended_M|Emily_Body_Rig:RootOffsetX_M|Emily_Body_Rig:RootExtraX_M|Emily_Body_Rig:RootX_M.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[157]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.FingerControlVis" 
+		"Emily_Body_RigRN.placeHolderList[158]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.indexCurl" 
+		"Emily_Body_RigRN.placeHolderList[159]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.middleCurl" 
+		"Emily_Body_RigRN.placeHolderList[160]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.ringCurl" 
+		"Emily_Body_RigRN.placeHolderList[161]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.pinkyCurl" 
+		"Emily_Body_RigRN.placeHolderList[162]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.thumbCurl" 
+		"Emily_Body_RigRN.placeHolderList[163]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.spread" 
+		"Emily_Body_RigRN.placeHolderList[164]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_R.cup" 
+		"Emily_Body_RigRN.placeHolderList[165]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.FingerControlVis" 
+		"Emily_Body_RigRN.placeHolderList[166]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.indexCurl" 
+		"Emily_Body_RigRN.placeHolderList[167]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.middleCurl" 
+		"Emily_Body_RigRN.placeHolderList[168]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.ringCurl" 
+		"Emily_Body_RigRN.placeHolderList[169]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.pinkyCurl" 
+		"Emily_Body_RigRN.placeHolderList[170]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.thumbCurl" 
+		"Emily_Body_RigRN.placeHolderList[171]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.spread" 
+		"Emily_Body_RigRN.placeHolderList[172]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L.cup" 
+		"Emily_Body_RigRN.placeHolderList[173]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[174]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[175]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[176]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[177]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[178]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[179]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[180]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[181]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[182]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[183]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[184]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[185]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[186]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[187]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[188]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[189]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[190]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[191]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[192]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[193]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[194]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[195]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[196]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[197]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[198]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[199]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[200]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[201]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[202]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[203]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[204]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[205]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[206]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[207]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[208]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[209]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[210]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[211]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[212]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[213]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[214]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[215]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[216]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[217]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[218]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[219]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[220]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[221]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[222]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[223]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[224]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[225]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[226]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[227]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[228]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[229]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[230]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[231]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[232]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[233]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[234]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[235]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[236]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[237]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[238]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[239]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[240]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[241]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[242]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[243]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[244]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[245]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[246]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[247]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[248]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[249]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[250]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[251]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[252]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[253]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[254]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[255]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[256]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[257]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[258]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[259]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[260]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[261]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[262]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[263]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[264]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[265]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[266]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[267]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[268]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[269]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[270]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[271]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[272]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[273]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[274]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[275]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[276]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[277]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[278]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[279]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[280]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[281]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[282]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[283]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.translateZ" 
+		"Emily_Body_RigRN.placeHolderList[284]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateX" 
+		"Emily_Body_RigRN.placeHolderList[285]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateY" 
+		"Emily_Body_RigRN.placeHolderList[286]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.rotateZ" 
+		"Emily_Body_RigRN.placeHolderList[287]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleX" 
+		"Emily_Body_RigRN.placeHolderList[288]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleY" 
+		"Emily_Body_RigRN.placeHolderList[289]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L.scaleZ" 
+		"Emily_Body_RigRN.placeHolderList[290]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[291]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[292]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.squeeze" 
+		"Emily_Body_RigRN.placeHolderList[293]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.outerUpDown" 
+		"Emily_Body_RigRN.placeHolderList[294]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[295]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[296]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.squeeze" 
+		"Emily_Body_RigRN.placeHolderList[297]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.outerUpDown" 
+		"Emily_Body_RigRN.placeHolderList[298]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[299]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[300]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.Scrunch" 
+		"Emily_Body_RigRN.placeHolderList[301]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blink" 
+		"Emily_Body_RigRN.placeHolderList[302]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blinkCenter" 
+		"Emily_Body_RigRN.placeHolderList[303]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.upperLidFollow" 
+		"Emily_Body_RigRN.placeHolderList[304]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.lowerLidFollow" 
+		"Emily_Body_RigRN.placeHolderList[305]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.squint" 
+		"Emily_Body_RigRN.placeHolderList[306]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[307]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[308]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.Scrunch" 
+		"Emily_Body_RigRN.placeHolderList[309]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blink" 
+		"Emily_Body_RigRN.placeHolderList[310]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blinkCenter" 
+		"Emily_Body_RigRN.placeHolderList[311]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.upperLidFollow" 
+		"Emily_Body_RigRN.placeHolderList[312]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.lowerLidFollow" 
+		"Emily_Body_RigRN.placeHolderList[313]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.squint" 
+		"Emily_Body_RigRN.placeHolderList[314]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[315]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[316]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[317]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[318]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[319]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[320]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[321]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[322]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateY" 
+		"Emily_Body_RigRN.placeHolderList[323]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateX" 
+		"Emily_Body_RigRN.placeHolderList[324]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawSide" 
+		"Emily_Body_RigRN.placeHolderList[325]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawForward" 
+		"Emily_Body_RigRN.placeHolderList[326]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.chinRaiser" 
+		"Emily_Body_RigRN.placeHolderList[327]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_R" 
+		"Emily_Body_RigRN.placeHolderList[328]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_L" 
+		"Emily_Body_RigRN.placeHolderList[329]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_R" 
+		"Emily_Body_RigRN.placeHolderList[330]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_L" 
+		"Emily_Body_RigRN.placeHolderList[331]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_R" 
+		"Emily_Body_RigRN.placeHolderList[332]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_L" 
+		"Emily_Body_RigRN.placeHolderList[333]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateX" 
+		"Emily_Body_RigRN.placeHolderList[334]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateY" 
+		"Emily_Body_RigRN.placeHolderList[335]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateX" 
+		"Emily_Body_RigRN.placeHolderList[336]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateY" 
+		"Emily_Body_RigRN.placeHolderList[337]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeX" 
+		"Emily_Body_RigRN.placeHolderList[338]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeY" 
+		"Emily_Body_RigRN.placeHolderList[339]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.sizeZ" 
+		"Emily_Body_RigRN.placeHolderList[340]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX1" 
+		"Emily_Body_RigRN.placeHolderList[341]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX2" 
+		"Emily_Body_RigRN.placeHolderList[342]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotX3" 
+		"Emily_Body_RigRN.placeHolderList[343]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY1" 
+		"Emily_Body_RigRN.placeHolderList[344]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY2" 
+		"Emily_Body_RigRN.placeHolderList[345]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotY3" 
+		"Emily_Body_RigRN.placeHolderList[346]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ1" 
+		"Emily_Body_RigRN.placeHolderList[347]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ2" 
+		"Emily_Body_RigRN.placeHolderList[348]" ""
+		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxTongue_M|Emily_Body_Rig:ctrlTongue_M.rotZ3" 
+		"Emily_Body_RigRN.placeHolderList[349]" ""
+		5 3 "Emily_Body_RigRN" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:SkirtShapeDeformed.instObjGroups" 
+		"Emily_Body_RigRN.placeHolderList[350]" ""
+		5 3 "Emily_Body_RigRN" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:ShouldersShapeDeformed.instObjGroups" 
+		"Emily_Body_RigRN.placeHolderList[351]" ""
+		5 3 "Emily_Body_RigRN" "|Emily_Body_Rig:Dress_EmilyRNfosterParent1|Emily_Body_Rig:Dress_Emily:BandShapeDeformed.instObjGroups" 
+		"Emily_Body_RigRN.placeHolderList[352]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "unicornRN";
 	setAttr ".fn[0]" -type "string" "/Users/Simon/Documents/CNM190/Nightmare//assets/chars/unicorn.ma";
+	setAttr -s 158 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
+	setAttr ".phl[141]" 0;
+	setAttr ".phl[142]" 0;
+	setAttr ".phl[143]" 0;
+	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
+	setAttr ".phl[151]" 0;
+	setAttr ".phl[152]" 0;
+	setAttr ".phl[153]" 0;
+	setAttr ".phl[154]" 0;
+	setAttr ".phl[155]" 0;
+	setAttr ".phl[156]" 0;
+	setAttr ".phl[157]" 0;
+	setAttr ".phl[158]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"unicornRN"
-		"unicornRN" 8
+		"unicorn:CandyHairRN" 0
+		"unicornRN" 6
 		2 "|unicorn:polySurface4" "translate" " -type \"double3\" 6.345915 -16.518369 -0.49956"
 		
 		2 "|unicorn:polySurface4" "rotate" " -type \"double3\" 0 71.312195 0"
 		2 "|unicorn:polySurface4" "scale" " -type \"double3\" 0.31182 0.31182 0.31182"
 		
+		2 "|unicorn:polySurface5" "translate" " -type \"double3\" 6.345915 -16.518369 -0.49956"
+		
+		2 "|unicorn:polySurface5" "rotate" " -type \"double3\" 0 71.312195 0"
+		2 "|unicorn:polySurface5" "scale" " -type \"double3\" -0.31182 0.31182 0.31182"
+		
+		"unicorn:CandyHairRN" 161
+		0 "|unicorn:CandyHair:Head" "|group1" "-s -r "
+		0 "|unicorn:CandyHair:Tail" "|group1" "-s -r "
+		2 "|group1|unicorn:CandyHair:Head" "translate" " -type \"double3\" 7.579633 -14.787991 -1.062507"
+		
+		2 "|group1|unicorn:CandyHair:Head" "rotate" " -type \"double3\" 0 62.601797 0"
+		
+		2 "|group1|unicorn:CandyHair:Head" "scale" " -type \"double3\" 1.584591 1.584591 1.584591"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface47|unicorn:CandyHair:polySurfaceShape48" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0131311 -8.19564e-008 5.96046e-008 -0.00728929 3.72529e-008 1.19209e-007 -0.00953364 0 -2.38419e-007 -0.00898445 -1.49012e-008 0 -0.0012219 1.49012e-008 5.96046e-008 -0.00717175 -2.98023e-008 5.96046e-008 -0.00688982 7.45058e-008 0 0.00680137 3.72529e-008 5.96046e-008 0.00281477 -3.72529e-008 -5.96046e-008 -0.000416875 -1.49012e-007 0 0.00827634 -0.048769 0.0390151 0.00572407 -0.0487691 0.0390153 0.00365841 -0.048769 0.0390151 0.00985909 5.21541e-008 -5.96046e-008 0.00866938 -1.04308e-007 1.78814e-007 0.00595188 -6.70552e-008 1.19209e-007 0.0125262 -1.49012e-008 0.0185841 0.0108113 1.04308e-007 0.0185842 0.0119818 -8.19564e-008 0.0185842"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface49|unicorn:CandyHair:polySurfaceShape50" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.00918651 -7.45058e-008 1.19209e-007 0.00700116 5.21541e-008 0 0.00537884 4.47035e-008 5.96046e-008 0.00718069 -7.45058e-009 5.96046e-008 0.0174594 -0.0272449 0.0227589 0.0156258 -0.0272448 0.022759 0.0203487 -0.0272449 0.022759 0.00978363 -0.023323 5.96046e-008 0.0112431 -0.0233229 0 0.0114188 -0.0211116 -5.96046e-008 0.0119711 3.72529e-008 5.96046e-008 0.0175046 7.45058e-008 1.19209e-007 0.0142062 2.23517e-008 -5.96046e-008 0.0093081 9.68575e-008 5.96046e-008 0.00771213 -1.49012e-007 0 0.00771213 -8.19564e-008 -5.96046e-008 0.0268344 8.9407e-008 0 0.0271546 -2.23517e-008 -5.96046e-008 0.0269414 2.98023e-008 5.96046e-008"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface50|unicorn:CandyHair:polySurfaceShape51" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.053875 0.0572433 0.0410986 -0.0472732 0.0572432 0.0684974 -0.0503416 0.0572431 0.0684965 -0.0472755 0.0572432 0.0684977 -0.0450997 0.0572435 0.0200346 -0.0481639 0.0572432 0.0200355 -0.0450249 0.0572432 0.0200353 -0.0388341 -7.45058e-009 0 -0.0419011 7.45058e-008 4.76837e-007 -0.0365372 -7.45058e-009 2.38419e-007 -0.0294452 1.63913e-007 -9.53674e-007 -0.0325108 -7.45058e-008 2.38419e-007 -0.0230761 1.63913e-007 4.76837e-007 -0.0136952 1.71363e-007 0 -0.0167632 1.19209e-007 0 -0.0136962 1.71363e-007 -2.38419e-007 -0.0196023 1.63913e-007 -4.76837e-007 0.000269413 8.19564e-008 0 6.34193e-005 4.47035e-008 -2.38419e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface51|unicorn:CandyHair:polySurfaceShape52" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0475664 -0.120032 -0.036073 -0.049655 -0.0717728 0.0516765 -0.0525112 -0.0717728 0.048173 -0.049448 -0.0717728 0.0396056 -0.0083003 9.68575e-008 0.0243523 -0.0474195 0.0361947 0.0237534 -0.0409803 7.45058e-008 0.0136986 -0.0363679 -9.68575e-008 2.38419e-007 -0.0406108 -3.72529e-007 0 -0.035398 -1.3411e-007 -7.15256e-007 -0.0251002 -6.70552e-008 0 -0.0281687 4.47035e-008 -2.38419e-007 -0.0230346 -6.70552e-008 2.38419e-007 -0.0113935 8.19564e-008 -2.38419e-007 -0.0144567 -5.96046e-008 0 -0.0113921 1.63913e-007 -2.38419e-007 0.000309467 -1.86265e-007 -4.76837e-007 0.000204563 1.49012e-008 0 -0.000493526 -1.3411e-007 -4.76837e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface52|unicorn:CandyHair:polySurfaceShape53" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0650759 -0.180044 0.0126095 -0.0449696 -0.180044 0.221771 -0.0480347 -0.180044 0.221772 -0.0449691 -0.180044 0.221773 -0.0434394 -0.132744 -0.0381455 -0.0465081 -0.132744 -0.0381441 -0.0433686 -0.132744 -0.0381446 -0.03654 5.21541e-008 0.01068 -0.0372891 6.70552e-008 0.01068 -0.0328765 5.21541e-008 0.01068 -0.0239201 9.68575e-008 0 -0.0251837 -1.11759e-007 4.76837e-007 -0.022351 2.23517e-008 7.15256e-007 -0.0162768 -3.72529e-008 0 -0.0173812 -1.11759e-007 4.76837e-007 -0.0162764 5.21541e-008 2.38419e-007 -0.00035429 5.21541e-008 -4.76837e-007 -0.000309944 -1.49012e-007 0 -0.000292778 7.45058e-008 0"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface53|unicorn:CandyHair:polySurfaceShape54" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.0125997 -0.535873 -0.0807872 0.00730181 -0.20039 0.254314 0.0177307 -0.200391 0.227237 0.00730085 -0.20039 0.180519 -0.0408604 -0.106049 -0.0518966 -0.043927 -0.106049 -0.051897 -0.0407908 -0.10605 -0.0518968 -0.0320611 6.70552e-008 7.15256e-007 -0.03281 -1.49012e-007 -8.34465e-007 -0.0274429 6.70552e-008 -4.76837e-007 -0.0231667 1.04308e-007 -4.76837e-007 -0.0244308 -2.5332e-007 -7.15256e-007 -0.0215976 -1.78814e-007 5.96046e-007 -0.016016 8.9407e-008 -9.53674e-007 -0.0171208 1.78814e-007 2.38419e-007 -0.0169497 5.21541e-008 4.76837e-007 -0.000923634 -1.19209e-007 2.38419e-007 -0.00126982 -1.19209e-007 2.38419e-007 -0.00168633 6.70552e-008 -2.38419e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface54|unicorn:CandyHair:polySurfaceShape55" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.131132 -0.609149 0.0515075 -0.047317 -0.225307 0.200147 0.0124016 -0.225307 0.178606 -0.0473177 -0.225307 0.13546 0.00380421 -0.0756911 -4.76837e-007 0.0200832 -0.075691 1.19209e-007 0.00586891 -0.0756911 2.38419e-007 -0.0327415 1.78814e-007 0 -0.0329638 1.19209e-007 -1.19209e-007 -0.0276017 1.78814e-007 -4.76837e-007 -0.0190217 1.04308e-007 -5.96046e-007 -0.0202847 0 -1.19209e-007 -0.0174522 5.21541e-008 0 -0.0145125 -2.08616e-007 2.38419e-007 -0.0156193 1.93715e-007 8.34465e-007 -0.0154452 1.41561e-007 0 -0.00210047 9.68575e-008 -9.53674e-007 -0.00210023 -1.41561e-007 -4.76837e-007 -0.00234938 6.70552e-008 0"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface55|unicorn:CandyHair:polySurfaceShape56" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0635624 -0.425825 0.0794017 -0.0388672 -0.32367 0.187968 -0.00211382 -0.323669 0.18505 -0.027966 -0.32367 0.147106 -0.000371933 -0.225735 0.0391879 0.0285897 -0.225735 0.0391873 0.0317307 -0.225735 0.0391883 -0.0119264 -0.0788056 0.0193747 -0.0126729 -0.0788057 1.19209e-007 -0.00730848 -0.0788056 3.57628e-007 -0.0205007 -1.2666e-007 0.036105 -0.0217636 8.19564e-008 8.34465e-007 -0.0189319 -7.45058e-008 0 -0.0123394 -7.45058e-009 -1.19209e-007 -0.0134406 -8.9407e-008 1.19209e-007 -0.0132663 -1.49012e-008 5.96046e-007 -0.00210118 1.71363e-007 -1.19209e-007 -0.00210214 1.11759e-007 8.34465e-007 -0.00234771 -2.98023e-008 -8.34465e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface56|unicorn:CandyHair:polySurfaceShape57" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0812025 -0.347328 0.271354 0.0174968 -0.347328 0.204224 0.0414176 -0.347328 0.180875 0.017494 -0.347328 0.163362 0.0480578 -0.198473 0.0612061 0.0422099 -0.198473 0.0612062 0.0519326 -0.198473 0.0407757 -0.0301855 9.68575e-008 -5.96046e-007 -0.0309322 1.3411e-007 3.57628e-007 -0.0255647 9.68575e-008 -7.15256e-007 -0.0194016 -7.45058e-009 -4.76837e-007 -0.0206628 -1.2666e-007 -1.19209e-007 -0.0178301 -3.72529e-008 -1.19209e-007 -0.00999022 5.96046e-008 -4.76837e-007 -0.0113351 1.41561e-007 1.19209e-007 -0.0111737 -1.71363e-007 0 -0.00210309 2.23517e-008 3.57628e-007 -0.00209975 -2.98023e-008 1.19209e-007 -0.00234795 -1.04308e-007 -2.38419e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface57|unicorn:CandyHair:polySurfaceShape58" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0851717 -0.388313 0.295686 0.0287392 -0.345563 0.203063 0.0526617 -0.313757 0.174563 0.028738 -0.345563 0.15675 0.0850246 -0.181688 0.0961876 0.0896704 -0.170328 0.0890621 0.0850976 -0.181687 0.0819376 -0.0127542 1.93715e-007 -3.57628e-007 -0.0135009 4.47035e-008 -1.19209e-007 -0.00813603 1.93715e-007 -1.19209e-007 -0.0154321 1.56462e-007 -2.38419e-007 -0.0166967 1.71363e-007 2.38419e-007 -0.0138631 -9.68575e-008 -2.38419e-007 -0.0120227 1.2666e-007 2.38419e-007 -0.0131278 -2.98023e-008 1.19209e-007 -0.0129566 -9.68575e-008 -5.96046e-007 -0.00210381 8.19564e-008 1.19209e-007 -0.00209904 2.6077e-007 0 -7.53403e-005 -8.19564e-008 -7.15256e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface58|unicorn:CandyHair:polySurfaceShape59" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.119193 -0.236619 0.358191 0.14344 -0.31881 0.0287533 0.150274 -0.318811 0.0172384 0.143439 -0.31881 0.00572395 0.00234771 -0.062785 0.0604219 -0.00071907 -0.062785 0.0604224 0.00241971 -0.0627851 0.0604223 0.0100307 -0.0415811 0.0836408 0.00928283 -0.0415809 0.0836411 0.0146492 -0.0415811 0.0836416 0.034471 -0.0245477 0.0335346 0.0332084 -0.0245476 0.0335352 0.0386181 -0.0245476 0.0335352 0.0211735 8.9407e-008 0.00026691 0.0217056 8.19564e-008 0.000267506 0.024936 7.45058e-009 0.000267148 -0.00182509 -5.21541e-008 3.57628e-007 -0.00209951 1.63913e-007 1.19209e-007 -0.00164032 -6.70552e-008 0"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface59|unicorn:CandyHair:polySurfaceShape60" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.00588703 -0.12 0.0167708 0.0357432 -0.129233 -0.000920832 0.0557584 -0.0935144 -0.000920713 0.0357436 -0.129233 -0.000921011 0.105774 -0.125052 0.00400364 0.065236 -0.0570196 0.0256771 0.0683745 -0.0570197 0.025677 0.0335274 -0.114727 0.000588775 0.0794392 -0.0857545 -3.57628e-007 0.0724415 -0.114727 0.0061785 -0.0111501 -0.0322401 0.0179737 -0.0124145 0 0.045096 0.0138102 1.19209e-007 0.0067395 0.0170524 1.19209e-007 0.0356748 0.0159481 -5.21541e-008 0.0356749 0.0191782 0.0267805 0.0356755 -0.00173283 -6.70552e-008 2.38419e-007 -0.0024724 2.23517e-008 -2.38419e-007 -0.00327277 1.49012e-008 -4.76837e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface60|unicorn:CandyHair:polySurfaceShape61" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.0548222 -1.11759e-008 0.0269826 0.0417227 0 0.0269826 0.0430686 5.21541e-008 0.0269824 0.041723 -5.21541e-008 0.0269824 0.0412335 -2.23517e-008 0.0269828 0.0398967 7.45058e-008 0.0269822 0.0385201 -8.19564e-008 0.0269825 0.0376651 -1.86265e-008 0.0269828 0.0379927 1.49012e-007 0.0269822 0.0489177 7.07805e-008 0.0423245 0.0339053 -3.72536e-009 0.00900841 0.034459 -8.19564e-008 0.0269825 0.0320858 1.04308e-007 0.0269825 0.0494957 0.0070658 0.0182177 0.0210197 0.0416391 0.034543 -0.0085845 0.0539633 0.0498977 -0.00877166 0.0220833 0 -0.00869107 0.0220832 -1.19209e-007 -0.00857639 0.0297724 0.0301331"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface61|unicorn:CandyHair:polySurfaceShape62" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.083663 -0.24899 -0.0302796 -0.0439639 -0.210631 0.062247 -0.0258231 -0.194729 0.056767 -0.0439658 -0.210631 0.0430684 0.00231457 -0.130571 0.0625541 -0.000750542 -0.130571 0.0625546 0.002388 -0.130571 0.0625536 -0.0195575 -1.2666e-007 -4.76837e-007 -0.0226231 4.47035e-008 7.15256e-007 -0.0172572 -1.2666e-007 2.38419e-007 -0.0294461 -7.45058e-009 4.76837e-007 -0.0325146 -1.19209e-007 4.76837e-007 -0.0230765 -7.45058e-009 2.38419e-007 -0.0136952 -7.45058e-008 -4.76837e-007 -0.0167627 2.68221e-007 7.15256e-007 -0.0136948 -7.45058e-008 7.15256e-007 -0.0003438 -2.98023e-008 4.76837e-007 0.000269413 1.19209e-007 1.43051e-006 6.24657e-005 0.0105826 4.76837e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface62|unicorn:CandyHair:polySurfaceShape63" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0560699 -0.116408 0.0737243 -0.0523758 -0.0271618 0.0310423 -0.055234 -0.0271619 0.0252218 -0.052165 -0.0271619 0.0174608 -0.0437741 -0.0698446 0 -0.0501394 -0.0698446 7.15256e-007 -0.0437019 -0.0698445 0 -0.0390849 -4.47035e-008 -7.15256e-007 -0.0433335 7.45058e-009 -2.38419e-007 -0.0381169 3.57628e-007 2.38419e-007 -0.0278223 6.70552e-008 -2.38419e-007 -0.0308893 7.45058e-009 2.38419e-007 -0.0257561 -1.49012e-008 -3.57628e-007 -0.0109982 8.19564e-008 0 -0.0140624 2.01166e-007 -7.15256e-007 -0.0109954 4.61936e-007 0 -0.00023365 0.0108478 2.38419e-007 -0.000337124 2.16067e-007 0 -0.00103378 2.23517e-008 -2.38419e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface63|unicorn:CandyHair:polySurfaceShape64" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0988441 -0.576068 0.0683541 -0.0454478 -0.291207 0.24796 -0.0253792 -0.291207 0.295676 0.0355206 -0.274491 0.24302 -0.0342846 -0.259732 0.0253758 -0.0277104 -0.194842 0.0147165 -0.0342107 -0.259731 0.0147163 -0.0158145 -3.72529e-008 0 -0.0165639 9.68575e-008 3.57628e-007 -0.0121505 -3.72529e-008 1.19209e-007 -0.0260663 8.19564e-008 -2.38419e-007 -0.0273285 2.45869e-007 -5.96046e-007 -0.0244954 7.45058e-008 5.96046e-007 -0.00977945 7.45058e-008 -4.76837e-007 -0.0108871 1.2666e-007 -2.38419e-007 -0.0096581 -2.98023e-008 -2.38419e-007 -0.000746727 7.45058e-008 0 -0.000705242 8.9407e-008 2.38419e-007 -0.000686646 1.86265e-007 -4.76837e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface64|unicorn:CandyHair:polySurfaceShape65" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.0372896 -0.214825 0.187033 -0.0219908 -0.2362 0.156991 -0.0250578 -0.2362 0.13918 -0.0219882 -0.268263 0.13918 -0.0258124 -0.175637 -0.0180514 -0.0288787 -0.175637 -0.018051 -0.0257409 -0.175638 -0.0180508 -0.03883 -2.68221e-007 1.19209e-007 -0.0395787 1.71363e-007 -2.38419e-007 -0.0342114 -2.68221e-007 5.96046e-007 -0.0273976 -6.70552e-008 8.34465e-007 -0.0286613 1.63913e-007 3.57628e-007 -0.0258284 -1.93715e-007 -1.19209e-007 -0.0132327 0.00552073 2.38419e-007 -0.0143385 0.00552085 -1.19209e-007 -0.0141659 0.00552101 3.57628e-007 -0.0131764 0.00552074 -2.38419e-007 -0.0135183 0.00552079 -4.76837e-007 -0.0171325 0.00552079 4.76837e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface65|unicorn:CandyHair:polySurfaceShape66" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.00571871 -0.204311 0.18375 -0.00865316 -0.373596 0.142287 0.0114152 -0.339519 0.1131 -0.00865197 -0.373596 0.113101 0.00776601 -0.128424 0.029187 0.0163307 -0.0829872 0.0145935 -0.00366569 -0.128424 8.34465e-007 -0.0364923 6.70552e-008 -3.57628e-007 -0.0135834 -7.45058e-009 2.38419e-007 -0.0313509 6.70552e-008 2.38419e-007 -0.0270321 -4.47035e-008 1.19209e-007 -0.0282931 0 3.57628e-007 -0.025461 2.98023e-008 -1.19209e-007 -0.0126982 0.00276027 -2.38419e-007 -0.0138028 0.00276047 -4.76837e-007 -0.0136335 0.00276074 -5.96046e-007 -0.0125606 0.00276037 -4.76837e-007 -0.0125587 0.00276027 -1.19209e-007 -0.0128062 0.0027606 1.19209e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface66|unicorn:CandyHair:polySurfaceShape67" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0141926 -0.248862 0.120868 -0.00797629 -0.248861 0.166237 -0.0110402 -0.248862 0.145806 -0.00797319 -0.248861 0.13705 -0.0377288 -0.114 0.0145941 -0.0377097 -0.114 -1.19209e-007 -0.0345712 -0.114 0 -0.0339408 -8.19564e-008 0.0058378 -0.0346878 -7.45058e-009 4.76837e-007 -0.0293207 -8.19564e-008 -3.57628e-007 -0.0279927 1.49012e-008 2.38419e-007 -0.0292573 -5.96046e-008 -3.57628e-007 -0.0264235 -1.41561e-007 2.38419e-007 -0.0150182 0.019323 -1.19209e-007 -0.0161219 0.0193229 -2.38419e-007 -0.0159488 0.0193228 3.57628e-007 -0.0151381 0.0438033 0.0285165 -0.0151327 0.0375402 0.0146439 -0.0153804 0.0421283 0.0177267"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface67|unicorn:CandyHair:polySurfaceShape68" 
+		"pt[0:18]" " -s 19 -type \"float3\" 0.0748458 -0.329816 -0.0442111 0.0350761 -0.329816 0.285604 0.0637012 -0.276381 0.262255 0.0350773 -0.329816 0.262255 0.0548549 -0.0992365 0.0988058 0.0505326 -0.0992365 0.0988063 0.0579991 -0.0992368 0.0743029 -0.0111256 1.49012e-007 0.0356247 -0.0268445 5.21541e-008 0.035625 -0.0214784 1.49012e-007 0.0356246 0.0226169 0.00939839 3.57628e-007 -0.0241201 8.9407e-008 0 -0.0212882 -1.2666e-007 2.38419e-007 -0.0104282 0.0556427 3.57628e-007 -0.0164146 0.0220833 -1.19209e-007 -0.0162427 0.0220834 0 -0.0118263 0.0220833 0.00895655 -0.0118251 0.0220831 0.00895691 -0.0120726 0.0220832 0.00895715"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface68|unicorn:CandyHair:polySurfaceShape69" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0384712 -0.291413 0.264874 0.0870059 -0.271735 0.109198 0.112859 -0.230842 0.0829608 0.0870078 -0.271735 0.053444 0.0521185 -0.127906 0.0915427 0.0490522 -0.127906 0.0751441 0.0521925 -0.127906 0.0685849 -0.0283105 -3.72529e-008 0.0574177 -0.0290577 4.47035e-008 0.0574186 -0.0236919 -3.72529e-008 0.0574179 -0.0193181 -1.63913e-007 2.38419e-007 -0.0205817 7.45058e-008 -2.38419e-007 -0.0177507 7.45058e-009 -4.76837e-007 -0.0134559 5.96046e-008 -2.38419e-007 -0.0145588 2.90573e-007 -3.57628e-007 -0.0143883 5.21541e-008 2.38419e-007 -0.0322192 1.49012e-008 0.00831676 -0.0430393 0.0187156 0.00511813 -0.047133 -0.0155927 -2.38419e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface69|unicorn:CandyHair:polySurfaceShape70" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0803854 -0.408962 0.274821 0.134779 -0.306055 -0.0129668 0.145409 -0.294738 -0.0252743 0.138634 -0.306055 -0.0348798 0.106492 -0.190816 0.0635324 0.127676 -0.190816 0.0635326 0.142353 -0.173858 0.0635326 0.0229051 -0.174064 0.058462 0.0221567 -0.174064 0.0584614 0.027523 -0.174064 0.0584625 0.0347228 -0.11862 0.0214479 0.0334599 -0.11862 0.0214477 0.0388708 -0.11862 0.021448 -0.0131893 -1.49012e-008 0 -0.012656 -1.3411e-007 0 -0.00942588 -7.45058e-008 -3.57628e-007 -0.0141664 -3.72529e-008 3.57628e-007 -0.0325964 -2.23517e-008 0 -0.0174243 2.01166e-007 -5.96046e-007"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface70|unicorn:CandyHair:polySurfaceShape71" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0188893 -0.0243393 0.0567175 0.0173692 -0.0243393 0.0567176 0.0143029 -0.0243394 0.0567175 0.0173686 -0.0243393 0.0567176 0.0290093 -0.0243392 0.0567174 0.0253344 -0.0243394 0.0567174 0.0312467 -0.0243393 0.0567171 0.0224772 -0.0372477 0.0567175 0.0312452 -0.0243392 0.0567176 0.0366118 -0.0243394 0.0451689 0.00928783 -5.96046e-008 0.0567173 0.00802326 0 0.0567176 0.0134344 1.78814e-007 0.0416037 -0.012984 -0.0392173 -2.38419e-007 -0.0140877 -0.0392172 0 -0.0108578 -0.0392175 -3.57628e-007 -0.00149989 -0.0392174 -4.76837e-007 -0.00108504 -0.0159817 2.38419e-007 -0.00029254 0.00554515 -0.0170076"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane24|unicorn:CandyHair:pPlaneShape24" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.0889565 -0.0821459 0.0452921 -0.0561763 -0.0397586 0.0497679 -0.0667199 -0.0311519 0.0576665 -0.089533 -0.0515339 0.0365154 -0.0138721 0.00181924 0.0167031 -0.0255914 0.0107578 0.0355776 -0.0167135 0.00639789 0.00821006 -0.0128139 -3.72529e-008 -5.96046e-008 -0.0165454 0.0199194 0.0278223 -0.0316054 -0.0324624 0.0342999 -0.0266734 0.0244158 5.96046e-008 -0.0298818 0.0495209 0 -0.0428966 0.028716 -0.049777 -0.00787306 -0.0134923 -0.049777 -0.0124414 0.0032569 -0.0497768 -0.0400374 0.0315539 -0.0558105 -0.0848825 0.00681256 -0.0512854 -0.0842185 0.0069378 -0.0512853 -0.0864621 0.0114601 -0.0512854"
+		
+		2 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane25|unicorn:CandyHair:pPlaneShape25" 
+		"pt[0:18]" " -s 19 -type \"float3\" -0.00965476 -0.104916 -5.96046e-008 -0.0290006 -0.0269066 0.0035013 -0.0362496 -0.0269066 0.0246523 -0.047078 -0.0269066 0.00350124 0.0133973 -0.00556421 -0.0102153 0.00466931 0.00276098 0.0213574 -0.00528479 -0.0155765 -0.0142202 -0.00617123 4.47035e-008 5.96046e-008 -0.00990272 0.0199193 0.0278224 -0.00891161 4.47035e-008 0.0342997 -0.0217773 0.0101133 -5.96046e-008 -0.0249858 0.0305407 0 -0.0262067 0.0047235 -5.96046e-008 -0.00123036 -0.0134921 -5.96046e-008 -0.00579858 -0.0108836 1.78814e-007 -0.00699365 -0.0134922 -5.96046e-008 -0.00042665 -0.0302049 -1.19209e-007 0.000237465 -0.0302049 5.96046e-008 -0.00200617 -0.0302049 1.19209e-007"
+		
+		2 "|group1|unicorn:CandyHair:Tail" "translate" " -type \"double3\" 7.591876 -14.427423 -1.470691"
+		
+		2 "|group1|unicorn:CandyHair:Tail" "rotate" " -type \"double3\" 0 62.601797 0"
+		
+		2 "|group1|unicorn:CandyHair:Tail" "scale" " -type \"double3\" 1.287105 1.287105 1.287105"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane26|unicorn:CandyHair:pPlaneShape26" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.215096 -0.94051 -0.0960917 -0.397725 -0.526579 -0.0300004 -0.374155 -0.526579 -0.0170147 -0.397361 -0.526579 -0.00425196 -0.172366 -0.493877 0.0376325 -0.131255 -0.493877 0.0511649 -0.172002 -0.493877 0.0644765 -0.166052 -0.0665273 0.073344 -0.136635 -0.0665273 0.0802226 -0.165688 -0.0665273 0.0868583 -0.265969 0.116423 0.0745139 -0.213163 0.139811 0.0662897 -0.265604 0.116423 0.0577726 -0.421681 0.255021 0.0503848 -0.38057 0.313492 0.0505178 -0.421317 0.255021 0.0503855 -0.562581 0.293829 0.0291348 -0.557758 0.319677 0.029278 -0.562217 0.293829 0.029135 -0.626466 0.243057 0.0228953 -0.626466 0.293887 0.0228951 -0.626466 0.243057 0.0228951 -0.99791 0.189841 -0.030398 -1.036641 0.229043 0.00609136 -0.99791 0.188278 0.0371599"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane27|unicorn:CandyHair:pPlaneShape27" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.25312 -0.646015 0 -0.112769 -0.319064 -0.0158954 -0.0888408 -0.304109 0 -0.112769 -0.319064 0.0158958 -0.0932273 -0.0308506 -0.00858474 -0.069299 -0.0158953 0 -0.0932273 -0.0308506 0.0085845 -0.150195 0.178738 -2.38419e-007 -0.126267 0.193694 2.38419e-007 -0.150195 0.178738 2.38419e-007 -0.277289 0.301868 2.38419e-007 -0.25336 0.316823 0 -0.277289 0.301868 0 -0.429279 0.362699 0 -0.405351 0.377654 2.38419e-007 -0.429279 0.362699 2.38419e-007 -0.632101 0.395525 2.38419e-007 -0.603532 0.445098 0 -0.632101 0.395525 0 -0.837039 0.296896 1.19209e-007 -0.813111 0.339292 0 -0.837039 0.296896 0 -0.99791 0.189841 -0.032461 -1.036641 0.229043 0 -0.99791 0.188278 0.0265427"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane28|unicorn:CandyHair:pPlaneShape28" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.337173 -0.652171 -0.0976925 -0.519371 -0.421087 0.084527 -0.510941 -0.421087 0.159803 -0.461544 -0.421088 0.171389 -0.366172 -0.131783 0.159527 -0.371377 -0.131783 0.235224 -0.314158 -0.131783 0.222526 -0.320226 -0.0180631 0.122184 -0.301716 -0.0180631 0.18995 -0.240691 -0.0180631 0.175772 -0.323349 0.158972 0.131306 -0.318111 0.158972 0.174564 -0.262324 0.158972 0.157876 -0.53518 0.351612 0.0908732 -0.500867 0.351612 0.135608 -0.447743 0.351612 0.116728 -0.687747 0.354165 -0.0230851 -0.64954 0.388783 0.024174 -0.600311 0.354165 0.00276971 -0.724866 0.28627 0.0438778 -0.724866 0.313712 0.0438776 -0.724866 0.28627 0.0438777 -0.99791 0.189841 -0.032461 -1.036641 0.229043 0 -0.99791 0.188278 0.0436147"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane29|unicorn:CandyHair:pPlaneShape29" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.23175 -0.778531 0.00277328 -0.429542 -0.494923 -0.00343013 -0.406059 -0.494923 0.0440168 -0.375862 -0.494924 0.0451322 -0.190358 -0.383208 0.120502 -0.166874 -0.383208 0.140419 -0.136678 -0.383208 0.107884 -0.235747 0.00824883 0.138931 -0.212263 0.00824883 0.174236 -0.182067 0.00824883 0.12533 -0.327006 0.188208 0.141109 -0.303523 0.188208 0.158485 -0.273327 0.188208 0.132108 -0.442115 0.255022 0.10884 -0.418631 0.255022 0.13298 -0.388435 0.255022 0.118066 -0.63338 0.361071 0.0373824 -0.605522 0.395689 0.0630727 -0.5797 0.361071 0.0466084 -0.724866 0.285578 0.0438778 -0.724866 0.313019 0.0438776 -0.724866 0.285578 0.0438777 -0.99791 0.189841 -0.032461 -1.036641 0.229043 0 -0.99791 0.188278 0.0265427"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane30|unicorn:CandyHair:pPlaneShape30" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.221684 -0.391776 0.122849 -0.538578 -0.142912 0.352237 -0.495042 -0.143034 0.419461 -0.451642 -0.122687 0.427847 -0.522709 -0.0164796 0.277155 -0.498134 -0.0164795 0.335158 -0.433656 -0.0206882 0.366673 -0.47251 0.0345607 0.230928 -0.414376 0.0345608 0.295071 -0.36067 0.0345608 0.327415 -0.482971 0.217443 0.131306 -0.430831 0.217443 0.174565 -0.375043 0.217443 0.157876 -0.60019 0.31934 0.0908732 -0.565877 0.31934 0.135608 -0.512754 0.31934 0.116728 -0.702364 0.287982 0.0245216 -0.664157 0.3226 0.0717809 -0.614929 0.287982 0.0503764 -0.724866 0.232954 0.0438778 -0.724866 0.260395 0.0438776 -0.724866 0.232954 0.0438777 -0.99791 0.189841 -0.032461 -1.036641 0.229043 0 -0.99791 0.188278 0.0436147"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane31|unicorn:CandyHair:pPlaneShape31" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.217222 -0.517489 0.0418682 -0.4373 -0.286405 0.246802 -0.428869 -0.286405 0.299363 -0.379472 -0.286406 0.341924 -0.479506 -0.131783 0.221924 -0.455553 -0.131783 0.286194 -0.430255 -0.131783 0.296395 -0.398089 -0.0180631 0.186927 -0.379578 -0.0180631 0.254694 -0.318554 -0.0180631 0.240516 -0.402397 0.158972 0.131306 -0.366513 0.158972 0.174564 -0.310725 0.158972 0.157876 -0.570954 0.336881 0.0908735 -0.536642 0.336881 0.135608 -0.483518 0.336881 0.116728 -0.687747 0.328912 -0.0230851 -0.64954 0.36353 0.024174 -0.600311 0.328912 0.00276971 -0.724866 0.250496 0.0438778 -0.724866 0.277937 0.0438776 -0.724866 0.250496 0.0438777 -0.99791 0.189841 -0.032461 -1.036641 0.229043 0 -0.99791 0.188278 0.0436147"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane32|unicorn:CandyHair:pPlaneShape32" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.215096 -0.94051 -0.0960915 -0.397725 -0.526579 -0.0300004 -0.374155 -0.526579 -0.017015 -0.397361 -0.526579 -0.00425172 -0.172366 -0.493877 0.0376325 -0.131255 -0.493877 0.0511649 -0.172002 -0.493877 0.0644765 -0.166052 -0.0665273 0.0733438 -0.136634 -0.0665273 0.0802226 -0.165687 -0.0665273 0.0868583 -0.265969 0.116423 0.0745139 -0.213163 0.139811 0.0662897 -0.265604 0.116423 0.0577726 -0.421682 0.255021 0.0503849 -0.38057 0.313492 0.0505176 -0.421317 0.255021 0.0503855 -0.562581 0.293829 0.0291346 -0.557758 0.319677 0.029278 -0.562216 0.293829 0.029135 -0.626466 0.243057 0.0228952 -0.626466 0.293887 0.0228953 -0.626466 0.243057 0.0228951 -0.99791 0.189841 -0.0303979 -1.036641 0.229043 0.00609148 -0.99791 0.188278 0.0371599"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane33|unicorn:CandyHair:pPlaneShape33" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.25312 -0.646015 0 -0.112769 -0.319064 -0.0158958 -0.0888408 -0.304109 0 -0.112769 -0.319064 0.0158954 -0.0932273 -0.0308506 -0.0085845 -0.069299 -0.0158953 0 -0.0932273 -0.0308506 0.00858474 -0.150195 0.178738 -2.38419e-007 -0.126267 0.193694 -2.38419e-007 -0.150195 0.178738 2.38419e-007 -0.277289 0.301868 0 -0.25336 0.316823 0 -0.277289 0.301868 -2.38419e-007 -0.429279 0.362699 -2.38419e-007 -0.405351 0.377654 -2.38419e-007 -0.429279 0.362699 0 -0.632101 0.395525 0 -0.603532 0.445098 0 -0.632101 0.395525 -2.38419e-007 -0.837039 0.296896 0 -0.813111 0.339292 0 -0.837039 0.296896 -1.19209e-007 -0.99791 0.189841 -0.0324608 -1.036641 0.229043 0 -0.99791 0.188278 0.0265428"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane34|unicorn:CandyHair:pPlaneShape34" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.337173 -0.652171 -0.0976923 -0.519371 -0.421087 0.084527 -0.510941 -0.421087 0.159803 -0.461544 -0.421088 0.171389 -0.366172 -0.131783 0.159527 -0.371377 -0.131783 0.235223 -0.314158 -0.131783 0.222526 -0.320226 -0.0180631 0.122183 -0.301715 -0.0180631 0.18995 -0.240691 -0.0180631 0.175772 -0.323349 0.158972 0.131306 -0.318112 0.158972 0.174564 -0.262324 0.158972 0.157876 -0.53518 0.351612 0.0908734 -0.500867 0.351612 0.135608 -0.447744 0.351612 0.116728 -0.687747 0.354165 -0.0230849 -0.64954 0.388783 0.0241739 -0.600311 0.354165 0.00276947 -0.724865 0.28627 0.0438776 -0.724866 0.313712 0.0438775 -0.724865 0.28627 0.0438777 -0.99791 0.189841 -0.0324609 -1.036641 0.229043 0 -0.99791 0.188278 0.0436149"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane35|unicorn:CandyHair:pPlaneShape35" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.23175 -0.778531 0.00277328 -0.429542 -0.494923 -0.00343037 -0.406059 -0.494923 0.0440166 -0.375862 -0.494924 0.0451319 -0.190358 -0.383208 0.120502 -0.166874 -0.383208 0.140419 -0.136678 -0.383208 0.107884 -0.235747 0.00824883 0.138931 -0.212263 0.00824883 0.174236 -0.182067 0.00824883 0.12533 -0.327007 0.188208 0.141109 -0.303523 0.188208 0.158485 -0.273327 0.188208 0.132108 -0.442115 0.255022 0.108839 -0.418631 0.255022 0.13298 -0.388435 0.255022 0.118066 -0.63338 0.361071 0.0373824 -0.605522 0.395689 0.0630726 -0.5797 0.361071 0.0466084 -0.724865 0.285578 0.0438776 -0.724866 0.313019 0.0438775 -0.724865 0.285578 0.0438777 -0.99791 0.189841 -0.0324609 -1.036641 0.229043 0 -0.99791 0.188278 0.0265428"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane36|unicorn:CandyHair:pPlaneShape36" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.221684 -0.391776 0.122849 -0.538579 -0.142912 0.352237 -0.495042 -0.143034 0.419461 -0.451642 -0.122687 0.427847 -0.522709 -0.0164796 0.277155 -0.498134 -0.0164795 0.335158 -0.433656 -0.0206882 0.366673 -0.47251 0.0345607 0.230928 -0.414376 0.0345608 0.295071 -0.36067 0.0345608 0.327415 -0.482971 0.217443 0.131306 -0.430831 0.217443 0.174564 -0.375043 0.217443 0.157876 -0.60019 0.31934 0.0908734 -0.565877 0.31934 0.135609 -0.512754 0.31934 0.116728 -0.702365 0.287982 0.0245218 -0.664157 0.3226 0.0717807 -0.614929 0.287982 0.0503764 -0.724865 0.232954 0.0438776 -0.724866 0.260395 0.0438775 -0.724865 0.232954 0.0438777 -0.99791 0.189841 -0.0324609 -1.036641 0.229043 0 -0.99791 0.188278 0.0436149"
+		
+		2 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane37|unicorn:CandyHair:pPlaneShape37" 
+		"pt[0:24]" " -s 25 -type \"float3\" -0.217222 -0.517489 0.0418677 -0.4373 -0.286405 0.246802 -0.42887 -0.286405 0.299363 -0.379472 -0.286406 0.341924 -0.479506 -0.131783 0.221924 -0.455553 -0.131783 0.286194 -0.430254 -0.131783 0.296395 -0.398089 -0.0180631 0.186927 -0.379579 -0.0180631 0.254694 -0.318554 -0.0180631 0.240516 -0.402398 0.158972 0.131306 -0.366513 0.158972 0.174564 -0.310725 0.158972 0.157876 -0.570955 0.336881 0.0908734 -0.536642 0.336881 0.135608 -0.483518 0.336881 0.116728 -0.687747 0.328912 -0.0230849 -0.64954 0.36353 0.0241739 -0.600311 0.328912 0.00276947 -0.724865 0.250496 0.0438776 -0.724866 0.277937 0.0438775 -0.724865 0.250496 0.0438777 -0.99791 0.189841 -0.0324609 -1.036641 0.229043 0 -0.99791 0.188278 0.0436149"
+		
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane35|unicorn:CandyHair:pPlaneShape35.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface56|unicorn:CandyHair:polySurfaceShape57.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface77|unicorn:CandyHair:polySurfaceShape57.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface55|unicorn:CandyHair:polySurfaceShape56.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface76|unicorn:CandyHair:polySurfaceShape56.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane33|unicorn:CandyHair:pPlaneShape33.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane26|unicorn:CandyHair:pPlaneShape26.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane37|unicorn:CandyHair:pPlaneShape37.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane32|unicorn:CandyHair:pPlaneShape32.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface58|unicorn:CandyHair:polySurfaceShape59.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface79|unicorn:CandyHair:polySurfaceShape59.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface66|unicorn:CandyHair:polySurfaceShape67.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface87|unicorn:CandyHair:polySurfaceShape67.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface53|unicorn:CandyHair:polySurfaceShape54.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface74|unicorn:CandyHair:polySurfaceShape54.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface47|unicorn:CandyHair:polySurfaceShape48.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane24|unicorn:CandyHair:pPlaneShape24.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface50|unicorn:CandyHair:polySurfaceShape51.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface71|unicorn:CandyHair:polySurfaceShape51.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface52|unicorn:CandyHair:polySurfaceShape53.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface73|unicorn:CandyHair:polySurfaceShape53.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane25|unicorn:CandyHair:pPlaneShape25.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane29|unicorn:CandyHair:pPlaneShape29.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface69|unicorn:CandyHair:polySurfaceShape70.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface90|unicorn:CandyHair:polySurfaceShape70.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane30|unicorn:CandyHair:pPlaneShape30.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface61|unicorn:CandyHair:polySurfaceShape62.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface82|unicorn:CandyHair:polySurfaceShape62.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface67|unicorn:CandyHair:polySurfaceShape68.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface88|unicorn:CandyHair:polySurfaceShape68.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface54|unicorn:CandyHair:polySurfaceShape55.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface75|unicorn:CandyHair:polySurfaceShape55.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface49|unicorn:CandyHair:polySurfaceShape50.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface68|unicorn:CandyHair:polySurfaceShape69.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface89|unicorn:CandyHair:polySurfaceShape69.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane28|unicorn:CandyHair:pPlaneShape28.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface60|unicorn:CandyHair:polySurfaceShape61.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface81|unicorn:CandyHair:polySurfaceShape61.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane27|unicorn:CandyHair:pPlaneShape27.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface65|unicorn:CandyHair:polySurfaceShape66.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface86|unicorn:CandyHair:polySurfaceShape66.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane31|unicorn:CandyHair:pPlaneShape31.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface63|unicorn:CandyHair:polySurfaceShape64.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface84|unicorn:CandyHair:polySurfaceShape64.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface70|unicorn:CandyHair:polySurfaceShape71.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface91|unicorn:CandyHair:polySurfaceShape71.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface57|unicorn:CandyHair:polySurfaceShape58.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface78|unicorn:CandyHair:polySurfaceShape58.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane36|unicorn:CandyHair:pPlaneShape36.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface64|unicorn:CandyHair:polySurfaceShape65.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface85|unicorn:CandyHair:polySurfaceShape65.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane34|unicorn:CandyHair:pPlaneShape34.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface59|unicorn:CandyHair:polySurfaceShape60.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface80|unicorn:CandyHair:polySurfaceShape60.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface62|unicorn:CandyHair:polySurfaceShape63.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface83|unicorn:CandyHair:polySurfaceShape63.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface51|unicorn:CandyHair:polySurfaceShape52.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface72|unicorn:CandyHair:polySurfaceShape52.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "-na"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface47|unicorn:CandyHair:polySurfaceShape48.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[1]" "unicornRN.placeHolderList[2]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface49|unicorn:CandyHair:polySurfaceShape50.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[3]" "unicornRN.placeHolderList[4]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface50|unicorn:CandyHair:polySurfaceShape51.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[5]" "unicornRN.placeHolderList[6]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface71|unicorn:CandyHair:polySurfaceShape51.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[7]" "unicornRN.placeHolderList[8]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface51|unicorn:CandyHair:polySurfaceShape52.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[9]" "unicornRN.placeHolderList[10]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface72|unicorn:CandyHair:polySurfaceShape52.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[11]" "unicornRN.placeHolderList[12]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface52|unicorn:CandyHair:polySurfaceShape53.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[13]" "unicornRN.placeHolderList[14]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface73|unicorn:CandyHair:polySurfaceShape53.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[15]" "unicornRN.placeHolderList[16]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface53|unicorn:CandyHair:polySurfaceShape54.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[17]" "unicornRN.placeHolderList[18]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface74|unicorn:CandyHair:polySurfaceShape54.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[19]" "unicornRN.placeHolderList[20]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface54|unicorn:CandyHair:polySurfaceShape55.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[21]" "unicornRN.placeHolderList[22]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface75|unicorn:CandyHair:polySurfaceShape55.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[23]" "unicornRN.placeHolderList[24]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface55|unicorn:CandyHair:polySurfaceShape56.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[25]" "unicornRN.placeHolderList[26]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface76|unicorn:CandyHair:polySurfaceShape56.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[27]" "unicornRN.placeHolderList[28]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface56|unicorn:CandyHair:polySurfaceShape57.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[29]" "unicornRN.placeHolderList[30]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface77|unicorn:CandyHair:polySurfaceShape57.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[31]" "unicornRN.placeHolderList[32]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface57|unicorn:CandyHair:polySurfaceShape58.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[33]" "unicornRN.placeHolderList[34]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface78|unicorn:CandyHair:polySurfaceShape58.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[35]" "unicornRN.placeHolderList[36]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface58|unicorn:CandyHair:polySurfaceShape59.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[37]" "unicornRN.placeHolderList[38]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface79|unicorn:CandyHair:polySurfaceShape59.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[39]" "unicornRN.placeHolderList[40]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface59|unicorn:CandyHair:polySurfaceShape60.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[41]" "unicornRN.placeHolderList[42]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface80|unicorn:CandyHair:polySurfaceShape60.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[43]" "unicornRN.placeHolderList[44]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface60|unicorn:CandyHair:polySurfaceShape61.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[45]" "unicornRN.placeHolderList[46]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface81|unicorn:CandyHair:polySurfaceShape61.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[47]" "unicornRN.placeHolderList[48]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface61|unicorn:CandyHair:polySurfaceShape62.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[49]" "unicornRN.placeHolderList[50]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface82|unicorn:CandyHair:polySurfaceShape62.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[51]" "unicornRN.placeHolderList[52]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface62|unicorn:CandyHair:polySurfaceShape63.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[53]" "unicornRN.placeHolderList[54]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface83|unicorn:CandyHair:polySurfaceShape63.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[55]" "unicornRN.placeHolderList[56]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface63|unicorn:CandyHair:polySurfaceShape64.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[57]" "unicornRN.placeHolderList[58]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface84|unicorn:CandyHair:polySurfaceShape64.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[59]" "unicornRN.placeHolderList[60]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface64|unicorn:CandyHair:polySurfaceShape65.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[61]" "unicornRN.placeHolderList[62]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface85|unicorn:CandyHair:polySurfaceShape65.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[63]" "unicornRN.placeHolderList[64]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface65|unicorn:CandyHair:polySurfaceShape66.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[65]" "unicornRN.placeHolderList[66]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface86|unicorn:CandyHair:polySurfaceShape66.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[67]" "unicornRN.placeHolderList[68]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface66|unicorn:CandyHair:polySurfaceShape67.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[69]" "unicornRN.placeHolderList[70]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface87|unicorn:CandyHair:polySurfaceShape67.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[71]" "unicornRN.placeHolderList[72]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface67|unicorn:CandyHair:polySurfaceShape68.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[73]" "unicornRN.placeHolderList[74]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface88|unicorn:CandyHair:polySurfaceShape68.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[75]" "unicornRN.placeHolderList[76]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface68|unicorn:CandyHair:polySurfaceShape69.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[77]" "unicornRN.placeHolderList[78]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface89|unicorn:CandyHair:polySurfaceShape69.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[79]" "unicornRN.placeHolderList[80]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface69|unicorn:CandyHair:polySurfaceShape70.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[81]" "unicornRN.placeHolderList[82]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface90|unicorn:CandyHair:polySurfaceShape70.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[83]" "unicornRN.placeHolderList[84]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface70|unicorn:CandyHair:polySurfaceShape71.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[85]" "unicornRN.placeHolderList[86]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:polySurface91|unicorn:CandyHair:polySurfaceShape71.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[87]" "unicornRN.placeHolderList[88]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane24|unicorn:CandyHair:pPlaneShape24.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[89]" "unicornRN.placeHolderList[90]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Head|unicorn:CandyHair:pPlane25|unicorn:CandyHair:pPlaneShape25.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[91]" "unicornRN.placeHolderList[92]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane26|unicorn:CandyHair:pPlaneShape26.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[93]" "unicornRN.placeHolderList[94]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane27|unicorn:CandyHair:pPlaneShape27.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[95]" "unicornRN.placeHolderList[96]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane28|unicorn:CandyHair:pPlaneShape28.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[97]" "unicornRN.placeHolderList[98]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane29|unicorn:CandyHair:pPlaneShape29.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[99]" "unicornRN.placeHolderList[100]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane30|unicorn:CandyHair:pPlaneShape30.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[101]" "unicornRN.placeHolderList[102]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane31|unicorn:CandyHair:pPlaneShape31.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[103]" "unicornRN.placeHolderList[104]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane32|unicorn:CandyHair:pPlaneShape32.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[105]" "unicornRN.placeHolderList[106]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane33|unicorn:CandyHair:pPlaneShape33.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[107]" "unicornRN.placeHolderList[108]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane34|unicorn:CandyHair:pPlaneShape34.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[109]" "unicornRN.placeHolderList[110]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane35|unicorn:CandyHair:pPlaneShape35.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[111]" "unicornRN.placeHolderList[112]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane36|unicorn:CandyHair:pPlaneShape36.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[113]" "unicornRN.placeHolderList[114]" 
+		"unicorn:blinn4SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:CandyHair:Tail|unicorn:CandyHair:pPlane37|unicorn:CandyHair:pPlaneShape37.instObjGroups" 
+		"unicorn:blinn4SG.dagSetMembers" "unicornRN.placeHolderList[115]" "unicornRN.placeHolderList[116]" 
+		"unicorn:blinn4SG.dsm"
+		"unicornRN" 146
+		0 "|unicorn:Candy" "|group1" "-s -r "
+		2 "|group1|unicorn:Candy" "translate" " -type \"double3\" 7.591876 -16.329697 -1.066491"
+		
+		2 "|group1|unicorn:Candy" "rotate" " -type \"double3\" 0 62.601797 0"
+		2 "|group1|unicorn:Candy" "scale" " -type \"double3\" 1 1 1"
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pnts" " -s 3853"
+		
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[0:165]" (" -type \"float3\" 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -7.45058e-009 0 0 0 0 -1.49012e-008 0 0 0 -2.98023e-008 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 3.72529e-009 0 0 5.96046e-008 0 0 0 0 0 0 -5.96046e-008 0 0 1.49012e-008 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -7.45058e-009 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 1.19209e-007 0 0 0 0 1.19209e-007 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.3841"
+		+ "9e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 -1.19209e-007 0 0 -2.38419e-007 -2.32831e-010 0 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -0.0129075 -0.0210032 0.0381897 -0.00117803 -0.00191698 0.00348562 0 0 0 -0.00327361 -0.0053268 0.00968558 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 5.96046e-008 5.96046e-008 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0"
+		+ " 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[166:331]" 
+		(" 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 1.49012e-008 0 -7.45058e-009 -2.98023e-008 0 -1.49012e-008 -2.98023e-008 0 0 0 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 -4.65661e-010 0 -5.48363e-005 -0.0140924 0.00499642 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 2.98023e-008 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 1.86265e-009 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 -1.86265e-009 0 0 0 9.31323e-010 0 0 5.96046e-008 0 0 0 0 0 -0.0434588 0 -2.98023e-008 -5.96046e-006 -0.00154244 0.000546932 0 0 1.19209e-007 0 0 1.19209e-007 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 1.19209e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 -1.19209e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419"
+		+ "e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 1.19209e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 1.19209e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.192"
+		+ "09e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[332:497]" 
+		(" 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 5.96046e-008 0 0 0 2.38419e-007 0 0 0 0 0 0 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -2.38419e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 -1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 1.19209e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209"
+		+ "e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -5.96046e-008 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 1.19209e-007 1.19209e-007 0 0 0 0 0 2.38419e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 5.96046e-008 0 0 1"
+		+ ".19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0")
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[498:663]" 
+		(" 0 0 0 0 0 1.19209e-007 -1.19209e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 5.96046e-008 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 -5.96046e-008 2.38419e-007 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 2.38419e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.49012e-008 0 0 0 0 0 0 0 0 -5.96046e-008 0 2.98023e-008 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 0 1.19209e-007 0 0 1.19209e-007 0 5.96046e-008 -1.19209e-007 0 -5.96046e-008 2.98023e-008 0 -1.49012e-008 0 0 -2.98023e-008 0 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 7.45058e-009 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 -1.19209e-007 0 -5.96046e-008 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 5.96046e-008 0"
+		+ " 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 2.384"
+		+ "19e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 5.96046e-008 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 -1.19209e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[664:829]" 
+		(" 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 5.96046e-008 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 1.19209e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 1.19209e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0"
+		+ " 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 0 0 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 1.19209e-007 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 1.19209e-007 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -2.93255e-005 -4.77809e-005 8.6844e-005 0 0 0 0 0 5.96046e-008 -1.19209e-007 0 -5.96046e-008 -0.00107062 -0.00174199 0.00316739 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007"
+		+ " 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[830:995]" 
+		(" 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.1"
+		+ "9209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 -5.96046e-008 -2.38419e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 1.19209e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 "
+		+ "0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 5.96046e-008 -2.38419e-007 0 1.19209e-007 -1.19209e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 5.96046e-008 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[996:1161]" 
+		(" 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 1.19209e-007 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0"
+		+ " 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 -1.19209e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.1"
+		+ "9209e-007 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1162:1327]" 
+		(" -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 -5.96046e-008 0 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e"
+		+ "-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 -0.0534937 -0.0258583 0.018985 -0.0125726 -0.00453602 0.00333035 -0.0435848 -0.000324878 0.000238478 -0.00187727 0 0 -0.00124688 0 0 -0.0434588 0 0 -0.0434588 0 -1.49012e-008 -0.0434588 0 2.98023e-008 -0.0434588 0 0 0 0 0 -0.0434588 0 -1.49012e-008 0 0 0 1.19209e-007 0 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 -2.98023e-008 0 0 0 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.3"
+		+ "8419e-007 0 0 2.38419e-007 0 0 0 -4.76837e-007 0 2.38419e-007 -2.38419e-007 0 0 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 -2.38419e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1328:1493]" 
+		(" -4.76837e-007 0 2.38419e-007 4.76837e-007 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 -1.19209e-007 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 2.38419e-0"
+		+ "07 0 0 0 4.76837e-007 0 0 4.76837e-007 0 -2.38419e-007 -4.76837e-007 0 -2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 4.76837e-007 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1494:1659]" 
+		(" 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 2.38419e-007 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 0 0 0 -4.76837e-007 0 2.38419e-007 -4.76837e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 0 4.76837e-007 0 0 0 0 -2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 1.19209e-007 0 0 0 0 0 -2.38419e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0"
+		+ " 0 0 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 2.98023e-008 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 -2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -1.19209e-007 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.86265e-009 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 1.19209e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 -5.96046e-008 0 5.96046e-008 0 0 0 0 0 0 0 0 1.49012e-008 5.96046e-008 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 2.38419e-007 0 1.192"
+		+ "09e-007 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 -2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1660:1825]" 
+		(" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -1.74046e-005 -0.00449286 0.00159299 0 1.86265e-009 0 0 0 0 -2.38419e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 -2.38419e-007 0 2.38419e-007 2.38419e-007 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 2.38419e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-"
+		+ "007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -4.76837e-007 0 -2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 "
+		+ "0 0 0 0 0 0 0 0 0 4.76837e-007 0 0")
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1826:1991]" 
+		(" -4.76837e-007 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 4.76837e-007 0"
+		+ " 0 4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 4.76837e-007 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 -2.19345e-005 -0.508088 0.0885308 -0.000985146 -0.537912 0.0894582 0 -0.568943 0.0893219 -0.000984669 -0.568943 0.0893219 -1.43051e-006 -0.00254055 0.000900745 -1.43051e-005 -0.00362231 0.00128424 -1.90735e-006 -0.000481093 0.000170588 2.38419e-007 -3.72529e-009 0 -3.71933e-005 -0.363204 0.0806956 -0.00092411 -0.383771 0.0840218 -0.000974655 -0.327416 0.0886219 -9.53674e-007 -0.292533 0.0"
+		+ "86936 -1.43051e-006 -0.568943 0.0893219 -0.000984669 -0.568943 0.0893221 -0.000994205 -0.553539 0.0902553 -0.000987053 -0.361408 0.0897508 -1.38283e-005 -0.00362233 0.00128436 0 -3.72529e-009 1.19209e-007 -4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 -1.49012e-008 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 5.96046e-008 2.38419e-007 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[1992:2157]" 
+		(" 0 0 -5.96046e-008 -2.38419e-007 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 -1.19209e-007 0 0 -2.98023e-008 -2.98023e-008 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 -2.98023e-008 5.96046e-008 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 2.38419e-007 0 0 0 2.38419e-007 0 0 1.49012e-008 0 -7.45058e-009 0 0 0 -1.19209e-007 0 0 1.49012e-008 0 -7.45058e-009 5.96046e-008 0 0 5.96046e-008 0 2.98023e-008 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 2.98023e-008 0 -1.49012e-008 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 5.96046e-008 0 0 0 0 2.98023e-008 0 0 0 -5.96046e-008 0 2.98023e-008 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -5.96046e-008 0 -2.98023e-008 "
+		+ "0 0 0 0 0 1.49012e-008 0 0 0 0 0 0 0 0 5.96046e-008 0 0 2.98023e-008 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 -2.32831e-010 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0.0129075 -0.0210032 0.0381894 0.00153303 -0.00249483 0.00453615 -2.38419e-007 0 1.19209e-007 0.00317574 -0.00516814 0.00939703 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 -2.98023e-008 0 0 -1.49012e-008 1.49012e-008 0 0 2.98023e-008 0 0 2.98023e-008 0 -1.49012e-008 -5.96046e-008 0 -2.98023e-008 0 0 0 5.96046e-008 0 0 0 0 -2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 0 1.49012e-008 2.98023e-008 0 0 -1.49012e-008 0 0 0 0 7.45058e-009 1.49012e-008 0 0 0 0 0 0 0 7.45058e-009 0 0 0 2.98023e-008 0 -1.49012e-00"
+		+ "8 0 0 1.49012e-008 5.96046e-008 0 0 0 0 -2.98023e-008 0 0 -2.98023e-008 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 2.98023e-008 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 7.45058e-009 0 3.72529e-009 0 0 0 0 0 0 0 0 7.45058e-009 -2.38419e-007 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2158:2323]" 
+		(" 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 -4.65661e-010 0 3.05176e-005 -0.00786134 0.00278711 0 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 -1.19209e-007 0 0 -5.96046e-008 0 5.96046e-008 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 4.76837e-007 0 0 -4.76837e-007 0 0 0.04177 0 -2.38419e-007 2.86102e-006 -0.000813355 0.000288486 0 0 0 1.49012e-008 0 0 0 0 0 5.96046e-008 0 2.98023e-008 0 0 2.98023e-008 1.49012e-008 0 0 2.98023e-008 0 -1.49012e-008 0 0 -2.98023e-008 -1.49012e-008 0 -7.45058e-009 5.96046e-008 0 2.98023e-008 5.96046e-008 0 0 0 0 7.45058e-009 -5.96046e-008 0 2.98023e-008 0 0 0 0 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 -2.98023e-008 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 -2.98023e-008 0 1.49012e-008 0 0 -2.98023e-008 5.96046e-008 0 -2.98023e-008 5.96046e-008 0"
+		+ " 0 0 0 1.49012e-008 0 0 -2.98023e-008 0 0 1.49012e-008 0 0 0 -2.98023e-008 0 -1.49012e-008 1.19209e-007 0 -5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 -2.98023e-008 0 0 -2.98023e-008 0 0 -2.98023e-008 2.98023e-008 0 0 0 0 -2.98023e-008 0 0 -2.98023e-008 0 0 0 0 0 1.49012e-008 0 0 -2.98023e-008 1.19209e-007 0 0 0 0 0 2.98023e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 5.96046e-008 0 0 0 0 0 0 1.49012e-008 0 0 0 0 5.96046e-008 -5.96046e-008 0 2.98023e-008 -1.49012e-008 0 0 5.96046e-008 0 2.98023e-008 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 -5.96046e-008 0 2.98023e-008 -5.96046e-008 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 2.98023e-008 0 0 0 5.96046e-008 0 0 0 0 2.98023e-008 0 0 1.49012e-008 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 -5.96046e-008 0 0 -1.19209e-007 0 0 -2.98023e-008 0 -1.49012e-008 0 0 1.49012e-008 0 0 0 -1.19209e-007 0 5.96046e-008 5.96046e-008 0 2.98023e-008 0 0 0 -2.98023e-008 0 0 0 0 5.96046e-008 0 0 0 0 0 0 5.96046e-008 0 0 5.96046e-008 0 -2.98023e-008 0"
+		+ " 0 1.49012e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 -5.96046e-008 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 1.49012e-008 0 0 0 0 -7.45058e-009 7.45058e-009 0 0 0 0 0 0 0 -7.45058e-009 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 -2.98023e-008 0 -1.49012e-008 -5.96046e-008 0 0 0 0 -1.49012e-008 0 0 0 0 0 9.31323e-010"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2324:2489]" 
+		(" 0 0 2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 1.49012e-008 -2.98023e-008 0 -1.49012e-008 0 0 0 0 0 0 0 0 2.98023e-008 -5.96046e-008 0 0 0 0 2.98023e-008 -5.96046e-008 0 2.98023e-008 0 0 0 2.98023e-008 0 0 2.98023e-008 0 0 -5.96046e-008 0 0 0 0 3.72529e-009 5.96046e-008 0 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 2.98023e-008 0 0 1.49012e-008 0 0 0 -5.96046e-008 0 -2.98023e-008 7.45058e-009 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 1.49012e-008 0 -7.45058e-009 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -7.45058e-009 0 3.72529e-009 0 0 0 0 0 0 1.49012e-008 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 1.49012e-008 0 0 0 1.19209e-007 0 0 0 0 0 0 0 -2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 -1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 0 -7.45058e-009 0 3.72529e-009 0 0 -7.45058e-009 5.96046e-008 0 2.98023e-008 0 0 0 0 0 -1.86265e-009 0 0 2.98023e-008 -1.49012e-008 0 -7.45058e-009 0 0 0 1.49012e-008 0 -7.45058e-009 0 0 0 -5.960"
+		+ "46e-008 0 0 0 0 -2.98023e-008 0 0 -1.49012e-008 -2.98023e-008 0 0 0 0 0 1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 -5.96046e-008 0 0 -2.98023e-008 0 0 0 0 2.98023e-008 0 0 0 0 0 1.86265e-009 0 0 -7.45058e-009 0 0 0 0 0 -2.98023e-008 0 0 0 -5.96046e-008 0 2.98023e-008 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 1.86265e-009 0 9.31323e-010 0 0 0 3.72529e-009 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 5.96046e-008 0 0 0 0 -1.49012e-008 0 0 -2.98023e-008 -5.96046e-008 0 0 0 0 0 0 0 -7.45058e-009 0 0 -2.98023e-008 0 0 2.98023e-008 -1.49012e-008 0 7.45058e-009 -5.96046e-008 0 0 0 0 -7.45058e-009 0 0 0 0 0 0 0 0 -1.49012e-008 -2.98023e-008 0 0 0 0 1.49012e-008 0 0 0 0 0 -2.98023e-008 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7.45058e-009 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 -3.72529e-009 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -5.96046e-008 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 5."
+		+ "96046e-008 0 -2.98023e-008 -5.96046e-008 0 0 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 2.98023e-008 0 -1.49012e-008 0 0 0 2.98023e-008 0 0 0 0 -5.96046e-008 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2490:2655]" 
+		(" 0 0 -2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 -3.72529e-009 5.96046e-008 0 2.98023e-008 2.98023e-008 0 0 0 0 -2.98023e-008 0 0 0 0 0 2.98023e-008 4.65661e-010 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 2.98023e-008 0 0 0 0 0 -3.72529e-009 0 0 1.49012e-008 0 0 5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 5.96046e-008 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 1.19209e-007 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 5.96046e-008 0 0 -2.98023e-008 -2.98023e-008 0 2.98023e-008 0 0 0 0 0 -2.98023e-008 0 0 0 2.98023e-008 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 -2.98023e-008 0 0 1.49012e-008 2.98023e-008 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 -5.96046e-008 -5.96046e-008 0 -2.98023e-008 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 "
+		+ "0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 5.96046e-008 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 -5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 0 0 1.19209e-007 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 -2.98023e-008 0 2.98023e-008 2.98023e-008 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 -7.45058e-009 0 0 5.96046e-008 0 2.98023e-008 0 0 0 0 0 0 5.96046e-008 0 0 -1.49012e-008 0 0 0 0 0 -2.98023e-008 0 -1.49012e-008 0 0 0 2.98023e-008 0 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 -5.96046e-008 0 0 5.96046e-008 0 0 -2.98023e-008 0 -1.49012e-008 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 -5.96046e-008 0 0 0 0 2.98023e-008 0 0 0 5.96046e-008 0 -2.98023e-008 0 0 0 0 0 3.72529e-009 -1.49012e-008 0 0 0 0 0 2.98023e-008 0 -1.49012e-008 -2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.86265e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 -7.45058e-009 0 0 0 1.49012e-008 0 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0"
+		+ " 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 -2.98023e-008 5.96046e-008 0 0 2.98023e-008 0 -1.49012e-008 1.19209e-007 0 0 -5.96046e-008 0 0 0 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2656:2821]" 
+		(" 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -5.96046e-008 0 2.98023e-008 -5.96046e-008 0 -2.98023e-008 0 0 0 0 0 -2.98023e-008 5.96046e-008 0 2.98023e-008 0 0 0 -5.96046e-008 0 0 0 0 -2.98023e-008 0 0 0 0 0 -2.98023e-008 0 0 2.98023e-008 -5.96046e-008 0 0 0 0 2.98023e-008 0 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 1.49012e-008 0 0 0 -7.45058e-009 0 3.72529e-009 0 0 -7.45058e-009 0 0 1.49012e-008 -1.49012e-008 0 0 -2.98023e-008 0 1.49012e-008 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.49012e-008 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 0 0 5.96046e-008 0 -2.98023e-008 0 0 -7.45058e-009 -5.96046e-008 0 0 0 0 0 -2.98023e-008 0 -1.49012e-008 0 0 0 0 0 -2.98023e-008 0 0 7.45058e-009 0 0 0 0 0 -2.98023e-008 5.96046e-008 0 -2.98023e-008 1.49012e-008 0 0 2.98023e-008 0 0 0 0 0 1.49012e-008 0 7.45058e-009 0 0 0 0 0 0 0 0 0 5.96046e-008 0 -2.98023e-008 0 0 0 0 0 -2.98023e-"
+		+ "008 0 0 0 0 0 5.96046e-008 0 0 0 5.96046e-008 0 0 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 2.98023e-008 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 -2.38419e-007 0 -1.19209e-007 -1.19209e-007 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 -1.49012e-008 0 7.45058e-009 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 1.19209e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 2.52724e-005 -4.11121e-005 7.48634e-005 0 0 0 0 0 2.38419e-007 0 0 0 0.00108147 -0.00175923 0.00319862 0 0 -2.38419e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419"
+		+ "e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 -4.76837e-007 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2822:2987]" 
+		(" -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 -4.76837e-007 0 0 -4.76837e-007 0 -2.38419e-007 -4.76837e-007 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 4.76837e-007 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 2.3"
+		+ "8419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 -1.19"
+		+ "209e-007 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[2988:3153]" 
+		(" 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 4.76837e-007 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 4.76837e-007 0 0 4.76837e-007 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 2.38419e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 4.76837e-007 0 2.38419e-007 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 2.38419e-007 4.76837e-007 0 0 4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 -"
+		+ "4.76837e-007 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 4.76837e-007 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 4.76837e-007 0 0 4.76837e-007 0 0 2.38419e-007 0 0 0 0 -2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[3154:3319]" 
+		(" 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 -2.38419e-007 0 2.38419e-007 0 0 2.38419e-007 2.38419e-007 0 0 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 4.76837e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 4.76837e-007 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 -4.76837e-007 0 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 4.76837e-007 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 0.020942"
+		+ "2 -0.00875785 0.00672698 0.0260696 -0.0108046 0.00793266 0.000331879 0 -2.38419e-007 0.0302362 -0.0147679 0.0108426 0.0244994 -0.00330449 0.00242615 0.0152636 -0.00289255 0.00525951 0.000440598 0 2.38419e-007 0 0 0 2.38419e-007 0 0 0.0377331 0 0 0.0432124 0 0 0.0430713 0 2.38419e-007 0.0432825 0 0 0 0 -1.19209e-007 0.0367274 0 0 0 0 0 0 0 0 0 0 0 0 1.86265e-009 0 2.38419e-007 9.31323e-010 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -5.96046e-008 -1.19209e-007 0 -5.96046e-008 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007"
+		+ " 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[3320:3485]" 
+		(" -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 0 4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -4.76837e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -2.38419e-007 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209"
+		+ "e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 4.76837e-007 0 0 0 0 2.38419e-007 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 2.38419e-007 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 4.76837e-007 0 0 2.38419e-007 0 -1.19209e-007 4.76837e-007 0 -2.38419e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 "
+		+ "0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[3486:3651]" 
+		(" 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 -1.19209e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-"
+		+ "007 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 1.50204e-005 -0.00385412 0.00136638 0 0 0 4.76837e-007 0 0 0 0 0 4.76837e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 4.76837e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209"
+		+ "e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -2.38419e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 2.38419e-007 0 0 0 0 0 0 0 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[3652:3817]" 
+		(" 0 0 -1.19209e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 2.38419e-007 4.76837e-007 0 0 0 0 -2.38419e-007 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0"
+		+ " 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -4.76837e-007 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 -4.76837e-007 0 0 4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 4.76837e-007 0 0 -4.76837e-007 0 0 0 0 0 -4.76837e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape" "pt[3818:3852]" 
+		" 0 0 0 0 0 0 0.000985622 -0.537508 0.0894878 0.000984192 -0.568943 0.0893219 1.40667e-005 -0.00361914 0.00128317 1.90735e-006 -0.00051081 0.000181079 0.000923157 -0.382349 0.0838792 0.000974178 -0.327348 0.0885854 0.000984192 -0.568943 0.0893219 0.000994205 -0.553292 0.0902629 0.000986099 -0.360232 0.0896649 1.28746e-005 -0.00331067 0.00117373 2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 -2.38419e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 1.86265e-009 0 -2.38419e-007 -9.31323e-010 0 0 0 0 -2.38419e-007 -1.86265e-009 0 0 -9.31323e-010 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 -1.86265e-009 0 -0.000467539 -0.120077 0.0425723 -0.00046277 -0.11885 0.0421374 -0.000387907 -0.0995954 0.0353106 -6.67572e-006 -0.0854203 0.030285 0.000386715 -0.0992471 0.0351875 0.000460625 -0.118276 0.041934 0.00046587 -0.119517 0.0423737 -1.81198e-005 -0.112728 0.0399668"
+		
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pnts" 
+		" -s 3857"
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[0:165]" 
+		(" -type \"float3\" 2.98023e-008 0 0 5.96046e-008 0 -2.98023e-008 0 0 -2.98023e-008 2.98023e-008 0 1.49012e-008 -5.96046e-008 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0.000158072 0 0 0 0 0 0.000623107 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0.00829794 -0.00411801 -0.00179278 0.0310771 -0.0080617 5.19678e-005 0.0307917 -0.00710101 0.00288327 0 0 2.98023e-008 0.0291135 -0.00674305 0.001351 0 0 0 0.0115236 -0.00170531 3.72529e-009 2.98023e-008 0 1.49012e-008 6.58035e-005 0 1.49012e-008 0 0.0134454 0 -0.00254846 0.0520154 -5.96046e-008 -0.00618893 0.042604 5.96046e-008 0.0103827 0.0472701 0.00979197 -0.000367403 -0.00120202 0 1.19209e-007 0 0 -0.0137671 -0.0489514 -5.96046e-008 -0.00488877 -0.100802 -0.00629634 0.0354832 -0.093658 -0.0138556 0.0492938 -0.0149099 0.0202315 0.0501517 -0.0144733 0.0169825 0.0333194 0.00396717 0.0141888 0.0033685 0.000504616 0 -0.0245396 -0.107159 -0.0107412 -0.0122859 -0.0402078 5.96046e-008 0 0 0 0 0 5.96046e-008 0.0099591 -0.102377 -0.0299162 0.000397444 0.000158546 0 0.000754595 0 -5.96046e-"
+		+ "008 1.19209e-007 -3.53903e-008 0 -0.00124371 -0.00454818 -0.000385821 -0.00150669 -0.00105983 0.00258356 0 4.79631e-008 0 0 8.28877e-008 -2.98023e-008 0 -7.17118e-008 -2.98023e-008 0.0024938 -1.00117e-008 4.47035e-008 0.0034655 -0.00070833 0 0.00515497 0 -0.000384867 0 0 -5.96046e-008 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 0 0 5.96046e-008 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0.00907743 0 0 -0.00167918 0.0707987 0.018321 0.0602771 -0.0746389 -0.0196201 0.0816348 -0.0411877 -0.0267084 0.0656418 0.032375 -0.0167091 0.063612 -0.062061 -0.0362681 -0."
+		+ "0219584 0.15817 0.0334809 0.04997 -0.078592 -0.0436352 -0.0068171 -0.130981 -0.0974312 0.0326949 -0.0891624 -0.0401936 0.0220643 0.000272838 0 0.0265491 0 -0.0476965 0.0127122 0 -0.0476964 0.000656605 0.000272838 5.96046e-008 0.00591528 -0.000724749 0.0014149 0.00380576 0.00477764 -5.96046e-008 0.0100502 0.00907054 -5.96046e-008 0.0267978 0.0223855 2.98023e-008 0.0575388 0.0682326 0.00424013 0.0756397 0.0693611 0.0474513 0.070904 0.0605952 0.0126298 0.0487882 0.042882 0.00513929 0.026123 -0.025447 0.0380809 0.0192195 0.00804128 0.00432676 0.00548911 0.00241033 0.0180031 0.000363112 0.000677726 0 0.000664353 -0.00666639 0.00395727 -0.00486588 -0.0626359 0.041925 -0.0407681 0.109887 0.0481121 0.0591614 0.0426299 -0.00176069 0.0209653 0.0555234 -0.00536269 0.0703312 0.0351109 0.0290507 0.0553957 0.0708652 -0.00827694 0.00276971 -0.0127153 0 -0.00335377 -0.05612 0 -0.000939131 -0.0365452 0 0.000207305 0 0 0.00488198 0 0 0.000416875 0 0 0.00571847 0 0 0.000542045 0 5.96046e-008 0.0060544 0 5.96046e-008 0.000505209"
+		+ " 0 0 0.00598097 0 -5.96046e-008 0.00037694 0 0 0.00564992 0 0 0.000269413 0 0 0.00495529 0 0 0.000142217 0 0 0.00423443 0 0 0 0 0 0.00376916 0 0 0 0 0 0.00332832 0 -5.96046e-008 0 0 0 0.00314736 0 5.96046e-008 0.00343466 0 0 0.00396776 0 0 6.28233e-005 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 -1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 5.96046e-008 0 0 0 0 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[166:331]" 
+		(" 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 1.19209e-007 0 0 0.0697491 -0.0124854 0.0330908 0.0662152 0.0132534 0.0276862 0.0620559 0.0139633 0.00480735 0.0670594 -0.0131057 0.0239176 0.0591111 -0.00888254 0.0384682 0.0645898 0.022353 0.0365525 0.0634136 -0.0189372 0.0316432 0.000399232 0 -0.0476964 0.00209773 0.0359168 -0.0653034 -0.0349326 -0.123026 -0.0576022 1.19209e-007 0 5.96046e-008 -0.00119162 -0.150387 -0.111075 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0.0196285 -0.00271088 0.00516113 2.98023e-008 0 1.49012e-008 0 0 0 0 0 0 -5.96046e-008 0 2.98023e-008 1.49012e-008 0 7.45058e-009 -2.98023e-008 0 -1.49012e-008 0.0134406 -0.00286486 0.00580399 0.00941612 -0.00216678 0.000639558 0.0687726 -0.0227247 0.00571381 0.0684022 -0.00821992 0.0108311 0.0471255 -0.0103156 0.00863014 0.0733231 -0.0243135 0.031846 0.0539971 -0.0140404 0.00253605 0.0696045 -0.023776 0.0276354 0.0174791 -0.00158172 1.49012e-008 0.0340255 0 0 0.081173 -0.00610949 -0.0028639 0.0137951 0.0359168 -0.06530"
+		+ "34 0 0 -5.96046e-008 0 0 5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008"
+		+ " 0 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 0.00569236 0 0 0.001526 0 5.96046e-008 0.0148306 0 0 0.0249809 0 0 0.0283215 0 -5.96046e-008 -0.0292741 0.0619638 0 -0.0312003 0.0581431 -5.96046e-008 -0.0314568 0.11071 0.0109772 0.00422823 -0.00343233 0 0.00105357 0 -5.96046e-008 0.00721371 -0.0240384 5.96046e-008 0.0316806 -0.0589283 -0.00041604 0.0848751 -0.0665849 -0.00779259 0.0278727 0 0 -0.0397431 0.112767 -0.000631034 0.109139 -0.0508733 -0.0366035 0.0755587 -0.0269297 -0.0358112 0.0593123 0.00963327 -0.0658936"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[332:497]" 
+		(" -0.0222058 0.116665 0.00736094 0.0285491 0 0 -0.0173988 0.0325256 5.96046e-008 0.0215999 0.000514332 0 0.0244191 0.00512005 0 0.0317067 0.00436308 5.96046e-008 0.0166433 0.00482281 0 0.0203365 0.0138827 0 0.0142491 0.0312493 0 5.96046e-008 0 0 -0.0532116 0.0860533 5.96046e-008 0.000158072 0 5.96046e-008 0.00399756 0 5.96046e-008 0.013315 0 0 0.0263975 0 0 0.0340256 0 0 0.0352896 0 1.19209e-007 0.0363286 0 0 0.0287739 0.00142196 0 -0.0244493 0.0500371 0 -0.0543923 0.085358 0 0.0318943 0.00140463 2.98023e-008 0.00631988 0.0190777 -5.96046e-008 0.00559103 0.0435404 0 5.96046e-008 0 0 -0.0411501 0.0706075 -5.96046e-008 0.00056994 0 0 0.00478458 0 0 0.014606 0 -5.96046e-008 0.0272937 0 5.96046e-008 0.0340254 0 0 0.0340256 0 0 -0.0165375 0.0375871 0 -0.0412806 0.067035 0 0.0277184 0.00380473 -5.96046e-008 0.0103929 0.0106457 -5.96046e-008 0.0340254 0 -5.96046e-008 0.0283592 0.000900651 0 0.109561 -0.00735905 -0.0533991 0.077512 0.00904666 -0.0712634 0.014659 0.0295873 0.00226092 0 0 0 -0.0445858 0.101182 0.0044753"
+		+ "6 0.000353694 0 5.96046e-008 0.0049839 0 -5.96046e-008 0.0131776 -0.0077829 -5.96046e-008 0.0272543 -0.0278203 0 0.0729568 -0.0462488 -0.00378835 0.0862973 -0.0186832 -0.0247636 -0.0257401 0.127266 0.00246823 -0.0338498 0.0939777 -0.0115533 0.0332525 0.00185871 -5.96046e-008 0.00999296 0.0217959 0 -0.00800574 -0.0452183 5.96046e-008 0.000623345 0 -5.96046e-008 0.00324285 0 -5.96046e-008 0.012879 0.000347829 0 0.00391304 -0.0153262 0 1.19209e-007 0 0 5.96046e-008 0 0 0.0150156 -0.0919627 -0.00191957 0.0818344 -0.0679992 -0.0189607 0.0843762 -0.0138921 -0.0349934 0.0581853 -0.0866983 -0.00459296 0.00813127 0 0 0.00417328 0 0 0.00548828 0 0 -0.0156199 0.0472795 -5.96046e-008 -0.0122581 -0.0135879 0 -0.00164008 -0.00581189 0 -0.0170138 0.0912698 0.0170554 -0.0122204 0.0554992 0 0.0283288 0.00742441 -5.96046e-008 0.021299 0.00424221 0 0 0 5.96046e-008 -1.19209e-007 0 0 0 0 0 0.00971091 0 -5.96046e-008 0.0136834 0 -5.96046e-008 0.00905752 0 5.96046e-008 0.0133288 0 0 0.0121168 0 0 0.0105872 0 0 0.0106561 0 0 0.0096"
+		+ "2222 0 5.96046e-008 0.013466 0 5.96046e-008 0.0122026 0 0 0.0138403 0 -5.96046e-008 0.00921345 0 0 0.0220489 0 2.98023e-008 0.0208983 0 0 0.0341777 0 -5.96046e-008 0.0350299 0 0 0.0247376 0 0 0.0300138 0 0 0.0280291 0 0 0.0183903 0 2.98023e-008 0.0227456 0 0 0.0186601 0 0 0.0327423 0 5.96046e-008 0.0213605 0 0 0.026651 0 0 0.0376933 0 0 0.0253809 0 -5.96046e-008 0.0336076 0 -5.96046e-008 0.0243734 0 0 0.0251055 0 5.96046e-008 0.0393255 0 5.96046e-008 0.0303938 0 0 0.0225548 0 2.98023e-008 0.0235365 0 0 0.0349058 0 0 0.024354 0 5.96046e-008 0.0138912 0 0 0.0208169 0 0 0.019639 0 0 0.018042 0 5.96046e-008 0.015901 0 0 0.0204496 0 0 0.0141991 0 0 0.0144018 0 -5.96046e-008 0.0206509 0 0 0.017292 0 0 0.0204312 0 -5.96046e-008 0.0154998 0 0 0.0012536 0 -5.96046e-008 0.00120747 0 0 0.00224495 0 0 0.00175929 0 -5.96046e-008 0.000940919 0 0 0.000835538 0 0 0.00224483 0 5.96046e-008 0.00153863 0 0 0.00192511 0 0 0.0009408 0 0 0.00241113 0 0 0.00243962 0 0 0.0173329 0 0 0.0281854 0 0 0.0260721 0 0 0.020197 0 -2.98023e-0"
+		+ "08 0.0189267 0 2.98023e-008 0.0271751 0 5.96046e-008 0.0180258 0 0 0.0181545 0 0 0.0277582 0 -5.96046e-008 0.0222175 0 0 0.0252452 0 0 0.019936 0 0 -0.0171794 -0.125335 -0.0780829 0.0856032 0.0342028 -0.00307232 0.00587285 0.0438174 0 0.00971413 0.0512615 0.0130874 0.0651835 -0.0591039 -0.0350416 -0.0240914 0.161813 0.0300397 -0.00129056 -0.00422411 -5.96046e-008 -0.0205954 -0.064357 -0.00429976 0.0116259 0.0274231 0.000676274 0.00810653 0.0397978 0 0.0115784 0.0327611 0.00555307 0.0911975 0.0550885 -0.00788814 -0.0242378 0.095003 0.0239742 -0.0468502 0.146321 0.0422677 -0.046988 0.120222 0.0184134 -0.0424387 0.138292 0.0344247 0.00111938 0.0687514 0.0198749"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[498:663]" 
+		(" -0.0118817 0.0846418 0.0251885 -0.0440288 0.126373 0.0380063 0.0136529 0.0226515 0 -0.00466561 0.0319061 0 -0.0124836 0.0563071 0.0011037 0.0128124 0.0237308 0.000330806 -0.029438 0.0578602 -5.96046e-008 0.0228748 0.0133268 0 0.0203726 0.0163098 2.98023e-008 -0.0179315 0.0428712 5.96046e-008 -0.0239002 0.0663835 5.96046e-008 0.0186806 0.0180761 0 0.00659275 0.0259048 0 -0.00180709 0.0437373 0.00178456 0.0284685 6.70061e-005 0 0.0379751 0 0 0.0234454 0.00177005 5.96046e-008 0.0378499 0 0 0.0238848 0.0001024 0 0.0270047 0 0 0.0394707 0 0 0.0277756 0.00238905 5.96046e-008 0.0311405 0 2.98023e-008 0.0294719 8.86535e-005 0 0.0342363 0.00021165 5.96046e-008 0.025424 0 -5.96046e-008 2.98023e-008 0.0334322 0 0 0.000269901 0 0 0 0 -1.19209e-007 0 5.96046e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0.0144568 2.98023e-008 5.96046e-008 0.00821825 0 7.45058e-009 0 3.72529e-009 0.0135721 -0.0033557 1.50949e-005 0.00759187 -0.00162903 -7.45058e-009 0.0142047 -0.00355998 0 0.00524855 -0.00139136 0 0 0 0 0.000496291 0 0 0 0 0 7.4505"
+		+ "8e-009 0 3.72529e-009 -0.0371175 0.161403 0.0453165 -0.043017 0.149181 0.0402996 -0.0300339 0.137947 0.0315183 0.0112067 0.00423853 0 -0.00553721 -0.062611 -2.98023e-008 -0.0214851 0.0427857 0.0498522 0.0134711 0.0118557 0 0.00261998 0 -1.49012e-008 0 0.0080309 0 0.0203952 0.0821778 -0.0247247 -0.00935042 0.0239382 0 -0.0103461 0.0353504 0 -0.0026623 0.023212 0 0.00975418 0.101413 -0.0289288 -0.00952327 -0.0218834 0 0.0317209 0.143471 0.000794888 -5.96046e-008 0.0250051 0 0 0 -3.72529e-009 0.0229465 0.113911 0.00564855 0.015548 0.0877778 0.00180876 -0.00622696 0.00368804 0 -0.0437721 0.120632 0.0145991 -0.0238273 0.0427541 0 -0.0429997 0.0719386 5.96046e-008 -0.0298289 0.0530888 5.96046e-008 -0.0317662 0.121098 0.0017699 -0.0151814 0.0176683 0 -0.0453126 0.12303 0.0331995 -0.0476173 0.130493 0.0269807 -0.0300659 0.103676 0.0310617 0.00225735 -0.182163 -0.117334 0.0273924 -0.12237 -0.0788459 0.00617146 -0.106594 -0.0659746 0.0269681 -0.141906 -0.0759811 1.19209e-007 0 0 -0.0165545 -0.115387 -0.0460194 1.19209e"
+		+ "-007 0 0 -0.00591803 -0.0193683 -5.96046e-008 -0.029842 -0.0968653 -0.0114022 0.0188283 -0.107532 -0.0753729 -0.026803 -0.137652 -0.0945188 -0.0300806 -0.108822 -0.0545833 1.19209e-007 0 5.96046e-008 -0.0210723 -0.15088 -0.103189 0 0 0 -0.0311748 -0.132432 -0.083348 -1.19209e-007 0.00884017 -0.0299852 -0.000102162 -0.000333826 1.19209e-007 -0.0127032 -0.0399181 -0.00212944 -0.0140346 -0.169594 -0.110726 0.00439847 0 5.96046e-008 0 0 0 0.000127316 0 0 0.00457239 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0.000205636 0 0 0 0 0 0 0 5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 5.96046e-008 1.19209e-007 0 0 0 0 0 0.0112314 0.0371994 0 0.0296763 0.00259244 0 0.0682735 -0.00203786 0 0.0892549 0.00318239 -0.0518745 0 0 -2.98023e-008 -0.0532477 0.0950223 0 0.00013566 0 -5.96046e-008 0.00"
+		+ "376558 0 -5.96046e-008 0.0128738 0 0 0.0254979 -0.00203786 -5.96046e-008 0.041167 -0.00507645 -1.19209e-007 0.0815098 0.00137281 0 -0.0418199 0.114018 -0.00697303 -0.0562133 0.0974806 0.000127137 0.00694156 0.0220437 0 0 0 0 0.0113355 0 0 0.0113708 0 0 0.0272305 0 0 0.0175276 0 0 0.0275782 0 -5.96046e-008 0.022137 0 2.98023e-008 0.0186102 0 -5.96046e-008 0.0168549 0 -5.96046e-008 0.0014782 0 0 0.00174642 0 0 0.0242693 0 0 0.019195 0 2.98023e-008 0.0103143 0.0331368 -5.96046e-008 0.0223913 0.0139245 0 -0.0302945 0.0666024 -5.96046e-008 0.0248492 0.00267806 0 0.0298541 6.70061e-005 0 -0.0109158 0.115781 -0.020497 -0.0582109 0.101056 0.000864148 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[664:829]" 
+		(" -1.19209e-007 0 0 0 0 0 0.0032171 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0.00605452 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0.000541925 0 0 -1.19209e-007 0 -5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 1.19209e-007 0 5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0.00361478 0 0 0.022573 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 0.0278124 -0.0800881 -0.000152588 0.0863847 -0.0180921 -0.0405048 0.0761994 -0.0795425 -0.00337291 0.0155935 0 5.96046e-008 -0.0150095 0.0113502 0 -0.0205864 0.0577227 0 0.0192809 0.00410474 -5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 -0.00018537 -0.0358493 0 0.0100622 0 0 0.0108135 0.000601907 0 0.000376225 0 0 0.0993416 -0.0656506 -0.0259751 0.0171691 0 0 0.0158962 0 0 -0.0240819 0.0491397 5.96046e-008 0.000803471 -0.00641797 5.96046e-008 -0.00436211 0.0712681 0.0147583 0."
+		+ "0302023 0.00585471 0 -0.0112286 0.11202 0.00986052 0.0552946 0.0172558 -0.044517 0.00908554 0 0 0.0138403 0 5.96046e-008 0.034833 0 5.96046e-008 0.0209422 0 0 0.0387048 0 0 0.024675 0 -5.96046e-008 0.0206957 0 0 0.0138912 0 0 0.000882506 0 0 0.00243962 0 0 0.0280758 0 5.96046e-008 0.0174915 0 -5.96046e-008 0.00162888 0.0283818 0 0.00573742 0.0340326 0.00162125 0.038933 0 0 0.0263085 0 -5.96046e-008 -0.00997043 0.00283382 5.96046e-008 0.0212572 0.0766421 -0.0116718 -0.0200566 0.0311855 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 -0.00573063 -0.0599644 -5.96046e-008 0.00372493 0.0126837 0 0.00174606 0.0230416 0 0.0116667 0.0114124 0 0.0582516 0.049149 -0.0676496 0.0415543 0.0487856 -0.0215584 0.0479361 0.0349247 -0.0592935 -0.00435126 -0.0216359 0 0.0806519 0.116485 -0.0341122 0 0.0224651 0 0.0633059 0.0888441 -0.0233366 0.04006 0.0622171 -0.0422285 -0.00226188 -0.000529482 -5.96046e-008 0.0395126 0.0337056 -0.0395101 0.00243372 0.0362198 0 -0.000300109 -0.0133301 -2.98023e-008 0.00135493 -0.211848 -0.1218 0"
+		+ ".0457637 -0.0658589 -0.0369952 0.00563836 0.0337 2.98023e-008 0.00406075 0.0488992 0.0149776 -0.0129836 0.124172 0.0158476 0.00605297 0.0224287 0.00282896 0.00623357 0.029019 0 0.00560749 0.0332638 0.00826991 0.0636263 0.0670706 -0.0220344 -0.00490844 0.0742409 0.0244188 -0.00103509 0.0645351 0.0210385 -0.0132983 0.0912863 0.0283261 -0.0188457 0.100363 0.0258387 0.0320092 0.132681 -0.0175911 -0.000296235 -0.0182335 2.98023e-008 -0.00913978 0.0845974 0.0277641 0.00698948 -0.158753 -0.0727705 -0.0032016 -0.169161 -0.118065 0.00638562 0.0229401 0.000173479 0.065785 0.107659 -0.0467916 0.0310069 -0.0154809 0.0065555 0.0513721 0.0104457 0.0145068 0.00507391 -0.0417749 -0.0421836 0.0264927 -0.0415203 -0.0254662 0.0189474 -0.0402852 0.00600034 -0.0201143 -0.0207499 0.0164583 -0.0257432 0.00960115 0.00937331 -0.000525594 0.00759081 0.00245857 0.00228703 0.0394042 -0.00529248 0.0253768 0.069906 -0.0150123 0.0236419 0.0561454 -0.0127008 0.0390385 0.0392033 0.0016326 0.0173423 0.0637474 -0.01311 -0.0142118 0.068598 0.00"
+		+ "791955 -0.00846422 0.031597 0.00336778 0.0232044 0.00551526 -0.0107606 0.0348266 0.0282898 0.00922465 0.0445237 0.0578151 0.0174372 0.0129921 0.0671387 -0.00432348 -0.0148992 0.093367 0.0117708 0.0503317 0.0470333 0.014294 0.0357109 -0.00309786 -0.0198876 1.19209e-007 0.00539241 -8.49366e-005 -0.028275 0.0316214 0.0463952 -0.0106137 0.00904501 0.0704143 0.0303539 -0.010072 0.0197433 0 -0.00583712 0.0642672 0 -0.00590574 0.050375 1.19209e-007 -0.00604624 0.0567602 0 -0.00584709 0.0482274 -1.19209e-007 -0.0051179 0.0420039 0 -0.00343185 0.0322127 0 -0.00157522 0.0236012 0 -0.00710365 0.0281244 0 -0.00624894 0.00485009 -1.19209e-007 -0.000533463 -0.0289176 -1.19209e-007 0.00243377 -0.0223472 0 -0.000885252 0.0107489 -1.19209e-007 -0.00236139 -0.0216236 0 0.00934621 0.0331906 0 0.0203349 0.0108725 0 0.00135522 0.0412694 -1.19209e-007 -0.00160794 0.0323454 0 -0.00157677 0.031955 0 -0.000257473 0.0279275 0 0.00509843 0.0233874 0 0.016911 0.00343007 1.19209e-007 0.0272432 -0.0187528 -1.19209e-007 0.0314893 -0.028474"
+		+ "5 0 0.0300164 -0.0226526 -1.19209e-007 0.028186 -0.0114821 0 0.0306985 -0.0279819"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[830:995]" 
+		(" -0.00198364 0.027115 -0.0208679 -0.0034827 0.0100365 0.000663817 0.0262423 -0.13402 -0.0147207 0.0183946 -0.0905736 -0.00335783 0.00183356 0.00916024 -0.020094 0.00357127 0.0296312 -0.0305383 0.000913501 0.033748 -0.0286753 0.00696766 -0.032795 -0.00299639 0.0222725 -0.134556 -0.0261146 -0.00307262 0.00477351 0.0040732 -0.00654685 -0.0167721 -0.00481659 -0.00498641 -0.0657889 -0.0250999 0.00683868 -0.107817 -0.027654 0 0.0138295 -0.0307026 1.19209e-007 0.0106238 -0.0121913 0 -0.0031899 0.0592805 -1.19209e-007 0.000876262 0.0621135 0 0.0149509 -0.00388503 0 0.0163974 -0.0295085 0 0.0142917 -0.0348304 1.19209e-007 0.00814934 0.0380128 -1.19209e-007 -0.00352338 0.047182 0 0.00419902 0.0182914 0 -0.000654056 0.0274286 1.19209e-007 -0.00251697 0.0352802 -1.19209e-007 -0.0032784 0.040993 0 -0.0166797 0.0107284 0.00756407 0.00225373 0.00193393 0 -0.00437628 -0.0169709 0 -0.00382168 -0.0278282 5.67436e-005 -0.00688371 0.0164586 1.19209e-007 -0.00448095 -0.000636339 0.0126432 -0.00110697 0.00195742 1.19209e-007 -0.00"
+		+ "830102 -0.0193047 0.0184828 -0.00790454 0.0044055 0 -0.00662038 0.0119304 0.00118482 -0.0131942 -0.00034678 -1.19209e-007 -0.00362337 0.0113227 0.000674248 -0.0179654 6.95586e-005 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 -1.19209e-007 0 0 0 0 -5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 0 -1.16415e-010 0 1.19209e-007 1.16415e-010 0 0 0 0 1.19209e-007 2.32831e-010 0 0 2.32831e-010 0 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 5.96046e-008 0 2.32831e-010 5.96046e-008 -1.19209e-007 0 0 0 -1.16415e-010 0 -1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 0 0 4.65661e-010 0 1.19209e-007 0 5.96046e-008 0 -4.65661e-010 0 0 0 2.74181e-006 0 0 0 1.19209e-007 4.65661e-010 -0.000149846 -1.19209e-007 4.65661e-010 -5.96046e-008 0 -4.65661e-010 -0.000182509 0 0 0 1.19209e-007 0 -0.000110924 0 0 5.96046e-008 0 0 "
+		+ "5.13196e-005 0 -2.32831e-010 0 1.19209e-007 -4.65661e-010 0 -1.19209e-007 -2.32831e-010 5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 0 0 1.16415e-010 0 0 2.32831e-010 0 0 -2.32831e-010 0 1.19209e-007 -4.65661e-010 5.96046e-008 0 4.65661e-010 -5.96046e-008 0 -2.32831e-010 0 0 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 -0.00234669 0 -4.65661e-010 -0.00269103 0 4.65661e-010 -0.00248909 0 -4.65661e-010 -0.00173289 0 -4.65661e-010 0.000802994 0 0 -0.000611126 0 0 -0.00131983 0 0 -0.00189841 0 0 -0.00265694 0 -9.31323e-010 0.000582039 0 0 -0.000685632 0 -9.31323e-010 -0.0030508 -1.19209e-007 -1.16415e-010 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 2.32831e-010 0 -1.19209e-007 -2.32831e-010 5.96046e-008 0 0 -5.96046e-008 0 1.16415e-010 0 0 0 0 0 -2.32831e-010 -5.96046e-008 0 -1.16415e-010 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 0 0 0 0 0 0 0 0 1.16415e-010 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 1.16415e-010 0 0 0 -5.96046e-008 0 0 -5.96046e-008 1.19209e-007 -2"
+		+ ".32831e-010 5.96046e-008 1.19209e-007 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 1.16415e-010 5.96046e-008 0 -2.32831e-010 5.96046e-008 0 -2.32831e-010 0 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 5.96046e-008 0 0 -1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008 0 0 5.96046e-008 0 0 0 -1.19209e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[996:1161]" 
+		(" 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 0 0 5.96046e-008 0 0 0 0 -4.65661e-010 0 1.19209e-007 0 0 -1.19209e-007 -2.32831e-010 0 0 0 5.96046e-008 1.19209e-007 4.65661e-010 0 0 0 0 0 9.31323e-010 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 -4.65661e-010 0 1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0 4.65661e-010 -0.00153941 -1.19209e-007 0 0.000948608 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 0 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 -5.96046e-008 -1.19209e-007 -2.32831e-010 0 0 0 0 0 0 0 -1.19209e-007"
+		+ " 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 -9.31323e-010 -0.000121474 0 0 0 0 -2.32831e-010 5.96046e-008 1.19209e-007 2.32831e-010 -5.96046e-008 0 0 0 0 9.31323e-010 -0.00213075 0 4.65661e-010 -0.00263709 1.19209e-007 -2.32831e-010 -5.96046e-008 0 0 0 -1.19209e-007 0 0 0 -2.32831e-010 0 -1.19209e-007 -4.65661e-010 0 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 0 4.65661e-010 0 0 0 0 0 0 0 0 0.000983651 -0.00682789 0 -9.31323e-010 -0.00114775 0 0 0.00411725 0 -9.31323e-010 0.0109952 0 7.92506e-005 0.0145266 -1.19209e-007 0.000277109 0.00676531 0 0.000589445 -0.000587106 0 0.00129141 -0.0078131 0 9.31323e-010 0.000633419 0 0.000199494 0.00789428 0 0.000896807 -0.00265867 0 -4.45184e-005 0.00509638 1.19209e-007 9.30546e-005 0.00628787 1.19209e-007 0.00124145 -0.00876218 -1.19209e-007 0.0014274 0.0175587 0 0.00700477 0.0115048 0 0.0105519 0.00114942 1.19209e-007 0.0121689 -0.00720263 -1.1"
+		+ "9209e-007 0.0132594 -0.0122378 0 0.0131102 -0.0124146 0 0.0115089 -0.00585282 0 0.00612977 0.0088793 0 0.00279952 0.0132132 -1.19209e-007 0.0001872 0.00589359 0 0.000123434 0.012055 -1.19209e-007 -4.12767e-005 0.00119567 9.42945e-005 0.00983947 -0.0205644 0.000145078 0.010807 -0.0147775 0.0167365 -0.0632297 -2.88486e-005 0 -9.31323e-010 -0.00348455 0 0 0.00391054 1.19209e-007 -1.86265e-009 -0.00687355 -1.19209e-007 -9.31323e-010 -0.00661647 0 -9.31323e-010 -0.00625247 1.19209e-007 -9.31323e-010 -0.00326186 0 -9.31323e-010 -0.0028879 1.19209e-007 0 -0.0040015 -1.19209e-007 0 0.000107944 0 0 0.00222933 1.19209e-007 0 0.00645596 0 0 0.000496328 0 -9.31323e-010 -0.00608683 0 0 0.00362927 0 -0.00872851 0.00598872 1.19209e-007 0 -0.00649452 0.00754762 -0.0117627 0.00187749 0.00172675 -0.00227774 -0.0038563 0.00995779 -0.0857622 -0.0191945 -0.000694513 0.00336305 -0.0163479 0.0248492 -0.106405 -0.00766468 -0.000327587 0.0123561 -0.0086652 0.0217851 -0.114787 -0.0161464 -0.000847578 0.00407784 0.00138742 0.000754356 "
+		+ "-0.040239 -0.0171227 1.19209e-007 -0.0145127 0.0125293 0.000418305 -0.0138815 0.05045 1.19209e-007 -0.00488174 -0.0175778 0 -0.00505744 -0.0273097 4.68493e-005 -0.0122299 0.0396626 0 -0.00557604 0.00502652 0 -0.0119704 0.0355544 0 -0.00797162 -0.0189326 5.05447e-005 -0.0139212 0.0473304 0 -0.0101399 0.018085"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1162:1327]" 
+		(" 0 -0.013186 0.0412038 -1.19209e-007 -0.00642158 0.0189972 0 -0.00993388 0.0215707 0.00951207 0.0528996 -0.0278649 0.0182689 -0.0912744 -0.0352769 0.0250636 0.0216034 -0.0182499 0.0225054 -0.0945052 -0.036689 -0.00198877 0.00917581 0.00133681 -0.0182413 -0.0593981 -0.020533 -0.0011934 0.0412401 -0.0230768 0.0133606 -0.0648267 -0.0197836 0.019009 0.0416937 -0.0247886 0.0181482 0.0552438 -0.0255409 0.0307667 -0.0137512 -0.00261164 -0.0206443 -0.0174959 -0.0023427 0.00476897 -0.0821761 -0.0282589 0.000408888 0.0436096 -0.0334891 0.0275323 -0.135609 -0.0262145 0.0103968 0.0170234 -0.0283839 0.0229483 -0.133085 -0.0350198 -7.1764e-005 0.00272179 0.00312209 -0.0121443 -0.077826 -0.0281196 -0.00547147 0.0331124 -0.0192481 0.0193706 -0.0933214 -0.00904733 0.0105988 0.0390779 -0.0395352 0.00583756 0.0432482 -0.0368424 0.015033 -0.0313083 -0.00747907 -0.0151944 -0.0302348 -0.0045678 0.0042479 -0.111103 -0.0342848 0 -0.000917715 -0.017634 0.00271225 -0.01346 0.00598991 -5.96046e-007 -0.000364953 -0.0271983 0.000857353 -"
+		+ "0.000679875 -0.000296235 -3.60012e-005 -0.0035448 -0.0207809 0.000372887 0.00487436 0.00461775 0.00072825 -0.0173418 -0.000680208 1.19209e-007 -0.0128688 0.0062806 0.00131404 -0.008993 -0.000127614 0 0.00291379 0.00260276 0.00313723 -0.00683569 0.00179666 -3.8147e-006 0.000846934 0.00441933 0.00444674 -0.010731 0.00405312 0.000960946 -0.00527185 0.00541741 0.000616193 -0.00723351 -0.000329316 0.0198438 -0.0179619 0.00157434 0.0103191 -0.0019715 0.00142699 0.00571609 0.00206719 -0.00042516 0.0140817 -0.0143693 -0.00398111 0.0249361 -0.0369905 2.38419e-006 0.0220579 -0.035665 -0.00176954 0.00935149 -0.00203235 -0.00320798 0.00258183 -0.0186994 0.01447 0.00147307 -0.0128537 0.00847805 0 -0.0110754 -0.00016731 0 -0.0210228 0.0126948 0.000964165 -0.0210285 0.0194392 9.17912e-006 -0.0224296 0.0169659 0 -0.0161582 0.00450295 0.00269818 -0.00287251 0.000608921 0.00332117 0.0021018 0.00225997 0.0141727 0.00299672 0.0067392 0.0213017 -0.0134331 0.00674486 0.0190065 -0.0086703 0.00755686 0.0116352 0.00736872 0.00322789 "
+		+ "0.00327158 -0.0161232 0.00616205 0.00246632 -0.0119456 0.00339621 0.00019753 -0.0119918 -0.000545025 1.19209e-007 -0.021779 0.00373751 0.00150871 -0.0192004 0.00927645 2.2769e-005 -0.0231952 0.00580907 0 -0.0165292 0.000622511 0.00798249 -0.00207631 0.006208 0.0043366 -0.00403634 0.00133288 0.00727856 -0.00117295 0.00191981 0.0108644 -0.00547509 0.00617796 0.0105891 -0.00712005 0.010286 0.00909328 -0.00569378 0.0107461 0.0062598 -0.00356057 0.00235826 0.0122372 -0.051342 -0.0118217 0 -0.0177851 0.023388 0.00163317 -0.0184431 0.0298656 0.0248998 -0.0713284 -0.00351781 0.0221275 -0.0781028 -0.00847417 -7.15256e-007 -0.0190274 0.0288009 0.000387192 -0.0191123 0.0335186 0.00464678 -0.0201349 -0.0106173 1.19209e-007 -0.00914859 0.00108331 0 -0.0142362 0.0104453 0.0181206 -0.0371265 0.00125486 0.000827193 -0.0144322 0.0208806 0.0207401 0.00154657 -0.0803657 0.00659788 -0.0119775 -0.0832636 0.0586081 0.0671259 -0.00498652 0.0551901 0.0761769 0.00671873 0.0514562 0.0742166 0.0114295 0.0536464 0.0651945 0.00105795 -0."
+		+ "00996464 0.0494044 -0.0283924 0.00258267 0.0726479 0.0150873 0.0302807 0.0154799 -0.0790268 0.0317559 -0.0277504 0.0722249 0.0545604 0.0189923 0.062781 0.0287605 -0.0263931 0.0358962 0.0502012 0.0219773 0.031911 0.0365393 -0.00588877 -0.0104546 0.0114488 0.0485449 -0.0137369 0.0369627 -0.0197549 0.0350573 0.0510321 -0.0184503 -0.0130546 0.000702381 -0.00120092 7.75158e-005 0.00470746 0.0346126 -0.0643752 -0.0136948 -0.0373525 -0.00952572 0.0274861 0.024548 -0.0193098 -0.0144876 -0.0234865 0.00362581 -0.0032047 -0.0199405 -0.0587041 0.00118643 -0.000231215 -2.98023e-008 0 0 1.49012e-008 0 0 0 -2.98023e-008 0 0 0 0 0 0.00169981 -0.000385268 0 0.000474393 -0.000131813 0 2.98023e-008 0 1.49012e-008 7.45058e-009 0 3.72529e-009 0 0 3.72529e-009 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0.00997008 0.0423728 -0.00277615 0 0 -0.00383925 0 0 -0.00315571 0 0 -0.00242949 0 0 -0.00931931 0 0 0 0.0130455 0.0111818 0 9.26666e-008 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-00"
+		+ "7 2.38419e-007 0.00133436 0.00567102 0 1.11261e-007 1.19209e-007 0 0.00310493 0.0131959 0 9.98843e-008 -1.19209e-007 -2.38419e-007 -5.98375e-008 0 -1.26362e-005 -6.65933e-005 -1.74046e-005 -0.00156045 -0.000773762 -0.00479722 4.43459e-005 -0.00066685 -0.000398159 0.0152547 0.00737484 -0.022885 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1328:1493]" 
+		(" -0.0174074 0 0 -0.0171523 0 0 -0.0118592 0 0 -0.0106432 0 0 -0.000978708 0 0 -0.00480413 0 0 -0.01386 0 0 -0.00133324 0 0 -0.00138164 0 0 -0.00871587 0 0 -0.0157804 0 0 0 0.0111819 0.00931823 -8.29697e-005 0 0 -0.000150919 0 0 -0.000462294 0 0 -0.00104642 0 0 -0.000127077 0 -1.19209e-007 -0.000226736 0 0 -0.00157452 0 1.19209e-007 -0.0051887 0 0 0 2.32831e-008 1.19209e-007 0 -1.16415e-010 1.19209e-007 -2.38419e-007 0.000162475 -0.000135422 0 -7.4273e-008 1.19209e-007 -2.38419e-007 -5.00586e-008 0 0 0 1.19209e-007 0 -1.05822e-007 0 -0.00104666 0.0023608 -0.0227588 0 9.08039e-008 -2.38419e-007 0 -5.84696e-008 -1.19209e-007 0 6.47269e-008 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -0.0050993 0 0 -0.00039649 0 0 -0.000124931 0 0 -0.00185823 0 0 0 0 0 0 0.00457646 -0.00394678 0.00036335 -0.000809917 -0.00297666 0.000210285 -0.000189821 -0.000185013 0 -4.37722e-008 0 2.38419e-007 0 0 -0.0108495 0 0 -0.000367641 0 1.19209e-007 -0.000228643 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-0"
+		+ "07 0 0 0 0 0 -1.19209e-007 -0.0031755 -0.00710129 -0.00295854 -0.0118299 -0.0510849 -0.0397569 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 1.19209e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 -0.0078969 -0.0242076 -0.00191045 -0.0222197 -0.0897236 -0.0541672 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0.00128162 0.00320411 2.38419e-007 8.55362e-008 -1.19209e-007 -0.00944"
+		+ "018 -0.00146275 -0.00593901 0.0577414 0.0219136 -0.0158553 0.00141048 -0.003941 0.00682783 8.24928e-005 -0.000229322 0.00021565 0 0 0 0 0 1.19209e-007 -0.0010953 -2.27592e-008 0 0 -6.01867e-008 -1.19209e-007 0 7.13044e-010 -1.19209e-007 0 6.51053e-008 0 0 0 0 0 -7.08387e-008 1.19209e-007 -0.00416923 0 0 -0.000824928 0 -1.19209e-007 0.000179529 0.00018668 0.000330567 0 -8.41683e-008 0 2.38419e-007 -9.25575e-008 -1.19209e-007 0 -4.42378e-008 0 0 1.02445e-007 1.19209e-007 0 2.4502e-005 3.19481e-005 0 2.82889e-008 0 0 0.00745459 0.0186365 0 1.93791e-005 4.87566e-005 0 0.0053354 0.0133384 0 0.00745459 0.0186363 2.38419e-007 0.0010024 0.0013032 0 0.00894568 0.0116295 0 0.0186365 0.0242274 0 9.11532e-008 0 -0.0123112 0 0 -0.0128958 0 0 -7.05719e-005 0 0 -0.00450683 0 0 -0.00434375 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 9.68575e-008 1.19209e-007 0.00228071 0.00457915 -0.00605679 0 3.82133e-008 -1.19209e-007 0 1.07568e-007 0 0.0268528 0.013688 -0.00193548 2.38419e-007 0.000483844 -0.000403285 0 0 0 0 0 "
+		+ "-1.19209e-007 -2.38419e-007 0.000349005 0.000872612 0 -3.57686e-008 0 0.0102336 0.0091468 -0.000407934 0.0126321 -0.00275726 -0.000621557 0 -5.96047e-008 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1494:1659]" 
+		(" 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0.00071472 0.00178707 0 -9.29576e-008 1.19209e-007 0 9.03383e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0.000833035 0.000394299 0.000299692 0 0 0 0.00870752 -0.0132194 0.0271964 0.0121133 -0.00108025 0.006253 0.0169063 0.00658009 -0.000195622 -2.38419e-007 0 0 0 0 1.1"
+		+ "9209e-007 -2.38419e-007 0.00776338 -0.00679159 0 -3.72529e-008 0 0 -8.00937e-008 0 2.38419e-007 0.00346115 -0.00290322 0 0.000162526 -0.000135541 0.00751305 0.000599893 0.00389969 0 9.31323e-009 0 0 9.31322e-008 1.19209e-007 0.0211957 0.000793034 0.0127624 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0.000988646 0.00247169 2.38419e-007 7.57427e-008 0 -0.00237441 0.000805628 0.00211465 0.0300622 0.0156733 -0.00271726 0 5.44824e-008 0 0 0 -1.19209e-007 0 0 0 0 0.00223162 0.00557899 0 2.98605e-008 1.19209e-007 0.00925946 0.00506582 0.00011158 -2.38419e-007 0 -1.19209e-007 0.000267982 -0.00071962 0.000742197 1.49012e-008 0 0 0 0 0 0 0 -2.98023e-008 0 0 0 5.96046e-008 0 0 0 0 0 1.19209e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 0 -8.33534e-008 0 4.63724e-005 0.00475212 0.00230581 1.49012e-008 0.0488371 0 0 0.0389529 0 0 0.0286203 -2.98023e-008 -1.19209e-007 0 5.96046e-008 1.19209e-007 0 0 -5.96046e-008 0 0 0 0 -2.98023e-008 1.19209e-007 0 5.96046e-008 2.98023e-008 0 -2.98023e-008 0 0 1.49012"
+		+ "e-008 5.96046e-008 0 0 0 0.0105007 -0.0301927 -1.19209e-007 -0.117467 -0.113234 -0.000174165 -0.23114 -0.131666 -0.000590563 -0.0776537 -0.046216 -0.000204563 0.0479453 -0.0259443 -1.19209e-007 0.0355259 0.0133969 0 0.0196679 2.98023e-008 -5.96046e-008 0.0110054 0.00295824 0 0.0125229 0 -1.19209e-007 0.0216219 0.00785345 -0.000676632 0.0717649 -0.033756 0.000184178 0.0380829 -0.0112002 0 0.0545484 0.0134467 1.19209e-007 0.0477296 0.0143601 1.86265e-009 0 0 0 0.0404167 0 0 0 0 0 0 -2.98023e-008 0.000287294 0.0400687 -0.018489 -0.000119567 0.0257554 -0.0541322 2.98023e-008 0.0288166 -1.49012e-008 0 0.0573464 0.0100699 0 0 0 -0.000388384 -0.166931 -0.0755743 1.19209e-007 0 0 0 0 0 -5.96046e-008 0.00757691 0.000279725 -0.000521302 0.0360928 -0.0564343 0 0.0126506 0 0 0 1.49012e-008 0 0 0 0 0 -1.19209e-007 1.19209e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0.00997008 0.0423727 0 0.0112436 0.00937104 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0.0130455 0.0111818 0 0 -1.19209e-007 0 0 0 0 1.00978e-007 0 -2.38419e-007 "
+		+ "0 0 0 0 0")
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1660:1825]" 
+		(" 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 5.96046e-008 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0.00745459 0.0186366 2.38419e-007 0.0186365 0.0242274 -2.76566e-005 -0.00728653 0.000625849 0 0 0 0 0 0 0 0.000247926 -0.00020659 1.19209e-007 0 5.96046e-008 0 0.00790901 -0.00692689 -0.00656295 0.018758 -0.031467 0.00020957 0.0051862 -0.00417852 -0.00888717 -0.123469 -0.0833409 -0.000181079 -0.125523 -0.0638117 -0.00227165 0 0 0 0 0 -0.010247 0 0 0 0 1.19209e-007 -0.000664234 0 0 -0.00194764 0 -1.19209e-007 -0.0109055 0 0 -0.000109434 0 0 -0.000249863 0 -1.19209e-007 -0.00560689 0 0 -2.38419e-007 0 0 -0.0112443 0 -1.19209e-007 0 0 0 -0.000188828 0 0 -0.000639439 0 0 -0.00954556 0 1.19209e-007 -2.67029e-005 0 0 -6.98566e-005 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+		+ " 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 -0.0007658 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 -0.000537395 0 0 -0.00542426 0 0 -0.00369334 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 -0.00330138 0 0 -0.00288558 0 0 0 0 0 -0.00360155 0 0 -0.00607586 0 0 -0.00365138 0 0 -0.00166559 0 0 -0.00257063 0 0 -0.00157571 0 -1.19209e-007 -0.000685692 0 0 -0.00146461 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 -0.000330687 0 0 -0.000357628 0 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 -8.96454e-005 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -1.43051e-006 0 0 -0.000110388 0 1.19209e-007 -0.00227451 0 1.19209e-"
+		+ "007 -0.000303268 0 0 0 0 0 0 0 1.19209e-007 -0.000172853 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -0.0114191 0 0 -0.0185039 0 0 -0.0185037 0 0 -0.0110416 0 0 -0.00361252 0 0 -0.000104427 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 -0.000835896 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1826:1991]" 
+		(" -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0"
+		+ " 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 -1.01514e-007 0 0 -9.31323e-009 -1.19209e-007 0.0131514 0.0248722 0.00148332 0.00297499 0.0080741 0.00161088 0 0 -1.19209e-007 0 1.16415e-007 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 -0.000120163 0 0 -0.00344229 0 0 -0.0108798 0 -1.19209e-007 -0.0185032 0 0 -0.0185039 0 1.19209e-007 -0.0125453 0 0 -0.000884771 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 -0.00145221 0 0 -0.0110979 0 0 -0.0176048 0 0 -0.0180342 0 0 -0.0109262 0 0 -0.0032692 0 0 -0.000131845 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 -1.04904e-005 0 0 -0.000445127 0 0 -0.000673771 0 1.19209e-007 -0.000166655 0 0 -3.38554e-005 0 0 -0.00289869 0 1.19209e-007 -0.00172901 0 1.19209e-007 -0.00561237 0 1.19209e-007 -0.00409102 0 0 -0.00154734 0 1.19209e-007 -0.00117445 0 0 -0.00100446 0 0 -0.00187016 0 1.19209e-007 -0.00480533 0 0 -0.00778365 0 "
+		+ "0 -0.0123727 0 0 -0.0113447 0 0 -0.00227952 0 0 -0.00245595 0 0 -0.00188971 0 0 -0.00322747 0 0 -0.00526333 0 1.19209e-007 -0.0115113 0 0 -0.0134196 0 0 -0.0127916 0 1.19209e-007 -0.0123727 0 0 -0.00534391 0 1.19209e-007 -0.00208306 -0.0264785 0.0519383 0.0592475 -0.0172128 0.0296121 -0.00130272 0.0746643 -0.0874887 0.0472326 0.0490678 -0.0702107 -0.0024389 0.0159978 0.123684 0.0185274 0.0081693 0.145856 -0.0241083 0.0274558 0.0113713 -0.000520825 0.0146593 0.0470159 -0.00116277 0.0473143 -0.0460259 0.00246429 0.0285335 -0.0298029 -0.0215395 0.00673876 -0.0380679 7.98702e-005 -0.0167803 -0.0236237 -0.00198197 0.0612307 0.0532142 0.0371087 0.0434538 0.0263569 -0.00308537 0.0283649 -0.0132424 0.0154202 -0.0175341 -0.00724673 0.014017 -0.0055373 0.187042 -0.0104719 -0.0248693 -0.0480978 0 0 0 0 0 1.19209e-007 0 0.000187792 0.000798106 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0.000963574 0.00409532 0 0.000653505 0.00277722 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.49012e-008"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[1992:2157]" 
+		(" 0 0 -2.98023e-008 0 0 0 5.96046e-008 0 0 0 0 0 -0.000158072 0 0 -1.19209e-007 0 0 -0.000623226 0 -5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 -0.00836897 -0.00221457 -5.96046e-008 -0.0302025 -0.00710986 0.00145781 -0.030085 -0.00625375 0.00329715 -1.19209e-007 0 5.96046e-008 -0.0286247 -0.00693076 0 0 0 5.96046e-008 -0.0115236 -0.00170531 -5.96046e-008 0 0 0 -6.58035e-005 0 0 0 0.0134454 0 0.00254858 0.0520154 0 0.00618887 0.042604 0 -0.0103824 0.0472701 0.00979194 0.000367314 -0.00120202 0 0 0 0 0.0137672 -0.0489514 0 0.00476736 -0.100616 -0.00628378 -0.0356945 -0.0940994 -0.014111 -0.046815 -0.0180644 0.0266284 -0.0462711 -0.00919282 0.0241554 -0.0333195 0.00396717 0.0141889 -0.00335586 0.000504616 0 0.0246841 -0.107399 -0.0107641 0.0122857 -0.0402078 0 0 0 -2.98023e-008 5.96046e-008 0 -2.98023e-008 -0.00992465 -0.102898 -0.0302691 -0.000397444 0.000158546 5.96046e-008 -0.000754595 0 -5.96046e-008 -1.19209e-007 0 0 0.00435174 -0.0128034 0.000727475 0.00699663 -0.00888695 0.0088315 0 0 "
+		+ "0 0.000230551 -0.00176365 0.000444293 0 0 0 -0.0024941 0 0 -0.00346565 -0.00070833 1.19209e-007 -0.00515509 0 -0.000385046 0 0 0 2.98023e-008 0 0 0 0 2.98023e-008 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 -2.98023e-008 0 0 0 0 0 0 0 0 2.98023e-008 0 0 -2.98023e-008 -2.98023e-008 0 -1.49012e-008 0 0 0 -2.98023e-008 0 0 0 0 7.45058e-009 5.96046e-008 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 -1.49012e-008 -2.98023e-008 0 1.49012e-008 -2.98023e-008 0 1.49012e-008 0 0 0 2.98023e-008 0 0 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 -1.49012e-008 0 0 0 0 0 0 0 0 1.49012e-008 -0.00907743 0 0 0.00167912 0.0707987 0.018321 -0.0603475 -0.0747945 -0.0196292 -0.0817413 -0.0412345 -0.026593 -0.0655069 0.0314547 -0.0157817 -0.0647944 -0.0609337 -0.0362993 0.0217209 0.15846 0.0335759 -0.0501258 -0.0783512 -0.0434987 0.00678605 -0.130927 -0.0974334 -0.0327193 -0.0889767 -0.0400443 -0.0220599 0.000268386 0 -0.0265493 0 -0.0476964 -0.012712 0 -0.0476964 -0.000654578 0.000268386 0 -0.0059"
+		+ "1516 -0.000724749 0.0014149 -0.00380576 0.00477764 5.96046e-008 -0.0100502 0.00907054 -5.96046e-008 -0.0268089 0.0224208 -0.000258744 -0.0611649 0.0669242 0.00226498 -0.0753305 0.0693831 0.0411392 -0.0721338 0.0579548 0.0141789 -0.0495491 0.0418234 0.00419176 -0.0256462 -0.0241662 0.0379539 -0.0201418 0.00557157 0.00318003 -0.00616741 0.00186883 0.0186136 -0.000362992 0.000677726 0 -0.000664473 -0.00666639 0.00395733 0.00486588 -0.0626359 0.041925 0.0394766 0.11197 0.0495515 -0.0594038 0.0423655 -0.00181448 -0.0269313 0.0645536 0.00105727 -0.0694091 0.032509 0.0314585 -0.053005 0.0680895 -0.0138192 -0.00276971 -0.0127153 0 0.00335377 -0.05612 3.72529e-009 0.000939071 -0.0365452 0 -0.00020723 0 0 -0.00488198 0 0 -0.000416905 0 -1.49012e-008 -0.00571851 0 0 -0.000527203 0 -1.49012e-008 -0.00605455 0 0 -0.000505269 0 0 -0.00598103 0 0 -0.00037697 0 0 -0.00564992 0 1.49012e-008 -0.000269473 0 1.49012e-008 -0.00495535 0 1.49012e-008 -0.000142187 0 1.49012e-008 -0.00423446 0 -1.49012e-008 -2.98023e-008 0 1.49012e-0"
+		+ "08 -0.00376925 0 1.49012e-008 1.49012e-008 0 0 -0.00332832 0 0 0 0 0 -0.00314745 0 0 -0.00343471 0 -3.72529e-009 -0.00396781 0 -3.72529e-009 -6.2786e-005 0 -3.72529e-009 -7.45058e-009 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 0 0 0 0 2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 -2.98023e-008 2.98023e-008 0 1.49012e-008 -2.98023e-008 0 0 0 0 0 0 0 1.49012e-008 -1.49012e-008 0 0 0 0 -7.45058e-009 7.45058e-009 0 3.72529e-009 -3.72529e-009 0 0 3.72529e-009 0 -1.86265e-009"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2158:2323]" 
+		(" 7.45058e-009 0 0 0 0 3.72529e-009 -0.0653946 -0.0155626 0.0514061 -0.0624123 0.00852185 0.0398081 -0.0603039 0.0109698 0.0149313 -0.0632293 -0.0160321 0.0406905 -0.0505466 -0.0151288 0.0629532 -0.0556412 0.0136725 0.0524241 -0.0536252 -0.0159985 0.0473562 -0.000399113 0 -0.0476965 -0.000196457 0.0400936 -0.0504127 0.0350202 -0.123158 -0.0576657 -5.96046e-008 0 0 0.000986576 -0.149979 -0.110642 -5.96046e-008 0 0 0 0 0 -1.49012e-008 0 7.45058e-009 0 0 -2.98023e-008 0 0 -2.98023e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 1.19209e-007 -0.0142027 -0.00171479 0.00488293 0 0 -5.96046e-008 0 0 5.96046e-008 -1.19209e-007 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 -0.0115957 -0.000639841 0.00547254 -0.00941896 -0.00216678 0.000639558 -0.0640743 -0.0131571 0.0180901 -0.0646467 -0.00345371 0.0316023 -0.0484352 -0.00967758 0.00700271 -0.0698209 -0.0198349 0.0490653 -0.0485221 -0.0092069 0.0079307 -0.0633264 -0.0178331 0.0440338 -0.0174789 -0.00158178 0 -0.0340252 0 0 -0.0536"
+		+ "356 -0.00817096 0 -0.0144928 0.035939 -0.0649868 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 -2.98023e-008 0 1.49012e-008 -1.49012e-008 0 0 1.49012e-008 0 7.45058e-009 0 0 1.49012e-008 0 0 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 0 -1.49012e-008 2.98023e-008 0 0 0 0 0 0 0 2.98023e-008 0 0 -1.49012e-008 0 0 0 -1.49012e-008 0 7.45058e-009 2.98023e-008 0 -1.49012e-008 0 0 -1.49012e-008 -2.98023e-008 0 -1.49012e-008 -1.49012e-008 0 0 0 0 2.98023e-008 0 0 0 0 0 0 0 0 1.49012e-008 0 0 0 0 0 -2.98023e-008 0 0 7.45058e-009 0 0 -1.49012e-008 0 0 0 0 0 0 1.49012e-008 0 7.45058e-009 0 0 0 0 0 0 -2.98023e-008 0 0 -2.98023e-008 0 1.49012e-008 -5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 -1.49012e-008 0 0 1.49012e-008 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 -1.49012e-008 0 -7.45058e-009 -1.49012e-008 0 7.45058e-009 -5.96046e-008 0 -2.98023e-008 5.96046e-008 0 -2.98023e-008 0 0 0 0 0 0 -1.49012e-008 0 0 0 0 -2.98023e-008 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 2.98023e-008 5.96046e-008 0 2.98023e-008 5.96046e-008 0 0 0 0 0 0 0 2.9"
+		+ "8023e-008 0 0 2.98023e-008 0 0 0 0 0 0 -2.98023e-008 0 1.49012e-008 -2.98023e-008 0 0 -2.98023e-008 0 0 2.98023e-008 0 1.49012e-008 0 0 0 0 0 0 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 -1.49012e-008 5.96046e-008 0 0 0 0 0 0 0 0 0 0 -1.49012e-008 0 0 0 -2.98023e-008 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 7.45058e-009 0 0 0 0 0 0 1.49012e-008 0 -7.45058e-009 0 0 0 2.98023e-008 0 0 1.49012e-008 0 0 -2.98023e-008 0 -1.49012e-008 0 0 -1.49012e-008 0 0 -7.45058e-009 0 0 0 0 0 -1.49012e-008 -2.98023e-008 0 1.49012e-008 0 0 0 0 0 0 0 0 0 -0.00569227 0 -2.98023e-008 -0.00152591 0 -1.49012e-008 -0.0148306 0 0 -0.024981 0 2.98023e-008 -0.0283216 0 -2.98023e-008 0.0292741 0.0619638 7.45058e-009 0.0312003 0.0581431 0 0.0315071 0.110723 0.01164 -0.00422815 -0.00343233 -3.72529e-009 -0.00105356 0 0 -0.00721359 -0.0240384 0 -0.0315406 -0.0590527 -0.000372432 -0.0848325 -0.0676383 -0.00686779 -0.027881 0 0 0.0397304 0.112673 -0.00060761 -0.109544 -0.0515703 -0.0353913 -0.0763988 -0.0278185 -0.0335351 -0.0596465 0.00934211 -0.0647788 "
+		+ "0.022216 0.116536 0.00740694 -0.0285492 0 0 0.0173989 0.0325256 7.45058e-009")
+		
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2324:2489]" 
+		(" -0.0216001 0.000514332 -1.49012e-008 -0.0244191 0.00512005 0 -0.0317067 0.00436308 -2.98023e-008 -0.0166433 0.00482281 0 -0.0203365 0.0138827 0 -0.0142491 0.0312493 2.98023e-008 0 0 0 0.0532115 0.0860533 1.49012e-008 -0.000158012 0 0 -0.00399759 0 0 -0.0133151 0 0 -0.0263975 0 0 -0.0340255 0 0 -0.0352896 0 0 -0.0363286 0 2.98023e-008 -0.0287432 0.00149891 0 0.0244494 0.0500371 0 0.0543923 0.085358 0 -0.0318943 0.00140463 2.98023e-008 -0.00631989 0.0190777 0 -0.00559101 0.0435404 1.49012e-008 0 0 0 0.0411501 0.0706075 0 -0.000570059 0 0 -0.00478464 0 -1.49012e-008 -0.014606 0 1.49012e-008 -0.027294 0 0 -0.0340255 0 0 -0.0340255 0 0 0.0165375 0.0375871 0 0.0412806 0.067035 0 -0.0277184 0.00380473 -1.49012e-008 -0.0103929 0.0106457 -3.72529e-009 -0.0340255 0 0 -0.0283592 0.000900651 -1.49012e-008 -0.110564 -0.00840537 -0.0505355 -0.0778605 0.00914256 -0.0699246 -0.014659 0.0295873 0.00226092 -2.98023e-008 0 0 0.0449838 0.102212 0.00498053 -0.00035366 0 0 -0.00498369 0 4.65661e-010 -0.0131777 -0.0077829 0 -0.027"
+		+ "2542 -0.0278203 0 -0.072598 -0.046454 -0.00341683 -0.087707 -0.0189039 -0.0230005 0.0259812 0.126906 0.00256824 0.0338955 0.0940729 -0.0115093 -0.0332526 0.00185871 0 -0.00999311 0.0217959 -7.45058e-009 0.00800574 -0.0452183 0 -0.000623167 0 0 -0.00324285 0 0 -0.0128789 0.000347829 0 -0.00391296 -0.0153262 -1.49012e-008 0 0 0 0 0 0 -0.0150926 -0.0918666 -0.00192316 -0.0819234 -0.0684186 -0.0188798 -0.0843629 -0.0144114 -0.0345129 -0.0584885 -0.0872794 -0.00465026 -0.00813121 0 -2.98023e-008 -0.00417316 0 2.98023e-008 -0.00548834 0 0 0.0156198 0.0472795 0 0.012258 -0.0135879 0 0.00164014 -0.00581189 -1.49012e-008 0.0170138 0.0912698 0.0170555 0.0122204 0.0554992 -9.31323e-010 -0.0283287 0.00742441 1.49012e-008 -0.021299 0.00424221 3.72529e-009 0 0 1.86265e-009 -1.49012e-008 0 -7.45058e-009 0 0 0 -0.00971088 0 1.49012e-008 -0.0136834 0 -2.98023e-008 -0.0090576 0 -7.45058e-009 -0.0133288 0 0 -0.0121168 0 0 -0.0105872 0 -3.72529e-009 -0.0106561 0 -1.49012e-008 -0.00962212 0 0 -0.013466 0 1.49012e-008 -0.0122026 0"
+		+ " -7.45058e-009 -0.0138404 0 1.49012e-008 -0.00921345 0 0 -0.0220489 0 -1.49012e-008 -0.0208983 0 7.45058e-009 -0.0341776 0 -2.98023e-008 -0.0350298 0 2.98023e-008 -0.024719 0 0 -0.030014 0 0 -0.0280291 0 0 -0.0183903 0 0 -0.0227456 0 0 -0.0186601 0 -1.49012e-008 -0.0327422 0 -1.49012e-008 -0.0213604 0 0 -0.026651 0 0 -0.0376932 0 0 -0.0253807 0 -4.65661e-010 -0.0336075 0 -2.98023e-008 -0.0243735 0 -9.31323e-010 -0.0251055 0 0 -0.0393255 0 0 -0.0303938 0 0 -0.0225549 0 0 -0.0235365 0 0 -0.034906 0 0 -0.024354 0 0 -0.0138913 0 0 -0.020817 0 2.98023e-008 -0.019639 0 0 -0.0180419 0 0 -0.015901 0 0 -0.0204497 0 -1.49012e-008 -0.0141991 0 0 -0.0144019 0 0 -0.0206509 0 -1.49012e-008 -0.0172921 0 3.72529e-009 -0.0204312 0 0 -0.0154997 0 0 -0.00125377 0 -3.72529e-009 -0.00120753 0 1.49012e-008 -0.00224486 0 0 -0.00173807 0 -7.45058e-009 -0.000940844 0 0 -0.000835448 0 0 -0.00224492 0 1.49012e-008 -0.00153866 0 -1.49012e-008 -0.00192514 0 0 -0.000940867 0 0 -0.00241119 0 0 -0.00243959 0 0 -0.0173329 0 0 -0.0281853 0 0 "
+		+ "-0.0260722 0 0 -0.020197 0 0 -0.0189266 0 0 -0.027175 0 0 -0.0180257 0 0 -0.0181544 0 0 -0.0277583 0 1.49012e-008 -0.0222176 0 0 -0.0252451 0 0 -0.019936 0 9.31323e-010 0.017266 -0.12542 -0.0782269 -0.0869807 0.0358166 -0.00392202 -0.00587294 0.0438174 -1.49012e-008 -0.00971413 0.0512615 0.0130873 -0.0663012 -0.0586465 -0.0349929 0.0235937 0.162808 0.0301571 0.00129068 -0.00422411 2.98023e-008 0.0205954 -0.064357 -0.00429985 -0.0116259 0.0274231 0.000676304 -0.00810653 0.0397978 -1.49012e-008 -0.0115783 0.0327611 0.00555304 -0.0925451 0.0558988 -0.00835976 0.0242574 0.0950127 0.0239829 0.0464857 0.146653 0.0424874 0.0469972 0.120252 0.0184346 0.0422637 0.138347 0.0345177 -0.00111955 0.0687514 0.0198749 0.0118892 0.0846834 0.0252132 0.0438615 0.12717 0.0383356 -0.0136529 0.0226515 7.45058e-009"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2490:2655]" 
+		(" 0.00466577 0.0319061 0 0.0124836 0.0563071 0.00110364 -0.0128123 0.0237308 0.000330776 0.029438 0.0578602 0 -0.0228749 0.0133268 0 -0.0203726 0.0163098 0 0.0179314 0.0428712 0 0.0239001 0.0663835 0 -0.0186806 0.0180761 0 -0.00659278 0.0259048 -1.86265e-009 0.00180718 0.0437373 0.0017845 -0.0284685 6.70061e-005 0 -0.037975 0 0 -0.0234453 0.00177005 0 -0.0378499 0 -2.98023e-008 -0.0238847 0.0001024 0 -0.0270049 0 0 -0.0394707 0 0 -0.0277756 0.00238905 -7.45058e-009 -0.0311404 0 -2.98023e-008 -0.0294719 8.86535e-005 0 -0.0342363 0.00021165 0 -0.025424 0 0 -2.98023e-008 0.0334322 -1.49012e-008 0 0.000269901 0 0 0 -2.98023e-008 0 0 5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 -5.96046e-008 0.0144568 2.98023e-008 0 0.00821825 -2.98023e-008 0 0 0 -0.0132239 -0.00326971 -5.96046e-008 -0.00759184 -0.00162903 -5.96046e-008 -0.0142049 -0.00355998 5.96046e-008 -0.00524855 -0.00139136 5.96046e-008 -5.96046e-008 0 0 -0.000496268 0 0 0 0 -5.96046e-008 1.19209e-007 0 0 0.0367954 0.161812 0.0454912 0.0426936 0.150328 0.0406499"
+		+ " 0.0298859 0.138051 0.0316195 -0.0112066 0.00423853 5.96046e-008 0.00553711 -0.062611 7.45058e-009 0.0214183 0.0435342 0.050341 -0.0134711 0.0118557 -1.19209e-007 -0.00261998 0 5.96046e-008 0 0.0080309 2.98023e-008 -0.0203946 0.082039 -0.0245667 0.00935042 0.0239382 0 0.0103604 0.0353505 0 0.00266227 0.023212 0 -0.00956856 0.101173 -0.028767 0.00952324 -0.0218834 7.45058e-009 -0.0321511 0.143883 0.000574619 0 0.0250051 0 0 0 0 -0.0231096 0.114057 0.00562957 -0.0155659 0.0876858 0.00189593 0.00621968 0.00368805 0 0.0437683 0.120532 0.0146073 0.0238272 0.0427541 0 0.0429998 0.0719386 0 0.0298289 0.0530888 -7.45058e-009 0.0317378 0.120836 0.00170778 0.0151815 0.0176683 -1.86265e-009 0.0452101 0.123091 0.0332552 0.0475091 0.130472 0.0269984 0.0301108 0.103227 0.0308579 -0.0027132 -0.180938 -0.116382 -0.0283481 -0.120872 -0.0782853 -0.00614804 -0.106998 -0.0665205 -0.0277569 -0.140865 -0.0755935 0 0 0 0.01689 -0.116045 -0.0464142 0 0 0 0.00591809 -0.0193683 0 0.0299895 -0.0971663 -0.0113683 -0.0189749 -0.107225 -0"
+		+ ".0751337 0.0268789 -0.137693 -0.0945795 0.0300805 -0.108822 -0.0545832 0 0 0 0.0211843 -0.151016 -0.103291 0 0 0 0.0313318 -0.132546 -0.0834265 1.19209e-007 0.00884017 -0.0299852 0.000102043 -0.000333826 5.96046e-008 0.0127033 -0.0399194 -0.0021278 0.0140758 -0.16969 -0.11075 -0.00439842 0 7.45058e-009 -2.98023e-008 0 0 -0.000127271 0 0 -0.00457248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7.45058e-009 0 0 0 0 -2.98023e-008 -0.000205576 0 0 -7.45058e-009 0 0 0 0 1.49012e-008 0 0 0 -5.96046e-008 0 0 -1.49012e-008 0 0 0 0 0 -2.98023e-008 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 0 0 2.98023e-008 5.96046e-008 0 0 0 0 0 -1.49012e-008 0 -7.45058e-009 -5.96046e-008 0 0 -2.98023e-008 0 0 -2.98023e-008 0 0 -0.0112314 0.0371994 0 -0.0296762 0.00259244 1.49012e-008 -0.0682737 -0.00203786 0 -0.0885002 0.003355 -0.0498546 0 0 0 0.0532476 0.0950223 0 -0.000135716 0 1.86265e-009 -0.00376564 0 3.72529e-009 -0.0128736 0 0 -0.0254979 -0.00203786 7.45058e-009 -0.041167 -0.00507645 0 -0.0815099 0.00137281 -7.45058e-009 0.042"
+		+ "2412 0.113476 -0.00680351 0.0562132 0.0974748 0.00012441 -0.00694145 0.0220437 -9.31323e-010 0 0 -7.45058e-009 -0.0113354 0 1.49012e-008 -0.0113707 0 0 -0.0272305 0 1.86265e-009 -0.0175275 0 0 -0.0275781 0 0 -0.022137 0 0 -0.0186101 0 -3.72529e-009 -0.0168549 0 0 -0.0014782 0 0 -0.00172535 0 0 -0.0242694 0 0 -0.019195 0 0 -0.0103144 0.0331368 0 -0.0223913 0.0139245 0 0.0302945 0.0666024 0 -0.0248425 0.00269493 0 -0.0298542 6.70061e-005 -1.49012e-008 0.0114714 0.11528 -0.0202035 0.0587803 0.100046 0.00103422 0 0 1.49012e-008 0 0 0 2.98023e-008 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 0 -0.00321706 0 7.45058e-009"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2656:2821]" 
+		(" 0 0 0 -0.00605452 0 0 1.49012e-008 0 0 -5.96046e-008 0 2.98023e-008 -0.000527203 0 0 1.49012e-008 0 -7.45058e-009 2.98023e-008 0 1.49012e-008 0 0 -7.45058e-009 -2.98023e-008 0 0 0 0 -1.49012e-008 0 0 0 5.96046e-008 0 2.98023e-008 -2.98023e-008 0 1.49012e-008 0 0 -1.49012e-008 0 0 1.49012e-008 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.49012e-008 2.98023e-008 0 0 0 0 0 -2.98023e-008 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 -2.98023e-008 0 -1.49012e-008 0 0 0 -0.00361478 0 -2.98023e-008 -0.0225729 0 2.98023e-008 0 0 0 -0.0277794 -0.0801372 -0.000151955 -0.0867332 -0.0174704 -0.0408711 -0.0765118 -0.080345 -0.0030873 -0.0155936 0 0 0.0150095 0.0113502 0 0.0205863 0.0577227 3.72529e-009 -0.0192808 0.00410474 0 7.45058e-009 0 3.72529e-009 -1.49012e-008 0 7.45058e-009 7.45058e-009 0 0 0.000185505 -0.0358493 0 -0.0100623 0 -2.98023e-008 -0.0107946 0.000605365 -1.49012e-008 -0.000376284 0 0 -0.0995232 -0.0661575 -0.02556 -0.0171691 0 -2.98023e-008 -0.0158961 0 0 0.024082 0.0491397 -3.72529e-009 -0.000807479 -0.00641814 0 0.00436211 0."
+		+ "0712681 0.0147583 -0.0302022 0.00585471 0 0.0111883 0.111983 0.00993615 -0.055307 0.0159676 -0.0429179 -0.00908548 0 1.49012e-008 -0.0138404 0 1.49012e-008 -0.034833 0 2.98023e-008 -0.0209423 0 0 -0.0387047 0 -2.98023e-008 -0.024675 0 0 -0.0206956 0 0 -0.0138913 0 0 -0.000882357 0 -7.45058e-009 -0.00243962 0 0 -0.0280757 0 -2.98023e-008 -0.0174915 0 7.45058e-009 -0.00162892 0.0283818 0 -0.00573754 0.0340326 0.00162122 -0.038933 0 -2.98023e-008 -0.0263085 0 0 0.0099704 0.00283382 0 -0.0212604 0.0765146 -0.0115475 0.0200566 0.0311855 0 0 0 0 0 0 0 0.00573054 -0.0599644 0 -0.00372496 0.0126837 1.49012e-008 -0.00174597 0.0230416 0 -0.0116667 0.0114124 0 -0.0582665 0.0491276 -0.0671098 -0.0408513 0.0454516 -0.0197856 -0.0481484 0.034665 -0.0585579 0.00435123 -0.0216359 0 -0.0810474 0.116568 -0.0340088 0 0.0224651 -2.98023e-008 -0.0627474 0.0873024 -0.0224981 -0.0396314 0.0621231 -0.0414587 0.00226194 -0.000529482 0 -0.0396051 0.0327978 -0.0385983 -0.00243372 0.0362198 0 0.000291944 -0.0133278 0 -0.00176084 -0.2105"
+		+ "53 -0.12105 -0.0469539 -0.0657669 -0.0370072 -0.00563836 0.0337 0 -0.00406063 0.0488992 0.0149775 0.0127629 0.12605 0.016181 -0.00605303 0.0224287 0.0028289 -0.00623351 0.029019 -2.98023e-008 -0.00560755 0.0332638 0.00827 -0.064895 0.0671485 -0.0222371 0.00489807 0.0743681 0.0244728 0.00098151 0.0646005 0.0210684 0.013939 0.093545 0.0294129 0.0195657 0.102441 0.0266821 -0.0310415 0.132657 -0.0160393 0.000296175 -0.0182335 0 0.00907052 0.0840961 0.0275363 -0.00776815 -0.158051 -0.0725676 0.0032016 -0.169161 -0.118065 -0.00638568 0.0229401 0.00017345 -0.066664 0.10807 -0.0468879 -0.0313551 -0.0156505 0.00672185 -0.0513093 0.0103157 0.0146189 -0.00543618 -0.0415971 -0.0417495 -0.0269818 -0.041768 -0.0246902 -0.0190644 -0.040234 0.00620496 0.0219133 -0.019197 0.0188572 0.0250006 0.00885968 0.00887477 0.000806332 0.00805632 0.00233102 -0.00228643 0.039479 -0.00534964 -0.0253472 0.069948 -0.0149775 -0.0231395 0.0561873 -0.0127457 -0.0389295 0.0389704 0.00144446 -0.0174189 0.0641429 -0.0132883 0.0144258 0.0700562 0."
+		+ "00821614 0.00846434 0.031597 0.00336778 -0.0233359 0.00573226 -0.0104054 -0.0347922 0.0279605 0.00885749 -0.043901 0.057228 0.0163714 -0.0135589 0.0638251 -0.00393724 0.0145445 0.0933232 0.0122125 -0.0498557 0.0471397 0.0149041 -0.0357718 -0.00309468 -0.0198486 0 0.00539241 -8.47578e-005 0.0277734 0.0310977 0.0459501 0.0106635 0.00912653 0.0708296 -0.0307584 -0.0101826 0.0193863 0 -0.00583712 0.0642672 0 -0.00590574 0.0503749 0 -0.00604624 0.0567602 -2.38419e-007 -0.00584709 0.0482273 0 -0.0051179 0.0420039 0 -0.00343185 0.0322126 -2.38419e-007 -0.00157522 0.0236012 -2.38419e-007 -0.00710365 0.0281245 0 -0.00624894 0.00485015 0 -0.000533463 -0.0289176 0 0.00243377 -0.0223471 0 -0.000885252 0.0107487 0 -0.00236139 -0.0216236 2.38419e-007 0.00934621 0.0331907 0 0.0203349 0.0108726 0 0.00135522 0.0412695 0 -0.00160794 0.0323453 2.38419e-007 -0.00157677 0.0319551 0 -0.000257473 0.0279275 0 0.00509843 0.0233874 0 0.016911 0.00343001 0 0.0272432 -0.0187528 -2.38419e-007 0.0314893 -0.0284746 0 0.0300164 -0.0226525 0"
+		+ " 0.028186 -0.0114821 0 0.0306985 -0.027982 0.00200653 0.0271686 -0.0208827 0.00363255 0.0105158 0.000292659 -0.0263357 -0.134003 -0.014589"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2822:2987]" 
+		(" -0.0183299 -0.090854 -0.00350142 -0.00208497 0.00935991 -0.0200214 -0.00349903 0.0295347 -0.0303763 -0.000892639 0.0337791 -0.0286032 -0.00699592 -0.0328423 -0.00298798 -0.0223515 -0.134606 -0.0258919 0.00272632 0.00476523 0.00360727 0.00662875 -0.0167259 -0.00464964 0.00507951 -0.0657776 -0.0248363 -0.00697517 -0.107538 -0.0279752 -2.38419e-007 0.0138295 -0.0307026 0 0.0106238 -0.0121912 0 -0.0031899 0.0592804 -2.38419e-007 0.000876262 0.0621135 0 0.0149509 -0.00388503 -2.38419e-007 0.0163974 -0.0295086 0 0.0142917 -0.0348303 2.38419e-007 0.00814934 0.0380129 0 -0.00352338 0.0471821 2.38419e-007 0.00419902 0.0182915 0 -0.000654056 0.0274286 0 -0.00251697 0.0352802 0 -0.0032784 0.0409931 0 -0.0166797 0.0107284 -0.00756407 0.00225373 0.00193393 0 -0.00437628 -0.016971 0 -0.00382168 -0.0278282 -8.9407e-005 -0.00708143 0.0165577 2.38419e-007 -0.00448095 -0.000636339 -0.0127983 -0.00113495 0.00195706 -2.38419e-007 -0.00830102 -0.0193048 -0.0185385 -0.0078923 0.00438845 0 -0.00662038 0.0119305 -0.0011847 -0.01319"
+		+ "42 -0.000346661 0 -0.00362337 0.0113227 -0.000688314 -0.0179197 0.000180125 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 -1.16415e-010 0 0 1.16415e-010 -1.19209e-007 -2.38419e-007 0 0 0 2.32831e-010 -1.19209e-007 0 2.32831e-010 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 2.32831e-010 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 -1.16415e-010 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 4.65661e-010 0 2.38419e-007 0 0 0 -4.65661e-010 0 -2.38419e-007 0 2.74181e-006 0 0 0 0 4.65661e-010 -0.000149846 0 4.65661e-010 0 0 -4.65661e-010 -0.000182509 0 0 0 0 0 -0.000110865 0 0 1.19209e-007 2.38419e-007 0 5.126e-005 0 -2.32831e-010 0 2.38419e-007 -4.65661e-010 0 0 -2.32831e-010 0 0 "
+		+ "0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 1.16415e-010 0 0 2.32831e-010 0 2.38419e-007 -2.32831e-010 0 -2.38419e-007 -4.65661e-010 -1.19209e-007 0 4.65661e-010 0 2.38419e-007 -2.32831e-010 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 -0.00234675 0 -4.65661e-010 -0.00269103 0 4.65661e-010 -0.00248909 -2.38419e-007 -4.65661e-010 -0.00173295 0 -4.65661e-010 0.000802994 0 0 -0.000611067 0 0 -0.00131977 2.38419e-007 0 -0.00189853 2.38419e-007 0 -0.00265706 0 -9.31323e-010 0.00058198 2.38419e-007 0 -0.000685573 0 -9.31323e-010 -0.0030508 -2.38419e-007 -1.16415e-010 0 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 2.32831e-010 0 0 -2.32831e-010 -1.19209e-007 0 0 0 0 1.16415e-010 0 0 0 0 0 -2.32831e-010 1.19209e-007 0 -1.16415e-010 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 1.16415e-010 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 1.16415e-010 0 0 0 0 -2.38419e-007 0 0 0 -2.32831e-010 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 1.16415e-010 0 0 -2.32831e-010 0 0 -2.328"
+		+ "31e-010 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[2988:3153]" 
+		(" 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 -4.65661e-010 0 2.38419e-007 0 -1.19209e-007 0 -2.32831e-010 -1.19209e-007 0 0 0 2.38419e-007 4.65661e-010 0 0 0 0 0 9.31323e-010 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 -4.65661e-010 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 4.65661e-010 -0.00153947 0 0 0.000948668 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 -2.32831e-010 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 -9.31323e-010 -"
+		+ "0.000121593 0 0 0 0 -2.32831e-010 0 -2.38419e-007 2.32831e-010 0 0 0 -1.19209e-007 0 9.31323e-010 -0.00213075 0 4.65661e-010 -0.00263715 0 -2.32831e-010 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -2.32831e-010 -1.19209e-007 2.38419e-007 -4.65661e-010 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 4.65661e-010 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0.000983651 -0.00682783 2.38419e-007 -9.31322e-010 -0.00114775 0 0 0.00411725 -2.38419e-007 -9.31323e-010 0.0109953 2.38419e-007 7.92506e-005 0.0145266 0 0.000277109 0.00676537 0 0.000589445 -0.000587225 0 0.00129141 -0.00781322 0 9.31323e-010 0.000633478 0 0.000199494 0.00789428 2.38419e-007 0.000896807 -0.00265872 0 -4.45184e-005 0.00509644 0 9.30546e-005 0.00628793 0 0.00124145 -0.00876224 2.38419e-007 0.0014274 0.0175586 0 0.00700477 0.0115049 0 0.0105519 0.00114954 2.38419e-007 0.0121689 -0.00720251 2.38419e"
+		+ "-007 0.0132594 -0.0122379 -2.38419e-007 0.0131102 -0.0124146 2.38419e-007 0.0115089 -0.00585282 0 0.00612977 0.0088793 0 0.00279952 0.0132132 0 0.0001872 0.00589347 0 0.000123434 0.012055 2.38419e-007 -4.12767e-005 0.00119567 -9.34601e-005 0.00987649 -0.0205873 -0.000149965 0.0108131 -0.0147917 -0.016804 -0.0632557 1.65701e-005 0 -9.31323e-010 -0.00348449 -2.38419e-007 0 0.00391054 0 -1.86265e-009 -0.00687349 0 -9.31323e-010 -0.00661647 2.38419e-007 -9.31323e-010 -0.00625241 0 -9.31323e-010 -0.00326192 2.38419e-007 -9.31323e-010 -0.00288796 -2.38419e-007 0 -0.00400138 0 0 0.000108004 -2.38419e-007 0 0.00222945 -2.38419e-007 0 0.00645602 0 0 0.000496268 2.38419e-007 -9.31322e-010 -0.00608695 0 0 0.00362945 0 -0.00872851 0.00598872 -2.38419e-007 0 -0.0064944 -0.00759768 -0.0118012 0.00191927 -0.00164342 -0.00233479 -0.00382042 -0.0100875 -0.0853735 -0.0194869 0.000727892 0.00350502 -0.0164224 -0.0249543 -0.106294 -0.00755513 0.000291109 0.0123255 -0.00865376 -0.0218198 -0.114652 -0.0161887 0.000752926 0.0041506"
+		+ "8 0.00122082 -0.000709057 -0.0402877 -0.0170554 0 -0.0145127 0.0125294 -0.000444651 -0.0139019 0.0504658 0 -0.00488174 -0.0175776 -2.38419e-007 -0.00505744 -0.0273095 -6.34193e-005 -0.0122707 0.0396554 0 -0.00557604 0.00502646 2.38419e-007 -0.0119704 0.0355544 -2.38419e-007 -0.00797162 -0.0189325 -4.41074e-005 -0.013923 0.0473067 0 -0.0101399 0.018085 0 -0.013186 0.041204 0 -0.00642158 0.0189972 -2.38419e-007 -0.00993388 0.0215707"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[3154:3319]" 
+		(" -0.00945115 0.052833 -0.0284673 -0.0188415 -0.0910565 -0.0341865 -0.0248098 0.0214114 -0.018207 -0.0231879 -0.0948296 -0.0355135 0.00231528 0.00959191 0.00108528 0.0186546 -0.0588285 -0.0196934 0.00126433 0.041288 -0.0232822 -0.0129166 -0.0656286 -0.0205202 -0.0188315 0.0414749 -0.0243429 -0.018121 0.0552332 -0.0255677 -0.0306656 -0.014019 -0.00280046 0.0204611 -0.0176825 -0.00246191 -0.00494194 -0.0822653 -0.0286072 -0.000375748 0.0436083 -0.0335883 -0.0274796 -0.135858 -0.0263276 -0.011044 0.0176486 -0.0283724 -0.0232007 -0.133021 -0.0342004 6.24657e-005 0.00271513 0.00312233 0.0120513 -0.0778518 -0.0283638 0.00552297 0.0331906 -0.0194039 -0.0191536 -0.0940685 -0.00957787 -0.0104163 0.0389209 -0.0390598 -0.00560045 0.0434102 -0.0356857 -0.0150297 -0.0314544 -0.00758743 0.0151649 -0.030248 -0.00458717 -0.00436139 -0.111119 -0.0346072 0 -0.000917715 -0.017634 -0.00219655 -0.0139135 0.00470352 9.53674e-007 -0.000358678 -0.0272021 -0.000854969 -0.000678892 -0.000298262 4.14848e-005 -0.00353282 -0.0207857 -0.00"
+		+ "0383854 0.00476909 0.00470662 -0.00072813 -0.0173418 -0.000680208 0 -0.0128688 0.00628054 -0.0013144 -0.008993 -0.000127673 2.38419e-007 0.00291379 0.00260282 -0.00324154 -0.00684259 0.00180423 0 0.000854533 0.00441229 -0.00447774 -0.0107454 0.00406206 -0.0010004 -0.00530411 0.00542438 -0.000616074 -0.00723351 -0.000329375 -0.0199738 -0.0180558 0.00154591 -0.0104201 -0.00199232 0.00143492 -0.00566506 0.00209548 -0.00048089 -0.0141814 -0.0135152 -0.00402164 -0.0249994 -0.036982 -6.67572e-006 -0.0220928 -0.0353577 -0.00178802 -0.00934243 -0.00203187 -0.00321007 -0.0025506 -0.0187138 0.0144823 -0.00148129 -0.0128581 0.00846612 0 -0.0110754 -0.00016737 0 -0.0210228 0.0126947 -0.000897169 -0.0211678 0.0193808 -5.96046e-006 -0.0225428 0.0168687 0 -0.0161582 0.00450289 -0.00269413 -0.00287037 0.000604033 -0.0033977 0.00206816 0.00230229 -0.0144131 0.00421865 0.00652683 -0.0213628 -0.0134962 0.00674224 -0.0190797 -0.00808711 0.00748265 -0.0116351 0.00736872 0.00322795 -0.0032475 -0.0161491 0.00615013 -0.0024929 -0.01"
+		+ "19477 0.0033828 -0.000197411 -0.0119918 -0.000545025 2.38419e-007 -0.021779 0.00373769 -0.00143147 -0.0193694 0.00911355 -1.04904e-005 -0.0233935 0.00560153 2.38419e-007 -0.0165292 0.000622392 -0.0080514 -0.00157814 0.00552225 -0.00433683 -0.00403634 0.00133288 -0.00750566 -0.0012328 0.00196052 -0.0107789 -0.00535663 0.00607944 -0.0106416 -0.00720255 0.0103042 -0.00910377 -0.00537059 0.0104973 -0.00625992 -0.00356057 0.00235832 -0.0123224 -0.0507249 -0.0120039 0 -0.0177851 0.023388 -0.00161815 -0.0184362 0.0298668 -0.0249813 -0.0712668 -0.00348318 -0.022155 -0.0779461 -0.0085032 2.38419e-007 -0.0190403 0.0287771 -0.000363588 -0.019144 0.0334895 -0.00459647 -0.0201361 -0.0106028 -2.38419e-007 -0.00914859 0.00108325 0 -0.0142362 0.0104452 -0.0182366 -0.0371769 0.00126326 -0.000816107 -0.0143966 0.020869 -0.02074 0.00154657 -0.0803658 -0.006598 -0.0119775 -0.0832636 -0.0743141 0.0618095 -0.0165492 -0.0570574 0.0754209 -0.0107478 -0.0544837 0.0748618 0.00828922 -0.0636477 0.0648122 -0.00546181 -0.0232551 0.047480"
+		+ "2 -0.0403426 -0.00401473 0.0638305 0.00520945 -0.0302808 0.0154799 -0.0790268 -0.0108099 -0.0462664 0.126742 -0.0349901 -0.00754748 0.112866 -0.0106716 -0.0337122 0.0840611 -0.0476396 0.0188556 0.0416464 -0.0308123 -0.00015569 0 -0.0202572 0.049893 -0.0133406 -0.00222754 -0.0241718 0.0735141 -0.00222754 -0.01971 0.0155667 -0.00350308 -0.0317965 0.00185084 -0.0303586 -0.0260267 -0.0181509 0.00995541 -0.0448956 -0.000435233 -0.0101798 0.00957114 -0.0267143 0.0151787 -0.0311985 0.00406468 0.00366712 -0.0288612 -0.0565307 -0.00119472 -0.000234673 0 -1.19209e-007 0 0 5.96046e-008 0 0 0 0 0 0 0 -5.96046e-008 -0.00169969 -0.000385268 5.96046e-008 -0.000474453 -0.000131813 0 0 0 0 0 0 2.98023e-008 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0.00997008 0.0423729 0.00277615 0 0 0.00383973 0 0 0.00315595 0 0 0.00242996 0 0 0.00931978 0 -1.19209e-007 0 0.0130455 0.011182 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 0 0.00133436 "
+		+ "0.00567114 0 0 -1.19209e-007 0 0.00310493 0.0131959 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 5.96046e-008 -0.0013653 -0.000477616 0.000449717 1.19209e-007 0 0 0 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 5.96046e-008 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 0 -1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 1.19209e-007 0 0 0 0.0174074 0 0 0.0171523 0 0 0.0118589 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[3320:3485]" 
+		(" 0.0106432 0 0 0.00097847 0 -1.19209e-007 0.00480413 0 1.19209e-007 0.01386 0 0 0.001333 0 0 0.00138187 0 0 0.00871611 0 0 0.0157802 0 1.19209e-007 0 0.0111819 0.00931835 8.32081e-005 0 1.19209e-007 0.000150919 0 1.19209e-007 0.000462294 0 0 0.00104642 0 0 0.000127077 0 0 0.000226974 0 0 0.00157452 0 0 0.00518894 0 0 2.38419e-007 0 -1.19209e-007 -1.19209e-007 -1.16415e-010 0 0 0.000162475 -0.000135422 0 0 0 0 0 0 0 0 0 0 0 0 0.00104666 0.0023608 -0.0227589 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0.0050993 0 0 0.00039649 0 0 0.00012517 0 0 0.00185847 0 0 0 0 0 0 0.00457646 -0.0039469 1.19209e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0.0108492 0 0 0.000367641 0 1.19209e-007 0.000221729 0 1.19209e-007 0 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0.00317585 -0.00710129 -0.00295854 0.0118296 -0.0510849 -0.0397567 1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 0 0 0 -"
+		+ "1.19209e-007 0 5.96046e-008 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00789678 -0.0242076 -0.00191039 0.0222196 -0.0897236 -0.0541672 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 -1.19209e-007 -1.19209e-007 0 0 0 0 -5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -1.19209e-007 -1.19209e-007 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0.00128162 0.00320411 0 0 -1.19209e-007 -1.19209e-007 0 1.19209e-007 -0.0605569 -0.0211862 0.0199483 0.00202584 0.000503829 0.0004462 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0.00109553 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0.00416923"
+		+ " 0 0 0.000825167 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 2.44847e-005 3.19481e-005 2.38419e-007 0 -1.19209e-007 2.38419e-007 0.00745459 0.0186365 2.38419e-007 1.9434e-005 4.86374e-005 0 0.0053354 0.0133384 2.38419e-007 0.00745459 0.0186365 0 0.00100238 0.00130308 0 0.0089458 0.0116296 -2.38419e-007 0.0186365 0.0242275 0 0 1.19209e-007 0.012311 0 0 0.0128956 0 0 7.05719e-005 0 0 0.00450659 0 0 0.00434351 0 0 0 0 0 -2.38419e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 -0.00363445 -0.00130671 0.00138843 -1.19209e-007 0.000483907 -0.000403285 0 0 0 0 0 0 0 0.000349005 0.000872612 2.38419e-007 0 1.19209e-007 0 0 -5.96046e-008 0 0 5.96046e-008 1.19209e-007 -2.32831e-010 5.96046e-008 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 -5.96046e-008"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[3486:3651]" 
+		(" 1.19209e-007 0 0 0 0.000714833 0.00178719 0 0 0 0 -2.32831e-010 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 0 0 -5.96046e-008 0 0 5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 0 0 -5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 5.96046e-008 0 0 0 0 0 5.96046e-008 0 0 5.96046e-008 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 5.96046e-008 1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 0 -1.19209e-007 0 0 0 0"
+		+ " 0 0 0 0 0 0 0 -1.19209e-007 -2.32831e-010 5.96046e-008 0 0 0 -1.19209e-007 -2.32831e-010 0 1.19209e-007 0 5.96046e-008 0 0 5.96046e-008 -1.19209e-007 0.00776338 -0.00679153 1.19209e-007 2.32831e-010 -5.96046e-008 0 0 0 1.19209e-007 0.00346117 -0.00290352 0 0.000162475 -0.000135422 0.0305063 0.00758697 0.0067206 -1.19209e-007 0 0 0 -3.49246e-010 0 0.0305063 0.00758697 0.00672066 0 0 5.96046e-008 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0.000988646 0.00247169 0 0 1.19209e-007 1.19209e-007 0 0 -0.0172846 -0.00604712 0.00569373 0 -2.32831e-010 0 0 0 0 0 0 5.96046e-008 0 0.00223162 0.00557899 0 0 0 0.000154138 3.83674e-005 3.40343e-005 0 0 0 0.00349796 0.000869991 0.000770569 0.00746489 0.0199031 -0.0276808 0.00863051 -0.121486 -0.0818291 0.00227189 0 0 0.0102472 0 0 0.000664473 0 0 0.00194788 0 0 0.010906 0 0 0.000109434 0 0 0.000250101 0 0 0.00560713 0 0 0.0112441 0 1.19209e-007 0.000188589 0 1.19209e-007 0.000639439 0 0 0.00954556 0 -1.19209e-007 2.67029e-005 0 0 7.00951e-005 0 0 2.38419e-007 0 0 0 0 -1.192"
+		+ "09e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 -1.19209e-007 0 0 0 0 1.19209e-007 -1.19209e-007 0 0 0.0007658 0 1.19209e-007 0.000537395 0 1.19209e-007 0.0054245 0 1.19209e-007 0.00369358 0 0 0.00330138 0 0 0.00288582 0 0 0.00360179 0 -1.19209e-007 0.00607586 0 -1.19209e-007 0.00365138 0 0 0.00166559 0 0 0.00257063 0 0 0.00157571 0 0 0.00068593 0 0 0.00146484 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0.000330687 0 1.19209e-007 0.000357389 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 8.96454e-005 0 0 1.43051e-006 0 0 0.000110626 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[3652:3817]" 
+		(" 0.00227427 0 0 0.000303268 0 0 0 0 1.19209e-007 0.00016737 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0.0114188 0 0 0.0185039 0 0 0.0185041 0 -1.19209e-007 0.0110419 0 0 0.00361228 0 1.19209e-007 0.000104666 0 0 0.000836134 0 1.19209e-007 0 0 5.96046e-008 0 0 0 -1.19209e-007 0 -5.96046e-008 0 0 0 0 0 -5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 0 0 -1.19209e-007 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 0 0 -5.96046e-008 0 0 5.96046e-008 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 0 0 5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 -5.96046e-008 1.19209e-007 0 0 0 0 0 0 0 5.96046e-008 0 0 0 0 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 0 0 0 5.96046e-008 0 0 5.96046e-"
+		+ "008 1.19209e-007 0 5.96046e-008 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 -5.96046e-008 0 0 5.96046e-008 0 0 0 0 0 0 0 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 5.96046e-008 1.19209e-007 0 5.96046e-008 0 0 0 1.19209e-007 0 5.96046e-008 0 0 -5.96046e-008 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 -1.19209e-007 0 5.96046e-008 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 1.19209e-007 0 0 0 0 -5.96046e-008 -1.19209e-007 0 5.96046e-008 1.19209e-007 0 -5.96046e-008 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 -5.96046e-008 2.38419e-007 0 -5.96046e-008 1.19209e-007 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 -5.96046e-008 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 5.96046e-008 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 5.96046e-008 1.19209e-007 2.32831e-010 5.96046e-008 0 1.16415"
+		+ "e-010 0 1.19209e-007 -2.32831e-010 0 0 3.49246e-010 -5.96046e-008 0 0 0 0 0 0 0 0 0 0 -3.49246e-010 0 0.000120163 0 0 0.00344229 0 0 0.0108795 0 0 0.018503 0 0 0.0185037 0 -1.19209e-007 0.0125453 0 0 0.00088501 0 1.19209e-007 0.00145197 0 0 0.0110981 0 0 0.0176051 0 1.19209e-007 0.018034 0 0 0.0109262 0 0 0.00326896 0 0 0.000132084 0 0 1.04904e-005 0 1.19209e-007 0.000445604 0 0 0.000674248 0 -1.19209e-007 0.000166893 0 0 3.38554e-005 0 0 0.00289893 0 0 0.00172877 0 0 0.00561237 0 1.19209e-007 0.00409126 0 -1.19209e-007 0.00154734 0 -1.19209e-007 0.00117397 0 1.19209e-007 0.0010047 0 0 0.00187016 0 0 0.00480509 0 0 0.00778365 0 0 0.0123727 0 0 0.0113449 0 0 0.00227928 0 0 0.00245595 0 0 0.00188971 0 1.19209e-007 0.00322795 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Body3|unicorn:polySurfaceShape1" "pt[3818:3856]" 
+		(" 0.00526333 0 0 0.0115111 0 0 0.0134196 0 0 0.0127912 0 -1.19209e-007 0.012373 0 -1.19209e-007 0.00534415 0 1.19209e-007 -0.0620363 -0.0221111 0.0307482 -0.0487754 0.0469439 -0.0689374 -0.0129988 0.00670528 0.144702 0.0231862 0.0260634 0.00952208 -0.00525713 0.0273444 -0.0291705 0.021832 0.00652967 -0.0382771 -0.0379133 0.0420006 0.0274736 0.000742912 0.0247025 -0.0111218 -0.0145957 -0.0185029 -0.00604451 -0.014056 -0.010516 0.191578 0.0111072 -0.0277833 -0.0437227 0 0 0 0 0.000187792 0.000797987 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0.000963574 0.0040952 0 0 0 -0.0358239 -0.0315051 0.0788365 -0.00123549 -0.0314742 0.0644615 0.0364449 -0.0296608 0.0799518 0.0182133 -0.012355 0.101206 0.00798047 -0.0179091 0.041461 -0.000457764 -0.00851065 0.0618872 -0.00901484 -0.0182914 0.0403465 -0.0185827 -0.0145757 0.103945 0.0315063 -0.00369317 0.0119951 0.0380061 -0.0225913 0.0562602 -0.00686765 0.0189794 -0.0501653 -0.00050211 0.0082296 -0.0235181 0.0067246 0.0184517 -0.0506959 -0.0358 -0.0241672 0.0573562 -0"
+		+ ".0273736 -0.00370138 0.011529 -0.00129533 0.0052579 -0.0100102")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pnts" " -s 4810"
+		
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[0:165]" (" -type \"float3\" 1.19209e-007 0 0 0 -1.86265e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 0 1.86265e-009 0 0 0 5.96046e-008 0 -1.86265e-009 0 0 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -1.86265e-009 1.19209e-007 0 -1.86265e-009 -5.96046e-008 -1.19209e-007 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 1.19209e-007 3.72529e-009 -5.96046e-008 -1.19209e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 1.19209e-007 0 0 0 -1.86265e-009 0 0 -1.86265e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 1.19209e-007 0 -1.19209e-007 -1.19209e-007 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 -1.86265e-009 0 0 -1.86265e-009 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 1.19209e-007 -1.86265e-009 0 -2.38419e-007 0 -1.19209e-007 -1"
+		+ ".19209e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 1.19209e-007 -1.86265e-009 0 -1.19209e-007 0 -1.19209e-007 0 1.86265e-009 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007 1.19209e-007 1.86265e-009 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 -1.86265e-009 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 -1.86265e-009 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1"
+		+ ".19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 -1.1920"
+		+ "9e-007 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[166:331]" (" -2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 2.38419e-"
+		+ "007 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 -"
+		+ "1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007"
+		+ " -2.38419e-007 3.72529e-009 0")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[332:497]" (" 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 -2.38419e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0"
+		+ " -1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.384"
+		+ "19e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[498:663]" (" 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009"
+		+ " -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 "
+		+ "0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[664:829]" (" 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 2."
+		+ "38419e-007 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-00"
+		+ "9 -1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-0"
+		+ "07 3.72529e-009 0")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[830:995]" (" -2.38419e-007 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 1.19"
+		+ "209e-007 2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-"
+		+ "009 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[996:1161]" (
+		" 0 0 0 0 3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-0"
+		+ "07 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38"
+		+ "419e-007 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1162:1327]" 
+		(" 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0 2.3"
+		+ "8419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 1"
+		+ ".19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1328:1493]" 
+		(" 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 "
+		+ "-3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 -3.72529"
+		+ "e-009 0 0 0 0 0 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1494:1659]" 
+		(" 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 0 -1.19209e-"
+		+ "007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 -3.7"
+		+ "2529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1660:1825]" 
+		(" 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0"
+		+ " 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e"
+		+ "-007 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1826:1991]" 
+		(" 2.38419e-007 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 -3.7252"
+		+ "9e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 -2.38"
+		+ "419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[1992:2157]" 
+		(" 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 2"
+		+ ".38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 3.7"
+		+ "2529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2158:2323]" 
+		(" 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-"
+		+ "007 0 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 3.7252"
+		+ "9e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2324:2489]" 
+		(" 0 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 -"
+		+ "3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 1.19209e-007 0 "
+		+ "3.72529e-009 0 0 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-0"
+		+ "07 0 3.72529e-009 0")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2490:2655]" 
+		(" 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 3.72"
+		+ "529e-009 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-"
+		+ "009 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 -"
+		+ "2.38419e-007 0 1.19209e-007 2.38419e-007 0 0")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2656:2821]" 
+		(" 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.3841"
+		+ "9e-007 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 0"
+		+ " -2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419"
+		+ "e-007 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 0 0 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2822:2987]" 
+		(" 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 1.19209e"
+		+ "-007 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 2"
+		+ ".38419e-007 3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 2.3841"
+		+ "9e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[2988:3153]" 
+		(" 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 1.19209"
+		+ "e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 -3.725"
+		+ "29e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3154:3319]" 
+		(" 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -"
+		+ "2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 "
+		+ "0 0 0 0 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 -3"
+		+ ".72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3320:3485]" 
+		(" 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e"
+		+ "-007 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0"
+		+ " 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 4.76837e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3486:3651]" 
+		(" 2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 -3.72529e"
+		+ "-009 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 "
+		+ "0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 3.7"
+		+ "2529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 0 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3652:3817]" 
+		(" 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 2.38419e"
+		+ "-007 0 0 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 -1.19209e"
+		+ "-007 0 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3818:3983]" 
+		(" 0 3.72529e-009 0 0 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 -3.72529e-009 -1.19209e-007 -2"
+		+ ".38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 "
+		+ "0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 0 0 -3.725"
+		+ "29e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[3984:4149]" 
+		(" 0 3.72529e-009 0 0 0 0 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 0 "
+		+ "-3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 "
+		+ "0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-"
+		+ "007 2.38419e-007 0 0 0 3.72529e-009 0")
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[4150:4315]" 
+		(" 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 3.72529e-009 0 -2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 0 0 0 -1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007 0 0 0 0 -3.72529e-009 1.1920"
+		+ "9e-007 0 0 0 2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 1.19209e-007 0 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 1."
+		+ "19209e-007 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 2.38419e-007 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 -2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 -2.38419e-007 3.72529e-009 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[4316:4481]" 
+		(" -2.38419e-007 -3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 0 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 0 "
+		+ "0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 0 0 0 0 0 1.19209e-007 0 0 0 0 0 -1.19209e-007 -2.38419e-007 -3.72529e-009 -2.38419e-007 0 0 0 2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 1.19209e-007 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 0 0 0 3.72529e-009 0 0 0 1.19209e-007 2.38419e-007 -3.72529e-009 -1.19209e-007 0 -3.72529e-009 0 0 3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 0 -2.38419e-007 -3.7"
+		+ "2529e-009 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 0 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 -2.38419e-007 0 -1.19209e-007"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[4482:4647]" 
+		(" 0 -3.72529e-009 0 0 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 -3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 0 0 3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 0 0 0 0 0 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 -1.19209e-007 0 -3.72529e-009 -1.19209e-007 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 3.72529e-009 0 0 0 0 -2.38419e-007 0 1.19209e-007"
+		+ " 0 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 0 -2.38419e-007 0 0 0 0 1.19209e-007 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 0 0 2.38419e-007 3.72529e-009 0 0 3.72529e-009 -1.19209e-007 0 -3.72529e-009 1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 -2.38419e-007 -3.72529e-009 0 0 0 0 2.38419e-007 0 0 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 2.38419e-007 0 0 0 -3.72529e-009 0 2.38419e-007 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 0 1.19209e-007 0 0 0 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 -3.72529e-009 -1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 1.19209e-007 0 0 1.19209e-"
+		+ "007 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 3.72529e-009 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 3.72529e-009 0 0 0 0 0 0 0 0 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 -1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 0 0 0 0 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 0 0 0 0 0 2.38419e-007 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 0 0 3.72529e-009 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape" "pt[4648:4809]" 
+		(" -2.38419e-007 0 0 0 0 0 0 -3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 0 0 1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 1.19209e-007 2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 -1.19209e-007 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 0 0 0 0 0 0 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 0 0 -2.38419e-007 3.72529e-009 -1.19209e-007 2.38419e-007 0 -1.19209e-007 -2.38419e-007 3.72529e-009 1.19209e-007 2.38419e-007 -3.72529e-009 0 0 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 0 0 3.72529e-009 0 0 -3.72529e-009 0 0 0 0 2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 0 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 0 -3.72"
+		+ "529e-009 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 0 2.38419e-007 0 -1.19209e-007 2.38419e-007 3.72529e-009 0 0 -3.72529e-009 -1.19209e-007 -2.38419e-007 0 0 0 3.72529e-009 0 0 0 -1.19209e-007 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 -2.38419e-007 3.72529e-009 0 -2.38419e-007 -3.72529e-009 1.19209e-007 2.38419e-007 3.72529e-009 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 3.72529e-009 1.19209e-007 0 3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 -2.38419e-007 -3.72529e-009 0 0 0 0 0 0 0 0 3.72529e-009 -1.19209e-007 0 0 1.19209e-007 2.38419e-007 0 0 0 0 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 0 0 -1.19209e-007 0 -3.72529e-009 0 0 -3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 3.72529e-009 0 2.38419e-007 0 -1.19209e-007 0 0 0 2.38419e-007 0 -1.19209e-007 -2.38419e-007 0 0 0 0 0 0 3.725"
+		+ "29e-009 0 2.38419e-007 0 0 0 0 0 -2.38419e-007 -3.72529e-009 0 0 3.72529e-009 0 2.38419e-007 -3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 -1.19209e-007 0 0 0 2.38419e-007 0 0 0 0 -1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 4.76837e-007 0 0 0 -3.72529e-009 0 0 0 0 0 0 0 -2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 0 3.72529e-009 1.19209e-007 0 0 0 -2.38419e-007 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 2.38419e-007 3.72529e-009 0 0 0 -1.19209e-007 0 0 0 -2.38419e-007 0 0 0 -3.72529e-009 1.19209e-007 0 -3.72529e-009 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 -3.72529e-009 0 0 0 0 -2.38419e-007 0 0 0 0 0 0 0 1.19209e-007 0 0 1.19209e-007 0 -3.72529e-009 0 -2.38419e-007 -3.72529e-009 0 -2.38419e-007 0 1.19209e-007 0 0 0 -2.38419e-007 3.72529e-009 0 2.38419e-007 0 0 0 0 -1.19209e-007 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 0 2.38419e-007 0 1.19209e-007 -2.38419e-007 0 -1.19209e-007 0 0 -1.19209e-007 0 0 0 2.38419e-007 -3."
+		+ "72529e-009 0 -2.38419e-007 0 0 2.38419e-007 0 0 0 0 0 0 3.72529e-009 0 0 0 1.19209e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "instObjGroups.objectGroups" 
+		" -s 2"
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "instObjGroups.objectGroups[0].objectGrpCompList" 
+		" -type \"componentList\" 9 \"f[0:8]\" \"f[11]\" \"f[13:30]\" \"f[33:47]\" \"f[50:54]\" \"f[56:61]\" \"f[63:279]\" \"f[360:368]\" \"f[373:379]\""
+		
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "instObjGroups.objectGroups[1].objectGrpCompList" 
+		" -type \"componentList\" 9 \"f[9:10]\" \"f[12]\" \"f[31:32]\" \"f[48:49]\" \"f[55]\" \"f[62]\" \"f[280:359]\" \"f[369:372]\" \"f[380:399]\""
+		
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "pnts" " -s 382"
+		
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "pt[0:165]" 
+		(" -type \"float3\" 9.53674e-007 0 0 -1.43051e-005 2.2769e-005 1.04383e-005 -3.5286e-005 7.73072e-005 4.87119e-005 -7.43866e-005 0.000310361 0.000230581 6.67572e-006 0.0013184 0.00102879 0.00048542 0.00194716 0.00146566 0.00118065 0.00248408 0.00161127 0.00187874 0.00285721 0.00135836 0.0031271 0.00394022 0.00101366 0.00237465 0.00291836 3.2112e-006 0.00203323 0.00264156 -0.000653554 0.00142765 0.00219965 -0.00102728 0.000741005 0.00158906 -0.00100917 0.000179291 0.00074029 -0.000546973 0 0.000222147 -0.00017368 -7.62939e-006 2.84314e-005 -2.11485e-005 -1.90735e-006 2.86102e-006 -1.79932e-006 -9.53674e-007 0 3.72529e-009 0 0 0 9.53674e-007 0 3.72529e-009 -9.53674e-007 5.96046e-008 -3.72529e-009 -9.53674e-007 -5.96046e-008 0 0 5.96046e-008 3.72529e-009 -4.19617e-005 8.21352e-005 0.000126228 1.90735e-005 0.00112277 0.00179791 0.00165462 0.00316083 0.00483403 0.00564671 0.0057193 0.00751385 0.00909901 0.00675356 0.0064864 0.0113096 0.00719309 0.00365492 0.0113373 0.00684381 6.59376e-005 0.00748253 0.00479889 -0.0023"
+		+ "5698 0.00365925 0.00277352 -0.00261108 0.00160599 0.00167239 -0.0021642 0.000138283 0.000277877 -0.000426024 -9.53674e-007 -5.96046e-008 -3.72529e-009 -9.53674e-007 0 0 0 -5.96046e-008 0 0 0 3.72529e-009 0 5.96046e-008 0 9.53674e-007 5.96046e-008 3.72529e-009 0 5.96046e-008 0 -9.53674e-007 5.96046e-008 3.72529e-009 0 0 0 0 5.96046e-008 -3.72529e-009 1.23978e-005 0.00042963 0.00108009 0.00345325 0.00404477 0.0095441 0.0120182 0.00780201 0.0155858 0.0228024 0.0109423 0.0159587 0.0239172 0.00991642 0.00771455 0.0197649 0.00780487 0.000156365 0.0158234 0.00654089 -0.00479181 0.00577164 0.00280118 -0.00408361 0.00141811 0.000945091 -0.00191901 1.90735e-005 2.28882e-005 -5.52237e-005 0 0 0 0 -5.96046e-008 -3.72529e-009 0 5.96046e-008 3.72529e-009 9.53674e-007 5.96046e-008 7.45058e-009 9.53674e-007 0 -3.72529e-009 0 -5.96046e-008 0 0 5.96046e-008 -3.72529e-009 -9.53674e-007 0 -7.45058e-009 0 -5.96046e-008 0 9.53674e-007 -5.96046e-008 3.72529e-009 9.53674e-007 6.76513e-005 0.000244193 0.00656986 0.00508666 0.0167291 "
+		+ "0.0228491 0.0102725 0.0283663 0.0369177 0.0126566 0.025459 0.0442972 0.0130817 0.0143407 0.0376768 0.0105636 0.000748158 0.0210638 0.00616169 -0.00627199 0.0068903 0.00234902 -0.00483927 0.000967026 0.000452995 -0.00131211 -9.53674e-007 -1.19209e-007 -7.45058e-009 9.53674e-007 5.96046e-008 0 9.53674e-007 -5.96046e-008 -3.72529e-009 9.53674e-007 5.96046e-008 0 9.53674e-007 0 -3.72529e-009 0 0 0 9.53674e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 9.53674e-007 0 7.45058e-009 -9.53674e-007 0 0 0 0 -3.72529e-009 0.00804424 0.00444317 0.0196823 0.0352201 0.0113882 0.0416082 0.0554581 0.0139905 0.037716 0.0540295 0.011808 0.0174712 0.0451956 0.00935876 0.00105266 0.0235968 0.00504804 -0.00692195 0.00632191 0.00156844 -0.00442193 8.10623e-005 2.83718e-005 -0.00011383 9.53674e-007 0 -7.45058e-009 0 0 -3.72529e-009 -9.53674e-007 0 0 -9.53674e-007 0 0 -9.53674e-007 -5.96046e-008 3.72529e-009 0 5.96046e-008 3.72529e-009 0 0 3.72529e-009 0 0 3.72529e-009 0 5.96046e-008 0 0 -5.96046e-008 0 0 -5.96046e-008 -7.45058e-009 0 0 "
+		+ "-3.72529e-009 0.0108767 0.00418615 0.0249966 0.0381784 0.0090946 0.0445733 0.0619364 0.0115476 0.0414936 0.0661125 0.0107111 0.0215775 0.0536871 0.0082252 0.00197215 0.0218115 0.00341058 -0.00627331 0.00229931 0.000415444 -0.00164216 -9.53674e-007 1.19209e-007 0 0 0 0 0 0 0 0 0 0 0 5.96046e-008 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 0 0 -3.72529e-009 9.53674e-007 0 3.72529e-009 -9.53674e-007 0 3.72529e-009 0 0 -3.72529e-009 0 0 -7.45058e-009 -9.53674e-007 0 0 0.00945854 0.00261819 0.022216 0.0363493 0.00618708 0.0423961 0.0609589 0.00815201 0.0407217 0.0715437 0.0083878 0.0239579 0.0485907 0.00533533 0.00218046 0.0116425 0.00128257 -0.00348744 0 1.19209e-007 7.45058e-009 0 0 0 9.53674e-007 -1.19209e-007 0 0 5.96046e-008 3.72529e-009 0 0 0 0 0 -3.72529e-009 9.53674e-007 5.96046e-008 3.72529e-009 -9.53674e-007 0 -3.72529e-009 0 5.96046e-008 3.72529e-009 -9.53674e-007 -5.96046e-008 -3.72529e-009 0 0 0 0 0 -3.72529e-009 0 0 -3.72529e-009 4.76837e-006 7.92742e-006 0.000119388 0.00733471 0.00135505 0.018"
+		+ "0872 0.0309935 0.00347972 0.0367996 0.0536098 0.00475788 0.0361324 0.0617161 0.00483215 0.0210387 0.0352573 0.00256872 0.00173367 0.000983238 6.81877e-005 -0.000314176 -9.53674e-007 0 7.45058e-009 -9.53674e-007 -1.19209e-007 -7.45058e-009 0 1.19209e-007 0 9.53674e-007 -5.96046e-008 -3.72529e-009 -9.53674e-007 -1.19209e-007 -3.72529e-009 0 -5.96046e-008 3.72529e-009 9.53674e-007 0 0 0 -5.96046e-008 3.72529e-009 9.53674e-007 -5.96046e-008 0 0 -5.96046e-008 3.72529e-009 0 0 0 9.53674e-007 0 0 -0.000169754 1.75834e-005 0.000525847 1.81198e-005 1.87159e-005 0.000583328 0.0049448 0.000473976 0.0128236"
+		)
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "pt[166:331]" 
+		(" 0.0241222 0.00141656 0.0296104 0.0417213 0.00196886 0.0289093 0.0447292 0.00188339 0.0157299 0.0149984 0.000565052 0.000485897 -1.90735e-006 0 0 -9.53674e-007 1.19209e-007 0 9.53674e-007 1.19209e-007 -7.45058e-009 0 0 7.45058e-009 -9.53674e-007 -5.96046e-008 0 0 0 7.45058e-009 9.53674e-007 5.96046e-008 3.72529e-009 0 -5.96046e-008 3.72529e-009 0 5.96046e-008 0 0 -5.96046e-008 0 0 0 3.72529e-009 0 5.96046e-008 0 -0.000433922 -1.19209e-007 0.000598554 -0.000181198 0 0.000558194 1.52588e-005 1.19209e-007 0.000855118 0.00291729 1.21593e-005 0.00797883 0.0167294 0.000105858 0.0212499 0.0292168 0.000188828 0.0208013 0.0274811 0.000170231 0.00988062 0.00130272 3.21865e-006 2.35438e-005 0 0 0 9.53674e-007 0 0 9.53674e-007 1.19209e-007 -7.45058e-009 0 1.19209e-007 0 -9.53674e-007 0 0 9.53674e-007 5.96046e-008 3.72529e-009 9.53674e-007 0 0 0 5.96046e-008 -3.72529e-009 0 0 3.72529e-009 -9.53674e-007 0 0 -0.00204372 -6.98566e-005 0.000692084 -0.00961685 -0.000397801 0.00703488 -0.00613213 -0.0003618 0.00814653 -0.000430"
+		+ "107 -4.69685e-005 0.00127827 8.58307e-006 -2.36034e-005 0.000727076 0.00161457 -0.000154138 0.00466209 0.00979137 -0.000468254 0.0128686 0.0302448 -0.00101137 0.0218237 0.0232897 -0.000666738 0.00857017 0 -1.19209e-007 0 0 0 -7.45058e-009 -9.53674e-007 0 0 9.53674e-007 0 0 -9.53674e-007 1.19209e-007 0 0 0 -3.72529e-009 0 5.96046e-008 -3.72529e-009 0 0 0 9.53674e-007 5.96046e-008 0 0 5.96046e-008 -3.72529e-009 0 -5.96046e-008 -3.72529e-009 -0.00436783 -0.000303864 0.0014973 -0.0148973 -0.00124168 0.0113983 -0.016448 -0.00193417 0.0229679 -0.00675201 -0.00140971 0.0193928 -0.000254631 -0.000552416 0.00788593 0.000816345 -0.000168204 0.00245556 0.00439548 -0.000469327 0.00594168 0.0181293 -0.00136292 0.013281 0.00814438 -0.000531912 0.00285808 0 1.19209e-007 -7.45058e-009 -9.53674e-007 0 0 0 0 0 1.90735e-006 1.19209e-007 0 9.53674e-007 0 0 0 0 -3.72529e-009 -9.53674e-007 -5.96046e-008 0 -9.53674e-007 5.96046e-008 3.72529e-009 -9.53674e-007 0 0 -9.53674e-007 0 0 -0.000247002 -1.61529e-005 1.9744e-007 -0.00753784 "
+		+ "-0.00082463 0.00268143 -0.0155602 -0.00201941 0.0119778 -0.0156937 -0.00281012 0.0222786 -0.0091114 -0.00303417 0.0277219 -0.000687599 -0.00257301 0.0242431 0.00167274 -0.000596404 0.00547276 0.00244236 -0.000416875 0.00331278 0.00846577 -0.00103867 0.00622602 0.000232697 -2.49147e-005 7.88942e-005 9.53674e-007 1.19209e-007 0 0 0 7.45058e-009 0 0 0 9.53674e-007 0 -7.45058e-009 9.53674e-007 0 0 0 0 -7.45058e-009 -9.53674e-007 5.96046e-008 0 0 -5.96046e-008 -3.72529e-009 0 -5.96046e-008 -3.72529e-009 0 0 0 -0.000425339 -4.36902e-005 3.4906e-006 -0.00623131 -0.000976086 0.00218664 -0.0129862 -0.00238597 0.00991968 -0.0129356 -0.00326955 0.0182979 -0.00758171 -0.0035854 0.0233655 -0.000320435 -0.00323331 0.0220897 0.0038147 -0.00198686 0.0129071 0.000910759 -0.000230074 0.00128554 0.00212288 -0.000377774 0.00154408 0 0 0 9.53674e-007 1.19209e-007 7.45058e-009 0 0 0 0 0 0 0 0 7.45058e-009 0 1.19209e-007 0 0 0 -3.72529e-009 0 5.96046e-008 0 0 -5.96046e-008 -3.72529e-009 0 5.96046e-008 0 0 -5.96046e-008 -3.72529e-00"
+		+ "9 -0.00126648 -0.000185192 7.34627e-006 -0.00694561 -0.00147223 0.00234623 -0.00946045 -0.00235873 0.00704263 -0.00951862 -0.00328559 0.0134153 -0.00558376 -0.0036093 0.0171955 -0.000197411 -0.00318885 0.0159796 0.00246525 -0.00168705 0.00807656 0.00118065 -0.000412345 0.00167893 9.53674e-007 0 0 -9.53674e-007 -1.19209e-007 0 9.53674e-007 0 -7.45058e-009 0 0 0 0 0 0 0 1.19209e-007 0 9.53674e-007 0 0 0 0 0 9.53674e-007 0 -3.72529e-009 0 0 -3.72529e-009 9.53674e-007 0 0 0 0 0 -0.000524521 -0.000105441 8.6166e-006 -0.0017271 -0.000496507 0.00058208 -0.00522709 -0.00178701 0.00392597 -0.0057621 -0.00271338 0.00810307 -0.00342846 -0.00302505 0.010551 -0.000105858 -0.00260353 0.00954683 0.0012846 -0.00119102 0.00416093 0.000197411 -9.34601e-005 0.000276625 0 0 7.45058e-009 0 1.19209e-007 7.45058e-009 -9.53674e-007 0 0 9.53674e-007 0 0 -9.53674e-007 1.19209e-007 0 9.53674e-007 0 0 0 0 0 9.53674e-007 0 0 0 0 3.72529e-009 0 -5.96046e-008 -3.72529e-009 0 0 -3.72529e-009 0 0 0 -8.2016e-005 -2.27094e-005 3.46452e-007 -0."
+		+ "000339508 -0.000140429 0.000112463 -0.00142574 -0.000691056 0.0010558 -0.00205994 -0.00136906 0.00287417 -0.00127983 -0.00159812 0.00393558 -2.67029e-005 -0.00127602 0.00330014 0.000281334 -0.000364423 0.000891924 -1.90735e-006 0 0 9.53674e-007 -1.19209e-007 -7.45058e-009 0 1.19209e-007 0 0 0 0 -9.53674e-007 1.19209e-007 0 9.53674e-007 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape" "pt[332:381]" 
+		(" 0 1.19209e-007 -7.45058e-009 9.53674e-007 0 7.45058e-009 9.53674e-007 0 0 -9.53674e-007 5.96046e-008 0 9.53674e-007 -5.96046e-008 0 -9.53674e-007 0 0 0 0 0 9.53674e-007 -5.96046e-008 3.72529e-009 0 5.96046e-008 3.72529e-009 -6.58035e-005 -4.94719e-005 4.74453e-005 -0.000228882 -0.000236213 0.000314876 -9.82285e-005 -0.000191391 0.000300135 0 -7.7486e-005 0.000127837 1.90735e-006 -2.26498e-006 3.53158e-006 -9.53674e-007 0 7.45058e-009 9.53674e-007 -1.19209e-007 0 0 0 0 1.90735e-006 1.19209e-007 0 0 0 0 -9.53674e-007 0 -7.45058e-009 0 0 7.45058e-009 0 -1.19209e-007 7.45058e-009 0 -1.19209e-007 -7.45058e-009 0 0 0 0 -5.96046e-008 3.72529e-009 -9.53674e-007 -5.96046e-008 -3.72529e-009 0 0 0 9.53674e-007 0 3.72529e-009 -9.53674e-007 0 3.72529e-009 0 0 3.72529e-009 0 0 0 9.53674e-007 0 -3.72529e-009 0 -1.19209e-007 -7.45058e-009 -9.53674e-007 -1.19209e-007 0 9.53674e-007 0 0 0 0 -7.45058e-009 9.53674e-007 0 -7.45058e-009 0 0 0 0 0 0 0 -1.19209e-007 0 9.53674e-007 0 0 -9.53674e-007 0 -7.45058e-009 -9.53674e-007 0 0"
+		+ " -9.53674e-007 0 3.72529e-009 0 0 0 0 0 3.72529e-009 -9.53674e-007 0 0 9.53674e-007 0 0 3.8147e-006 0.000891745 6.48201e-007 0 0 0"
+		)
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "instObjGroups.objectGroups" 
+		" -s 2"
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "instObjGroups.objectGroups[0].objectGrpCompList" 
+		" -type \"componentList\" 2 \"f[0:279]\" \"f[360:379]\""
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "instObjGroups.objectGroups[1].objectGrpCompList" 
+		" -type \"componentList\" 2 \"f[280:359]\" \"f[380:399]\""
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "pnts" " -s 382"
+		
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "pt[0:165]" 
+		(" -type \"float3\" -9.53674e-007 9.53674e-007 -1.49012e-008 -1.43051e-005 2.09808e-005 1.04308e-005 -3.62396e-005 7.72476e-005 4.87119e-005 -7.53403e-005 0.000310898 0.000230551 6.67572e-006 0.00131893 0.00102878 0.00048542 0.0019474 0.00146568 0.0011816 0.00248337 0.00161123 0.00187969 0.00285721 0.00135836 0.0031271 0.00393963 0.00101368 0.0023756 0.0029192 3.21865e-006 0.00203419 0.00264263 -0.000653535 0.00142765 0.00219917 -0.00102727 0.000741005 0.00158882 -0.00100917 0.000179291 0.000739098 -0.000546962 0 0.00022316 -0.000173673 -6.67572e-006 2.95639e-005 -2.11746e-005 -9.53674e-007 2.86102e-006 -1.80304e-006 0 0 0 0 9.53674e-007 0 0 9.53674e-007 0 0 0 0 0 0 -1.49012e-008 0 9.53674e-007 -1.49012e-008 -4.1008e-005 8.10623e-005 0.000126213 1.81198e-005 0.00112343 0.00179791 0.00165462 0.00316048 0.00483403 0.00564575 0.00572014 0.00751387 0.00909901 0.00675392 0.00648639 0.0113087 0.00719166 0.00365493 0.0113373 0.00684357 6.59525e-005 0.00748348 0.00479889 -0.00235701 0.00365925 0.00277328 -0.00261106 0.00"
+		+ "160694 0.00167274 -0.0021642 0.00014019 0.000277519 -0.000426009 -9.53674e-007 9.53674e-007 1.49012e-008 9.53674e-007 0 -1.49012e-008 0 0 1.49012e-008 9.53674e-007 0 0 0 -9.53674e-007 0 0 0 0 0 0 -1.49012e-008 -9.53674e-007 -9.53674e-007 1.49012e-008 9.53674e-007 0 0 9.53674e-007 0 2.98023e-008 1.23978e-005 0.000430107 0.0010801 0.00345421 0.00404453 0.00954409 0.0120173 0.00780201 0.0155858 0.0228024 0.0109425 0.0159587 0.0239172 0.00991631 0.00771454 0.0197649 0.00780296 0.000156343 0.0158224 0.0065403 -0.00479183 0.00577068 0.0028019 -0.0040836 0.00141716 0.000945091 -0.001919 1.71661e-005 2.38419e-005 -5.52237e-005 0 -9.53674e-007 -1.49012e-008 -9.53674e-007 0 0 0 0 0 9.53674e-007 0 1.49012e-008 0 9.53674e-007 -1.49012e-008 0 9.53674e-007 0 9.53674e-007 0 1.49012e-008 0 -1.90735e-006 1.49012e-008 0 0 0 -9.53674e-007 9.53674e-007 0 9.53674e-007 6.86646e-005 0.00024417 0.00657082 0.00508499 0.0167291 0.02285 0.010273 0.0283663 0.0369186 0.0126572 0.025459 0.0442972 0.0130816 0.0143406 0.0376759 0.0105629 0."
+		+ "000748158 0.0210629 0.0061636 -0.00627199 0.0068903 0.0023489 -0.00483927 0.000967026 0.000453949 -0.00131211 0 9.53674e-007 0 0 1.90735e-006 0 -9.53674e-007 -9.53674e-007 -2.98023e-008 -9.53674e-007 9.53674e-007 0 0 -9.53674e-007 1.49012e-008 0 0 0 0 0 2.98023e-008 0 0 1.49012e-008 0 0 0 -9.53674e-007 9.53674e-007 0 0 0 0 0 0 -2.98023e-008 0.00804329 0.00444317 0.0196823 0.0352211 0.0113878 0.0416082 0.055459 0.0139904 0.037716 0.0540314 0.0118093 0.0174712 0.0451956 0.00935841 0.00105265 0.0235987 0.00504875 -0.00692198 0.00632095 0.00156879 -0.00442192 8.29697e-005 2.95639e-005 -0.000113875 0 -9.53674e-007 0 -9.53674e-007 0 0 0 0 -1.49012e-008 9.53674e-007 0 0 0 9.53674e-007 0 0 -1.90735e-006 0 0 0 0 -9.53674e-007 9.53674e-007 -1.49012e-008 0 0 2.98023e-008 0 9.53674e-007 0 0 0 -1.49012e-008 9.53674e-007 -9.53674e-007 0 0.0108747 0.00418758 0.0249966 0.0381775 0.00909519 0.0445732 0.0619354 0.0115461 0.0414936 0.0661116 0.0107107 0.0215774 0.053689 0.00822544 0.00197214 0.0218105 0.00341225 -0.0062733 0.00"
+		+ "229836 0.000414848 -0.00164217 9.53674e-007 0 0 0 -9.53674e-007 0 -9.53674e-007 0 0 0 1.90735e-006 0 -9.53674e-007 -9.53674e-007 2.98023e-008 0 -9.53674e-007 1.49012e-008 0 -9.53674e-007 0 0 0 0 9.53674e-007 0 0 0 9.53674e-007 1.49012e-008 -9.53674e-007 0 1.49012e-008 0 0 -2.98023e-008 0 0 0 0.0094595 0.00261784 0.022216 0.0363493 0.00618649 0.0423961 0.0609589 0.00815296 0.0407217 0.0715437 0.00838852 0.0239578 0.0485916 0.00533581 0.00218046 0.0116425 0.00128174 -0.00348744 9.53674e-007 0 0 -9.53674e-007 -9.53674e-007 -2.98023e-008 0 0 -2.98023e-008 0 -9.53674e-007 -2.98023e-008 -9.53674e-007 9.53674e-007 0 -9.53674e-007 9.53674e-007 -1.49012e-008 0 0 1.49012e-008 0 -9.53674e-007 0 9.53674e-007 0 1.49012e-008 9.53674e-007 9.53674e-007 1.49012e-008 0 0 0 9.53674e-007 0 0 0 0 0 3.8147e-006 6.67572e-006 0.000119388 0.00733376 0.00135612 0.0180872 0.0309935 0.003479 0.0367996 0.0536098 0.00475693 0.0361324 0.0617161 0.00483227 0.0210387 0.0352592 0.00257015 0.00173363 0.000981331 6.86646e-005 -0.000314176 0 -9."
+		+ "53674e-007 0 0 0 0 0 0 0 0 0 0 0 9.53674e-007 -2.98023e-008 -9.53674e-007 0 1.49012e-008 0 9.53674e-007 0 -9.53674e-007 0 0 -9.53674e-007 0 0 -9.53674e-007 0 0 0 9.53674e-007 -1.49012e-008 9.53674e-007 -9.53674e-007 0 -0.000171661 1.81198e-005 0.000525862 1.81198e-005 1.90735e-005 0.000583321 0.00494385 0.000473022 0.0128236"
+		)
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "pt[166:331]" 
+		(" 0.0241222 0.00141525 0.0296103 0.0417204 0.00196934 0.0289093 0.0447273 0.00188446 0.0157299 0.0150003 0.000564575 0.000485897 -9.53674e-007 0 0 0 0 -2.98023e-008 0 0 0 -9.53674e-007 0 0 0 9.53674e-007 0 0 -9.53674e-007 -2.98023e-008 0 0 0 0 -9.53674e-007 -1.49012e-008 0 0 -1.49012e-008 0 0 0 0 -9.53674e-007 0 9.53674e-007 9.53674e-007 0 -0.000435829 0 0.00059855 -0.000180244 9.53674e-007 0.000558168 1.62125e-005 -9.53674e-007 0.000855118 0.00291729 1.14441e-005 0.00797883 0.0167313 0.000105858 0.02125 0.0292158 0.000188828 0.0208013 0.0274811 0.000169754 0.00988063 0.00130177 1.90735e-006 2.35438e-005 0 0 0 0 0 2.98023e-008 0 9.53674e-007 0 9.53674e-007 0 -2.98023e-008 -9.53674e-007 9.53674e-007 2.98023e-008 0 0 0 0 0 2.98023e-008 0 0 2.98023e-008 0 -9.53674e-007 1.49012e-008 -9.53674e-007 0 0 -0.00204277 -6.86646e-005 0.00069207 -0.00961781 -0.000396729 0.0070349 -0.00613308 -0.00036335 0.00814655 -0.000431061 -4.673e-005 0.00127828 7.62939e-006 -2.28882e-005 0.000727087 0.00161362 -0.000152588 0.0046621 0"
+		+ ".00979233 -0.000469208 0.0128686 0.0302439 -0.00101089 0.0218236 0.0232906 -0.000667572 0.00857019 9.53674e-007 0 0 0 0 0 0 0 -2.98023e-008 9.53674e-007 0 0 0 -9.53674e-007 2.98023e-008 9.53674e-007 0 0 -9.53674e-007 9.53674e-007 0 0 0 2.98023e-008 -9.53674e-007 0 0 0 -9.53674e-007 0 9.53674e-007 0 2.98023e-008 -0.00436687 -0.000303268 0.0014973 -0.0148983 -0.00124073 0.0113983 -0.016448 -0.00193501 0.0229679 -0.00675201 -0.00140953 0.0193928 -0.000256538 -0.000552177 0.00788593 0.000816345 -0.000169754 0.00245556 0.00439548 -0.0004673 0.00594166 0.0181293 -0.00136375 0.013281 0.00814533 -0.000530243 0.0028581 -9.53674e-007 0 0 9.53674e-007 0 0 9.53674e-007 0 2.98023e-008 0 0 0 -9.53674e-007 0 0 0 0 0 0 9.53674e-007 -2.98023e-008 0 -9.53674e-007 0 9.53674e-007 9.53674e-007 0 0 -9.53674e-007 0 -0.000247002 -1.62125e-005 1.78814e-007 -0.00753784 -0.000823975 0.00268143 -0.0155602 -0.00201893 0.0119778 -0.0156946 -0.00281048 0.0222786 -0.00911236 -0.00303555 0.0277219 -0.000688553 -0.00257206 0.0242431 0.0016708"
+		+ "4 -0.000597 0.00547278 0.00244236 -0.000417709 0.0033128 0.00846577 -0.0010376 0.00622597 0.000232697 -2.67029e-005 7.88867e-005 -9.53674e-007 0 2.98023e-008 -9.53674e-007 0 0 0 0 0 0 0 0 -9.53674e-007 -1.90735e-006 -2.98023e-008 -9.53674e-007 0 0 9.53674e-007 -9.53674e-007 -2.98023e-008 0 -9.53674e-007 0 0 0 0 0 -9.53674e-007 2.98023e-008 -0.000425339 -4.3869e-005 3.48687e-006 -0.00623035 -0.000974655 0.00218663 -0.0129862 -0.00238514 0.00991967 -0.0129366 -0.00327015 0.0182979 -0.00758076 -0.00358486 0.0233655 -0.000320435 -0.00323105 0.0220897 0.00381088 -0.00198746 0.0129071 0.000911713 -0.000230789 0.00128555 0.00212097 -0.000377655 0.00154406 9.53674e-007 0 2.98023e-008 -9.53674e-007 0 0 0 0 0 -9.53674e-007 0 0 -9.53674e-007 -1.90735e-006 0 -9.53674e-007 0 -2.98023e-008 0 0 0 9.53674e-007 -9.53674e-007 2.98023e-008 0 -9.53674e-007 2.98023e-008 9.53674e-007 1.90735e-006 0 0 -9.53674e-007 2.98023e-008 -0.00126553 -0.000185013 7.33137e-006 -0.00694561 -0.00147247 0.00234622 -0.0094595 -0.00235939 0.0070426"
+		+ "5 -0.00951958 -0.00328445 0.0134153 -0.00558281 -0.00361061 0.0171955 -0.000195503 -0.00318909 0.0159796 0.00246525 -0.0016861 0.00807655 0.00118065 -0.000411987 0.00167894 -1.90735e-006 -1.90735e-006 0 0 1.90735e-006 0 9.53674e-007 0 0 9.53674e-007 0 0 0 0 0 1.90735e-006 0 2.98023e-008 0 -1.90735e-006 -2.98023e-008 0 0 -2.98023e-008 0 0 0 0 9.53674e-007 0 0 9.53674e-007 0 0 9.53674e-007 0 -0.000524521 -0.000104904 8.61287e-006 -0.0017271 -0.000495911 0.000582099 -0.00522804 -0.00178623 0.00392598 -0.0057621 -0.00271225 0.00810307 -0.00342846 -0.00302505 0.010551 -0.000105858 -0.00260353 0.00954682 0.00128365 -0.00119209 0.00416094 0.000196457 -9.34601e-005 0.000276625 9.53674e-007 0 2.98023e-008 0 -1.90735e-006 0 -9.53674e-007 0 0 0 1.90735e-006 0 9.53674e-007 0 0 0 -1.90735e-006 2.98023e-008 0 0 0 -9.53674e-007 0 0 0 0 2.98023e-008 0 1.90735e-006 0 0 9.53674e-007 2.98023e-008 9.53674e-007 9.53674e-007 0 -8.29697e-005 -2.28882e-005 3.8743e-007 -0.000339508 -0.00014019 0.000112444 -0.00142574 -0.000688553 0.0"
+		+ "0105578 -0.00205994 -0.00136948 0.00287417 -0.00127983 -0.00159836 0.00393558 -2.76566e-005 -0.00127602 0.00330013 0.000279427 -0.000364304 0.000891954 -1.90735e-006 1.90735e-006 0 9.53674e-007 0 0 0 0 -2.98023e-008 0 0 0 -9.53674e-007 0 0 0 0 2.98023e-008"
+		)
+		2 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape" "pt[332:381]" 
+		" 9.53674e-007 0 2.98023e-008 -9.53674e-007 0 0 0 0 0 0 0 0 0 1.90735e-006 -2.98023e-008 -9.53674e-007 0 0 -9.53674e-007 0 -2.98023e-008 9.53674e-007 0 -2.98023e-008 9.53674e-007 0 0 -6.48499e-005 -4.95911e-005 4.74453e-005 -0.000227928 -0.000236511 0.000314891 -9.63211e-005 -0.000192642 0.000300109 -9.53674e-007 -7.82013e-005 0.000127792 0 -1.90735e-006 3.51667e-006 9.53674e-007 0 0 0 0 0 0 1.90735e-006 0 9.53674e-007 0 0 0 0 2.98023e-008 9.53674e-007 0 2.98023e-008 -1.90735e-006 0 -2.98023e-008 0 0 0 0 0 2.98023e-008 0 0 0 0 0 0 9.53674e-007 0 -2.98023e-008 -9.53674e-007 0 -2.98023e-008 0 0 0 -9.53674e-007 0 0 0 0 0 -9.53674e-007 0 2.98023e-008 9.53674e-007 0 0 -9.53674e-007 0 0 0 0 0 1.90735e-006 0 0 0 -1.90735e-006 0 9.53674e-007 0 0 9.53674e-007 0 0 0 0 -2.98023e-008 -9.53674e-007 0 -2.98023e-008 0 0 2.98023e-008 0 0 0 0 0 0 9.53674e-007 0 0 0 0 0 -9.53674e-007 0 0 9.53674e-007 1.90735e-006 0 -9.53674e-007 0 -2.98023e-008 4.76837e-006 0.000891685 6.55651e-007 -9.53674e-007 0 0"
+		
+		2 "|unicorn:group1|unicorn:turnTableCamera1|unicorn:turnTableCamera1Shape" 
+		"renderable" " 1"
 		2 "|unicorn:group1|unicorn:turnTableCamera1|unicorn:turnTableCamera1Shape" 
 		"depth" " 0"
 		2 "|unicorn:group1|unicorn:turnTableCamera1|unicorn:turnTableCamera1Shape" 
 		"mask" " 1"
-		2 "|unicorn:polySurface5" "translate" " -type \"double3\" 6.345915 -16.518369 -0.49956"
+		2 "unicorn:blinn3" "eccentricity" " 0.466334"
+		3 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" "unicorn:polyMergeVert4.manipMatrix" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" "unicorn:polyMergeVert1.manipMatrix" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" "unicorn:polyMergeVert3.manipMatrix" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape.instObjGroups" "unicorn:blinn2SG.dagSetMembers" 
+		"-na"
+		3 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0]" 
+		"unicorn:blinn2SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0]" 
+		"unicorn:blinn2SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1]" 
+		"unicorn:blinn1SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1]" 
+		"unicorn:blinn1SG.dagSetMembers" "-na"
+		3 "unicorn:groupId3.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 "unicorn:blinn2SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "unicorn:groupId5.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1].objectGroupId" 
+		""
+		3 "unicorn:blinn1SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1].objectGrpColor" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.compInstObjGroups.compObjectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "unicorn:groupId4.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.instObjGroups" 
+		"unicorn:blinn3SG.dagSetMembers" "-na"
+		3 "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" "unicorn:polyMergeVert2.manipMatrix" 
+		""
+		3 "unicorn:groupId6.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 "unicorn:blinn2SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "unicorn:groupId8.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1].objectGroupId" 
+		""
+		3 "unicorn:blinn1SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1].objectGrpColor" 
+		""
+		3 "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.compInstObjGroups.compObjectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "unicorn:groupId7.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		5 0 "unicornRN" "unicorn:groupId6.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0].objectGroupId" 
+		"unicornRN.placeHolderList[117]" "unicornRN.placeHolderList[118]" "unicorn:LeftEyeShape.iog.og[0].gid"
 		
-		2 "|unicorn:polySurface5" "rotate" " -type \"double3\" 0 71.312195 0"
-		2 "|unicorn:polySurface5" "scale" " -type \"double3\" -0.31182 0.31182 0.31182";
+		5 0 "unicornRN" "unicorn:blinn2SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0].objectGrpColor" 
+		"unicornRN.placeHolderList[119]" "unicornRN.placeHolderList[120]" "unicorn:LeftEyeShape.iog.og[0].gco"
+		
+		5 0 "unicornRN" "unicorn:groupId8.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1].objectGroupId" 
+		"unicornRN.placeHolderList[121]" "unicornRN.placeHolderList[122]" "unicorn:LeftEyeShape.iog.og[1].gid"
+		
+		5 0 "unicornRN" "unicorn:blinn1SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1].objectGrpColor" 
+		"unicornRN.placeHolderList[123]" "unicornRN.placeHolderList[124]" "unicorn:LeftEyeShape.iog.og[1].gco"
+		
+		5 3 "unicornRN" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.compInstObjGroups.compObjectGroups[0]" 
+		"unicornRN.placeHolderList[125]" ":initialShadingGroup.dsm"
+		5 0 "unicornRN" "unicorn:groupId7.groupId" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		"unicornRN.placeHolderList[126]" "unicornRN.placeHolderList[127]" "unicorn:LeftEyeShape.ciog.cog[0].cgid"
+		
+		5 0 "unicornRN" "unicorn:groupId3.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0].objectGroupId" 
+		"unicornRN.placeHolderList[128]" "unicornRN.placeHolderList[129]" "unicorn:RightEyeShape.iog.og[0].gid"
+		
+		5 0 "unicornRN" "unicorn:blinn2SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0].objectGrpColor" 
+		"unicornRN.placeHolderList[130]" "unicornRN.placeHolderList[131]" "unicorn:LeftEyeShape.iog.og[0].gco"
+		
+		5 0 "unicornRN" "unicorn:groupId5.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1].objectGroupId" 
+		"unicornRN.placeHolderList[132]" "unicornRN.placeHolderList[133]" "unicorn:RightEyeShape.iog.og[1].gid"
+		
+		5 0 "unicornRN" "unicorn:blinn1SG.memberWireframeColor" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1].objectGrpColor" 
+		"unicornRN.placeHolderList[134]" "unicornRN.placeHolderList[135]" "unicorn:LeftEyeShape.iog.og[1].gco"
+		
+		5 3 "unicornRN" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.compInstObjGroups.compObjectGroups[0]" 
+		"unicornRN.placeHolderList[136]" ":initialShadingGroup.dsm"
+		5 0 "unicornRN" "unicorn:groupId4.groupId" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		"unicornRN.placeHolderList[137]" "unicornRN.placeHolderList[138]" "unicorn:RightEyeShape.ciog.cog[0].cgid"
+		
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" 
+		"unicorn:polyMergeVert1.manipMatrix" "unicornRN.placeHolderList[139]" "unicornRN.placeHolderList[140]" 
+		"unicorn:polyMergeVert2.mp"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" 
+		"unicorn:polyMergeVert2.manipMatrix" "unicornRN.placeHolderList[141]" "unicornRN.placeHolderList[142]" 
+		"unicorn:polyMergeVert2.mp"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" 
+		"unicorn:polyMergeVert3.manipMatrix" "unicornRN.placeHolderList[143]" "unicornRN.placeHolderList[144]" 
+		"unicorn:polyMergeVert2.mp"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.worldMatrix" 
+		"unicorn:polyMergeVert4.manipMatrix" "unicornRN.placeHolderList[145]" "unicornRN.placeHolderList[146]" 
+		"unicorn:polyMergeVert2.mp"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[1]" 
+		"unicorn:blinn1SG.dagSetMembers" "unicornRN.placeHolderList[147]" "unicornRN.placeHolderList[148]" 
+		"unicorn:blinn1SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[1]" 
+		"unicorn:blinn1SG.dagSetMembers" "unicornRN.placeHolderList[149]" "unicornRN.placeHolderList[150]" 
+		"unicorn:blinn1SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:RightEye|unicorn:RightEyeShape.instObjGroups.objectGroups[0]" 
+		"unicorn:blinn2SG.dagSetMembers" "unicornRN.placeHolderList[151]" "unicornRN.placeHolderList[152]" 
+		"unicorn:blinn2SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:LeftEye|unicorn:LeftEyeShape.instObjGroups.objectGroups[0]" 
+		"unicorn:blinn2SG.dagSetMembers" "unicornRN.placeHolderList[153]" "unicornRN.placeHolderList[154]" 
+		"unicorn:blinn2SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Horn|unicorn:HornShape.instObjGroups" 
+		"unicorn:blinn2SG.dagSetMembers" "unicornRN.placeHolderList[155]" "unicornRN.placeHolderList[156]" 
+		"unicorn:blinn2SG.dsm"
+		5 0 "unicornRN" "|group1|unicorn:Candy|unicorn:Body3|unicorn:Body3Shape.instObjGroups" 
+		"unicorn:blinn3SG.dagSetMembers" "unicornRN.placeHolderList[157]" "unicornRN.placeHolderList[158]" 
+		"unicorn:blinn3SG.dsm";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "sharedReferenceNode1";
@@ -3920,7 +5136,7 @@ createNode animCurveTU -n "Emily_Body_Rig:FKHead_M_Global";
 	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
 	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode reference -n "toy_swordRN";
-	setAttr ".fn[0]" -type "string" "/Users/leowu/Dropbox/School Things/cnm190/Nightmare//assets/props/toy_sword.ma";
+	setAttr ".fn[0]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/props/toy_sword.ma";
 	setAttr -s 20 ".phl";
 	setAttr ".phl[11]" 0;
 	setAttr ".phl[12]" 0;
@@ -4150,95 +5366,10 @@ createNode reference -n "CandyRN";
 	setAttr ".fn[0]" -type "string" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/chars/Candy.ma{1}";
 	setAttr -s 98 ".phl";
 	setAttr ".phl[83]" 0;
-	setAttr ".phl[85]" 0;
-	setAttr ".phl[86]" 0;
-	setAttr ".phl[87]" 0;
-	setAttr ".phl[88]" 0;
-	setAttr ".phl[89]" 0;
-	setAttr ".phl[90]" 0;
-	setAttr ".phl[91]" 0;
-	setAttr ".phl[92]" 0;
-	setAttr ".phl[93]" 0;
-	setAttr ".phl[94]" 0;
-	setAttr ".phl[95]" 0;
-	setAttr ".phl[96]" 0;
-	setAttr ".phl[97]" 0;
-	setAttr ".phl[98]" 0;
-	setAttr ".phl[99]" 0;
-	setAttr ".phl[100]" 0;
-	setAttr ".phl[101]" 0;
-	setAttr ".phl[102]" 0;
-	setAttr ".phl[103]" 0;
-	setAttr ".phl[104]" 0;
-	setAttr ".phl[105]" 0;
-	setAttr ".phl[106]" 0;
-	setAttr ".phl[107]" 0;
-	setAttr ".phl[108]" 0;
-	setAttr ".phl[109]" 0;
-	setAttr ".phl[110]" 0;
-	setAttr ".phl[111]" 0;
-	setAttr ".phl[112]" 0;
-	setAttr ".phl[113]" 0;
-	setAttr ".phl[114]" 0;
-	setAttr ".phl[115]" 0;
-	setAttr ".phl[116]" 0;
-	setAttr ".phl[117]" 0;
-	setAttr ".phl[118]" 0;
-	setAttr ".phl[119]" 0;
-	setAttr ".phl[120]" 0;
-	setAttr ".phl[121]" 0;
-	setAttr ".phl[122]" 0;
-	setAttr ".phl[123]" 0;
-	setAttr ".phl[124]" 0;
-	setAttr ".phl[125]" 0;
-	setAttr ".phl[126]" 0;
-	setAttr ".phl[127]" 0;
-	setAttr ".phl[128]" 0;
-	setAttr ".phl[129]" 0;
-	setAttr ".phl[130]" 0;
-	setAttr ".phl[131]" 0;
-	setAttr ".phl[132]" 0;
-	setAttr ".phl[133]" 0;
-	setAttr ".phl[134]" 0;
-	setAttr ".phl[135]" 0;
-	setAttr ".phl[136]" 0;
-	setAttr ".phl[137]" 0;
-	setAttr ".phl[138]" 0;
-	setAttr ".phl[139]" 0;
-	setAttr ".phl[140]" 0;
-	setAttr ".phl[141]" 0;
-	setAttr ".phl[142]" 0;
-	setAttr ".phl[143]" 0;
-	setAttr ".phl[144]" 0;
-	setAttr ".phl[145]" 0;
-	setAttr ".phl[146]" 0;
-	setAttr ".phl[147]" 0;
-	setAttr ".phl[148]" 0;
-	setAttr ".phl[149]" 0;
-	setAttr ".phl[150]" 0;
-	setAttr ".phl[151]" 0;
-	setAttr ".phl[152]" 0;
-	setAttr ".phl[153]" 0;
-	setAttr ".phl[154]" 0;
-	setAttr ".phl[155]" 0;
-	setAttr ".phl[156]" 0;
 	setAttr ".phl[157]" 0;
-	setAttr ".phl[158]" 0;
-	setAttr ".phl[159]" 0;
-	setAttr ".phl[160]" 0;
-	setAttr ".phl[161]" 0;
-	setAttr ".phl[162]" 0;
-	setAttr ".phl[163]" 0;
-	setAttr ".phl[164]" 0;
-	setAttr ".phl[165]" 0;
-	setAttr ".phl[166]" 0;
-	setAttr ".phl[167]" 0;
-	setAttr ".phl[168]" 0;
-	setAttr ".phl[169]" 0;
-	setAttr ".phl[170]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"CandyRN"
-		"CandyRN" 25
+		"CandyRN" 212
 		2 "|Candy:Mesh" "translate" " -type \"double3\" 7.585852 -14.827489 -0.327225"
 		
 		2 "|Candy:Mesh" "translateX" " -av"
@@ -4247,37 +5378,6 @@ createNode reference -n "CandyRN";
 		2 "|Candy:Mesh" "rotateX" " -av"
 		2 "|Candy:Mesh" "rotateY" " -av"
 		2 "|Candy:Mesh" "rotateZ" " -av"
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "translate" " -type \"double3\" 0 0 0"
-		
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "rotate" " -type \"double3\" 0 0 0"
-		
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "scale" " -type \"double3\" 1 1 1"
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateX" " -av 0"
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateY" " -av 0"
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateZ" " -av 0"
-		3 "|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL|Candy:Head_CTRL_parentConstraint1.constraintTranslateX" 
-		"|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL.translateX" 
-		""
-		5 4 "CandyRN" "|Candy:Mesh.translateX" "CandyRN.placeHolderList[1]" 
-		""
-		5 4 "CandyRN" "|Candy:Mesh.translateY" "CandyRN.placeHolderList[2]" 
-		""
-		5 4 "CandyRN" "|Candy:Mesh.translateZ" "CandyRN.placeHolderList[3]" 
-		""
-		5 4 "CandyRN" "|Candy:Mesh.rotateX" "CandyRN.placeHolderList[4]" ""
-		5 4 "CandyRN" "|Candy:Mesh.rotateY" "CandyRN.placeHolderList[5]" ""
-		5 4 "CandyRN" "|Candy:Mesh.rotateZ" "CandyRN.placeHolderList[6]" ""
-		5 4 "CandyRN" "|Candy:Mesh.visibility" "CandyRN.placeHolderList[7]" 
-		""
-		5 4 "CandyRN" "|Candy:Mesh.scaleX" "CandyRN.placeHolderList[8]" ""
-		5 4 "CandyRN" "|Candy:Mesh.scaleY" "CandyRN.placeHolderList[9]" ""
-		5 4 "CandyRN" "|Candy:Mesh.scaleZ" "CandyRN.placeHolderList[10]" ""
-		5 0 "CandyRN" "|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL|Candy:Head_CTRL_parentConstraint1.constraintTranslateX" 
-		"|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL.translateX" 
-		"CandyRN.placeHolderList[83]" "CandyRN.placeHolderList[84]" "Candy:Head_CTRL.tx"
-		"CandyRN" 197
-		0 "|CandyRNfosterParent1|Key_Light" "|Candy:Master_CTRL|Candy:Groups|Candy:Joints_Group|Candy:COG|Candy:Spine_1|Candy:Spine_2|Candy:Spine_3|Candy:Spine_4_END|Candy:Spine_Front_Connector|Candy:Head_1_NeckSplineIK_START|Candy:Head_2|Candy:Head_3|Candy:Head_4|Candy:Head_5_NeckSplineIK_END|Candy:Head_6|Candy:Head_7|Candy:MESH_Horn" 
-		"-s -r "
 		2 "|Candy:Master_CTRL" "translate" " -type \"double3\" 7.703728 -16.689916 0.511401"
 		
 		2 "|Candy:Master_CTRL" "translateX" " -av"
@@ -4490,8 +5590,26 @@ createNode reference -n "CandyRN";
 		" -type \"double3\" 0.368005 20.692751 -10.627748"
 		2 "|Candy:Master_CTRL|Candy:Groups|Candy:IK_Group|Candy:Neck_Spline_IK" "rotate" 
 		" -type \"double3\" 88.512139 62.362045 88.192153"
-		2 "|Candy:Group_Body_Mesh|Candy:Body" "visibility" " 1"
-		2 "Candy:RIG" "visibility" " 1"
+		3 "|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL|Candy:Head_CTRL_parentConstraint1.constraintTranslateX" 
+		"|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL.translateX" 
+		""
+		5 4 "CandyRN" "|Candy:Mesh.translateX" "CandyRN.placeHolderList[1]" 
+		""
+		5 4 "CandyRN" "|Candy:Mesh.translateY" "CandyRN.placeHolderList[2]" 
+		""
+		5 4 "CandyRN" "|Candy:Mesh.translateZ" "CandyRN.placeHolderList[3]" 
+		""
+		5 4 "CandyRN" "|Candy:Mesh.rotateX" "CandyRN.placeHolderList[4]" ""
+		5 4 "CandyRN" "|Candy:Mesh.rotateY" "CandyRN.placeHolderList[5]" ""
+		5 4 "CandyRN" "|Candy:Mesh.rotateZ" "CandyRN.placeHolderList[6]" ""
+		5 4 "CandyRN" "|Candy:Mesh.visibility" "CandyRN.placeHolderList[7]" 
+		""
+		5 4 "CandyRN" "|Candy:Mesh.scaleX" "CandyRN.placeHolderList[8]" ""
+		5 4 "CandyRN" "|Candy:Mesh.scaleY" "CandyRN.placeHolderList[9]" ""
+		5 4 "CandyRN" "|Candy:Mesh.scaleZ" "CandyRN.placeHolderList[10]" ""
+		5 0 "CandyRN" "|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL|Candy:Head_CTRL_parentConstraint1.constraintTranslateX" 
+		"|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:Rear_and_Twist_CTRL|Candy:GRP_CTRL_FrontShoulders|Candy:GRP_Neck_CTRLs|Candy:GRP_Neck_2|Candy:Neck_2_CTRL|Candy:Head_CTRL.translateX" 
+		"CandyRN.placeHolderList[83]" "CandyRN.placeHolderList[84]" "Candy:Head_CTRL.tx"
 		5 4 "CandyRN" "|Candy:Master_CTRL.translateX" "CandyRN.placeHolderList[85]" 
 		""
 		5 4 "CandyRN" "|Candy:Master_CTRL.translateY" "CandyRN.placeHolderList[86]" 
@@ -4663,6 +5781,18 @@ createNode reference -n "CandyRN";
 		"CandyRN.placeHolderList[169]" ""
 		5 4 "CandyRN" "|Candy:Master_CTRL|Candy:Groups|Candy:CTRL_Group|Candy:L_FrontHoof_CTRL.rotateZ" 
 		"CandyRN.placeHolderList[170]" ""
+		"CandyRN" 10
+		0 "|CandyRNfosterParent1|Key_Light" "|Candy:MESH_Horn" "-s -r "
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "visibility" " 1"
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "translate" " -type \"double3\" 0 0 0"
+		
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateX" " -av"
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateY" " -av"
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "translateZ" " -av"
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "rotate" " -type \"double3\" 0 0 0"
+		
+		2 "|Candy:Group_Body_Mesh|Candy:Body" "scale" " -type \"double3\" 1 1 1"
+		2 "Candy:RIG" "visibility" " 1"
 		7 "ignore" ":lightLinker1" 2 "|Candy:Group_Body_Mesh|Candy:Body|Candy:BodyShape.message" "|CandyRNfosterParent1|Key_Light|Key_LightShape.message" 
 		0;
 	setAttr ".ptag" -type "string" "";
@@ -5072,7 +6202,7 @@ createNode animCurveTL -n "Emily_Body_Rig:ctrlMouth_M_translateY";
 	setAttr -s 12 ".kot[6:11]"  1 18 18 18 18 18;
 	setAttr -s 12 ".kix[6:11]"  0.98761361837387085 1 1 1 1 1;
 	setAttr -s 12 ".kiy[6:11]"  -0.15690538287162781 0 0 0 0 0;
-	setAttr -s 12 ".kox[6:11]"  0.98761367797851562 1 1 1 1 1;
+	setAttr -s 12 ".kox[6:11]"  0.98761367797851563 1 1 1 1 1;
 	setAttr -s 12 ".koy[6:11]"  -0.15690538287162781 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_jawSide";
 	setAttr ".tan" 18;
@@ -5509,7 +6639,7 @@ createNode animCurveTL -n "Emily_Body_Rig:browHalf_L_translateX";
 		 90 -0.0072492809674272801 102 -0.0071175180365633216 114 -0.0022539067393709117 144 -0.0010332351884065998
 		 145 0.00046824043272892781 150 0.00046824043272892781 163 -0.0040032075293707555
 		 192 -0.0057432186068685611 206 -0.0045625030659286175 216 -0.0045196206658874799
-		 224 -5.2431929762153396e-05;
+		 224 -5.2431929762153396e-005;
 	setAttr -s 13 ".kit[1:12]"  1 18 18 18 18 18 1 18 
 		18 18 18 18;
 	setAttr -s 13 ".kot[1:12]"  1 18 18 18 18 18 1 18 
@@ -6576,7 +7706,7 @@ createNode animCurveTU -n "Candy:R_FrontHoof_CTRL_visibility";
 createNode animCurveTL -n "Candy:R_FrontHoof_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  10 -1.5064514515640953e-16 34 -0.00096036487493714033
+	setAttr -s 10 ".ktv[0:9]"  10 -1.5064514515640953e-016 34 -0.00096036487493714033
 		 38 0.0028995496229831312 42 0.0066946907467152969 44 0.0042914439403486807 46 0.00089334723857799748
 		 50 0.0012044310467991862 54 -0.001499323450473621 57 -0.00088283734019617508 60 0.0029926106020651635;
 	setAttr -s 10 ".kit[5:9]"  1 18 18 18 18;
@@ -6592,7 +7722,7 @@ createNode animCurveTL -n "Candy:R_FrontHoof_CTRL_translateX";
 createNode animCurveTL -n "Candy:R_FrontHoof_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  10 -2.2204460492503131e-16 34 0.18253025673547416
+	setAttr -s 10 ".ktv[0:9]"  10 -2.2204460492503131e-016 34 0.18253025673547416
 		 38 0.15783315458407876 42 0.3572220468493652 44 0.0047012294230766027 46 0.00010109796578539054
 		 50 -0.00022722288725440798 54 0.011372365284912922 57 0.22942279625937775 60 -0.011306759410974363;
 	setAttr -s 10 ".kit[5:9]"  1 18 18 18 18;
@@ -6687,51 +7817,51 @@ createNode animCurveTU -n "Candy:R_FrontHoof_CTRL_scaleZ";
 createNode animCurveTL -n "Candy:R_Front_Knee_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -3.0814879110195774e-33;
+	setAttr ".ktv[0]"  10 -3.0814879110195774e-033;
 createNode animCurveTL -n "Candy:R_Front_Knee_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -4.4408920985006262e-16;
+	setAttr ".ktv[0]"  10 -4.4408920985006262e-016;
 createNode animCurveTL -n "Candy:R_Front_Knee_CTRL_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 7.5474686136827787e-49;
+	setAttr ".ktv[0]"  10 7.5474686136827787e-049;
 createNode animCurveTL -n "Candy:L_Front_Knee_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -3.0814879110195774e-33;
+	setAttr ".ktv[0]"  10 -3.0814879110195774e-033;
 createNode animCurveTL -n "Candy:L_Front_Knee_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -4.4408920985006262e-16;
+	setAttr ".ktv[0]"  10 -4.4408920985006262e-016;
 createNode animCurveTL -n "Candy:L_Front_Knee_CTRL_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 7.5474686136827787e-49;
+	setAttr ".ktv[0]"  10 7.5474686136827787e-049;
 createNode animCurveTL -n "Candy:R_Back_Knee_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -3.0814879110195774e-33;
+	setAttr ".ktv[0]"  10 -3.0814879110195774e-033;
 createNode animCurveTL -n "Candy:R_Back_Knee_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -4.4408920985006262e-16;
+	setAttr ".ktv[0]"  10 -4.4408920985006262e-016;
 createNode animCurveTL -n "Candy:R_Back_Knee_CTRL_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 7.5474686136827787e-49;
+	setAttr ".ktv[0]"  10 7.5474686136827787e-049;
 createNode animCurveTL -n "Candy:L_Back_Knee_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -3.0814879110195774e-33;
+	setAttr ".ktv[0]"  10 -3.0814879110195774e-033;
 createNode animCurveTL -n "Candy:L_Back_Knee_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 -4.4408920985006262e-16;
+	setAttr ".ktv[0]"  10 -4.4408920985006262e-016;
 createNode animCurveTL -n "Candy:L_Back_Knee_CTRL_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 7.5474686136827787e-49;
+	setAttr ".ktv[0]"  10 7.5474686136827787e-049;
 createNode animCurveTU -n "Candy:L_BackHoof_CTRL_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
@@ -6831,10 +7961,10 @@ createNode animCurveTU -n "Candy:R_BackHoof_CTRL_scaleZ";
 createNode animCurveTL -n "Candy:Front_Body_CTRL_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  34 1.7798264270524795e-16 38 1.7798264270524795e-16
-		 42 1.7798264270524795e-16 46 1.655027114821685e-16 50 1.5302278025908905e-16 54 1.6411129310462252e-16
-		 60 2.1880710547964984e-16 145 2.1880710547964984e-16 152 2.1880710547964984e-16 160 1.0778859671556529e-16
-		 170 2.1880710547964984e-16;
+	setAttr -s 11 ".ktv[0:10]"  34 1.7798264270524795e-016 38 1.7798264270524795e-016
+		 42 1.7798264270524795e-016 46 1.655027114821685e-016 50 1.5302278025908905e-016 54 1.6411129310462252e-016
+		 60 2.1880710547964984e-016 145 2.1880710547964984e-016 152 2.1880710547964984e-016
+		 160 1.0778859671556529e-016 170 2.1880710547964984e-016;
 createNode animCurveTL -n "Candy:Front_Body_CTRL_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -6844,10 +7974,10 @@ createNode animCurveTL -n "Candy:Front_Body_CTRL_translateY";
 createNode animCurveTL -n "Candy:Front_Body_CTRL_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  34 -5.3307240196270132e-15 38 -5.3307240196270132e-15
-		 42 -5.3307240196270132e-15 46 -6.8403166821677611e-15 50 -8.3499093447085145e-15
-		 54 -7.0086248992341578e-15 60 -7.1074790595901034e-15 145 -7.1074790595901034e-15
-		 152 -7.1074790595901034e-15 160 -7.1065612601146245e-15 170 -7.1074790595901034e-15;
+	setAttr -s 11 ".ktv[0:10]"  34 -5.3307240196270132e-015 38 -5.3307240196270132e-015
+		 42 -5.3307240196270132e-015 46 -6.8403166821677611e-015 50 -8.3499093447085145e-015
+		 54 -7.0086248992341578e-015 60 -7.1074790595901034e-015 145 -7.1074790595901034e-015
+		 152 -7.1074790595901034e-015 160 -7.1065612601146245e-015 170 -7.1074790595901034e-015;
 createNode animCurveTA -n "Candy:Front_Body_CTRL_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -6939,7 +8069,7 @@ createNode animCurveTA -n "Candy:Neck_2_CTRL_rotateX";
 createNode animCurveTA -n "Candy:Neck_2_CTRL_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  76 -1.4033418597069752e-14 86 0.42463195321019442
+	setAttr -s 7 ".ktv[0:6]"  76 -1.4033418597069752e-014 86 0.42463195321019442
 		 140 0.42463195321019442 146 0 152 0 160 0 170 0;
 	setAttr -s 7 ".kit[2:6]"  1 18 18 18 18;
 	setAttr -s 7 ".kot[2:6]"  1 18 18 18 18;
@@ -7032,6 +8162,14 @@ createNode animCurveTA -n "Candy:Neck_1_CTRL_rotateZ";
 	setAttr -s 7 ".kiy[2:6]"  0 0 0 0 0;
 	setAttr -s 7 ".kox[2:6]"  1 1 1 1 1;
 	setAttr -s 7 ".koy[2:6]"  0 0 0 0 0;
+createNode hyperGraphInfo -n "nodeEditorPanel2Info";
+createNode hyperView -n "hyperView1";
+	setAttr ".vl" -type "double2" -114.28571428571429 -288.09523809523813 ;
+	setAttr ".vh" -type "double2" 441.66666666666674 30.952380952380956 ;
+	setAttr ".dag" no;
+createNode hyperLayout -n "hyperLayout1";
+	setAttr ".ihi" 0;
+	setAttr ".anf" yes;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
@@ -7044,7 +8182,7 @@ select -ne :renderPartition;
 	setAttr -k on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 48 ".st";
+	setAttr -s 37 ".st";
 	setAttr -k on ".an";
 	setAttr -k on ".pt";
 lockNode -l 1 ;
@@ -7053,7 +8191,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 28 ".dsm";
+	setAttr -s 25 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -7062,7 +8200,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".fo";
 	setAttr -k on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 22 ".gn";
+	setAttr -s 21 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -7107,9 +8245,9 @@ select -ne :defaultShaderList1;
 	setAttr -k on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 47 ".s";
+	setAttr -s 32 ".s";
 select -ne :defaultTextureList1;
-	setAttr -s 5 ".tx";
+	setAttr -s 4 ".tx";
 select -ne :lightList1;
 	setAttr -s 4 ".l";
 select -ne :postProcessList1;
@@ -7123,9 +8261,9 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 7 ".u";
+	setAttr -s 6 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 7 ".r";
+	setAttr -s 9 ".r";
 select -ne :renderGlobalsList1;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -7314,7 +8452,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 7 ".sol";
+	setAttr -s 4 ".sol";
 connectAttr "Emily_Body_Rig:Main_Resolution.o" "Emily_Body_RigRN.phl[1]";
 connectAttr "Emily_Body_Rig:Main_fkVis.o" "Emily_Body_RigRN.phl[2]";
 connectAttr "Emily_Body_Rig:Main_fingerVis.o" "Emily_Body_RigRN.phl[3]";
@@ -7782,6 +8920,89 @@ connectAttr "Emily_Body_Rig:ctrlTongue_M_rotY3.o" "Emily_Body_RigRN.phl[346]";
 connectAttr "Emily_Body_Rig:ctrlTongue_M_rotZ1.o" "Emily_Body_RigRN.phl[347]";
 connectAttr "Emily_Body_Rig:ctrlTongue_M_rotZ2.o" "Emily_Body_RigRN.phl[348]";
 connectAttr "Emily_Body_Rig:ctrlTongue_M_rotZ3.o" "Emily_Body_RigRN.phl[349]";
+connectAttr "Emily_Body_RigRN.phl[350]" ":initialShadingGroup.dsm" -na;
+connectAttr "Emily_Body_RigRN.phl[351]" ":initialShadingGroup.dsm" -na;
+connectAttr "Emily_Body_RigRN.phl[352]" ":initialShadingGroup.dsm" -na;
+connectAttr "unicornRN.phl[1]" "unicornRN.phl[2]";
+connectAttr "unicornRN.phl[3]" "unicornRN.phl[4]";
+connectAttr "unicornRN.phl[5]" "unicornRN.phl[6]";
+connectAttr "unicornRN.phl[7]" "unicornRN.phl[8]";
+connectAttr "unicornRN.phl[9]" "unicornRN.phl[10]";
+connectAttr "unicornRN.phl[11]" "unicornRN.phl[12]";
+connectAttr "unicornRN.phl[13]" "unicornRN.phl[14]";
+connectAttr "unicornRN.phl[15]" "unicornRN.phl[16]";
+connectAttr "unicornRN.phl[17]" "unicornRN.phl[18]";
+connectAttr "unicornRN.phl[19]" "unicornRN.phl[20]";
+connectAttr "unicornRN.phl[21]" "unicornRN.phl[22]";
+connectAttr "unicornRN.phl[23]" "unicornRN.phl[24]";
+connectAttr "unicornRN.phl[25]" "unicornRN.phl[26]";
+connectAttr "unicornRN.phl[27]" "unicornRN.phl[28]";
+connectAttr "unicornRN.phl[29]" "unicornRN.phl[30]";
+connectAttr "unicornRN.phl[31]" "unicornRN.phl[32]";
+connectAttr "unicornRN.phl[33]" "unicornRN.phl[34]";
+connectAttr "unicornRN.phl[35]" "unicornRN.phl[36]";
+connectAttr "unicornRN.phl[37]" "unicornRN.phl[38]";
+connectAttr "unicornRN.phl[39]" "unicornRN.phl[40]";
+connectAttr "unicornRN.phl[41]" "unicornRN.phl[42]";
+connectAttr "unicornRN.phl[43]" "unicornRN.phl[44]";
+connectAttr "unicornRN.phl[45]" "unicornRN.phl[46]";
+connectAttr "unicornRN.phl[47]" "unicornRN.phl[48]";
+connectAttr "unicornRN.phl[49]" "unicornRN.phl[50]";
+connectAttr "unicornRN.phl[51]" "unicornRN.phl[52]";
+connectAttr "unicornRN.phl[53]" "unicornRN.phl[54]";
+connectAttr "unicornRN.phl[55]" "unicornRN.phl[56]";
+connectAttr "unicornRN.phl[57]" "unicornRN.phl[58]";
+connectAttr "unicornRN.phl[59]" "unicornRN.phl[60]";
+connectAttr "unicornRN.phl[61]" "unicornRN.phl[62]";
+connectAttr "unicornRN.phl[63]" "unicornRN.phl[64]";
+connectAttr "unicornRN.phl[65]" "unicornRN.phl[66]";
+connectAttr "unicornRN.phl[67]" "unicornRN.phl[68]";
+connectAttr "unicornRN.phl[69]" "unicornRN.phl[70]";
+connectAttr "unicornRN.phl[71]" "unicornRN.phl[72]";
+connectAttr "unicornRN.phl[73]" "unicornRN.phl[74]";
+connectAttr "unicornRN.phl[75]" "unicornRN.phl[76]";
+connectAttr "unicornRN.phl[77]" "unicornRN.phl[78]";
+connectAttr "unicornRN.phl[79]" "unicornRN.phl[80]";
+connectAttr "unicornRN.phl[81]" "unicornRN.phl[82]";
+connectAttr "unicornRN.phl[83]" "unicornRN.phl[84]";
+connectAttr "unicornRN.phl[85]" "unicornRN.phl[86]";
+connectAttr "unicornRN.phl[87]" "unicornRN.phl[88]";
+connectAttr "unicornRN.phl[89]" "unicornRN.phl[90]";
+connectAttr "unicornRN.phl[91]" "unicornRN.phl[92]";
+connectAttr "unicornRN.phl[93]" "unicornRN.phl[94]";
+connectAttr "unicornRN.phl[95]" "unicornRN.phl[96]";
+connectAttr "unicornRN.phl[97]" "unicornRN.phl[98]";
+connectAttr "unicornRN.phl[99]" "unicornRN.phl[100]";
+connectAttr "unicornRN.phl[101]" "unicornRN.phl[102]";
+connectAttr "unicornRN.phl[103]" "unicornRN.phl[104]";
+connectAttr "unicornRN.phl[105]" "unicornRN.phl[106]";
+connectAttr "unicornRN.phl[107]" "unicornRN.phl[108]";
+connectAttr "unicornRN.phl[109]" "unicornRN.phl[110]";
+connectAttr "unicornRN.phl[111]" "unicornRN.phl[112]";
+connectAttr "unicornRN.phl[113]" "unicornRN.phl[114]";
+connectAttr "unicornRN.phl[115]" "unicornRN.phl[116]";
+connectAttr "unicornRN.phl[117]" "unicornRN.phl[118]";
+connectAttr "unicornRN.phl[119]" "unicornRN.phl[120]";
+connectAttr "unicornRN.phl[121]" "unicornRN.phl[122]";
+connectAttr "unicornRN.phl[123]" "unicornRN.phl[124]";
+connectAttr "unicornRN.phl[125]" ":initialShadingGroup.dsm" -na;
+connectAttr "unicornRN.phl[126]" "unicornRN.phl[127]";
+connectAttr "unicornRN.phl[128]" "unicornRN.phl[129]";
+connectAttr "unicornRN.phl[130]" "unicornRN.phl[131]";
+connectAttr "unicornRN.phl[132]" "unicornRN.phl[133]";
+connectAttr "unicornRN.phl[134]" "unicornRN.phl[135]";
+connectAttr "unicornRN.phl[136]" ":initialShadingGroup.dsm" -na;
+connectAttr "unicornRN.phl[137]" "unicornRN.phl[138]";
+connectAttr "unicornRN.phl[139]" "unicornRN.phl[140]";
+connectAttr "unicornRN.phl[141]" "unicornRN.phl[142]";
+connectAttr "unicornRN.phl[143]" "unicornRN.phl[144]";
+connectAttr "unicornRN.phl[145]" "unicornRN.phl[146]";
+connectAttr "unicornRN.phl[147]" "unicornRN.phl[148]";
+connectAttr "unicornRN.phl[149]" "unicornRN.phl[150]";
+connectAttr "unicornRN.phl[151]" "unicornRN.phl[152]";
+connectAttr "unicornRN.phl[153]" "unicornRN.phl[154]";
+connectAttr "unicornRN.phl[155]" "unicornRN.phl[156]";
+connectAttr "unicornRN.phl[157]" "unicornRN.phl[158]";
 connectAttr "toy_sword:Sword_visibility.o" "toy_swordRN.phl[11]";
 connectAttr "toy_sword:Sword_translateX.o" "toy_swordRN.phl[12]";
 connectAttr "toy_sword:Sword_translateY.o" "toy_swordRN.phl[13]";
@@ -7792,91 +9013,6 @@ connectAttr "toy_sword:Sword_rotateZ.o" "toy_swordRN.phl[17]";
 connectAttr "toy_sword:Sword_scaleX.o" "toy_swordRN.phl[18]";
 connectAttr "toy_sword:Sword_scaleY.o" "toy_swordRN.phl[19]";
 connectAttr "toy_sword:Sword_scaleZ.o" "toy_swordRN.phl[20]";
-connectAttr "Candy:Master_CTRL_translateX.o" "CandyRN.phl[85]";
-connectAttr "Candy:Master_CTRL_translateY.o" "CandyRN.phl[86]";
-connectAttr "Candy:Master_CTRL_translateZ.o" "CandyRN.phl[87]";
-connectAttr "Candy:Master_CTRL_rotateX.o" "CandyRN.phl[88]";
-connectAttr "Candy:Master_CTRL_rotateY.o" "CandyRN.phl[89]";
-connectAttr "Candy:Master_CTRL_rotateZ.o" "CandyRN.phl[90]";
-connectAttr "Candy:Master_CTRL_visibility.o" "CandyRN.phl[91]";
-connectAttr "Candy:Master_CTRL_scaleX.o" "CandyRN.phl[92]";
-connectAttr "Candy:Master_CTRL_scaleY.o" "CandyRN.phl[93]";
-connectAttr "Candy:Master_CTRL_scaleZ.o" "CandyRN.phl[94]";
-connectAttr "Candy:R_BackHoof_CTRL_translateX.o" "CandyRN.phl[95]";
-connectAttr "Candy:R_BackHoof_CTRL_translateY.o" "CandyRN.phl[96]";
-connectAttr "Candy:R_BackHoof_CTRL_translateZ.o" "CandyRN.phl[97]";
-connectAttr "Candy:R_BackHoof_CTRL_rotateX.o" "CandyRN.phl[98]";
-connectAttr "Candy:R_BackHoof_CTRL_rotateY.o" "CandyRN.phl[99]";
-connectAttr "Candy:R_BackHoof_CTRL_rotateZ.o" "CandyRN.phl[100]";
-connectAttr "Candy:R_BackHoof_CTRL_visibility.o" "CandyRN.phl[101]";
-connectAttr "Candy:R_BackHoof_CTRL_scaleX.o" "CandyRN.phl[102]";
-connectAttr "Candy:R_BackHoof_CTRL_scaleY.o" "CandyRN.phl[103]";
-connectAttr "Candy:R_BackHoof_CTRL_scaleZ.o" "CandyRN.phl[104]";
-connectAttr "Candy:R_FrontHoof_CTRL_translateX.o" "CandyRN.phl[105]";
-connectAttr "Candy:R_FrontHoof_CTRL_translateY.o" "CandyRN.phl[106]";
-connectAttr "Candy:R_FrontHoof_CTRL_translateZ.o" "CandyRN.phl[107]";
-connectAttr "Candy:R_FrontHoof_CTRL_rotateX.o" "CandyRN.phl[108]";
-connectAttr "Candy:R_FrontHoof_CTRL_rotateY.o" "CandyRN.phl[109]";
-connectAttr "Candy:R_FrontHoof_CTRL_rotateZ.o" "CandyRN.phl[110]";
-connectAttr "Candy:R_FrontHoof_CTRL_scaleX.o" "CandyRN.phl[111]";
-connectAttr "Candy:R_FrontHoof_CTRL_scaleY.o" "CandyRN.phl[112]";
-connectAttr "Candy:R_FrontHoof_CTRL_scaleZ.o" "CandyRN.phl[113]";
-connectAttr "Candy:R_FrontHoof_CTRL_visibility.o" "CandyRN.phl[114]";
-connectAttr "Candy:L_BackHoof_CTRL_translateX.o" "CandyRN.phl[115]";
-connectAttr "Candy:L_BackHoof_CTRL_translateY.o" "CandyRN.phl[116]";
-connectAttr "Candy:L_BackHoof_CTRL_translateZ.o" "CandyRN.phl[117]";
-connectAttr "Candy:L_BackHoof_CTRL_rotateX.o" "CandyRN.phl[118]";
-connectAttr "Candy:L_BackHoof_CTRL_rotateY.o" "CandyRN.phl[119]";
-connectAttr "Candy:L_BackHoof_CTRL_rotateZ.o" "CandyRN.phl[120]";
-connectAttr "Candy:L_BackHoof_CTRL_visibility.o" "CandyRN.phl[121]";
-connectAttr "Candy:L_BackHoof_CTRL_scaleX.o" "CandyRN.phl[122]";
-connectAttr "Candy:L_BackHoof_CTRL_scaleY.o" "CandyRN.phl[123]";
-connectAttr "Candy:L_BackHoof_CTRL_scaleZ.o" "CandyRN.phl[124]";
-connectAttr "Candy:L_Front_Knee_CTRL_translateX.o" "CandyRN.phl[125]";
-connectAttr "Candy:L_Front_Knee_CTRL_translateY.o" "CandyRN.phl[126]";
-connectAttr "Candy:L_Front_Knee_CTRL_translateZ.o" "CandyRN.phl[127]";
-connectAttr "Candy:L_Back_Knee_CTRL_translateX.o" "CandyRN.phl[128]";
-connectAttr "Candy:L_Back_Knee_CTRL_translateY.o" "CandyRN.phl[129]";
-connectAttr "Candy:L_Back_Knee_CTRL_translateZ.o" "CandyRN.phl[130]";
-connectAttr "Candy:R_Front_Knee_CTRL_translateX.o" "CandyRN.phl[131]";
-connectAttr "Candy:R_Front_Knee_CTRL_translateY.o" "CandyRN.phl[132]";
-connectAttr "Candy:R_Front_Knee_CTRL_translateZ.o" "CandyRN.phl[133]";
-connectAttr "Candy:R_Back_Knee_CTRL_translateX.o" "CandyRN.phl[134]";
-connectAttr "Candy:R_Back_Knee_CTRL_translateY.o" "CandyRN.phl[135]";
-connectAttr "Candy:R_Back_Knee_CTRL_translateZ.o" "CandyRN.phl[136]";
-connectAttr "Candy:Front_Body_CTRL_LockBodySeg.o" "CandyRN.phl[137]";
-connectAttr "Candy:Front_Body_CTRL_translateX.o" "CandyRN.phl[138]";
-connectAttr "Candy:Front_Body_CTRL_translateY.o" "CandyRN.phl[139]";
-connectAttr "Candy:Front_Body_CTRL_translateZ.o" "CandyRN.phl[140]";
-connectAttr "Candy:Front_Body_CTRL_rotateX.o" "CandyRN.phl[141]";
-connectAttr "Candy:Front_Body_CTRL_rotateY.o" "CandyRN.phl[142]";
-connectAttr "Candy:Front_Body_CTRL_rotateZ.o" "CandyRN.phl[143]";
-connectAttr "Candy:R_Shoulder_CTRL_rotateX.o" "CandyRN.phl[144]";
-connectAttr "Candy:R_Shoulder_CTRL_rotateY.o" "CandyRN.phl[145]";
-connectAttr "Candy:R_Shoulder_CTRL_rotateZ.o" "CandyRN.phl[146]";
-connectAttr "Candy:R_Shoulder_CTRL_translateX.o" "CandyRN.phl[147]";
-connectAttr "Candy:R_Shoulder_CTRL_translateY.o" "CandyRN.phl[148]";
-connectAttr "Candy:R_Shoulder_CTRL_translateZ.o" "CandyRN.phl[149]";
-connectAttr "Candy:Neck_2_CTRL_Lock_Neck.o" "CandyRN.phl[150]";
-connectAttr "Candy:Neck_2_CTRL_translateX.o" "CandyRN.phl[151]";
-connectAttr "Candy:Neck_2_CTRL_translateY.o" "CandyRN.phl[152]";
-connectAttr "Candy:Neck_2_CTRL_translateZ.o" "CandyRN.phl[153]";
-connectAttr "Candy:Neck_2_CTRL_rotateX.o" "CandyRN.phl[154]";
-connectAttr "Candy:Neck_2_CTRL_rotateY.o" "CandyRN.phl[155]";
-connectAttr "Candy:Neck_2_CTRL_rotateZ.o" "CandyRN.phl[156]";
-connectAttr "CandyRN.phl[157]" "CandyRN.phl[158]";
-connectAttr "Candy:Neck_1_CTRL_translateX.o" "CandyRN.phl[159]";
-connectAttr "Candy:Neck_1_CTRL_translateY.o" "CandyRN.phl[160]";
-connectAttr "Candy:Neck_1_CTRL_translateZ.o" "CandyRN.phl[161]";
-connectAttr "Candy:Neck_1_CTRL_rotateX.o" "CandyRN.phl[162]";
-connectAttr "Candy:Neck_1_CTRL_rotateY.o" "CandyRN.phl[163]";
-connectAttr "Candy:Neck_1_CTRL_rotateZ.o" "CandyRN.phl[164]";
-connectAttr "Candy:L_FrontHoof_CTRL_translateX.o" "CandyRN.phl[165]";
-connectAttr "Candy:L_FrontHoof_CTRL_translateY.o" "CandyRN.phl[166]";
-connectAttr "Candy:L_FrontHoof_CTRL_translateZ.o" "CandyRN.phl[167]";
-connectAttr "Candy:L_FrontHoof_CTRL_rotateX.o" "CandyRN.phl[168]";
-connectAttr "Candy:L_FrontHoof_CTRL_rotateY.o" "CandyRN.phl[169]";
-connectAttr "Candy:L_FrontHoof_CTRL_rotateZ.o" "CandyRN.phl[170]";
 connectAttr "camera1_rotateX.o" "camera1.rx";
 connectAttr "camera1_rotateY.o" "camera1.ry";
 connectAttr "camera1_rotateZ.o" "camera1.rz";
@@ -7968,6 +9104,91 @@ connectAttr "Candy:Mesh_scaleX.o" "CandyRN.phl[8]";
 connectAttr "Candy:Mesh_scaleY.o" "CandyRN.phl[9]";
 connectAttr "Candy:Mesh_scaleZ.o" "CandyRN.phl[10]";
 connectAttr "CandyRN.phl[83]" "CandyRN.phl[84]";
+connectAttr "Candy:Master_CTRL_translateX.o" "CandyRN.phl[85]";
+connectAttr "Candy:Master_CTRL_translateY.o" "CandyRN.phl[86]";
+connectAttr "Candy:Master_CTRL_translateZ.o" "CandyRN.phl[87]";
+connectAttr "Candy:Master_CTRL_rotateX.o" "CandyRN.phl[88]";
+connectAttr "Candy:Master_CTRL_rotateY.o" "CandyRN.phl[89]";
+connectAttr "Candy:Master_CTRL_rotateZ.o" "CandyRN.phl[90]";
+connectAttr "Candy:Master_CTRL_visibility.o" "CandyRN.phl[91]";
+connectAttr "Candy:Master_CTRL_scaleX.o" "CandyRN.phl[92]";
+connectAttr "Candy:Master_CTRL_scaleY.o" "CandyRN.phl[93]";
+connectAttr "Candy:Master_CTRL_scaleZ.o" "CandyRN.phl[94]";
+connectAttr "Candy:R_BackHoof_CTRL_translateX.o" "CandyRN.phl[95]";
+connectAttr "Candy:R_BackHoof_CTRL_translateY.o" "CandyRN.phl[96]";
+connectAttr "Candy:R_BackHoof_CTRL_translateZ.o" "CandyRN.phl[97]";
+connectAttr "Candy:R_BackHoof_CTRL_rotateX.o" "CandyRN.phl[98]";
+connectAttr "Candy:R_BackHoof_CTRL_rotateY.o" "CandyRN.phl[99]";
+connectAttr "Candy:R_BackHoof_CTRL_rotateZ.o" "CandyRN.phl[100]";
+connectAttr "Candy:R_BackHoof_CTRL_visibility.o" "CandyRN.phl[101]";
+connectAttr "Candy:R_BackHoof_CTRL_scaleX.o" "CandyRN.phl[102]";
+connectAttr "Candy:R_BackHoof_CTRL_scaleY.o" "CandyRN.phl[103]";
+connectAttr "Candy:R_BackHoof_CTRL_scaleZ.o" "CandyRN.phl[104]";
+connectAttr "Candy:R_FrontHoof_CTRL_translateX.o" "CandyRN.phl[105]";
+connectAttr "Candy:R_FrontHoof_CTRL_translateY.o" "CandyRN.phl[106]";
+connectAttr "Candy:R_FrontHoof_CTRL_translateZ.o" "CandyRN.phl[107]";
+connectAttr "Candy:R_FrontHoof_CTRL_rotateX.o" "CandyRN.phl[108]";
+connectAttr "Candy:R_FrontHoof_CTRL_rotateY.o" "CandyRN.phl[109]";
+connectAttr "Candy:R_FrontHoof_CTRL_rotateZ.o" "CandyRN.phl[110]";
+connectAttr "Candy:R_FrontHoof_CTRL_scaleX.o" "CandyRN.phl[111]";
+connectAttr "Candy:R_FrontHoof_CTRL_scaleY.o" "CandyRN.phl[112]";
+connectAttr "Candy:R_FrontHoof_CTRL_scaleZ.o" "CandyRN.phl[113]";
+connectAttr "Candy:R_FrontHoof_CTRL_visibility.o" "CandyRN.phl[114]";
+connectAttr "Candy:L_BackHoof_CTRL_translateX.o" "CandyRN.phl[115]";
+connectAttr "Candy:L_BackHoof_CTRL_translateY.o" "CandyRN.phl[116]";
+connectAttr "Candy:L_BackHoof_CTRL_translateZ.o" "CandyRN.phl[117]";
+connectAttr "Candy:L_BackHoof_CTRL_rotateX.o" "CandyRN.phl[118]";
+connectAttr "Candy:L_BackHoof_CTRL_rotateY.o" "CandyRN.phl[119]";
+connectAttr "Candy:L_BackHoof_CTRL_rotateZ.o" "CandyRN.phl[120]";
+connectAttr "Candy:L_BackHoof_CTRL_visibility.o" "CandyRN.phl[121]";
+connectAttr "Candy:L_BackHoof_CTRL_scaleX.o" "CandyRN.phl[122]";
+connectAttr "Candy:L_BackHoof_CTRL_scaleY.o" "CandyRN.phl[123]";
+connectAttr "Candy:L_BackHoof_CTRL_scaleZ.o" "CandyRN.phl[124]";
+connectAttr "Candy:L_Front_Knee_CTRL_translateX.o" "CandyRN.phl[125]";
+connectAttr "Candy:L_Front_Knee_CTRL_translateY.o" "CandyRN.phl[126]";
+connectAttr "Candy:L_Front_Knee_CTRL_translateZ.o" "CandyRN.phl[127]";
+connectAttr "Candy:L_Back_Knee_CTRL_translateX.o" "CandyRN.phl[128]";
+connectAttr "Candy:L_Back_Knee_CTRL_translateY.o" "CandyRN.phl[129]";
+connectAttr "Candy:L_Back_Knee_CTRL_translateZ.o" "CandyRN.phl[130]";
+connectAttr "Candy:R_Front_Knee_CTRL_translateX.o" "CandyRN.phl[131]";
+connectAttr "Candy:R_Front_Knee_CTRL_translateY.o" "CandyRN.phl[132]";
+connectAttr "Candy:R_Front_Knee_CTRL_translateZ.o" "CandyRN.phl[133]";
+connectAttr "Candy:R_Back_Knee_CTRL_translateX.o" "CandyRN.phl[134]";
+connectAttr "Candy:R_Back_Knee_CTRL_translateY.o" "CandyRN.phl[135]";
+connectAttr "Candy:R_Back_Knee_CTRL_translateZ.o" "CandyRN.phl[136]";
+connectAttr "Candy:Front_Body_CTRL_LockBodySeg.o" "CandyRN.phl[137]";
+connectAttr "Candy:Front_Body_CTRL_translateX.o" "CandyRN.phl[138]";
+connectAttr "Candy:Front_Body_CTRL_translateY.o" "CandyRN.phl[139]";
+connectAttr "Candy:Front_Body_CTRL_translateZ.o" "CandyRN.phl[140]";
+connectAttr "Candy:Front_Body_CTRL_rotateX.o" "CandyRN.phl[141]";
+connectAttr "Candy:Front_Body_CTRL_rotateY.o" "CandyRN.phl[142]";
+connectAttr "Candy:Front_Body_CTRL_rotateZ.o" "CandyRN.phl[143]";
+connectAttr "Candy:R_Shoulder_CTRL_rotateX.o" "CandyRN.phl[144]";
+connectAttr "Candy:R_Shoulder_CTRL_rotateY.o" "CandyRN.phl[145]";
+connectAttr "Candy:R_Shoulder_CTRL_rotateZ.o" "CandyRN.phl[146]";
+connectAttr "Candy:R_Shoulder_CTRL_translateX.o" "CandyRN.phl[147]";
+connectAttr "Candy:R_Shoulder_CTRL_translateY.o" "CandyRN.phl[148]";
+connectAttr "Candy:R_Shoulder_CTRL_translateZ.o" "CandyRN.phl[149]";
+connectAttr "Candy:Neck_2_CTRL_Lock_Neck.o" "CandyRN.phl[150]";
+connectAttr "Candy:Neck_2_CTRL_translateX.o" "CandyRN.phl[151]";
+connectAttr "Candy:Neck_2_CTRL_translateY.o" "CandyRN.phl[152]";
+connectAttr "Candy:Neck_2_CTRL_translateZ.o" "CandyRN.phl[153]";
+connectAttr "Candy:Neck_2_CTRL_rotateX.o" "CandyRN.phl[154]";
+connectAttr "Candy:Neck_2_CTRL_rotateY.o" "CandyRN.phl[155]";
+connectAttr "Candy:Neck_2_CTRL_rotateZ.o" "CandyRN.phl[156]";
+connectAttr "CandyRN.phl[157]" "CandyRN.phl[158]";
+connectAttr "Candy:Neck_1_CTRL_translateX.o" "CandyRN.phl[159]";
+connectAttr "Candy:Neck_1_CTRL_translateY.o" "CandyRN.phl[160]";
+connectAttr "Candy:Neck_1_CTRL_translateZ.o" "CandyRN.phl[161]";
+connectAttr "Candy:Neck_1_CTRL_rotateX.o" "CandyRN.phl[162]";
+connectAttr "Candy:Neck_1_CTRL_rotateY.o" "CandyRN.phl[163]";
+connectAttr "Candy:Neck_1_CTRL_rotateZ.o" "CandyRN.phl[164]";
+connectAttr "Candy:L_FrontHoof_CTRL_translateX.o" "CandyRN.phl[165]";
+connectAttr "Candy:L_FrontHoof_CTRL_translateY.o" "CandyRN.phl[166]";
+connectAttr "Candy:L_FrontHoof_CTRL_translateZ.o" "CandyRN.phl[167]";
+connectAttr "Candy:L_FrontHoof_CTRL_rotateX.o" "CandyRN.phl[168]";
+connectAttr "Candy:L_FrontHoof_CTRL_rotateY.o" "CandyRN.phl[169]";
+connectAttr "Candy:L_FrontHoof_CTRL_rotateZ.o" "CandyRN.phl[170]";
 connectAttr "sharedReferenceNode1.sr" "CandyRN.sr";
 connectAttr "CandyRNfosterParent1.msg" "CandyRN.fp";
 connectAttr "lambert4.oc" "lambert4SG.ss";
@@ -7977,6 +9198,8 @@ connectAttr "lambert5.oc" "lambert5SG.ss";
 connectAttr "pPlaneShape2.iog" "lambert5SG.dsm" -na;
 connectAttr "lambert5SG.msg" "materialInfo4.sg";
 connectAttr "lambert5.msg" "materialInfo4.m";
+connectAttr "hyperView1.msg" "nodeEditorPanel2Info.b[0]";
+connectAttr "hyperLayout1.msg" "hyperView1.hl";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
