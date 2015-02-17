@@ -29,7 +29,7 @@ def main():
     filename    = os.environ["MAYA_FILE"]
     camera      = os.environ["CAMERA"]
     shot_name   = os.environ["SHOT_NAME"]
-    renderer    = os.environ["RENDERER"]
+    renderer    = "mr"
     start_frame = int(os.environ["START_FRAME"])
     end_frame   = int(os.environ["END_FRAME"])
     x_size      = int(os.environ["X_SIZE"])

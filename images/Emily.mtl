@@ -1,0 +1,101 @@
+newmtl asBlackSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asBlue2SG
+illum 4
+Kd 0.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asBlueSG
+illum 4
+Kd 0.00 0.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asFaceBlueSG
+illum 4
+Kd 0.00 0.00 1.00
+Ka 0.00 0.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asFaceBrownSG
+illum 4
+Kd 0.54 0.28 0.20
+Ka 0.54 0.28 0.20
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asFaceCyanSG
+illum 4
+Kd 0.00 0.50 0.50
+Ka 0.00 0.50 0.50
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asFaceGreenSG
+illum 4
+Kd 0.00 0.28 0.10
+Ka 0.00 0.28 0.10
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asGreen2SG
+illum 4
+Kd 1.00 1.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asGreenSG
+illum 4
+Kd 0.00 1.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asRedSG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl asWhiteSG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Emily_Eye_Tex.tif
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Emily_Body_Tex.tif
+Ni 1.00
+Ks 0.13 0.13 0.13
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.29 0.09 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
