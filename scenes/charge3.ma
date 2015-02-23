@@ -1,7 +1,7 @@
 //Maya ASCII 2013 scene
 //Name: charge3.ma
-//Last modified: Sun, Feb 22, 2015 10:27:09 PM
-//Codeset: UTF-8
+//Last modified: Sun, Feb 22, 2015 11:49:08 PM
+//Codeset: 1252
 file -rdi 1 -ns "unicorn" -rfn "unicornRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Candy.ma";
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Body_Rig:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -11,28 +11,31 @@ file -r -ns "unicorn" -dr 1 -rfn "unicornRN" "/Users/suchaaverchahal/Documents/B
 file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
 file -r -ns "sword" -dr 1 -rfn "swordRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma";
 requires maya "2013";
+requires "Mayatomr" "2013.0 - 3.10.1.4 ";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2013";
 fileInfo "version" "2013 x64";
-fileInfo "cutIdentifier" "201207040330-835994";
-fileInfo "osv" "Mac OS X 10.9";
+fileInfo "cutIdentifier" "201202220241-825136";
+fileInfo "osv" "Microsoft Business Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1.4220715444937095 -1.218044301497724 -10.197472443566019 ;
-	setAttr ".r" -type "double3" 7.4616472713208095 -82.599999999413498 0 ;
-	setAttr ".rp" -type "double3" 0 -4.4408920985006262e-16 0 ;
-	setAttr ".rpt" -type "double3" -4.4154651808686684e-15 5.8208578042470953e-16 -7.1359331290309867e-16 ;
+	setAttr ".t" -type "double3" -2.0265311581954197 -0.41738558837417977 -10.225143868772111 ;
+	setAttr ".r" -type "double3" 8.0616472714889404 -72.599999999997067 2.6589638970887406e-015 ;
+	setAttr ".rp" -type "double3" 0 -4.4408920985006262e-016 0 ;
+	setAttr ".rpt" -type "double3" -4.4154651808686684e-015 5.8208578042470953e-016 
+		-7.1359331290309867e-016 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 1.6971962895101733;
+	setAttr ".coi" 1.9578012700339686;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -0.23884679197071002 -1.4328400436296498 -10.000103962454109 ;
+	setAttr ".tp" -type "double3" -0.23884679197070999 -1.4328400436296498 -10.000103962454109 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -78,11 +81,10 @@ createNode camera -s -n "sideShape" -p "side";
 createNode transform -n "camera1";
 createNode camera -n "cameraShape1" -p "camera1";
 	setAttr -k off ".v";
-	setAttr ".rnd" no;
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 3.3904312002854362;
+	setAttr ".coi" 3.3904312002851782;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -115,8 +117,8 @@ createNode mesh -n "pPlaneShape1" -p "pPlane1";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 54 ".lnk";
-	setAttr -s 54 ".slnk";
+	setAttr -s 33 ".lnk";
+	setAttr -s 33 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -130,24 +132,24 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n"
-		+ "            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Perspective\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
+		+ "            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
 		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
 		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n"
 		+ "            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
-		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
-		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n"
-		+ "                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n"
-		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n"
-		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n"
-		+ "            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Perspective\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Perspective\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
+		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
+		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n"
+		+ "                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n"
+		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n"
+		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n"
+		+ "            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Perspective\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
 		+ "                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
-		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
-		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n"
+		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
+		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Perspective\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n"
 		+ "            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n"
-		+ "            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n"
 		+ "                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n"
 		+ "                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n"
@@ -196,24 +198,30 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n"
 		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Perspective\")) \n"
 		+ "\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Perspective\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Perspective\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Perspective\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Perspective\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min -16 -max 90 -ast -50 -aet 90 ";
+	setAttr ".b" -type "string" "playbackOptions -min 0 -max 90 -ast -50 -aet 90 ";
 	setAttr ".st" 6;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 	setAttr -s 17 ".opt";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
+	addAttr -ci true -h true -sn "sunAndSkyShader" -ln "sunAndSkyShader" -at "message";
 	setAttr ".rvb" 3;
-	setAttr ".ivb" 0;
+	setAttr ".ivb" no;
 createNode mentalrayOptions -s -n "miDefaultOptions";
 	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
 		3;
 	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr ".minsp" 0;
+	setAttr ".maxsp" 2;
+	setAttr ".rflr" 10;
+	setAttr ".rfrr" 10;
+	setAttr ".maxr" 20;
 	setAttr -s 48 ".stringOptions";
 	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
 	setAttr ".stringOptions[0].value" -type "string" "1.0";
@@ -359,14 +367,7 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
 	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
 	setAttr ".stringOptions[47].type" -type "string" "color";
-	setAttr ".splck" 1;
-	setAttr ".fil" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
-	setAttr ".dat" 2;
 createNode lambert -n "Floor";
 	setAttr ".c" -type "float3" 0.126 0.126 0.126 ;
 createNode shadingEngine -n "lambert2SG";
@@ -374,71 +375,45 @@ createNode shadingEngine -n "lambert2SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 createNode mentalrayOptions -s -n "miContourPreset";
-	setAttr ".splck" 1;
-	setAttr ".fil" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "Draft";
-	setAttr ".splck" 1;
-	setAttr ".fil" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
-	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "DraftMotionBlur";
-	setAttr ".splck" 1;
-	setAttr ".fil" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 1;
 	setAttr ".tcong" 1;
 	setAttr ".tconb" 1;
 	setAttr ".tcona" 1;
 createNode mentalrayOptions -s -n "DraftRapidMotion";
-	setAttr ".splck" 1;
-	setAttr ".fil" 0;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 1;
 	setAttr ".raps" 0.25;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 1;
 	setAttr ".tcong" 1;
 	setAttr ".tconb" 1;
 	setAttr ".tcona" 1;
 createNode mentalrayOptions -s -n "Preview";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "PreviewMotionblur";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 0.5;
 	setAttr ".tcong" 0.5;
 	setAttr ".tconb" 0.5;
 	setAttr ".tcona" 0.5;
 createNode mentalrayOptions -s -n "PreviewRapidMotion";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
@@ -447,152 +422,114 @@ createNode mentalrayOptions -s -n "PreviewRapidMotion";
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 0.5;
 	setAttr ".tcong" 0.5;
 	setAttr ".tconb" 0.5;
 	setAttr ".tcona" 0.5;
 createNode mentalrayOptions -s -n "PreviewCaustics";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
-	setAttr ".ca" 1;
+	setAttr ".ca" yes;
 	setAttr ".cc" 1;
 	setAttr ".cr" 1;
 createNode mentalrayOptions -s -n "PreviewGlobalIllum";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
-	setAttr ".gi" 1;
+	setAttr ".gi" yes;
 	setAttr ".gc" 1;
 	setAttr ".gr" 1;
 createNode mentalrayOptions -s -n "PreviewFinalGather";
-	setAttr ".splck" 1;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
-	setAttr ".shrd" 2;
-	setAttr ".fg" 1;
+	setAttr ".fg" yes;
 createNode mentalrayOptions -s -n "Production";
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
-	setAttr ".fil" 0;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
-	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "ProductionMotionblur";
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
-	setAttr ".fil" 0;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 2;
 createNode mentalrayOptions -s -n "ProductionRapidMotion";
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
-	setAttr ".fil" 0;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 8;
 	setAttr ".raps" 2;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
-	setAttr ".shrd" 2;
 	setAttr ".mb" 2;
 createNode mentalrayOptions -s -n "ProductionFineTrace";
 	setAttr ".conr" 0.019999999552965164;
 	setAttr ".cong" 0.019999999552965164;
 	setAttr ".conb" 0.019999999552965164;
-	setAttr ".splck" 1;
 	setAttr ".minsp" 1;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
 	setAttr ".filw" 0.75;
 	setAttr ".filh" 0.75;
-	setAttr ".jit" 1;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
+	setAttr ".jit" yes;
 createNode mentalrayOptions -s -n "ProductionRapidFur";
 	setAttr ".conr" 0.039999999105930328;
-	setAttr ".cong" 0.029999999329447743;
+	setAttr ".cong" 0.029999999329447746;
 	setAttr ".conb" 0.070000000298023224;
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
 	setAttr ".filw" 1.1449999809265137;
 	setAttr ".filh" 1.1449999809265137;
-	setAttr ".jit" 1;
+	setAttr ".jit" yes;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 3;
 	setAttr ".raps" 0.25;
-	setAttr ".ray" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
+	setAttr ".ray" no;
 	setAttr ".shmth" 3;
 	setAttr ".shmap" 3;
-	setAttr ".mbsm" 0;
+	setAttr ".mbsm" no;
 	setAttr ".bism" 0.019999999552965164;
 createNode mentalrayOptions -s -n "ProductionRapidHair";
 	setAttr ".conr" 0.039999999105930328;
-	setAttr ".cong" 0.029999999329447743;
+	setAttr ".cong" 0.029999999329447746;
 	setAttr ".conb" 0.070000000298023224;
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
 	setAttr ".filw" 1.1449999809265137;
 	setAttr ".filh" 1.1449999809265137;
-	setAttr ".jit" 1;
+	setAttr ".jit" yes;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 6;
-	setAttr ".ray" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
+	setAttr ".ray" no;
 	setAttr ".shmth" 3;
 	setAttr ".shmap" 3;
-	setAttr ".mbsm" 0;
+	setAttr ".mbsm" no;
 	setAttr ".bism" 0.019999999552965164;
 createNode mentalrayOptions -s -n "PreviewImrRayTracyOff";
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".fil" 1;
-	setAttr ".ray" 0;
-	setAttr ".rflr" 1;
-	setAttr ".rfrr" 1;
-	setAttr ".maxr" 1;
-	setAttr ".shrd" 2;
+	setAttr ".ray" no;
 createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
-	setAttr ".splck" 1;
 	setAttr ".minsp" 0;
 	setAttr ".fil" 1;
-	setAttr ".rflr" 1;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 3;
 	setAttr ".shrd" 1;
@@ -912,10 +849,10 @@ createNode reference -n "sharedReferenceNode";
 		"sharedReferenceNode";
 createNode reference -n "Emily_Body_RigRN";
 	setAttr -s 3 ".fn";
-	setAttr ".fn[0]" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
-	setAttr ".fn[1]" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
-	setAttr ".fn[2]" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
-	setAttr -s 533 ".phl";
+	setAttr ".fn[0]" -type "string" "X:/Documents/Suchaaver/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
+	setAttr ".fn[1]" -type "string" "X:/Documents/Suchaaver/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
+	setAttr ".fn[2]" -type "string" "X:/Documents/Suchaaver/Nightmare//assets/chars/rigs/Emily_Body_Rig.ma";
+	setAttr -s 532 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -1448,7 +1385,6 @@ createNode reference -n "Emily_Body_RigRN";
 	setAttr ".phl[530]" 0;
 	setAttr ".phl[531]" 0;
 	setAttr ".phl[532]" 0;
-	setAttr ".phl[533]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Body_RigRN"
 		"Emily_Body_Rig:Hair_EmilyRN" 0
@@ -1459,7 +1395,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "Emily_Body_Rig:triggerPlusMinusAverage" "i1[0:125]" " -s 126 1 0 0 0 3 2 2 0 0 0 0 2 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
 		"Emily_Body_Rig:DressRN" 0
-		"Emily_Body_RigRN" 1001
+		"Emily_Body_RigRN" 1008
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
 		"translate" " -type \"double3\" -0.0947394 -2.69 -11.194761"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main" 
@@ -1485,7 +1421,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:FitSkeleton|Emily_Body_Rig:FitSkeletonHeightShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
-		"rotate" " -type \"double3\" -19.220357 0.00735984 5.849202"
+		"rotate" " -type \"double3\" 3.082641 2.235779 -29.959647"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
@@ -1495,7 +1431,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKRoot_MShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
-		"rotate" " -type \"double3\" -8.047368 5.142851 -26.617786"
+		"rotate" " -type \"double3\" -29.119616 -3.931557 -44.479113"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
@@ -1505,7 +1441,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKSpine1_MShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotate" " -type \"double3\" -26.364693 0 -5.209353"
+		"rotate" " -type \"double3\" -2.519476 4.728194 -12.542114"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
@@ -1535,7 +1471,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
-		"rotate" " -type \"double3\" -11.562244 6.787165 -1.45536"
+		"rotate" " -type \"double3\" -44.796709 35.071713 -10.328403"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
@@ -1545,7 +1481,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKNeck_MShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotate" " -type \"double3\" 3.391406 -3.705782 -0.490372"
+		"rotate" " -type \"double3\" 2.07521 -10.296611 2.089173"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
@@ -1555,7 +1491,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M|Emily_Body_Rig:FKHead_MShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translate" " -type \"double3\" -0.0144194 -0.015521 -0.0131846"
+		"translate" " -type \"double3\" -0.028708 0.00394291 -0.00683444"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
@@ -1603,7 +1539,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R|Emily_Body_Rig:FKWrist_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
-		"translate" " -type \"double3\" -0.00348735 -0.0066151 0.00472847"
+		"translate" " -type \"double3\" 0.0150861 0.0117735 -0.0745557"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_L|Emily_Body_Rig:FKGlobalStaticScapula_L|Emily_Body_Rig:FKGlobalScapula_L|Emily_Body_Rig:FKExtraScapula_L|Emily_Body_Rig:FKScapula_L" 
@@ -1667,7 +1603,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToRoot_M|Emily_Body_Rig:FKOffsetHip_L|Emily_Body_Rig:FKGlobalStaticHip_L|Emily_Body_Rig:FKGlobalHip_L|Emily_Body_Rig:FKExtraHip_L|Emily_Body_Rig:FKHip_L|Emily_Body_Rig:FKXOffsetHip_L|Emily_Body_Rig:FKXHip_L|Emily_Body_Rig:FKOffsetKnee_L|Emily_Body_Rig:FKExtraKnee_L|Emily_Body_Rig:FKKnee_L|Emily_Body_Rig:FKXOffsetKnee_L|Emily_Body_Rig:FKXKnee_L|Emily_Body_Rig:FKOffsetAnkle_L|Emily_Body_Rig:FKExtraAnkle_L|Emily_Body_Rig:FKAnkle_L|Emily_Body_Rig:FKXOffsetAnkle_L|Emily_Body_Rig:FKXAnkle_L|Emily_Body_Rig:FKOffsetToes_L|Emily_Body_Rig:FKExtraToes_L|Emily_Body_Rig:FKToes_L|Emily_Body_Rig:FKToes_LShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R" 
-		"rotate" " -type \"double3\" -6.198065 51.46219 -2.729081"
+		"rotate" " -type \"double3\" -6.198065 -2.885059 -2.729081"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R" 
@@ -1677,7 +1613,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R" 
-		"rotate" " -type \"double3\" 0 61.481067 0"
+		"rotate" " -type \"double3\" 0 6.379559 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R" 
@@ -1693,13 +1629,13 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetIndexFinger1_R|Emily_Body_Rig:SDK1FKIndexFinger1_R|Emily_Body_Rig:SDK2FKIndexFinger1_R|Emily_Body_Rig:FKExtraIndexFinger1_R|Emily_Body_Rig:FKIndexFinger1_R|Emily_Body_Rig:FKXOffsetIndexFinger1_R|Emily_Body_Rig:FKXIndexFinger1_R|Emily_Body_Rig:FKOffsetIndexFinger2_R|Emily_Body_Rig:SDK1FKIndexFinger2_R|Emily_Body_Rig:FKExtraIndexFinger2_R|Emily_Body_Rig:FKIndexFinger2_R|Emily_Body_Rig:FKXOffsetIndexFinger2_R|Emily_Body_Rig:FKXIndexFinger2_R|Emily_Body_Rig:FKOffsetIndexFinger3_R|Emily_Body_Rig:SDK1FKIndexFinger3_R|Emily_Body_Rig:FKExtraIndexFinger3_R|Emily_Body_Rig:FKIndexFinger3_R|Emily_Body_Rig:FKIndexFinger3_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R" 
-		"rotate" " -type \"double3\" 0 66.540788 0"
+		"rotate" " -type \"double3\" 0 13.343668 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R" 
-		"rotate" " -type \"double3\" 0 46.07978 0"
+		"rotate" " -type \"double3\" 0 1.052025 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R" 
@@ -1715,13 +1651,13 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetMiddleFinger1_R|Emily_Body_Rig:SDK1FKMiddleFinger1_R|Emily_Body_Rig:FKExtraMiddleFinger1_R|Emily_Body_Rig:FKMiddleFinger1_R|Emily_Body_Rig:FKXOffsetMiddleFinger1_R|Emily_Body_Rig:FKXMiddleFinger1_R|Emily_Body_Rig:FKOffsetMiddleFinger2_R|Emily_Body_Rig:SDK1FKMiddleFinger2_R|Emily_Body_Rig:FKExtraMiddleFinger2_R|Emily_Body_Rig:FKMiddleFinger2_R|Emily_Body_Rig:FKXOffsetMiddleFinger2_R|Emily_Body_Rig:FKXMiddleFinger2_R|Emily_Body_Rig:FKOffsetMiddleFinger3_R|Emily_Body_Rig:SDK1FKMiddleFinger3_R|Emily_Body_Rig:FKExtraMiddleFinger3_R|Emily_Body_Rig:FKMiddleFinger3_R|Emily_Body_Rig:FKMiddleFinger3_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R" 
-		"rotate" " -type \"double3\" 0 62.574557 0"
+		"rotate" " -type \"double3\" 0 -3.101968 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R|Emily_Body_Rig:FKRingFinger1_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R|Emily_Body_Rig:FKXOffsetRingFinger1_R|Emily_Body_Rig:FKXRingFinger1_R|Emily_Body_Rig:FKOffsetRingFinger2_R|Emily_Body_Rig:SDK1FKRingFinger2_R|Emily_Body_Rig:FKExtraRingFinger2_R|Emily_Body_Rig:FKRingFinger2_R" 
-		"rotate" " -type \"double3\" 0 68.397233 0"
+		"rotate" " -type \"double3\" 0 19.836598 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R|Emily_Body_Rig:FKXOffsetRingFinger1_R|Emily_Body_Rig:FKXRingFinger1_R|Emily_Body_Rig:FKOffsetRingFinger2_R|Emily_Body_Rig:SDK1FKRingFinger2_R|Emily_Body_Rig:FKExtraRingFinger2_R|Emily_Body_Rig:FKRingFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R|Emily_Body_Rig:FKXOffsetRingFinger1_R|Emily_Body_Rig:FKXRingFinger1_R|Emily_Body_Rig:FKOffsetRingFinger2_R|Emily_Body_Rig:SDK1FKRingFinger2_R|Emily_Body_Rig:FKExtraRingFinger2_R|Emily_Body_Rig:FKRingFinger2_R" 
@@ -1737,7 +1673,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetRingFinger1_R|Emily_Body_Rig:SDK1FKRingFinger1_R|Emily_Body_Rig:SDK2FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKRingFinger1_R|Emily_Body_Rig:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraRingFinger1_R|Emily_Body_Rig:FKRingFinger1_R|Emily_Body_Rig:FKXOffsetRingFinger1_R|Emily_Body_Rig:FKXRingFinger1_R|Emily_Body_Rig:FKOffsetRingFinger2_R|Emily_Body_Rig:SDK1FKRingFinger2_R|Emily_Body_Rig:FKExtraRingFinger2_R|Emily_Body_Rig:FKRingFinger2_R|Emily_Body_Rig:FKXOffsetRingFinger2_R|Emily_Body_Rig:FKXRingFinger2_R|Emily_Body_Rig:FKOffsetRingFinger3_R|Emily_Body_Rig:SDK1FKRingFinger3_R|Emily_Body_Rig:FKExtraRingFinger3_R|Emily_Body_Rig:FKRingFinger3_R|Emily_Body_Rig:FKRingFinger3_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R" 
-		"rotate" " -type \"double3\" 10.61133 42.46041 6.901581"
+		"rotate" " -type \"double3\" 10.742299 -1.301912 1.170998"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R" 
@@ -1747,7 +1683,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R|Emily_Body_Rig:FKXOffsetPinkyFinger1_R|Emily_Body_Rig:FKXPinkyFinger1_R|Emily_Body_Rig:FKOffsetPinkyFinger2_R|Emily_Body_Rig:SDK1FKPinkyFinger2_R|Emily_Body_Rig:FKExtraPinkyFinger2_R|Emily_Body_Rig:FKPinkyFinger2_R" 
-		"rotate" " -type \"double3\" 0 92.212913 0"
+		"rotate" " -type \"double3\" 0 -0.349335 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R|Emily_Body_Rig:FKXOffsetPinkyFinger1_R|Emily_Body_Rig:FKXPinkyFinger1_R|Emily_Body_Rig:FKOffsetPinkyFinger2_R|Emily_Body_Rig:SDK1FKPinkyFinger2_R|Emily_Body_Rig:FKExtraPinkyFinger2_R|Emily_Body_Rig:FKPinkyFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R|Emily_Body_Rig:FKXOffsetPinkyFinger1_R|Emily_Body_Rig:FKXPinkyFinger1_R|Emily_Body_Rig:FKOffsetPinkyFinger2_R|Emily_Body_Rig:SDK1FKPinkyFinger2_R|Emily_Body_Rig:FKExtraPinkyFinger2_R|Emily_Body_Rig:FKPinkyFinger2_R" 
@@ -1767,7 +1703,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetPinkyFinger1_R|Emily_Body_Rig:SDK1FKPinkyFinger1_R|Emily_Body_Rig:SDK2FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Body_Rig:SDK3FKPinkyFinger1_R|Emily_Body_Rig:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Body_Rig:FKExtraPinkyFinger1_R|Emily_Body_Rig:FKPinkyFinger1_R|Emily_Body_Rig:FKXOffsetPinkyFinger1_R|Emily_Body_Rig:FKXPinkyFinger1_R|Emily_Body_Rig:FKOffsetPinkyFinger2_R|Emily_Body_Rig:SDK1FKPinkyFinger2_R|Emily_Body_Rig:FKExtraPinkyFinger2_R|Emily_Body_Rig:FKPinkyFinger2_R|Emily_Body_Rig:FKXOffsetPinkyFinger2_R|Emily_Body_Rig:FKXPinkyFinger2_R|Emily_Body_Rig:FKOffsetPinkyFinger3_R|Emily_Body_Rig:SDK1FKPinkyFinger3_R|Emily_Body_Rig:FKExtraPinkyFinger3_R|Emily_Body_Rig:FKPinkyFinger3_R|Emily_Body_Rig:FKPinkyFinger3_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R" 
-		"rotate" " -type \"double3\" -10.546459 42.229763 27.730223"
+		"rotate" " -type \"double3\" -5.585043 8.967169 -6.82545"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R" 
@@ -1787,7 +1723,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R|Emily_Body_Rig:FKXOffsetThumbFinger1_R|Emily_Body_Rig:FKXThumbFinger1_R|Emily_Body_Rig:FKOffsetThumbFinger2_R|Emily_Body_Rig:SDK1FKThumbFinger2_R|Emily_Body_Rig:FKExtraThumbFinger2_R|Emily_Body_Rig:FKThumbFinger2_R|Emily_Body_Rig:FKThumbFinger2_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R|Emily_Body_Rig:FKXOffsetThumbFinger1_R|Emily_Body_Rig:FKXThumbFinger1_R|Emily_Body_Rig:FKOffsetThumbFinger2_R|Emily_Body_Rig:SDK1FKThumbFinger2_R|Emily_Body_Rig:FKExtraThumbFinger2_R|Emily_Body_Rig:FKThumbFinger2_R|Emily_Body_Rig:FKXOffsetThumbFinger2_R|Emily_Body_Rig:FKXThumbFinger2_R|Emily_Body_Rig:FKOffsetThumbFinger3_R|Emily_Body_Rig:SDK1FKThumbFinger3_R|Emily_Body_Rig:FKExtraThumbFinger3_R|Emily_Body_Rig:FKThumbFinger3_R" 
-		"rotate" " -type \"double3\" 0 58.690057 0"
+		"rotate" " -type \"double3\" -13.424267 9.483188 2.284962"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R|Emily_Body_Rig:FKXOffsetThumbFinger1_R|Emily_Body_Rig:FKXThumbFinger1_R|Emily_Body_Rig:FKOffsetThumbFinger2_R|Emily_Body_Rig:SDK1FKThumbFinger2_R|Emily_Body_Rig:FKExtraThumbFinger2_R|Emily_Body_Rig:FKThumbFinger2_R|Emily_Body_Rig:FKXOffsetThumbFinger2_R|Emily_Body_Rig:FKXThumbFinger2_R|Emily_Body_Rig:FKOffsetThumbFinger3_R|Emily_Body_Rig:SDK1FKThumbFinger3_R|Emily_Body_Rig:FKExtraThumbFinger3_R|Emily_Body_Rig:FKThumbFinger3_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToWrist_R|Emily_Body_Rig:FKOffsetThumbFinger1_R|Emily_Body_Rig:FKExtraThumbFinger1_R|Emily_Body_Rig:FKThumbFinger1_R|Emily_Body_Rig:FKXOffsetThumbFinger1_R|Emily_Body_Rig:FKXThumbFinger1_R|Emily_Body_Rig:FKOffsetThumbFinger2_R|Emily_Body_Rig:SDK1FKThumbFinger2_R|Emily_Body_Rig:FKExtraThumbFinger2_R|Emily_Body_Rig:FKThumbFinger2_R|Emily_Body_Rig:FKXOffsetThumbFinger2_R|Emily_Body_Rig:FKXThumbFinger2_R|Emily_Body_Rig:FKOffsetThumbFinger3_R|Emily_Body_Rig:SDK1FKThumbFinger3_R|Emily_Body_Rig:FKExtraThumbFinger3_R|Emily_Body_Rig:FKThumbFinger3_R" 
@@ -1837,7 +1773,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90 3.046919 90"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
-		"translate" " -type \"double3\" 0.62551 -0.686694 -0.124999"
+		"translate" " -type \"double3\" 0.781754 -0.804128 0.991006"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
@@ -1845,7 +1781,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
-		"rotate" " -type \"double3\" -1.999096 12.982603 67.008695"
+		"rotate" " -type \"double3\" 18.986759 76.902043 64.602378"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
@@ -1855,7 +1791,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R|Emily_Body_Rig:IKArm_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R" 
-		"translate" " -type \"double3\" 0.62416 0.00318827 0.0406458"
+		"translate" " -type \"double3\" 0.414606 -0.504476 0.957636"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R" 
@@ -1865,7 +1801,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_R|Emily_Body_Rig:PoleExtraArm_R|Emily_Body_Rig:PoleArm_R|Emily_Body_Rig:PoleArm_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translate" " -type \"double3\" -0.394276 0.325984 0.251485"
+		"translate" " -type \"double3\" -0.394276 0.325984 0.147944"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
@@ -1873,7 +1809,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"rotate" " -type \"double3\" -2.725093 -20.479422 0"
+		"rotate" " -type \"double3\" 20.559627 -20.479422 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
@@ -1907,7 +1843,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_R|Emily_Body_Rig:PoleExtraLeg_R|Emily_Body_Rig:PoleLeg_R|Emily_Body_Rig:PoleLeg_RShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
-		"translate" " -type \"double3\" -0.430369 -0.794477 0.469242"
+		"translate" " -type \"double3\" -0.635337 -0.81971 1.180502"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
@@ -1915,7 +1851,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
-		"rotate" " -type \"double3\" 258.753017 -284.39385 -83.858152"
+		"rotate" " -type \"double3\" 352.451355 -468.298269 -70.798486"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L" 
@@ -1925,7 +1861,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_L|Emily_Body_Rig:IKExtraArm_L|Emily_Body_Rig:IKArm_L|Emily_Body_Rig:IKArm_LShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_L|Emily_Body_Rig:PoleExtraArm_L|Emily_Body_Rig:PoleArm_L" 
-		"translate" " -type \"double3\" -0.0555328 -0.521095 0.750666"
+		"translate" " -type \"double3\" -0.0945877 -1.33614 1.575806"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_L|Emily_Body_Rig:PoleExtraArm_L|Emily_Body_Rig:PoleArm_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_L|Emily_Body_Rig:PoleExtraArm_L|Emily_Body_Rig:PoleArm_L" 
@@ -2071,7 +2007,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L|Emily_Body_Rig:Fingers_LShape" 
 		"intermediateObject" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translate" " -type \"double3\" 0.00289611 0.0235749 -0.0683446"
+		"translate" " -type \"double3\" 0.00359988 -0.0487369 -0.0701247"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
@@ -2079,7 +2015,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
-		"translate" " -type \"double3\" 0.00337158 -0.0286287 0.000384824"
+		"translate" " -type \"double3\" 0.0033472 -0.0512737 -0.000560076"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
@@ -2087,7 +2023,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translate" " -type \"double3\" -0.0158757 0.0200636 -0.0620476"
+		"translate" " -type \"double3\" -0.0153863 -0.0522481 -0.0638277"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
@@ -2095,7 +2031,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
-		"translate" " -type \"double3\" 0.00337158 -0.0286287 0.000384824"
+		"translate" " -type \"double3\" 0.0033472 -0.0512737 -0.000560076"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
@@ -2103,7 +2039,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_L|Emily_Body_Rig:browOuterOffset_L|Emily_Body_Rig:browOuterSubtract_L|Emily_Body_Rig:browOuter_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_R|Emily_Body_Rig:cheekOffset_R|Emily_Body_Rig:cheekSubtract_R|Emily_Body_Rig:cheek_R" 
-		"translate" " -type \"double3\" -0.00848894 -0.00411112 0.000405215"
+		"translate" " -type \"double3\" -0.0197055 0.000539496 -0.00265719"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_R|Emily_Body_Rig:cheekOffset_R|Emily_Body_Rig:cheekSubtract_R|Emily_Body_Rig:cheek_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_R|Emily_Body_Rig:cheekOffset_R|Emily_Body_Rig:cheekSubtract_R|Emily_Body_Rig:cheek_R" 
@@ -2113,7 +2049,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:noseCornerAttach_R|Emily_Body_Rig:noseCornerOffset_R|Emily_Body_Rig:noseCornerSubtract_R|Emily_Body_Rig:noseCorner_R" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
-		"translate" " -type \"double3\" 0.00604049 0.00392588 0.00303307"
+		"translate" " -type \"double3\" 0.0127166 0.0190729 0.00321728"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:cheekAttach_L|Emily_Body_Rig:cheekOffset_L|Emily_Body_Rig:cheekSubtract_L|Emily_Body_Rig:cheek_L" 
@@ -2123,15 +2059,19 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:noseCornerAttach_L|Emily_Body_Rig:noseCornerOffset_L|Emily_Body_Rig:noseCornerSubtract_L|Emily_Body_Rig:noseCorner_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
-		"translate" " -type \"double3\" -0.0135325 0.00127255 0.0074532"
+		"translate" " -type \"double3\" 0.0110076 -0.0153065 0.0520738"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
 		"translateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
 		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_R|Emily_Body_Rig:Lip6Offset_R|Emily_Body_Rig:Lip6Subtract_R|Emily_Body_Rig:Lip6_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L" 
-		"translate" " -type \"double3\" 0.00126715 0.0033048 0.0184464"
+		"translate" " -type \"double3\" -0.0438147 -0.0380919 0.0602212"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L" 
@@ -2139,13 +2079,17 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:Lip6Attach_L|Emily_Body_Rig:Lip6Offset_L|Emily_Body_Rig:Lip6Subtract_L|Emily_Body_Rig:Lip6_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
-		"translate" " -type \"double3\" -0.000188473 0.0107383 0.00348418"
+		"translate" " -type \"double3\" 0.00690763 0.0037377 0.0122486"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
 		"translateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
 		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip0Attach_M|Emily_Body_Rig:upperLip0Offset_M|Emily_Body_Rig:upperLip0Subtract_M|Emily_Body_Rig:upperLip0_M" 
+		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_R|Emily_Body_Rig:upperLip3Offset_R|Emily_Body_Rig:upperLip3Subtract_R|Emily_Body_Rig:upperLip3_R" 
 		"translate" " -type \"double3\" -0.00153508 0.000695317 -0.00381888"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_R|Emily_Body_Rig:upperLip3Offset_R|Emily_Body_Rig:upperLip3Subtract_R|Emily_Body_Rig:upperLip3_R" 
@@ -2163,7 +2107,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_L|Emily_Body_Rig:upperLip3Offset_L|Emily_Body_Rig:upperLip3Subtract_L|Emily_Body_Rig:upperLip3_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
-		"translate" " -type \"double3\" 0.00717042 0.00866601 0.00381911"
+		"translate" " -type \"double3\" -0.00289893 0.00155492 0.00435673"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
@@ -2171,7 +2115,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
-		"rotate" " -type \"double3\" 8.096805 0 0"
+		"rotate" " -type \"double3\" 6.947751 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip3Attach_R|Emily_Body_Rig:lowerLip3Offset_R|Emily_Body_Rig:lowerLip3Subtract_R|Emily_Body_Rig:lowerLip3_R" 
@@ -2179,7 +2123,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip3Attach_L|Emily_Body_Rig:lowerLip3Offset_L|Emily_Body_Rig:lowerLip3Subtract_L|Emily_Body_Rig:lowerLip3_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_R|Emily_Body_Rig:LidCorner1Offset_R|Emily_Body_Rig:LidCorner1Subtract_R|Emily_Body_Rig:LidCorner1_R" 
-		"translate" " -type \"double3\" -0.000529864 -0.0258111 -0.00128487"
+		"translate" " -type \"double3\" 0.00042781 -0.0392433 -0.00064942"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_R|Emily_Body_Rig:LidCorner1Offset_R|Emily_Body_Rig:LidCorner1Subtract_R|Emily_Body_Rig:LidCorner1_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_R|Emily_Body_Rig:LidCorner1Offset_R|Emily_Body_Rig:LidCorner1Subtract_R|Emily_Body_Rig:LidCorner1_R" 
@@ -2187,7 +2131,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_R|Emily_Body_Rig:LidCorner1Offset_R|Emily_Body_Rig:LidCorner1Subtract_R|Emily_Body_Rig:LidCorner1_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_R|Emily_Body_Rig:LidCorner2Offset_R|Emily_Body_Rig:LidCorner2Subtract_R|Emily_Body_Rig:LidCorner2_R" 
-		"translate" " -type \"double3\" -0.015665 0.00846764 -0.00461576"
+		"translate" " -type \"double3\" -0.0254193 0.0154621 -0.00980301"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_R|Emily_Body_Rig:LidCorner2Offset_R|Emily_Body_Rig:LidCorner2Subtract_R|Emily_Body_Rig:LidCorner2_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_R|Emily_Body_Rig:LidCorner2Offset_R|Emily_Body_Rig:LidCorner2Subtract_R|Emily_Body_Rig:LidCorner2_R" 
@@ -2195,7 +2139,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_R|Emily_Body_Rig:LidCorner2Offset_R|Emily_Body_Rig:LidCorner2Subtract_R|Emily_Body_Rig:LidCorner2_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
-		"translate" " -type \"double3\" -0.00329843 0.00696566 -0.00313875"
+		"translate" " -type \"double3\" 0.0102428 -0.163092 -0.00542972"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
@@ -2203,7 +2147,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.0128078 0.0275473 -0.00768636"
+		"translate" " -type \"double3\" -0.00411328 0.0822624 0.00470749"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
@@ -2219,7 +2163,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner1Attach_L|Emily_Body_Rig:LidCorner1Offset_L|Emily_Body_Rig:LidCorner1Subtract_L|Emily_Body_Rig:LidCorner1_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_L|Emily_Body_Rig:LidCorner2Offset_L|Emily_Body_Rig:LidCorner2Subtract_L|Emily_Body_Rig:LidCorner2_L" 
-		"translate" " -type \"double3\" 0.0169444 0.0446239 0.00179931"
+		"translate" " -type \"double3\" 0.0152536 0.0614917 -0.000502163"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_L|Emily_Body_Rig:LidCorner2Offset_L|Emily_Body_Rig:LidCorner2Subtract_L|Emily_Body_Rig:LidCorner2_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_L|Emily_Body_Rig:LidCorner2Offset_L|Emily_Body_Rig:LidCorner2Subtract_L|Emily_Body_Rig:LidCorner2_L" 
@@ -2227,7 +2171,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_L|Emily_Body_Rig:LidCorner2Offset_L|Emily_Body_Rig:LidCorner2Subtract_L|Emily_Body_Rig:LidCorner2_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translate" " -type \"double3\" -0.0147241 0.00151711 0.000359932"
+		"translate" " -type \"double3\" 0.0177805 -0.15864 0.0123356"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
@@ -2235,7 +2179,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
-		"translate" " -type \"double3\" -0.00497082 0.0311287 -0.00257284"
+		"translate" " -type \"double3\" -0.00411328 0.0822624 0.00470749"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
@@ -2243,15 +2187,23 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_R|Emily_Body_Rig:upperLid2Offset_R|Emily_Body_Rig:upperLid2Subtract_R|Emily_Body_Rig:upperLid2_R" 
-		"translate" " -type \"double3\" 0.00184553 -0.0525141 0.00187775"
+		"translate" " -type \"double3\" 0.00177194 -0.0459021 -0.000104333"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_R|Emily_Body_Rig:upperLid2Offset_R|Emily_Body_Rig:upperLid2Subtract_R|Emily_Body_Rig:upperLid2_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_R|Emily_Body_Rig:upperLid2Offset_R|Emily_Body_Rig:upperLid2Subtract_R|Emily_Body_Rig:upperLid2_R" 
 		"translateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_R|Emily_Body_Rig:upperLid2Offset_R|Emily_Body_Rig:upperLid2Subtract_R|Emily_Body_Rig:upperLid2_R" 
+		"translateZ" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_R|Emily_Body_Rig:upperLid3Offset_R|Emily_Body_Rig:upperLid3Subtract_R|Emily_Body_Rig:upperLid3_R" 
+		"translate" " -type \"double3\" -0.00243307 -0.0148006 0.00125745"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_R|Emily_Body_Rig:upperLid3Offset_R|Emily_Body_Rig:upperLid3Subtract_R|Emily_Body_Rig:upperLid3_R" 
+		"translateX" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_R|Emily_Body_Rig:upperLid3Offset_R|Emily_Body_Rig:upperLid3Subtract_R|Emily_Body_Rig:upperLid3_R" 
+		"translateY" " -av"
+		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_R|Emily_Body_Rig:upperLid3Offset_R|Emily_Body_Rig:upperLid3Subtract_R|Emily_Body_Rig:upperLid3_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid2Attach_R|Emily_Body_Rig:lowerLid2Offset_R|Emily_Body_Rig:lowerLid2Subtract_R|Emily_Body_Rig:lowerLid2_R" 
-		"translate" " -type \"double3\" -0.00032311 0.00290808 0.00229045"
+		"translate" " -type \"double3\" -0.000775151 0.0114801 0.00219632"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid2Attach_R|Emily_Body_Rig:lowerLid2Offset_R|Emily_Body_Rig:lowerLid2Subtract_R|Emily_Body_Rig:lowerLid2_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid2Attach_R|Emily_Body_Rig:lowerLid2Offset_R|Emily_Body_Rig:lowerLid2Subtract_R|Emily_Body_Rig:lowerLid2_R" 
@@ -2259,7 +2211,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid2Attach_R|Emily_Body_Rig:lowerLid2Offset_R|Emily_Body_Rig:lowerLid2Subtract_R|Emily_Body_Rig:lowerLid2_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_R|Emily_Body_Rig:lowerLid3Offset_R|Emily_Body_Rig:lowerLid3Subtract_R|Emily_Body_Rig:lowerLid3_R" 
-		"translate" " -type \"double3\" -0.000163547 0.00344783 -0.00059326"
+		"translate" " -type \"double3\" -9.07365e-005 0.00689697 -0.000783879"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_R|Emily_Body_Rig:lowerLid3Offset_R|Emily_Body_Rig:lowerLid3Subtract_R|Emily_Body_Rig:lowerLid3_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_R|Emily_Body_Rig:lowerLid3Offset_R|Emily_Body_Rig:lowerLid3Subtract_R|Emily_Body_Rig:lowerLid3_R" 
@@ -2267,7 +2219,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_R|Emily_Body_Rig:lowerLid3Offset_R|Emily_Body_Rig:lowerLid3Subtract_R|Emily_Body_Rig:lowerLid3_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
-		"translate" " -type \"double3\" -0.0135342 -0.0299449 0.0219501"
+		"translate" " -type \"double3\" 0.00241771 -0.0554661 -0.00193408"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
@@ -2275,7 +2227,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid2Attach_L|Emily_Body_Rig:upperLid2Offset_L|Emily_Body_Rig:upperLid2Subtract_L|Emily_Body_Rig:upperLid2_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
-		"translate" " -type \"double3\" -0.014393 -0.0422261 0.0178929"
+		"translate" " -type \"double3\" -0.00788014 -0.020046 -0.000742715"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:upperLid3Attach_L|Emily_Body_Rig:upperLid3Offset_L|Emily_Body_Rig:upperLid3Subtract_L|Emily_Body_Rig:upperLid3_L" 
@@ -2291,7 +2243,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid2Attach_L|Emily_Body_Rig:lowerLid2Offset_L|Emily_Body_Rig:lowerLid2Subtract_L|Emily_Body_Rig:lowerLid2_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_L|Emily_Body_Rig:lowerLid3Offset_L|Emily_Body_Rig:lowerLid3Subtract_L|Emily_Body_Rig:lowerLid3_L" 
-		"translate" " -type \"double3\" 0.00128319 -0.00936053 -0.00278671"
+		"translate" " -type \"double3\" 0.000831346 -0.00675916 -0.00339652"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_L|Emily_Body_Rig:lowerLid3Offset_L|Emily_Body_Rig:lowerLid3Subtract_L|Emily_Body_Rig:lowerLid3_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_L|Emily_Body_Rig:lowerLid3Offset_L|Emily_Body_Rig:lowerLid3Subtract_L|Emily_Body_Rig:lowerLid3_L" 
@@ -2299,7 +2251,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_L|Emily_Body_Rig:lowerLid3Offset_L|Emily_Body_Rig:lowerLid3Subtract_L|Emily_Body_Rig:lowerLid3_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translate" " -type \"double3\" -0.00960138 -0.013235 -0.0106585"
+		"translate" " -type \"double3\" -0.0077264 -0.0742583 -0.0108248"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
@@ -2307,7 +2259,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translate" " -type \"double3\" 0.0186705 -0.0163722 0.00452353"
+		"translate" " -type \"double3\" 0.0205455 -0.0773955 0.00435723"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
@@ -2315,7 +2267,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"translate" " -type \"double3\" 0.129986 0.0934755 2.512301"
+		"translate" " -type \"double3\" -0.086405 -0.734176 0.33327"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -2323,7 +2275,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotate" " -type \"double3\" 37.453559 269.675272 2.50448e-06"
+		"rotate" " -type \"double3\" 58.630882 -8.287414 -0.173577"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -2331,7 +2283,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateZ" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"aim" " -av -k 1 10"
+		"aim" " -av -k 1 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:SquashControls|Emily_Body_Rig:squashBase_M|Emily_Body_Rig:squashTopOffset|Emily_Body_Rig:squashTop_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:SquashControls|Emily_Body_Rig:squashBase_M|Emily_Body_Rig:squashMiddleOffset|Emily_Body_Rig:squashMiddle_M" 
@@ -2341,55 +2293,55 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox" 
 		"rotate" " -type \"double3\" -19.260744 14.42262 2.702637"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
-		"translateX" " -av 0.0353542"
+		"translateX" " -av 0.0370024"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R" 
-		"translateY" " -av -0.341274"
+		"translateY" " -av -0.44612"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
-		"translateX" " -av 0.0353542"
+		"translateX" " -av 0.0370024"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L" 
-		"translateY" " -av -0.341274"
+		"translateY" " -av -0.44612"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateX" " -av 0.149709"
+		"translateX" " -av 0.400213"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateY" " -av -0.0774062"
+		"translateY" " -av -0.248731"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateX" " -av 0.149709"
+		"translateX" " -av 0.455871"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateY" " -av -0.0774062"
+		"translateY" " -av -0.417472"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
-		"translateX" " -av -0.169782"
+		"translateX" " -av -0.240166"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
-		"translateY" " -av 0.6011"
+		"translateY" " -av 0.741141"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
-		"translateX" " -av -0.169782"
+		"translateX" " -av -0.240166"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
-		"translateY" " -av 0.6011"
+		"translateY" " -av 0.741141"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
-		"translateX" " -av 0.407745"
+		"translateX" " -av 0.382939"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R" 
-		"translateY" " -av 0.381117"
+		"translateY" " -av 0.337812"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
-		"translateX" " -av 0.376028"
+		"translateX" " -av 0.351222"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L" 
-		"translateY" " -av 0.381746"
+		"translateY" " -av 0.338441"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateX" " -av 0.135235"
+		"translateX" " -av 0.192262"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateY" " -av -0.0627387"
+		"translateY" " -av -0.0431235"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
-		"translateX" " -av 0.564867"
+		"translateX" " -av 0.393261"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
-		"translateY" " -av 0.299612"
+		"translateY" " -av 0.615075"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
-		"translateX" " -av 0.73296"
+		"translateX" " -av 0.600022"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L" 
-		"translateY" " -av 0.287365"
+		"translateY" " -av 0.544064"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:JawSetup|Emily_Body_Rig:JawSetupFollowHead|Emily_Body_Rig:FKOffsetJaw_M|Emily_Body_Rig:FKSDK1Jaw_M|Emily_Body_Rig:FKSDK2Jaw_M|Emily_Body_Rig:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 -4.326003"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"translate" " -type \"double3\" -0.129347 0.293069 -10.803366"
+		"translate" " -type \"double3\" -0.38926 -0.740906 -9.760929"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"rotate" " -type \"double3\" 25.597942 -21.341815 99.712551"
+		"rotate" " -type \"double3\" -41.549225 -59.337735 151.486105"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:RightEye|Emily_Body_Rig:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:LeftEye|Emily_Body_Rig:LeftEyeShapeDeformed" 
@@ -3363,104 +3315,102 @@ createNode reference -n "Emily_Body_RigRN";
 		"Emily_Body_RigRN.placeHolderList[483]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M.translateZ" 
 		"Emily_Body_RigRN.placeHolderList[484]" ""
-		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M.aim" 
-		"Emily_Body_RigRN.placeHolderList[485]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M.follow" 
-		"Emily_Body_RigRN.placeHolderList[486]" ""
+		"Emily_Body_RigRN.placeHolderList[485]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[487]" ""
+		"Emily_Body_RigRN.placeHolderList[486]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[488]" ""
+		"Emily_Body_RigRN.placeHolderList[487]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.squeeze" 
-		"Emily_Body_RigRN.placeHolderList[489]" ""
+		"Emily_Body_RigRN.placeHolderList[488]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_R|Emily_Body_Rig:ctrlBrow_R.outerUpDown" 
-		"Emily_Body_RigRN.placeHolderList[490]" ""
+		"Emily_Body_RigRN.placeHolderList[489]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[491]" ""
+		"Emily_Body_RigRN.placeHolderList[490]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[492]" ""
+		"Emily_Body_RigRN.placeHolderList[491]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.squeeze" 
-		"Emily_Body_RigRN.placeHolderList[493]" ""
+		"Emily_Body_RigRN.placeHolderList[492]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxBrow_L|Emily_Body_Rig:ctrlBrow_L.outerUpDown" 
-		"Emily_Body_RigRN.placeHolderList[494]" ""
+		"Emily_Body_RigRN.placeHolderList[493]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[495]" ""
+		"Emily_Body_RigRN.placeHolderList[494]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[496]" ""
+		"Emily_Body_RigRN.placeHolderList[495]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.Scrunch" 
-		"Emily_Body_RigRN.placeHolderList[497]" ""
+		"Emily_Body_RigRN.placeHolderList[496]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blink" 
-		"Emily_Body_RigRN.placeHolderList[498]" ""
+		"Emily_Body_RigRN.placeHolderList[497]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.blinkCenter" 
-		"Emily_Body_RigRN.placeHolderList[499]" ""
+		"Emily_Body_RigRN.placeHolderList[498]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.upperLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[500]" ""
+		"Emily_Body_RigRN.placeHolderList[499]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.lowerLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[501]" ""
+		"Emily_Body_RigRN.placeHolderList[500]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R.squint" 
-		"Emily_Body_RigRN.placeHolderList[502]" ""
+		"Emily_Body_RigRN.placeHolderList[501]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[503]" ""
+		"Emily_Body_RigRN.placeHolderList[502]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[504]" ""
+		"Emily_Body_RigRN.placeHolderList[503]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.Scrunch" 
-		"Emily_Body_RigRN.placeHolderList[505]" ""
+		"Emily_Body_RigRN.placeHolderList[504]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blink" 
-		"Emily_Body_RigRN.placeHolderList[506]" ""
+		"Emily_Body_RigRN.placeHolderList[505]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.blinkCenter" 
-		"Emily_Body_RigRN.placeHolderList[507]" ""
+		"Emily_Body_RigRN.placeHolderList[506]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.upperLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[508]" ""
+		"Emily_Body_RigRN.placeHolderList[507]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.lowerLidFollow" 
-		"Emily_Body_RigRN.placeHolderList[509]" ""
+		"Emily_Body_RigRN.placeHolderList[508]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L.squint" 
-		"Emily_Body_RigRN.placeHolderList[510]" ""
+		"Emily_Body_RigRN.placeHolderList[509]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[511]" ""
+		"Emily_Body_RigRN.placeHolderList[510]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[512]" ""
+		"Emily_Body_RigRN.placeHolderList[511]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[513]" ""
+		"Emily_Body_RigRN.placeHolderList[512]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[514]" ""
+		"Emily_Body_RigRN.placeHolderList[513]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[515]" ""
+		"Emily_Body_RigRN.placeHolderList[514]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_R|Emily_Body_Rig:ctrlNose_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[516]" ""
+		"Emily_Body_RigRN.placeHolderList[515]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[517]" ""
+		"Emily_Body_RigRN.placeHolderList[516]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxNose_L|Emily_Body_Rig:ctrlNose_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[518]" ""
+		"Emily_Body_RigRN.placeHolderList[517]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateY" 
-		"Emily_Body_RigRN.placeHolderList[519]" ""
+		"Emily_Body_RigRN.placeHolderList[518]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.translateX" 
-		"Emily_Body_RigRN.placeHolderList[520]" ""
+		"Emily_Body_RigRN.placeHolderList[519]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawSide" 
-		"Emily_Body_RigRN.placeHolderList[521]" ""
+		"Emily_Body_RigRN.placeHolderList[520]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.jawForward" 
-		"Emily_Body_RigRN.placeHolderList[522]" ""
+		"Emily_Body_RigRN.placeHolderList[521]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.chinRaiser" 
-		"Emily_Body_RigRN.placeHolderList[523]" ""
+		"Emily_Body_RigRN.placeHolderList[522]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_R" 
-		"Emily_Body_RigRN.placeHolderList[524]" ""
+		"Emily_Body_RigRN.placeHolderList[523]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipPress_L" 
-		"Emily_Body_RigRN.placeHolderList[525]" ""
+		"Emily_Body_RigRN.placeHolderList[524]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_R" 
-		"Emily_Body_RigRN.placeHolderList[526]" ""
+		"Emily_Body_RigRN.placeHolderList[525]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipUpperRoll_L" 
-		"Emily_Body_RigRN.placeHolderList[527]" ""
+		"Emily_Body_RigRN.placeHolderList[526]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_R" 
-		"Emily_Body_RigRN.placeHolderList[528]" ""
+		"Emily_Body_RigRN.placeHolderList[527]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M.lipLowerRoll_L" 
-		"Emily_Body_RigRN.placeHolderList[529]" ""
+		"Emily_Body_RigRN.placeHolderList[528]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateX" 
-		"Emily_Body_RigRN.placeHolderList[530]" ""
+		"Emily_Body_RigRN.placeHolderList[529]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R.translateY" 
-		"Emily_Body_RigRN.placeHolderList[531]" ""
+		"Emily_Body_RigRN.placeHolderList[530]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateX" 
-		"Emily_Body_RigRN.placeHolderList[532]" ""
+		"Emily_Body_RigRN.placeHolderList[531]" ""
 		5 4 "Emily_Body_RigRN" "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_L|Emily_Body_Rig:ctrlMouthCorner_L.translateY" 
-		"Emily_Body_RigRN.placeHolderList[533]" "";
+		"Emily_Body_RigRN.placeHolderList[532]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "sharedReferenceNode1";
@@ -3889,57 +3839,61 @@ createNode animCurveTU -n "Emily_Body_Rig:FKRoot_M_scaleZ";
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -10.763300936356908 -1.788 -1.9496720430760743
-		 -1.744 -12.69246015065564 65.004 -11.25156589109379 67 -32.871001272759187 69 -49.187829600630657
+	setAttr -s 12 ".ktv[0:11]"  -1.844 -10.763300936356908 -1.788 -1.9496720430760743
+		 -1.744 -12.69246015065564 9 -12.512604532229346 20 -43.550645280903495 24 -42.830530598676489
+		 32 -16.113663490798565 65.004 -11.25156589109379 67 -32.871001272759187 69 -49.187829600630657
 		 70.884 -40.457348212409919 84.568 -44.796709179619256;
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 1.1977463986164023 -1.788 0.97280331263826092
-		 -1.744 6.4546939244786437 65.004 7.079467416927522 67 19.826837717067409 69 29.494173099865936
+	setAttr -s 12 ".ktv[0:11]"  -1.844 1.1977463986164023 -1.788 0.97280331263826092
+		 -1.744 6.4546939244786437 9 6.7127423435540283 20 11.446854377255372 24 11.349482578042695
+		 32 12.138543104064372 65.004 7.079467416927522 67 19.826837717067409 69 29.494173099865936
 		 70.884 35.071712655282823 84.568 35.071712655282802;
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -5.8637037322984904 -1.788 -12.691906471696962
-		 -1.744 -4.4813841993788186 65.004 -1.371653835163174 67 -27.049342669792729 69 -30.766667975866213
+	setAttr -s 12 ".ktv[0:11]"  -1.844 -5.8637037322984904 -1.788 -12.691906471696962
+		 -1.744 -4.4813841993788186 9 -2.8423337426139081 20 -17.187395405313243 24 -16.834780162707709
+		 32 -17.886845172526854 65.004 -1.371653835163174 67 -27.049342669792729 69 -30.766667975866213
 		 70.884 -10.328402574839297 84.568 -10.328402574839302;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.027005600000000001 -1.788 -0.027005600000000001
-		 -1.744 -0.027005600000000001 65.004 -0.027005600000000001 67 -0.027005600000000001
-		 69 -0.027005600000000001 70.884 -0.027005600000000001 84.568 -0.027005600000000001;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 -0.027005600000000001 -1.788 -0.027005600000000001
+		 -1.744 -0.027005600000000001 9 -0.027005600000000001 24 -0.027005600000000001 65.004 -0.027005600000000001
+		 67 -0.027005600000000001 69 -0.027005600000000001 70.884 -0.027005600000000001 84.568 -0.027005600000000001;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.094937 -1.788 -0.094937 -1.744 -0.094937
-		 65.004 -0.094937 67 -0.094937 69 -0.094937 70.884 -0.094937 84.568 -0.094937;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 -0.094937 -1.788 -0.094937 -1.744 -0.094937
+		 9 -0.094937 24 -0.094937 65.004 -0.094937 67 -0.094937 69 -0.094937 70.884 -0.094937
+		 84.568 -0.094937;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 0 -1.788 0 -1.744 0 65.004 0 67 0
-		 69 0 70.884 0 84.568 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.788 0 -1.744 0 9 0 24 0 65.004 0
+		 67 0 69 0 70.884 0 84.568 0;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 1 -1.788 1 -1.744 1 65.004 1 67 1
-		 69 1 70.884 1 84.568 1;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 9 1 24 1 65.004 1
+		 67 1 69 1 70.884 1 84.568 1;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 1 -1.788 1 -1.744 1 65.004 1 67 1
-		 69 1 70.884 1 84.568 1;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 9 1 24 1 65.004 1
+		 67 1 69 1 70.884 1 84.568 1;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 1 -1.788 1 -1.744 1 65.004 1 67 1
-		 69 1 70.884 1 84.568 1;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 9 1 24 1 65.004 1
+		 67 1 69 1 70.884 1 84.568 1;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_Global";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 0 -1.788 0 -1.744 0 65.004 0 67 0
-		 69 0 70.884 0 84.568 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.788 0 -1.744 0 9 0 24 0 65.004 0
+		 67 0 69 0 70.884 0 84.568 0;
 createNode animCurveTA -n "Emily_Body_Rig:FKShoulder_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4113,33 +4067,36 @@ createNode animCurveTL -n "unicorn:Mesh_translateZ";
 createNode animCurveTL -n "camera1_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 -9.2837990113017348 90 -9.9701489352618395;
-	setAttr -s 2 ".kit[1]"  1;
-	setAttr -s 2 ".kot[1]"  1;
-	setAttr -s 2 ".kix[1]"  1;
-	setAttr -s 2 ".kiy[1]"  0;
-	setAttr -s 2 ".kox[1]"  1;
-	setAttr -s 2 ".koy[1]"  0;
+	setAttr -s 3 ".ktv[0:2]"  0 -9.2837990113018289 1 -9.2837990113017348
+		 90 -9.9701489352618395;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "camera1_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 -0.74490643865725181 90 -0.93468995561622292;
-	setAttr -s 2 ".kit[1]"  1;
-	setAttr -s 2 ".kot[1]"  1;
-	setAttr -s 2 ".kix[1]"  1;
-	setAttr -s 2 ".kiy[1]"  0;
-	setAttr -s 2 ".kox[1]"  1;
-	setAttr -s 2 ".koy[1]"  0;
+	setAttr -s 3 ".ktv[0:2]"  0 -0.74490643865724337 1 -0.74490643865725181
+		 90 -0.93468995561622292;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "camera1_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 -4.2985245462176982 90 -2.8978654209472055;
-	setAttr -s 2 ".kit[1]"  1;
-	setAttr -s 2 ".kot[1]"  1;
-	setAttr -s 2 ".kix[1]"  1;
-	setAttr -s 2 ".kiy[1]"  0;
-	setAttr -s 2 ".kox[1]"  1;
-	setAttr -s 2 ".koy[1]"  0;
+	setAttr -s 3 ".ktv[0:2]"  0 -4.2985245462174593 1 -4.2985245462176982
+		 90 -2.8978654209472055;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTA -n "camera1_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4167,7 +4124,7 @@ createNode animCurveTL -n "Emily_Body_Rig:IKArm_R_translateX";
 		 -1.752 0.68215429026997132 -1.708 0.62561056420793293 20 0.62667449854047852 31 0.62813202001247104
 		 38 0.62981800609564209 52 0.61608422044849875 65 0.59034237415331359 65.004 0.64074850917171633
 		 66 0.69379608767844081 67 0.69418107032890353 69 0.64234817431075586 70 0.80642097219179709
-		 73 0.76199604928657227 80 0.78175378129969209;
+		 73 0.76199604928657227 80 0.7817537812996922;
 	setAttr -s 16 ".kit[15]"  9;
 	setAttr -s 16 ".kot[15]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:IKArm_R_translateY";
@@ -4187,7 +4144,7 @@ createNode animCurveTL -n "Emily_Body_Rig:IKArm_R_translateZ";
 		 -1.752 0.038405146047725824 -1.708 -0.29417433787946023 20 -0.30407551997496807 31 -0.1960862348313443
 		 38 -0.14555855698845624 52 -0.10025249243741312 65 0.0099574829673559906 65.004 -0.30846180371636933
 		 66 0.090964291258421981 67 0.18692295144957805 69 0.85120740017359819 70 1.0437849462964577
-		 73 0.97044057813054474 80 0.99100644467765742;
+		 73 0.97044057813054485 80 0.99100644467765742;
 	setAttr -s 16 ".kit[15]"  9;
 	setAttr -s 16 ".kot[15]"  9;
 createNode animCurveTU -n "Emily_Body_Rig:IKArm_R_visibility";
@@ -4202,8 +4159,8 @@ createNode animCurveTA -n "Emily_Body_Rig:IKArm_R_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 14 ".ktv[0:13]"  -5 -158.65315589343024 -1.708 -38.687677459768359
 		 20 -11.877203185572826 31 -6.4535292363541501 38 -2.8932289306936103 52 -1.5475735678869025
-		 65 7.552034078356924e-15 65.004 0 66 -14.377152696522055 67 -10.649730550495356 69 0
-		 70 -10.05619825608108 73 0 80 18.98675856942533;
+		 65 7.552034078356924e-015 65.004 0 66 -14.377152696522055 67 -10.649730550495356
+		 69 0 70 -10.05619825608108 73 0 80 18.98675856942533;
 	setAttr -s 14 ".kit[13]"  9;
 	setAttr -s 14 ".kot[13]"  9;
 createNode animCurveTA -n "Emily_Body_Rig:IKArm_R_rotateY";
@@ -4272,411 +4229,430 @@ createNode animCurveTU -n "Emily_Body_Rig:IKArm_R_volume";
 createNode animCurveTL -n "Emily_Body_Rig:ctrlMouthCorner_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.65157534583232135 -1.764 -0.36235998701437161
-		 16 0.0019710259673550593 19 0.23016767656005543 21 0.3143317905710431 66.212 0.68072398396357325
-		 69.56 0.34267171311172634 83.436 0.3932608404332259;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.65157534583232135 -1.764 -0.36235998701437161
+		 16 0.0019710259673550593 19 0.086410822629692546 66.212 0.68072398396357325 69.56 0.34267171311172634
+		 83.436 0.3932608404332259;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlMouthCorner_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.32919568274400579 -1.764 0.66700622255019415
-		 16 0.67372115667104548 19 0.51866615472263955 21 0.27394703578761992 66.212 0.41173494775686897
-		 69.56 0.67685367449077105 83.436 0.61507521299296597;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.32919568274400579 -1.764 0.66700622255019415
+		 16 0.67372115667104548 19 0.78945063992659514 66.212 0.41173494775686897 69.56 0.67685367449077105
+		 83.436 0.61507521299296597;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlMouthCorner_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.11639010463234992 -1.764 -0.008843134720525796
-		 16 0.0061311000609958382 19 0.10697165800209138 21 0.191366 66.212 1 69.56 0.65156429781684344
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.11639010463234992 -1.764 -0.008843134720525796
+		 16 0.0061311000609958382 19 0.022475987271451614 66.212 1 69.56 0.65156429781684344
 		 83.436 0.60002222677347306;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlMouthCorner_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  -1.844 -0.43047412005710034 -1.764 0.57414734220628194
-		 16 0.59114976660679286 19 0.45125560415744514 21 0.214772 66.212 0.45994723974875129
-		 69.56 0.71294713490315942 83.436 0.54406386476259561;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.43047412005710034 -1.764 0.57414734220628194
+		 16 0.59114976660679286 19 0.83197389880110473 66.212 0.45994723974875129 69.56 0.71294713490315942
+		 83.436 0.54406386476259561;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.0041450343756926503 -1.764 -0.0033924733315214301
-		 16 -0.00021220205750021703 19 -0.012178260905011527 25 -0.01175661773968921 30 0.0012462250784341254
-		 32 -0.020866145643089577 65.004 0.00080501321799536876 69.548 0.001437514973814256
-		 83.436 -0.0066276365192625385 84 0.017780451991673649;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 14 ".ktv[0:13]"  -1.844 -0.0041450343756926503 -1.764 -0.0033924733315214301
+		 0 -0.035417925762218805 10 0.0087530424901282062 16 -0.00021220205750021703 19 -0.012178260905011527
+		 25 -0.01175661773968921 30 0.0012462250784341254 32 -0.02304972167664851 33 -0.028080313230137013
+		 65.004 0.00080501321799536876 69.548 0.001437514973814256 83.436 -0.0066276365192625385
+		 84 0.017780451991673649;
+	setAttr -s 14 ".kit[13]"  9;
+	setAttr -s 14 ".kot[13]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.037280854707906645 -1.764 -0.0079170002344668804
-		 16 0.014545013291145804 19 0.010114349709883789 25 0.0093114171870037517 30 -0.22962618433174656
-		 32 -0.014034477241992685 65.004 0.0059717907088640398 69.548 -0.034688214560702507
-		 83.436 -0.11876238557049829 84 -0.15864019722329972;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 14 ".ktv[0:13]"  -1.844 -0.037280854707906645 -1.764 -0.0079170002344668804
+		 0 0.071094304859000257 10 -0.21248433234288489 16 0.014545013291145804 19 0.010114349709883789
+		 25 0.0093114171870037517 30 -0.22962618433174656 32 -0.0091149039032617663 33 -0.015775031171932886
+		 65.004 0.0059717907088640398 69.548 -0.034688214560702507 83.436 -0.11876238557049829
+		 84 -0.15864019722329972;
+	setAttr -s 14 ".kit[13]"  9;
+	setAttr -s 14 ".kot[13]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0.012755303717941029 -1.764 0.0045499258783188289
-		 16 0.00022787644002231645 19 -0.0052893850011628005 25 -0.0049404447313288261 30 0.1528758776075719
-		 32 -0.00060147675483096475 65.004 0.0021996113804106936 69.548 0.0015184416268758038
-		 83.436 -0.0095793200323868993 84 0.012335559040731459;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 14 ".ktv[0:13]"  -1.844 0.012755303717941029 -1.764 0.0045499258783188289
+		 0 0.064986551751707311 10 0.013686071264039004 16 0.00022787644002231645 19 -0.0052893850011628005
+		 25 -0.0049404447313288261 30 0.1528758776075719 32 -0.1095797927278801 33 -0.10995172706098083
+		 65.004 0.0021996113804106936 69.548 0.0015184416268758038 83.436 -0.0095793200323868993
+		 84 0.012335559040731459;
+	setAttr -s 14 ".kit[13]"  9;
+	setAttr -s 14 ".kot[13]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 0.00089457675645614003 -1.764 0.00077974849120071674
-		 19 -0.0011808440189008326 27 -0.010047172798717433 29 -0.0035582370664681735 32 -0.01823393367242215
-		 69.56 -0.0008429238006357377 70.828 -0.000827383 83.436 0.0024177115078211527;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  0.99999427795410156 1 1 0.99999964237213135 
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0.00089457675645614003 -1.764 0.00077974849120071674
+		 0 -0.018876592482340547 10 -0.043548156194145565 19 -0.0011808440189008326 27 -0.010047172798717433
+		 29 -0.0035582370664681735 32 -0.01823393367242215 69.56 -0.0008429238006357377 70.828 -0.000827383
+		 83.436 0.0024177115078211527;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  0.99999427795410156 1 1 0.99999964237213135 
 		0.99999964237213135 1;
-	setAttr -s 9 ".kiy[3:8]"  -0.0033841843251138926 0 0 0.000882442865986377 
+	setAttr -s 11 ".kiy[5:10]"  -0.0033841843251138926 0 0 0.000882442865986377 
 		0.000882442865986377 0;
-	setAttr -s 9 ".kox[3:8]"  0.99999427795410156 1 1 0.99999964237213135 
+	setAttr -s 11 ".kox[5:10]"  0.99999427795410156 1 1 0.99999964237213135 
 		0.9999995231628418 1;
-	setAttr -s 9 ".koy[3:8]"  -0.0033841845579445362 0 0 0.000882442865986377 
+	setAttr -s 11 ".koy[5:10]"  -0.0033841845579445362 0 0 0.000882442865986377 
 		0.00088244274957105517 0;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 -0.03738638277719309 -1.764 -0.038953714881696445
-		 19 -0.033900098886218692 27 -0.051442395046608365 29 -0.090028490189855329 32 -0.026868899567793661
-		 69.56 -0.037995282652834035 70.828 -0.0074059299999999998 83.436 -0.055466089432243702;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.03738638277719309 -1.764 -0.038953714881696445
+		 0 -0.054099379635711063 10 -0.062192783503321615 19 -0.033900098886218692 27 -0.051442395046608365
+		 29 -0.090028490189855329 32 -0.026868899567793661 69.56 -0.037995282652834035 70.828 -0.0074059299999999998
+		 83.436 -0.055466089432243702;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 0.014543124221655957 -1.764 0.013896888726947412
-		 19 0.0079786696597218855 27 0.044464673606438777 29 0.064174763647256175 32 0.038833484564106562
-		 69.56 0.0064016105500191061 70.828 0.0072606099999999998 83.436 -0.0019340783086530377;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 0.99941623210906982 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 -0.034165341407060623 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 0.99941623210906982 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 -0.034165341407060623 0 0 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0.014543124221655957 -1.764 0.013896888726947412
+		 0 0.011361714383087152 10 0.016969978349618959 19 0.0079786696597218855 27 0.044464673606438777
+		 29 0.064174763647256175 32 0.038833484564106562 69.56 0.0064016105500191061 70.828 0.0072606099999999998
+		 83.436 -0.0019340783086530377;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 0.99941623210906982 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 -0.034165341407060623 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 0.99941623210906982 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 -0.034165341407060623 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  16 -0.008385842887121497 28 -0.010654047666115024
-		 30 -0.005660436211879582 69.56 -0.026092500249807995 70.812 -0.0078801400000000008;
-	setAttr -s 5 ".kit[1:4]"  9 9 18 18;
-	setAttr -s 5 ".kot[1:4]"  9 9 18 18;
+	setAttr -s 7 ".ktv[0:6]"  0 0.048102464934081775 10 0.12224108055825174
+		 16 -0.008385842887121497 28 -0.010654047666115024 30 -0.005660436211879582 69.56 -0.026092500249807995
+		 70.812 -0.0078801400000000008;
+	setAttr -s 7 ".kit[3:6]"  9 9 18 18;
+	setAttr -s 7 ".kot[3:6]"  9 9 18 18;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  16 -0.017134557143255316 28 -0.019098771255470232
-		 30 -0.041396596464350115 69.56 -0.032468122522381182 70.812 -0.020046;
-	setAttr -s 5 ".kit[1:4]"  9 9 18 18;
-	setAttr -s 5 ".kot[1:4]"  9 9 18 18;
+	setAttr -s 7 ".ktv[0:6]"  0 -0.047757719598840294 10 -0.043510904074771858
+		 16 -0.017134557143255316 28 -0.019098771255470232 30 -0.041396596464350115 69.56 -0.032468122522381182
+		 70.812 -0.020046;
+	setAttr -s 7 ".kit[3:6]"  9 9 18 18;
+	setAttr -s 7 ".kot[3:6]"  9 9 18 18;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  16 -0.0014252106474185735 28 0.0015383226443801688
-		 30 0.011937478841467045 69.56 0.021709503231492858 70.812 -0.00074271500000000002;
-	setAttr -s 5 ".kit[1:4]"  9 9 18 18;
-	setAttr -s 5 ".kot[1:4]"  9 9 18 18;
+	setAttr -s 7 ".ktv[0:6]"  0 -0.0028584610377652277 10 -0.028658635447189804
+		 16 -0.0014252106474185735 28 0.0015383226443801688 30 0.011937478841467043 69.56 0.021709503231492858
+		 70.812 -0.00074271500000000002;
+	setAttr -s 7 ".kit[3:6]"  9 9 18 18;
+	setAttr -s 7 ".kot[3:6]"  9 9 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 0 28 0 69.56 0 70.812 0;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 0 10 0 16 0 28 0 69.56 0 70.812 0;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 0 28 0 69.56 0 70.812 0;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 0 10 0 16 0 28 0 69.56 0 70.812 0;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 0 28 0 69.56 0 70.812 0;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 0 10 0 16 0 28 0 69.56 0 70.812 0;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 1 28 1 69.56 1 70.812 1;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 1 10 1 16 1 28 1 69.56 1 70.812 1;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 1 28 1 69.56 1 70.812 1;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 1 10 1 16 1 28 1 69.56 1 70.812 1;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  16 1 28 1 69.56 1 70.812 1;
-	setAttr -s 4 ".kit[1:3]"  9 18 18;
-	setAttr -s 4 ".kot[1:3]"  9 18 18;
+	setAttr -s 6 ".ktv[0:5]"  0 1 10 1 16 1 28 1 69.56 1 70.812 1;
+	setAttr -s 6 ".kit[3:5]"  9 18 18;
+	setAttr -s 6 ".kot[3:5]"  9 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 0 -1.764 0 19 0 27 0 29 0 32 0 69.56 0
-		 70.828 0 83.436 0;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 10 0 19 0 27 0 29 0 32 0
+		 69.56 0 70.828 0 83.436 0;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 0 -1.764 0 19 0 27 0 29 0 32 0 69.56 0
-		 70.828 0 83.436 0;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 10 0 19 0 27 0 29 0 32 0
+		 69.56 0 70.828 0 83.436 0;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 0 -1.764 0 19 0 27 0 29 0 32 0 69.56 0
-		 70.828 0 83.436 0;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 10 0 19 0 27 0 29 0 32 0
+		 69.56 0 70.828 0 83.436 0;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 1 -1.764 1 19 1 27 1 29 1 32 1 69.56 1
-		 70.828 1 83.436 1;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 10 1 19 1 27 1 29 1 32 1
+		 69.56 1 70.828 1 83.436 1;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 1 -1.764 1 19 1 27 1 29 1 32 1 69.56 1
-		 70.828 1 83.436 1;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 10 1 19 1 27 1 29 1 32 1
+		 69.56 1 70.828 1 83.436 1;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.844 1 -1.764 1 19 1 27 1 29 1 32 1 69.56 1
-		 70.828 1 83.436 1;
-	setAttr -s 9 ".kit[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kot[3:8]"  1 18 18 18 18 18;
-	setAttr -s 9 ".kix[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".kiy[3:8]"  0 0 0 0 0 0;
-	setAttr -s 9 ".kox[3:8]"  1 1 1 1 1 1;
-	setAttr -s 9 ".koy[3:8]"  0 0 0 0 0 0;
+	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 10 1 19 1 27 1 29 1 32 1
+		 69.56 1 70.828 1 83.436 1;
+	setAttr -s 10 ".kit[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kot[4:9]"  1 18 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0 0 0 0;
+	setAttr -s 10 ".kox[4:9]"  1 1 1 1 1 1;
+	setAttr -s 10 ".koy[4:9]"  0 0 0 0 0 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.764 0.0014708123040946667 16 0.0013125572090800979
-		 19 -0.0036066642490389482 28 -0.0033562475040959175 30 0.0020874566383198858 32 -0.0061088343573661927
+	setAttr -s 9 ".ktv[0:8]"  0 0.0052768029873636064 16 0.0013125572090800979
+		 19 -0.0036066642490389482 28 -0.0033562475040959175 30 0.0031053491538101034 32 -0.016340185267034988
 		 69.56 -0.0006176139819106366 70.828 -0.00083419699999999996 83.436 -0.0041132779456316132;
 	setAttr -s 9 ".kit[3:8]"  9 9 9 18 18 18;
 	setAttr -s 9 ".kot[3:8]"  9 9 9 18 18 18;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.764 0.012189468706394018 16 0.013676686018705028
-		 19 0.0125915591801099 28 0.014779281004214532 30 0.041429373100623799 32 0.02876301660766812
+	setAttr -s 9 ".ktv[0:8]"  0 0.05254884410721937 16 0.013676686018705028
+		 19 0.0125915591801099 28 0.014779281004214532 30 0.080184777126656698 32 0.00460926458899191
 		 69.56 0.038704870828777965 70.828 0.033698899999999997 83.436 0.082262401820491354;
 	setAttr -s 9 ".kit[3:8]"  9 9 9 18 18 18;
 	setAttr -s 9 ".kot[3:8]"  9 9 9 18 18 18;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  -1.764 3.4700666155694981e-05 16 -0.0005975632998649166
-		 19 -0.0046040508808506565 28 -0.0045712607134108631 30 -0.045113730027114766 32 -0.0098889016953233582
+	setAttr -s 9 ".ktv[0:8]"  0 0.0031842138556052503 16 -0.0005975632998649166
+		 19 -0.0046040508808506565 28 -0.0045712607134108631 30 -0.04512415888706995 32 -0.0092280431532738866
 		 69.56 -0.0042126574907345379 70.828 -0.0045834999999999999 83.436 0.0047074858746031607;
 	setAttr -s 9 ".kit[3:8]"  9 9 9 18 18 18;
 	setAttr -s 9 ".kot[3:8]"  9 9 9 18 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 0 16 0 19 0 28 0 69.56 0 70.828 0
+	setAttr -s 8 ".ktv[0:7]"  -1.764 0 0 0 16 0 19 0 28 0 69.56 0 70.828 0
 		 83.436 0;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 0 16 0 19 0 28 0 69.56 0 70.828 0
+	setAttr -s 8 ".ktv[0:7]"  -1.764 0 0 0 16 0 19 0 28 0 69.56 0 70.828 0
 		 83.436 0;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 0 16 0 19 0 28 0 69.56 0 70.828 0
+	setAttr -s 8 ".ktv[0:7]"  -1.764 0 0 0 16 0 19 0 28 0 69.56 0 70.828 0
 		 83.436 0;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 1 16 1 19 1 28 1 69.56 1 70.828 1
+	setAttr -s 8 ".ktv[0:7]"  -1.764 1 0 1 16 1 19 1 28 1 69.56 1 70.828 1
 		 83.436 1;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 1 16 1 19 1 28 1 69.56 1 70.828 1
+	setAttr -s 8 ".ktv[0:7]"  -1.764 1 0 1 16 1 19 1 28 1 69.56 1 70.828 1
 		 83.436 1;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.764 1 16 1 19 1 28 1 69.56 1 70.828 1
+	setAttr -s 8 ".ktv[0:7]"  -1.764 1 0 1 16 1 19 1 28 1 69.56 1 70.828 1
 		 83.436 1;
-	setAttr -s 7 ".kit[3:6]"  9 18 18 18;
-	setAttr -s 7 ".kot[3:6]"  9 18 18 18;
+	setAttr -s 8 ".kit[4:7]"  9 18 18 18;
+	setAttr -s 8 ".kot[4:7]"  9 18 18 18;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 -0.011634757888342971 16 -0.01179301298335754
-		 19 -0.020872853170130792 69.56 -0.00098414071486423388 70.828 -0.00083419699999999996
-		 83.436 -0.0041132779456316132;
+	setAttr -s 11 ".ktv[0:10]"  -1.764 -0.011634757888342971 0 -0.038960350986356321
+		 10 -0.0064640188988700463 16 -0.01179301298335754 19 -0.020872853170130792 28 -0.019673787911591967
+		 30 -0.0077861185001684508 32 -0.031964399436179854 69.56 -0.00098414071486423388
+		 70.828 -0.00083419699999999996 83.436 -0.0041132779456316132;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 0.0084057603677057148 16 0.0098929776800167294
-		 19 0.0087247290632327477 69.56 0.04482791289961234 70.828 0.033698899999999997 83.436 0.082262401820491354;
+	setAttr -s 11 ".ktv[0:10]"  -1.764 0.0084057603677057148 0 0.057132217524669911
+		 10 0.042733669647454148 16 0.0098929776800167294 19 0.0087247290632327477 28 0.011749382705833374
+		 30 0.067685220420469136 32 0.012472257277998496 69.56 0.04482791289961234 70.828 0.033698899999999997
+		 83.436 0.082262401820491354;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid1_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 -0.0063954149655223056 16 -0.0070276789315429165
-		 19 -0.011227598886271672 69.56 -0.0044352250276740472 70.828 -0.0045834999999999999
+	setAttr -s 11 ".ktv[0:10]"  -1.764 -0.0063954149655223056 0 -0.022053507810606904
+		 10 -0.012453628379858939 16 -0.0070276789315429165 19 -0.011227598886271672 28 -0.0106585471808481
+		 30 -0.010283101765480484 32 -0.013086860155307061 69.56 -0.0044352250276740472 70.828 -0.0045834999999999999
 		 83.436 0.0047074858746031607;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 0 16 0 19 0 69.56 0 70.828 0 83.436 0;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 0 0 0 10 0 16 0 19 0 28 0 69.56 0
+		 70.828 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 0 16 0 19 0 69.56 0 70.828 0 83.436 0;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 0 0 0 10 0 16 0 19 0 28 0 69.56 0
+		 70.828 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLid1_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 0 16 0 19 0 69.56 0 70.828 0 83.436 0;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 0 0 0 10 0 16 0 19 0 28 0 69.56 0
+		 70.828 0 83.436 0;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_R_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 1 16 1 19 1 69.56 1 70.828 1 83.436 1;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 1 0 1 10 1 16 1 19 1 28 1 69.56 1
+		 70.828 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_R_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 1 16 1 19 1 69.56 1 70.828 1 83.436 1;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 1 0 1 10 1 16 1 19 1 28 1 69.56 1
+		 70.828 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLid1_R_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.764 1 16 1 19 1 69.56 1 70.828 1 83.436 1;
+	setAttr -s 9 ".ktv[0:8]"  -1.764 1 0 1 10 1 16 1 19 1 28 1 69.56 1
+		 70.828 1 83.436 1;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.00099494116372904774 -1.764 -0.0075536216435371627
-		 16 -0.014139745816875139 19 -0.0039089549344216608 25 -0.0041532373268204385 30 0.0069318162893044159
-		 32 0.0031016292260271443 65.004 -0.0091517718601579895 69.548 -0.0051997697991047814
-		 83.436 0.017536811036737227 84 0.010242796781494987;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 13 ".ktv[0:12]"  -1.844 -0.00099494116372904774 -1.764 -0.0075536216435371627
+		 0 -0.056777553528895616 10 -0.0027254631876996956 16 -0.014139745816875139 19 -0.0039089549344216608
+		 25 -0.0041532373268204385 30 0.0065771731105727449 32 0.0050564559945395458 65.004 -0.0091517718601579895
+		 69.548 -0.0051997697991047814 83.436 0.017536811036737227 84 0.010242796781494989;
+	setAttr -s 13 ".kit[12]"  9;
+	setAttr -s 13 ".kot[12]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.017036669943677852 -1.764 0.0060284727384739487
-		 16 0.020794364417720299 19 0.020945622956415028 25 0.02090068746317373 30 -0.25820142998619638
-		 32 0.0073740803914996295 65.004 0.00069103619361941446 69.548 -0.045869535946727366
-		 83.436 -0.11387846028278673 84 -0.16309243939452461;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 13 ".ktv[0:12]"  -1.844 -0.017036669943677852 -1.764 0.0060284727384739487
+		 0 0.097880600290701628 10 -0.2513649103763218 16 0.020794364417720299 19 0.020945622956415028
+		 25 0.02090068746317373 30 -0.20940669303016199 32 0.0081671854441192349 65.004 0.00069103619361941446
+		 69.548 -0.045869535946727366 83.436 -0.11387846028278673 84 -0.16309243939452461;
+	setAttr -s 13 ".kit[12]"  9;
+	setAttr -s 13 ".kot[12]"  9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid1_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0.0011416176251721111 -1.764 -0.0054581586833005354
-		 16 -0.0078183934791918024 19 -0.0012122692050723525 25 -0.001151573510697322 30 0.084600488770403381
-		 32 -0.0040240907432346406 65.004 -0.0010249047833850945 69.548 -0.00095460004756500001
-		 83.436 -0.028805141162896553 84 -0.0054297174745022185;
-	setAttr -s 11 ".kit[10]"  9;
-	setAttr -s 11 ".kot[10]"  9;
+	setAttr -s 13 ".ktv[0:12]"  -1.844 0.0011416176251721111 -1.764 -0.0054581586833005354
+		 0 0.10353860838914694 10 0.089955776864015832 16 -0.0078183934791918024 19 -0.0012122692050723525
+		 25 -0.001151573510697322 30 0.084569594650220167 32 -0.02319172690360163 65.004 -0.0010249047833850945
+		 69.548 -0.00095460004756500001 83.436 -0.028805141162896553 84 -0.0054297174745022185;
+	setAttr -s 13 ".kit[12]"  9;
+	setAttr -s 13 ".kot[12]"  9;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid1_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.764 0 16 0 19 0 25 0 30 0 32 0
-		 65.004 0 69.548 0 83.436 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 0 0 16 0 19 0 25 0 30 0
+		 32 0 65.004 0 69.548 0 83.436 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_R_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_R_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid1_R_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.764 1 16 1 19 1 25 1 30 1 32 1
-		 65.004 1 69.548 1 83.436 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.764 1 0 1 16 1 19 1 25 1 30 1
+		 32 1 65.004 1 69.548 1 83.436 1;
 createNode animCurveTA -n "Emily_Body_Rig:FKHead_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4737,7 +4713,7 @@ createNode animCurveTU -n "Emily_Body_Rig:PoleArm_R_lock";
 createNode animCurveTL -n "Emily_Body_Rig:cheek_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  -1.844 -0.00040340338740052077 21 9.9449099999999996e-05
+	setAttr -s 3 ".ktv[0:2]"  -1.844 -0.00040340338740052077 21 9.9449099999999996e-005
 		 73.672 -0.019705465615465351;
 createNode animCurveTL -n "Emily_Body_Rig:cheek_R_translateY";
 	setAttr ".tan" 18;
@@ -4776,7 +4752,7 @@ createNode animCurveTU -n "Emily_Body_Rig:cheek_R_scaleZ";
 createNode animCurveTL -n "Emily_Body_Rig:cheek_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  -1.844 -0.00040340338740052077 21 9.9449099999999996e-05
+	setAttr -s 3 ".ktv[0:2]"  -1.844 -0.00040340338740052077 21 9.9449099999999996e-005
 		 73.672 0.01271657100919657;
 createNode animCurveTL -n "Emily_Body_Rig:cheek_L_translateY";
 	setAttr ".tan" 18;
@@ -4893,95 +4869,39 @@ createNode animCurveTU -n "Emily_Body_Rig:LidCorner2_R_scaleZ";
 createNode animCurveTL -n "Emily_Body_Rig:AimEye_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 17 ".ktv[0:16]"  -1.844 -0.067628892029949345 -1.788 1.9976555226389541
-		 -1.744 -1.3366074422053431 0 0.14523933944034054 2 -0.31860530059947678 5 -1.2468122806616373
-		 7 -1.4454829108141238 14 -1.2929927630028708 17 -1.2929927630028708 18 -1.2822416503245986
-		 20 -1.1950715884663077 23 0.53892053529783834 26 0.23177630849867892 28 0.32456135591699181
-		 31 -0.28967469504450616 68.296 1.0344511885606289 80.144 -0.086405019009305889;
-	setAttr -s 17 ".kit[6:16]"  1 1 1 18 18 3 18 18 
-		18 18 18;
-	setAttr -s 17 ".kot[2:16]"  1 18 18 18 1 1 1 18 
-		18 1 18 18 18 18 18;
-	setAttr -s 17 ".ktl[2:16]" no yes yes yes yes yes yes yes yes yes yes 
-		yes yes yes yes;
-	setAttr -s 17 ".kix[6:16]"  0.1126851886510849 0.1126851886510849 0.1126851886510849 
-		0.79076725244522095 0.3036189079284668 1 1 1 1 1 1;
-	setAttr -s 17 ".kiy[6:16]"  0.99363076686859131 0.99363076686859131 
-		0.99363076686859131 0.61211693286895752 0.95279347896575928 0 0 0 0 0 0;
-	setAttr -s 17 ".kox[2:16]"  0.019332488998770714 1 0.14801080524921417 
-		0.1817958652973175 0.1126851886510849 0.1126851886510849 0.1126851886510849 0.79076725244522095 
-		0.3036189079284668 0.53730589151382446 1 1 1 1 1;
-	setAttr -s 17 ".koy[2:16]"  0.99981307983398438 0 -0.98898571729660034 
-		-0.98333626985549927 0.99363070726394653 0.99363070726394653 0.99363070726394653 
-		0.61211687326431274 0.95279347896575928 -0.84338748455047607 0 0 0 0 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 -0.067628892029949345 -1.788 1.9976555226389541
+		 -1.744 -1.3366074422053431 0 0.14523933944034054 68.296 1.0344511885606289 80.144 -0.086405019009305889;
+	setAttr -s 6 ".kot[2:5]"  1 18 18 18;
+	setAttr -s 6 ".ktl[2:5]" no yes yes yes;
+	setAttr -s 6 ".kox[2:5]"  0.019332488998770714 0.77612537145614624 
+		1 1;
+	setAttr -s 6 ".koy[2:5]"  0.99981307983398438 0.63057863712310791 
+		0 0;
 createNode animCurveTL -n "Emily_Body_Rig:AimEye_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 17 ".ktv[0:16]"  -1.844 0.71414138181500419 -1.788 1.8020347929860343
-		 -1.744 -0.049664594399270158 0 0.00064079150827964573 2 -0.70124917199719861 5 -0.46094356754463695
-		 7 0.17193667871568735 14 0.42211612083221406 17 0.42211612083221406 18 0.43647790900378303
-		 20 0.21420944935169259 23 0.4525205601658574 26 0.14461691487963688 28 0.28055176470742671
-		 31 0.6606270516265409 68.296 -1.1288658158951266 80.144 -0.73417621143662948;
-	setAttr -s 17 ".kit[6:16]"  1 1 1 18 18 3 18 18 
-		18 18 18;
-	setAttr -s 17 ".kot[2:16]"  1 18 18 18 1 1 1 18 
-		18 1 18 18 18 18 18;
-	setAttr -s 17 ".ktl[2:16]" no yes yes yes yes yes yes yes yes yes yes 
-		yes yes yes yes;
-	setAttr -s 17 ".kix[6:16]"  0.088135205209255219 0.088135205209255219 
-		0.088135205209255219 1 1 1 1 0.37437736988067627 1 1 1;
-	setAttr -s 17 ".kiy[6:16]"  0.9961085319519043 0.9961085319519043 0.9961085319519043 
-		0 0 0 0 0.92727643251419067 0 0 0;
-	setAttr -s 17 ".kox[2:16]"  0.057409249246120453 1 1 0.23207582533359528 
-		0.088135197758674622 0.088135197758674622 0.088135197758674622 1 1 0.94125783443450928 
-		1 0.37437736988067627 1 1 1;
-	setAttr -s 17 ".koy[2:16]"  0.99835067987442017 0 0 0.97269773483276367 
-		0.9961085319519043 0.9961085319519043 0.9961085319519043 0 0 -0.33768871426582336 
-		0 0.92727643251419067 0 0 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0.71414138181500419 -1.788 1.8020347929860343
+		 -1.744 -0.049664594399270158 0 0.00064079150827964573 68.296 -1.1288658158951266
+		 80.144 -0.73417621143662948;
+	setAttr -s 6 ".kot[2:5]"  1 18 18 18;
+	setAttr -s 6 ".ktl[2:5]" no yes yes yes;
+	setAttr -s 6 ".kox[2:5]"  0.057409249246120453 1 1 1;
+	setAttr -s 6 ".koy[2:5]"  0.99835067987442017 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:AimEye_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 17 ".ktv[0:16]"  -1.844 3.7854730815876025 -1.788 8.5160201819791475
-		 -1.744 2.5374670995251396 0 2.6208220430140874 2 1.4236030709296823 5 1.9481280779741319
-		 7 2.6829528476122739 14 2.3423435765345482 17 2.3423435765345482 18 2.4223858402016121
-		 20 2.2453921395770093 23 2.1614585465147553 26 1.6682859126457821 28 1.5923384843302335
-		 31 2.5009899565708342 68.296 2.5159461802487737 80.144 0.33327037944749111;
-	setAttr -s 17 ".kit[6:16]"  1 1 1 18 18 3 18 18 
-		18 18 18;
-	setAttr -s 17 ".kot[2:16]"  1 18 18 18 1 1 1 18 
-		18 1 18 18 18 18 18;
-	setAttr -s 17 ".ktl[2:16]" no yes yes yes yes yes yes yes yes yes yes 
-		yes yes yes yes;
-	setAttr -s 17 ".kix[6:16]"  0.13721011579036713 0.13721011579036713 
-		0.13721011579036713 1 0.62394875288009644 1 0.34375417232513428 1 0.99958342313766479 
-		1 1;
-	setAttr -s 17 ".kiy[6:16]"  0.99054199457168579 0.99054199457168579 
-		0.99054199457168579 0 -0.78146529197692871 0 -0.93905961513519287 0 0.028860991820693016 
-		0 0;
-	setAttr -s 17 ".kox[2:16]"  0.040121186524629593 1 1 0.16321104764938354 
-		0.13721010088920593 0.13721010088920593 0.13721010088920593 1 0.62394869327545166 
-		0.51481080055236816 0.34375420212745667 1 0.99958342313766479 1 1;
-	setAttr -s 17 ".koy[2:16]"  0.99919480085372925 0 0 0.9865911602973938 
-		0.99054199457168579 0.99054199457168579 0.99054199457168579 0 -0.78146529197692871 
-		-0.85730385780334473 -0.93905967473983765 0 0.028860989958047867 0 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 3.7854730815876025 -1.788 8.5160201819791475
+		 -1.744 2.5374670995251396 0 2.6208220430140874 68.296 2.5159461802487737 80.144 0.33327037944749111;
+	setAttr -s 6 ".kot[2:5]"  1 18 18 18;
+	setAttr -s 6 ".ktl[2:5]" no yes yes yes;
+	setAttr -s 6 ".kox[2:5]"  0.040121186524629593 1 0.99394327402114868 
+		1;
+	setAttr -s 6 ".koy[2:5]"  0.99919480085372925 0 -0.10989410430192947 
+		0;
 createNode animCurveTU -n "Emily_Body_Rig:AimEye_M_follow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 13 ".ktv[0:12]"  -1.844 10 0 9.9476166559830599 2 9.6666714808706526
-		 5 9.5726265982554484 7 10 14 10 17 10 18 10.193482557281966 20 10.220733583144174
-		 23 10 26 10 28 10 31 10;
-	setAttr -s 13 ".kit[4:12]"  1 1 1 18 18 3 18 18 
-		18;
-	setAttr -s 13 ".kot[4:12]"  1 1 1 18 18 1 18 18 
-		18;
-	setAttr -s 13 ".kix[4:12]"  0.13467234373092651 0.13467234373092651 
-		0.13467234373092651 0.71384263038635254 1 1 1 1 1;
-	setAttr -s 13 ".kiy[4:12]"  0.99089020490646362 0.99089020490646362 
-		0.99089020490646362 0.70030611753463745 0 0 0 0 0;
-	setAttr -s 13 ".kox[4:12]"  0.13467234373092651 0.13467234373092651 
-		0.13467234373092651 0.71384263038635254 1 1 1 1 1;
-	setAttr -s 13 ".koy[4:12]"  0.99089020490646362 0.99089020490646362 
-		0.99089020490646362 0.70030617713928223 0 0 0 0 0;
+	setAttr -s 2 ".ktv[0:1]"  -1.844 10 0 9.9476166559830599;
 createNode animCurveTL -n "Emily_Body_Rig:IKArm_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -4994,7 +4914,7 @@ createNode animCurveTL -n "Emily_Body_Rig:IKArm_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.79447715337061298 -1.788 -0.75034649860134373
-		 -1.764 -0.79447715337061298 57 -0.79447715337061298 65 -0.6504484948096001 70 -0.79702839788788438
+		 -1.764 -0.79447715337061298 57 -0.79447715337061298 65 -0.6504484948096001 70 -0.79702839788788427
 		 75 -0.81970978451708465;
 	setAttr -s 7 ".kit[5:6]"  9 9;
 	setAttr -s 7 ".kot[5:6]"  9 9;
@@ -5024,7 +4944,7 @@ createNode animCurveTA -n "Emily_Body_Rig:IKArm_L_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -1.844 -284.39384998427937 -1.788 -295.82599130064733
 		 -1.764 -284.39384998427937 57 -284.39384998427937 65 -310.41579640171244 74.876 -456.62023939675117
-		 75 -468.29826939448469;
+		 75 -468.29826939448481;
 	setAttr -s 7 ".kit[6]"  9;
 	setAttr -s 7 ".kot[6]"  9;
 createNode animCurveTA -n "Emily_Body_Rig:IKArm_L_rotateZ";
@@ -5122,42 +5042,42 @@ createNode animCurveTU -n "Emily_Body_Rig:PoleArm_L_lock";
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0.0034938965911078183 -1.764 0.003517110329253093
-		 19 0.0021187033187558936 83.436 0.0017719368346516785;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0.0034938965911078183 -1.764 0.003517110329253093
+		 0 0.059725746505160195 10 0.028690614516574221 19 0.0021187033187558936 83.436 0.0017719368346516785;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 -0.075882557655207822 -1.764 -0.075031428143210427
-		 19 -0.061105277623464835 83.436 -0.045902104878014723;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 -0.075882557655207822 -1.764 -0.075031428143210427
+		 0 -0.075159878599356397 10 -0.068452528832140647 19 -0.061105277623464835 83.436 -0.045902104878014723;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid2_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0.0071781813404768469 -1.764 0.0072397023536361592
-		 19 0.0042187051069006894 83.436 -0.00010433288117910839;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0.0071781813404768469 -1.764 0.0072397023536361592
+		 0 0.012496409990731351 10 0.008407619327720519 19 0.0042187051069006894 83.436 -0.00010433288117910839;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 19 0 83.436 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 10 0 19 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 19 0 83.436 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 10 0 19 0 83.436 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid2_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 19 0 83.436 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 10 0 19 0 83.436 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_R_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1.764 1 19 1 83.436 1;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1.764 1 10 1 19 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_R_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1.764 1 19 1 83.436 1;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1.764 1 10 1 19 1 83.436 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid2_R_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1.764 1 19 1 83.436 1;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1.764 1 10 1 19 1 83.436 1;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid2_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5251,7 +5171,7 @@ createNode animCurveTU -n "Emily_Body_Rig:lowerLid2_L_scaleZ";
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid3_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  16 -0.00021123120327744841 83.436 -9.0736517170228849e-05;
+	setAttr -s 2 ".ktv[0:1]"  16 -0.00021123120327744841 83.436 -9.0736517170228849e-005;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLid3_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5320,60 +5240,45 @@ createNode animCurveTU -n "Emily_Body_Rig:lowerLid3_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  16 1 83.436 1;
-createNode animCurveTU -n "Emily_Body_Rig:AimEye_M_aim";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 13 ".ktv[0:12]"  -1.844 10 0 9.9476166559830599 2 9.6666714808706526
-		 5 9.5726265982554484 7 10 14 10 17 10 18 10.193482557281966 20 10.220733583144174
-		 23 10 26 10 28 10 31 10;
-	setAttr -s 13 ".kit[4:12]"  1 1 1 18 18 3 18 18 
-		18;
-	setAttr -s 13 ".kot[4:12]"  1 1 1 18 18 1 18 18 
-		18;
-	setAttr -s 13 ".kix[4:12]"  0.13467234373092651 0.13467234373092651 
-		0.13467234373092651 0.71384263038635254 1 1 1 1 1;
-	setAttr -s 13 ".kiy[4:12]"  0.99089020490646362 0.99089020490646362 
-		0.99089020490646362 0.70030611753463745 0 0 0 0 0;
-	setAttr -s 13 ".kox[4:12]"  0.13467234373092651 0.13467234373092651 
-		0.13467234373092651 0.71384263038635254 1 1 1 1 1;
-	setAttr -s 13 ".koy[4:12]"  0.99089020490646362 0.99089020490646362 
-		0.99089020490646362 0.70030617713928223 0 0 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 -0.0024330663946100419;
+	setAttr -s 3 ".ktv[0:2]"  0 -0.10999833788438236 10 -0.036467395648430267
+		 16 -0.0024330663946100419;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 -0.014800567478915276;
+	setAttr -s 3 ".ktv[0:2]"  0 -0.057055091818214401 10 -0.028170165062871611
+		 16 -0.014800567478915276;
 createNode animCurveTL -n "Emily_Body_Rig:upperLid3_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 0.0012574477002473172;
+	setAttr -s 3 ".ktv[0:2]"  0 0.0045086693534691497 10 0.0022861547047513023
+		 16 0.0012574477002473172;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 0;
+	setAttr -s 2 ".ktv[0:1]"  10 0 16 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 0;
+	setAttr -s 2 ".ktv[0:1]"  10 0 16 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLid3_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 0;
+	setAttr -s 2 ".ktv[0:1]"  10 0 16 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_R_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 1;
+	setAttr -s 2 ".ktv[0:1]"  10 1 16 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_R_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 1;
+	setAttr -s 2 ".ktv[0:1]"  10 1 16 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLid3_R_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  16 1;
+	setAttr -s 2 ".ktv[0:1]"  10 1 16 1;
 createNode animCurveTL -n "Emily_Body_Rig:LidCorner1_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5684,106 +5589,103 @@ createNode animCurveTL -n "Emily_Body_Rig:ctrlMouth_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  -1.844 0.062248920203605514 -1.764 0.025406676694510476
-		 -1 0.2166332215788144 16 0.21133186260718265 19 0.27908928768394953 36 -0.11491239716106218
-		 48 0.19631230491999524 63 0.23319680497282311 65 -0.27024689605516194 68 0.24002726377658568
+		 -1 0.2166332215788144 0 0.21258059870379542 12 0.090844061545252514 19 0.39002492738545774
+		 48 0.19492514358350377 63 0.23319680497282311 65 -0.27024689605516194 68 0.24002726377658568
 		 69 0.19226153590815917;
-	setAttr -s 11 ".kit[3:10]"  1 18 18 18 18 18 18 18;
-	setAttr -s 11 ".ktl[3:10]" no yes yes yes yes yes yes yes;
-	setAttr -s 11 ".kix[3:10]"  0.49960178136825562 1 1 0.98468649387359619 
-		1 1 1 1;
-	setAttr -s 11 ".kiy[3:10]"  0.86625522375106812 0 0 0.17433440685272217 
-		0 0 0 0;
+	setAttr -s 11 ".kit[4:10]"  1 18 18 18 18 18 18;
+	setAttr -s 11 ".kix[4:10]"  0.49960178136825562 1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[4:10]"  0.86625522375106812 0 0 0 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlMouth_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.26742694139016343 -1.764 -0.56726296080455563
-		 -1 -0.078883849786760454 16 -0.55546030708874494 19 -0.51857140312949546 36 -0.14450067351237017
-		 48 -0.058181311874601072 63 -0.29531528736401336 65 -0.62716995704959533 68 -0.33922895972592704
+		 -1 -0.078883849786760454 0 -0.083637003950773739 12 -0.17296536835878845 19 -0.52518735029809216
+		 48 -0.73813881428926709 63 -0.29531528736401336 65 -0.62716995704959533 68 -0.33922895972592704
 		 69 -0.043123457632147248;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_jawSide";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_jawForward";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_chinRaiser";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipPress_R";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipPress_L";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_R";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_L";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_R";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_L";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 16 0 19 0 36 0 48 0
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.764 0 -1 0 0 0 12 0 19 0 48 0
 		 63 0 65 0 68 0 69 0;
 createNode animCurveTL -n "Emily_Body_Rig:upperLip0_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0.0018698423193134477 16 -0.00186290446225267
-		 42 -0.00082033502628580659 63 0.0064698565119031106 76 0.0069076293352376269;
+	setAttr -s 5 ".ktv[0:4]"  -1 0.0018698423193134477 0 -0.0033382467540936456
+		 16 -0.0092833037069600804 63 0.0064698565119031106 76 0.0069076293352376269;
 createNode animCurveTL -n "Emily_Body_Rig:upperLip0_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0.052602033074307643 16 0.017626054813678776
-		 42 0.01335734524215576 63 -0.014324678185004602 76 0.0037376959894469429;
+	setAttr -s 5 ".ktv[0:4]"  -1 0.052602033074307643 0 0.0013942476753610762
+		 16 0.0045808395253847155 63 -0.014324678185004602 76 0.0037376959894469429;
 createNode animCurveTL -n "Emily_Body_Rig:upperLip0_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0.045044786632932286 16 0.0008185702043303555
-		 42 0.0021860139255485472 63 0.019343180507292508 76 0.012248614898060776;
+	setAttr -s 5 ".ktv[0:4]"  -1 0.045044786632932286 0 0.024404788728392125
+		 16 0.025618470076213762 63 0.019343180507292508 76 0.012248614898060776;
 createNode animCurveTA -n "Emily_Body_Rig:upperLip0_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0 16 0 42 0 63 0 76 0;
+	setAttr -s 5 ".ktv[0:4]"  -1 0 16 0 19 3.7541191721306326 63 0 76 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLip0_M_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0 16 0 42 0 63 0 76 0;
+	setAttr -s 4 ".ktv[0:3]"  -1 0 16 0 63 0 76 0;
 createNode animCurveTA -n "Emily_Body_Rig:upperLip0_M_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 0 16 0 42 0 63 0 76 0;
+	setAttr -s 4 ".ktv[0:3]"  -1 0 16 0 63 0 76 0;
 createNode animCurveTU -n "Emily_Body_Rig:upperLip0_M_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 1 16 1 42 1 63 1 76 1;
+	setAttr -s 4 ".ktv[0:3]"  -1 1 16 1 63 1 76 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLip0_M_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 1 16 1 42 1 63 1 76 1;
+	setAttr -s 4 ".ktv[0:3]"  -1 1 16 1 63 1 76 1;
 createNode animCurveTU -n "Emily_Body_Rig:upperLip0_M_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1 1 16 1 42 1 63 1 76 1;
+	setAttr -s 4 ".ktv[0:3]"  -1 1 16 1 63 1 76 1;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlNose_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -5807,111 +5709,116 @@ createNode animCurveTL -n "Emily_Body_Rig:ctrlNose_L_translateY";
 createNode animCurveTL -n "Emily_Body_Rig:ctrlEye_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 -0.25814318946425974 -1.764 0.34391639249225242
-		 16 0.14970944807742367 65.612 0.14970944807742367;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.25814318946425974 -1.764 0.34391639249225242
+		 0 0.33855157587038209 16 -0.18066071698890296 20 -0.14148533076072137 51 0.10038883153549608
+		 60 0.40021260731261665;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlEye_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 -0.84421340345314533 -1.764 -0.37776533487482178
-		 16 -0.077406178805663889 65.612 -0.077406178805663889;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.84421340345314533 -1.764 -0.37776533487482178
+		 0 -0.30797156207328652 16 -0.064343008943056057 20 -0.060188976965450641 51 -0.073237434778718899
+		 60 -0.24873137006110546;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_blink";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 0 0 16 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_blinkCenter";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 0 0 16 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_upperLidFollow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 16 10 65.612 10;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 10 -1.764 10 0 10 16 10 51 10;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_lowerLidFollow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 16 10 65.612 10;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 10 -1.764 10 0 10 16 10 51 10;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_squint";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 0 0 16 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_R_Scrunch";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.764 0 0 0 16 0 51 0;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlEye_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 -0.25814318946425974 -1.764 0.34391639249225242
-		 16 0.14970944807742367 65.612 0.14970944807742367;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.25814318946425974 -1.764 0.34391639249225242
+		 0 0.34352399565854735 20 -0.13416788615557851 33 -0.02813420658263107 51 0.10182084807886116
+		 60 0.4558708829047648;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlEye_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 -0.84421340345314533 -1.764 -0.37776533487482178
-		 16 -0.077406178805663889 65.612 -0.077406178805663889;
+	setAttr -s 7 ".ktv[0:6]"  -1.844 -0.84421340345314533 -1.764 -0.37776533487482178
+		 0 -0.35814240639263195 20 -0.22097995979214913 33 -0.14371877014197368 51 -0.11216922261893812
+		 60 -0.41747211713689059;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_blink";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 0 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_blinkCenter";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 0 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_upperLidFollow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 16 10 65.612 10;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 0 10 51 10;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_lowerLidFollow";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 16 10 65.612 10;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 10 -1.764 10 0 10 51 10;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_squint";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 0 0 51 0;
 createNode animCurveTU -n "Emily_Body_Rig:ctrlEye_L_Scrunch";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 16 0 65.612 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1.764 0 0 0 51 0;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLip0_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 12.084882449775916 -1 12.08212234106786
-		 42 8.3540959307199643 55 7.3253936447537811 65.004 6.9477513973299247 73 6.9477513973299247;
+	setAttr -s 5 ".ktv[0:4]"  -1.844 12.084882449775916 -1 12.08212234106786
+		 0 27.644223622186505 65.004 6.9477513973299247 73 6.9477513973299247;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLip0_M_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 0 -1 0 42 0 55 0 65.004 0 73 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1 0 65.004 0 73 0;
 createNode animCurveTA -n "Emily_Body_Rig:lowerLip0_M_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 0 -1 0 42 0 55 0 65.004 0 73 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1 0 65.004 0 73 0;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLip0_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  -1.844 0.0046922348925025276 -1 0.0022469047241238833
-		 42 0.0078412951779202721 55 0.0028786163180870078 65.004 0.0046922348925025276 73 -0.0028989279008839884;
+		 0 -0.00086899370319403835 16 -0.0018201557458474391 65.004 0.0046922348925025276
+		 73 -0.0028989279008839884;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLip0_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  -1.844 0.018915903083321941 -1 0.045620063485026605
-		 42 0.0060223505601541541 55 0.025578319254115828 65.004 0.018915903083321941 73 0.0015549203377565935;
+		 0 0.0041920384241396083 16 0.0082643009217225165 65.004 0.018915903083321941 73 0.0015549203377565935;
 createNode animCurveTL -n "Emily_Body_Rig:lowerLip0_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  -1.844 0.0015021107754161446 -1 0.034268672754734539
-		 42 0.0056324473903998805 55 0.00020590377427140668 65.004 0.0015021107754161446 73 0.0043567314238043111;
+		 0 -0.0035585977214758115 16 -0.015333945352854971 65.004 0.0015021107754161446 73 0.0043567314238043111;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLip0_M_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 42 1 55 1 65.004 1 73 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 65.004 1 73 1;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLip0_M_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 42 1 55 1 65.004 1 73 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 65.004 1 73 1;
 createNode animCurveTU -n "Emily_Body_Rig:lowerLip0_M_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 42 1 55 1 65.004 1 73 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 65.004 1 73 1;
 createNode animCurveTL -n "Emily_Body_Rig:ctrlCheek_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -6084,84 +5991,84 @@ createNode animCurveTU -n "IKLeg_L_volume";
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_L_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 1 -1 1 42 1 60 1 63 1 67 1 72 1;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 60 1 63 1 67 1 72 1;
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_L_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 1 -1 1 42 1 60 1 63 1 67 1 72 1;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 60 1 63 1 67 1 72 1;
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_L_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 1 -1 1 42 1 60 1 63 1 67 1 72 1;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 1 -1 1 60 1 63 1 67 1 72 1;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_L_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 0 -1 0 42 0 60 0 63 0 67 0 72 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0 -1 0 60 0 63 0 67 0 72 0;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 0 -1 0 42 0 60 0 63 0 67 0 72 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0 -1 0 60 0 63 0 67 0 72 0;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  -1.844 0 -1 0 42 0 60 0 63 0 67 0 72 0;
+	setAttr -s 6 ".ktv[0:5]"  -1.844 0 -1 0 60 0 63 0 67 0 72 0;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -1.844 0.0011689681894401314 -1 0.074345343368255185
-		 42 0.015879842061847081 60 0.050528812981270918 63 0.050150031475181434 67 0.027157503361318877
+		 0 0.04706434037369496 60 0.050528812981270918 63 0.050150031475181434 67 0.027157503361318877
 		 72 0.060221224757963557;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_L_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -1.844 0.016117931512544995 -1 -0.010198450528460449
-		 42 0.0039511529308082025 60 -0.0047746413424760792 63 0.0070137582742715518 67 -0.022223827015608735
+		 0 -0.015746074935839804 60 -0.0047746413424760792 63 0.0070137582742715518 67 -0.022223827015608735
 		 72 -0.038091917595410391;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_L_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -1.844 0.022488023974529307 -1 -0.011605390166577812
-		 42 0.0018424987803764992 60 -0.011231912795816094 63 -0.01797112408421335 67 -0.015631480294582847
+		 0 0.0068419014070406486 60 -0.011231912795816094 63 -0.01797112408421335 67 -0.015631480294582847
 		 72 -0.043814717846414754;
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_R_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1 1 42 1 60 1 72 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 60 1 72 1;
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_R_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1 1 42 1 60 1 72 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 60 1 72 1;
 createNode animCurveTU -n "Emily_Body_Rig:Lip6_R_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 1 -1 1 42 1 60 1 72 1;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 1 -1 1 60 1 72 1;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1 0 42 0 60 0 72 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1 0 60 0 72 0;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1 0 42 0 60 0 72 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1 0 60 0 72 0;
 createNode animCurveTA -n "Emily_Body_Rig:Lip6_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1 0 42 0 60 0 72 0;
+	setAttr -s 4 ".ktv[0:3]"  -1.844 0 -1 0 60 0 72 0;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -1.844 -0.0011096002770628346 -1 0.070824686754791727
-		 42 0.007295338361247663 60 0.01782246792526921 72 0.052073778331699051;
+		 0 0.037649228032559164 60 0.01782246792526921 72 0.052073778331699051;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_R_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -1.844 0.0071956944536445081 -1 -0.019130577819890752
-		 42 0.0015939861688569357 60 -0.0059142161981954296 72 -0.015306477505806111;
+		 0 -0.026025803905388278 60 -0.0059142161981954296 72 -0.015306477505806111;
 createNode animCurveTL -n "Emily_Body_Rig:Lip6_R_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -1.844 -0.02736118154675914 -1 0.0061984018489049109
-		 42 -0.014670595987878204 60 0.0055084969840087832 72 0.011007589187489487;
+		 0 -0.01203317075220767 60 0.0055084969840087832 72 0.011007589187489487;
 createNode animCurveTU -n "Emily_Body_Rig:PoleLeg_R_lock";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -6246,7 +6153,7 @@ createNode animCurveTA -n "Emily_Body_Rig:IKLeg_R_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -1.844 0 -1.788 19.251387019464293 -1.764 0
-		 67 0 75 20.559627114629826;
+		 67 0 75 20.559627114629823;
 	setAttr -s 5 ".kit[3:4]"  9 9;
 	setAttr -s 5 ".kot[3:4]"  9 9;
 createNode animCurveTL -n "Emily_Body_Rig:upperLip3_L_translateX";
@@ -6326,7 +6233,7 @@ createNode animCurveTA -n "Emily_Body_Rig:FKPinkyFinger1_R_rotateX";
 	setAttr -s 2 ".ktv[0:1]"  67 10.61133 72 10.742298576038673;
 createNode animCurveTA -n "Emily_Body_Rig:FKPinkyFinger1_R_rotateY";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  67 42.46041 72 -1.3019118256945155;
+	setAttr -s 2 ".ktv[0:1]"  67 42.46041 72 -1.3019118256945157;
 createNode animCurveTA -n "Emily_Body_Rig:FKPinkyFinger1_R_rotateZ";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  67 6.901581 72 1.1709983511823372;
@@ -6419,10 +6326,10 @@ createNode animCurveTA -n "Emily_Body_Rig:FKThumbFinger2_R_rotateY";
 	setAttr -s 2 ".ktv[0:1]"  66 -0.145534 72 -0.145534;
 createNode animCurveTA -n "Emily_Body_Rig:FKThumbFinger2_R_rotateZ";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  66 -25.668883 72 -25.668883000000026;
+	setAttr -s 2 ".ktv[0:1]"  66 -25.668883 72 -25.668883000000022;
 createNode animCurveTA -n "Emily_Body_Rig:FKThumbFinger3_R_rotateX";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  66 0 72 -13.424267162964403;
+	setAttr -s 2 ".ktv[0:1]"  66 0 72 -13.424267162964405;
 createNode animCurveTA -n "Emily_Body_Rig:FKThumbFinger3_R_rotateY";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  66 58.69005700000001 72 9.4831882304621775;
@@ -6461,8 +6368,8 @@ select -ne :time1;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 45;
-	setAttr -av ".unw" 45;
+	setAttr -k on ".o" 90;
+	setAttr -av ".unw" 90;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -6539,12 +6446,18 @@ select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "mentalRay";
 	setAttr -av -k on ".esr";
 	setAttr -k on ".ors";
-	setAttr -k on ".outf";
+	setAttr -k on ".outf" 3;
+	setAttr ".imfkey" -type "string" "tif";
 	setAttr -k on ".gama";
+	setAttr ".an" yes;
+	setAttr ".fs" 0;
+	setAttr ".ef" 90;
 	setAttr -av -k on ".bfs";
 	setAttr -k on ".be";
+	setAttr ".ep" 3;
 	setAttr -k on ".fec";
 	setAttr -k on ".ofc";
+	setAttr ".pff" yes;
 	setAttr -k on ".comp";
 	setAttr -k on ".cth";
 	setAttr -k on ".soll";
@@ -7317,88 +7230,87 @@ connectAttr "Emily_Body_Rig:browHalf_L_scaleZ.o" "Emily_Body_RigRN.phl[481]";
 connectAttr "Emily_Body_Rig:AimEye_M_translateY.o" "Emily_Body_RigRN.phl[482]";
 connectAttr "Emily_Body_Rig:AimEye_M_translateX.o" "Emily_Body_RigRN.phl[483]";
 connectAttr "Emily_Body_Rig:AimEye_M_translateZ.o" "Emily_Body_RigRN.phl[484]";
-connectAttr "Emily_Body_Rig:AimEye_M_aim.o" "Emily_Body_RigRN.phl[485]";
-connectAttr "Emily_Body_Rig:AimEye_M_follow.o" "Emily_Body_RigRN.phl[486]";
-connectAttr "Emily_Body_Rig:ctrlBrow_R_translateY.o" "Emily_Body_RigRN.phl[487]"
+connectAttr "Emily_Body_Rig:AimEye_M_follow.o" "Emily_Body_RigRN.phl[485]";
+connectAttr "Emily_Body_Rig:ctrlBrow_R_translateY.o" "Emily_Body_RigRN.phl[486]"
 		;
-connectAttr "Emily_Body_Rig:ctrlBrow_R_translateX.o" "Emily_Body_RigRN.phl[488]"
+connectAttr "Emily_Body_Rig:ctrlBrow_R_translateX.o" "Emily_Body_RigRN.phl[487]"
 		;
-connectAttr "Emily_Body_Rig:ctrlBrow_R_squeeze.o" "Emily_Body_RigRN.phl[489]";
-connectAttr "Emily_Body_Rig:ctrlBrow_R_outerUpDown.o" "Emily_Body_RigRN.phl[490]"
+connectAttr "Emily_Body_Rig:ctrlBrow_R_squeeze.o" "Emily_Body_RigRN.phl[488]";
+connectAttr "Emily_Body_Rig:ctrlBrow_R_outerUpDown.o" "Emily_Body_RigRN.phl[489]"
 		;
-connectAttr "Emily_Body_Rig:ctrlBrow_L_translateY.o" "Emily_Body_RigRN.phl[491]"
+connectAttr "Emily_Body_Rig:ctrlBrow_L_translateY.o" "Emily_Body_RigRN.phl[490]"
 		;
-connectAttr "Emily_Body_Rig:ctrlBrow_L_translateX.o" "Emily_Body_RigRN.phl[492]"
+connectAttr "Emily_Body_Rig:ctrlBrow_L_translateX.o" "Emily_Body_RigRN.phl[491]"
 		;
-connectAttr "Emily_Body_Rig:ctrlBrow_L_squeeze.o" "Emily_Body_RigRN.phl[493]";
-connectAttr "Emily_Body_Rig:ctrlBrow_L_outerUpDown.o" "Emily_Body_RigRN.phl[494]"
+connectAttr "Emily_Body_Rig:ctrlBrow_L_squeeze.o" "Emily_Body_RigRN.phl[492]";
+connectAttr "Emily_Body_Rig:ctrlBrow_L_outerUpDown.o" "Emily_Body_RigRN.phl[493]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_R_translateX.o" "Emily_Body_RigRN.phl[495]";
-connectAttr "Emily_Body_Rig:ctrlEye_R_translateY.o" "Emily_Body_RigRN.phl[496]";
-connectAttr "Emily_Body_Rig:ctrlEye_R_Scrunch.o" "Emily_Body_RigRN.phl[497]";
-connectAttr "Emily_Body_Rig:ctrlEye_R_blink.o" "Emily_Body_RigRN.phl[498]";
-connectAttr "Emily_Body_Rig:ctrlEye_R_blinkCenter.o" "Emily_Body_RigRN.phl[499]"
+connectAttr "Emily_Body_Rig:ctrlEye_R_translateX.o" "Emily_Body_RigRN.phl[494]";
+connectAttr "Emily_Body_Rig:ctrlEye_R_translateY.o" "Emily_Body_RigRN.phl[495]";
+connectAttr "Emily_Body_Rig:ctrlEye_R_Scrunch.o" "Emily_Body_RigRN.phl[496]";
+connectAttr "Emily_Body_Rig:ctrlEye_R_blink.o" "Emily_Body_RigRN.phl[497]";
+connectAttr "Emily_Body_Rig:ctrlEye_R_blinkCenter.o" "Emily_Body_RigRN.phl[498]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_R_upperLidFollow.o" "Emily_Body_RigRN.phl[500]"
+connectAttr "Emily_Body_Rig:ctrlEye_R_upperLidFollow.o" "Emily_Body_RigRN.phl[499]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_R_lowerLidFollow.o" "Emily_Body_RigRN.phl[501]"
+connectAttr "Emily_Body_Rig:ctrlEye_R_lowerLidFollow.o" "Emily_Body_RigRN.phl[500]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_R_squint.o" "Emily_Body_RigRN.phl[502]";
-connectAttr "Emily_Body_Rig:ctrlEye_L_translateX.o" "Emily_Body_RigRN.phl[503]";
-connectAttr "Emily_Body_Rig:ctrlEye_L_translateY.o" "Emily_Body_RigRN.phl[504]";
-connectAttr "Emily_Body_Rig:ctrlEye_L_Scrunch.o" "Emily_Body_RigRN.phl[505]";
-connectAttr "Emily_Body_Rig:ctrlEye_L_blink.o" "Emily_Body_RigRN.phl[506]";
-connectAttr "Emily_Body_Rig:ctrlEye_L_blinkCenter.o" "Emily_Body_RigRN.phl[507]"
+connectAttr "Emily_Body_Rig:ctrlEye_R_squint.o" "Emily_Body_RigRN.phl[501]";
+connectAttr "Emily_Body_Rig:ctrlEye_L_translateX.o" "Emily_Body_RigRN.phl[502]";
+connectAttr "Emily_Body_Rig:ctrlEye_L_translateY.o" "Emily_Body_RigRN.phl[503]";
+connectAttr "Emily_Body_Rig:ctrlEye_L_Scrunch.o" "Emily_Body_RigRN.phl[504]";
+connectAttr "Emily_Body_Rig:ctrlEye_L_blink.o" "Emily_Body_RigRN.phl[505]";
+connectAttr "Emily_Body_Rig:ctrlEye_L_blinkCenter.o" "Emily_Body_RigRN.phl[506]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_L_upperLidFollow.o" "Emily_Body_RigRN.phl[508]"
+connectAttr "Emily_Body_Rig:ctrlEye_L_upperLidFollow.o" "Emily_Body_RigRN.phl[507]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_L_lowerLidFollow.o" "Emily_Body_RigRN.phl[509]"
+connectAttr "Emily_Body_Rig:ctrlEye_L_lowerLidFollow.o" "Emily_Body_RigRN.phl[508]"
 		;
-connectAttr "Emily_Body_Rig:ctrlEye_L_squint.o" "Emily_Body_RigRN.phl[510]";
-connectAttr "Emily_Body_Rig:ctrlCheek_R_translateY.o" "Emily_Body_RigRN.phl[511]"
+connectAttr "Emily_Body_Rig:ctrlEye_L_squint.o" "Emily_Body_RigRN.phl[509]";
+connectAttr "Emily_Body_Rig:ctrlCheek_R_translateY.o" "Emily_Body_RigRN.phl[510]"
 		;
-connectAttr "Emily_Body_Rig:ctrlCheek_R_translateX.o" "Emily_Body_RigRN.phl[512]"
+connectAttr "Emily_Body_Rig:ctrlCheek_R_translateX.o" "Emily_Body_RigRN.phl[511]"
 		;
-connectAttr "Emily_Body_Rig:ctrlCheek_L_translateY.o" "Emily_Body_RigRN.phl[513]"
+connectAttr "Emily_Body_Rig:ctrlCheek_L_translateY.o" "Emily_Body_RigRN.phl[512]"
 		;
-connectAttr "Emily_Body_Rig:ctrlCheek_L_translateX.o" "Emily_Body_RigRN.phl[514]"
+connectAttr "Emily_Body_Rig:ctrlCheek_L_translateX.o" "Emily_Body_RigRN.phl[513]"
 		;
-connectAttr "Emily_Body_Rig:ctrlNose_R_translateY.o" "Emily_Body_RigRN.phl[515]"
+connectAttr "Emily_Body_Rig:ctrlNose_R_translateY.o" "Emily_Body_RigRN.phl[514]"
 		;
-connectAttr "Emily_Body_Rig:ctrlNose_R_translateX.o" "Emily_Body_RigRN.phl[516]"
+connectAttr "Emily_Body_Rig:ctrlNose_R_translateX.o" "Emily_Body_RigRN.phl[515]"
 		;
-connectAttr "Emily_Body_Rig:ctrlNose_L_translateY.o" "Emily_Body_RigRN.phl[517]"
+connectAttr "Emily_Body_Rig:ctrlNose_L_translateY.o" "Emily_Body_RigRN.phl[516]"
 		;
-connectAttr "Emily_Body_Rig:ctrlNose_L_translateX.o" "Emily_Body_RigRN.phl[518]"
+connectAttr "Emily_Body_Rig:ctrlNose_L_translateX.o" "Emily_Body_RigRN.phl[517]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_translateY.o" "Emily_Body_RigRN.phl[519]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_translateY.o" "Emily_Body_RigRN.phl[518]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_translateX.o" "Emily_Body_RigRN.phl[520]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_translateX.o" "Emily_Body_RigRN.phl[519]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_jawSide.o" "Emily_Body_RigRN.phl[521]";
-connectAttr "Emily_Body_Rig:ctrlMouth_M_jawForward.o" "Emily_Body_RigRN.phl[522]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_jawSide.o" "Emily_Body_RigRN.phl[520]";
+connectAttr "Emily_Body_Rig:ctrlMouth_M_jawForward.o" "Emily_Body_RigRN.phl[521]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_chinRaiser.o" "Emily_Body_RigRN.phl[523]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_chinRaiser.o" "Emily_Body_RigRN.phl[522]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipPress_R.o" "Emily_Body_RigRN.phl[524]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipPress_R.o" "Emily_Body_RigRN.phl[523]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipPress_L.o" "Emily_Body_RigRN.phl[525]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipPress_L.o" "Emily_Body_RigRN.phl[524]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_R.o" "Emily_Body_RigRN.phl[526]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_R.o" "Emily_Body_RigRN.phl[525]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_L.o" "Emily_Body_RigRN.phl[527]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipUpperRoll_L.o" "Emily_Body_RigRN.phl[526]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_R.o" "Emily_Body_RigRN.phl[528]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_R.o" "Emily_Body_RigRN.phl[527]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_L.o" "Emily_Body_RigRN.phl[529]"
+connectAttr "Emily_Body_Rig:ctrlMouth_M_lipLowerRoll_L.o" "Emily_Body_RigRN.phl[528]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouthCorner_R_translateX.o" "Emily_Body_RigRN.phl[530]"
+connectAttr "Emily_Body_Rig:ctrlMouthCorner_R_translateX.o" "Emily_Body_RigRN.phl[529]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouthCorner_R_translateY.o" "Emily_Body_RigRN.phl[531]"
+connectAttr "Emily_Body_Rig:ctrlMouthCorner_R_translateY.o" "Emily_Body_RigRN.phl[530]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouthCorner_L_translateX.o" "Emily_Body_RigRN.phl[532]"
+connectAttr "Emily_Body_Rig:ctrlMouthCorner_L_translateX.o" "Emily_Body_RigRN.phl[531]"
 		;
-connectAttr "Emily_Body_Rig:ctrlMouthCorner_L_translateY.o" "Emily_Body_RigRN.phl[533]"
+connectAttr "Emily_Body_Rig:ctrlMouthCorner_L_translateY.o" "Emily_Body_RigRN.phl[532]"
 		;
 connectAttr "sword:Sword_visibility.o" "swordRN.phl[7]";
 connectAttr "sword:Sword_translateX.o" "swordRN.phl[8]";
