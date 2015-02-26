@@ -8,6 +8,9 @@ venv-*
 *.png
 *.iff
 *.ng
+*.tif
+cache
+_*
 
 *.properties
 
