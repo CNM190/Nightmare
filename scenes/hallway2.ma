@@ -1,7 +1,7 @@
-//Maya ASCII 2013 scene
+//Maya ASCII 2015 scene
 //Name: hallway2.ma
-//Last modified: Wed, Feb 11, 2015 12:47:47 PM
-//Codeset: 1252
+//Last modified: Fri, Feb 27, 2015 01:47:33 PM
+//Codeset: UTF-8
 file -rdi 1 -ns "hallway_sara" -rfn "hallway_saraRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/hallway_sara.ma";
 file -rdi 2 -ns "locker" -rfn "hallway_sara:lockerRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/locker.ma";
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
@@ -21,27 +21,31 @@ file -r -ns "nightmare2" -dr 1 -rfn "nightmareRN2" "C:/Users/Mark/Documents/GitH
 file -r -ns "nightmare3" -dr 1 -rfn "nightmareRN3" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "nightmare4" -dr 1 -rfn "nightmareRN4" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "nightmare5" -dr 1 -rfn "nightmareRN5" "X:/Documents/Suchaaver/Nightmare//assets/chars/nightmare.ma";
-requires maya "2013";
-requires "Mayatomr" "2013.0 - 3.10.1.4 ";
+requires maya "2015";
+requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
+		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
+requires -nodeType "RenderMan" -nodeType "RMSGPSurface" -nodeType "RMSEnvLight" -nodeType "PxrLMMetal"
+		 "RenderMan_for_Maya" "5.5";
+requires -nodeType "stereoRigTransform" -nodeType "stereoRigFrustum" "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
+requires "Mayatomr" "2013.0 - 3.10.1.4 ";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
-fileInfo "product" "Maya 2013";
-fileInfo "version" "2013 x64";
-fileInfo "cutIdentifier" "201202220241-825136";
-fileInfo "osv" "Microsoft Home Premium Edition, 64-bit  (Build 9200)\n";
+fileInfo "product" "Maya 2015";
+fileInfo "version" "2015";
+fileInfo "cutIdentifier" "201405190330-916664";
+fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 173.09700231849752 202.37833638437445 -408.67848111296024 ;
-	setAttr ".r" -type "double3" -24.338352732997667 156.5999999999751 0 ;
-	setAttr ".rp" -type "double3" 2.4424906541753444e-015 0 1.7763568394002505e-015 ;
-	setAttr ".rpt" -type "double3" 4.7712973888797056e-016 -8.2452142742630945e-017 
-		-1.1622333697847046e-015 ;
+	setAttr ".t" -type "double3" 11.842618203192771 1.5035581808183922 -0.53035935845216986 ;
+	setAttr ".r" -type "double3" -5.7383527329829649 88.599999999965846 -1.6272365594635689e-14 ;
+	setAttr ".rp" -type "double3" 2.4424906541753444e-15 0 1.7763568394002505e-15 ;
+	setAttr ".rpt" -type "double3" 4.7712973888797056e-16 -8.2452142742630945e-17 -1.1622333697847046e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 486.96393065048341;
+	setAttr ".coi" 14.760542125886989;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -105,7 +109,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 createNode transform -n "Nightmare1";
 createNode stereoRigTransform -n "stereoCamera";
 	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 createNode stereoRigCamera -n "stereoCameraCenterCamShape" -p "stereoCamera";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -175,7 +179,7 @@ createNode motionTrailShape -n "motionTrail1HandleShape" -p "motionTrail1Handle"
 instanceable -a 0;
 createNode transform -n "persp1";
 	setAttr ".t" -type "double3" 16.775698105102443 12.581773578826825 16.775698105102435 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 createNode camera -n "perspShape2" -p "persp1";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
@@ -200,11 +204,11 @@ createNode camera -n "cameraShape2" -p "camera2";
 	setAttr ".dfg" yes;
 createNode stereoRigTransform -n "stereoCamera1";
 	addAttr -ci true -sn "stereoRigType" -ln "stereoRigType" -dt "string";
-	addAttr -ci true -sn "centerCam" -ln "centerCam" -at "message";
-	addAttr -ci true -sn "leftCam" -ln "leftCam" -at "message";
-	addAttr -ci true -sn "rightCam" -ln "rightCam" -at "message";
+	addAttr -s false -ci true -sn "centerCam" -ln "centerCam" -at "message";
+	addAttr -s false -ci true -sn "leftCam" -ln "leftCam" -at "message";
+	addAttr -s false -ci true -sn "rightCam" -ln "rightCam" -at "message";
 	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-014 ;
+	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999964 -5.172681101354183e-14 ;
 	setAttr ".stereoRigType" -type "string" "StereoCamera";
 createNode stereoRigCamera -n "stereoCamera1CenterCamShape" -p "stereoCamera1";
 	setAttr -k off ".v";
@@ -262,20 +266,11 @@ createNode camera -n "stereoCamera1RightShape" -p "stereoCamera1Right";
 	setAttr ".imn" -type "string" "camera3";
 	setAttr ".den" -type "string" "camera3_depth";
 	setAttr ".man" -type "string" "camera3_mask";
-createNode transform -n "hallway2lights:Key_Light";
-	setAttr ".t" -type "double3" 12.550817694744962 5.195262397076422 5.1571334408513057 ;
-	setAttr ".r" -type "double3" -31.313703338091955 54.891453382948001 -28.157616724719801 ;
-createNode spotLight -n "hallway2lights:Key_LightShape" -p "hallway2lights:Key_Light";
+createNode transform -n "RMSEnvLight1";
+	setAttr ".r" -type "double3" -90 0 0 ;
+	setAttr ".s" -type "double3" -230.2299964904785 230.2299964904785 230.2299964904785 ;
+createNode RMSEnvLight -n "RMSEnvLightShape1" -p "RMSEnvLight1";
 	setAttr -k off ".v";
-	setAttr ".in" 0.80000001192092896;
-	setAttr ".ca" 119.99999999999999;
-	setAttr ".dro" 3;
-createNode transform -n "hallway2lights:Fill_Light";
-	setAttr ".t" -type "double3" 7.1501834913936344 1.0654503201921537 5.566195209065441 ;
-createNode pointLight -n "hallway2lights:Fill_LightShape" -p "hallway2lights:Fill_Light";
-	setAttr -k off ".v";
-	setAttr ".in" 0.15000000596046448;
-	setAttr ".us" no;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
 	setAttr ".rvb" 3;
@@ -286,6 +281,12 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
 	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr ".splck" yes;
+	setAttr ".fil" 0;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 	setAttr -s 48 ".stringOptions";
 	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
 	setAttr ".stringOptions[0].value" -type "string" "1.0";
@@ -432,9 +433,10 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
+	setAttr ".dat" 2;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 89 ".lnk";
-	setAttr -s 89 ".slnk";
+	setAttr -s 31 ".lnk";
+	setAttr -s 31 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
@@ -450,168 +452,202 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"top\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n"
 		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n"
 		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n"
-		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n"
-		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
-		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n"
-		+ "            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
-		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n"
-		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n"
-		+ "            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
-		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
-		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
-		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
-		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
-		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
-		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera2\" \n                -useInteractiveMode 0\n                -displayLights \"all\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n"
-		+ "                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
-		+ "                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n"
-		+ "                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera2\" \n            -useInteractiveMode 0\n            -displayLights \"all\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
-		+ "            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
-		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\n"
-		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n"
-		+ "                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
-		+ "                -sortOrder \"dagName\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 1\n            -showConnected 1\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n"
-		+ "            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"dagName\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n"
-		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n"
-		+ "                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n"
-		+ "                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n"
-		+ "                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n"
-		+ "                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n"
-		+ "                -showPinIcons 1\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n"
-		+ "                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n"
-		+ "                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n"
-		+ "                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n"
-		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n"
-		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n"
-		+ "                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n"
-		+ "                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n"
-		+ "                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n"
-		+ "                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -ignoreAssets 1\n                -additiveGraphingMode 0\n"
-		+ "                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -island 0\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n"
-		+ "\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"camera1\" \n"
-		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
-		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
-		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n"
-		+ "            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
-		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n"
-		+ "                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                $editorName;\nstereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n"
-		+ "\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
+		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
+		+ "            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n"
+		+ "            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n"
+		+ "                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n"
+		+ "                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n"
+		+ "                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n"
+		+ "            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n"
+		+ "            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
+		+ "                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n"
+		+ "                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n"
+		+ "                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
+		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
+		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n"
+		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
+		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n"
+		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
+		+ "                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n"
+		+ "                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"dagName\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 1\n            -showConnected 1\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n"
+		+ "            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"dagName\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n"
+		+ "                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
+		+ "                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
+		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n"
+		+ "                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n"
+		+ "                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n"
+		+ "                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n"
+		+ "                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n"
+		+ "                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n"
+		+ "                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n"
+		+ "                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n"
+		+ "                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n"
+		+ "                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n"
+		+ "                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n"
+		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n"
+		+ "                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n"
+		+ "                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
 		+ "                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
-		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 1\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 0\n                -shadows 0\n"
-		+ "                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n"
-		+ "            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n"
-		+ "            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 1\n            -manipulators 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
-		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n"
-		+ "                -planes 0\n                -lights 0\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 1\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 0\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
-		+ "            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n"
-		+ "            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 1\n            -manipulators 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel7\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel7\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
-		+ "                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n"
-		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n"
-		+ "                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel7\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
-		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n"
-		+ "            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n"
-		+ "            -locators 0\n            -manipulators 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel8\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel8\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 1\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
-		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
-		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
-		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel8\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
-		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n"
-		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n"
-		+ "            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel9\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel9\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
-		+ "                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n"
-		+ "                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 0\n                -dimensions 0\n"
-		+ "                -handles 0\n                -pivots 0\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel9\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n"
-		+ "            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
-		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"multiListerPanel\" (localizedPanelLabel(\"Multilister\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"multiListerPanel\" -l (localizedPanelLabel(\"Multilister\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Multilister\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"devicePanel\" (localizedPanelLabel(\"Devices\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tdevicePanel -unParent -l (localizedPanelLabel(\"Devices\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tdevicePanel -edit -l (localizedPanelLabel(\"Devices\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput1\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
-		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput1\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
-		+ "                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput1\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n"
-		+ "                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput2\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput2\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n"
-		+ "                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput2\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n"
-		+ "                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput3\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput3\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n"
-		+ "                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput3\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n"
+		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 1\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 1\n"
+		+ "                -motionTrails 1\n                -clipGhosts 0\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n"
+		+ "            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n"
+		+ "            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n"
+		+ "        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n"
+		+ "                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
+		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 1\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 1\n"
+		+ "                -manipulators 1\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 0\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n"
+		+ "            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n"
+		+ "            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel7\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel7\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n"
+		+ "                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 1\n"
+		+ "                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel7\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n"
+		+ "            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n"
+		+ "            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel8\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel8\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n"
+		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 1\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
+		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
+		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel8\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
+		+ "            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n"
+		+ "            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel9\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel9\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n"
+		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n"
+		+ "                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 0\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n"
+		+ "            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel9\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n"
+		+ "            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n"
+		+ "            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 0\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"multiListerPanel\" (localizedPanelLabel(\"Multilister\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"multiListerPanel\" -l (localizedPanelLabel(\"Multilister\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Multilister\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"devicePanel\" (localizedPanelLabel(\"Devices\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tdevicePanel -unParent -l (localizedPanelLabel(\"Devices\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tdevicePanel -edit -l (localizedPanelLabel(\"Devices\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput1\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput1\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n"
+		+ "                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput1\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n"
+		+ "                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput2\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput2\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n"
+		+ "                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput2\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n"
+		+ "                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput3\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput3\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n"
+		+ "                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n"
+		+ "                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput3\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n"
 		+ "                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph InputOutput4\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph InputOutput4\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n"
-		+ "                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput4\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n"
-		+ "                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"webBrowserPanel\" (localizedPanelLabel(\"Web Browser\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"webBrowserPanel\" -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel10\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel10\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n"
-		+ "                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n"
-		+ "                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n"
-		+ "                -dynamics 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel10\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n"
-		+ "            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
-		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -dimensions 0\n"
-		+ "            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel11\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel11\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
-		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n"
-		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n"
-		+ "                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel11\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
-		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\n"
-		+ "modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel12\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel12\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n"
+		+ "                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph InputOutput4\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
+		+ "                -range -1 -1 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"webBrowserPanel\" (localizedPanelLabel(\"Web Browser\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"webBrowserPanel\" -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Web Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel10\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel10\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n"
+		+ "                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n"
+		+ "                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n"
+		+ "                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 1\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n"
+		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel10\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
+		+ "            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n"
+		+ "            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel11\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel11\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
+		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n"
+		+ "                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n"
+		+ "                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel11\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
+		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel12\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel12\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n"
 		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n"
-		+ "                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n"
-		+ "                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -shadows 0\n                $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel12\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n"
-		+ "            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -shadows 0\n            $editorName;\nmodelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
-		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"all\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"all\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n"
+		+ "                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel12\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n"
+		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n"
+		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManControlsType\" (localizedPanelLabel(\"RenderMan Controls\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManControlsType\" -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManLightingType\" (localizedPanelLabel(\"RenderMan Lighting\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManLightingType\" -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 4 -max 64 -ast -50 -aet 64 ";
 	setAttr ".st" 6;
 createNode mentalrayOptions -s -n "miContourPreset";
+	setAttr ".splck" yes;
+	setAttr ".fil" 0;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "Draft";
+	setAttr ".splck" yes;
+	setAttr ".fil" 0;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "DraftMotionBlur";
+	setAttr ".splck" yes;
+	setAttr ".fil" 0;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 1;
 	setAttr ".tcong" 1;
 	setAttr ".tconb" 1;
 	setAttr ".tcona" 1;
 createNode mentalrayOptions -s -n "DraftRapidMotion";
+	setAttr ".splck" yes;
+	setAttr ".fil" 0;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 1;
 	setAttr ".raps" 0.25;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
 	setAttr ".maxr" 2;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 1;
 	setAttr ".tcong" 1;
 	setAttr ".tconb" 1;
 	setAttr ".tcona" 1;
 createNode mentalrayOptions -s -n "Preview";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "PreviewMotionblur";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 0.5;
 	setAttr ".tcong" 0.5;
 	setAttr ".tconb" 0.5;
 	setAttr ".tcona" 0.5;
 createNode mentalrayOptions -s -n "PreviewRapidMotion";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
@@ -620,76 +656,98 @@ createNode mentalrayOptions -s -n "PreviewRapidMotion";
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 1;
 	setAttr ".tconr" 0.5;
 	setAttr ".tcong" 0.5;
 	setAttr ".tconb" 0.5;
 	setAttr ".tcona" 0.5;
 createNode mentalrayOptions -s -n "PreviewCaustics";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 	setAttr ".ca" yes;
 	setAttr ".cc" 1;
 	setAttr ".cr" 1;
 createNode mentalrayOptions -s -n "PreviewGlobalIllum";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 	setAttr ".gi" yes;
 	setAttr ".gc" 1;
 	setAttr ".gr" 1;
 createNode mentalrayOptions -s -n "PreviewFinalGather";
+	setAttr ".splck" yes;
 	setAttr ".minsp" -1;
 	setAttr ".maxsp" 1;
 	setAttr ".fil" 1;
 	setAttr ".rflr" 2;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 4;
+	setAttr ".shrd" 2;
 	setAttr ".fg" yes;
 createNode mentalrayOptions -s -n "Production";
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
+	setAttr ".fil" 0;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "ProductionMotionblur";
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
+	setAttr ".fil" 0;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 2;
 createNode mentalrayOptions -s -n "ProductionRapidMotion";
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
+	setAttr ".fil" 0;
 	setAttr ".scan" 3;
 	setAttr ".rapc" 8;
 	setAttr ".raps" 2;
 	setAttr ".rflr" 10;
 	setAttr ".rfrr" 10;
 	setAttr ".maxr" 20;
+	setAttr ".shrd" 2;
 	setAttr ".mb" 2;
 createNode mentalrayOptions -s -n "ProductionFineTrace";
 	setAttr ".conr" 0.019999999552965164;
 	setAttr ".cong" 0.019999999552965164;
 	setAttr ".conb" 0.019999999552965164;
+	setAttr ".splck" yes;
 	setAttr ".minsp" 1;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
 	setAttr ".filw" 0.75;
 	setAttr ".filh" 0.75;
 	setAttr ".jit" yes;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "ProductionRapidFur";
 	setAttr ".conr" 0.039999999105930328;
 	setAttr ".cong" 0.029999999329447746;
 	setAttr ".conb" 0.070000000298023224;
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
@@ -700,6 +758,10 @@ createNode mentalrayOptions -s -n "ProductionRapidFur";
 	setAttr ".rapc" 3;
 	setAttr ".raps" 0.25;
 	setAttr ".ray" no;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 	setAttr ".shmth" 3;
 	setAttr ".shmap" 3;
 	setAttr ".mbsm" no;
@@ -708,6 +770,7 @@ createNode mentalrayOptions -s -n "ProductionRapidHair";
 	setAttr ".conr" 0.039999999105930328;
 	setAttr ".cong" 0.029999999329447746;
 	setAttr ".conb" 0.070000000298023224;
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".maxsp" 2;
 	setAttr ".fil" 1;
@@ -717,18 +780,29 @@ createNode mentalrayOptions -s -n "ProductionRapidHair";
 	setAttr ".scan" 3;
 	setAttr ".rapc" 6;
 	setAttr ".ray" no;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 	setAttr ".shmth" 3;
 	setAttr ".shmap" 3;
 	setAttr ".mbsm" no;
 	setAttr ".bism" 0.019999999552965164;
 createNode vectorRenderGlobals -s -n "vectorRenderGlobals";
 createNode mentalrayOptions -s -n "PreviewImrRayTracyOff";
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".fil" 1;
 	setAttr ".ray" no;
+	setAttr ".rflr" 1;
+	setAttr ".rfrr" 1;
+	setAttr ".maxr" 1;
+	setAttr ".shrd" 2;
 createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
+	setAttr ".splck" yes;
 	setAttr ".minsp" 0;
 	setAttr ".fil" 1;
+	setAttr ".rflr" 1;
 	setAttr ".rfrr" 2;
 	setAttr ".maxr" 3;
 	setAttr ".shrd" 1;
@@ -753,29 +827,439 @@ createNode hyperLayout -n "hyperLayout1";
 	setAttr ".hyp[10].nvs" 2768;
 	setAttr ".anf" yes;
 createNode reference -n "hallway_saraRN";
+	setAttr -s 420 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
+	setAttr ".phl[141]" 0;
+	setAttr ".phl[142]" 0;
+	setAttr ".phl[143]" 0;
+	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
+	setAttr ".phl[151]" 0;
+	setAttr ".phl[152]" 0;
+	setAttr ".phl[153]" 0;
+	setAttr ".phl[154]" 0;
+	setAttr ".phl[155]" 0;
+	setAttr ".phl[156]" 0;
+	setAttr ".phl[157]" 0;
+	setAttr ".phl[158]" 0;
+	setAttr ".phl[159]" 0;
+	setAttr ".phl[160]" 0;
+	setAttr ".phl[161]" 0;
+	setAttr ".phl[162]" 0;
+	setAttr ".phl[163]" 0;
+	setAttr ".phl[164]" 0;
+	setAttr ".phl[165]" 0;
+	setAttr ".phl[166]" 0;
+	setAttr ".phl[167]" 0;
+	setAttr ".phl[168]" 0;
+	setAttr ".phl[169]" 0;
+	setAttr ".phl[170]" 0;
+	setAttr ".phl[171]" 0;
+	setAttr ".phl[172]" 0;
+	setAttr ".phl[173]" 0;
+	setAttr ".phl[174]" 0;
+	setAttr ".phl[175]" 0;
+	setAttr ".phl[176]" 0;
+	setAttr ".phl[177]" 0;
+	setAttr ".phl[178]" 0;
+	setAttr ".phl[179]" 0;
+	setAttr ".phl[180]" 0;
+	setAttr ".phl[181]" 0;
+	setAttr ".phl[182]" 0;
+	setAttr ".phl[183]" 0;
+	setAttr ".phl[184]" 0;
+	setAttr ".phl[185]" 0;
+	setAttr ".phl[186]" 0;
+	setAttr ".phl[187]" 0;
+	setAttr ".phl[188]" 0;
+	setAttr ".phl[189]" 0;
+	setAttr ".phl[190]" 0;
+	setAttr ".phl[191]" 0;
+	setAttr ".phl[192]" 0;
+	setAttr ".phl[193]" 0;
+	setAttr ".phl[194]" 0;
+	setAttr ".phl[195]" 0;
+	setAttr ".phl[196]" 0;
+	setAttr ".phl[197]" 0;
+	setAttr ".phl[198]" 0;
+	setAttr ".phl[199]" 0;
+	setAttr ".phl[200]" 0;
+	setAttr ".phl[201]" 0;
+	setAttr ".phl[202]" 0;
+	setAttr ".phl[203]" 0;
+	setAttr ".phl[204]" 0;
+	setAttr ".phl[205]" 0;
+	setAttr ".phl[206]" 0;
+	setAttr ".phl[207]" 0;
+	setAttr ".phl[208]" 0;
+	setAttr ".phl[209]" 0;
+	setAttr ".phl[210]" 0;
+	setAttr ".phl[211]" 0;
+	setAttr ".phl[212]" 0;
+	setAttr ".phl[213]" 0;
+	setAttr ".phl[214]" 0;
+	setAttr ".phl[215]" 0;
+	setAttr ".phl[216]" 0;
+	setAttr ".phl[217]" 0;
+	setAttr ".phl[218]" 0;
+	setAttr ".phl[219]" 0;
+	setAttr ".phl[220]" 0;
+	setAttr ".phl[221]" 0;
+	setAttr ".phl[222]" 0;
+	setAttr ".phl[223]" 0;
+	setAttr ".phl[224]" 0;
+	setAttr ".phl[225]" 0;
+	setAttr ".phl[226]" 0;
+	setAttr ".phl[227]" 0;
+	setAttr ".phl[228]" 0;
+	setAttr ".phl[229]" 0;
+	setAttr ".phl[230]" 0;
+	setAttr ".phl[231]" 0;
+	setAttr ".phl[232]" 0;
+	setAttr ".phl[233]" 0;
+	setAttr ".phl[234]" 0;
+	setAttr ".phl[235]" 0;
+	setAttr ".phl[236]" 0;
+	setAttr ".phl[237]" 0;
+	setAttr ".phl[238]" 0;
+	setAttr ".phl[239]" 0;
+	setAttr ".phl[240]" 0;
+	setAttr ".phl[241]" 0;
+	setAttr ".phl[242]" 0;
+	setAttr ".phl[243]" 0;
+	setAttr ".phl[244]" 0;
+	setAttr ".phl[245]" 0;
+	setAttr ".phl[246]" 0;
+	setAttr ".phl[247]" 0;
+	setAttr ".phl[248]" 0;
+	setAttr ".phl[249]" 0;
+	setAttr ".phl[250]" 0;
+	setAttr ".phl[251]" 0;
+	setAttr ".phl[252]" 0;
+	setAttr ".phl[253]" 0;
+	setAttr ".phl[254]" 0;
+	setAttr ".phl[255]" 0;
+	setAttr ".phl[256]" 0;
+	setAttr ".phl[257]" 0;
+	setAttr ".phl[258]" 0;
+	setAttr ".phl[259]" 0;
+	setAttr ".phl[260]" 0;
+	setAttr ".phl[261]" 0;
+	setAttr ".phl[262]" 0;
+	setAttr ".phl[263]" 0;
+	setAttr ".phl[264]" 0;
+	setAttr ".phl[265]" 0;
+	setAttr ".phl[266]" 0;
+	setAttr ".phl[267]" 0;
+	setAttr ".phl[268]" 0;
+	setAttr ".phl[269]" 0;
+	setAttr ".phl[270]" 0;
+	setAttr ".phl[271]" 0;
+	setAttr ".phl[272]" 0;
+	setAttr ".phl[273]" 0;
+	setAttr ".phl[274]" 0;
+	setAttr ".phl[275]" 0;
+	setAttr ".phl[276]" 0;
+	setAttr ".phl[277]" 0;
+	setAttr ".phl[278]" 0;
+	setAttr ".phl[279]" 0;
+	setAttr ".phl[280]" 0;
+	setAttr ".phl[281]" 0;
+	setAttr ".phl[282]" 0;
+	setAttr ".phl[283]" 0;
+	setAttr ".phl[284]" 0;
+	setAttr ".phl[285]" 0;
+	setAttr ".phl[286]" 0;
+	setAttr ".phl[287]" 0;
+	setAttr ".phl[288]" 0;
+	setAttr ".phl[289]" 0;
+	setAttr ".phl[290]" 0;
+	setAttr ".phl[291]" 0;
+	setAttr ".phl[292]" 0;
+	setAttr ".phl[293]" 0;
+	setAttr ".phl[294]" 0;
+	setAttr ".phl[295]" 0;
+	setAttr ".phl[296]" 0;
+	setAttr ".phl[297]" 0;
+	setAttr ".phl[298]" 0;
+	setAttr ".phl[299]" 0;
+	setAttr ".phl[300]" 0;
+	setAttr ".phl[301]" 0;
+	setAttr ".phl[302]" 0;
+	setAttr ".phl[303]" 0;
+	setAttr ".phl[304]" 0;
+	setAttr ".phl[305]" 0;
+	setAttr ".phl[306]" 0;
+	setAttr ".phl[307]" 0;
+	setAttr ".phl[308]" 0;
+	setAttr ".phl[309]" 0;
+	setAttr ".phl[310]" 0;
+	setAttr ".phl[311]" 0;
+	setAttr ".phl[312]" 0;
+	setAttr ".phl[313]" 0;
+	setAttr ".phl[314]" 0;
+	setAttr ".phl[315]" 0;
+	setAttr ".phl[316]" 0;
+	setAttr ".phl[317]" 0;
+	setAttr ".phl[318]" 0;
+	setAttr ".phl[319]" 0;
+	setAttr ".phl[320]" 0;
+	setAttr ".phl[321]" 0;
+	setAttr ".phl[322]" 0;
+	setAttr ".phl[323]" 0;
+	setAttr ".phl[324]" 0;
+	setAttr ".phl[325]" 0;
+	setAttr ".phl[326]" 0;
+	setAttr ".phl[327]" 0;
+	setAttr ".phl[328]" 0;
+	setAttr ".phl[329]" 0;
+	setAttr ".phl[330]" 0;
+	setAttr ".phl[331]" 0;
+	setAttr ".phl[332]" 0;
+	setAttr ".phl[333]" 0;
+	setAttr ".phl[334]" 0;
+	setAttr ".phl[335]" 0;
+	setAttr ".phl[336]" 0;
+	setAttr ".phl[337]" 0;
+	setAttr ".phl[338]" 0;
+	setAttr ".phl[339]" 0;
+	setAttr ".phl[340]" 0;
+	setAttr ".phl[341]" 0;
+	setAttr ".phl[342]" 0;
+	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
+	setAttr ".phl[348]" 0;
+	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
+	setAttr ".phl[353]" 0;
+	setAttr ".phl[354]" 0;
+	setAttr ".phl[355]" 0;
+	setAttr ".phl[356]" 0;
+	setAttr ".phl[357]" 0;
+	setAttr ".phl[358]" 0;
+	setAttr ".phl[359]" 0;
+	setAttr ".phl[360]" 0;
+	setAttr ".phl[361]" 0;
+	setAttr ".phl[362]" 0;
+	setAttr ".phl[363]" 0;
+	setAttr ".phl[364]" 0;
+	setAttr ".phl[365]" 0;
+	setAttr ".phl[366]" 0;
+	setAttr ".phl[367]" 0;
+	setAttr ".phl[368]" 0;
+	setAttr ".phl[369]" 0;
+	setAttr ".phl[370]" 0;
+	setAttr ".phl[371]" 0;
+	setAttr ".phl[372]" 0;
+	setAttr ".phl[373]" 0;
+	setAttr ".phl[374]" 0;
+	setAttr ".phl[375]" 0;
+	setAttr ".phl[376]" 0;
+	setAttr ".phl[377]" 0;
+	setAttr ".phl[378]" 0;
+	setAttr ".phl[379]" 0;
+	setAttr ".phl[380]" 0;
+	setAttr ".phl[381]" 0;
+	setAttr ".phl[382]" 0;
+	setAttr ".phl[383]" 0;
+	setAttr ".phl[384]" 0;
+	setAttr ".phl[385]" 0;
+	setAttr ".phl[386]" 0;
+	setAttr ".phl[387]" 0;
+	setAttr ".phl[388]" 0;
+	setAttr ".phl[389]" 0;
+	setAttr ".phl[390]" 0;
+	setAttr ".phl[391]" 0;
+	setAttr ".phl[392]" 0;
+	setAttr ".phl[393]" 0;
+	setAttr ".phl[394]" 0;
+	setAttr ".phl[395]" 0;
+	setAttr ".phl[396]" 0;
+	setAttr ".phl[397]" 0;
+	setAttr ".phl[398]" 0;
+	setAttr ".phl[399]" 0;
+	setAttr ".phl[400]" 0;
+	setAttr ".phl[401]" 0;
+	setAttr ".phl[402]" 0;
+	setAttr ".phl[403]" 0;
+	setAttr ".phl[404]" 0;
+	setAttr ".phl[405]" 0;
+	setAttr ".phl[406]" 0;
+	setAttr ".phl[407]" 0;
+	setAttr ".phl[408]" 0;
+	setAttr ".phl[409]" 0;
+	setAttr ".phl[410]" 0;
+	setAttr ".phl[411]" 0;
+	setAttr ".phl[412]" 0;
+	setAttr ".phl[413]" 0;
+	setAttr ".phl[414]" 0;
+	setAttr ".phl[415]" 0;
+	setAttr ".phl[416]" 0;
+	setAttr ".phl[417]" 0;
+	setAttr ".phl[418]" 0;
+	setAttr ".phl[419]" 0;
+	setAttr ".phl[420]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"hallway_saraRN"
-		"hallway_sara:lockerRN" 0
 		"hallway_saraRN" 0
-		"hallway_sara:lockerRN" 5
-		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2" 
-		"dispResolution" " 1"
-		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2" 
-		"displaySmoothMesh" " 0"
-		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
-		"dispResolution" " 1"
-		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
-		"displaySmoothMesh" " 0"
-		"hallway_saraRN" 10
+		"hallway_sara:lockerRN" 0
+		"hallway_saraRN" 14
 		2 "|hallway_sara:lockers_right" "translate" " -type \"double3\" -81.353242 -18.976425 2.265421"
 		
 		2 "|hallway_sara:lockers_right" "scale" " -type \"double3\" 0.132702 0.132702 0.132702"
 		
-		2 "|hallway_sara:lockers_right" "rotatePivot" " -type \"double3\" 76.540304 22.844261 -0.0951393"
+		2 "|hallway_sara:lockers_right" "rotatePivot" " -type \"double3\" 76.540304 22.844261 -0.095139299999999996"
 		
-		2 "|hallway_sara:lockers_right" "scalePivot" " -type \"double3\" 76.540304 22.844261 -0.0951393"
+		2 "|hallway_sara:lockers_right" "scalePivot" " -type \"double3\" 76.540304 22.844261 -0.095139299999999996"
 		
 		2 "|hallway_sara:lockers_right|hallway_sara:pCube19" "rotate" " -type \"double3\" 0 0 0"
 		
@@ -787,7 +1271,2584 @@ createNode reference -n "hallway_saraRN";
 		
 		2 "|hallway_sara:floor" "scale" " -type \"double3\" 0.218912 0.218912 0.218912"
 		
-		2 "hallway_sara:lockers_right_side" "visibility" " 1";
+		2 "hallway_sara:lockers_right_side" "visibility" " 1"
+		3 "|hallway_sara:lockers_right|hallway_sara:wall_plane|hallway_sara:wall_planeShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:wall_plane|hallway_sara:wall_planeShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:wall_plane|hallway_sara:wall_planeShape.instObjGroups" 
+		"hallway_saraRN.placeHolderList[419]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:wall_plane|hallway_sara:wall_planeShape.instObjGroups" 
+		"hallway_saraRN.placeHolderList[420]" ":initialShadingGroup.dsm"
+		"hallway_sara:lockerRN" 1257
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2" 
+		"dispResolution" " 1"
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2" 
+		"displaySmoothMesh" " 0"
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups" " -s 208"
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"instObjGroups.objectGroups[0].objectGrpCompList" " -type \"componentList\" 1 \"f[0:845]\""
+		
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"dispResolution" " 1"
+		2 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2" 
+		"displaySmoothMesh" " 0"
+		3 "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube103|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube102|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube101|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube100|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube99|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube98|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube97|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube96|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube95|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube94|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube93|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube92|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube91|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube90|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube89|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube88|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube87|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube86|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube85|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube84|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube83|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube82|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube81|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube80|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube79|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:locker:bevelPolygon1|hallway_sara:locker:bevelPolygonShape1.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:bevelPolygon1|hallway_sara:locker:bevelPolygonShape1.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "hallway_sara:locker:groupId1.groupId" "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 ":initialShadingGroup.memberWireframeColor" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[1]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[2]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[3]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[4]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[5]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[6]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[7]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[8]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[9]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[10]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[11]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[12]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[13]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[14]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[15]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[16]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[17]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[18]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[19]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[20]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[21]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[22]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[23]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[24]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[25]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[26]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[27]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[28]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[29]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[30]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[31]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[32]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[33]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[34]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[35]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[36]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[37]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[38]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[39]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[40]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[41]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[42]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[43]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[44]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[45]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[46]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[47]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[48]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[49]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[50]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[51]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[52]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[53]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[54]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[55]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[56]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[57]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[58]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[59]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[60]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[61]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[62]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[63]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[64]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[65]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[66]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[67]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[68]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[69]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[70]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[71]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[72]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[73]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[74]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[75]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[76]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[77]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[78]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube79|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[79]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube80|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[80]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube81|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[81]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube82|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[82]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube83|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[83]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube84|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[84]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube85|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[85]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube86|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[86]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube87|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[87]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube88|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[88]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube89|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[89]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube90|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[90]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube91|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[91]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube92|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[92]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube93|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[93]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube94|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[94]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube95|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[95]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube96|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[96]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube97|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[97]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube98|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[98]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube99|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[99]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube100|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[100]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube101|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[101]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube102|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[102]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube103|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[103]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[104]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[105]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[106]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[107]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[108]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[109]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[110]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[111]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[112]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[113]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[114]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[115]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[116]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[117]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[118]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[119]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[120]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[121]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[122]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[123]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[124]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[125]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[126]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[127]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[128]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[129]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[130]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[131]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[132]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[133]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[134]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[135]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[136]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[137]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[138]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[139]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[140]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[141]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[142]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[143]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[144]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[145]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[146]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[147]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[148]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[149]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[150]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[151]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[152]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[153]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[154]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[155]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[156]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[157]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[158]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[159]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[160]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[161]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[162]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[163]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[164]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[165]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[166]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[167]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[168]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[169]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[170]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[171]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[172]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[173]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[174]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[175]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[176]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[177]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[178]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[179]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[180]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[181]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[182]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[183]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[184]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[185]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[186]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[187]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[188]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[189]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[190]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[191]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[192]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[193]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[194]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[195]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[196]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[197]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[198]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[199]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[200]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[201]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[202]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[203]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[204]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[205]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[206]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[207]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:pCubeShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[208]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[209]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[210]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[211]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[212]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[213]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[214]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[215]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[216]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[217]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[218]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[219]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[220]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[221]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[222]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[223]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[224]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[225]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[226]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[227]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[228]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[229]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[230]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[231]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[232]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[233]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[234]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[235]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[236]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[237]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[238]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[239]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[240]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[241]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[242]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[243]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[244]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[245]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[246]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[247]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[248]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[249]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[250]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[251]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[252]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[253]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[254]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[255]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[256]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[257]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[258]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[259]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[260]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[261]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[262]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[263]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[264]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[265]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[266]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[267]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[268]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[269]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[270]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[271]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[272]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[273]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[274]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[275]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[276]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[277]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[278]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[279]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[280]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[281]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[282]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[283]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[284]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[285]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[286]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[287]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[288]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[289]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[290]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[291]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[292]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[293]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[294]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[295]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[296]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[297]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[298]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[299]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[300]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[301]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[302]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[303]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[304]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[305]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[306]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[307]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[308]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[309]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[310]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[311]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[312]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube26|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[313]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube25|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[314]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube24|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[315]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube23|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[316]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube22|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[317]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube21|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[318]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube20|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[319]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube19|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[320]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube18|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[321]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube17|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[322]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube16|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[323]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube15|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[324]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube14|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[325]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube13|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[326]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube12|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[327]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube11|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[328]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube10|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[329]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube9|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[330]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube8|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[331]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube7|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[332]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube6|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[333]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube5|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[334]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube4|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[335]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube3|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[336]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[337]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube1|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[338]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube27|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[339]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube28|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[340]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube29|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[341]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube30|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[342]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube31|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[343]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube32|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[344]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube33|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[345]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube34|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[346]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube35|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[347]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube36|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[348]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube37|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[349]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube38|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[350]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube39|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[351]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube40|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[352]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube41|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[353]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube42|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[354]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube43|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[355]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube44|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[356]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube45|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[357]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube46|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[358]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube47|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[359]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube48|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[360]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube49|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[361]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube50|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[362]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube51|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[363]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube52|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[364]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube53|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[365]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube54|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[366]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube55|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[367]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube56|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[368]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube57|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[369]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube58|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[370]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube59|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[371]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube60|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[372]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube61|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[373]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube62|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[374]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube63|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[375]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube64|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[376]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube65|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[377]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube66|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[378]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube67|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[379]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube68|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[380]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube69|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[381]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube70|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[382]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube71|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[383]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube72|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[384]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube73|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[385]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube74|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[386]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube75|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[387]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube76|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[388]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube77|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[389]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube78|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[390]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube79|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[391]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube80|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[392]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube81|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[393]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube82|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[394]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube83|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[395]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube84|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[396]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube85|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[397]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube86|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[398]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube87|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[399]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube88|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[400]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube89|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[401]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube90|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[402]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube91|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[403]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube92|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[404]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube93|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[405]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube94|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[406]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube95|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[407]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube96|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[408]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube97|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[409]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube98|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[410]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube99|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[411]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube100|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[412]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube101|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[413]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube102|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[414]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:pCube103|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[415]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:pCube2|hallway_sara:locker:polySurface2|hallway_sara:locker:polySurfaceShape2.instObjGroups" 
+		"hallway_saraRN.placeHolderList[416]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_right|hallway_sara:locker:bevelPolygon1|hallway_sara:locker:bevelPolygonShape1.instObjGroups" 
+		"hallway_saraRN.placeHolderList[417]" ":initialShadingGroup.dsm"
+		5 3 "hallway_saraRN" "|hallway_sara:lockers_left|hallway_sara:lockers_right1|hallway_sara:locker:bevelPolygon1|hallway_sara:locker:bevelPolygonShape1.instObjGroups" 
+		"hallway_saraRN.placeHolderList[418]" ":initialShadingGroup.dsm";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode groupId -n "hallway_sara:groupId2221";
@@ -1620,9 +4681,9 @@ createNode groupId -n "hallway_sara:groupId2634";
 	setAttr ".ihi" 0;
 createNode reference -n "anim_ready_EmilyRN";
 	setAttr -s 3 ".fn";
-	setAttr ".fn[0]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/Emily.ma";
-	setAttr ".fn[1]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
-	setAttr ".fn[2]" -type "string" "C:/Users/Mark/Documents/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
+	setAttr ".fn[0]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/Emily.ma";
+	setAttr ".fn[1]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
+	setAttr ".fn[2]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
 	setAttr -s 259 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
@@ -1885,7 +4946,7 @@ createNode reference -n "anim_ready_EmilyRN";
 	setAttr ".phl[259]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"anim_ready_EmilyRN"
-		"anim_ready_Emily:modelRN" 0
+		"anim_ready_Emily:Hair_EmilyRN" 0
 		"anim_ready_EmilyRN" 4
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:model:geo_Emily|anim_ready_Emily:model:Body|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
 		"dispResolution" " 3"
@@ -1894,13 +4955,14 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "anim_ready_Emily:HiRes" "displayType" " 2"
 		2 "anim_ready_Emily:HiRes" "visibility" " -av 1"
 		"anim_ready_Emily:DressRN" 0
-		"anim_ready_Emily:Dress_EmilyRN" 0
-		"anim_ready_Emily:Hair_EmilyRN" 0
 		"anim_ready_Emily:emilyHair001RN" 1
 		2 "anim_ready_Emily:emilyHair001:head" "visibility" " 1"
+		"anim_ready_Emily:Dress_EmilyRN" 0
+		"anim_ready_Emily:modelRN" 0
 		"anim_ready_EmilyRN" 474
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
-		"translate" " -type \"double3\" 3.218699 -0.115382 -0.752855"
+		"translate" " -type \"double3\" 3.21869854217275941 -0.11538204016378145 -0.75285504525129554"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
@@ -1908,7 +4970,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
-		"rotate" " -type \"double3\" 0.0978362 97.673783 -6.773721"
+		"rotate" " -type \"double3\" 0.09783623810612789 97.6737828343411536 -6.77372125394099101"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
@@ -1924,7 +4987,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M" 
-		"rotate" " -type \"double3\" 6.71937 -3.526592 -22.807479"
+		"rotate" " -type \"double3\" 6.71936972074114092 -3.52659241788768307 -22.80747894732681047"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M" 
@@ -1932,7 +4996,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
-		"translate" " -type \"double3\" -0.00246464 -0.0236918 -0.000851175"
+		"translate" " -type \"double3\" -0.0024646387792253005 -0.023691777987327679 -0.00085117515658919953"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
@@ -1940,7 +5005,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
-		"rotate" " -type \"double3\" 0.426104 -2.276187 10.988834"
+		"rotate" " -type \"double3\" 0.42610353579992433 -2.2761867225914072 10.98883409972799541"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M" 
@@ -1968,7 +5034,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -0.958085 -0.622387 -2.941505"
+		"rotate" " -type \"double3\" -0.95808518208021676 -0.62238666949649279 -2.94150513156643045"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M" 
@@ -1996,7 +5063,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90 -8.204881 90"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
-		"translate" " -type \"double3\" 0.595679 0.185384 1.231453"
+		"translate" " -type \"double3\" 0.5956787035570188 0.18538424006099488 1.23145308166464362"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
@@ -2004,7 +5072,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
-		"rotate" " -type \"double3\" -303.287908 -89.969295 109.064182"
+		"rotate" " -type \"double3\" -303.28790788313926896 -89.96929465774405799 109.0641821694995599"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
@@ -2012,7 +5081,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
-		"translate" " -type \"double3\" 0.31103 -0.32601 2.065005"
+		"translate" " -type \"double3\" 0.31102953053302718 -0.32601047047988702 2.06500543790757396"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
@@ -2020,7 +5090,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
-		"translate" " -type \"double3\" -0.10192 0.259802 1.422617"
+		"translate" " -type \"double3\" -0.10191957184686223 0.25980171505240024 1.42261710994521895"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
@@ -2028,7 +5099,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
-		"rotate" " -type \"double3\" -42.940207 -6.064304 -4.882697"
+		"rotate" " -type \"double3\" -42.94020712580785215 -6.06430380445685202 -4.88269694577009439"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R" 
@@ -2048,7 +5120,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_R|anim_ready_Emily:IKExtraLeg_R|anim_ready_Emily:IKLeg_R|anim_ready_Emily:IKLegFootRockInnerPivot_R|anim_ready_Emily:IKLegFootRockOuterPivot_R|anim_ready_Emily:RollOffsetHeelLeg_R|anim_ready_Emily:RollExtraHeelLeg_R|anim_ready_Emily:RollHeelLeg_R|anim_ready_Emily:RollOffsetToesEnd_R|anim_ready_Emily:RollExtraToesEnd_R|anim_ready_Emily:RollToesEnd_R|anim_ready_Emily:RollOffsetToes_R|anim_ready_Emily:RollExtraToes_R|anim_ready_Emily:RollToes_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
-		"translate" " -type \"double3\" -0.724997 0.252319 1.302839"
+		"translate" " -type \"double3\" -0.72499679102232018 0.25231913520348487 1.30283866518209468"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
@@ -2056,7 +5129,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
-		"rotate" " -type \"double3\" -16.728853 -176.111646 -74.02458"
+		"rotate" " -type \"double3\" -16.7288528664068572 -176.111646375975198 -74.02457980997758114"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
@@ -2064,7 +5138,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_L|anim_ready_Emily:IKExtraArm_L|anim_ready_Emily:IKArm_L" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_L|anim_ready_Emily:PoleExtraArm_L|anim_ready_Emily:PoleArm_L" 
-		"translate" " -type \"double3\" -0.233198 -0.131613 2.292519"
+		"translate" " -type \"double3\" -0.23319831303596905 -0.13161311625907657 2.29251933060535418"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_L|anim_ready_Emily:PoleExtraArm_L|anim_ready_Emily:PoleArm_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_L|anim_ready_Emily:PoleExtraArm_L|anim_ready_Emily:PoleArm_L" 
@@ -2072,7 +5147,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_L|anim_ready_Emily:PoleExtraArm_L|anim_ready_Emily:PoleArm_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
-		"translate" " -type \"double3\" 0.252943 0.771476 -0.269652"
+		"translate" " -type \"double3\" 0.25294307924741755 0.77147622346202627 -0.26965173667200093"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
@@ -2080,7 +5156,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
-		"rotate" " -type \"double3\" 107.64751 8.212037 11.412785"
+		"rotate" " -type \"double3\" 107.64750955640730012 8.2120368190411579 11.41278533533539274"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L" 
@@ -2094,7 +5171,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L|anim_ready_Emily:IKLegFootRockInnerPivot_L|anim_ready_Emily:IKLegFootRockOuterPivot_L|anim_ready_Emily:RollOffsetHeelLeg_L|anim_ready_Emily:RollExtraHeelLeg_L|anim_ready_Emily:RollHeelLeg_L|anim_ready_Emily:RollOffsetToesEnd_L|anim_ready_Emily:RollExtraToesEnd_L|anim_ready_Emily:RollToesEnd_L" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L|anim_ready_Emily:IKLegFootRockInnerPivot_L|anim_ready_Emily:IKLegFootRockOuterPivot_L|anim_ready_Emily:RollOffsetHeelLeg_L|anim_ready_Emily:RollExtraHeelLeg_L|anim_ready_Emily:RollHeelLeg_L|anim_ready_Emily:RollOffsetToesEnd_L|anim_ready_Emily:RollExtraToesEnd_L|anim_ready_Emily:RollToesEnd_L|anim_ready_Emily:RollOffsetToes_L|anim_ready_Emily:RollExtraToes_L|anim_ready_Emily:RollToes_L" 
-		"rotate" " -type \"double3\" -7.372436 0 0"
+		"rotate" " -type \"double3\" -7.37243606916013849 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetLeg_L|anim_ready_Emily:IKExtraLeg_L|anim_ready_Emily:IKLeg_L|anim_ready_Emily:IKLegFootRockInnerPivot_L|anim_ready_Emily:IKLegFootRockOuterPivot_L|anim_ready_Emily:RollOffsetHeelLeg_L|anim_ready_Emily:RollExtraHeelLeg_L|anim_ready_Emily:RollHeelLeg_L|anim_ready_Emily:RollOffsetToesEnd_L|anim_ready_Emily:RollExtraToesEnd_L|anim_ready_Emily:RollToesEnd_L|anim_ready_Emily:RollOffsetToes_L|anim_ready_Emily:RollExtraToes_L|anim_ready_Emily:RollToes_L" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetLeg_L|anim_ready_Emily:PoleExtraLeg_L|anim_ready_Emily:PoleLeg_L" 
@@ -2104,7 +5181,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKIKSystem|anim_ready_Emily:FKIKParentConstraintArm_L|anim_ready_Emily:FKIKArm_L" 
 		"FKIKBlend" " -k 1 10"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
-		"translate" " -type \"double3\" 0.0124809 0.016536 0.655587"
+		"translate" " -type \"double3\" 0.012480884347868645 0.016536037622345179 0.65558745631812965"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
@@ -2112,7 +5190,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
-		"rotate" " -type \"double3\" 11.251799 0 0"
+		"rotate" " -type \"double3\" 11.25179916623655352 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
 		"rotateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
@@ -2120,7 +5198,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:RootSystem|anim_ready_Emily:RootCenterBtwLegsBlended_M|anim_ready_Emily:RootOffsetX_M|anim_ready_Emily:RootExtraX_M|anim_ready_Emily:RootX_M" 
 		"rotateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.0389865 0.0393023 0.0100057"
+		"translate" " -type \"double3\" 0.0389865 0.039302299999999998 0.010005699999999999"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
@@ -2140,7 +5219,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.0438351 0.0396341 -0.00268979"
+		"translate" " -type \"double3\" -0.043835100000000002 0.039634099999999998 -0.0026897900000000001"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L" 
@@ -2162,7 +5242,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
-		"translate" " -type \"double3\" 0.00476469 0.0847285 0.00186968"
+		"translate" " -type \"double3\" 0.0047646900000000002 0.084728499999999998 0.0018696800000000001"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
@@ -2170,7 +5251,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.00199561 0.0934005 -0.0863784"
+		"translate" " -type \"double3\" -0.0019956104869965955 0.093400518054745765 -0.086378430052415939"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R" 
@@ -2186,7 +5268,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
-		"translate" " -type \"double3\" 0.00575648 0.107423 -0.0133968"
+		"translate" " -type \"double3\" 0.0057564799999999996 0.107423 -0.0133968"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
@@ -2194,7 +5276,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" -0.0529156 0.094505 -0.0896849"
+		"translate" " -type \"double3\" -0.052915558109034075 0.094505024656348427 -0.089684855037276079"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
@@ -2202,13 +5285,16 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L" 
 		"translateZ" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R" 
-		"translate" " -type \"double3\" -0.00187413 -0.0732505 0.0452588"
+		"translate" " -type \"double3\" -0.0018741299999999999 -0.073250499999999996 0.045258800000000002"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L" 
-		"translate" " -type \"double3\" -0.00221128 -0.0864279 0.0534007"
+		"translate" " -type \"double3\" -0.0022112799999999999 -0.086427900000000002 0.053400700000000002"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R" 
-		"translate" " -type \"double3\" -0.00193951 -0.0758058 0.0468377"
+		"translate" " -type \"double3\" -0.00193951 -0.075805800000000007 0.046837700000000003"
+		
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R" 
 		"translateX" " -av"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R" 
@@ -2222,7 +5308,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
-		"rotate" " -type \"double3\" -8.829045 0.627682 2.50448e-006"
+		"rotate" " -type \"double3\" 0 0 -16.2631792763588372"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Aimcontrols|anim_ready_Emily:AimEyeOffset_M|anim_ready_Emily:AimEyeFollow_M|anim_ready_Emily:AimEye_M" 
@@ -2236,13 +5322,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxBrow_R|anim_ready_Emily:ctrlBrow_R" 
 		"translateY" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_R|anim_ready_Emily:ctrlEye_R" 
-		"translateX" " -av -0.281326"
+		"translateX" " -av -0.28132621613868097"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_R|anim_ready_Emily:ctrlEye_R" 
-		"translateY" " -av 0.043047"
+		"translateY" " -av 0.043047041226652968"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_L|anim_ready_Emily:ctrlEye_L" 
-		"translateX" " -av -0.0506196"
+		"translateX" " -av -0.05061964876229047"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxEye_L|anim_ready_Emily:ctrlEye_L" 
-		"translateY" " -av 0.0963181"
+		"translateY" " -av 0.096318104814122424"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R" 
 		"translateX" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R" 
@@ -2258,13 +5344,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M" 
 		"translateX" " 0.167825"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M" 
-		"translateY" " -0.0715498"
+		"translateY" " -0.071549799999999997"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouthCorner_R|anim_ready_Emily:ctrlMouthCorner_R" 
 		"translateX" " 0.118603"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouthCorner_R|anim_ready_Emily:ctrlMouthCorner_R" 
 		"translateY" " -1"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouthCorner_L|anim_ready_Emily:ctrlMouthCorner_L" 
-		"translateX" " 0.0855779"
+		"translateX" " 0.085577899999999998"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouthCorner_L|anim_ready_Emily:ctrlMouthCorner_L" 
 		"translateY" " -1"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M" 
@@ -2272,7 +5358,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
 		"translate" " -type \"double3\" 4.749338 2.793317 -0.748963"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:SquashSetup|anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" -168.093352 -6.056796 73.736821"
+		"rotate" " -type \"double3\" -168.09335200000003852 -6.056796 73.736821"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightEye|anim_ready_Emily:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftEye|anim_ready_Emily:LeftEyeShapeDeformed" 
@@ -2294,9 +5380,29 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "anim_ready_Emily:groupParts143" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:559]\""
 		
 		2 "anim_ready_Emily:groupParts143" "groupId" " 39115"
+		3 "anim_ready_Emily:groupId668.message" ":initialShadingGroup.groupNodes" 
+		"-na"
+		3 "anim_ready_Emily:groupId665.message" ":initialShadingGroup.groupNodes" 
+		"-na"
+		3 "anim_ready_Emily:groupId668.groupId" "anim_ready_Emily:groupParts140.groupId" 
+		""
+		3 "anim_ready_Emily:groupId665.groupId" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "anim_ready_Emily:groupId671.groupId" "anim_ready_Emily:groupParts143.groupId" 
 		""
-		3 "anim_ready_Emily:groupId665.message" ":initialShadingGroup.groupNodes" 
+		3 "anim_ready_Emily:groupId665.groupId" "anim_ready_Emily:groupParts137.groupId" 
+		""
+		3 "anim_ready_Emily:groupId668.groupId" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "anim_ready_Emily:groupId671.message" ":initialShadingGroup.groupNodes" 
 		"-na"
 		3 "anim_ready_Emily:groupId671.groupId" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
@@ -2304,26 +5410,6 @@ createNode reference -n "anim_ready_EmilyRN";
 		""
 		3 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "anim_ready_Emily:groupId668.groupId" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "anim_ready_Emily:groupId668.message" ":initialShadingGroup.groupNodes" 
-		"-na"
-		3 "anim_ready_Emily:groupId671.message" ":initialShadingGroup.groupNodes" 
-		"-na"
-		3 "anim_ready_Emily:groupId665.groupId" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "anim_ready_Emily:groupId668.groupId" "anim_ready_Emily:groupParts140.groupId" 
-		""
-		3 "anim_ready_Emily:groupId665.groupId" "anim_ready_Emily:groupParts137.groupId" 
-		""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main.FaceVis" 
 		"anim_ready_EmilyRN.placeHolderList[1]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main.Resolution" 
@@ -10172,7 +13258,7 @@ createNode animCurveTA -n "camera2_rotateY";
 	setAttr -s 3 ".ktv[0:2]"  0 90 4 91.999999999999574 21 91.999999999999574;
 createNode animCurveTA -n "camera2_rotateZ";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  0 1.4238753646194626e-014 21 1.4238753646194626e-014;
+	setAttr -s 2 ".ktv[0:1]"  0 1.4238753646194626e-14 21 1.4238753646194626e-14;
 createNode animCurveTU -n "camera2_visibility";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  0 1 21 1;
@@ -10649,7 +13735,7 @@ createNode animCurveTA -n "camera1_rotateY";
 createNode animCurveTA -n "camera1_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  27 6.2126264441509002e-018 56 0;
+	setAttr -s 2 ".ktv[0:1]"  27 6.2126264441509002e-18 56 0;
 createNode animCurveTU -n "camera1_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -12816,6 +15902,1178 @@ createNode polyNormal -n "polyNormal2";
 createNode polyNormal -n "polyNormal3";
 	setAttr ".nm" 2;
 	setAttr ".unm" no;
+createNode groupId -n "hallway_sara:groupId6518";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6520";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6522";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6524";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6526";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6528";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6530";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6532";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6534";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6536";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6538";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6540";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6542";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6544";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6546";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6548";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6550";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6552";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6554";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6556";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6558";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6560";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6562";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6564";
+	setAttr ".ihi" 0;
+createNode groupId -n "hallway_sara:groupId6566";
+	setAttr ".ihi" 0;
+createNode RenderMan -s -n "renderManRISGlobals";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__toropt___renderDataCleanupJob" -ln "rman__toropt___renderDataCleanupJob" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___shaderCleanupJob" -ln "rman__toropt___shaderCleanupJob" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___textureCleanupJob" -ln "rman__toropt___textureCleanupJob" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___ribCleanupJob" -ln "rman__toropt___ribCleanupJob" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___ribFlatten" -ln "rman__toropt___ribFlatten" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___renderDataCleanupFrame" -ln "rman__toropt___renderDataCleanupFrame" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___textureCleanupFrame" -ln "rman__toropt___textureCleanupFrame" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___ribCleanupFrame" -ln "rman__toropt___ribCleanupFrame" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__toropt___primaryCamera" -ln "rman__toropt___primaryCamera" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__toropt___enableRenderLayers" -ln "rman__toropt___enableRenderLayers" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__toropt___renderLayer" -ln "rman__toropt___renderLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__toropt___motionBlurType" -ln "rman__toropt___motionBlurType" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__toropt___shutterAngle" -ln "rman__toropt___shutterAngle" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__toropt___shutterTiming" -ln "rman__toropt___shutterTiming" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__toropt___cacheCrew" -ln "rman__toropt___cacheCrew" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__toropt___renumber" -ln "rman__toropt___renumber" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___renumberStart" -ln "rman__toropt___renumberStart" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___renumberBy" -ln "rman__toropt___renumberBy" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___lazyRibGen" -ln "rman__toropt___lazyRibGen" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___lazyRender" -ln "rman__toropt___lazyRender" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___bakeMode" -ln "rman__toropt___bakeMode" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___furChunkSize" -ln "rman__toropt___furChunkSize" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___enableRifs" -ln "rman__torattr___enableRifs" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__toropt___nativeShadingSupport" -ln "rman__toropt___nativeShadingSupport" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___motionSamples" -ln "rman__torattr___motionSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___referenceFrame" -ln "rman__torattr___referenceFrame" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___mapResolution" -ln "rman__torattr___mapResolution" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__torattr___mapResolution0" -ln "rman__torattr___mapResolution0" 
+		-dv -1 -at "long" -p "rman__torattr___mapResolution";
+	addAttr -ci true -k true -sn "rman__torattr___mapResolution1" -ln "rman__torattr___mapResolution1" 
+		-dv -1 -at "long" -p "rman__torattr___mapResolution";
+	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___cameraBlur" -ln "rman__torattr___cameraBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___frontPlane" -ln "rman__torattr___frontPlane" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___backPlane" -ln "rman__torattr___backPlane" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passCommand" -ln "rman__torattr___passCommand" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___crop" -ln "rman__torattr___crop" -dv 
+		-1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passExtFormat" -ln "rman__torattr___passExtFormat" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___previewPass" -ln "rman__torattr___previewPass" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___defaultDisplacementShader" -ln "rman__torattr___defaultDisplacementShader" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___defaultAtmosphereShader" -ln "rman__torattr___defaultAtmosphereShader" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___defaultInteriorShader" -ln "rman__torattr___defaultInteriorShader" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___outputSurfaceShaders" -ln "rman__torattr___outputSurfaceShaders" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___outputDisplacementShaders" -ln "rman__torattr___outputDisplacementShaders" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___outputLightShaders" -ln "rman__torattr___outputLightShaders" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___outputVolumeShaders" -ln "rman__torattr___outputVolumeShaders" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___outputImagerShaders" -ln "rman__torattr___outputImagerShaders" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__toropt___preFrameScript" -ln "rman__toropt___preFrameScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__toropt___postFrameScript" -ln "rman__toropt___postFrameScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___preRenderScript" -ln "rman__torattr___preRenderScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___postRenderScript" -ln "rman__torattr___postRenderScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___defaultRiOptionsScript" -ln "rman__torattr___defaultRiOptionsScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___defaultRiAttributesScript" -ln "rman__torattr___defaultRiAttributesScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___renderBeginScript" -ln "rman__torattr___renderBeginScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___transformBeginScript" -ln "rman__torattr___transformBeginScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___transformEndScript" -ln "rman__torattr___transformEndScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___postTransformScript" -ln "rman__torattr___postTransformScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___preShapeScript" -ln "rman__torattr___preShapeScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___postShapeScript" -ln "rman__torattr___postShapeScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cacheShapeScript" -ln "rman__torattr___cacheShapeScript" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___bakeChannels" -ln "rman__torattr___bakeChannels" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___bakeCrew" -ln "rman__torattr___bakeCrew" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___bakeOutputFile" -ln "rman__torattr___bakeOutputFile" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___customShadingGroup" -ln "rman__torattr___customShadingGroup" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___shaderBindingStrength" -ln "rman__torattr___shaderBindingStrength" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___enableObjectInstancing" -ln "rman__torattr___enableObjectInstancing" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___impliedSSBakeMode" -ln "rman__torattr___impliedSSBakeMode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__toropt___JOBSTYLE" -ln "rman__toropt___JOBSTYLE" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___deformationBlurStyle" -ln "rman__torattr___deformationBlurStyle" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___deformationBlurScale" -ln "rman__torattr___deformationBlurScale" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__torattr___enableMfcProcPrim" -ln "rman__torattr___enableMfcProcPrim" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___linearizeColors" -ln "rman__torattr___linearizeColors" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___rayTracing" -ln "rman__torattr___rayTracing" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___referenceCamera" -ln "rman__torattr___referenceCamera" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__toropt___enableRIS" -ln "rman__toropt___enableRIS" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___defaultSurfaceShader" -ln "rman__torattr___defaultSurfaceShader" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize0" -ln "rman__riopt__limits_bucketsize0" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt__limits_gridsize" -ln "rman__riopt__limits_gridsize" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__trace_decimationrate" -ln "rman__riopt__trace_decimationrate" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__limits_threads" -ln "rman__riopt__limits_threads" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Camera_shutteropening" -ln "rman__riopt__Camera_shutteropening" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Camera_shutteropening0" -ln "rman__riopt__Camera_shutteropening0" 
+		-dv -1 -at "float" -p "rman__riopt__Camera_shutteropening";
+	addAttr -ci true -k true -sn "rman__riopt__Camera_shutteropening1" -ln "rman__riopt__Camera_shutteropening1" 
+		-dv -1 -at "float" -p "rman__riopt__Camera_shutteropening";
+	addAttr -ci true -k true -sn "rman__riopt__Format_resolution" -ln "rman__riopt__Format_resolution" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Format_resolution0" -ln "rman__riopt__Format_resolution0" 
+		-dv -1 -at "long" -p "rman__riopt__Format_resolution";
+	addAttr -ci true -k true -sn "rman__riopt__Format_resolution1" -ln "rman__riopt__Format_resolution1" 
+		-dv -1 -at "long" -p "rman__riopt__Format_resolution";
+	addAttr -ci true -k true -sn "rman__riopt__Format_pixelaspectratio" -ln "rman__riopt__Format_pixelaspectratio" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__hair_minwidth" -ln "rman__riopt__hair_minwidth" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riopt__rib_compression" -ln "rman__riopt__rib_compression" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__rib_format" -ln "rman__riopt__rib_format" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__rib_precision" -ln "rman__riopt__rib_precision" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__statistics_level" -ln "rman__riopt__statistics_level" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__statistics_filename" -ln "rman__riopt__statistics_filename" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__statistics_xmlfilename" -ln "rman__riopt__statistics_xmlfilename" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Projection_name" -ln "rman__riopt__Projection_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Projection2_name" -ln "rman__riopt__Projection2_name" 
+		-dt "string";
+	addAttr -ci true -uac -k true -sn "rman__riopt__limits_zthreshold" -ln "rman__riopt__limits_zthreshold" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__limits_zthresholdr" -ln "rman__riopt__limits_zthresholdR" 
+		-dv -1 -at "float" -p "rman__riopt__limits_zthreshold";
+	addAttr -ci true -k true -sn "rman__riopt__limits_zthresholdg" -ln "rman__riopt__limits_zthresholdG" 
+		-dv -1 -at "float" -p "rman__riopt__limits_zthreshold";
+	addAttr -ci true -k true -sn "rman__riopt__limits_zthresholdb" -ln "rman__riopt__limits_zthresholdB" 
+		-dv -1 -at "float" -p "rman__riopt__limits_zthreshold";
+	addAttr -ci true -uac -k true -sn "rman__riopt__limits_othreshold" -ln "rman__riopt__limits_othreshold" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__limits_othresholdr" -ln "rman__riopt__limits_othresholdR" 
+		-dv -1 -at "float" -p "rman__riopt__limits_othreshold";
+	addAttr -ci true -k true -sn "rman__riopt__limits_othresholdg" -ln "rman__riopt__limits_othresholdG" 
+		-dv -1 -at "float" -p "rman__riopt__limits_othreshold";
+	addAttr -ci true -k true -sn "rman__riopt__limits_othresholdb" -ln "rman__riopt__limits_othresholdB" 
+		-dv -1 -at "float" -p "rman__riopt__limits_othreshold";
+	addAttr -ci true -k true -sn "rman__riopt__limits_texturememory" -ln "rman__riopt__limits_texturememory" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_geocachememory" -ln "rman__riopt__limits_geocachememory" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_proceduralmemory" -ln "rman__riopt__limits_proceduralmemory" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_deepshadowtiles" -ln "rman__riopt__limits_deepshadowtiles" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_deepshadowmemory" -ln "rman__riopt__limits_deepshadowmemory" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_radiositycachememory" -ln "rman__riopt__limits_radiositycachememory" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__limits_brickmemory" -ln "rman__riopt__limits_brickmemory" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_name" -ln "rman__riopt__Integrator_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_samplemotion" -ln "rman__riattr__trace_samplemotion" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riattr__dice_referencecamera" -ln "rman__riattr__dice_referencecamera" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riattr__dice_minlength" -ln "rman__riattr__dice_minlength" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riattr__trace_autobias" -ln "rman__riattr__trace_autobias" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riattr__trace_bias" -ln "rman__riattr__trace_bias" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riattr__displacementbound_coordinatesystem" 
+		-ln "rman__riattr__displacementbound_coordinatesystem" -dt "string";
+	addAttr -ci true -k true -sn "rman__riattr__displacementbound_sphere" -ln "rman__riattr__displacementbound_sphere" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Projection_fov" -ln "rman__riopt__Projection_fov" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Projection_hsweep" -ln "rman__riopt__Projection_hsweep" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Projection_vsweep" -ln "rman__riopt__Projection_vsweep" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Projection_minor" -ln "rman__riopt__Projection_minor" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Projection2_angle" -ln "rman__riopt__Projection2_angle" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_adaptall" -ln "rman__riopt__Hider_adaptall" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_integrationmode" -ln "rman__riopt__Hider_integrationmode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_incremental" -ln "rman__riopt__Hider_incremental" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergePaths" -ln "rman__riopt__Integrator_mergePaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergeRadiusScale" -ln "rman__riopt__Integrator_mergeRadiusScale" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_timeRadius" -ln "rman__riopt__Integrator_timeRadius" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_reduceRadius" -ln "rman__riopt__Integrator_reduceRadius" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_connectPaths" -ln "rman__riopt__Integrator_connectPaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_maxPathLength" -ln "rman__riopt__Integrator_maxPathLength" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_sampleMode" -ln "rman__riopt__Integrator_sampleMode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numLightSamples" -ln "rman__riopt__Integrator_numLightSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numBxdfSamples" -ln "rman__riopt__Integrator_numBxdfSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numIndirectSamples" -ln "rman__riopt__Integrator_numIndirectSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numDiffuseSamples" -ln "rman__riopt__Integrator_numDiffuseSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSpecularSamples" -ln "rman__riopt__Integrator_numSpecularSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSubsurfaceSamples" -ln "rman__riopt__Integrator_numSubsurfaceSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numRefractionSamples" -ln "rman__riopt__Integrator_numRefractionSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteDepth" -ln "rman__riopt__Integrator_rouletteDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteThreshold" -ln "rman__riopt__Integrator_rouletteThreshold" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampDepth" -ln "rman__riopt__Integrator_clampDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampLuminance" -ln "rman__riopt__Integrator_clampLuminance" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_allowCaustics" -ln "rman__riopt__Integrator_allowCaustics" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSamples" -ln "rman__riopt__Integrator_numSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_viewchannel" -ln "rman__riopt__Integrator_viewchannel" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__EnvLight" -ln "rman__EnvLight" -dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:job";
+	setAttr ".rman__torattr___class" -type "string" "RISJob";
+	setAttr ".rman__torattr___task" -type "string" "job";
+	setAttr -k on ".rman__toropt___renderDataCleanupJob" 0;
+	setAttr -k on ".rman__toropt___shaderCleanupJob" 0;
+	setAttr -k on ".rman__toropt___textureCleanupJob" 0;
+	setAttr -k on ".rman__toropt___ribCleanupJob" 0;
+	setAttr -k on ".rman__toropt___ribFlatten" 0;
+	setAttr -k on ".rman__toropt___renderDataCleanupFrame" 0;
+	setAttr -k on ".rman__toropt___textureCleanupFrame" 0;
+	setAttr -k on ".rman__toropt___ribCleanupFrame" 0;
+	setAttr ".rman__toropt___primaryCamera" -type "string" "";
+	setAttr -k on ".rman__toropt___enableRenderLayers" 0;
+	setAttr ".rman__toropt___renderLayer" -type "string" "";
+	setAttr ".rman__toropt___motionBlurType" -type "string" "frame";
+	setAttr -k on ".rman__toropt___shutterAngle" 80;
+	setAttr ".rman__toropt___shutterTiming" -type "string" "frameOpen";
+	setAttr ".rman__toropt___cacheCrew" -type "string" "";
+	setAttr -k on ".rman__toropt___renumber" 0;
+	setAttr -k on ".rman__toropt___renumberStart" 1;
+	setAttr -k on ".rman__toropt___renumberBy" 1;
+	setAttr -k on ".rman__toropt___lazyRibGen" 0;
+	setAttr -k on ".rman__toropt___lazyRender" 0;
+	setAttr -k on ".rman__toropt___bakeMode" 0;
+	setAttr -k on ".rman__toropt___furChunkSize" 10000;
+	setAttr -k on ".rman__torattr___enableRifs" 1;
+	setAttr -k on ".rman__toropt___nativeShadingSupport" 0;
+	setAttr -k on ".rman__torattr___motionSamples" 2;
+	setAttr -k on ".rman__torattr___referenceFrame" 0;
+	setAttr -k on ".rman__torattr___motionBlur" 0;
+	setAttr -k on ".rman__torattr___mapResolution" -type "long2" 0 0 ;
+	setAttr -k on ".rman__torattr___depthOfField" 0;
+	setAttr -k on ".rman__torattr___cameraBlur" 0;
+	setAttr -k on ".rman__torattr___frontPlane" 0;
+	setAttr -k on ".rman__torattr___backPlane" 0;
+	setAttr ".rman__torattr___passCommand" -type "string" "";
+	setAttr -k on ".rman__torattr___crop" 0;
+	setAttr ".rman__torattr___passExtFormat" -type "string" "";
+	setAttr ".rman__torattr___passNameFormat" -type "string" "";
+	setAttr -k on ".rman__torattr___previewPass" 0;
+	setAttr ".rman__torattr___defaultDisplacementShader" -type "string" "";
+	setAttr ".rman__torattr___defaultAtmosphereShader" -type "string" "";
+	setAttr ".rman__torattr___defaultInteriorShader" -type "string" "";
+	setAttr -k on ".rman__torattr___outputSurfaceShaders" 1;
+	setAttr -k on ".rman__torattr___outputDisplacementShaders" 1;
+	setAttr -k on ".rman__torattr___outputLightShaders" 1;
+	setAttr -k on ".rman__torattr___outputVolumeShaders" 1;
+	setAttr -k on ".rman__torattr___outputImagerShaders" 1;
+	setAttr ".rman__toropt___preFrameScript" -type "string" "";
+	setAttr ".rman__toropt___postFrameScript" -type "string" "";
+	setAttr ".rman__torattr___preRenderScript" -type "string" "";
+	setAttr ".rman__torattr___postRenderScript" -type "string" "";
+	setAttr ".rman__torattr___defaultRiOptionsScript" -type "string" "";
+	setAttr ".rman__torattr___defaultRiAttributesScript" -type "string" "";
+	setAttr ".rman__torattr___renderBeginScript" -type "string" "rmanTimeStampScript";
+	setAttr ".rman__torattr___transformBeginScript" -type "string" "";
+	setAttr ".rman__torattr___transformEndScript" -type "string" "";
+	setAttr ".rman__torattr___postTransformScript" -type "string" "";
+	setAttr ".rman__torattr___preShapeScript" -type "string" "";
+	setAttr ".rman__torattr___postShapeScript" -type "string" "";
+	setAttr ".rman__torattr___cacheShapeScript" -type "string" "";
+	setAttr ".rman__torattr___bakeChannels" -type "string" "";
+	setAttr ".rman__torattr___bakeCrew" -type "string" "";
+	setAttr ".rman__torattr___bakeOutputFile" -type "string" "";
+	setAttr ".rman__torattr___customShadingGroup" -type "string" "";
+	setAttr -k on ".rman__torattr___shaderBindingStrength" 1;
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___enableObjectInstancing" 1;
+	setAttr ".rman__torattr___impliedSSBakeMode" -type "string" "SSDiffuse";
+	setAttr ".rman__toropt___JOBSTYLE" -type "string" "";
+	setAttr ".rman__torattr___deformationBlurStyle" -type "string" "none";
+	setAttr -k on ".rman__torattr___deformationBlurScale" 1;
+	setAttr -k on ".rman__torattr___enableMfcProcPrim" 0;
+	setAttr -k on ".rman__torattr___linearizeColors" 1;
+	setAttr -k on ".rman__torattr___rayTracing" 1;
+	setAttr ".rman__torattr___referenceCamera" -type "string" "";
+	setAttr -k on ".rman__toropt___enableRIS" 1;
+	setAttr ".rman__torattr___defaultSurfaceShader" -type "string" "PxrDiffuse";
+	setAttr -k on ".rman__riopt__trace_maxdepth" 10;
+	setAttr -k on ".rman__riopt___PixelVariance" 9.9999997473787516e-05;
+	setAttr ".rman__riopt__bucket_order" -type "string" "horizontal";
+	setAttr -k on ".rman__riopt__limits_bucketsize" -type "long2" 16 16 ;
+	setAttr -k on ".rman__riopt__limits_gridsize" 256;
+	setAttr -k on ".rman__riopt__trace_decimationrate" 1;
+	setAttr -k on ".rman__riopt__limits_threads" 0;
+	setAttr -k on ".rman__riopt__Camera_shutteropening" -type "float2" 0 1 ;
+	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 960 540 ;
+	setAttr -k on ".rman__riopt__Format_pixelaspectratio" 1;
+	setAttr -k on ".rman__riopt__hair_minwidth" 0.5;
+	setAttr ".rman__riopt__rib_compression" -type "string" "none";
+	setAttr ".rman__riopt__rib_format" -type "string" "ascii";
+	setAttr ".rman__riopt__rib_precision" -type "string" "6";
+	setAttr -k on ".rman__riopt__statistics_level" 1;
+	setAttr ".rman__riopt__statistics_filename" -type "string" "stdout";
+	setAttr ".rman__riopt__statistics_xmlfilename" -type "string" "[AssetRef -cls rmanstat]";
+	setAttr ".rman__riopt__Projection_name" -type "string" "";
+	setAttr ".rman__riopt__Projection2_name" -type "string" "";
+	setAttr -k on ".rman__riopt__limits_zthreshold" -type "float3" 0.99599999 0.99599999 
+		0.99599999 ;
+	setAttr -k on ".rman__riopt__limits_othreshold" -type "float3" 0.99599999 0.99599999 
+		0.99599999 ;
+	setAttr -k on ".rman__riopt__limits_texturememory" 2097152;
+	setAttr -k on ".rman__riopt__limits_geocachememory" 2097152;
+	setAttr -k on ".rman__riopt__limits_proceduralmemory" 0;
+	setAttr -k on ".rman__riopt__limits_deepshadowtiles" 1000;
+	setAttr -k on ".rman__riopt__limits_deepshadowmemory" 102400;
+	setAttr -k on ".rman__riopt__limits_radiositycachememory" 102400;
+	setAttr -k on ".rman__riopt__limits_brickmemory" 10240;
+	setAttr ".rman__riopt__Hider_name" -type "string" "raytrace";
+	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
+	setAttr -k on ".rman__riopt__Hider_maxsamples" 256;
+	setAttr ".rman__riopt__Integrator_name" -type "string" "PxrPathTracer";
+	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
+	setAttr -k on ".rman__riattr__trace_maxspeculardepth" 2;
+	setAttr -k on ".rman__riattr__trace_samplemotion" 1;
+	setAttr ".rman__riattr__dice_referencecamera" -type "string" "worldcamera";
+	setAttr -k on ".rman__riattr___ShadingRate" 1;
+	setAttr -k on ".rman__riattr__trace_autobias" 1;
+	setAttr -k on ".rman__riattr__trace_bias" 0.0010000000474974513;
+	setAttr ".rman__riattr__displacementbound_coordinatesystem" -type "string" "shader";
+	setAttr -k on ".rman__riattr__displacementbound_sphere" 0;
+	setAttr -k on ".rman__riattr__trace_displacements" 1;
+	setAttr -k on ".rman__riopt__Projection_fov" 90;
+	setAttr -k on ".rman__riopt__Projection_hsweep" 360;
+	setAttr -k on ".rman__riopt__Projection_vsweep" 180;
+	setAttr -k on ".rman__riopt__Projection_minor" 0.25;
+	setAttr -k on ".rman__riopt__Projection2_angle" 90;
+	setAttr -k on ".rman__riopt__Hider_adaptall" 0;
+	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "path";
+	setAttr -k on ".rman__riopt__Hider_incremental" 1;
+	setAttr -k on ".rman__riopt__Integrator_mergePaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_mergeRadiusScale" 5;
+	setAttr -k on ".rman__riopt__Integrator_timeRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_reduceRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_connectPaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_maxPathLength" 10;
+	setAttr ".rman__riopt__Integrator_sampleMode" -type "string" "bxdf";
+	setAttr -k on ".rman__riopt__Integrator_numLightSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numBxdfSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numIndirectSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numDiffuseSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSpecularSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSubsurfaceSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numRefractionSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_rouletteDepth" 4;
+	setAttr -k on ".rman__riopt__Integrator_rouletteThreshold" 0.20000000298023224;
+	setAttr -k on ".rman__riopt__Integrator_clampDepth" 2;
+	setAttr -k on ".rman__riopt__Integrator_clampLuminance" 10;
+	setAttr -k on ".rman__riopt__Integrator_allowCaustics" 0;
+	setAttr -k on ".rman__riopt__Integrator_numSamples" 4;
+	setAttr ".rman__riopt__Integrator_viewchannel" -type "string" "Nn";
+	setAttr ".rman__EnvLight" -type "string" "";
+	setAttr -s 3 ".p";
+createNode RenderMan -s -n "rmanFinalGlobals";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX0" -ln "rman__riopt___CropWindowX0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX1" -ln "rman__riopt___CropWindowX1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY" -ln "rman__riopt___CropWindowY" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY0" -ln "rman__riopt___CropWindowY0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY1" -ln "rman__riopt___CropWindowY1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "pass:render";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "Final";
+	setAttr ".rman__torattr___task" -type "string" "render";
+	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Images";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___passLayer" -type "string" "";
+	setAttr ".rman__torattr___camera" -type "string" "";
+	setAttr ".rman__torattr___crew" -type "string" "";
+	setAttr ".rman__torattr___flavor" -type "string" "";
+	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
+	setAttr ".rman__torattr___lightcrew" -type "string" "";
+	setAttr -k on ".rman__torattr___depthOfField" 1;
+	setAttr -k on ".rman__riopt___CropWindowX" -type "float2" 0 1 ;
+	setAttr -k on ".rman__riopt___CropWindowY" -type "float2" 0 1 ;
+	setAttr ".rman__riopt__photon_lifetime" -type "string" "transient";
+	setAttr -k on ".rman__riopt__photon_emit" 0;
+	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
+	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
+createNode RenderMan -s -n "rmanFinalOutputGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___dspyGetChannelsFromCamera" -ln "rman__torattr___dspyGetChannelsFromCamera" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_filter" -ln "rman__riopt__Display_filter" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth" -ln "rman__riopt__Display_filterwidth" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth0" -ln "rman__riopt__Display_filterwidth0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth1" -ln "rman__riopt__Display_filterwidth1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "Primary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___primaryDisplay" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "";
+	setAttr -k on ".rman__torattr___dspyGetChannelsFromCamera" 1;
+	setAttr ".rman__riopt__Display_name" -type "string" "[passinfo this filename]";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
+	setAttr ".rman__riopt__Display_filter" -type "string" "gaussian";
+	setAttr -k on ".rman__riopt__Display_filterwidth" -type "float2" 2 2 ;
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+createNode RenderMan -s -n "rmanRerenderRISGlobals";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___previewPass" -ln "rman__torattr___previewPass" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize0" -ln "rman__riopt__limits_bucketsize0" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_name" -ln "rman__riopt__Integrator_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX0" -ln "rman__riopt___CropWindowX0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX1" -ln "rman__riopt___CropWindowX1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY" -ln "rman__riopt___CropWindowY" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY0" -ln "rman__riopt___CropWindowY0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY1" -ln "rman__riopt___CropWindowY1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_integrationmode" -ln "rman__riopt__Hider_integrationmode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergePaths" -ln "rman__riopt__Integrator_mergePaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergeRadiusScale" -ln "rman__riopt__Integrator_mergeRadiusScale" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_timeRadius" -ln "rman__riopt__Integrator_timeRadius" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_reduceRadius" -ln "rman__riopt__Integrator_reduceRadius" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_connectPaths" -ln "rman__riopt__Integrator_connectPaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_maxPathLength" -ln "rman__riopt__Integrator_maxPathLength" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_sampleMode" -ln "rman__riopt__Integrator_sampleMode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numLightSamples" -ln "rman__riopt__Integrator_numLightSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numBxdfSamples" -ln "rman__riopt__Integrator_numBxdfSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numIndirectSamples" -ln "rman__riopt__Integrator_numIndirectSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numDiffuseSamples" -ln "rman__riopt__Integrator_numDiffuseSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSpecularSamples" -ln "rman__riopt__Integrator_numSpecularSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSubsurfaceSamples" -ln "rman__riopt__Integrator_numSubsurfaceSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numRefractionSamples" -ln "rman__riopt__Integrator_numRefractionSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteDepth" -ln "rman__riopt__Integrator_rouletteDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteThreshold" -ln "rman__riopt__Integrator_rouletteThreshold" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampDepth" -ln "rman__riopt__Integrator_clampDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampLuminance" -ln "rman__riopt__Integrator_clampLuminance" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_allowCaustics" -ln "rman__riopt__Integrator_allowCaustics" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSamples" -ln "rman__riopt__Integrator_numSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_viewchannel" -ln "rman__riopt__Integrator_viewchannel" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_samplemode" -ln "rman__riopt__Hider_samplemode" 
+		-dt "string";
+	setAttr ".nt" -type "string" "pass:render";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "RerenderRIS";
+	setAttr ".rman__torattr___task" -type "string" "render";
+	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Images";
+	setAttr -k on ".rman__torattr___previewPass" 1;
+	setAttr -k on ".rman__torattr___motionBlur" 0;
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___passLayer" -type "string" "";
+	setAttr ".rman__torattr___camera" -type "string" "";
+	setAttr ".rman__torattr___crew" -type "string" "";
+	setAttr ".rman__torattr___flavor" -type "string" "";
+	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
+	setAttr ".rman__torattr___lightcrew" -type "string" "";
+	setAttr -k on ".rman__torattr___depthOfField" 1;
+	setAttr ".rman__torattr___passNameFormat" -type "string" "";
+	setAttr -k on ".rman__riopt__shading_directlightingsamples" 4;
+	setAttr ".rman__riopt__bucket_order" -type "string" "spiral";
+	setAttr -k on ".rman__riopt__limits_bucketsize" -type "long2" 16 16 ;
+	setAttr -k on ".rman__riopt___PixelVariance" 0.0099999997764825821;
+	setAttr ".rman__riopt__Hider_name" -type "string" "raytrace";
+	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
+	setAttr -k on ".rman__riopt__Hider_maxsamples" 16;
+	setAttr ".rman__riopt__Integrator_name" -type "string" "PxrPathTracer";
+	setAttr -k on ".rman__riopt___CropWindowX" -type "float2" 0 1 ;
+	setAttr -k on ".rman__riopt___CropWindowY" -type "float2" 0 1 ;
+	setAttr ".rman__riopt__photon_lifetime" -type "string" "transient";
+	setAttr -k on ".rman__riopt__photon_emit" 0;
+	setAttr -k on ".rman__riattr__trace_maxspeculardepth" 2;
+	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
+	setAttr -k on ".rman__riattr__trace_displacements" 1;
+	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
+	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
+	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "path";
+	setAttr -k on ".rman__riopt__Integrator_mergePaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_mergeRadiusScale" 5;
+	setAttr -k on ".rman__riopt__Integrator_timeRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_reduceRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_connectPaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_maxPathLength" 10;
+	setAttr ".rman__riopt__Integrator_sampleMode" -type "string" "bxdf";
+	setAttr -k on ".rman__riopt__Integrator_numLightSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numBxdfSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numIndirectSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numDiffuseSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSpecularSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSubsurfaceSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numRefractionSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_rouletteDepth" 4;
+	setAttr -k on ".rman__riopt__Integrator_rouletteThreshold" 0.20000000298023224;
+	setAttr -k on ".rman__riopt__Integrator_clampDepth" 2;
+	setAttr -k on ".rman__riopt__Integrator_clampLuminance" 10;
+	setAttr -k on ".rman__riopt__Integrator_allowCaustics" 0;
+	setAttr -k on ".rman__riopt__Integrator_numSamples" 4;
+	setAttr ".rman__riopt__Integrator_viewchannel" -type "string" "Nn";
+	setAttr ".rman__riopt__Hider_samplemode" -type "string" "";
+createNode RenderMan -s -n "rmanRerenderRISOutputGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___dspyGetChannelsFromCamera" -ln "rman__torattr___dspyGetChannelsFromCamera" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_filter" -ln "rman__riopt__Display_filter" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth" -ln "rman__riopt__Display_filterwidth" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth0" -ln "rman__riopt__Display_filterwidth0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth1" -ln "rman__riopt__Display_filterwidth1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "PrimaryRerender";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___primaryDisplay" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "";
+	setAttr -k on ".rman__torattr___dspyGetChannelsFromCamera" 1;
+	setAttr ".rman__riopt__Display_name" -type "string" "[passinfo this filename]";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
+	setAttr ".rman__riopt__Display_filter" -type "string" "gaussian";
+	setAttr -k on ".rman__riopt__Display_filterwidth" -type "float2" 2 2 ;
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+createNode RenderMan -s -n "rmanRerenderGlobals";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___previewPass" -ln "rman__torattr___previewPass" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize0" -ln "rman__riopt__limits_bucketsize0" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples" -ln "rman__riopt___PixelSamples" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples0" -ln "rman__riopt___PixelSamples0" 
+		-dv -1 -at "float" -p "rman__riopt___PixelSamples";
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples1" -ln "rman__riopt___PixelSamples1" 
+		-dv -1 -at "float" -p "rman__riopt___PixelSamples";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX0" -ln "rman__riopt___CropWindowX0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX1" -ln "rman__riopt___CropWindowX1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY" -ln "rman__riopt___CropWindowY" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY0" -ln "rman__riopt___CropWindowY0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY1" -ln "rman__riopt___CropWindowY1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_integrationmode" -ln "rman__riopt__Hider_integrationmode" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "pass:render";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "Rerender";
+	setAttr ".rman__torattr___task" -type "string" "render";
+	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Images";
+	setAttr -k on ".rman__torattr___previewPass" 1;
+	setAttr -k on ".rman__torattr___motionBlur" 0;
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___passLayer" -type "string" "";
+	setAttr ".rman__torattr___camera" -type "string" "";
+	setAttr ".rman__torattr___crew" -type "string" "";
+	setAttr ".rman__torattr___flavor" -type "string" "";
+	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
+	setAttr ".rman__torattr___lightcrew" -type "string" "";
+	setAttr -k on ".rman__torattr___depthOfField" 1;
+	setAttr ".rman__torattr___passNameFormat" -type "string" "";
+	setAttr -k on ".rman__riopt__shading_directlightingsamples" 4;
+	setAttr ".rman__riopt__bucket_order" -type "string" "spiral";
+	setAttr -k on ".rman__riopt__limits_bucketsize" -type "long2" 16 16 ;
+	setAttr -k on ".rman__riopt___PixelVariance" 0.0099999997764825821;
+	setAttr -k on ".rman__riopt__trace_maxdepth" 4;
+	setAttr -k on ".rman__riopt___PixelSamples" -type "float2" 2 2 ;
+	setAttr ".rman__riopt__Hider_name" -type "string" "raytrace";
+	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
+	setAttr -k on ".rman__riopt__Hider_maxsamples" 4;
+	setAttr -k on ".rman__riopt___CropWindowX" -type "float2" 0 1 ;
+	setAttr -k on ".rman__riopt___CropWindowY" -type "float2" 0 1 ;
+	setAttr ".rman__riopt__photon_lifetime" -type "string" "transient";
+	setAttr -k on ".rman__riopt__photon_emit" 0;
+	setAttr -k on ".rman__riattr__trace_maxspeculardepth" 2;
+	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
+	setAttr -k on ".rman__riattr__trace_displacements" 1;
+	setAttr -k on ".rman__riattr___ShadingRate" 5;
+	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
+	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
+	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "path";
+createNode RenderMan -s -n "rmanRerenderOutputGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___dspyGetChannelsFromCamera" -ln "rman__torattr___dspyGetChannelsFromCamera" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_filter" -ln "rman__riopt__Display_filter" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth" -ln "rman__riopt__Display_filterwidth" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth0" -ln "rman__riopt__Display_filterwidth0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth1" -ln "rman__riopt__Display_filterwidth1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "PrimaryRerender";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___primaryDisplay" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "";
+	setAttr -k on ".rman__torattr___dspyGetChannelsFromCamera" 1;
+	setAttr ".rman__riopt__Display_name" -type "string" "[passinfo this filename]";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
+	setAttr ".rman__riopt__Display_filter" -type "string" "gaussian";
+	setAttr -k on ".rman__riopt__Display_filterwidth" -type "float2" 2 2 ;
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+createNode PxrLMMetal -n "PxrLMMetal1";
+	setAttr ".eta" -type "float3" 0.1 0.1 0.1 ;
+createNode shadingEngine -n "PxrLMMetal1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
+createNode RMSGPSurface -n "RMSGPSurface1";
+	setAttr ".surfaceColor" -type "float3" 1 0.41176468 0.91899014 ;
+createNode shadingEngine -n "RMSGPSurface1SG";
+	setAttr ".ihi" 0;
+	setAttr -s 420 ".dsm";
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo2";
+createNode partition -n "mtorPartition";
+	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
+	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
+	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
+	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
+	setAttr ".sr" -type "string" "";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -12828,16 +17086,44 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 26 ".st";
+	setAttr -s 31 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
+select -ne :renderGlobalsList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+select -ne :defaultShaderList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 27 ".s";
+select -ne :postProcessList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 6 ".u";
+select -ne :defaultRenderingList1;
+	setAttr -s 7 ".r";
+select -ne :lightList1;
+select -ne :defaultTextureList1;
+	setAttr -s 4 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 623 ".dsm";
+	setAttr -s 17 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -12846,7 +17132,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 6270 ".gn";
+	setAttr -s 6292 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -12886,35 +17172,6 @@ select -ne :initialParticleSE;
 	setAttr -cb on ".mica";
 	setAttr -av -cb on ".micw";
 	setAttr -cb on ".mirw";
-select -ne :defaultShaderList1;
-	setAttr -k on ".cch";
-	setAttr -cb on ".ihi";
-	setAttr -k on ".nds";
-	setAttr -cb on ".bnm";
-	setAttr -s 22 ".s";
-select -ne :defaultTextureList1;
-	setAttr -s 4 ".tx";
-select -ne :lightList1;
-	setAttr -s 2 ".l";
-select -ne :postProcessList1;
-	setAttr -k on ".cch";
-	setAttr -cb on ".ihi";
-	setAttr -k on ".nds";
-	setAttr -cb on ".bnm";
-	setAttr -s 2 ".p";
-select -ne :defaultRenderUtilityList1;
-	setAttr -k on ".cch";
-	setAttr -cb on ".ihi";
-	setAttr -k on ".nds";
-	setAttr -cb on ".bnm";
-	setAttr -s 6 ".u";
-select -ne :defaultRenderingList1;
-	setAttr -s 7 ".r";
-select -ne :renderGlobalsList1;
-	setAttr -k on ".cch";
-	setAttr -cb on ".ihi";
-	setAttr -k on ".nds";
-	setAttr -cb on ".bnm";
 select -ne :defaultRenderGlobals;
 	setAttr -k on ".cch";
 	setAttr -k on ".nds";
@@ -12924,13 +17181,14 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".clip";
 	setAttr -k on ".edm";
 	setAttr -k on ".edl";
-	setAttr ".ren" -type "string" "mentalRay";
+	setAttr ".ren" -type "string" "renderManRIS";
 	setAttr -av -k on ".esr";
 	setAttr -k on ".ors";
 	setAttr -k on ".outf";
 	setAttr -k on ".gama";
 	setAttr -av -k on ".bfs";
 	setAttr -k on ".be";
+	setAttr ".ep" 1;
 	setAttr -k on ".fec";
 	setAttr -k on ".ofc";
 	setAttr -k on ".comp";
@@ -12971,11 +17229,11 @@ select -ne :defaultResolution;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -av ".w" 1920;
-	setAttr -av ".h" 1080;
+	setAttr -av ".w";
+	setAttr -av ".h";
 	setAttr -av ".pa" 1;
 	setAttr -av -k on ".al";
-	setAttr -av ".dar" 1.7769999504089355;
+	setAttr -av ".dar" 1.7777777910232544;
 	setAttr -av -k on ".ldar";
 	setAttr -k on ".dpi";
 	setAttr -av -k on ".off";
@@ -12988,7 +17246,6 @@ select -ne :defaultLightSet;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -s 2 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -13075,7 +17332,7 @@ select -ne :defaultHardwareRenderGlobals;
 	setAttr -k on ".txt";
 	setAttr -k on ".mpr";
 	setAttr -k on ".wzd";
-	setAttr -k on ".fn" -type "string" "im";
+	setAttr -k on ".fn";
 	setAttr -k on ".if";
 	setAttr -k on ".res" -type "string" "ntsc_4d 646 485 1.333";
 	setAttr -k on ".as";
@@ -13093,6 +17350,426 @@ select -ne :ikSystem;
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
 	setAttr -s 3 ".sol";
+connectAttr "hallway_saraRN.phl[419]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[420]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[1]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[2]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[3]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[4]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[5]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[6]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[7]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[8]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[9]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[10]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[11]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[12]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[13]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[14]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[15]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[16]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[17]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[18]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[19]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[20]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[21]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[22]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[23]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[24]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[25]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[26]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[27]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[28]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[29]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[30]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[31]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[32]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[33]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[34]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[35]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[36]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[37]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[38]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[39]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[40]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[41]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[42]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[43]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[44]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[45]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[46]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[47]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[48]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[49]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[50]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[51]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[52]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[53]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[54]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[55]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[56]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[57]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[58]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[59]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[60]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[61]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[62]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[63]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[64]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[65]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[66]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[67]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[68]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[69]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[70]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[71]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[72]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[73]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[74]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[75]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[76]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[77]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[78]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[79]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[80]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[81]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[82]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[83]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[84]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[85]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[86]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[87]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[88]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[89]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[90]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[91]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[92]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[93]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[94]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[95]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[96]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[97]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[98]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[99]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[100]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[101]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[102]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[103]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[104]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[105]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[106]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[107]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[108]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[109]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[110]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[111]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[112]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[113]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[114]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[115]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[116]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[117]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[118]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[119]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[120]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[121]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[122]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[123]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[124]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[125]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[126]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[127]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[128]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[129]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[130]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[131]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[132]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[133]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[134]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[135]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[136]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[137]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[138]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[139]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[140]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[141]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[142]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[143]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[144]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[145]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[146]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[147]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[148]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[149]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[150]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[151]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[152]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[153]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[154]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[155]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[156]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[157]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[158]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[159]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[160]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[161]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[162]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[163]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[164]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[165]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[166]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[167]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[168]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[169]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[170]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[171]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[172]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[173]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[174]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[175]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[176]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[177]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[178]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[179]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[180]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[181]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[182]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[183]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[184]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[185]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[186]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[187]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[188]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[189]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[190]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[191]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[192]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[193]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[194]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[195]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[196]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[197]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[198]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[199]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[200]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[201]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[202]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[203]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[204]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[205]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[206]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[207]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[208]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[209]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[210]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[211]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[212]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[213]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[214]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[215]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[216]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[217]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[218]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[219]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[220]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[221]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[222]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[223]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[224]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[225]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[226]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[227]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[228]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[229]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[230]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[231]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[232]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[233]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[234]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[235]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[236]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[237]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[238]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[239]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[240]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[241]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[242]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[243]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[244]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[245]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[246]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[247]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[248]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[249]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[250]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[251]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[252]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[253]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[254]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[255]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[256]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[257]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[258]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[259]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[260]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[261]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[262]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[263]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[264]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[265]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[266]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[267]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[268]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[269]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[270]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[271]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[272]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[273]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[274]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[275]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[276]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[277]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[278]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[279]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[280]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[281]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[282]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[283]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[284]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[285]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[286]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[287]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[288]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[289]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[290]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[291]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[292]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[293]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[294]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[295]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[296]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[297]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[298]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[299]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[300]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[301]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[302]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[303]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[304]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[305]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[306]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[307]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[308]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[309]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[310]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[311]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[312]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[313]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[314]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[315]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[316]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[317]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[318]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[319]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[320]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[321]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[322]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[323]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[324]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[325]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[326]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[327]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[328]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[329]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[330]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[331]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[332]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[333]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[334]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[335]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[336]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[337]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[338]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[339]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[340]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[341]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[342]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[343]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[344]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[345]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[346]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[347]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[348]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[349]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[350]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[351]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[352]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[353]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[354]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[355]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[356]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[357]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[358]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[359]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[360]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[361]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[362]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[363]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[364]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[365]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[366]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[367]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[368]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[369]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[370]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[371]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[372]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[373]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[374]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[375]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[376]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[377]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[378]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[379]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[380]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[381]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[382]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[383]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[384]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[385]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[386]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[387]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[388]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[389]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[390]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[391]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[392]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[393]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[394]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[395]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[396]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[397]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[398]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[399]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[400]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[401]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[402]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[403]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[404]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[405]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[406]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[407]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[408]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[409]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[410]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[411]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[412]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[413]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[414]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[415]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[416]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[417]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "hallway_saraRN.phl[418]" "RMSGPSurface1SG.dsm" -na;
 connectAttr "anim_ready_Emily:Main_FaceVis.o" "anim_ready_EmilyRN.phl[1]";
 connectAttr "anim_ready_Emily:Main_Resolution.o" "anim_ready_EmilyRN.phl[2]";
 connectAttr "anim_ready_Emily:Main_fkVis.o" "anim_ready_EmilyRN.phl[3]";
@@ -13279,8 +17956,8 @@ connectAttr "anim_ready_Emily:RootX_M_rotateY.o" "anim_ready_EmilyRN.phl[136]";
 connectAttr "anim_ready_Emily:RootX_M_rotateZ.o" "anim_ready_EmilyRN.phl[137]";
 connectAttr "anim_ready_EmilyRN.phl[138]" "motionTrail1.im";
 connectAttr "anim_ready_EmilyRN.phl[139]" "motionTrail1.lp";
-connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1HandleShape.tr";
-connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1.so";
+connectAttr "anim_ready_EmilyRN.phl[140]" "motionTrail1.so";
+connectAttr "anim_ready_EmilyRN.phl[141]" "motionTrail1HandleShape.tr";
 connectAttr "anim_ready_Emily:browInner_R_translateX.o" "anim_ready_EmilyRN.phl[142]"
 		;
 connectAttr "anim_ready_Emily:browInner_R_translateY.o" "anim_ready_EmilyRN.phl[143]"
@@ -13654,8 +18331,12 @@ connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "PxrLMMetal1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "PxrLMMetal1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "layerManager.dli[1]" "HallwaySetLayer.id";
@@ -13851,6 +18532,28 @@ connectAttr "nightmare5:Nightmare_Master_CTRL_rotateZ.o" "nightmareRN5.phl[9]";
 connectAttr "nightmare5:Nightmare_Master_CTRL_visibility.o" "nightmareRN5.phl[10]"
 		;
 connectAttr "sharedReferenceNode.sr" "nightmareRN5.sr";
+connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
+connectAttr ":rmanRerenderRISGlobals.msg" ":renderManRISGlobals.p" -na;
+connectAttr ":rmanRerenderGlobals.msg" ":renderManRISGlobals.p" -na;
+connectAttr ":rmanFinalOutputGlobals0.msg" ":rmanFinalGlobals.d" -na;
+connectAttr ":rmanRerenderRISOutputGlobals0.msg" ":rmanRerenderRISGlobals.d" -na
+		;
+connectAttr ":rmanRerenderOutputGlobals0.msg" ":rmanRerenderGlobals.d" -na;
+connectAttr "PxrLMMetal1.oc" "PxrLMMetal1SG.ss";
+connectAttr "PxrLMMetal1SG.msg" "materialInfo1.sg";
+connectAttr "PxrLMMetal1.msg" "materialInfo1.m";
+connectAttr "PxrLMMetal1.msg" "materialInfo1.t" -na;
+connectAttr "RMSGPSurface1.oc" "RMSGPSurface1SG.ss";
+connectAttr "RMSGPSurface1SG.msg" "materialInfo2.sg";
+connectAttr "RMSGPSurface1.msg" "materialInfo2.m";
+connectAttr "RMSGPSurface1.msg" "materialInfo2.t" -na;
+connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
+connectAttr "PxrLMMetal1SG.pa" ":renderPartition.st" -na;
+connectAttr "RMSGPSurface1SG.pa" ":renderPartition.st" -na;
+connectAttr "PxrLMMetal1.msg" ":defaultShaderList1.s" -na;
+connectAttr "RMSGPSurface1.msg" ":defaultShaderList1.s" -na;
+connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "RMSEnvLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "hallway_sara:groupId2221.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId2222.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId2223.msg" ":initialShadingGroup.gn" -na;
@@ -17991,9 +22694,33 @@ connectAttr "hallway_sara:groupId6357.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId6358.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId6359.msg" ":initialShadingGroup.gn" -na;
 connectAttr "hallway_sara:groupId6360.msg" ":initialShadingGroup.gn" -na;
-connectAttr "hallway2lights:Key_LightShape.ltd" ":lightList1.l" -na;
-connectAttr "hallway2lights:Fill_LightShape.ltd" ":lightList1.l" -na;
-connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "hallway2lights:Key_Light.iog" ":defaultLightSet.dsm" -na;
-connectAttr "hallway2lights:Fill_Light.iog" ":defaultLightSet.dsm" -na;
+connectAttr "hallway_sara:groupId6518.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6520.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6522.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6524.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6526.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6528.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6530.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6532.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6534.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6536.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6538.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6540.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6542.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6544.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6546.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6548.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6550.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6552.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6554.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6556.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6558.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6560.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6562.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6564.msg" ":initialShadingGroup.gn" -na;
+connectAttr "hallway_sara:groupId6566.msg" ":initialShadingGroup.gn" -na;
+connectAttr "RMSEnvLight1.iog" ":defaultLightSet.dsm" -na;
+dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"hallway_saraRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/hallway_sara.ma\" 1960774004 \"/Users/mbdriscoll/Nightmare/assets/sets/hallway_sara.ma\" \"FileRef\"\n1\n\"anim_ready_EmilyRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma\" 896507970 \"/Users/mbdriscoll/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n2\n\"nightmareRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n3\n\"nightmareRN1\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n4\n\"nightmareRN2\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n5\n\"nightmareRN3\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n6\n\"nightmareRN4\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n7\n\"nightmareRN5\" \"\" \"X:/Documents/Suchaaver/Nightmare//assets/chars/nightmare.ma\" 1285268465 \"/Users/mbdriscoll/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+		-scn;
 // End of hallway2.ma
