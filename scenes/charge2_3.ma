@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: charge2_3.ma
-//Last modified: Mon, Mar 02, 2015 03:37:08 PM
+//Last modified: Mon, Mar 02, 2015 11:11:31 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Body_Rig:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -25,13 +25,13 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.1317167604468326 2.3776741329707476 30.568935232274256 ;
-	setAttr ".r" -type "double3" -12.599999999999831 17.999999999994365 0 ;
+	setAttr ".t" -type "double3" 2.4521715982406653 5.6934155370427479 44.676692970060799 ;
+	setAttr ".r" -type "double3" -12.599999999999833 17.999999999994365 0 ;
 	setAttr ".rpt" -type "double3" -5.1034251657970872e-16 3.3396595503588722e-15 1.1205257080974968e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 13.968907248058304;
+	setAttr ".coi" 29.168742837026549;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -46,7 +46,7 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".rnd" no;
 	setAttr ".ovr" 1.3;
 	setAttr ".coi" 100.1;
-	setAttr ".ow" 3.8491143733294986;
+	setAttr ".ow" 59.520537819338195;
 	setAttr ".imn" -type "string" "top";
 	setAttr ".den" -type "string" "top_depth";
 	setAttr ".man" -type "string" "top_mask";
@@ -203,7 +203,7 @@ createNode parentConstraint -n "Sword_parentConstraint1" -p "swordRNfosterParent
 	setAttr ".tg[0].tot" -type "double3" 0.053957505586138599 -0.041973974928196878 
 		0.011720184267762336 ;
 	setAttr ".tg[0].tor" -type "double3" -107.02382685118954 8.9616029865902149 24.286876601249801 ;
-	setAttr ".lr" -type "double3" 78.993987385691412 -8.6964931039396784 91.525429457235049 ;
+	setAttr ".lr" -type "double3" 80.221538902389611 -8.9507010434575651 91.053927693179261 ;
 	setAttr ".rst" -type "double3" -6.2830321178611266 -2.3863699140644572 18.330660659797445 ;
 	setAttr ".rsrr" -type "double3" 78.993987385691398 -8.6964931039397069 91.525429457235091 ;
 	setAttr -k on ".w0";
@@ -223,7 +223,7 @@ createNode parentConstraint -n "polySurface2_parentConstraint1" -p "swordRNfoste
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 0.11588963256130748 0.49298267829006104 1.6957155024991619 ;
 	setAttr ".tg[0].tor" -type "double3" -105.44148024587686 10.918871284938009 26.50307601492274 ;
-	setAttr ".lr" -type "double3" 80.593787232248388 -10.413759914396447 -91.441151341241905 ;
+	setAttr ".lr" -type "double3" 81.837378992988519 -10.61632579770704 -91.951304609729931 ;
 	setAttr ".rst" -type "double3" 37.447457116075405 14.600618310299632 98.861564112353435 ;
 	setAttr ".rsrr" -type "double3" -90.040700386148515 -148.07501841562109 86.092383930996746 ;
 	setAttr -k on ".w0";
@@ -250,7 +250,7 @@ createNode spotLight -n "spotLightShape2" -p "spotLight2";
 	setAttr ".in" 0.82568806409835815;
 createNode transform -n "spotLight3";
 	setAttr ".t" -type "double3" -1.9140432098189719 -1.9403334478765393 19.480462498787965 ;
-	setAttr ".r" -type "double3" 10.300364859764231 8.6977501520212677 11.050723381669329 ;
+	setAttr ".r" -type "double3" 10.300364859764233 8.6977501520212677 11.050723381669329 ;
 createNode spotLight -n "spotLightShape3" -p "spotLight3";
 	setAttr -k off ".v";
 	setAttr ".cl" -type "float3" 0.85040057 0.85040057 0.85040057 ;
@@ -1854,7 +1854,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem" 
 		"visibility" " 1"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 0 -7.729444"
+		"rotate" " -type \"double3\" -2.550847 -0.061166 -7.91653"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M" 
@@ -1870,7 +1870,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
-		"rotate" " -type \"double3\" -16.091619 -8.01084 -31.07547"
+		"rotate" " -type \"double3\" -11.836405 -6.26492 -29.588015"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
@@ -1878,7 +1878,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
-		"rotate" " -type \"double3\" 14.77252 0.92461 -0.304295"
+		"rotate" " -type \"double3\" 12.533283 0.929248 -0.0694001"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKOffsetRoot_M|Emily_Body_Rig:FKExtraRoot_M|Emily_Body_Rig:FKRoot_M|Emily_Body_Rig:FKXOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupOffsetRoot_M|Emily_Body_Rig:HipSwingerGroupRoot_M|Emily_Body_Rig:FKXRoot_M|Emily_Body_Rig:HipSwingerStabalizeRoot_M|Emily_Body_Rig:FKOffsetSpine1_M|Emily_Body_Rig:FKExtraSpine1_M|Emily_Body_Rig:FKSpine1_M|Emily_Body_Rig:FKXOffsetSpine1_M|Emily_Body_Rig:FKXSpine1_M|Emily_Body_Rig:FKOffsetChest_M|Emily_Body_Rig:FKExtraChest_M|Emily_Body_Rig:FKChest_M" 
@@ -1902,7 +1902,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotate" " -type \"double3\" 1.00852 1.121117 -35.242677"
+		"rotate" " -type \"double3\" 0.0758827 1.277866 -33.698112"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
@@ -1910,7 +1910,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
-		"translate" " -type \"double3\" -0.000325234 0.0160112 -0.00946294"
+		"translate" " -type \"double3\" -0.000403358 0.0168806 -0.0113831"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
@@ -1918,7 +1918,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
-		"rotate" " -type \"double3\" 12.213957 52.593703 -7.073547"
+		"rotate" " -type \"double3\" 14.067738 52.918097 -9.338821"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
@@ -1926,7 +1926,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
-		"rotate" " -type \"double3\" 6.667903 -1.653185 38.684859"
+		"rotate" " -type \"double3\" 2.164802 2.067975 37.960977"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
@@ -1934,7 +1934,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
-		"rotate" " -type \"double3\" -5.116996 7.95952 -13.570618"
+		"rotate" " -type \"double3\" -4.30953 7.554912 -13.569574"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetScapula_R|Emily_Body_Rig:FKGlobalStaticScapula_R|Emily_Body_Rig:FKGlobalScapula_R|Emily_Body_Rig:FKExtraScapula_R|Emily_Body_Rig:FKScapula_R|Emily_Body_Rig:FKXOffsetScapula_R|Emily_Body_Rig:FKXScapula_R|Emily_Body_Rig:FKOffsetShoulder_R|Emily_Body_Rig:FKGlobalStaticShoulder_R|Emily_Body_Rig:FKGlobalShoulder_R|Emily_Body_Rig:FKExtraShoulder_R|Emily_Body_Rig:FKShoulder_R|Emily_Body_Rig:FKXOffsetShoulder_R|Emily_Body_Rig:FKXShoulder_R|Emily_Body_Rig:FKOffsetElbow_R|Emily_Body_Rig:FKExtraElbow_R|Emily_Body_Rig:FKElbow_R|Emily_Body_Rig:FKXOffsetElbow_R|Emily_Body_Rig:FKXElbow_R|Emily_Body_Rig:FKOffsetWrist_R|Emily_Body_Rig:FKExtraWrist_R|Emily_Body_Rig:FKWrist_R" 
@@ -2054,7 +2054,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90 3.046919 90"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"translate" " -type \"double3\" -0.473354 0.55577 0.0564753"
+		"translate" " -type \"double3\" -0.472777 0.554621 0.0564673"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
@@ -2062,7 +2062,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
-		"rotate" " -type \"double3\" 121.752656 -179.597915 -181.332197"
+		"rotate" " -type \"double3\" 121.941968 -181.320652 -182.621381"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R" 
@@ -2074,7 +2074,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_R|Emily_Body_Rig:IKExtraLeg_R|Emily_Body_Rig:IKLeg_R|Emily_Body_Rig:IKLegFootRockInnerPivot_R|Emily_Body_Rig:IKLegFootRockOuterPivot_R|Emily_Body_Rig:RollOffsetHeelLeg_R|Emily_Body_Rig:RollExtraHeelLeg_R|Emily_Body_Rig:RollHeelLeg_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_R|Emily_Body_Rig:PoleExtraLeg_R|Emily_Body_Rig:PoleLeg_R" 
-		"translate" " -type \"double3\" -0.556571 -0.31103 -0.0178172"
+		"translate" " -type \"double3\" -0.572947 -0.322584 -0.0185329"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_R|Emily_Body_Rig:PoleExtraLeg_R|Emily_Body_Rig:PoleLeg_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_R|Emily_Body_Rig:PoleExtraLeg_R|Emily_Body_Rig:PoleLeg_R" 
@@ -2088,7 +2088,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetArm_L|Emily_Body_Rig:PoleExtraArm_L|Emily_Body_Rig:PoleArm_L" 
 		"translate" " -type \"double3\" 0.234314 -0.260296 1.733928"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
-		"translate" " -type \"double3\" 0.485306 0.5836 0.12046"
+		"translate" " -type \"double3\" 0.483608 0.583665 0.12046"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
@@ -2096,7 +2096,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
-		"rotate" " -type \"double3\" 33.701362 -11.792334 -5.919622"
+		"rotate" " -type \"double3\" 33.69314 -10.472782 -5.182123"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L" 
@@ -2106,7 +2106,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetLeg_L|Emily_Body_Rig:IKExtraLeg_L|Emily_Body_Rig:IKLeg_L|Emily_Body_Rig:IKLegFootRockInnerPivot_L|Emily_Body_Rig:IKLegFootRockOuterPivot_L|Emily_Body_Rig:RollOffsetHeelLeg_L|Emily_Body_Rig:RollExtraHeelLeg_L|Emily_Body_Rig:RollHeelLeg_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_L|Emily_Body_Rig:PoleExtraLeg_L|Emily_Body_Rig:PoleLeg_L" 
-		"translate" " -type \"double3\" 0.125561 -0.0908281 -0.0149664"
+		"translate" " -type \"double3\" 0.136077 -0.0996223 -0.0171495"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_L|Emily_Body_Rig:PoleExtraLeg_L|Emily_Body_Rig:PoleLeg_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:PoleOffsetLeg_L|Emily_Body_Rig:PoleExtraLeg_L|Emily_Body_Rig:PoleLeg_L" 
@@ -2164,7 +2164,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:DrivingSystem|Emily_Body_Rig:Fingers_L" 
 		"cup" " -k 1 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
-		"translate" " -type \"double3\" -0.0024552 0.080533 -0.00550257"
+		"translate" " -type \"double3\" -0.000732343 0.0824476 -0.0049765"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_R|Emily_Body_Rig:browInnerOffset_R|Emily_Body_Rig:browInnerSubtract_R|Emily_Body_Rig:browInner_R" 
@@ -2180,7 +2180,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browOuterAttach_R|Emily_Body_Rig:browOuterOffset_R|Emily_Body_Rig:browOuterSubtract_R|Emily_Body_Rig:browOuter_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
-		"translate" " -type \"double3\" -0.0196783 0.0547117 0.00721769"
+		"translate" " -type \"double3\" -0.0204591 0.0615145 0.00481937"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:browInnerAttach_L|Emily_Body_Rig:browInnerOffset_L|Emily_Body_Rig:browInnerSubtract_L|Emily_Body_Rig:browInner_L" 
@@ -2256,7 +2256,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:upperLip3Attach_L|Emily_Body_Rig:upperLip3Offset_L|Emily_Body_Rig:upperLip3Subtract_L|Emily_Body_Rig:upperLip3_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
-		"translate" " -type \"double3\" -0.00278743 0.0377586 0.00249598"
+		"translate" " -type \"double3\" -0.0026418 0.0323623 0.0025447"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Acontrols|Emily_Body_Rig:lowerLip0Attach_M|Emily_Body_Rig:lowerLip0Offset_M|Emily_Body_Rig:lowerLip0Subtract_M|Emily_Body_Rig:lowerLip0_M" 
@@ -2288,7 +2288,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_R|Emily_Body_Rig:LidCorner2Offset_R|Emily_Body_Rig:LidCorner2Subtract_R|Emily_Body_Rig:LidCorner2_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
-		"translate" " -type \"double3\" 0.00020086 -0.00859294 -0.0143774"
+		"translate" " -type \"double3\" -9.92673e-05 -0.014733 -0.0140437"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
@@ -2304,7 +2304,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_R|Emily_Body_Rig:upperLid1Offset_R|Emily_Body_Rig:upperLid1Subtract_R|Emily_Body_Rig:upperLid1_R" 
 		"rotateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.000217694 -0.030015 0.0067526"
+		"translate" " -type \"double3\" -0.00021512 -0.0247499 0.00616674"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_R|Emily_Body_Rig:lowerLid1Offset_R|Emily_Body_Rig:lowerLid1Subtract_R|Emily_Body_Rig:lowerLid1_R" 
@@ -2320,7 +2320,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:LidCorner2Attach_L|Emily_Body_Rig:LidCorner2Offset_L|Emily_Body_Rig:LidCorner2Subtract_L|Emily_Body_Rig:LidCorner2_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
-		"translate" " -type \"double3\" -0.00916942 -0.0335029 -0.0119575"
+		"translate" " -type \"double3\" -0.00910823 -0.0351446 -0.0117845"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
@@ -2328,7 +2328,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:upperLid1Attach_L|Emily_Body_Rig:upperLid1Offset_L|Emily_Body_Rig:upperLid1Subtract_L|Emily_Body_Rig:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
-		"translate" " -type \"double3\" 0.00590171 -0.0169153 0.00928608"
+		"translate" " -type \"double3\" 0.00506908 -0.0135337 0.00827098"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Bcontrols|Emily_Body_Rig:lowerLid1Attach_L|Emily_Body_Rig:lowerLid1Offset_L|Emily_Body_Rig:lowerLid1Subtract_L|Emily_Body_Rig:lowerLid1_L" 
@@ -2384,7 +2384,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:lowerLid3Attach_L|Emily_Body_Rig:lowerLid3Offset_L|Emily_Body_Rig:lowerLid3Subtract_L|Emily_Body_Rig:lowerLid3_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
-		"translate" " -type \"double3\" -0.00919231 -0.0718536 -0.0638173"
+		"translate" " -type \"double3\" -0.00566734 -0.0738632 -0.0637399"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
@@ -2392,7 +2392,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_R|Emily_Body_Rig:browHalfOffset_R|Emily_Body_Rig:browHalfSubtract_R|Emily_Body_Rig:browHalf_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
-		"translate" " -type \"double3\" 0.0336378 -0.0957431 -0.0347859"
+		"translate" " -type \"double3\" 0.0316365 -0.0976693 -0.0368634"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
@@ -2400,7 +2400,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Ccontrols|Emily_Body_Rig:browHalfAttach_L|Emily_Body_Rig:browHalfOffset_L|Emily_Body_Rig:browHalfSubtract_L|Emily_Body_Rig:browHalf_L" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" -0.0143027 -0.118855 0.045179"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateY" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -2408,7 +2408,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotate" " -type \"double3\" 177.249476 13.498657 -179.999997"
+		"rotate" " -type \"double3\" 177.132735 12.866302 -179.999997"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -2416,7 +2416,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateZ" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"aim" " -av -k 1 0"
+		"aim" " -av -k 1 1.152992"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:SquashControls|Emily_Body_Rig:squashBase_M|Emily_Body_Rig:squashTopOffset|Emily_Body_Rig:squashTop_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:SquashControls|Emily_Body_Rig:squashBase_M|Emily_Body_Rig:squashMiddleOffset|Emily_Body_Rig:squashMiddle_M" 
@@ -2424,13 +2424,13 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox" 
 		"translate" " -type \"double3\" 0.600745 2.769406 0.126142"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateX" " -av 0.0449153"
+		"translateX" " -av 0.0455486"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_R|Emily_Body_Rig:ctrlEye_R" 
-		"translateY" " -av 0.440954"
+		"translateY" " -av 0.410935"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateX" " -av 0.0449153"
+		"translateX" " -av 0.0455486"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxEye_L|Emily_Body_Rig:ctrlEye_L" 
-		"translateY" " -av 0.440954"
+		"translateY" " -av 0.410935"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
 		"translateX" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_R|Emily_Body_Rig:ctrlCheek_R" 
@@ -2440,9 +2440,9 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxCheek_L|Emily_Body_Rig:ctrlCheek_L" 
 		"translateY" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateX" " -av 0.266825"
+		"translateX" " -av 0.219095"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouth_M|Emily_Body_Rig:ctrlMouth_M" 
-		"translateY" " -av -0.590083"
+		"translateY" " -av -0.526178"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
 		"translateX" " -av -0.896661"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ctrlBoxOffset|Emily_Body_Rig:ctrlBox|Emily_Body_Rig:ctrlBoxMouthCorner_R|Emily_Body_Rig:ctrlMouthCorner_R" 
@@ -2454,9 +2454,9 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:JawSetup|Emily_Body_Rig:JawSetupFollowHead|Emily_Body_Rig:FKOffsetJaw_M|Emily_Body_Rig:FKSDK1Jaw_M|Emily_Body_Rig:FKSDK2Jaw_M|Emily_Body_Rig:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"translate" " -type \"double3\" -7.134058 0.188583 19.00646"
+		"translate" " -type \"double3\" -7.149029 0.201364 19.02834"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"rotate" " -type \"double3\" -97.336778 -12.726759 87.206659"
+		"rotate" " -type \"double3\" -98.02146 -13.001803 87.611942"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:RightEye|Emily_Body_Rig:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:LeftEye|Emily_Body_Rig:LeftEyeShapeDeformed" 
@@ -4585,12 +4585,12 @@ createNode reference -n "swordRN";
 		"swordRN" 263
 		0 "|swordRNfosterParent1|polySurface2_parentConstraint1" "|sword:sword:Sword|sword:polySurface2" 
 		"-s -r "
-		2 "|sword:sword:Sword|sword:polySurface2" "rotate" " -type \"double3\" 80.593787 -10.41376 -91.441151"
+		2 "|sword:sword:Sword|sword:polySurface2" "rotate" " -type \"double3\" 81.837379 -10.616326 -91.951305"
 		
 		2 "|sword:sword:Sword|sword:polySurface2" "rotateX" " -av"
 		2 "|sword:sword:Sword|sword:polySurface2" "rotateY" " -av"
 		2 "|sword:sword:Sword|sword:polySurface2" "rotateZ" " -av"
-		2 "|sword:areaLight1" "rotate" " -type \"double3\" 99.869747 9.864435 -90.976716"
+		2 "|sword:areaLight1" "rotate" " -type \"double3\" 98.628003 10.065158 -91.474796"
 		
 		2 "|sword:areaLight1" "rotateX" " -av"
 		2 "|sword:areaLight1" "rotateY" " -av"
@@ -4615,23 +4615,23 @@ createNode reference -n "swordRN";
 		""
 		5 3 "swordRN" "|sword:sword:Sword|sword:polySurface2.parentInverseMatrix" 
 		"swordRN.placeHolderList[186]" ""
-		6 "ignore" ":lightLinker1" 2 "sword:sword:initialShadingGroup1.message" "|sword:pointLight3|sword:pointLightShape3.message"
-		
-		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface4|sword:polySurfaceShape4.message" "|sword:pointLight5|sword:pointLightShape5.message"
-		
-		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface4|sword:polySurfaceShape4.message" "|sword:areaLight1|sword:areaLightShape1.message"
-		
 		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface1|sword:polySurfaceShape1.message" "|sword:areaLight1|sword:areaLightShape1.message"
 		
-		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface2|sword:polySurfaceShape2.message" "|sword:areaLight1|sword:areaLightShape1.message"
+		6 "ignore" ":lightLinker1" 2 "sword:sword:initialShadingGroup1.message" "|sword:pointLight3|sword:pointLightShape3.message"
+		
+		6 "ignore" ":lightLinker1" 2 "sword:sword:initialShadingGroup1.message" "|sword:pointLight5|sword:pointLightShape5.message"
 		
 		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface3|sword:polySurfaceShape3.message" "|sword:areaLight1|sword:areaLightShape1.message"
 		
 		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface3|sword:polySurfaceShape3.message" "|sword:pointLight5|sword:pointLightShape5.message"
 		
+		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface4|sword:polySurfaceShape4.message" "|sword:areaLight1|sword:areaLightShape1.message"
+		
+		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface2|sword:polySurfaceShape2.message" "|sword:areaLight1|sword:areaLightShape1.message"
+		
 		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface2|sword:polySurfaceShape2.message" "|sword:pointLight5|sword:pointLightShape5.message"
 		
-		6 "ignore" ":lightLinker1" 2 "sword:sword:initialShadingGroup1.message" "|sword:pointLight5|sword:pointLightShape5.message"
+		6 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface4|sword:polySurfaceShape4.message" "|sword:pointLight5|sword:pointLightShape5.message"
 		
 		7 "ignore" ":lightLinker1" 2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Hair_Emily:Hair|Emily_Body_Rig:Hair_Emily:HairShape.message" "|sword:pointLight3|sword:pointLightShape3.message" 
 		2 "" "swordRN.placeHolderList[11]"
@@ -4965,9 +4965,9 @@ createNode reference -n "swordRN";
 		2 "" "swordRN.placeHolderList[175]"
 		7 "ignore" ":lightLinker1" 2 "Emily_Body_Rig:lambert3SG.message" "|sword:areaLight1|sword:areaLightShape1.message" 
 		2 "" "swordRN.placeHolderList[176]"
-		7 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface1|sword:polySurfaceShape1.message" "|sword:pointLight4|sword:pointLightShape4.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface1|sword:polySurfaceShape1.message" "|sword:pointLight5|sword:pointLightShape5.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface1|sword:polySurfaceShape1.message" "|sword:pointLight4|sword:pointLightShape4.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "|sword:sword:Sword|sword:polySurface1|sword:polySurfaceShape1.message" "|areaLight1|areaLightShape1.message" 
 		0
@@ -7930,7 +7930,7 @@ createNode reference -n "nightmareRN";
 		"nightmareRN.placeHolderList[39]" ""
 		5 4 "nightmareRN" "|nightmare:Nightmare_Master_CTRL|nightmare:Hip_CTRL|nightmare:Head_CTRL.scaleZ" 
 		"nightmareRN.placeHolderList[40]" ""
-		"nightmareRN" 43
+		"nightmareRN" 46
 		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" -5.504014 -1.093564 -1.1259"
 		
 		2 "|nightmare:Master_Controller" "rotate" " -type \"double3\" 0.756883 -2.497621 0.951508"
@@ -7941,8 +7941,14 @@ createNode reference -n "nightmareRN";
 		" -type \"double3\" 23.623551 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso" 
 		"rotate" " -type \"double3\" 19.501882 -5.324057 -0.782771"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
+		"rotate" " -type \"double3\" -35.500464 0 0"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow" 
+		"rotate" " -type \"double3\" 0 -44.274996 0"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow" 
+		"rotate" " -type \"double3\" -25.821561 -21.561736 52.309237"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" -30.194834 -18.452381 11.475149"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
@@ -13438,8 +13444,8 @@ select -ne :time1;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 1;
-	setAttr -av ".unw" 1;
+	setAttr -k on ".o" 18;
+	setAttr -av ".unw" 18;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -13709,7 +13715,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 4 ".sol";
+	setAttr -s 3 ".sol";
 relationship "ignore" ":lightLinker1" "Emily_Body_RigRN.placeHolderList[32]" "swordRN.placeHolderList[16]";
 relationship "ignore" ":lightLinker1" "Emily_Body_RigRN.placeHolderList[33]" "swordRN.placeHolderList[17]";
 relationship "ignore" ":lightLinker1" "Emily_Body_RigRN.placeHolderList[34]" "swordRN.placeHolderList[18]";
@@ -13996,15 +14002,15 @@ connectAttr "Emily_Body_Rig:BendShoulder1_R_rotateY.o" "Emily_Body_RigRN.phl[252
 		;
 connectAttr "Emily_Body_Rig:BendShoulder1_R_rotateZ.o" "Emily_Body_RigRN.phl[253]"
 		;
-connectAttr "Emily_Body_RigRN.phl[254]" "Sword_parentConstraint1.tg[0].tt";
-connectAttr "Emily_Body_RigRN.phl[255]" "polySurface2_parentConstraint1.tg[0].tt"
+connectAttr "Emily_Body_RigRN.phl[254]" "polySurface2_parentConstraint1.tg[0].tt"
 		;
-connectAttr "Emily_Body_RigRN.phl[256]" "Sword_parentConstraint1.tg[0].tr";
-connectAttr "Emily_Body_RigRN.phl[257]" "polySurface2_parentConstraint1.tg[0].tr"
+connectAttr "Emily_Body_RigRN.phl[255]" "Sword_parentConstraint1.tg[0].tt";
+connectAttr "Emily_Body_RigRN.phl[256]" "polySurface2_parentConstraint1.tg[0].tr"
 		;
-connectAttr "Emily_Body_RigRN.phl[258]" "Sword_parentConstraint1.tg[0].ts";
-connectAttr "Emily_Body_RigRN.phl[259]" "polySurface2_parentConstraint1.tg[0].ts"
+connectAttr "Emily_Body_RigRN.phl[257]" "Sword_parentConstraint1.tg[0].tr";
+connectAttr "Emily_Body_RigRN.phl[258]" "polySurface2_parentConstraint1.tg[0].ts"
 		;
+connectAttr "Emily_Body_RigRN.phl[259]" "Sword_parentConstraint1.tg[0].ts";
 connectAttr "Emily_Body_RigRN.phl[260]" "Sword_parentConstraint1.tg[0].tro";
 connectAttr "Emily_Body_RigRN.phl[261]" "polySurface2_parentConstraint1.tg[0].tro"
 		;
@@ -14014,9 +14020,9 @@ connectAttr "Emily_Body_RigRN.phl[263]" "polySurface2_parentConstraint1.tg[0].tr
 connectAttr "Emily_Body_RigRN.phl[264]" "Sword_parentConstraint1.tg[0].trt";
 connectAttr "Emily_Body_RigRN.phl[265]" "polySurface2_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Emily_Body_RigRN.phl[266]" "Sword_parentConstraint1.tg[0].tpm";
-connectAttr "Emily_Body_RigRN.phl[267]" "polySurface2_parentConstraint1.tg[0].tpm"
+connectAttr "Emily_Body_RigRN.phl[266]" "polySurface2_parentConstraint1.tg[0].tpm"
 		;
+connectAttr "Emily_Body_RigRN.phl[267]" "Sword_parentConstraint1.tg[0].tpm";
 connectAttr "Emily_Body_Rig:browInner_R_translateX.o" "Emily_Body_RigRN.phl[283]"
 		;
 connectAttr "Emily_Body_Rig:browInner_R_translateY.o" "Emily_Body_RigRN.phl[284]"
@@ -14676,26 +14682,26 @@ connectAttr "CandyRN.phl[200]" "MESH_Left_Eye_parentConstraint1.cro";
 connectAttr "CandyRN.phl[201]" "MESH_Left_Eye_parentConstraint1.cpim";
 connectAttr "CandyRN.phl[202]" "MESH_Left_Eye_parentConstraint1.crp";
 connectAttr "CandyRN.phl[203]" "MESH_Left_Eye_parentConstraint1.crt";
-connectAttr "CandyRN.phl[204]" "MESH_Left_Eye_parentConstraint1.tg[0].tt";
-connectAttr "CandyRN.phl[205]" "MESH_Horn_parentConstraint1.tg[0].tt";
+connectAttr "CandyRN.phl[204]" "MESH_Horn_parentConstraint1.tg[0].tt";
+connectAttr "CandyRN.phl[205]" "MESH_Left_Eye_parentConstraint1.tg[0].tt";
 connectAttr "CandyRN.phl[206]" "MESH_Right_Eye_parentConstraint1.tg[0].tt";
-connectAttr "CandyRN.phl[207]" "MESH_Left_Eye_parentConstraint1.tg[0].tr";
-connectAttr "CandyRN.phl[208]" "MESH_Horn_parentConstraint1.tg[0].tr";
+connectAttr "CandyRN.phl[207]" "MESH_Horn_parentConstraint1.tg[0].tr";
+connectAttr "CandyRN.phl[208]" "MESH_Left_Eye_parentConstraint1.tg[0].tr";
 connectAttr "CandyRN.phl[209]" "MESH_Right_Eye_parentConstraint1.tg[0].tr";
-connectAttr "CandyRN.phl[210]" "MESH_Left_Eye_parentConstraint1.tg[0].trp";
-connectAttr "CandyRN.phl[211]" "MESH_Horn_parentConstraint1.tg[0].trp";
+connectAttr "CandyRN.phl[210]" "MESH_Horn_parentConstraint1.tg[0].trp";
+connectAttr "CandyRN.phl[211]" "MESH_Left_Eye_parentConstraint1.tg[0].trp";
 connectAttr "CandyRN.phl[212]" "MESH_Right_Eye_parentConstraint1.tg[0].trp";
-connectAttr "CandyRN.phl[213]" "MESH_Left_Eye_parentConstraint1.tg[0].trt";
-connectAttr "CandyRN.phl[214]" "MESH_Horn_parentConstraint1.tg[0].trt";
+connectAttr "CandyRN.phl[213]" "MESH_Horn_parentConstraint1.tg[0].trt";
+connectAttr "CandyRN.phl[214]" "MESH_Left_Eye_parentConstraint1.tg[0].trt";
 connectAttr "CandyRN.phl[215]" "MESH_Right_Eye_parentConstraint1.tg[0].trt";
-connectAttr "CandyRN.phl[216]" "MESH_Left_Eye_parentConstraint1.tg[0].tro";
-connectAttr "CandyRN.phl[217]" "MESH_Horn_parentConstraint1.tg[0].tro";
+connectAttr "CandyRN.phl[216]" "MESH_Horn_parentConstraint1.tg[0].tro";
+connectAttr "CandyRN.phl[217]" "MESH_Left_Eye_parentConstraint1.tg[0].tro";
 connectAttr "CandyRN.phl[218]" "MESH_Right_Eye_parentConstraint1.tg[0].tro";
-connectAttr "CandyRN.phl[219]" "MESH_Left_Eye_parentConstraint1.tg[0].ts";
-connectAttr "CandyRN.phl[220]" "MESH_Horn_parentConstraint1.tg[0].ts";
+connectAttr "CandyRN.phl[219]" "MESH_Horn_parentConstraint1.tg[0].ts";
+connectAttr "CandyRN.phl[220]" "MESH_Left_Eye_parentConstraint1.tg[0].ts";
 connectAttr "CandyRN.phl[221]" "MESH_Right_Eye_parentConstraint1.tg[0].ts";
-connectAttr "CandyRN.phl[222]" "MESH_Left_Eye_parentConstraint1.tg[0].tpm";
-connectAttr "CandyRN.phl[223]" "MESH_Horn_parentConstraint1.tg[0].tpm";
+connectAttr "CandyRN.phl[222]" "MESH_Horn_parentConstraint1.tg[0].tpm";
+connectAttr "CandyRN.phl[223]" "MESH_Left_Eye_parentConstraint1.tg[0].tpm";
 connectAttr "CandyRN.phl[224]" "MESH_Right_Eye_parentConstraint1.tg[0].tpm";
 connectAttr "MESH_Right_Eye_parentConstraint1.ctx" "CandyRN.phl[225]";
 connectAttr "MESH_Right_Eye_parentConstraint1.cty" "CandyRN.phl[226]";
