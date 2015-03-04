@@ -6,10 +6,10 @@ with open('scenes/shots.yaml') as s:
 for shot in shots:
     name = shot['name']
     filename = shot['file']
-    start, end = int(shot['startFrame']), int(shot['endFrame'])
+    start = int(shot['startFrame'])
     camera = shot['camera']
 
-    key = "%s.%s" % (name.replace(' ', '_'), camera)
+    key = "%s.%s.frame%d" % (name.replace(' ', '_'), camera, start)
     cmd = [
         "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
         "-r", "rman", "-ris",
