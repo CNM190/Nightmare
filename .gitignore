@@ -11,6 +11,7 @@ venv-*
 *.tif
 cache
 _*
+*.exr
 
 *.properties
 

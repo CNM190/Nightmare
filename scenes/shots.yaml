@@ -43,13 +43,13 @@
   endFrame   : 67
 
 - name       : "Charge 2 Cam 2"
-  file       : "scenes/charge2.ma"
+  file       : "scenes/charge2_2.ma"
   camera     : 'camera2'
   startFrame : 68
   endFrame   : 116
 
 - name       : "Charge 2 Cam 3"
-  file       : "scenes/charge2.ma"
+  file       : "scenes/charge2_3.ma"
   camera     : 'camera3'
   startFrame : 117
   endFrame   : 201
