@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1.ma
-//Last modified: Wed, Mar 04, 2015 03:33:12 PM
+//Last modified: Wed, Mar 04, 2015 04:01:53 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "anim_ready_Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -17,8 +17,8 @@ file -r -ns "bedroom" -dr 1 -rfn "bedroomRN" -op "v=0;" "C:/Users/Mark/Documents
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
-requires -nodeType "RenderMan" -nodeType "RMSGeoAreaLight" -nodeType "RMSEnvLight"
-		 "RenderMan_for_Maya" "5.5";
+requires -nodeType "RenderMan" -nodeType "RMSGeoAreaLight" -nodeType "PxrLMDiffuse"
+		 -nodeType "RMSEnvLight" "RenderMan_for_Maya" "5.5";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -29,14 +29,14 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 27.030666206194155 5.8510257464646269 3.4123380353947494 ;
-	setAttr ".r" -type "double3" -7.8000000000006882 74.39999999997589 0 ;
+	setAttr ".t" -type "double3" -4.3957140651850413 3.3258682186923747 -0.50766468179881974 ;
+	setAttr ".r" -type "double3" -16.800000000016812 -75.599999999972241 6.3946200581713784e-15 ;
 	setAttr ".rpt" -type "double3" -4.7098778416818541e-16 -1.2360351335554756e-17 4.5635820338095205e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 26.518287287755591;
+	setAttr ".coi" 6.8591862741562828;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -90,7 +90,7 @@ createNode camera -n "Full_Bedroom_shotShape" -p "Full_Bedroom_shot";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 0.24627143355310391;
+	setAttr ".coi" 3.243850355328866;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -199,11 +199,425 @@ createNode RMSEnvLight -n "RMSEnvLightShape1" -p "RMSEnvLight1";
 	setAttr ".temperature" 3942.45068359375;
 createNode transform -n "MoonLight" -p "LightRig";
 	setAttr ".t" -type "double3" 18.809826080764083 6.2957784388292568 3.2692890848846021 ;
-	setAttr ".r" -type "double3" -1.2500340025954202 67.275185543677168 16.219080455371198 ;
+	setAttr ".r" -type "double3" -6.3607439100271659 67.275185543677168 16.219080455371198 ;
 createNode RMSGeoAreaLight -n "MoonLightShape" -p "MoonLight";
 	setAttr -k off ".v";
 	setAttr ".shape" -type "string" "distant";
 	setAttr ".intensity" 2;
+createNode transform -n "SimRig";
+	addAttr -ci true -k true -sn "rman__torattr___subdivScheme" -ln "rman__torattr___subdivScheme" 
+		-dv -1 -at "long";
+	setAttr -k on ".rman__torattr___subdivScheme" 0;
+createNode transform -n "Bedsheet" -p "SimRig";
+	setAttr ".t" -type "double3" 1.8758152765257117 2.582284863336064 -1.3516670874362338 ;
+	setAttr ".s" -type "double3" 1.6759913433072116 1 0.78032210335817942 ;
+createNode mesh -n "BedsheetShape" -p "Bedsheet";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.28329917788505554 0.5 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode mesh -n "outputCloth1" -p "Bedsheet";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".uxs" yes;
+	setAttr ".qsp" 0;
+createNode nucleus -n "nucleus1" -p "SimRig";
+	setAttr -s 7 ".nipo";
+	setAttr -s 7 ".nips";
+	setAttr ".stf" -20;
+createNode transform -n "nCloth1" -p "SimRig";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nCloth -n "nClothShape1" -p "nCloth1";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___subdivScheme" -ln "rman__torattr___subdivScheme" 
+		-dv -1 -at "long";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 1681;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.012810458429157734;
+	setAttr ".fron" 0.79527556896209717;
+	setAttr ".adng" 8;
+	setAttr ".stck" 0.69291341304779053;
+	setAttr ".pmss" 3;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+	setAttr ".lsou" yes;
+	setAttr ".srl" 1;
+	setAttr ".stch" 50;
+	setAttr ".comr" 50;
+	setAttr ".bnd" 10;
+	setAttr ".bnad" 0.72728002071380615;
+	setAttr ".scws" 3;
+	setAttr ".tdrg" 0.20000000298023224;
+	setAttr ".nts" -type "string" "Thick leather is heavy, stiff and very damped.  One may yet need to increase the stretch resistance further for high gravity or fast moving objects. If it is particularily stiff( like shoe leather ) the bend resistance may need to be increased as well. Deform resistance may also be useful.";
+	setAttr -k on ".rman__torattr___subdivScheme" 1;
+createNode transform -n "nRigid1";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape1" -p "nRigid1";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 4314;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.0068252165801823139;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.027300866320729256;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid2";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape2" -p "nRigid2";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 226;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.0091284802183508873;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.036513920873403549;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid3";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape3" -p "nRigid3";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 98;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.02022886648774147;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.080915465950965881;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid4";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape4" -p "nRigid4";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 2897;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.029400261119008064;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.11760104447603226;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid5";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape5" -p "nRigid5";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 708;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.00283583696000278;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.01134334784001112;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid6";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape6" -p "nRigid6";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 186;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.0035041377414017916;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.014016550965607166;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
+createNode transform -n "nRigid7";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+createNode nRigid -n "nRigidShape7" -p "nRigid7";
+	setAttr -k off ".v";
+	setAttr ".gf" -type "Int32Array" 0 ;
+	setAttr ".pos0" -type "vectorArray" 0 ;
+	setAttr ".vel0" -type "vectorArray" 0 ;
+	setAttr ".acc0" -type "vectorArray" 0 ;
+	setAttr ".mas0" -type "doubleArray" 0 ;
+	setAttr ".id0" -type "doubleArray" 0 ;
+	setAttr ".nid" 600;
+	setAttr ".bt0" -type "doubleArray" 0 ;
+	setAttr ".ag0" -type "doubleArray" 0 ;
+	setAttr -k off ".dve";
+	setAttr -k off ".lfm";
+	setAttr -k off ".lfr";
+	setAttr -k off ".ead";
+	setAttr ".irbx" -type "string" "";
+	setAttr ".irax" -type "string" "";
+	setAttr ".icx" -type "string" "";
+	setAttr -k off ".dw";
+	setAttr -k off ".fiw";
+	setAttr -k off ".con";
+	setAttr -k off ".eiw";
+	setAttr -k off ".mxc";
+	setAttr -k off ".lod";
+	setAttr -k off ".inh";
+	setAttr ".cts" 8;
+	setAttr -k off ".stf";
+	setAttr -k off ".igs";
+	setAttr -k off ".ecfh";
+	setAttr -k off ".tgs";
+	setAttr -k off ".gsm";
+	setAttr -k off ".chd";
+	setAttr ".chw" 48;
+	setAttr -k off ".trd";
+	setAttr -k off ".prt";
+	setAttr ".thss" 0.006720284465700388;
+	setAttr ".actv" no;
+	setAttr ".scld" no;
+	setAttr ".por" 0.026881137862801552;
+	setAttr ".tpc" yes;
+	setAttr -s 2 ".fsc[0:1]"  0 1 1 1 0 1;
+	setAttr -s 2 ".pfdo[0:1]"  0 1 1 1 0 1;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
 createNode mentalrayGlobals -s -n "mentalrayGlobals";
 	setAttr ".rvb" 3;
@@ -3842,8 +4256,8 @@ createNode RenderMan -s -n "rmanSBMakePtexGlobals";
 	setAttr ".rman__param__ptxmake___channel" -type "string" "$BAKECHAN";
 	setAttr ".rman__param__ptxmake___outputfile" -type "string" "[passinfo this filename]";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 41 ".lnk";
-	setAttr -s 41 ".slnk";
+	setAttr -s 42 ".lnk";
+	setAttr -s 42 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 3;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
@@ -3929,7 +4343,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min 0 -max 47 -ast -10 -aet 150 ";
+	setAttr ".b" -type "string" "playbackOptions -min 0 -max 47 -ast -20 -aet 150 ";
 	setAttr ".st" 6;
 createNode mentalrayOptions -s -n "miContourPreset";
 	setAttr ".splck" yes;
@@ -4159,7 +4573,7 @@ createNode reference -n "anim_ready_EmilyRN";
 	setAttr -s 2 ".fn";
 	setAttr ".fn[0]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
 	setAttr ".fn[1]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
-	setAttr -s 343 ".phl";
+	setAttr -s 347 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -4503,6 +4917,10 @@ createNode reference -n "anim_ready_EmilyRN";
 	setAttr ".phl[341]" 0;
 	setAttr ".phl[342]" 0;
 	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"anim_ready_EmilyRN"
 		"anim_ready_Emily:Hair_EmilyRN" 0
@@ -4522,7 +4940,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Hair_Emily:Hair|anim_ready_Emily:Hair_Emily:HairShape" 
 		"overrideEnabled" " 1"
-		"anim_ready_EmilyRN" 635
+		"anim_ready_EmilyRN" 651
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
 		"translate" " -type \"double3\" 1.909789 2.137366 -1.193383"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
@@ -4637,6 +5055,8 @@ createNode reference -n "anim_ready_EmilyRN";
 		"ringCurl" " -k 1 4.4"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:DrivingSystem|anim_ready_Emily:Fingers_R" 
 		"pinkyCurl" " -k 1 4.4"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceFitSkeleton|anim_ready_Emily:FaceFitEyeBall|anim_ready_Emily:FitEyeBall|anim_ready_Emily:FitEyeSphere|anim_ready_Emily:FitEyeSphereShape" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R" 
 		"translate" " -type \"double3\" 0.027948916507226185 0.085700006561599887 -0.0052191404228756526"
 		
@@ -5109,30 +5529,52 @@ createNode reference -n "anim_ready_EmilyRN";
 		"dispResolution" " 3"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2|anim_ready_Emily:BodyShapeDeformedDeformed" 
 		"displaySmoothMesh" " 2"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2|anim_ready_Emily:BodyShapeDeformedDeformed" 
+		"quadSplit" " 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:TopTeeth|anim_ready_Emily:TopTeethShapeDeformed" 
+		"quadSplit" " 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:BottomTeeth|anim_ready_Emily:BottomTeethShapeDeformed" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightEye|anim_ready_Emily:RightEyeShapeDeformed" 
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightEye|anim_ready_Emily:RightEyeShapeDeformed" 
 		"overrideEnabled" " 1"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightEye|anim_ready_Emily:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightEye|anim_ready_Emily:RightEyeShapeDeformed" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftEye|anim_ready_Emily:LeftEyeShapeDeformed" 
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftEye|anim_ready_Emily:LeftEyeShapeDeformed" 
 		"overrideEnabled" " 1"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftEye|anim_ready_Emily:LeftEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftEye|anim_ready_Emily:LeftEyeShapeDeformed" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightBrow|anim_ready_Emily:RightBrowShapeDeformed" 
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightBrow|anim_ready_Emily:RightBrowShapeDeformed" 
 		"overrideEnabled" " 1"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:RightBrow|anim_ready_Emily:RightBrowShapeDeformed" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftBrow|anim_ready_Emily:LeftBrowShapeDeformed" 
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftBrow|anim_ready_Emily:LeftBrowShapeDeformed" 
 		"overrideEnabled" " 1"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:LeftBrow|anim_ready_Emily:LeftBrowShapeDeformed" 
+		"quadSplit" " 0"
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2Base|anim_ready_Emily:Body2BaseShapeDeformedDeformed" 
+		"quadSplit" " 0"
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed" 
+		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
 		"overrideEnabled" " 1"
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
+		"quadSplit" " 0"
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed" 
+		"quadSplit" " 0"
 		2 "anim_ready_Emily:Meshes" "visibility" " -av 1"
 		2 "anim_ready_Emily:Armature" "visibility" " 1"
 		2 "anim_ready_Emily:blendShape2" "weight[0]" " 0"
@@ -5821,14 +6263,20 @@ createNode reference -n "anim_ready_EmilyRN";
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M.rotateY" 
 		"anim_ready_EmilyRN.placeHolderList[342]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[343]" "";
+		"anim_ready_EmilyRN.placeHolderList[343]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2|anim_ready_Emily:BodyShapeDeformedDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[344]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[345]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[346]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[347]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode displayLayer -n "blanket";
-	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode displayLayer -n "Bed";
-	setAttr ".dt" 2;
 	setAttr ".do" 2;
 createNode animCurveTL -n "Face_Close_Up_translateX";
 	setAttr ".tan" 18;
@@ -8504,6 +8952,10 @@ createNode displayLayer -n "walls";
 	setAttr ".v" no;
 	setAttr ".do" 3;
 createNode reference -n "bedroomRN";
+	setAttr -s 3 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"bedroomRN"
 		"bedroom:binRN" 0
@@ -8512,46 +8964,106 @@ createNode reference -n "bedroomRN";
 		"bedroom:bookshelfRN" 0
 		"bedroom:bedRN" 0
 		"bedroom:deskRN" 0
-		"bedroom:LampRN" 0;
+		"bedroom:LampRN" 0
+		"bedroom:bedRN" 20
+		2 "|bedroom:Bedroom|bedroom:bed:Bed|bedroom:bed:Mattress|bedroom:bed:MattressShape" 
+		"quadSplit" " 0"
+		2 "|bedroom:Bedroom|bedroom:bed:Bed|bedroom:bed:Pillow|bedroom:bed:PillowShape" 
+		"quadSplit" " 0"
+		2 "|bedroom:Bedroom|bedroom:bed:bedUV|bedroom:bed:bedUVShape" "quadSplit" 
+		" 0"
+		2 "bedroom:bed:RMSGPSurface4" "surfaceColor" " -type \"float3\" 0.377 0.28638804000000001 0"
+		
+		2 "bedroom:bed:RMSGPSurface4" "diffuseGain" " 1"
+		2 "bedroom:bed:RMSGPSurface4" "sheen" " 0"
+		2 "bedroom:bed:RMSGPSurface4" "sheenTint" " 0.5"
+		2 "bedroom:bed:RMSGPSurface4" "mask" " 1"
+		2 "bedroom:bed:RMSGPSurface4" "roughness" " 0.0080000003799796104"
+		2 "bedroom:bed:RMSGPSurface4" "specularGain" " 1"
+		2 "bedroom:bed:RMSGPSurface4" "anisotropy" " 0"
+		2 "bedroom:bed:RMSGPSurface4" "indirectSpecularScale" " 1"
+		2 "bedroom:bed:RMSGPSurface4" "metallic" " 0"
+		2 "bedroom:bed:RMSGPSurface4" "flakeAmount" " 0"
+		2 "bedroom:bed:RMSGPSurface4" "flakeScale" " 10"
+		2 "bedroom:bed:RMSGPSurface4" "ior" " 1.5"
+		2 "bedroom:bed:RMSGPSurface4" "mediaIor" " 1"
+		5 3 "bedroomRN" "|bedroom:Bedroom|bedroom:bed:bedUV|bedroom:bed:bedUVShape.worldMesh" 
+		"bedroomRN.placeHolderList[1]" ""
+		5 3 "bedroomRN" "|bedroom:Bedroom|bedroom:bed:Bed|bedroom:bed:Mattress|bedroom:bed:MattressShape.worldMesh" 
+		"bedroomRN.placeHolderList[2]" ""
+		5 3 "bedroomRN" "|bedroom:Bedroom|bedroom:bed:Bed|bedroom:bed:Pillow|bedroom:bed:PillowShape.worldMesh" 
+		"bedroomRN.placeHolderList[3]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "Full_Bedroom_shot_rotateY";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 -92.40000000000127 47 -92.40000000000127;
+	setAttr -s 2 ".ktv[0:1]"  0 -95.200000000001054 47 -95.200000000001054;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
 createNode animCurveTL -n "Full_Bedroom_shot_translateX";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 -3.5155771259328179 47 -2.7914282037154141;
+	setAttr -s 2 ".ktv[0:1]"  0 -3.2943236655203276 47 -2.8762537861220658;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
 createNode animCurveTL -n "Full_Bedroom_shot_translateY";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 2.8607418780308054 47 2.8597943061925117;
+	setAttr -s 2 ".ktv[0:1]"  0 2.9916198656488393 47 2.9866746904324915;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
 createNode animCurveTL -n "Full_Bedroom_shot_translateZ";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 -2.451532958811411 47 -2.421182126459632;
+	setAttr -s 2 ".ktv[0:1]"  0 -2.8235690921452812 47 -2.7855217525890983;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
 createNode animCurveTA -n "Full_Bedroom_shot_rotateX";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 -0.074907538156909495 47 -0.074907538156909495;
+	setAttr -s 2 ".ktv[0:1]"  0 -0.67490753815687221 47 -0.67490753815687221;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
 createNode animCurveTA -n "Full_Bedroom_shot_rotateZ";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  0 0 47 0;
+	setAttr -s 2 ".kit[1]"  18;
+	setAttr -s 2 ".kot[1]"  18;
+createNode polyPlane -n "polyPlane1";
+	setAttr ".w" 3.0081944349028373;
+	setAttr ".h" 5.3092182534854384;
+	setAttr ".sw" 40;
+	setAttr ".sh" 40;
+	setAttr ".cuv" 2;
+createNode polyTriangulate -n "polyTriangulate1";
+	setAttr ".ics" -type "componentList" 1 "f[*]";
+createNode PxrLMDiffuse -n "PxrLMDiffuse1";
+	setAttr ".frontColor" -type "float3" 0.70099998 0.45775297 0.52766621 ;
+createNode shadingEngine -n "PxrLMDiffuse1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
+createNode cacheFile -n "nClothShape1Cache1";
+	setAttr ".cn" -type "string" "nClothShape1";
+	setAttr ".cp" -type "string" "/Users/mbdriscoll/Nightmare//cache/nCache/bedroom1/";
+	setAttr ".ch[0]" -type "string" "nClothShape1";
+	setAttr ".oe" 47;
+	setAttr ".se" 47;
 select -ne :time1;
 	setAttr -av -k on ".cch";
-	setAttr -cb on ".ihi";
+	setAttr -cb on ".ihi" 0;
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 0;
-	setAttr -av ".unw";
+	setAttr -k on ".o" 8;
+	setAttr -av ".unw" 8;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 41 ".st";
+	setAttr -s 42 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
@@ -8565,7 +9077,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 37 ".s";
+	setAttr -s 38 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -8589,7 +9101,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 53 ".dsm";
+	setAttr -s 54 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -9455,6 +9967,13 @@ connectAttr "anim_ready_Emily:ctrlMouth_M_lipLowerRoll_L.o" "anim_ready_EmilyRN.
 connectAttr "anim_ready_Emily:FKJaw_M_rotateX.o" "anim_ready_EmilyRN.phl[341]";
 connectAttr "anim_ready_Emily:FKJaw_M_rotateY.o" "anim_ready_EmilyRN.phl[342]";
 connectAttr "anim_ready_Emily:FKJaw_M_rotateZ.o" "anim_ready_EmilyRN.phl[343]";
+connectAttr "anim_ready_EmilyRN.phl[344]" "nRigidShape1.imsh";
+connectAttr "anim_ready_EmilyRN.phl[345]" "nRigidShape7.imsh";
+connectAttr "anim_ready_EmilyRN.phl[346]" "nRigidShape6.imsh";
+connectAttr "anim_ready_EmilyRN.phl[347]" "nRigidShape5.imsh";
+connectAttr "bedroomRN.phl[1]" "nRigidShape4.imsh";
+connectAttr "bedroomRN.phl[2]" "nRigidShape3.imsh";
+connectAttr "bedroomRN.phl[3]" "nRigidShape2.imsh";
 connectAttr "Full_Bedroom_shot_translateX.o" "Full_Bedroom_shot.tx";
 connectAttr "Full_Bedroom_shot_translateY.o" "Full_Bedroom_shot.ty";
 connectAttr "Full_Bedroom_shot_translateZ.o" "Full_Bedroom_shot.tz";
@@ -9475,6 +9994,45 @@ connectAttr "walls.di" "rightWall.do";
 connectAttr "makeNurbPlane1.os" "rightWallShape.cr";
 connectAttr "walls.di" "rearWall.do";
 connectAttr "makeNurbPlane2.os" "ceilingShape.cr";
+connectAttr "polyTriangulate1.out" "BedsheetShape.i";
+connectAttr "nClothShape1.omsh" "outputCloth1.i";
+connectAttr ":time1.o" "nucleus1.cti";
+connectAttr "nClothShape1.cust" "nucleus1.niao[0]";
+connectAttr "nClothShape1.stst" "nucleus1.nias[0]";
+connectAttr "nRigidShape1.cust" "nucleus1.nipo[0]";
+connectAttr "nRigidShape2.cust" "nucleus1.nipo[1]";
+connectAttr "nRigidShape3.cust" "nucleus1.nipo[2]";
+connectAttr "nRigidShape4.cust" "nucleus1.nipo[3]";
+connectAttr "nRigidShape5.cust" "nucleus1.nipo[4]";
+connectAttr "nRigidShape6.cust" "nucleus1.nipo[5]";
+connectAttr "nRigidShape7.cust" "nucleus1.nipo[6]";
+connectAttr "nRigidShape1.stst" "nucleus1.nips[0]";
+connectAttr "nRigidShape2.stst" "nucleus1.nips[1]";
+connectAttr "nRigidShape3.stst" "nucleus1.nips[2]";
+connectAttr "nRigidShape4.stst" "nucleus1.nips[3]";
+connectAttr "nRigidShape5.stst" "nucleus1.nips[4]";
+connectAttr "nRigidShape6.stst" "nucleus1.nips[5]";
+connectAttr "nRigidShape7.stst" "nucleus1.nips[6]";
+connectAttr ":time1.o" "nClothShape1.cti";
+connectAttr "nucleus1.stf" "nClothShape1.stf";
+connectAttr "BedsheetShape.w" "nClothShape1.imsh";
+connectAttr "nucleus1.noao[0]" "nClothShape1.nxst";
+connectAttr "nClothShape1Cache1.ocd[0]" "nClothShape1.poss";
+connectAttr "nClothShape1Cache1.ir" "nClothShape1.pfc";
+connectAttr ":time1.o" "nRigidShape1.cti";
+connectAttr "nucleus1.stf" "nRigidShape1.stf";
+connectAttr ":time1.o" "nRigidShape2.cti";
+connectAttr "nucleus1.stf" "nRigidShape2.stf";
+connectAttr ":time1.o" "nRigidShape3.cti";
+connectAttr "nucleus1.stf" "nRigidShape3.stf";
+connectAttr ":time1.o" "nRigidShape4.cti";
+connectAttr "nucleus1.stf" "nRigidShape4.stf";
+connectAttr ":time1.o" "nRigidShape5.cti";
+connectAttr "nucleus1.stf" "nRigidShape5.stf";
+connectAttr ":time1.o" "nRigidShape6.cti";
+connectAttr "nucleus1.stf" "nRigidShape6.stf";
+connectAttr ":time1.o" "nRigidShape7.cti";
+connectAttr "nucleus1.stf" "nRigidShape7.stf";
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
@@ -9588,8 +10146,10 @@ connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBPtRenderGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtexGlobals.p" -na;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "PxrLMDiffuse1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "PxrLMDiffuse1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "sharedReferenceNode.sr" "anim_ready_EmilyRN.sr";
@@ -9600,15 +10160,25 @@ connectAttr "hyperLayout1.msg" "hyperView1.hl";
 connectAttr "polyTweak1.out" "deleteComponent1.ig";
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr "layerManager.dli[3]" "walls.id";
+connectAttr "polyPlane1.out" "polyTriangulate1.ip";
+connectAttr "PxrLMDiffuse1.oc" "PxrLMDiffuse1SG.ss";
+connectAttr "outputCloth1.iog" "PxrLMDiffuse1SG.dsm" -na;
+connectAttr "PxrLMDiffuse1SG.msg" "materialInfo1.sg";
+connectAttr "PxrLMDiffuse1.msg" "materialInfo1.m";
+connectAttr "PxrLMDiffuse1.msg" "materialInfo1.t" -na;
+connectAttr ":time1.o" "nClothShape1Cache1.tim";
+connectAttr "PxrLMDiffuse1SG.pa" ":renderPartition.st" -na;
+connectAttr "PxrLMDiffuse1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "RMSEnvLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "MoonLightShape.ltd" ":lightList1.l" -na;
 connectAttr "rightWallShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "rearWallShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "ceilingShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "BedsheetShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "RMSEnvLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "MoonLight.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"anim_ready_EmilyRN\" \"\" \"C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma\" 1769578702 \"/Users/mbdriscoll/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n1\n\"bedroomRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma\" 1849577064 \"/Users/mbdriscoll/Nightmare/assets/sets/bedroom.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"anim_ready_EmilyRN\" \"\" \"C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma\" 1769578702 \"/Users/mbdriscoll/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n1\n\"bedroomRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma\" 1849577064 \"/Users/mbdriscoll/Nightmare/assets/sets/bedroom.ma\" \"FileRef\"\n2\n\"nClothShape1Cache1\" \"cache-data-47\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame46.mcx\" 3602282880 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame46.mcx\" \"diskCache\"\n3\n\"nClothShape1Cache1\" \"cache-data-48\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame47.mcx\" 3956690992 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame47.mcx\" \"diskCache\"\n4\n\"nClothShape1Cache1\" \"cache-data-44\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame43.mcx\" 509015792 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame43.mcx\" \"diskCache\"\n5\n\"nClothShape1Cache1\" \"cache-data-43\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame42.mcx\" 590798656 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame42.mcx\" \"diskCache\"\n6\n\"nClothShape1Cache1\" \"cache-data-42\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame41.mcx\" 1687594384 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame41.mcx\" \"diskCache\"\n7\n\"nClothShape1Cache1\" \"cache-data-35\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame34.mcx\" 2977110616 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame34.mcx\" \"diskCache\"\n8\n\"nClothShape1Cache1\" \"cache-data-34\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame33.mcx\" 55821896 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame33.mcx\" \"diskCache\"\n9\n\"nClothShape1Cache1\" \"cache-data-33\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame32.mcx\" 1043591160 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame32.mcx\" \"diskCache\"\n10\n\"nClothShape1Cache1\" \"cache-data-32\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame31.mcx\" 2039715112 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame31.mcx\" \"diskCache\"\n11\n\"nClothShape1Cache1\" \"cache-data-45\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame44.mcx\" 2893425376 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame44.mcx\" \"diskCache\"\n12\n\"nClothShape1Cache1\" \"cache-data-30\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame29.mcx\" 2193558860 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame29.mcx\" \"diskCache\"\n13\n\"nClothShape1Cache1\" \"cache-data-39\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame38.mcx\" 1954805593 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame38.mcx\" \"diskCache\"\n14\n\"nClothShape1Cache1\" \"cache-data-27\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame26.mcx\" 15702685 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame26.mcx\" \"diskCache\"\n15\n\"nClothShape1Cache1\" \"cache-data-25\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame24.mcx\" 2049952253 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame24.mcx\" \"diskCache\"\n16\n\"nClothShape1Cache1\" \"cache-data-29\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame28.mcx\" 3219072252 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame28.mcx\" \"diskCache\"\n17\n\"nClothShape1Cache1\" \"cache-data-24\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame23.mcx\" 3356431853 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame23.mcx\" \"diskCache\"\n18\n\"nClothShape1Cache1\" \"cache-data-46\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame45.mcx\" 2434138960 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame45.mcx\" \"diskCache\"\n19\n\"nClothShape1Cache1\" \"cache-data-21\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame20.mcx\" 2410639165 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame20.mcx\" \"diskCache\"\n20\n\"nClothShape1Cache1\" \"cache-data-41\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame40.mcx\" 1509329952 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame40.mcx\" \"diskCache\"\n21\n\"nClothShape1Cache1\" \"cache-data-19\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame18.mcx\" 961238610 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame18.mcx\" \"diskCache\"\n22\n\"nClothShape1Cache1\" \"cache-data-18\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame17.mcx\" 3139158403 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame17.mcx\" \"diskCache\"\n23\n\"nClothShape1Cache1\" \"cache-data-16\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame15.mcx\" 3252392675 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame15.mcx\" \"diskCache\"\n24\n\"nClothShape1Cache1\" \"cache-data-13\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame12.mcx\" 1945849587 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame12.mcx\" \"diskCache\"\n25\n\"nClothShape1Cache1\" \"cache-data-17\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame16.mcx\" 2256267315 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame16.mcx\" \"diskCache\"\n26\n\"nClothShape1Cache1\" \"cache-data-14\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame13.mcx\" 1318807363 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame13.mcx\" \"diskCache\"\n27\n\"nClothShape1Cache1\" \"cache-data-12\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame11.mcx\" 878392355 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame11.mcx\" \"diskCache\"\n28\n\"nClothShape1Cache1\" \"cache-data-15\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame14.mcx\" 4240161619 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame14.mcx\" \"diskCache\"\n29\n\"nClothShape1Cache1\" \"cache-data-11\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame10.mcx\" 154869139 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame10.mcx\" \"diskCache\"\n30\n\"nClothShape1Cache1\" \"cache-data-9\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame8.mcx\" 1507286388 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame8.mcx\" \"diskCache\"\n31\n\"nClothShape1Cache1\" \"cache-data-8\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame7.mcx\" 3683109541 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame7.mcx\" \"diskCache\"\n32\n\"nClothShape1Cache1\" \"cache-data-23\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame22.mcx\" 4117707869 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame22.mcx\" \"diskCache\"\n33\n\"nClothShape1Cache1\" \"cache-data-37\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame36.mcx\" 3417524536 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame36.mcx\" \"diskCache\"\n34\n\"nClothShape1Cache1\" \"cache-data-7\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame6.mcx\" 3873956629 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame6.mcx\" \"diskCache\"\n35\n\"nClothShape1Cache1\" \"cache-data-6\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame5.mcx\" 2705824197 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame5.mcx\" \"diskCache\"\n36\n\"nClothShape1Cache1\" \"cache-data-20\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame19.mcx\" 69959650 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame19.mcx\" \"diskCache\"\n37\n\"nClothShape1Cache1\" \"cache-data-10\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame9.mcx\" 1689744580 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame9.mcx\" \"diskCache\"\n38\n\"nClothShape1Cache1\" \"cache-data-4\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame3.mcx\" 772238437 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame3.mcx\" \"diskCache\"\n39\n\"nClothShape1Cache1\" \"cache-data-31\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame30.mcx\" 1156824216 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame30.mcx\" \"diskCache\"\n40\n\"nClothShape1Cache1\" \"cache-data-22\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame21.mcx\" 2999928461 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame21.mcx\" \"diskCache\"\n41\n\"nClothShape1Cache1\" \"cache-data-5\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame4.mcx\" 2619846773 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame4.mcx\" \"diskCache\"\n42\n\"nClothShape1Cache1\" \"cache-data-40\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame39.mcx\" 1239670505 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame39.mcx\" \"diskCache\"\n43\n\"nClothShape1Cache1\" \"cache-data-38\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame37.mcx\" 4141047944 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame37.mcx\" \"diskCache\"\n44\n\"nClothShape1Cache1\" \"cache-data-3\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame2.mcx\" 325535189 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame2.mcx\" \"diskCache\"\n45\n\"nClothShape1Cache1\" \"cache-data-26\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame25.mcx\" 1196417101 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame25.mcx\" \"diskCache\"\n46\n\"nClothShape1Cache1\" \"cache-data-36\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame35.mcx\" 2350068712 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame35.mcx\" \"diskCache\"\n47\n\"nClothShape1Cache1\" \"cache-data-2\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame1.mcx\" 1422343941 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame1.mcx\" \"diskCache\"\n48\n\"nClothShape1Cache1\" \"cache-data-1\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame0.mcx\" 1772558005 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame0.mcx\" \"diskCache\"\n49\n\"nClothShape1Cache1\" \"cache-data-28\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame27.mcx\" 1032827693 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1Frame27.mcx\" \"diskCache\"\n50\n\"nClothShape1Cache1\" \"cache-description\" \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1.xml\" 1108355014 \"/Users/mbdriscoll/Nightmare/cache/nCache/bedroom1/nClothShape1.xml\" \"diskCache\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of bedroom1.ma
