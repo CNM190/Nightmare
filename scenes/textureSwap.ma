@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: textureSwap.ma
-//Last modified: Wed, Mar 11, 2015 07:18:50 PM
+//Last modified: Wed, Mar 11, 2015 07:59:19 PM
 //Codeset: 1252
 requires maya "2013";
 requires "stereoCamera" "10.0";
