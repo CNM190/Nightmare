@@ -1,12 +1,12 @@
 //Maya ASCII 2013 scene
 //Name: charge_3_crossfade.ma
-//Last modified: Sun, Mar 29, 2015 12:13:26 PM
+//Last modified: Sun, Mar 29, 2015 01:59:08 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
 file -rdi 1 -ns "sword" -rfn "swordRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma";
 file -rdi 1 -ns "bedroom2" -rfn "bedroom2RN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma";
 file -rdi 2 -ns "Emily" -dr 1 -rfn "bedroom2:EmilyRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
-file -rdi 2 -ns "Clyde" -dr 1 -rfn "bedroom2:ClydeRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Clyde_rig_temporary.ma";
+file -rdi 2 -ns "Clyde" -dr 1 -rfn "bedroom2:ClydeRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Clyde_rig_temporary2.ma";
 file -rdi 2 -ns "bedroom" -rfn "bedroom2:bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 3 -ns "bin" -rfn "bedroom2:bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
 file -rdi 3 -ns "desk" -rfn "bedroom2:bedroom:deskRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/desk.ma";
@@ -27,6 +27,7 @@ file -rdi 3 -ns "Lamp" -rfn "bedroom2:bedroom:LampRN" "C:/Users/Bernadette/Docum
 file -rdi 2 -ns "bedsheet" -rfn "bedroom2:bedsheetRN" "/Users/mbdriscoll/Nightmare//assets/props/bedsheet.ma";
 file -rdi 1 -ns "Candy_Rig" -rfn "Candy_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Candy_Rig.ma";
 file -rdi 1 -ns "Clyde_rig_temporary2" -rfn "Clyde_rig_temporary2RN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Clyde_rig_temporary2.ma";
+file -rdi 2 -ns "Clyde1" -rfn "Clyde_rig_temporary2:ClydeRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Clyde.ma";
 file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
 file -r -ns "sword" -dr 1 -rfn "swordRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma";
 file -r -ns "bedroom2" -dr 1 -rfn "bedroom2RN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma";
@@ -45,19 +46,19 @@ fileInfo "osv" "Mac OS X 10.9.2";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.7161902541486498 2.3690454127412819 -13.306429234233629 ;
-	setAttr ".r" -type "double3" -74.13835272910076 -7.0000000000002975 -4.0055501149795403e-16 ;
+	setAttr ".t" -type "double3" 4.0268881150703155 3.724729700748437 -13.444489807449774 ;
+	setAttr ".r" -type "double3" -79.538352729094328 -1.3999999999993678 -2.9826603684712948e-16 ;
 	setAttr ".rp" -type "double3" -1.7763568394002505e-15 2.2204460492503131e-16 0 ;
 	setAttr ".rpt" -type "double3" -3.2914949768789871e-15 5.5859379477347167e-16 -2.3750929480125643e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 4.6534341977943079;
+	setAttr ".coi" 9.9999997473787499e-06;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 4.2848434448242188 -1.7975345849990845 -14.051928997039795 ;
+	setAttr ".tp" -type "double3" 4.2848434448242196 -1.7975345849990845 -14.051928997039797 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -303,9 +304,9 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 105 ".lnk";
+	setAttr -s 69 ".lnk";
 	setAttr -s 15 ".ign";
-	setAttr -s 100 ".slnk";
+	setAttr -s 64 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -1444,7 +1445,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
-		"rotate" " -type \"double3\" 0.083994 38.752856 -12.5989"
+		"rotate" " -type \"double3\" 0.789655 39.223371 -14.499051"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M" 
@@ -1474,7 +1475,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
-		"rotate" " -type \"double3\" 10.35798 -5.687911 -1.309231"
+		"rotate" " -type \"double3\" 10.219425 -5.935228 0.0598812"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:FKSystem|Emily_Body_Rig:FKParentConstraintToChest_M|Emily_Body_Rig:FKOffsetNeck_M|Emily_Body_Rig:FKGlobalStaticNeck_M|Emily_Body_Rig:FKGlobalNeck_M|Emily_Body_Rig:FKExtraNeck_M|Emily_Body_Rig:FKNeck_M|Emily_Body_Rig:FKXOffsetNeck_M|Emily_Body_Rig:FKXNeck_M|Emily_Body_Rig:FKOffsetHead_M|Emily_Body_Rig:FKGlobalStaticHead_M|Emily_Body_Rig:FKGlobalHead_M|Emily_Body_Rig:FKExtraHead_M|Emily_Body_Rig:FKHead_M" 
@@ -2478,7 +2479,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"visibility" " -av 1"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
-		"translate" " -type \"double3\" 0.79701 -0.852256 1.006709"
+		"translate" " -type \"double3\" 0.7484 -0.84528 0.981453"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"translateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
@@ -2486,7 +2487,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
-		"rotate" " -type \"double3\" -65.043822 -4.876318 74.327844"
+		"rotate" " -type \"double3\" -68.717009 -5.930655 78.727193"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
 		"rotateX" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:Main|Emily_Body_Rig:MotionSystem|Emily_Body_Rig:IKSystem|Emily_Body_Rig:IKHandle|Emily_Body_Rig:IKOffsetArm_R|Emily_Body_Rig:IKExtraArm_R|Emily_Body_Rig:IKArm_R" 
@@ -5038,7 +5039,7 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"translateZ" " -av"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
-		"rotate" " -type \"double3\" 139.905105 29.080558 179.787953"
+		"rotate" " -type \"double3\" 139.79707 31.351644 179.794131"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:ControlsSetup|Emily_Body_Rig:Aimcontrols|Emily_Body_Rig:AimEyeOffset_M|Emily_Body_Rig:AimEyeFollow_M|Emily_Body_Rig:AimEye_M" 
@@ -5824,9 +5825,9 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKECurve|Emily_Body_Rig:squashIKECurveShape" 
 		"visibility" " -k 0 1"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"translate" " -type \"double3\" 4.498036 -1.645314 -15.667883"
+		"translate" " -type \"double3\" 4.491168 -1.642467 -15.675002"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceMotionSystem|Emily_Body_Rig:SquashSetup|Emily_Body_Rig:squashIKHandle" 
-		"rotate" " -type \"double3\" 89.452026 36.342027 26.056336"
+		"rotate" " -type \"double3\" 91.40335 36.707941 26.519462"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceDeformationSystem" 
 		"visibility" " 1"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:Rig|Emily_Body_Rig:FaceGroup|Emily_Body_Rig:FaceDeformationSystem|Emily_Body_Rig:FaceAttachToHead|Emily_Body_Rig:FaceAttachToHead_parentConstraint1" 
@@ -6185,7 +6186,7 @@ createNode reference -n "Emily_Body_RigRN";
 		"visibility" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:softer_features_blendshape" 
 		"visibility" " 0"
-		2 "|Emily_Body_Rig:Hair" "rotate" " -type \"double3\" -36.343278 -0.441391 -63.618926"
+		2 "|Emily_Body_Rig:Hair" "rotate" " -type \"double3\" -36.716177 1.125012 -64.319479"
 		
 		2 "|Emily_Body_Rig:Hair" "rotateX" " -av"
 		2 "|Emily_Body_Rig:Hair" "rotateY" " -av"
@@ -6196,7 +6197,7 @@ createNode reference -n "Emily_Body_RigRN";
 		
 		2 "Emily_Body_Rig:Meshes" "displayType" " 2"
 		2 "Emily_Body_Rig:Meshes" "visibility" " -av 1"
-		2 "Emily_Body_Rig:BodyCorrective" "w[0:59]" " -s 60 0 0 0.102864 0.17835 0 0 0.256238 0.320898 0 0 0 0 0.108346 0.275808 0.277231 0.586949 0.694303 0.548591 0 0.00158931 0.0657317 0.00053639 0.0454485 0 0.411834 0 0.988943 0.887065 0.0932149 0.0601848 0 0 0 0 0 0.115 0.00671097 0 0 0 0 1.34102e-10 0.0325777 0 0 0 0 0 0 0 0 0 0.0297726 0 0 0 0 0 0 1"
+		2 "Emily_Body_Rig:BodyCorrective" "w[0:59]" " -s 60 0 0 0.102864 0.17835 0 0 0.256238 0.320898 0 0 0 0 0.108346 0.275808 0.320357 0.586949 0.694303 0.548591 0 0.00158931 0.0852956 0 0.0454485 0 0.411834 0 1 0.887065 0.0954622 0.0601848 0 0 0 0 0 0.115 0.000866165 0 0 0 0 1.34102e-10 0.0325777 0 0 0 0 0 0 0 0 0 0.0128594 0 0 0 0 0 0 1"
 		
 		2 "Emily_Body_Rig:BodyCorrective" "weight" " -s 60"
 		2 "Emily_Body_Rig:BodyCorrective" "weight[0]" " -av"
@@ -7636,67 +7637,134 @@ createNode animCurveTU -n "Emily_Body_Rig:FKRoot_M_scaleZ";
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 13 ".ktv[0:12]"  -1.844 -10.763300936356908 -1.788 -1.9496720430760743
+	setAttr -s 14 ".ktv[0:13]"  -1.844 -10.763300936356908 -1.788 -1.9496720430760743
 		 -1.744 -12.69246015065564 4 -33.880113473589937 15 -37.10694835627767 32 -61.768281689941055
-		 47 -16.113663490798565 65.004 -11.25156589109379 67 -32.871001272759187 69 -49.187829600630657
-		 70.884 -40.457348212409919 82 -3.9962538174954312 104 0.78965523948503391;
-	setAttr -s 13 ".kit[12]"  9;
-	setAttr -s 13 ".kot[12]"  9;
+		 40 -50.838835158061073 47 -16.113663490798565 65.004 -11.25156589109379 67 -32.871001272759187
+		 69 -49.187829600630657 70.884 -40.457348212409919 82 -3.9962538174954312 104 0.78965523948503391;
+	setAttr -s 14 ".kit[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kot[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kix[6:13]"  1 0.94695639610290527 1 0.24387523531913757 
+		1 0.56610774993896484 0.96460610628128052 0.99587392807006836;
+	setAttr -s 14 ".kiy[6:13]"  0 0.32136204838752747 0 -0.96980661153793335 
+		0 0.82433128356933594 0.26369482278823853 0.09074750542640686;
+	setAttr -s 14 ".kox[6:13]"  1 0.94695639610290527 1 0.24387523531913757 
+		1 0.56610769033432007 0.96460616588592529 0.99587392807006836;
+	setAttr -s 14 ".koy[6:13]"  0 0.32136204838752747 0 -0.96980661153793335 
+		0 0.82433122396469116 0.26369482278823853 0.09074750542640686;
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 13 ".ktv[0:12]"  -1.844 1.1977463986164023 -1.788 0.97280331263826092
+	setAttr -s 14 ".ktv[0:13]"  -1.844 1.1977463986164023 -1.788 0.97280331263826092
 		 -1.744 6.4546939244786437 4 6.7127423435540283 15 -6.0549817446979279 32 9.8622915058012346
-		 47 12.138543104064372 65.004 7.079467416927522 67 19.826837717067409 69 29.494173099865936
-		 70.884 35.071712655282823 82 37.050357659321968 104 39.223371077617088;
-	setAttr -s 13 ".kit[12]"  9;
-	setAttr -s 13 ".kot[12]"  9;
+		 40 10.401051022483918 47 12.138543104064372 65.004 7.079467416927522 67 19.826837717067409
+		 69 29.494173099865936 70.884 35.071712655282823 82 37.050357659321968 104 39.223371077617088;
+	setAttr -s 14 ".kit[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kot[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kix[6:13]"  0.9822990894317627 1 1 0.39161005616188049 
+		0.51965552568435669 0.97588467597961426 0.99862402677536011 0.99914520978927612;
+	setAttr -s 14 ".kiy[6:13]"  0.1873193234205246 0 0 0.92013120651245117 
+		0.85437583923339844 0.21828688681125641 0.052441403269767761 0.041338708251714706;
+	setAttr -s 14 ".kox[6:13]"  0.9822990894317627 1 1 0.39161008596420288 
+		0.51965558528900146 0.97588467597961426 0.99862396717071533 0.99914520978927612;
+	setAttr -s 14 ".koy[6:13]"  0.18731933832168579 0 0 0.92013126611709595 
+		0.85437583923339844 0.2182869017124176 0.052441403269767761 0.041338708251714706;
 createNode animCurveTA -n "Emily_Body_Rig:FKNeck_M_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 13 ".ktv[0:12]"  -1.844 -5.8637037322984904 -1.788 -12.691906471696962
+	setAttr -s 14 ".ktv[0:13]"  -1.844 -5.8637037322984904 -1.788 -12.691906471696962
 		 -1.744 -4.4813841993788186 4 -2.8423337426139081 15 -34.42051794666309 32 -18.218428982921896
-		 47 -17.886845172526854 65.004 -1.371653835163174 67 -27.049342669792729 69 -30.766667975866213
-		 70.884 -10.328402574839297 82 -7.3873482776891741 104 -14.499051318406909;
-	setAttr -s 13 ".kit[12]"  9;
-	setAttr -s 13 ".kot[12]"  9;
+		 40 -20.17117320754889 47 -17.886845172526854 65.004 -1.371653835163174 67 -27.049342669792729
+		 69 -30.766667975866213 70.884 -10.328402574839297 82 -7.3873482776891741 104 -14.499051318406909;
+	setAttr -s 14 ".kit[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kot[6:13]"  1 18 18 18 18 18 18 9;
+	setAttr -s 14 ".kix[6:13]"  0.999614417552948 0.95381546020507812 1 
+		0.39358678460121155 1 0.94892615079879761 1 0.99095672369003296;
+	setAttr -s 14 ".kiy[6:13]"  0.027767989784479141 0.30039328336715698 
+		0 -0.91928744316101074 0 0.31549808382987976 0 -0.13418197631835938;
+	setAttr -s 14 ".kox[6:13]"  0.99961435794830322 0.95381546020507812 
+		1 0.39358675479888916 1 0.94892621040344238 1 0.99095672369003296;
+	setAttr -s 14 ".koy[6:13]"  0.027767987921833992 0.30039331316947937 
+		0 -0.91928750276565552 0 0.31549811363220215 0 -0.13418197631835938;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 -0.027005600000000001 -1.788 -0.027005600000000001
-		 -1.744 -0.027005600000000001 4 -0.027005600000000001 32 -0.027005600000000001 65.004 -0.027005600000000001
-		 67 -0.027005600000000001 69 -0.027005600000000001 70.884 -0.027005600000000001 82 -0.027005600000000001;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.027005600000000001 -1.788 -0.027005600000000001
+		 -1.744 -0.027005600000000001 4 -0.027005600000000001 32 -0.027005600000000001 40 -0.027005600000000001
+		 65.004 -0.027005600000000001 67 -0.027005600000000001 69 -0.027005600000000001 70.884 -0.027005600000000001
+		 82 -0.027005600000000001;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 -0.094937 -1.788 -0.094937 -1.744 -0.094937
-		 4 -0.094937 32 -0.094937 65.004 -0.094937 67 -0.094937 69 -0.094937 70.884 -0.094937
-		 82 -0.094937;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 -0.094937 -1.788 -0.094937 -1.744 -0.094937
+		 4 -0.094937 32 -0.094937 40 -0.094937 65.004 -0.094937 67 -0.094937 69 -0.094937
+		 70.884 -0.094937 82 -0.094937;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTL -n "Emily_Body_Rig:FKNeck_M_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.788 0 -1.744 0 4 0 32 0 65.004 0
-		 67 0 69 0 70.884 0 82 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.788 0 -1.744 0 4 0 32 0 40 0
+		 65.004 0 67 0 69 0 70.884 0 82 0;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 65.004 1
-		 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 40 1
+		 65.004 1 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 65.004 1
-		 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 40 1
+		 65.004 1 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 65.004 1
-		 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 1 -1.788 1 -1.744 1 4 1 32 1 40 1
+		 65.004 1 67 1 69 1 70.884 1 82 1;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTU -n "Emily_Body_Rig:FKNeck_M_Global";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  -1.844 0 -1.788 0 -1.744 0 4 0 32 0 65.004 0
-		 67 0 69 0 70.884 0 82 0;
+	setAttr -s 11 ".ktv[0:10]"  -1.844 0 -1.788 0 -1.744 0 4 0 32 0 40 0
+		 65.004 0 67 0 69 0 70.884 0 82 0;
+	setAttr -s 11 ".kit[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kot[5:10]"  1 18 18 18 18 18;
+	setAttr -s 11 ".kix[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".kiy[5:10]"  0 0 0 0 0 0;
+	setAttr -s 11 ".kox[5:10]"  1 1 1 1 1 1;
+	setAttr -s 11 ".koy[5:10]"  0 0 0 0 0 0;
 createNode animCurveTA -n "Emily_Body_Rig:FKShoulder_L_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -7936,7 +8004,7 @@ createNode animCurveTL -n "Emily_Body_Rig:IKArm_R_translateY";
 		 -1.752 -0.5581108808851567 -1.708 -0.64157405473889251 0 -0.30054226128774536 20 -0.60308425853360015
 		 31 -0.69494763419124284 38 -0.69712231788190437 52 -0.6136941272029075 65 -0.17020150013458801
 		 65.004 -0.48683731634656691 66 -0.13263640475543853 67 -0.12372714453643184 69 -0.26525316074188221
-		 70 -0.42688827993489487 73 -0.69251992629070691 87 -0.81553327145482513 99 -0.85225588947327802
+		 70 -0.42688827993489487 73 -0.69251992629070691 87 -0.81553327145482513 99 -0.85225588947327813
 		 105 -0.85987143210026284 115 -0.84527977852634739;
 	setAttr -s 20 ".kit[4:19]"  9 18 18 18 18 18 18 18 
 		18 18 18 18 9 9 9 9;
@@ -7975,7 +8043,7 @@ createNode animCurveTA -n "Emily_Body_Rig:IKArm_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 18 ".ktv[0:17]"  -5 -90.423759558762086 -1.708 -12.765450816501621
-		 0 0.92711756128626233 20 10.989210278410354 31 16.451416662905427 38 18.336605278300752
+		 0 0.92711756128626255 20 10.989210278410354 31 16.451416662905427 38 18.336605278300752
 		 52 7.628596697250301 65 134.23993786297811 65.004 30.621414754145324 66 119.42120508374929
 		 67 121.01536779322009 69 100.45972175086588 70 98.053708486332653 73 60.154275131437856
 		 78 39.498759637795487 87 -3.975518134330851 99 -4.8763178503814162 105 -5.930654660461526;
@@ -11488,8 +11556,8 @@ createNode reference -n "bedroom2RN";
 		"bedroom2:bedroom:bookshelf:bookRN1" 0
 		"bedroom2:bedroom:bookshelfRN" 0
 		"bedroom2:bedroom:bookshelf:bookRN3" 0
-		"bedroom2:bedroom:bookshelf:book3RN" 0
 		"bedroom2:bedroom:bookshelf:bookRN2" 0
+		"bedroom2:bedroom:bookshelf:book3RN" 0
 		"bedroom2:bedsheetRN" 0
 		"bedroom2:bedroom:bookshelf:crumpled_paperRN" 0
 		"bedroom2:bedroom:soft_toyRN" 0
@@ -11514,6 +11582,8 @@ createNode reference -n "bedroom2RN";
 		"bedroom2:bedroom:binRN" 0
 		"bedroom2:bedroom:LampRN" 0
 		"bedroom2:bedroom:bedRN" 0
+		"bedroom2:Emily:Dress_EmilyRN" 0
+		"bedroom2:Emily:Hair_EmilyRN" 0
 		"bedroom2:EmilyRN" 101
 		2 "|bedroom2:Emily:Emily" "translate" " -type \"double3\" 0 0 0"
 		2 "|bedroom2:Emily:Emily|bedroom2:Emily:Emily_Main|bedroom2:Emily:Rig|bedroom2:Emily:Main" 
@@ -11715,8 +11785,6 @@ createNode reference -n "bedroom2RN";
 		2 "|bedroom2:Emily:Emily|bedroom2:Emily:Emily_Main|bedroom2:Emily:geo_Emily|bedroom2:Emily:LeftEye|bedroom2:Emily:LeftEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "bedroom2:Emily:Meshes" "visibility" " -av 1"
-		"bedroom2:Emily:Hair_EmilyRN" 0
-		"bedroom2:Emily:Dress_EmilyRN" 0
 		"bedroom2:bedroom:bookshelf:sharpieRN" 0
 		"bedroom2:bedroom:bookshelf:OrbRN" 0
 		"bedroom2RN" 9
@@ -11738,7 +11806,7 @@ createNode reference -n "bedroom2RN";
 		
 		2 "|bedroom2:LightRig|bedroom2:ceiling|bedroom2:ceilingShape" "visibility" 
 		" -k 0 0"
-		"bedroom2:bedroom:bookshelf:bookRN" 0
+		"bedroom2:bedroom:deskRN" 0
 		"bedroom2:ClydeRN" 64
 		2 "|bedroom2:dog_group|bedroom2:Clyde:polySurface6" "visibility" " -av 1"
 		
@@ -11868,7 +11936,7 @@ createNode reference -n "bedroom2RN";
 		"bedroom2RN.placeHolderList[21]" ""
 		5 4 "bedroom2RN" "|bedroom2:Clyde:GRP_Clyde_JNTs|bedroom2:Clyde:Clyde_whole_rig|bedroom2:Clyde:tail_proximal.translateZ" 
 		"bedroom2RN.placeHolderList[22]" ""
-		"bedroom2:bedroom:deskRN" 0
+		"bedroom2:bedroom:bookshelf:bookRN" 0
 		"bedroom2:bedroom:binRN" 2
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:bin:bin_test:pCube1" "translate" 
 		" -type \"double3\" 4.068149 -41.209725 -64.920976"
@@ -11998,7 +12066,7 @@ createNode reference -n "bedroom2RN";
 		2 "|bedroom2:camera1" "rotatePivot" " -type \"double3\" 0 0 0"
 		2 "|bedroom2:camera1" "rotatePivotTranslate" " -type \"double3\" 0 0 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "renderable" " 1"
-		2 "|bedroom2:camera1|bedroom2:camera1Shape" "overscan" " 1.3"
+		2 "|bedroom2:camera1|bedroom2:camera1Shape" "overscan" " 1"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "focalLength" " 35"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "nearClipPlane" " 0.1"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "farClipPlane" " 10000"
@@ -12007,7 +12075,7 @@ createNode reference -n "bedroom2RN";
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "tumblePivot" " -type \"double3\" 0 0 0"
 		
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayGateMask" " 1"
-		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayFilmGate" " 1"
+		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayFilmGate" " 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayResolution" " 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "depth" " 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "mask" " 1"
@@ -17216,23 +17284,23 @@ createNode reference -n "Candy_RigRN";
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateZ" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateZ" 
 		""
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5|Candy_Rig:CTRL_Candy_Eye_R_5_parentConstraint1.constraintTranslateX" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5.translateX" 
@@ -17252,33 +17320,33 @@ createNode reference -n "Candy_RigRN";
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5|Candy_Rig:CTRL_Candy_Eye_R_5_parentConstraint1.constraintRotateZ" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5.rotateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintRotateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Head_LowerJaw.rotateZ" 
 		""
 		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Tongue.visibility" 
 		"Candy_RigRN.placeHolderList[1]" ""
-		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateX" 
-		"Candy_RigRN.placeHolderList[2]" ""
-		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateY" 
-		"Candy_RigRN.placeHolderList[3]" ""
-		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateZ" 
-		"Candy_RigRN.placeHolderList[4]" ""
 		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.visibility" 
+		"Candy_RigRN.placeHolderList[2]" ""
+		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateX" 
+		"Candy_RigRN.placeHolderList[3]" ""
+		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateY" 
+		"Candy_RigRN.placeHolderList[4]" ""
+		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.rotateZ" 
 		"Candy_RigRN.placeHolderList[5]" ""
 		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Body.translateX" 
 		"Candy_RigRN.placeHolderList[6]" ""
@@ -17564,7 +17632,7 @@ createNode animCurveTU -n "Candy_Rig:CTRL_Candy_Head_Main_visibility";
 createNode animCurveTA -n "Candy_Rig:CTRL_Candy_Head_Main_rotateX";
 	setAttr ".tan" 1;
 	setAttr -s 8 ".ktv[0:7]"  0 0 20 0 50 2.5165890704120555 65 -6.906684054739479
-		 70 -8.6805090915788305 78 0.96688431652414031 84 0.96688431652414031 90 -0.96817883733910826;
+		 70 -8.6805090915788305 78 0.96688431652414031 84 0.96688431652414031 90 -0.96817883733910837;
 	setAttr -s 8 ".kit[0:7]"  3 3 1 1 10 9 1 9;
 	setAttr -s 8 ".kot[0:7]"  3 3 1 1 10 9 1 9;
 	setAttr -s 8 ".kix[2:7]"  0.83333331346511841 0.83333331346511841 
@@ -17886,8 +17954,8 @@ createNode animCurveTU -n "Candy_Rig:CTRL_Candy_Head_LowerJaw_visibility";
 	setAttr ".kot[0]"  5;
 createNode animCurveTA -n "pairBlend1_inRotateX1";
 	setAttr ".tan" 9;
-	setAttr -s 15 ".ktv[0:14]"  0 -180.60572797710927 9 -185.96577351015674
-		 12 -223.00390747384637 15 -256.3814192306674 20 -289.55631318765455 30 -290.52286865589491
+	setAttr -s 15 ".ktv[0:14]"  0 -180.6057279771093 9 -185.96577351015671
+		 12 -223.00390747384637 15 -256.3814192306674 20 -289.55631318765455 30 -290.52286865589497
 		 47 -316.31333461521808 59 -153.1168008707175 62 -172.52273989967429 66 -169.87120970436823
 		 70 -177.91302350339814 73 -157.26708833710731 77 -122.61629661990865 83 -116.7656196012375
 		 90 -100.42498783470651;
@@ -17901,7 +17969,7 @@ createNode animCurveTA -n "pairBlend1_inRotateY1";
 	setAttr ".tan" 9;
 	setAttr -s 14 ".ktv[0:13]"  0 -194.81495446471507 9 -137.73358092912054
 		 12 -121.16987446489512 15 -123.73127161210806 20 -111.91646998883512 30 -109.05806174537442
-		 47 -109.94802375810467 59 -72.052349980740061 66 -68.90065299864915 70 -64.960365146667641
+		 47 -109.94802375810468 59 -72.052349980740061 66 -68.90065299864915 70 -64.960365146667641
 		 73 -67.650834951258673 77 -59.211473172978067 83 -71.819091141371857 90 -51.711076721903083;
 	setAttr -s 14 ".kit[11:13]"  2 2 1;
 	setAttr -s 14 ".kot[11:13]"  2 2 1;
@@ -17913,7 +17981,7 @@ createNode animCurveTA -n "pairBlend1_inRotateZ1";
 	setAttr ".tan" 9;
 	setAttr -s 14 ".ktv[0:13]"  0 180.85079119014523 9 198.30227495992963
 		 12 270.67329540670704 15 300.61763881960405 20 335.41324348443482 30 347.49085132289048
-		 47 370.75643823100677 59 203.22024022113612 66 179.28824921517909 70 182.538456459777
+		 47 370.75643823100683 59 203.22024022113612 66 179.28824921517909 70 182.53845645977702
 		 73 183.0964434892673 77 188.97272627999561 83 175.95168631589564 90 166.69137214274608;
 	setAttr -s 14 ".kit[5:13]"  3 3 9 9 9 9 2 2 
 		1;
@@ -18077,68 +18145,45 @@ createNode animCurveTU -n "Candy_Rig:CTRL_Candy_GLOBAL_visibility";
 	setAttr -s 2 ".ktv[0:1]"  0 1 91 0;
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode reference -n "Clyde_rig_temporary2RN";
-	setAttr -s 13 ".phl";
-	setAttr ".phl[1]" 0;
-	setAttr ".phl[2]" 0;
-	setAttr ".phl[3]" 0;
-	setAttr ".phl[4]" 0;
-	setAttr ".phl[5]" 0;
-	setAttr ".phl[6]" 0;
-	setAttr ".phl[7]" 0;
-	setAttr ".phl[8]" 0;
-	setAttr ".phl[9]" 0;
-	setAttr ".phl[10]" 0;
-	setAttr ".phl[11]" 0;
-	setAttr ".phl[12]" 0;
-	setAttr ".phl[13]" 0;
+	setAttr -s 24 ".phl";
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Clyde_rig_temporary2RN"
-		"Clyde_rig_temporary2RN" 0
-		"Clyde_rig_temporary2RN" 49
+		"Clyde_rig_temporary2:ClydeRN" 0
+		"Clyde_rig_temporary2RN" 34
 		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate" "translate" " -type \"double3\" 4.232205 -5.524126 -14.941453"
 		
 		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate" "rotate" " -type \"double3\" -118.490702 5.150422 -91.283637"
 		
 		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate" "scale" " -type \"double3\" 0.381414 0.381414 0.381414"
 		
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:GRP_Clyde_CTRLs|Clyde_rig_temporary2:CTRL_Clyde_Back_Knee_R" 
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Back_Knee_R" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:GRP_Clyde_CTRLs|Clyde_rig_temporary2:CTRL_Clyde_Back_Knee_L" 
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Back_Knee_L" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front" 
-		"rotate" " -type \"double3\" 24.90236 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L" 
-		"translate" " -type \"double3\" -0.89434 1.709188 0.139494"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L" 
-		"rotate" " -type \"double3\" 123.619453 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_L" 
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_L" 
 		"translate" " -type \"double3\" -0.728854 0.492047 -2.971512"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_L" 
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_L" 
 		"rotate" " -type \"double3\" -99.495438 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R" 
-		"translate" " -type \"double3\" 0.992924 0.961869 -0.59459"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R" 
-		"rotate" " -type \"double3\" 157.190383 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_R" 
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Front_Knee_R" 
 		"translate" " -type \"double3\" 0.551804 0.255225 -4.80302"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head" 
-		"rotate" " -type \"double3\" 27.245428 -23.131439 1.588747"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head" 
-		"rotateX" " -av"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head" 
-		"rotateY" " -av"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head" 
-		"rotateZ" " -av"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck" 
-		"rotate" " -type \"double3\" 42.233481 0 0"
 		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R1" 
 		"translate" " -type \"double3\" 0.602148 0.87373 -0.983343"
 		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R1" 
 		"rotate" " -type \"double3\" 60.556086 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Tail_Main" 
-		"rotate" " -type \"double3\" -39.1298 0 0"
-		2 "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Tail_Main|Clyde_rig_temporary2:CTRL_Clyde_Tail_1" 
-		"rotate" " -type \"double3\" -28.655943 9.931406 47.172924"
 		2 "|Clyde_rig_temporary2:Clyde:MESH_Clyde_Main" "visibility" " -av 1"
 		2 "|Clyde_rig_temporary2:Clyde:GRP_Clyde_Blendshapes|Clyde_rig_temporary2:Clyde:BLEND_Clyde_Smile|Clyde_rig_temporary2:Clyde:BLEND_Clyde_Smile4Shape" 
 		"pnts" " -s 431"
@@ -18163,12 +18208,6 @@ createNode reference -n "Clyde_rig_temporary2RN";
 		2 "Clyde_rig_temporary2:Clyde:blendShape1" "weight" " -s 2"
 		2 "Clyde_rig_temporary2:Clyde:blendShape1" "weight[0]" " -av"
 		2 "Clyde_rig_temporary2:Clyde:blendShape1" "weight[1]" " -av"
-		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateX" 
-		"Clyde_rig_temporary2RN.placeHolderList[1]" ""
-		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateY" 
-		"Clyde_rig_temporary2RN.placeHolderList[2]" ""
-		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateZ" 
-		"Clyde_rig_temporary2RN.placeHolderList[3]" ""
 		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head.translateX" 
 		"Clyde_rig_temporary2RN.placeHolderList[4]" ""
 		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTLR_Clyde_Main_Rotate|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Head.translateY" 
@@ -18188,7 +18227,73 @@ createNode reference -n "Clyde_rig_temporary2RN";
 		5 4 "Clyde_rig_temporary2RN" "Clyde_rig_temporary2:Clyde:blendShape1.weight[0]" 
 		"Clyde_rig_temporary2RN.placeHolderList[12]" ""
 		5 4 "Clyde_rig_temporary2RN" "Clyde_rig_temporary2:Clyde:blendShape1.weight[1]" 
-		"Clyde_rig_temporary2RN.placeHolderList[13]" "";
+		"Clyde_rig_temporary2RN.placeHolderList[13]" ""
+		"Clyde_rig_temporary2:ClydeRN" 7
+		2 "|Clyde_rig_temporary2:CRP_Clyde_Blendshapes|Clyde_rig_temporary2:Clyde1:MESH_Clyde_Main55" 
+		"visibility" " -av 1"
+		2 "Clyde_rig_temporary2:Clyde1:blendShape1" "w[0:3]" " -s 4 0 0 0 0"
+		2 "Clyde_rig_temporary2:Clyde1:blendShape1" "weight" " -s 4"
+		2 "Clyde_rig_temporary2:Clyde1:blendShape1" "weight[0]" " -av"
+		2 "Clyde_rig_temporary2:Clyde1:blendShape1" "weight[1]" " -av"
+		2 "Clyde_rig_temporary2:Clyde1:blendShape1" "weight[2]" " -av"
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CRP_Clyde_Blendshapes|Clyde_rig_temporary2:Clyde1:MESH_Clyde_Main55.visibility" 
+		"Clyde_rig_temporary2RN.placeHolderList[14]" ""
+		"Clyde_rig_temporary2RN" 28
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main" "visibility" " -av 1"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front" 
+		"rotate" " -type \"double3\" 24.90236 0 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L" 
+		"translate" " -type \"double3\" -0.89434 1.709188 0.139494"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_L" 
+		"rotate" " -type \"double3\" 123.619453 0 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R" 
+		"translate" " -type \"double3\" 0.992924 0.961869 -0.59459"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_FrontPaw_R" 
+		"rotate" " -type \"double3\" 157.190383 0 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck" 
+		"rotate" " -type \"double3\" 42.233481 0 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head" 
+		"rotate" " -type \"double3\" -24.913681 -23.131439 1.588747"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head" 
+		"rotateX" " -av"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head" 
+		"rotateY" " -av"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head" 
+		"rotateZ" " -av"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head|Clyde_rig_temporary2:CTRL_Clyde_Nose" 
+		"translateY" " 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Breathe" 
+		"translateZ" " -av 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Tail_Main" 
+		"rotate" " -type \"double3\" -39.1298 0 0"
+		2 "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Tail_Main|Clyde_rig_temporary2:CTRL_Clyde_Tail_1" 
+		"rotate" " -type \"double3\" -28.655943 9.931406 47.172924"
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.translateZ" 
+		"Clyde_rig_temporary2RN.placeHolderList[15]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.translateX" 
+		"Clyde_rig_temporary2RN.placeHolderList[16]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.translateY" 
+		"Clyde_rig_temporary2RN.placeHolderList[17]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.rotateZ" 
+		"Clyde_rig_temporary2RN.placeHolderList[18]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.rotateX" 
+		"Clyde_rig_temporary2RN.placeHolderList[19]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.rotateY" 
+		"Clyde_rig_temporary2RN.placeHolderList[20]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.scaleX" 
+		"Clyde_rig_temporary2RN.placeHolderList[21]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.scaleY" 
+		"Clyde_rig_temporary2RN.placeHolderList[22]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.scaleZ" 
+		"Clyde_rig_temporary2RN.placeHolderList[23]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main.visibility" 
+		"Clyde_rig_temporary2RN.placeHolderList[24]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateX" 
+		"Clyde_rig_temporary2RN.placeHolderList[25]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateY" 
+		"Clyde_rig_temporary2RN.placeHolderList[26]" ""
+		5 4 "Clyde_rig_temporary2RN" "|Clyde_rig_temporary2:CTRL_Clyde_Main|Clyde_rig_temporary2:CTRL_Clyde_COG|Clyde_rig_temporary2:CTRL_Clyde_Front1|Clyde_rig_temporary2:CTRL_Clyde_Front|Clyde_rig_temporary2:CTRL_Clyde_Neck|Clyde_rig_temporary2:CTRL_Clyde_Head.rotateZ" 
+		"Clyde_rig_temporary2RN.placeHolderList[27]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTU -n "Clyde_rig_temporary2:Clyde:MESH_Clyde_Main_visibility";
@@ -18203,13 +18308,13 @@ createNode animCurveTU -n "Clyde_rig_temporary2:Clyde:blendShape1_BLEND_Clyde_Sm
 	setAttr -s 3 ".ktv[0:2]"  95 0 103 0.53211009502410889 115 1;
 createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateX";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  120 27.245428106458078 138 36.216025029437169;
+	setAttr -s 2 ".ktv[0:1]"  120 -25.369406359851553 138 -21.267884939830441;
 createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateY";
 	setAttr ".tan" 9;
 	setAttr ".ktv[0]"  120 -23.131438928871159;
 createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateZ";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  120 1.5887466797903527;
+	setAttr ".ktv[0]"  120 1.5887466797903529;
 createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Head_visibility";
 	setAttr ".tan" 9;
 	setAttr ".ktv[0]"  120 1;
@@ -18232,13 +18337,48 @@ createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleY";
 createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleZ";
 	setAttr ".tan" 9;
 	setAttr ".ktv[0]"  120 1;
+createNode animCurveTL -n "Clyde_rig_temporary2:CTRL_Clyde_Main_translateX";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 4.5475531399630347;
+createNode animCurveTL -n "Clyde_rig_temporary2:CTRL_Clyde_Main_translateY";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 -4.6959814168662115;
+createNode animCurveTL -n "Clyde_rig_temporary2:CTRL_Clyde_Main_translateZ";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 -15.475197285546749;
+createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Main_visibility";
+	setAttr ".tan" 9;
+	setAttr -s 2 ".ktv[0:1]"  90 0 91 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateX";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 -116.98239559534872;
+createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateY";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 9.5416640443905503e-15;
+createNode animCurveTA -n "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateZ";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 -88.496875879371402;
+createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleX";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 0.36607903078183751;
+createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleY";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 0.36607903078183751;
+createNode animCurveTU -n "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleZ";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  91 0.36607903078183751;
+createNode animCurveTU -n "Clyde_rig_temporary2:Clyde1:MESH_Clyde_Main55_visibility";
+	setAttr ".tan" 9;
+	setAttr -s 2 ".ktv[0:1]"  90 0 91 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 99;
-	setAttr -av ".unw" 99;
+	setAttr -k on ".o" 122;
+	setAttr -av ".unw" 122;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -18253,7 +18393,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 71 ".dsm";
+	setAttr -s 76 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -18312,7 +18452,6 @@ select -ne :defaultTextureList1;
 	setAttr -s 32 ".tx";
 select -ne :lightList1;
 	setAttr -s 6 ".l";
-select -ne :lambert1;
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -18326,7 +18465,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 36 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 28 ".r";
+	setAttr -s 29 ".r";
 select -ne :renderGlobalsList1;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -18517,7 +18656,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 8 ".sol";
+	setAttr -s 7 ".sol";
 connectAttr "Emily_Body_Rig:Main_FaceVis.o" "Emily_Body_RigRN.phl[1]";
 connectAttr "Emily_Body_Rig:Main_Resolution.o" "Emily_Body_RigRN.phl[2]";
 connectAttr "Emily_Body_Rig:Main_fkVis.o" "Emily_Body_RigRN.phl[3]";
@@ -19149,10 +19288,10 @@ connectAttr "bedroom2:bedroom:pPlane1_translateY.o" "bedroom2RN.phl[30]";
 connectAttr "bedroom2:bedroom:pPlane1_translateZ.o" "bedroom2RN.phl[31]";
 connectAttr "Candy_Rig:Candy:MESH_Candy_Tongue_visibility.o" "Candy_RigRN.phl[1]"
 		;
-connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateX.o" "Candy_RigRN.phl[2]";
-connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateY.o" "Candy_RigRN.phl[3]";
-connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateZ.o" "Candy_RigRN.phl[4]";
-connectAttr "Candy_Rig:Candy:MESH_Candy_Body_visibility.o" "Candy_RigRN.phl[5]";
+connectAttr "Candy_Rig:Candy:MESH_Candy_Body_visibility.o" "Candy_RigRN.phl[2]";
+connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateX.o" "Candy_RigRN.phl[3]";
+connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateY.o" "Candy_RigRN.phl[4]";
+connectAttr "Candy_Rig:Candy:MESH_Candy_Body_rotateZ.o" "Candy_RigRN.phl[5]";
 connectAttr "Candy_Rig:Candy:MESH_Candy_Body_translateX.o" "Candy_RigRN.phl[6]";
 connectAttr "Candy_Rig:Candy:MESH_Candy_Body_translateY.o" "Candy_RigRN.phl[7]";
 connectAttr "Candy_Rig:Candy:MESH_Candy_Body_translateZ.o" "Candy_RigRN.phl[8]";
@@ -19285,31 +19424,33 @@ connectAttr "Candy_Rig:CTRL_Candy_Eyes_rotateY.o" "Candy_RigRN.phl[126]";
 connectAttr "Candy_Rig:CTRL_Candy_Eyes_rotateZ.o" "Candy_RigRN.phl[127]";
 connectAttr "Candy_Rig:Candy:MESH_Candy_RightEye_visibility.o" "Candy_RigRN.phl[128]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateX.o" "Clyde_rig_temporary2RN.phl[1]"
+connectAttr "Clyde_rig_temporary2:Clyde1:MESH_Clyde_Main55_visibility.o" "Clyde_rig_temporary2RN.phl[14]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateY.o" "Clyde_rig_temporary2RN.phl[2]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_translateZ.o" "Clyde_rig_temporary2RN.phl[15]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateZ.o" "Clyde_rig_temporary2RN.phl[3]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_translateX.o" "Clyde_rig_temporary2RN.phl[16]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateX.o" "Clyde_rig_temporary2RN.phl[4]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_translateY.o" "Clyde_rig_temporary2RN.phl[17]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateY.o" "Clyde_rig_temporary2RN.phl[5]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateZ.o" "Clyde_rig_temporary2RN.phl[18]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateZ.o" "Clyde_rig_temporary2RN.phl[6]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateX.o" "Clyde_rig_temporary2RN.phl[19]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_visibility.o" "Clyde_rig_temporary2RN.phl[7]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_rotateY.o" "Clyde_rig_temporary2RN.phl[20]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleX.o" "Clyde_rig_temporary2RN.phl[8]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleX.o" "Clyde_rig_temporary2RN.phl[21]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleY.o" "Clyde_rig_temporary2RN.phl[9]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleY.o" "Clyde_rig_temporary2RN.phl[22]"
 		;
-connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleZ.o" "Clyde_rig_temporary2RN.phl[10]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_scaleZ.o" "Clyde_rig_temporary2RN.phl[23]"
 		;
-connectAttr "Clyde_rig_temporary2:Clyde:MESH_Clyde_Main_visibility.o" "Clyde_rig_temporary2RN.phl[11]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_visibility.o" "Clyde_rig_temporary2RN.phl[24]"
 		;
-connectAttr "Clyde_rig_temporary2:Clyde:blendShape1_BLEND_Clyde_Smile.o" "Clyde_rig_temporary2RN.phl[12]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateX.o" "Clyde_rig_temporary2RN.phl[25]"
 		;
-connectAttr "Clyde_rig_temporary2:Clyde:blendShape1_BLEND_Clyde_Breathe.o" "Clyde_rig_temporary2RN.phl[13]"
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateY.o" "Clyde_rig_temporary2RN.phl[26]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_rotateZ.o" "Clyde_rig_temporary2RN.phl[27]"
 		;
 connectAttr "camera1_translateX.o" "camera1.tx";
 connectAttr "camera1_translateY.o" "camera1.ty";
@@ -19485,6 +19626,26 @@ connectAttr "pairBlend4_inTranslateZ1.o" "pairBlend4.itz1";
 connectAttr "pairBlend4_inRotateX1.o" "pairBlend4.irx1";
 connectAttr "pairBlend4_inRotateY1.o" "pairBlend4.iry1";
 connectAttr "pairBlend4_inRotateZ1.o" "pairBlend4.irz1";
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateX.o" "Clyde_rig_temporary2RN.phl[4]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateY.o" "Clyde_rig_temporary2RN.phl[5]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_translateZ.o" "Clyde_rig_temporary2RN.phl[6]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_visibility.o" "Clyde_rig_temporary2RN.phl[7]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleX.o" "Clyde_rig_temporary2RN.phl[8]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleY.o" "Clyde_rig_temporary2RN.phl[9]"
+		;
+connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Head_scaleZ.o" "Clyde_rig_temporary2RN.phl[10]"
+		;
+connectAttr "Clyde_rig_temporary2:Clyde:MESH_Clyde_Main_visibility.o" "Clyde_rig_temporary2RN.phl[11]"
+		;
+connectAttr "Clyde_rig_temporary2:Clyde:blendShape1_BLEND_Clyde_Smile.o" "Clyde_rig_temporary2RN.phl[12]"
+		;
+connectAttr "Clyde_rig_temporary2:Clyde:blendShape1_BLEND_Clyde_Breathe.o" "Clyde_rig_temporary2RN.phl[13]"
+		;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Floor.msg" ":defaultShaderList1.s" -na;
