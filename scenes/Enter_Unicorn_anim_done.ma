@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: Enter_Unicorn_anim_done.ma
-//Last modified: Thu, Apr 02, 2015 12:07:45 AM
+//Last modified: Thu, Apr 02, 2015 12:28:18 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily" -rfn "EmilyRN" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily_Enter_Unicorn.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -13,6 +13,7 @@ requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
 requires -nodeType "RenderMan" "RenderMan_for_Maya" "5.5";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -140,8 +141,8 @@ createNode imagePlane -n "imagePlaneShape1" -p "imagePlane1";
 	setAttr ".w" 30;
 	setAttr ".h" 30;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 51 ".lnk";
-	setAttr -s 51 ".slnk";
+	setAttr -s 50 ".lnk";
+	setAttr -s 50 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 1;
 	setAttr -s 3 ".dli[1:2]"  1 2;

@@ -30,6 +30,12 @@
   startFrame : 1
   endFrame   : 64
 
+- name       : "Enter Unicorn"
+  file       : "scenes/Enter_Unicorn_anim_done.ma"
+  camera     : 'Rendering_Camera'
+  startFrame : 1
+  endFrame   : 99
+
 - name       : "Blade of the Heart"
   file       : "scenes/charge.ma"
   camera     : 'camera1'
