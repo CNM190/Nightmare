@@ -12,16 +12,17 @@ for shot in shots:
     key = "%s.%s.frame%d" % (name.replace(' ', '_'), camera, start)
     cmd = [
         "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
-        "-r", "rman", "-ris",
+        "-r", "rman", "-reyes",
+        "-proj", str(os.getcwd()),
         "-res", "480", "270",
         "-cam", camera,
         "-of", "OpenEXR",
         "-im", key,
-        "-rd", str(os.getcwd()),
+        "-rd", str(os.join(os.getcwd(), "sanity")),
         "-s", str(start),
         "-e", str(start),
         "-fnc", "'name.#.ext'",
-        #"-spool", '"remote rib, remote render"',
+        "-spool", '"immediate rib, remote render"',
         filename
     ]
 
