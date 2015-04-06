@@ -6,10 +6,10 @@ with open('scenes/shots.yaml') as s:
 for shot in shots:
     name = shot['name']
     filename = shot['file']
-    start = int(shot['startFrame'])
+    frameno = int((int(shot['endFrame']) - int(shot['startFrame']))/2.0)
     camera = shot['camera']
 
-    key = "%s.%s.frame%d" % (name.replace(' ', '_'), camera, start)
+    key = "%s.%s.frame%d" % (name.replace(' ', '_'), camera, frameno)
     cmd = [
         "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
         "-r", "rman", "-reyes",
@@ -19,8 +19,8 @@ for shot in shots:
         "-of", "OpenEXR",
         "-im", key,
         "-rd", str(os.join(os.getcwd(), "sanity")),
-        "-s", str(start),
-        "-e", str(start),
+        "-s", str(frameno),
+        "-e", str(frameno),
         "-fnc", "'name.#.ext'",
         "-spool", '"immediate rib, remote render"',
         filename
