@@ -19,49 +19,55 @@
 # Act II
 
 - name       : "Hallway Walking"
-  file       : "scenes/hallway1.ma"
+  file       : "scenes/hallway_walk.ma"
   camera     : 'Hallway_Medium_Shot'
   startFrame : 1
   endFrame   : 69
 
 - name       : "Hallway Running"
-  file       : "scenes/hallway2.ma"
+  file       : "scenes/hallway_run.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 64
 
 - name       : "Enter Unicorn"
-  file       : "scenes/Enter_Unicorn_anim_done.ma"
+  file       : "scenes/Enter_Unicorn_Part1 [animation done].ma"
   camera     : 'Rendering_Camera'
   startFrame : 1
   endFrame   : 99
 
 - name       : "Blade of the Heart"
-  file       : "scenes/charge.ma"
+  file       : "scenes/Blade_of_the_Heart.ma"
+  camera     : 'Rendering_Camera'
+  startFrame : 100
+  endFrame   : 336
+
+- name       : "Monster Rising"
+  file       : "fight.ma"
   camera     : 'camera1'
   startFrame : 1
-  endFrame   : 236
+  endFrame   : 71
 
-- name       : "Steel thy Resolve"
-  file       : "determination.ma"
-  camera     : 'camera1'
-  startFrame : 1
-  endFrame   : 67
-
-- name       : "Charge 2 Cam 2"
-  file       : "scenes/charge2_2.ma"
+- name       : "Monster POV"
+  file       : "scenes/fight.ma"
   camera     : 'camera2'
-  startFrame : 68
-  endFrame   : 116
+  startFrame : 72
+  endFrame   : 96
 
-- name       : "Charge 2 Cam 3"
-  file       : "scenes/charge2_3.ma"
+- name       : "Emily Looking Determined"
+  file       : "scenes/determination.ma"
   camera     : 'camera3'
   startFrame : 117
   endFrame   : 201
 
-- name       : "Charge 3 Cam 1"
-  file       : "scenes/charge3.ma"
+- name       : "Charge"
+  file       : "scenes/fight.ma"
+  camera     : 'camera3'
+  startFrame : 97
+  endFrame   : 241
+
+- name       : "Crossfade"
+  file       : "scenes/crossfade.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 90
