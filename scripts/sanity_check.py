@@ -22,7 +22,6 @@ for shot in shots:
         "-s", str(frameno),
         "-e", str(frameno),
         "-fnc", "'name.#.ext'",
-        "-preRender", 'setAttr -type "string" defaultRenderGlobals.currentRenderer "renderMan";',
         #"-spool", '"immediate rib, remote render"',
         filename
     ]

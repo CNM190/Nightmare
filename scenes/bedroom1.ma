@@ -1,8 +1,10 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1.ma
-//Last modified: Fri, Mar 27, 2015 03:42:17 PM
+//Last modified: Thu, Apr 16, 2015 03:14:11 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "anim_ready_Emily" -rfn "anim_ready_EmilyRN" "C:/Users/opedersen/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
+file -rdi 2 -ns "Hair_Emily" -dr 1 -rfn "anim_ready_Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
+file -rdi 2 -ns "Dress_Emily" -dr 1 -rfn "anim_ready_Emily:Dress_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Dress_Emily.ma";
 file -rdi 1 -ns "bedroom" -rfn "bedroomRN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 2 -ns "bin" -rfn "bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
 file -rdi 2 -ns "desk" -rfn "bedroom:deskRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/desk.ma";
@@ -4191,9 +4193,9 @@ createNode RenderMan -s -n "rmanSBMakePtexGlobals";
 	setAttr ".rman__param__ptxmake___channel" -type "string" "$BAKECHAN";
 	setAttr ".rman__param__ptxmake___outputfile" -type "string" "[passinfo this filename]";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 65 ".lnk";
+	setAttr -s 61 ".lnk";
 	setAttr -s 2 ".ign";
-	setAttr -s 56 ".slnk";
+	setAttr -s 52 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 3;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
@@ -4207,31 +4209,30 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"top\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n"
 		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n"
 		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n"
-		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
+		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n"
+		+ "            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n"
+		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n"
+		+ "            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n"
+		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
+		+ "                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n"
+		+ "                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
 		+ "            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n"
-		+ "            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n"
-		+ "                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n"
-		+ "                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n"
-		+ "                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n"
-		+ "            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n"
-		+ "            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
-		+ "                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n"
-		+ "                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n"
-		+ "                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
-		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n"
-		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 1\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
-		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
-		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
-		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n"
-		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
-		+ "                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n"
-		+ "                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n"
+		+ "                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n"
+		+ "                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n"
+		+ "                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
+		+ "            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n"
+		+ "            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n"
+		+ "                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 1\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n"
+		+ "                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n"
+		+ "                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
+		+ "            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n"
+		+ "            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n"
+		+ "                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n"
 		+ "            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
@@ -4263,25 +4264,24 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n"
 		+ "                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
 		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n"
-		+ "                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n"
-		+ "                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
-		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
-		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
-		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n"
-		+ "                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
-		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
-		+ "            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n"
-		+ "            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Full_Bedroom_shot\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
-		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n"
-		+ "                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n"
-		+ "                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Full_Bedroom_shot\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
-		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
-		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
-		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n"
+		+ "                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n"
+		+ "                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n"
+		+ "                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n"
+		+ "                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n"
+		+ "                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n"
+		+ "            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n"
+		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
+		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Full_Bedroom_shot\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n"
+		+ "                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n"
+		+ "                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n"
+		+ "                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Full_Bedroom_shot\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n"
+		+ "            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n"
+		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
+		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -4515,357 +4515,354 @@ createNode reference -n "anim_ready_EmilyRN";
 	setAttr -s 2 ".fn";
 	setAttr ".fn[0]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily_wrapDeform.ma";
 	setAttr ".fn[1]" -type "string" "/Users/mbdriscoll/Nightmare//assets/chars/rigs/anim_ready_Emily.ma";
-	setAttr -s 350 ".phl";
-	setAttr ".phl[345]" 0;
-	setAttr ".phl[346]" 0;
-	setAttr ".phl[347]" 0;
-	setAttr ".phl[348]" 0;
-	setAttr ".phl[349]" 0;
-	setAttr ".phl[350]" 0;
-	setAttr ".phl[351]" 0;
-	setAttr ".phl[352]" 0;
-	setAttr ".phl[353]" 0;
-	setAttr ".phl[354]" 0;
-	setAttr ".phl[355]" 0;
-	setAttr ".phl[356]" 0;
-	setAttr ".phl[357]" 0;
-	setAttr ".phl[358]" 0;
-	setAttr ".phl[359]" 0;
-	setAttr ".phl[360]" 0;
-	setAttr ".phl[361]" 0;
-	setAttr ".phl[362]" 0;
-	setAttr ".phl[363]" 0;
-	setAttr ".phl[364]" 0;
-	setAttr ".phl[365]" 0;
-	setAttr ".phl[366]" 0;
-	setAttr ".phl[367]" 0;
-	setAttr ".phl[368]" 0;
-	setAttr ".phl[369]" 0;
-	setAttr ".phl[370]" 0;
-	setAttr ".phl[371]" 0;
-	setAttr ".phl[372]" 0;
-	setAttr ".phl[373]" 0;
-	setAttr ".phl[374]" 0;
-	setAttr ".phl[375]" 0;
-	setAttr ".phl[376]" 0;
-	setAttr ".phl[377]" 0;
-	setAttr ".phl[378]" 0;
-	setAttr ".phl[379]" 0;
-	setAttr ".phl[380]" 0;
-	setAttr ".phl[381]" 0;
-	setAttr ".phl[382]" 0;
-	setAttr ".phl[383]" 0;
-	setAttr ".phl[384]" 0;
-	setAttr ".phl[385]" 0;
-	setAttr ".phl[386]" 0;
-	setAttr ".phl[387]" 0;
-	setAttr ".phl[388]" 0;
-	setAttr ".phl[389]" 0;
-	setAttr ".phl[390]" 0;
-	setAttr ".phl[391]" 0;
-	setAttr ".phl[392]" 0;
-	setAttr ".phl[393]" 0;
-	setAttr ".phl[394]" 0;
-	setAttr ".phl[395]" 0;
-	setAttr ".phl[396]" 0;
-	setAttr ".phl[397]" 0;
-	setAttr ".phl[398]" 0;
-	setAttr ".phl[399]" 0;
-	setAttr ".phl[400]" 0;
-	setAttr ".phl[401]" 0;
-	setAttr ".phl[402]" 0;
-	setAttr ".phl[403]" 0;
-	setAttr ".phl[404]" 0;
-	setAttr ".phl[405]" 0;
-	setAttr ".phl[406]" 0;
-	setAttr ".phl[407]" 0;
-	setAttr ".phl[408]" 0;
-	setAttr ".phl[409]" 0;
-	setAttr ".phl[410]" 0;
-	setAttr ".phl[411]" 0;
-	setAttr ".phl[412]" 0;
-	setAttr ".phl[413]" 0;
-	setAttr ".phl[414]" 0;
-	setAttr ".phl[415]" 0;
-	setAttr ".phl[416]" 0;
-	setAttr ".phl[417]" 0;
-	setAttr ".phl[418]" 0;
-	setAttr ".phl[419]" 0;
-	setAttr ".phl[420]" 0;
-	setAttr ".phl[421]" 0;
-	setAttr ".phl[422]" 0;
-	setAttr ".phl[423]" 0;
-	setAttr ".phl[424]" 0;
-	setAttr ".phl[425]" 0;
-	setAttr ".phl[426]" 0;
-	setAttr ".phl[427]" 0;
-	setAttr ".phl[428]" 0;
-	setAttr ".phl[429]" 0;
-	setAttr ".phl[430]" 0;
-	setAttr ".phl[431]" 0;
-	setAttr ".phl[432]" 0;
-	setAttr ".phl[433]" 0;
-	setAttr ".phl[434]" 0;
-	setAttr ".phl[435]" 0;
-	setAttr ".phl[436]" 0;
-	setAttr ".phl[437]" 0;
-	setAttr ".phl[438]" 0;
-	setAttr ".phl[439]" 0;
-	setAttr ".phl[440]" 0;
-	setAttr ".phl[441]" 0;
-	setAttr ".phl[442]" 0;
-	setAttr ".phl[443]" 0;
-	setAttr ".phl[444]" 0;
-	setAttr ".phl[445]" 0;
-	setAttr ".phl[446]" 0;
-	setAttr ".phl[447]" 0;
-	setAttr ".phl[448]" 0;
-	setAttr ".phl[449]" 0;
-	setAttr ".phl[450]" 0;
-	setAttr ".phl[451]" 0;
-	setAttr ".phl[452]" 0;
-	setAttr ".phl[453]" 0;
-	setAttr ".phl[454]" 0;
-	setAttr ".phl[455]" 0;
-	setAttr ".phl[456]" 0;
-	setAttr ".phl[457]" 0;
-	setAttr ".phl[458]" 0;
-	setAttr ".phl[459]" 0;
-	setAttr ".phl[460]" 0;
-	setAttr ".phl[461]" 0;
-	setAttr ".phl[462]" 0;
-	setAttr ".phl[463]" 0;
-	setAttr ".phl[464]" 0;
-	setAttr ".phl[465]" 0;
-	setAttr ".phl[466]" 0;
-	setAttr ".phl[467]" 0;
-	setAttr ".phl[468]" 0;
-	setAttr ".phl[469]" 0;
-	setAttr ".phl[470]" 0;
-	setAttr ".phl[471]" 0;
-	setAttr ".phl[472]" 0;
-	setAttr ".phl[473]" 0;
-	setAttr ".phl[474]" 0;
-	setAttr ".phl[475]" 0;
-	setAttr ".phl[476]" 0;
-	setAttr ".phl[477]" 0;
-	setAttr ".phl[478]" 0;
-	setAttr ".phl[479]" 0;
-	setAttr ".phl[480]" 0;
-	setAttr ".phl[481]" 0;
-	setAttr ".phl[482]" 0;
-	setAttr ".phl[483]" 0;
-	setAttr ".phl[484]" 0;
-	setAttr ".phl[485]" 0;
-	setAttr ".phl[486]" 0;
-	setAttr ".phl[487]" 0;
-	setAttr ".phl[488]" 0;
-	setAttr ".phl[489]" 0;
-	setAttr ".phl[490]" 0;
-	setAttr ".phl[491]" 0;
-	setAttr ".phl[492]" 0;
-	setAttr ".phl[493]" 0;
-	setAttr ".phl[494]" 0;
-	setAttr ".phl[495]" 0;
-	setAttr ".phl[496]" 0;
-	setAttr ".phl[497]" 0;
-	setAttr ".phl[498]" 0;
-	setAttr ".phl[499]" 0;
-	setAttr ".phl[500]" 0;
-	setAttr ".phl[501]" 0;
-	setAttr ".phl[502]" 0;
-	setAttr ".phl[503]" 0;
-	setAttr ".phl[504]" 0;
-	setAttr ".phl[505]" 0;
-	setAttr ".phl[506]" 0;
-	setAttr ".phl[507]" 0;
-	setAttr ".phl[508]" 0;
-	setAttr ".phl[509]" 0;
-	setAttr ".phl[510]" 0;
-	setAttr ".phl[511]" 0;
-	setAttr ".phl[512]" 0;
-	setAttr ".phl[513]" 0;
-	setAttr ".phl[514]" 0;
-	setAttr ".phl[515]" 0;
-	setAttr ".phl[516]" 0;
-	setAttr ".phl[517]" 0;
-	setAttr ".phl[518]" 0;
-	setAttr ".phl[519]" 0;
-	setAttr ".phl[520]" 0;
-	setAttr ".phl[521]" 0;
-	setAttr ".phl[522]" 0;
-	setAttr ".phl[523]" 0;
-	setAttr ".phl[524]" 0;
-	setAttr ".phl[525]" 0;
-	setAttr ".phl[526]" 0;
-	setAttr ".phl[527]" 0;
-	setAttr ".phl[528]" 0;
-	setAttr ".phl[529]" 0;
-	setAttr ".phl[530]" 0;
-	setAttr ".phl[531]" 0;
-	setAttr ".phl[532]" 0;
-	setAttr ".phl[533]" 0;
-	setAttr ".phl[534]" 0;
-	setAttr ".phl[535]" 0;
-	setAttr ".phl[536]" 0;
-	setAttr ".phl[537]" 0;
-	setAttr ".phl[538]" 0;
-	setAttr ".phl[539]" 0;
-	setAttr ".phl[540]" 0;
-	setAttr ".phl[541]" 0;
-	setAttr ".phl[542]" 0;
-	setAttr ".phl[543]" 0;
-	setAttr ".phl[544]" 0;
-	setAttr ".phl[545]" 0;
-	setAttr ".phl[546]" 0;
-	setAttr ".phl[547]" 0;
-	setAttr ".phl[548]" 0;
-	setAttr ".phl[549]" 0;
-	setAttr ".phl[550]" 0;
-	setAttr ".phl[551]" 0;
-	setAttr ".phl[552]" 0;
-	setAttr ".phl[553]" 0;
-	setAttr ".phl[554]" 0;
-	setAttr ".phl[555]" 0;
-	setAttr ".phl[556]" 0;
-	setAttr ".phl[557]" 0;
-	setAttr ".phl[558]" 0;
-	setAttr ".phl[559]" 0;
-	setAttr ".phl[560]" 0;
-	setAttr ".phl[561]" 0;
-	setAttr ".phl[562]" 0;
-	setAttr ".phl[563]" 0;
-	setAttr ".phl[564]" 0;
-	setAttr ".phl[565]" 0;
-	setAttr ".phl[566]" 0;
-	setAttr ".phl[567]" 0;
-	setAttr ".phl[568]" 0;
-	setAttr ".phl[569]" 0;
-	setAttr ".phl[570]" 0;
-	setAttr ".phl[571]" 0;
-	setAttr ".phl[572]" 0;
-	setAttr ".phl[573]" 0;
-	setAttr ".phl[574]" 0;
-	setAttr ".phl[575]" 0;
-	setAttr ".phl[576]" 0;
-	setAttr ".phl[577]" 0;
-	setAttr ".phl[578]" 0;
-	setAttr ".phl[579]" 0;
-	setAttr ".phl[580]" 0;
-	setAttr ".phl[581]" 0;
-	setAttr ".phl[582]" 0;
-	setAttr ".phl[583]" 0;
-	setAttr ".phl[584]" 0;
-	setAttr ".phl[585]" 0;
-	setAttr ".phl[586]" 0;
-	setAttr ".phl[587]" 0;
-	setAttr ".phl[588]" 0;
-	setAttr ".phl[589]" 0;
-	setAttr ".phl[590]" 0;
-	setAttr ".phl[591]" 0;
-	setAttr ".phl[592]" 0;
-	setAttr ".phl[593]" 0;
-	setAttr ".phl[594]" 0;
-	setAttr ".phl[595]" 0;
-	setAttr ".phl[596]" 0;
-	setAttr ".phl[597]" 0;
-	setAttr ".phl[598]" 0;
-	setAttr ".phl[599]" 0;
-	setAttr ".phl[600]" 0;
-	setAttr ".phl[601]" 0;
-	setAttr ".phl[602]" 0;
-	setAttr ".phl[603]" 0;
-	setAttr ".phl[604]" 0;
-	setAttr ".phl[605]" 0;
-	setAttr ".phl[606]" 0;
-	setAttr ".phl[607]" 0;
-	setAttr ".phl[608]" 0;
-	setAttr ".phl[609]" 0;
-	setAttr ".phl[610]" 0;
-	setAttr ".phl[611]" 0;
-	setAttr ".phl[612]" 0;
-	setAttr ".phl[613]" 0;
-	setAttr ".phl[614]" 0;
-	setAttr ".phl[615]" 0;
-	setAttr ".phl[616]" 0;
-	setAttr ".phl[617]" 0;
-	setAttr ".phl[618]" 0;
-	setAttr ".phl[619]" 0;
-	setAttr ".phl[620]" 0;
-	setAttr ".phl[621]" 0;
-	setAttr ".phl[622]" 0;
-	setAttr ".phl[623]" 0;
-	setAttr ".phl[624]" 0;
-	setAttr ".phl[625]" 0;
-	setAttr ".phl[626]" 0;
-	setAttr ".phl[627]" 0;
-	setAttr ".phl[628]" 0;
-	setAttr ".phl[629]" 0;
-	setAttr ".phl[630]" 0;
-	setAttr ".phl[631]" 0;
-	setAttr ".phl[632]" 0;
-	setAttr ".phl[633]" 0;
-	setAttr ".phl[634]" 0;
-	setAttr ".phl[635]" 0;
-	setAttr ".phl[636]" 0;
-	setAttr ".phl[637]" 0;
-	setAttr ".phl[638]" 0;
-	setAttr ".phl[639]" 0;
-	setAttr ".phl[640]" 0;
-	setAttr ".phl[641]" 0;
-	setAttr ".phl[642]" 0;
-	setAttr ".phl[643]" 0;
-	setAttr ".phl[644]" 0;
-	setAttr ".phl[645]" 0;
-	setAttr ".phl[646]" 0;
-	setAttr ".phl[647]" 0;
-	setAttr ".phl[648]" 0;
-	setAttr ".phl[649]" 0;
-	setAttr ".phl[650]" 0;
-	setAttr ".phl[651]" 0;
-	setAttr ".phl[652]" 0;
-	setAttr ".phl[653]" 0;
-	setAttr ".phl[654]" 0;
-	setAttr ".phl[655]" 0;
-	setAttr ".phl[656]" 0;
-	setAttr ".phl[657]" 0;
-	setAttr ".phl[658]" 0;
-	setAttr ".phl[659]" 0;
-	setAttr ".phl[660]" 0;
-	setAttr ".phl[661]" 0;
-	setAttr ".phl[662]" 0;
-	setAttr ".phl[663]" 0;
-	setAttr ".phl[664]" 0;
-	setAttr ".phl[665]" 0;
-	setAttr ".phl[666]" 0;
-	setAttr ".phl[667]" 0;
-	setAttr ".phl[668]" 0;
-	setAttr ".phl[669]" 0;
-	setAttr ".phl[670]" 0;
-	setAttr ".phl[671]" 0;
-	setAttr ".phl[672]" 0;
-	setAttr ".phl[673]" 0;
-	setAttr ".phl[674]" 0;
-	setAttr ".phl[675]" 0;
-	setAttr ".phl[676]" 0;
-	setAttr ".phl[677]" 0;
-	setAttr ".phl[678]" 0;
-	setAttr ".phl[679]" 0;
-	setAttr ".phl[680]" 0;
-	setAttr ".phl[681]" 0;
-	setAttr ".phl[682]" 0;
-	setAttr ".phl[683]" 0;
-	setAttr ".phl[684]" 0;
-	setAttr ".phl[685]" 0;
-	setAttr ".phl[686]" 0;
-	setAttr ".phl[687]" 0;
-	setAttr ".phl[688]" 0;
-	setAttr ".phl[689]" 0;
-	setAttr ".phl[690]" 0;
-	setAttr ".phl[691]" 0;
+	setAttr -s 347 ".phl";
 	setAttr ".phl[692]" 0;
 	setAttr ".phl[693]" 0;
 	setAttr ".phl[694]" 0;
+	setAttr ".phl[695]" 0;
+	setAttr ".phl[696]" 0;
+	setAttr ".phl[697]" 0;
+	setAttr ".phl[698]" 0;
+	setAttr ".phl[699]" 0;
+	setAttr ".phl[700]" 0;
+	setAttr ".phl[701]" 0;
+	setAttr ".phl[702]" 0;
+	setAttr ".phl[703]" 0;
+	setAttr ".phl[704]" 0;
+	setAttr ".phl[705]" 0;
+	setAttr ".phl[706]" 0;
+	setAttr ".phl[707]" 0;
+	setAttr ".phl[708]" 0;
+	setAttr ".phl[709]" 0;
+	setAttr ".phl[710]" 0;
+	setAttr ".phl[711]" 0;
+	setAttr ".phl[712]" 0;
+	setAttr ".phl[713]" 0;
+	setAttr ".phl[714]" 0;
+	setAttr ".phl[715]" 0;
+	setAttr ".phl[716]" 0;
+	setAttr ".phl[717]" 0;
+	setAttr ".phl[718]" 0;
+	setAttr ".phl[719]" 0;
+	setAttr ".phl[720]" 0;
+	setAttr ".phl[721]" 0;
+	setAttr ".phl[722]" 0;
+	setAttr ".phl[723]" 0;
+	setAttr ".phl[724]" 0;
+	setAttr ".phl[725]" 0;
+	setAttr ".phl[726]" 0;
+	setAttr ".phl[727]" 0;
+	setAttr ".phl[728]" 0;
+	setAttr ".phl[729]" 0;
+	setAttr ".phl[730]" 0;
+	setAttr ".phl[731]" 0;
+	setAttr ".phl[732]" 0;
+	setAttr ".phl[733]" 0;
+	setAttr ".phl[734]" 0;
+	setAttr ".phl[735]" 0;
+	setAttr ".phl[736]" 0;
+	setAttr ".phl[737]" 0;
+	setAttr ".phl[738]" 0;
+	setAttr ".phl[739]" 0;
+	setAttr ".phl[740]" 0;
+	setAttr ".phl[741]" 0;
+	setAttr ".phl[742]" 0;
+	setAttr ".phl[743]" 0;
+	setAttr ".phl[744]" 0;
+	setAttr ".phl[745]" 0;
+	setAttr ".phl[746]" 0;
+	setAttr ".phl[747]" 0;
+	setAttr ".phl[748]" 0;
+	setAttr ".phl[749]" 0;
+	setAttr ".phl[750]" 0;
+	setAttr ".phl[751]" 0;
+	setAttr ".phl[752]" 0;
+	setAttr ".phl[753]" 0;
+	setAttr ".phl[754]" 0;
+	setAttr ".phl[755]" 0;
+	setAttr ".phl[756]" 0;
+	setAttr ".phl[757]" 0;
+	setAttr ".phl[758]" 0;
+	setAttr ".phl[759]" 0;
+	setAttr ".phl[760]" 0;
+	setAttr ".phl[761]" 0;
+	setAttr ".phl[762]" 0;
+	setAttr ".phl[763]" 0;
+	setAttr ".phl[764]" 0;
+	setAttr ".phl[765]" 0;
+	setAttr ".phl[766]" 0;
+	setAttr ".phl[767]" 0;
+	setAttr ".phl[768]" 0;
+	setAttr ".phl[769]" 0;
+	setAttr ".phl[770]" 0;
+	setAttr ".phl[771]" 0;
+	setAttr ".phl[772]" 0;
+	setAttr ".phl[773]" 0;
+	setAttr ".phl[774]" 0;
+	setAttr ".phl[775]" 0;
+	setAttr ".phl[776]" 0;
+	setAttr ".phl[777]" 0;
+	setAttr ".phl[778]" 0;
+	setAttr ".phl[779]" 0;
+	setAttr ".phl[780]" 0;
+	setAttr ".phl[781]" 0;
+	setAttr ".phl[782]" 0;
+	setAttr ".phl[783]" 0;
+	setAttr ".phl[784]" 0;
+	setAttr ".phl[785]" 0;
+	setAttr ".phl[786]" 0;
+	setAttr ".phl[787]" 0;
+	setAttr ".phl[788]" 0;
+	setAttr ".phl[789]" 0;
+	setAttr ".phl[790]" 0;
+	setAttr ".phl[791]" 0;
+	setAttr ".phl[792]" 0;
+	setAttr ".phl[793]" 0;
+	setAttr ".phl[794]" 0;
+	setAttr ".phl[795]" 0;
+	setAttr ".phl[796]" 0;
+	setAttr ".phl[797]" 0;
+	setAttr ".phl[798]" 0;
+	setAttr ".phl[799]" 0;
+	setAttr ".phl[800]" 0;
+	setAttr ".phl[801]" 0;
+	setAttr ".phl[802]" 0;
+	setAttr ".phl[803]" 0;
+	setAttr ".phl[804]" 0;
+	setAttr ".phl[805]" 0;
+	setAttr ".phl[806]" 0;
+	setAttr ".phl[807]" 0;
+	setAttr ".phl[808]" 0;
+	setAttr ".phl[809]" 0;
+	setAttr ".phl[810]" 0;
+	setAttr ".phl[811]" 0;
+	setAttr ".phl[812]" 0;
+	setAttr ".phl[813]" 0;
+	setAttr ".phl[814]" 0;
+	setAttr ".phl[815]" 0;
+	setAttr ".phl[816]" 0;
+	setAttr ".phl[817]" 0;
+	setAttr ".phl[818]" 0;
+	setAttr ".phl[819]" 0;
+	setAttr ".phl[820]" 0;
+	setAttr ".phl[821]" 0;
+	setAttr ".phl[822]" 0;
+	setAttr ".phl[823]" 0;
+	setAttr ".phl[824]" 0;
+	setAttr ".phl[825]" 0;
+	setAttr ".phl[826]" 0;
+	setAttr ".phl[827]" 0;
+	setAttr ".phl[828]" 0;
+	setAttr ".phl[829]" 0;
+	setAttr ".phl[830]" 0;
+	setAttr ".phl[831]" 0;
+	setAttr ".phl[832]" 0;
+	setAttr ".phl[833]" 0;
+	setAttr ".phl[834]" 0;
+	setAttr ".phl[835]" 0;
+	setAttr ".phl[836]" 0;
+	setAttr ".phl[837]" 0;
+	setAttr ".phl[838]" 0;
+	setAttr ".phl[839]" 0;
+	setAttr ".phl[840]" 0;
+	setAttr ".phl[841]" 0;
+	setAttr ".phl[842]" 0;
+	setAttr ".phl[843]" 0;
+	setAttr ".phl[844]" 0;
+	setAttr ".phl[845]" 0;
+	setAttr ".phl[846]" 0;
+	setAttr ".phl[847]" 0;
+	setAttr ".phl[848]" 0;
+	setAttr ".phl[849]" 0;
+	setAttr ".phl[850]" 0;
+	setAttr ".phl[851]" 0;
+	setAttr ".phl[852]" 0;
+	setAttr ".phl[853]" 0;
+	setAttr ".phl[854]" 0;
+	setAttr ".phl[855]" 0;
+	setAttr ".phl[856]" 0;
+	setAttr ".phl[857]" 0;
+	setAttr ".phl[858]" 0;
+	setAttr ".phl[859]" 0;
+	setAttr ".phl[860]" 0;
+	setAttr ".phl[861]" 0;
+	setAttr ".phl[862]" 0;
+	setAttr ".phl[863]" 0;
+	setAttr ".phl[864]" 0;
+	setAttr ".phl[865]" 0;
+	setAttr ".phl[866]" 0;
+	setAttr ".phl[867]" 0;
+	setAttr ".phl[868]" 0;
+	setAttr ".phl[869]" 0;
+	setAttr ".phl[870]" 0;
+	setAttr ".phl[871]" 0;
+	setAttr ".phl[872]" 0;
+	setAttr ".phl[873]" 0;
+	setAttr ".phl[874]" 0;
+	setAttr ".phl[875]" 0;
+	setAttr ".phl[876]" 0;
+	setAttr ".phl[877]" 0;
+	setAttr ".phl[878]" 0;
+	setAttr ".phl[879]" 0;
+	setAttr ".phl[880]" 0;
+	setAttr ".phl[881]" 0;
+	setAttr ".phl[882]" 0;
+	setAttr ".phl[883]" 0;
+	setAttr ".phl[884]" 0;
+	setAttr ".phl[885]" 0;
+	setAttr ".phl[886]" 0;
+	setAttr ".phl[887]" 0;
+	setAttr ".phl[888]" 0;
+	setAttr ".phl[889]" 0;
+	setAttr ".phl[890]" 0;
+	setAttr ".phl[891]" 0;
+	setAttr ".phl[892]" 0;
+	setAttr ".phl[893]" 0;
+	setAttr ".phl[894]" 0;
+	setAttr ".phl[895]" 0;
+	setAttr ".phl[896]" 0;
+	setAttr ".phl[897]" 0;
+	setAttr ".phl[898]" 0;
+	setAttr ".phl[899]" 0;
+	setAttr ".phl[900]" 0;
+	setAttr ".phl[901]" 0;
+	setAttr ".phl[902]" 0;
+	setAttr ".phl[903]" 0;
+	setAttr ".phl[904]" 0;
+	setAttr ".phl[905]" 0;
+	setAttr ".phl[906]" 0;
+	setAttr ".phl[907]" 0;
+	setAttr ".phl[908]" 0;
+	setAttr ".phl[909]" 0;
+	setAttr ".phl[910]" 0;
+	setAttr ".phl[911]" 0;
+	setAttr ".phl[912]" 0;
+	setAttr ".phl[913]" 0;
+	setAttr ".phl[914]" 0;
+	setAttr ".phl[915]" 0;
+	setAttr ".phl[916]" 0;
+	setAttr ".phl[917]" 0;
+	setAttr ".phl[918]" 0;
+	setAttr ".phl[919]" 0;
+	setAttr ".phl[920]" 0;
+	setAttr ".phl[921]" 0;
+	setAttr ".phl[922]" 0;
+	setAttr ".phl[923]" 0;
+	setAttr ".phl[924]" 0;
+	setAttr ".phl[925]" 0;
+	setAttr ".phl[926]" 0;
+	setAttr ".phl[927]" 0;
+	setAttr ".phl[928]" 0;
+	setAttr ".phl[929]" 0;
+	setAttr ".phl[930]" 0;
+	setAttr ".phl[931]" 0;
+	setAttr ".phl[932]" 0;
+	setAttr ".phl[933]" 0;
+	setAttr ".phl[934]" 0;
+	setAttr ".phl[935]" 0;
+	setAttr ".phl[936]" 0;
+	setAttr ".phl[937]" 0;
+	setAttr ".phl[938]" 0;
+	setAttr ".phl[939]" 0;
+	setAttr ".phl[940]" 0;
+	setAttr ".phl[941]" 0;
+	setAttr ".phl[942]" 0;
+	setAttr ".phl[943]" 0;
+	setAttr ".phl[944]" 0;
+	setAttr ".phl[945]" 0;
+	setAttr ".phl[946]" 0;
+	setAttr ".phl[947]" 0;
+	setAttr ".phl[948]" 0;
+	setAttr ".phl[949]" 0;
+	setAttr ".phl[950]" 0;
+	setAttr ".phl[951]" 0;
+	setAttr ".phl[952]" 0;
+	setAttr ".phl[953]" 0;
+	setAttr ".phl[954]" 0;
+	setAttr ".phl[955]" 0;
+	setAttr ".phl[956]" 0;
+	setAttr ".phl[957]" 0;
+	setAttr ".phl[958]" 0;
+	setAttr ".phl[959]" 0;
+	setAttr ".phl[960]" 0;
+	setAttr ".phl[961]" 0;
+	setAttr ".phl[962]" 0;
+	setAttr ".phl[963]" 0;
+	setAttr ".phl[964]" 0;
+	setAttr ".phl[965]" 0;
+	setAttr ".phl[966]" 0;
+	setAttr ".phl[967]" 0;
+	setAttr ".phl[968]" 0;
+	setAttr ".phl[969]" 0;
+	setAttr ".phl[970]" 0;
+	setAttr ".phl[971]" 0;
+	setAttr ".phl[972]" 0;
+	setAttr ".phl[973]" 0;
+	setAttr ".phl[974]" 0;
+	setAttr ".phl[975]" 0;
+	setAttr ".phl[976]" 0;
+	setAttr ".phl[977]" 0;
+	setAttr ".phl[978]" 0;
+	setAttr ".phl[979]" 0;
+	setAttr ".phl[980]" 0;
+	setAttr ".phl[981]" 0;
+	setAttr ".phl[982]" 0;
+	setAttr ".phl[983]" 0;
+	setAttr ".phl[984]" 0;
+	setAttr ".phl[985]" 0;
+	setAttr ".phl[986]" 0;
+	setAttr ".phl[987]" 0;
+	setAttr ".phl[988]" 0;
+	setAttr ".phl[989]" 0;
+	setAttr ".phl[990]" 0;
+	setAttr ".phl[991]" 0;
+	setAttr ".phl[992]" 0;
+	setAttr ".phl[993]" 0;
+	setAttr ".phl[994]" 0;
+	setAttr ".phl[995]" 0;
+	setAttr ".phl[996]" 0;
+	setAttr ".phl[997]" 0;
+	setAttr ".phl[998]" 0;
+	setAttr ".phl[999]" 0;
+	setAttr ".phl[1000]" 0;
+	setAttr ".phl[1001]" 0;
+	setAttr ".phl[1002]" 0;
+	setAttr ".phl[1003]" 0;
+	setAttr ".phl[1004]" 0;
+	setAttr ".phl[1005]" 0;
+	setAttr ".phl[1006]" 0;
+	setAttr ".phl[1007]" 0;
+	setAttr ".phl[1008]" 0;
+	setAttr ".phl[1009]" 0;
+	setAttr ".phl[1010]" 0;
+	setAttr ".phl[1011]" 0;
+	setAttr ".phl[1012]" 0;
+	setAttr ".phl[1013]" 0;
+	setAttr ".phl[1014]" 0;
+	setAttr ".phl[1015]" 0;
+	setAttr ".phl[1016]" 0;
+	setAttr ".phl[1017]" 0;
+	setAttr ".phl[1018]" 0;
+	setAttr ".phl[1019]" 0;
+	setAttr ".phl[1020]" 0;
+	setAttr ".phl[1021]" 0;
+	setAttr ".phl[1022]" 0;
+	setAttr ".phl[1023]" 0;
+	setAttr ".phl[1024]" 0;
+	setAttr ".phl[1025]" 0;
+	setAttr ".phl[1026]" 0;
+	setAttr ".phl[1027]" 0;
+	setAttr ".phl[1028]" 0;
+	setAttr ".phl[1029]" 0;
+	setAttr ".phl[1030]" 0;
+	setAttr ".phl[1031]" 0;
+	setAttr ".phl[1032]" 0;
+	setAttr ".phl[1033]" 0;
+	setAttr ".phl[1034]" 0;
+	setAttr ".phl[1035]" 0;
+	setAttr ".phl[1036]" 0;
+	setAttr ".phl[1037]" 0;
+	setAttr ".phl[1038]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"anim_ready_EmilyRN"
 		"anim_ready_Emily:Hair_EmilyRN" 2
@@ -4873,34 +4870,40 @@ createNode reference -n "anim_ready_EmilyRN";
 		"overrideDisplayType" " 2"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Hair_Emily:Hair|anim_ready_Emily:Hair_Emily:HairShape" 
 		"overrideEnabled" " 1"
-		"anim_ready_EmilyRN" 12
+		"anim_ready_EmilyRN" 15
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:model:geo_Emily|anim_ready_Emily:model:Body|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
 		"dispResolution" " 3"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:model:geo_Emily|anim_ready_Emily:model:Body|anim_ready_Emily:model:BodyShapeDeformedDeformed" 
 		"displaySmoothMesh" " 2"
 		2 "anim_ready_Emily:Mesh" "displayType" " 0"
 		2 "anim_ready_Emily:Mesh" "visibility" " -av 1"
-		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed" 
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Band|anim_ready_Emily:BandShapeDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
-		"overrideDisplayType" " 2"
-		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
-		"overrideEnabled" " 1"
-		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Shoulders|anim_ready_Emily:ShouldersShapeDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed" 
+		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Skirt|anim_ready_Emily:SkirtShapeDeformed" 
 		"quadSplit" " 0"
+		2 "|anim_ready_Emily:nRigid1|anim_ready_Emily:nRigidShape1" "cacheWidth" 
+		" 161"
+		2 "|anim_ready_Emily:nCloth1|anim_ready_Emily:nClothShape1" "cacheWidth" 
+		" 161"
 		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed.worldMesh" 
 		"anim_ready_EmilyRN.placeHolderList[345]" ""
 		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.worldMesh" 
 		"anim_ready_EmilyRN.placeHolderList[346]" ""
 		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed.worldMesh" 
 		"anim_ready_EmilyRN.placeHolderList[347]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Band|anim_ready_Emily:BandShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[692]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Shoulders|anim_ready_Emily:ShouldersShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[693]" ""
+		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Skirt|anim_ready_Emily:SkirtShapeDeformed.worldMesh" 
+		"anim_ready_EmilyRN.placeHolderList[694]" ""
 		"anim_ready_Emily:DressRN" 0
 		"anim_ready_Emily:emilyHair001RN" 0
 		"anim_ready_Emily:Dress_EmilyRN" 0
 		"anim_ready_Emily:modelRN" 0
-		"anim_ready_EmilyRN" 658
+		"anim_ready_EmilyRN" 655
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig" 
 		"visibility" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main" 
@@ -5527,713 +5530,707 @@ createNode reference -n "anim_ready_EmilyRN";
 		"quadSplit" " 0"
 		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2Base|anim_ready_Emily:Body2BaseShapeDeformedDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Band|anim_ready_Emily:BandShapeDeformed" 
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:SkirtShapeDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Shoulders|anim_ready_Emily:ShouldersShapeDeformed" 
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
+		"overrideDisplayType" " 2"
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
+		"overrideEnabled" " 1"
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Skirt|anim_ready_Emily:SkirtShapeDeformed" 
+		2 "|anim_ready_Emily:Dress_EmilyRNfosterParent1|anim_ready_Emily:Dress_Emily:BandShapeDeformed" 
 		"quadSplit" " 0"
-		2 "|anim_ready_Emily:nRigid1|anim_ready_Emily:nRigidShape1" "cacheWidth" 
-		" 161"
-		2 "|anim_ready_Emily:nCloth1|anim_ready_Emily:nClothShape1" "cacheWidth" 
-		" 161"
 		2 "anim_ready_Emily:Meshes" "visibility" " -av 1"
 		2 "anim_ready_Emily:Armature" "visibility" " 1"
 		2 "anim_ready_Emily:blendShape2" "weight[0]" " 0"
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[348]" ""
+		"anim_ready_EmilyRN.placeHolderList[695]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[349]" ""
+		"anim_ready_EmilyRN.placeHolderList[696]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[350]" ""
+		"anim_ready_EmilyRN.placeHolderList[697]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[351]" ""
+		"anim_ready_EmilyRN.placeHolderList[698]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[352]" ""
+		"anim_ready_EmilyRN.placeHolderList[699]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[353]" ""
+		"anim_ready_EmilyRN.placeHolderList[700]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[354]" ""
+		"anim_ready_EmilyRN.placeHolderList[701]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[355]" ""
+		"anim_ready_EmilyRN.placeHolderList[702]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKOffsetRoot_M|anim_ready_Emily:FKExtraRoot_M|anim_ready_Emily:FKRoot_M|anim_ready_Emily:FKXOffsetRoot_M|anim_ready_Emily:HipSwingerGroupOffsetRoot_M|anim_ready_Emily:HipSwingerGroupRoot_M|anim_ready_Emily:FKXRoot_M|anim_ready_Emily:HipSwingerStabalizeRoot_M|anim_ready_Emily:FKOffsetSpine1_M|anim_ready_Emily:FKExtraSpine1_M|anim_ready_Emily:FKSpine1_M|anim_ready_Emily:FKXOffsetSpine1_M|anim_ready_Emily:FKXSpine1_M|anim_ready_Emily:FKOffsetChest_M|anim_ready_Emily:FKExtraChest_M|anim_ready_Emily:FKChest_M.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[356]" ""
+		"anim_ready_EmilyRN.placeHolderList[703]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[357]" ""
+		"anim_ready_EmilyRN.placeHolderList[704]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[358]" ""
+		"anim_ready_EmilyRN.placeHolderList[705]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[359]" ""
+		"anim_ready_EmilyRN.placeHolderList[706]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.Global" 
-		"anim_ready_EmilyRN.placeHolderList[360]" ""
+		"anim_ready_EmilyRN.placeHolderList[707]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[361]" ""
+		"anim_ready_EmilyRN.placeHolderList[708]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[362]" ""
+		"anim_ready_EmilyRN.placeHolderList[709]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[363]" ""
+		"anim_ready_EmilyRN.placeHolderList[710]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[364]" ""
+		"anim_ready_EmilyRN.placeHolderList[711]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[365]" ""
+		"anim_ready_EmilyRN.placeHolderList[712]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[366]" ""
+		"anim_ready_EmilyRN.placeHolderList[713]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[367]" ""
+		"anim_ready_EmilyRN.placeHolderList[714]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[368]" ""
+		"anim_ready_EmilyRN.placeHolderList[715]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[369]" ""
+		"anim_ready_EmilyRN.placeHolderList[716]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetNeck_M|anim_ready_Emily:FKGlobalStaticNeck_M|anim_ready_Emily:FKGlobalNeck_M|anim_ready_Emily:FKExtraNeck_M|anim_ready_Emily:FKNeck_M|anim_ready_Emily:FKXOffsetNeck_M|anim_ready_Emily:FKXNeck_M|anim_ready_Emily:FKOffsetHead_M|anim_ready_Emily:FKGlobalStaticHead_M|anim_ready_Emily:FKGlobalHead_M|anim_ready_Emily:FKExtraHead_M|anim_ready_Emily:FKHead_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[370]" ""
+		"anim_ready_EmilyRN.placeHolderList[717]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.Global" 
-		"anim_ready_EmilyRN.placeHolderList[371]" ""
+		"anim_ready_EmilyRN.placeHolderList[718]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[372]" ""
+		"anim_ready_EmilyRN.placeHolderList[719]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[373]" ""
+		"anim_ready_EmilyRN.placeHolderList[720]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[374]" ""
+		"anim_ready_EmilyRN.placeHolderList[721]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[375]" ""
+		"anim_ready_EmilyRN.placeHolderList[722]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[376]" ""
+		"anim_ready_EmilyRN.placeHolderList[723]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:FKSystem|anim_ready_Emily:FKParentConstraintToChest_M|anim_ready_Emily:FKOffsetScapula_R|anim_ready_Emily:FKGlobalStaticScapula_R|anim_ready_Emily:FKGlobalScapula_R|anim_ready_Emily:FKExtraScapula_R|anim_ready_Emily:FKScapula_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[377]" ""
+		"anim_ready_EmilyRN.placeHolderList[724]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[378]" ""
+		"anim_ready_EmilyRN.placeHolderList[725]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[379]" ""
+		"anim_ready_EmilyRN.placeHolderList[726]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[380]" ""
+		"anim_ready_EmilyRN.placeHolderList[727]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[381]" ""
+		"anim_ready_EmilyRN.placeHolderList[728]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[382]" ""
+		"anim_ready_EmilyRN.placeHolderList[729]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[383]" ""
+		"anim_ready_EmilyRN.placeHolderList[730]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[384]" ""
+		"anim_ready_EmilyRN.placeHolderList[731]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[385]" ""
+		"anim_ready_EmilyRN.placeHolderList[732]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[386]" ""
+		"anim_ready_EmilyRN.placeHolderList[733]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.follow" 
-		"anim_ready_EmilyRN.placeHolderList[387]" ""
+		"anim_ready_EmilyRN.placeHolderList[734]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.stretchy" 
-		"anim_ready_EmilyRN.placeHolderList[388]" ""
+		"anim_ready_EmilyRN.placeHolderList[735]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.antiPop" 
-		"anim_ready_EmilyRN.placeHolderList[389]" ""
+		"anim_ready_EmilyRN.placeHolderList[736]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.Lenght1" 
-		"anim_ready_EmilyRN.placeHolderList[390]" ""
+		"anim_ready_EmilyRN.placeHolderList[737]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.Lenght2" 
-		"anim_ready_EmilyRN.placeHolderList[391]" ""
+		"anim_ready_EmilyRN.placeHolderList[738]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.volume" 
-		"anim_ready_EmilyRN.placeHolderList[392]" ""
+		"anim_ready_EmilyRN.placeHolderList[739]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:IKOffsetArm_R|anim_ready_Emily:IKExtraArm_R|anim_ready_Emily:IKArm_R.visibility" 
-		"anim_ready_EmilyRN.placeHolderList[393]" ""
+		"anim_ready_EmilyRN.placeHolderList[740]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[394]" ""
+		"anim_ready_EmilyRN.placeHolderList[741]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[395]" ""
+		"anim_ready_EmilyRN.placeHolderList[742]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[396]" ""
+		"anim_ready_EmilyRN.placeHolderList[743]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.follow" 
-		"anim_ready_EmilyRN.placeHolderList[397]" ""
+		"anim_ready_EmilyRN.placeHolderList[744]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:Main|anim_ready_Emily:MotionSystem|anim_ready_Emily:IKSystem|anim_ready_Emily:IKHandle|anim_ready_Emily:PoleOffsetArm_R|anim_ready_Emily:PoleExtraArm_R|anim_ready_Emily:PoleArm_R.lock" 
-		"anim_ready_EmilyRN.placeHolderList[398]" ""
+		"anim_ready_EmilyRN.placeHolderList[745]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[399]" ""
+		"anim_ready_EmilyRN.placeHolderList[746]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[400]" ""
+		"anim_ready_EmilyRN.placeHolderList[747]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[401]" ""
+		"anim_ready_EmilyRN.placeHolderList[748]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[402]" ""
+		"anim_ready_EmilyRN.placeHolderList[749]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[403]" ""
+		"anim_ready_EmilyRN.placeHolderList[750]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[404]" ""
+		"anim_ready_EmilyRN.placeHolderList[751]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[405]" ""
+		"anim_ready_EmilyRN.placeHolderList[752]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[406]" ""
+		"anim_ready_EmilyRN.placeHolderList[753]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_R|anim_ready_Emily:browInnerOffset_R|anim_ready_Emily:browInnerSubtract_R|anim_ready_Emily:browInner_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[407]" ""
+		"anim_ready_EmilyRN.placeHolderList[754]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[408]" ""
+		"anim_ready_EmilyRN.placeHolderList[755]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[409]" ""
+		"anim_ready_EmilyRN.placeHolderList[756]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[410]" ""
+		"anim_ready_EmilyRN.placeHolderList[757]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[411]" ""
+		"anim_ready_EmilyRN.placeHolderList[758]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[412]" ""
+		"anim_ready_EmilyRN.placeHolderList[759]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[413]" ""
+		"anim_ready_EmilyRN.placeHolderList[760]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[414]" ""
+		"anim_ready_EmilyRN.placeHolderList[761]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[415]" ""
+		"anim_ready_EmilyRN.placeHolderList[762]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_R|anim_ready_Emily:browOuterOffset_R|anim_ready_Emily:browOuterSubtract_R|anim_ready_Emily:browOuter_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[416]" ""
+		"anim_ready_EmilyRN.placeHolderList[763]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[417]" ""
+		"anim_ready_EmilyRN.placeHolderList[764]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[418]" ""
+		"anim_ready_EmilyRN.placeHolderList[765]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[419]" ""
+		"anim_ready_EmilyRN.placeHolderList[766]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[420]" ""
+		"anim_ready_EmilyRN.placeHolderList[767]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[421]" ""
+		"anim_ready_EmilyRN.placeHolderList[768]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[422]" ""
+		"anim_ready_EmilyRN.placeHolderList[769]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[423]" ""
+		"anim_ready_EmilyRN.placeHolderList[770]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[424]" ""
+		"anim_ready_EmilyRN.placeHolderList[771]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browInnerAttach_L|anim_ready_Emily:browInnerOffset_L|anim_ready_Emily:browInnerSubtract_L|anim_ready_Emily:browInner_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[425]" ""
+		"anim_ready_EmilyRN.placeHolderList[772]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[426]" ""
+		"anim_ready_EmilyRN.placeHolderList[773]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[427]" ""
+		"anim_ready_EmilyRN.placeHolderList[774]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[428]" ""
+		"anim_ready_EmilyRN.placeHolderList[775]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[429]" ""
+		"anim_ready_EmilyRN.placeHolderList[776]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[430]" ""
+		"anim_ready_EmilyRN.placeHolderList[777]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[431]" ""
+		"anim_ready_EmilyRN.placeHolderList[778]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[432]" ""
+		"anim_ready_EmilyRN.placeHolderList[779]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[433]" ""
+		"anim_ready_EmilyRN.placeHolderList[780]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:browOuterAttach_L|anim_ready_Emily:browOuterOffset_L|anim_ready_Emily:browOuterSubtract_L|anim_ready_Emily:browOuter_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[434]" ""
+		"anim_ready_EmilyRN.placeHolderList[781]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[435]" ""
+		"anim_ready_EmilyRN.placeHolderList[782]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[436]" ""
+		"anim_ready_EmilyRN.placeHolderList[783]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[437]" ""
+		"anim_ready_EmilyRN.placeHolderList[784]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[438]" ""
+		"anim_ready_EmilyRN.placeHolderList[785]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[439]" ""
+		"anim_ready_EmilyRN.placeHolderList[786]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[440]" ""
+		"anim_ready_EmilyRN.placeHolderList[787]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[441]" ""
+		"anim_ready_EmilyRN.placeHolderList[788]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[442]" ""
+		"anim_ready_EmilyRN.placeHolderList[789]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_R|anim_ready_Emily:Lip6Offset_R|anim_ready_Emily:Lip6Subtract_R|anim_ready_Emily:Lip6_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[443]" ""
+		"anim_ready_EmilyRN.placeHolderList[790]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[444]" ""
+		"anim_ready_EmilyRN.placeHolderList[791]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[445]" ""
+		"anim_ready_EmilyRN.placeHolderList[792]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[446]" ""
+		"anim_ready_EmilyRN.placeHolderList[793]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[447]" ""
+		"anim_ready_EmilyRN.placeHolderList[794]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[448]" ""
+		"anim_ready_EmilyRN.placeHolderList[795]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[449]" ""
+		"anim_ready_EmilyRN.placeHolderList[796]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[450]" ""
+		"anim_ready_EmilyRN.placeHolderList[797]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[451]" ""
+		"anim_ready_EmilyRN.placeHolderList[798]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:Lip6Attach_L|anim_ready_Emily:Lip6Offset_L|anim_ready_Emily:Lip6Subtract_L|anim_ready_Emily:Lip6_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[452]" ""
+		"anim_ready_EmilyRN.placeHolderList[799]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[453]" ""
+		"anim_ready_EmilyRN.placeHolderList[800]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[454]" ""
+		"anim_ready_EmilyRN.placeHolderList[801]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[455]" ""
+		"anim_ready_EmilyRN.placeHolderList[802]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[456]" ""
+		"anim_ready_EmilyRN.placeHolderList[803]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[457]" ""
+		"anim_ready_EmilyRN.placeHolderList[804]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[458]" ""
+		"anim_ready_EmilyRN.placeHolderList[805]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[459]" ""
+		"anim_ready_EmilyRN.placeHolderList[806]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[460]" ""
+		"anim_ready_EmilyRN.placeHolderList[807]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip0Attach_M|anim_ready_Emily:upperLip0Offset_M|anim_ready_Emily:upperLip0Subtract_M|anim_ready_Emily:upperLip0_M.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[461]" ""
+		"anim_ready_EmilyRN.placeHolderList[808]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[462]" ""
+		"anim_ready_EmilyRN.placeHolderList[809]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[463]" ""
+		"anim_ready_EmilyRN.placeHolderList[810]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[464]" ""
+		"anim_ready_EmilyRN.placeHolderList[811]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[465]" ""
+		"anim_ready_EmilyRN.placeHolderList[812]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[466]" ""
+		"anim_ready_EmilyRN.placeHolderList[813]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[467]" ""
+		"anim_ready_EmilyRN.placeHolderList[814]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[468]" ""
+		"anim_ready_EmilyRN.placeHolderList[815]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[469]" ""
+		"anim_ready_EmilyRN.placeHolderList[816]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_R|anim_ready_Emily:upperLip3Offset_R|anim_ready_Emily:upperLip3Subtract_R|anim_ready_Emily:upperLip3_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[470]" ""
+		"anim_ready_EmilyRN.placeHolderList[817]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[471]" ""
+		"anim_ready_EmilyRN.placeHolderList[818]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[472]" ""
+		"anim_ready_EmilyRN.placeHolderList[819]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[473]" ""
+		"anim_ready_EmilyRN.placeHolderList[820]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[474]" ""
+		"anim_ready_EmilyRN.placeHolderList[821]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[475]" ""
+		"anim_ready_EmilyRN.placeHolderList[822]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[476]" ""
+		"anim_ready_EmilyRN.placeHolderList[823]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[477]" ""
+		"anim_ready_EmilyRN.placeHolderList[824]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[478]" ""
+		"anim_ready_EmilyRN.placeHolderList[825]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:upperLip3Attach_L|anim_ready_Emily:upperLip3Offset_L|anim_ready_Emily:upperLip3Subtract_L|anim_ready_Emily:upperLip3_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[479]" ""
+		"anim_ready_EmilyRN.placeHolderList[826]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[480]" ""
+		"anim_ready_EmilyRN.placeHolderList[827]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[481]" ""
+		"anim_ready_EmilyRN.placeHolderList[828]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[482]" ""
+		"anim_ready_EmilyRN.placeHolderList[829]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[483]" ""
+		"anim_ready_EmilyRN.placeHolderList[830]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[484]" ""
+		"anim_ready_EmilyRN.placeHolderList[831]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[485]" ""
+		"anim_ready_EmilyRN.placeHolderList[832]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[486]" ""
+		"anim_ready_EmilyRN.placeHolderList[833]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[487]" ""
+		"anim_ready_EmilyRN.placeHolderList[834]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip0Attach_M|anim_ready_Emily:lowerLip0Offset_M|anim_ready_Emily:lowerLip0Subtract_M|anim_ready_Emily:lowerLip0_M.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[488]" ""
+		"anim_ready_EmilyRN.placeHolderList[835]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[489]" ""
+		"anim_ready_EmilyRN.placeHolderList[836]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[490]" ""
+		"anim_ready_EmilyRN.placeHolderList[837]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[491]" ""
+		"anim_ready_EmilyRN.placeHolderList[838]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[492]" ""
+		"anim_ready_EmilyRN.placeHolderList[839]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[493]" ""
+		"anim_ready_EmilyRN.placeHolderList[840]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[494]" ""
+		"anim_ready_EmilyRN.placeHolderList[841]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[495]" ""
+		"anim_ready_EmilyRN.placeHolderList[842]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[496]" ""
+		"anim_ready_EmilyRN.placeHolderList[843]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_R|anim_ready_Emily:lowerLip3Offset_R|anim_ready_Emily:lowerLip3Subtract_R|anim_ready_Emily:lowerLip3_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[497]" ""
+		"anim_ready_EmilyRN.placeHolderList[844]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[498]" ""
+		"anim_ready_EmilyRN.placeHolderList[845]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[499]" ""
+		"anim_ready_EmilyRN.placeHolderList[846]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[500]" ""
+		"anim_ready_EmilyRN.placeHolderList[847]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[501]" ""
+		"anim_ready_EmilyRN.placeHolderList[848]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[502]" ""
+		"anim_ready_EmilyRN.placeHolderList[849]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[503]" ""
+		"anim_ready_EmilyRN.placeHolderList[850]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[504]" ""
+		"anim_ready_EmilyRN.placeHolderList[851]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[505]" ""
+		"anim_ready_EmilyRN.placeHolderList[852]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Acontrols|anim_ready_Emily:lowerLip3Attach_L|anim_ready_Emily:lowerLip3Offset_L|anim_ready_Emily:lowerLip3Subtract_L|anim_ready_Emily:lowerLip3_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[506]" ""
+		"anim_ready_EmilyRN.placeHolderList[853]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[507]" ""
+		"anim_ready_EmilyRN.placeHolderList[854]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[508]" ""
+		"anim_ready_EmilyRN.placeHolderList[855]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[509]" ""
+		"anim_ready_EmilyRN.placeHolderList[856]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[510]" ""
+		"anim_ready_EmilyRN.placeHolderList[857]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[511]" ""
+		"anim_ready_EmilyRN.placeHolderList[858]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[512]" ""
+		"anim_ready_EmilyRN.placeHolderList[859]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[513]" ""
+		"anim_ready_EmilyRN.placeHolderList[860]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[514]" ""
+		"anim_ready_EmilyRN.placeHolderList[861]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_R|anim_ready_Emily:LidCorner1Offset_R|anim_ready_Emily:LidCorner1Subtract_R|anim_ready_Emily:LidCorner1_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[515]" ""
+		"anim_ready_EmilyRN.placeHolderList[862]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[516]" ""
+		"anim_ready_EmilyRN.placeHolderList[863]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[517]" ""
+		"anim_ready_EmilyRN.placeHolderList[864]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[518]" ""
+		"anim_ready_EmilyRN.placeHolderList[865]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[519]" ""
+		"anim_ready_EmilyRN.placeHolderList[866]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[520]" ""
+		"anim_ready_EmilyRN.placeHolderList[867]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[521]" ""
+		"anim_ready_EmilyRN.placeHolderList[868]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[522]" ""
+		"anim_ready_EmilyRN.placeHolderList[869]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[523]" ""
+		"anim_ready_EmilyRN.placeHolderList[870]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_R|anim_ready_Emily:LidCorner2Offset_R|anim_ready_Emily:LidCorner2Subtract_R|anim_ready_Emily:LidCorner2_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[524]" ""
+		"anim_ready_EmilyRN.placeHolderList[871]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[525]" ""
+		"anim_ready_EmilyRN.placeHolderList[872]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[526]" ""
+		"anim_ready_EmilyRN.placeHolderList[873]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[527]" ""
+		"anim_ready_EmilyRN.placeHolderList[874]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[528]" ""
+		"anim_ready_EmilyRN.placeHolderList[875]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[529]" ""
+		"anim_ready_EmilyRN.placeHolderList[876]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[530]" ""
+		"anim_ready_EmilyRN.placeHolderList[877]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[531]" ""
+		"anim_ready_EmilyRN.placeHolderList[878]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[532]" ""
+		"anim_ready_EmilyRN.placeHolderList[879]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_R|anim_ready_Emily:upperLid1Offset_R|anim_ready_Emily:upperLid1Subtract_R|anim_ready_Emily:upperLid1_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[533]" ""
+		"anim_ready_EmilyRN.placeHolderList[880]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[534]" ""
+		"anim_ready_EmilyRN.placeHolderList[881]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[535]" ""
+		"anim_ready_EmilyRN.placeHolderList[882]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[536]" ""
+		"anim_ready_EmilyRN.placeHolderList[883]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[537]" ""
+		"anim_ready_EmilyRN.placeHolderList[884]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[538]" ""
+		"anim_ready_EmilyRN.placeHolderList[885]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[539]" ""
+		"anim_ready_EmilyRN.placeHolderList[886]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[540]" ""
+		"anim_ready_EmilyRN.placeHolderList[887]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[541]" ""
+		"anim_ready_EmilyRN.placeHolderList[888]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_R|anim_ready_Emily:lowerLid1Offset_R|anim_ready_Emily:lowerLid1Subtract_R|anim_ready_Emily:lowerLid1_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[542]" ""
+		"anim_ready_EmilyRN.placeHolderList[889]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[543]" ""
+		"anim_ready_EmilyRN.placeHolderList[890]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[544]" ""
+		"anim_ready_EmilyRN.placeHolderList[891]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[545]" ""
+		"anim_ready_EmilyRN.placeHolderList[892]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[546]" ""
+		"anim_ready_EmilyRN.placeHolderList[893]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[547]" ""
+		"anim_ready_EmilyRN.placeHolderList[894]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[548]" ""
+		"anim_ready_EmilyRN.placeHolderList[895]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[549]" ""
+		"anim_ready_EmilyRN.placeHolderList[896]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[550]" ""
+		"anim_ready_EmilyRN.placeHolderList[897]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner1Attach_L|anim_ready_Emily:LidCorner1Offset_L|anim_ready_Emily:LidCorner1Subtract_L|anim_ready_Emily:LidCorner1_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[551]" ""
+		"anim_ready_EmilyRN.placeHolderList[898]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[552]" ""
+		"anim_ready_EmilyRN.placeHolderList[899]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[553]" ""
+		"anim_ready_EmilyRN.placeHolderList[900]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[554]" ""
+		"anim_ready_EmilyRN.placeHolderList[901]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[555]" ""
+		"anim_ready_EmilyRN.placeHolderList[902]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[556]" ""
+		"anim_ready_EmilyRN.placeHolderList[903]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[557]" ""
+		"anim_ready_EmilyRN.placeHolderList[904]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[558]" ""
+		"anim_ready_EmilyRN.placeHolderList[905]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[559]" ""
+		"anim_ready_EmilyRN.placeHolderList[906]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:LidCorner2Attach_L|anim_ready_Emily:LidCorner2Offset_L|anim_ready_Emily:LidCorner2Subtract_L|anim_ready_Emily:LidCorner2_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[560]" ""
+		"anim_ready_EmilyRN.placeHolderList[907]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[561]" ""
+		"anim_ready_EmilyRN.placeHolderList[908]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[562]" ""
+		"anim_ready_EmilyRN.placeHolderList[909]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[563]" ""
+		"anim_ready_EmilyRN.placeHolderList[910]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[564]" ""
+		"anim_ready_EmilyRN.placeHolderList[911]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[565]" ""
+		"anim_ready_EmilyRN.placeHolderList[912]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[566]" ""
+		"anim_ready_EmilyRN.placeHolderList[913]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[567]" ""
+		"anim_ready_EmilyRN.placeHolderList[914]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[568]" ""
+		"anim_ready_EmilyRN.placeHolderList[915]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:upperLid1Attach_L|anim_ready_Emily:upperLid1Offset_L|anim_ready_Emily:upperLid1Subtract_L|anim_ready_Emily:upperLid1_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[569]" ""
+		"anim_ready_EmilyRN.placeHolderList[916]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[570]" ""
+		"anim_ready_EmilyRN.placeHolderList[917]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[571]" ""
+		"anim_ready_EmilyRN.placeHolderList[918]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[572]" ""
+		"anim_ready_EmilyRN.placeHolderList[919]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[573]" ""
+		"anim_ready_EmilyRN.placeHolderList[920]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[574]" ""
+		"anim_ready_EmilyRN.placeHolderList[921]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[575]" ""
+		"anim_ready_EmilyRN.placeHolderList[922]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[576]" ""
+		"anim_ready_EmilyRN.placeHolderList[923]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[577]" ""
+		"anim_ready_EmilyRN.placeHolderList[924]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Bcontrols|anim_ready_Emily:lowerLid1Attach_L|anim_ready_Emily:lowerLid1Offset_L|anim_ready_Emily:lowerLid1Subtract_L|anim_ready_Emily:lowerLid1_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[578]" ""
+		"anim_ready_EmilyRN.placeHolderList[925]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[579]" ""
+		"anim_ready_EmilyRN.placeHolderList[926]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[580]" ""
+		"anim_ready_EmilyRN.placeHolderList[927]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[581]" ""
+		"anim_ready_EmilyRN.placeHolderList[928]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[582]" ""
+		"anim_ready_EmilyRN.placeHolderList[929]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[583]" ""
+		"anim_ready_EmilyRN.placeHolderList[930]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[584]" ""
+		"anim_ready_EmilyRN.placeHolderList[931]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[585]" ""
+		"anim_ready_EmilyRN.placeHolderList[932]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[586]" ""
+		"anim_ready_EmilyRN.placeHolderList[933]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_R|anim_ready_Emily:upperLid2Offset_R|anim_ready_Emily:upperLid2Subtract_R|anim_ready_Emily:upperLid2_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[587]" ""
+		"anim_ready_EmilyRN.placeHolderList[934]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[588]" ""
+		"anim_ready_EmilyRN.placeHolderList[935]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[589]" ""
+		"anim_ready_EmilyRN.placeHolderList[936]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[590]" ""
+		"anim_ready_EmilyRN.placeHolderList[937]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[591]" ""
+		"anim_ready_EmilyRN.placeHolderList[938]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[592]" ""
+		"anim_ready_EmilyRN.placeHolderList[939]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[593]" ""
+		"anim_ready_EmilyRN.placeHolderList[940]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[594]" ""
+		"anim_ready_EmilyRN.placeHolderList[941]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[595]" ""
+		"anim_ready_EmilyRN.placeHolderList[942]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_R|anim_ready_Emily:upperLid3Offset_R|anim_ready_Emily:upperLid3Subtract_R|anim_ready_Emily:upperLid3_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[596]" ""
+		"anim_ready_EmilyRN.placeHolderList[943]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[597]" ""
+		"anim_ready_EmilyRN.placeHolderList[944]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[598]" ""
+		"anim_ready_EmilyRN.placeHolderList[945]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[599]" ""
+		"anim_ready_EmilyRN.placeHolderList[946]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[600]" ""
+		"anim_ready_EmilyRN.placeHolderList[947]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[601]" ""
+		"anim_ready_EmilyRN.placeHolderList[948]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[602]" ""
+		"anim_ready_EmilyRN.placeHolderList[949]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[603]" ""
+		"anim_ready_EmilyRN.placeHolderList[950]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[604]" ""
+		"anim_ready_EmilyRN.placeHolderList[951]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_R|anim_ready_Emily:lowerLid2Offset_R|anim_ready_Emily:lowerLid2Subtract_R|anim_ready_Emily:lowerLid2_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[605]" ""
+		"anim_ready_EmilyRN.placeHolderList[952]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[606]" ""
+		"anim_ready_EmilyRN.placeHolderList[953]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[607]" ""
+		"anim_ready_EmilyRN.placeHolderList[954]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[608]" ""
+		"anim_ready_EmilyRN.placeHolderList[955]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[609]" ""
+		"anim_ready_EmilyRN.placeHolderList[956]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[610]" ""
+		"anim_ready_EmilyRN.placeHolderList[957]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[611]" ""
+		"anim_ready_EmilyRN.placeHolderList[958]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[612]" ""
+		"anim_ready_EmilyRN.placeHolderList[959]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[613]" ""
+		"anim_ready_EmilyRN.placeHolderList[960]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_R|anim_ready_Emily:lowerLid3Offset_R|anim_ready_Emily:lowerLid3Subtract_R|anim_ready_Emily:lowerLid3_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[614]" ""
+		"anim_ready_EmilyRN.placeHolderList[961]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[615]" ""
+		"anim_ready_EmilyRN.placeHolderList[962]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[616]" ""
+		"anim_ready_EmilyRN.placeHolderList[963]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[617]" ""
+		"anim_ready_EmilyRN.placeHolderList[964]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[618]" ""
+		"anim_ready_EmilyRN.placeHolderList[965]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[619]" ""
+		"anim_ready_EmilyRN.placeHolderList[966]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[620]" ""
+		"anim_ready_EmilyRN.placeHolderList[967]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[621]" ""
+		"anim_ready_EmilyRN.placeHolderList[968]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[622]" ""
+		"anim_ready_EmilyRN.placeHolderList[969]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid2Attach_L|anim_ready_Emily:upperLid2Offset_L|anim_ready_Emily:upperLid2Subtract_L|anim_ready_Emily:upperLid2_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[623]" ""
+		"anim_ready_EmilyRN.placeHolderList[970]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[624]" ""
+		"anim_ready_EmilyRN.placeHolderList[971]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[625]" ""
+		"anim_ready_EmilyRN.placeHolderList[972]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[626]" ""
+		"anim_ready_EmilyRN.placeHolderList[973]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[627]" ""
+		"anim_ready_EmilyRN.placeHolderList[974]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[628]" ""
+		"anim_ready_EmilyRN.placeHolderList[975]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[629]" ""
+		"anim_ready_EmilyRN.placeHolderList[976]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[630]" ""
+		"anim_ready_EmilyRN.placeHolderList[977]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[631]" ""
+		"anim_ready_EmilyRN.placeHolderList[978]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:upperLid3Attach_L|anim_ready_Emily:upperLid3Offset_L|anim_ready_Emily:upperLid3Subtract_L|anim_ready_Emily:upperLid3_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[632]" ""
+		"anim_ready_EmilyRN.placeHolderList[979]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[633]" ""
+		"anim_ready_EmilyRN.placeHolderList[980]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[634]" ""
+		"anim_ready_EmilyRN.placeHolderList[981]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[635]" ""
+		"anim_ready_EmilyRN.placeHolderList[982]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[636]" ""
+		"anim_ready_EmilyRN.placeHolderList[983]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[637]" ""
+		"anim_ready_EmilyRN.placeHolderList[984]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[638]" ""
+		"anim_ready_EmilyRN.placeHolderList[985]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[639]" ""
+		"anim_ready_EmilyRN.placeHolderList[986]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[640]" ""
+		"anim_ready_EmilyRN.placeHolderList[987]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid2Attach_L|anim_ready_Emily:lowerLid2Offset_L|anim_ready_Emily:lowerLid2Subtract_L|anim_ready_Emily:lowerLid2_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[641]" ""
+		"anim_ready_EmilyRN.placeHolderList[988]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[642]" ""
+		"anim_ready_EmilyRN.placeHolderList[989]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[643]" ""
+		"anim_ready_EmilyRN.placeHolderList[990]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[644]" ""
+		"anim_ready_EmilyRN.placeHolderList[991]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[645]" ""
+		"anim_ready_EmilyRN.placeHolderList[992]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[646]" ""
+		"anim_ready_EmilyRN.placeHolderList[993]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[647]" ""
+		"anim_ready_EmilyRN.placeHolderList[994]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[648]" ""
+		"anim_ready_EmilyRN.placeHolderList[995]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[649]" ""
+		"anim_ready_EmilyRN.placeHolderList[996]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:lowerLid3Attach_L|anim_ready_Emily:lowerLid3Offset_L|anim_ready_Emily:lowerLid3Subtract_L|anim_ready_Emily:lowerLid3_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[650]" ""
+		"anim_ready_EmilyRN.placeHolderList[997]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[651]" ""
+		"anim_ready_EmilyRN.placeHolderList[998]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[652]" ""
+		"anim_ready_EmilyRN.placeHolderList[999]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[653]" ""
+		"anim_ready_EmilyRN.placeHolderList[1000]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[654]" ""
+		"anim_ready_EmilyRN.placeHolderList[1001]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[655]" ""
+		"anim_ready_EmilyRN.placeHolderList[1002]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[656]" ""
+		"anim_ready_EmilyRN.placeHolderList[1003]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[657]" ""
+		"anim_ready_EmilyRN.placeHolderList[1004]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[658]" ""
+		"anim_ready_EmilyRN.placeHolderList[1005]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_R|anim_ready_Emily:browHalfOffset_R|anim_ready_Emily:browHalfSubtract_R|anim_ready_Emily:browHalf_R.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[659]" ""
+		"anim_ready_EmilyRN.placeHolderList[1006]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[660]" ""
+		"anim_ready_EmilyRN.placeHolderList[1007]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[661]" ""
+		"anim_ready_EmilyRN.placeHolderList[1008]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.translateZ" 
-		"anim_ready_EmilyRN.placeHolderList[662]" ""
+		"anim_ready_EmilyRN.placeHolderList[1009]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[663]" ""
+		"anim_ready_EmilyRN.placeHolderList[1010]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[664]" ""
+		"anim_ready_EmilyRN.placeHolderList[1011]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[665]" ""
+		"anim_ready_EmilyRN.placeHolderList[1012]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.scaleX" 
-		"anim_ready_EmilyRN.placeHolderList[666]" ""
+		"anim_ready_EmilyRN.placeHolderList[1013]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.scaleY" 
-		"anim_ready_EmilyRN.placeHolderList[667]" ""
+		"anim_ready_EmilyRN.placeHolderList[1014]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ControlsSetup|anim_ready_Emily:Ccontrols|anim_ready_Emily:browHalfAttach_L|anim_ready_Emily:browHalfOffset_L|anim_ready_Emily:browHalfSubtract_L|anim_ready_Emily:browHalf_L.scaleZ" 
-		"anim_ready_EmilyRN.placeHolderList[668]" ""
+		"anim_ready_EmilyRN.placeHolderList[1015]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[669]" ""
+		"anim_ready_EmilyRN.placeHolderList[1016]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_R|anim_ready_Emily:ctrlCheek_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[670]" ""
+		"anim_ready_EmilyRN.placeHolderList[1017]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_L|anim_ready_Emily:ctrlCheek_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[671]" ""
+		"anim_ready_EmilyRN.placeHolderList[1018]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxCheek_L|anim_ready_Emily:ctrlCheek_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[672]" ""
+		"anim_ready_EmilyRN.placeHolderList[1019]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxNose_R|anim_ready_Emily:ctrlNose_R.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[673]" ""
+		"anim_ready_EmilyRN.placeHolderList[1020]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxNose_R|anim_ready_Emily:ctrlNose_R.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[674]" ""
+		"anim_ready_EmilyRN.placeHolderList[1021]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxNose_L|anim_ready_Emily:ctrlNose_L.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[675]" ""
+		"anim_ready_EmilyRN.placeHolderList[1022]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxNose_L|anim_ready_Emily:ctrlNose_L.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[676]" ""
+		"anim_ready_EmilyRN.placeHolderList[1023]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.translateY" 
-		"anim_ready_EmilyRN.placeHolderList[677]" ""
+		"anim_ready_EmilyRN.placeHolderList[1024]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.translateX" 
-		"anim_ready_EmilyRN.placeHolderList[678]" ""
+		"anim_ready_EmilyRN.placeHolderList[1025]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.jawSide" 
-		"anim_ready_EmilyRN.placeHolderList[679]" ""
+		"anim_ready_EmilyRN.placeHolderList[1026]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.jawForward" 
-		"anim_ready_EmilyRN.placeHolderList[680]" ""
+		"anim_ready_EmilyRN.placeHolderList[1027]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.chinRaiser" 
-		"anim_ready_EmilyRN.placeHolderList[681]" ""
+		"anim_ready_EmilyRN.placeHolderList[1028]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipPress_R" 
-		"anim_ready_EmilyRN.placeHolderList[682]" ""
+		"anim_ready_EmilyRN.placeHolderList[1029]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipPress_L" 
-		"anim_ready_EmilyRN.placeHolderList[683]" ""
+		"anim_ready_EmilyRN.placeHolderList[1030]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipUpperRoll_R" 
-		"anim_ready_EmilyRN.placeHolderList[684]" ""
+		"anim_ready_EmilyRN.placeHolderList[1031]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipUpperRoll_L" 
-		"anim_ready_EmilyRN.placeHolderList[685]" ""
+		"anim_ready_EmilyRN.placeHolderList[1032]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipLowerRoll_R" 
-		"anim_ready_EmilyRN.placeHolderList[686]" ""
+		"anim_ready_EmilyRN.placeHolderList[1033]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:ctrlBoxOffset|anim_ready_Emily:ctrlBox|anim_ready_Emily:ctrlBoxMouth_M|anim_ready_Emily:ctrlMouth_M.lipLowerRoll_L" 
-		"anim_ready_EmilyRN.placeHolderList[687]" ""
+		"anim_ready_EmilyRN.placeHolderList[1034]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M.rotateX" 
-		"anim_ready_EmilyRN.placeHolderList[688]" ""
+		"anim_ready_EmilyRN.placeHolderList[1035]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M.rotateY" 
-		"anim_ready_EmilyRN.placeHolderList[689]" ""
+		"anim_ready_EmilyRN.placeHolderList[1036]" ""
 		5 4 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:Rig|anim_ready_Emily:FaceGroup|anim_ready_Emily:FaceMotionSystem|anim_ready_Emily:JawSetup|anim_ready_Emily:JawSetupFollowHead|anim_ready_Emily:FKOffsetJaw_M|anim_ready_Emily:FKSDK1Jaw_M|anim_ready_Emily:FKSDK2Jaw_M|anim_ready_Emily:FKJaw_M.rotateZ" 
-		"anim_ready_EmilyRN.placeHolderList[690]" ""
+		"anim_ready_EmilyRN.placeHolderList[1037]" ""
 		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Emily_Main|anim_ready_Emily:geo_Emily|anim_ready_Emily:Body2|anim_ready_Emily:BodyShapeDeformedDeformed.worldMesh" 
-		"anim_ready_EmilyRN.placeHolderList[691]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Band|anim_ready_Emily:BandShapeDeformed.worldMesh" 
-		"anim_ready_EmilyRN.placeHolderList[692]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Shoulders|anim_ready_Emily:ShouldersShapeDeformed.worldMesh" 
-		"anim_ready_EmilyRN.placeHolderList[693]" ""
-		5 3 "anim_ready_EmilyRN" "|anim_ready_Emily:Emily|anim_ready_Emily:Dress|anim_ready_Emily:Skirt|anim_ready_Emily:SkirtShapeDeformed.worldMesh" 
-		"anim_ready_EmilyRN.placeHolderList[694]" ""
+		"anim_ready_EmilyRN.placeHolderList[1038]" ""
 		7 "link" ":lightLinker1" 2 "anim_ready_Emily:AllSet.message" "|LightRig|MoonLight|MoonLightShape.message" 
 		0
 		7 "link" ":lightLinker1" 2 "anim_ready_Emily:AllSet.message" "|LightRig|RMSEnvLight1|RMSEnvLightShape1.message" 
@@ -8876,7 +8873,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__riopt__trace_decimationrate" 1;
 	setAttr -k on ".rman__riopt__limits_threads" 0;
 	setAttr -k on ".rman__riopt__Camera_shutteropening" -type "float2" 0 1 ;
-	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 2048 2048 ;
+	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 960 540 ;
 	setAttr -k on ".rman__riopt__Format_pixelaspectratio" 1;
 	setAttr -k on ".rman__riopt__hair_minwidth" 0.5;
 	setAttr ".rman__riopt__rib_compression" -type "string" "none";
@@ -8931,7 +8928,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__riopt__Hider_sigmablur" 1;
 	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "distribution";
 	setAttr ".rman__EnvLight" -type "string" "";
-	setAttr -s 3 ".p";
+	setAttr -s 19 ".p";
 createNode displayLayer -n "walls";
 	setAttr ".v" no;
 	setAttr ".do" 3;
@@ -9154,6 +9151,206 @@ createNode reference -n "bedsheetRN";
 		"bedsheetRN.placeHolderList[21]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
+createNode RenderMan -s -n "rmanScatterVolumeRenderGlobals";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___rayTracing" -ln "rman__torattr___rayTracing" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__user_shading_normalmode" -ln "rman__riopt__user_shading_normalmode" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples" -ln "rman__riopt___PixelSamples" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples0" -ln "rman__riopt___PixelSamples0" 
+		-dv -1 -at "float" -p "rman__riopt___PixelSamples";
+	addAttr -ci true -k true -sn "rman__riopt___PixelSamples1" -ln "rman__riopt___PixelSamples1" 
+		-dv -1 -at "float" -p "rman__riopt___PixelSamples";
+	addAttr -ci true -k true -sn "rman__riattr__cull_backfacing" -ln "rman__riattr__cull_backfacing" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__cull_hidden" -ln "rman__riattr__cull_hidden" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__dice_rasterorient" -ln "rman__riattr__dice_rasterorient" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
+		-dv -1 -smn 0 -smx 100 -at "float";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "pass:render";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "ScatterVolumeRender";
+	setAttr ".rman__torattr___task" -type "string" "render";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___passLayer" -type "string" "";
+	setAttr ".rman__torattr___camera" -type "string" "";
+	setAttr ".rman__torattr___crew" -type "string" "";
+	setAttr ".rman__torattr___flavor" -type "string" "";
+	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
+	setAttr ".rman__torattr___lightcrew" -type "string" "";
+	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Maps/Subsurface";
+	setAttr -k on ".rman__torattr___motionBlur" 0;
+	setAttr -k on ".rman__torattr___rayTracing" 1;
+	setAttr -k on ".rman__riopt__user_shading_normalmode" 1;
+	setAttr -k on ".rman__riopt___PixelSamples" -type "float2" 1 1 ;
+	setAttr -k on ".rman__riattr__cull_backfacing" 0;
+	setAttr -k on ".rman__riattr__cull_hidden" 0;
+	setAttr -k on ".rman__riattr__dice_rasterorient" 0;
+	setAttr -k on ".rman__riattr___ShadingRate" 5;
+createNode RenderMan -s -n "rmanScatterVolumeRenderOutputGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "PreviewNull";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___primaryDisplay" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr ".rman__riopt__Display_name" -type "string" "_preview";
+	setAttr ".rman__riopt__Display_type" -type "string" "null";
+	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
+createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__DisplayChannel_EliminateDuplicateGrids" 
+		-ln "rman__riopt__DisplayChannel_EliminateDuplicateGrids" -dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "radiosity";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color _radiosity";
+	setAttr -k on ".rman__riopt__DisplayChannel_EliminateDuplicateGrids" 1;
+createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals1";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__DisplayChannel_EliminateDuplicateGrids" 
+		-ln "rman__riopt__DisplayChannel_EliminateDuplicateGrids" -dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "area";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "float _area";
+	setAttr -k on ".rman__riopt__DisplayChannel_EliminateDuplicateGrids" 1;
+createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals2";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__DisplayChannel_EliminateDuplicateGrids" 
+		-ln "rman__riopt__DisplayChannel_EliminateDuplicateGrids" -dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "extinction";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color _extinction";
+	setAttr -k on ".rman__riopt__DisplayChannel_EliminateDuplicateGrids" 1;
+createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals3";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color Cs";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi" 0;
@@ -9166,7 +9363,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 56 ".st";
+	setAttr -s 52 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
@@ -9180,7 +9377,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 40 ".s";
+	setAttr -s 46 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -9192,19 +9389,19 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 32 ".u";
+	setAttr -s 41 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 13 ".r";
+	setAttr -s 11 ".r";
 select -ne :lightList1;
 	setAttr -s 2 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 28 ".tx";
+	setAttr -s 34 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 49 ".dsm";
+	setAttr -s 52 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -9213,7 +9410,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 23 ".gn";
+	setAttr -s 24 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -9262,7 +9459,7 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".clip";
 	setAttr -k on ".edm";
 	setAttr -k on ".edl";
-	setAttr ".ren" -type "string" "renderManRIS";
+	setAttr ".ren" -type "string" "renderMan";
 	setAttr -av -k on ".esr";
 	setAttr -k on ".ors";
 	setAttr -k on ".outf" 3;
@@ -9435,654 +9632,651 @@ select -ne :ikSystem;
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
 	setAttr -s 3 ".sol";
-connectAttr "anim_ready_Emily:FKChest_M_scaleX.o" "anim_ready_EmilyRN.phl[348]";
-connectAttr "anim_ready_Emily:FKChest_M_scaleY.o" "anim_ready_EmilyRN.phl[349]";
-connectAttr "anim_ready_Emily:FKChest_M_scaleZ.o" "anim_ready_EmilyRN.phl[350]";
-connectAttr "anim_ready_Emily:FKChest_M_rotateX.o" "anim_ready_EmilyRN.phl[351]"
+connectAttr "anim_ready_Emily:FKChest_M_scaleX.o" "anim_ready_EmilyRN.phl[695]";
+connectAttr "anim_ready_Emily:FKChest_M_scaleY.o" "anim_ready_EmilyRN.phl[696]";
+connectAttr "anim_ready_Emily:FKChest_M_scaleZ.o" "anim_ready_EmilyRN.phl[697]";
+connectAttr "anim_ready_Emily:FKChest_M_rotateX.o" "anim_ready_EmilyRN.phl[698]"
 		;
-connectAttr "anim_ready_Emily:FKChest_M_rotateY.o" "anim_ready_EmilyRN.phl[352]"
+connectAttr "anim_ready_Emily:FKChest_M_rotateY.o" "anim_ready_EmilyRN.phl[699]"
 		;
-connectAttr "anim_ready_Emily:FKChest_M_rotateZ.o" "anim_ready_EmilyRN.phl[353]"
+connectAttr "anim_ready_Emily:FKChest_M_rotateZ.o" "anim_ready_EmilyRN.phl[700]"
 		;
-connectAttr "anim_ready_Emily:FKChest_M_translateX.o" "anim_ready_EmilyRN.phl[354]"
+connectAttr "anim_ready_Emily:FKChest_M_translateX.o" "anim_ready_EmilyRN.phl[701]"
 		;
-connectAttr "anim_ready_Emily:FKChest_M_translateY.o" "anim_ready_EmilyRN.phl[355]"
+connectAttr "anim_ready_Emily:FKChest_M_translateY.o" "anim_ready_EmilyRN.phl[702]"
 		;
-connectAttr "anim_ready_Emily:FKChest_M_translateZ.o" "anim_ready_EmilyRN.phl[356]"
+connectAttr "anim_ready_Emily:FKChest_M_translateZ.o" "anim_ready_EmilyRN.phl[703]"
 		;
-connectAttr "anim_ready_Emily:FKNeck_M_scaleX.o" "anim_ready_EmilyRN.phl[357]";
-connectAttr "anim_ready_Emily:FKNeck_M_scaleY.o" "anim_ready_EmilyRN.phl[358]";
-connectAttr "anim_ready_Emily:FKNeck_M_scaleZ.o" "anim_ready_EmilyRN.phl[359]";
-connectAttr "anim_ready_Emily:FKNeck_M_Global.o" "anim_ready_EmilyRN.phl[360]";
-connectAttr "anim_ready_Emily:FKNeck_M_rotateX.o" "anim_ready_EmilyRN.phl[361]";
-connectAttr "anim_ready_Emily:FKNeck_M_rotateY.o" "anim_ready_EmilyRN.phl[362]";
-connectAttr "anim_ready_Emily:FKNeck_M_rotateZ.o" "anim_ready_EmilyRN.phl[363]";
-connectAttr "anim_ready_Emily:FKNeck_M_translateX.o" "anim_ready_EmilyRN.phl[364]"
+connectAttr "anim_ready_Emily:FKNeck_M_scaleX.o" "anim_ready_EmilyRN.phl[704]";
+connectAttr "anim_ready_Emily:FKNeck_M_scaleY.o" "anim_ready_EmilyRN.phl[705]";
+connectAttr "anim_ready_Emily:FKNeck_M_scaleZ.o" "anim_ready_EmilyRN.phl[706]";
+connectAttr "anim_ready_Emily:FKNeck_M_Global.o" "anim_ready_EmilyRN.phl[707]";
+connectAttr "anim_ready_Emily:FKNeck_M_rotateX.o" "anim_ready_EmilyRN.phl[708]";
+connectAttr "anim_ready_Emily:FKNeck_M_rotateY.o" "anim_ready_EmilyRN.phl[709]";
+connectAttr "anim_ready_Emily:FKNeck_M_rotateZ.o" "anim_ready_EmilyRN.phl[710]";
+connectAttr "anim_ready_Emily:FKNeck_M_translateX.o" "anim_ready_EmilyRN.phl[711]"
 		;
-connectAttr "anim_ready_Emily:FKNeck_M_translateY.o" "anim_ready_EmilyRN.phl[365]"
+connectAttr "anim_ready_Emily:FKNeck_M_translateY.o" "anim_ready_EmilyRN.phl[712]"
 		;
-connectAttr "anim_ready_Emily:FKNeck_M_translateZ.o" "anim_ready_EmilyRN.phl[366]"
+connectAttr "anim_ready_Emily:FKNeck_M_translateZ.o" "anim_ready_EmilyRN.phl[713]"
 		;
-connectAttr "anim_ready_Emily:FKHead_M_translateX.o" "anim_ready_EmilyRN.phl[367]"
+connectAttr "anim_ready_Emily:FKHead_M_translateX.o" "anim_ready_EmilyRN.phl[714]"
 		;
-connectAttr "anim_ready_Emily:FKHead_M_rotateX.o" "anim_ready_EmilyRN.phl[368]";
-connectAttr "anim_ready_Emily:FKHead_M_rotateY.o" "anim_ready_EmilyRN.phl[369]";
-connectAttr "anim_ready_Emily:FKHead_M_rotateZ.o" "anim_ready_EmilyRN.phl[370]";
-connectAttr "anim_ready_Emily:FKScapula_R_Global.o" "anim_ready_EmilyRN.phl[371]"
+connectAttr "anim_ready_Emily:FKHead_M_rotateX.o" "anim_ready_EmilyRN.phl[715]";
+connectAttr "anim_ready_Emily:FKHead_M_rotateY.o" "anim_ready_EmilyRN.phl[716]";
+connectAttr "anim_ready_Emily:FKHead_M_rotateZ.o" "anim_ready_EmilyRN.phl[717]";
+connectAttr "anim_ready_Emily:FKScapula_R_Global.o" "anim_ready_EmilyRN.phl[718]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_translateX.o" "anim_ready_EmilyRN.phl[372]"
+connectAttr "anim_ready_Emily:FKScapula_R_translateX.o" "anim_ready_EmilyRN.phl[719]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_translateY.o" "anim_ready_EmilyRN.phl[373]"
+connectAttr "anim_ready_Emily:FKScapula_R_translateY.o" "anim_ready_EmilyRN.phl[720]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_translateZ.o" "anim_ready_EmilyRN.phl[374]"
+connectAttr "anim_ready_Emily:FKScapula_R_translateZ.o" "anim_ready_EmilyRN.phl[721]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_rotateX.o" "anim_ready_EmilyRN.phl[375]"
+connectAttr "anim_ready_Emily:FKScapula_R_rotateX.o" "anim_ready_EmilyRN.phl[722]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_rotateY.o" "anim_ready_EmilyRN.phl[376]"
+connectAttr "anim_ready_Emily:FKScapula_R_rotateY.o" "anim_ready_EmilyRN.phl[723]"
 		;
-connectAttr "anim_ready_Emily:FKScapula_R_rotateZ.o" "anim_ready_EmilyRN.phl[377]"
+connectAttr "anim_ready_Emily:FKScapula_R_rotateZ.o" "anim_ready_EmilyRN.phl[724]"
 		;
-connectAttr "anim_ready_Emily:IKArm_R_scaleX.o" "anim_ready_EmilyRN.phl[378]";
-connectAttr "anim_ready_Emily:IKArm_R_scaleY.o" "anim_ready_EmilyRN.phl[379]";
-connectAttr "anim_ready_Emily:IKArm_R_scaleZ.o" "anim_ready_EmilyRN.phl[380]";
-connectAttr "anim_ready_Emily:IKArm_R_translateX.o" "anim_ready_EmilyRN.phl[381]"
+connectAttr "anim_ready_Emily:IKArm_R_scaleX.o" "anim_ready_EmilyRN.phl[725]";
+connectAttr "anim_ready_Emily:IKArm_R_scaleY.o" "anim_ready_EmilyRN.phl[726]";
+connectAttr "anim_ready_Emily:IKArm_R_scaleZ.o" "anim_ready_EmilyRN.phl[727]";
+connectAttr "anim_ready_Emily:IKArm_R_translateX.o" "anim_ready_EmilyRN.phl[728]"
 		;
-connectAttr "anim_ready_Emily:IKArm_R_translateY.o" "anim_ready_EmilyRN.phl[382]"
+connectAttr "anim_ready_Emily:IKArm_R_translateY.o" "anim_ready_EmilyRN.phl[729]"
 		;
-connectAttr "anim_ready_Emily:IKArm_R_translateZ.o" "anim_ready_EmilyRN.phl[383]"
+connectAttr "anim_ready_Emily:IKArm_R_translateZ.o" "anim_ready_EmilyRN.phl[730]"
 		;
-connectAttr "anim_ready_Emily:IKArm_R_rotateX.o" "anim_ready_EmilyRN.phl[384]";
-connectAttr "anim_ready_Emily:IKArm_R_rotateY.o" "anim_ready_EmilyRN.phl[385]";
-connectAttr "anim_ready_Emily:IKArm_R_rotateZ.o" "anim_ready_EmilyRN.phl[386]";
-connectAttr "anim_ready_Emily:IKArm_R_follow.o" "anim_ready_EmilyRN.phl[387]";
-connectAttr "anim_ready_Emily:IKArm_R_stretchy.o" "anim_ready_EmilyRN.phl[388]";
-connectAttr "anim_ready_Emily:IKArm_R_antiPop.o" "anim_ready_EmilyRN.phl[389]";
-connectAttr "anim_ready_Emily:IKArm_R_Lenght1.o" "anim_ready_EmilyRN.phl[390]";
-connectAttr "anim_ready_Emily:IKArm_R_Lenght2.o" "anim_ready_EmilyRN.phl[391]";
-connectAttr "anim_ready_Emily:IKArm_R_volume.o" "anim_ready_EmilyRN.phl[392]";
-connectAttr "anim_ready_Emily:IKArm_R_visibility.o" "anim_ready_EmilyRN.phl[393]"
+connectAttr "anim_ready_Emily:IKArm_R_rotateX.o" "anim_ready_EmilyRN.phl[731]";
+connectAttr "anim_ready_Emily:IKArm_R_rotateY.o" "anim_ready_EmilyRN.phl[732]";
+connectAttr "anim_ready_Emily:IKArm_R_rotateZ.o" "anim_ready_EmilyRN.phl[733]";
+connectAttr "anim_ready_Emily:IKArm_R_follow.o" "anim_ready_EmilyRN.phl[734]";
+connectAttr "anim_ready_Emily:IKArm_R_stretchy.o" "anim_ready_EmilyRN.phl[735]";
+connectAttr "anim_ready_Emily:IKArm_R_antiPop.o" "anim_ready_EmilyRN.phl[736]";
+connectAttr "anim_ready_Emily:IKArm_R_Lenght1.o" "anim_ready_EmilyRN.phl[737]";
+connectAttr "anim_ready_Emily:IKArm_R_Lenght2.o" "anim_ready_EmilyRN.phl[738]";
+connectAttr "anim_ready_Emily:IKArm_R_volume.o" "anim_ready_EmilyRN.phl[739]";
+connectAttr "anim_ready_Emily:IKArm_R_visibility.o" "anim_ready_EmilyRN.phl[740]"
 		;
-connectAttr "anim_ready_Emily:PoleArm_R_translateX.o" "anim_ready_EmilyRN.phl[394]"
+connectAttr "anim_ready_Emily:PoleArm_R_translateX.o" "anim_ready_EmilyRN.phl[741]"
 		;
-connectAttr "anim_ready_Emily:PoleArm_R_translateY.o" "anim_ready_EmilyRN.phl[395]"
+connectAttr "anim_ready_Emily:PoleArm_R_translateY.o" "anim_ready_EmilyRN.phl[742]"
 		;
-connectAttr "anim_ready_Emily:PoleArm_R_translateZ.o" "anim_ready_EmilyRN.phl[396]"
+connectAttr "anim_ready_Emily:PoleArm_R_translateZ.o" "anim_ready_EmilyRN.phl[743]"
 		;
-connectAttr "anim_ready_Emily:PoleArm_R_follow.o" "anim_ready_EmilyRN.phl[397]";
-connectAttr "anim_ready_Emily:PoleArm_R_lock.o" "anim_ready_EmilyRN.phl[398]";
-connectAttr "anim_ready_Emily:browInner_R_translateX.o" "anim_ready_EmilyRN.phl[399]"
+connectAttr "anim_ready_Emily:PoleArm_R_follow.o" "anim_ready_EmilyRN.phl[744]";
+connectAttr "anim_ready_Emily:PoleArm_R_lock.o" "anim_ready_EmilyRN.phl[745]";
+connectAttr "anim_ready_Emily:browInner_R_translateX.o" "anim_ready_EmilyRN.phl[746]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_translateY.o" "anim_ready_EmilyRN.phl[400]"
+connectAttr "anim_ready_Emily:browInner_R_translateY.o" "anim_ready_EmilyRN.phl[747]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_translateZ.o" "anim_ready_EmilyRN.phl[401]"
+connectAttr "anim_ready_Emily:browInner_R_translateZ.o" "anim_ready_EmilyRN.phl[748]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_rotateX.o" "anim_ready_EmilyRN.phl[402]"
+connectAttr "anim_ready_Emily:browInner_R_rotateX.o" "anim_ready_EmilyRN.phl[749]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_rotateY.o" "anim_ready_EmilyRN.phl[403]"
+connectAttr "anim_ready_Emily:browInner_R_rotateY.o" "anim_ready_EmilyRN.phl[750]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_rotateZ.o" "anim_ready_EmilyRN.phl[404]"
+connectAttr "anim_ready_Emily:browInner_R_rotateZ.o" "anim_ready_EmilyRN.phl[751]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_scaleX.o" "anim_ready_EmilyRN.phl[405]"
+connectAttr "anim_ready_Emily:browInner_R_scaleX.o" "anim_ready_EmilyRN.phl[752]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_scaleY.o" "anim_ready_EmilyRN.phl[406]"
+connectAttr "anim_ready_Emily:browInner_R_scaleY.o" "anim_ready_EmilyRN.phl[753]"
 		;
-connectAttr "anim_ready_Emily:browInner_R_scaleZ.o" "anim_ready_EmilyRN.phl[407]"
+connectAttr "anim_ready_Emily:browInner_R_scaleZ.o" "anim_ready_EmilyRN.phl[754]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_translateX.o" "anim_ready_EmilyRN.phl[408]"
+connectAttr "anim_ready_Emily:browOuter_R_translateX.o" "anim_ready_EmilyRN.phl[755]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_translateY.o" "anim_ready_EmilyRN.phl[409]"
+connectAttr "anim_ready_Emily:browOuter_R_translateY.o" "anim_ready_EmilyRN.phl[756]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_translateZ.o" "anim_ready_EmilyRN.phl[410]"
+connectAttr "anim_ready_Emily:browOuter_R_translateZ.o" "anim_ready_EmilyRN.phl[757]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_rotateX.o" "anim_ready_EmilyRN.phl[411]"
+connectAttr "anim_ready_Emily:browOuter_R_rotateX.o" "anim_ready_EmilyRN.phl[758]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_rotateY.o" "anim_ready_EmilyRN.phl[412]"
+connectAttr "anim_ready_Emily:browOuter_R_rotateY.o" "anim_ready_EmilyRN.phl[759]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_rotateZ.o" "anim_ready_EmilyRN.phl[413]"
+connectAttr "anim_ready_Emily:browOuter_R_rotateZ.o" "anim_ready_EmilyRN.phl[760]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_scaleX.o" "anim_ready_EmilyRN.phl[414]"
+connectAttr "anim_ready_Emily:browOuter_R_scaleX.o" "anim_ready_EmilyRN.phl[761]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_scaleY.o" "anim_ready_EmilyRN.phl[415]"
+connectAttr "anim_ready_Emily:browOuter_R_scaleY.o" "anim_ready_EmilyRN.phl[762]"
 		;
-connectAttr "anim_ready_Emily:browOuter_R_scaleZ.o" "anim_ready_EmilyRN.phl[416]"
+connectAttr "anim_ready_Emily:browOuter_R_scaleZ.o" "anim_ready_EmilyRN.phl[763]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_translateX.o" "anim_ready_EmilyRN.phl[417]"
+connectAttr "anim_ready_Emily:browInner_L_translateX.o" "anim_ready_EmilyRN.phl[764]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_translateY.o" "anim_ready_EmilyRN.phl[418]"
+connectAttr "anim_ready_Emily:browInner_L_translateY.o" "anim_ready_EmilyRN.phl[765]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_translateZ.o" "anim_ready_EmilyRN.phl[419]"
+connectAttr "anim_ready_Emily:browInner_L_translateZ.o" "anim_ready_EmilyRN.phl[766]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_rotateX.o" "anim_ready_EmilyRN.phl[420]"
+connectAttr "anim_ready_Emily:browInner_L_rotateX.o" "anim_ready_EmilyRN.phl[767]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_rotateY.o" "anim_ready_EmilyRN.phl[421]"
+connectAttr "anim_ready_Emily:browInner_L_rotateY.o" "anim_ready_EmilyRN.phl[768]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_rotateZ.o" "anim_ready_EmilyRN.phl[422]"
+connectAttr "anim_ready_Emily:browInner_L_rotateZ.o" "anim_ready_EmilyRN.phl[769]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_scaleX.o" "anim_ready_EmilyRN.phl[423]"
+connectAttr "anim_ready_Emily:browInner_L_scaleX.o" "anim_ready_EmilyRN.phl[770]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_scaleY.o" "anim_ready_EmilyRN.phl[424]"
+connectAttr "anim_ready_Emily:browInner_L_scaleY.o" "anim_ready_EmilyRN.phl[771]"
 		;
-connectAttr "anim_ready_Emily:browInner_L_scaleZ.o" "anim_ready_EmilyRN.phl[425]"
+connectAttr "anim_ready_Emily:browInner_L_scaleZ.o" "anim_ready_EmilyRN.phl[772]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_translateX.o" "anim_ready_EmilyRN.phl[426]"
+connectAttr "anim_ready_Emily:browOuter_L_translateX.o" "anim_ready_EmilyRN.phl[773]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_translateY.o" "anim_ready_EmilyRN.phl[427]"
+connectAttr "anim_ready_Emily:browOuter_L_translateY.o" "anim_ready_EmilyRN.phl[774]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_translateZ.o" "anim_ready_EmilyRN.phl[428]"
+connectAttr "anim_ready_Emily:browOuter_L_translateZ.o" "anim_ready_EmilyRN.phl[775]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_rotateX.o" "anim_ready_EmilyRN.phl[429]"
+connectAttr "anim_ready_Emily:browOuter_L_rotateX.o" "anim_ready_EmilyRN.phl[776]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_rotateY.o" "anim_ready_EmilyRN.phl[430]"
+connectAttr "anim_ready_Emily:browOuter_L_rotateY.o" "anim_ready_EmilyRN.phl[777]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_rotateZ.o" "anim_ready_EmilyRN.phl[431]"
+connectAttr "anim_ready_Emily:browOuter_L_rotateZ.o" "anim_ready_EmilyRN.phl[778]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_scaleX.o" "anim_ready_EmilyRN.phl[432]"
+connectAttr "anim_ready_Emily:browOuter_L_scaleX.o" "anim_ready_EmilyRN.phl[779]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_scaleY.o" "anim_ready_EmilyRN.phl[433]"
+connectAttr "anim_ready_Emily:browOuter_L_scaleY.o" "anim_ready_EmilyRN.phl[780]"
 		;
-connectAttr "anim_ready_Emily:browOuter_L_scaleZ.o" "anim_ready_EmilyRN.phl[434]"
+connectAttr "anim_ready_Emily:browOuter_L_scaleZ.o" "anim_ready_EmilyRN.phl[781]"
 		;
-connectAttr "anim_ready_Emily:Lip6_R_translateX.o" "anim_ready_EmilyRN.phl[435]"
+connectAttr "anim_ready_Emily:Lip6_R_translateX.o" "anim_ready_EmilyRN.phl[782]"
 		;
-connectAttr "anim_ready_Emily:Lip6_R_translateY.o" "anim_ready_EmilyRN.phl[436]"
+connectAttr "anim_ready_Emily:Lip6_R_translateY.o" "anim_ready_EmilyRN.phl[783]"
 		;
-connectAttr "anim_ready_Emily:Lip6_R_translateZ.o" "anim_ready_EmilyRN.phl[437]"
+connectAttr "anim_ready_Emily:Lip6_R_translateZ.o" "anim_ready_EmilyRN.phl[784]"
 		;
-connectAttr "anim_ready_Emily:Lip6_R_rotateX.o" "anim_ready_EmilyRN.phl[438]";
-connectAttr "anim_ready_Emily:Lip6_R_rotateY.o" "anim_ready_EmilyRN.phl[439]";
-connectAttr "anim_ready_Emily:Lip6_R_rotateZ.o" "anim_ready_EmilyRN.phl[440]";
-connectAttr "anim_ready_Emily:Lip6_R_scaleX.o" "anim_ready_EmilyRN.phl[441]";
-connectAttr "anim_ready_Emily:Lip6_R_scaleY.o" "anim_ready_EmilyRN.phl[442]";
-connectAttr "anim_ready_Emily:Lip6_R_scaleZ.o" "anim_ready_EmilyRN.phl[443]";
-connectAttr "anim_ready_Emily:Lip6_L_translateX.o" "anim_ready_EmilyRN.phl[444]"
+connectAttr "anim_ready_Emily:Lip6_R_rotateX.o" "anim_ready_EmilyRN.phl[785]";
+connectAttr "anim_ready_Emily:Lip6_R_rotateY.o" "anim_ready_EmilyRN.phl[786]";
+connectAttr "anim_ready_Emily:Lip6_R_rotateZ.o" "anim_ready_EmilyRN.phl[787]";
+connectAttr "anim_ready_Emily:Lip6_R_scaleX.o" "anim_ready_EmilyRN.phl[788]";
+connectAttr "anim_ready_Emily:Lip6_R_scaleY.o" "anim_ready_EmilyRN.phl[789]";
+connectAttr "anim_ready_Emily:Lip6_R_scaleZ.o" "anim_ready_EmilyRN.phl[790]";
+connectAttr "anim_ready_Emily:Lip6_L_translateX.o" "anim_ready_EmilyRN.phl[791]"
 		;
-connectAttr "anim_ready_Emily:Lip6_L_translateY.o" "anim_ready_EmilyRN.phl[445]"
+connectAttr "anim_ready_Emily:Lip6_L_translateY.o" "anim_ready_EmilyRN.phl[792]"
 		;
-connectAttr "anim_ready_Emily:Lip6_L_translateZ.o" "anim_ready_EmilyRN.phl[446]"
+connectAttr "anim_ready_Emily:Lip6_L_translateZ.o" "anim_ready_EmilyRN.phl[793]"
 		;
-connectAttr "anim_ready_Emily:Lip6_L_rotateX.o" "anim_ready_EmilyRN.phl[447]";
-connectAttr "anim_ready_Emily:Lip6_L_rotateY.o" "anim_ready_EmilyRN.phl[448]";
-connectAttr "anim_ready_Emily:Lip6_L_rotateZ.o" "anim_ready_EmilyRN.phl[449]";
-connectAttr "anim_ready_Emily:Lip6_L_scaleX.o" "anim_ready_EmilyRN.phl[450]";
-connectAttr "anim_ready_Emily:Lip6_L_scaleY.o" "anim_ready_EmilyRN.phl[451]";
-connectAttr "anim_ready_Emily:Lip6_L_scaleZ.o" "anim_ready_EmilyRN.phl[452]";
-connectAttr "anim_ready_Emily:upperLip0_M_translateX.o" "anim_ready_EmilyRN.phl[453]"
+connectAttr "anim_ready_Emily:Lip6_L_rotateX.o" "anim_ready_EmilyRN.phl[794]";
+connectAttr "anim_ready_Emily:Lip6_L_rotateY.o" "anim_ready_EmilyRN.phl[795]";
+connectAttr "anim_ready_Emily:Lip6_L_rotateZ.o" "anim_ready_EmilyRN.phl[796]";
+connectAttr "anim_ready_Emily:Lip6_L_scaleX.o" "anim_ready_EmilyRN.phl[797]";
+connectAttr "anim_ready_Emily:Lip6_L_scaleY.o" "anim_ready_EmilyRN.phl[798]";
+connectAttr "anim_ready_Emily:Lip6_L_scaleZ.o" "anim_ready_EmilyRN.phl[799]";
+connectAttr "anim_ready_Emily:upperLip0_M_translateX.o" "anim_ready_EmilyRN.phl[800]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_translateY.o" "anim_ready_EmilyRN.phl[454]"
+connectAttr "anim_ready_Emily:upperLip0_M_translateY.o" "anim_ready_EmilyRN.phl[801]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_translateZ.o" "anim_ready_EmilyRN.phl[455]"
+connectAttr "anim_ready_Emily:upperLip0_M_translateZ.o" "anim_ready_EmilyRN.phl[802]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_rotateX.o" "anim_ready_EmilyRN.phl[456]"
+connectAttr "anim_ready_Emily:upperLip0_M_rotateX.o" "anim_ready_EmilyRN.phl[803]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_rotateY.o" "anim_ready_EmilyRN.phl[457]"
+connectAttr "anim_ready_Emily:upperLip0_M_rotateY.o" "anim_ready_EmilyRN.phl[804]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_rotateZ.o" "anim_ready_EmilyRN.phl[458]"
+connectAttr "anim_ready_Emily:upperLip0_M_rotateZ.o" "anim_ready_EmilyRN.phl[805]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_scaleX.o" "anim_ready_EmilyRN.phl[459]"
+connectAttr "anim_ready_Emily:upperLip0_M_scaleX.o" "anim_ready_EmilyRN.phl[806]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_scaleY.o" "anim_ready_EmilyRN.phl[460]"
+connectAttr "anim_ready_Emily:upperLip0_M_scaleY.o" "anim_ready_EmilyRN.phl[807]"
 		;
-connectAttr "anim_ready_Emily:upperLip0_M_scaleZ.o" "anim_ready_EmilyRN.phl[461]"
+connectAttr "anim_ready_Emily:upperLip0_M_scaleZ.o" "anim_ready_EmilyRN.phl[808]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_translateX.o" "anim_ready_EmilyRN.phl[462]"
+connectAttr "anim_ready_Emily:upperLip3_R_translateX.o" "anim_ready_EmilyRN.phl[809]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_translateY.o" "anim_ready_EmilyRN.phl[463]"
+connectAttr "anim_ready_Emily:upperLip3_R_translateY.o" "anim_ready_EmilyRN.phl[810]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_translateZ.o" "anim_ready_EmilyRN.phl[464]"
+connectAttr "anim_ready_Emily:upperLip3_R_translateZ.o" "anim_ready_EmilyRN.phl[811]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_rotateX.o" "anim_ready_EmilyRN.phl[465]"
+connectAttr "anim_ready_Emily:upperLip3_R_rotateX.o" "anim_ready_EmilyRN.phl[812]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_rotateY.o" "anim_ready_EmilyRN.phl[466]"
+connectAttr "anim_ready_Emily:upperLip3_R_rotateY.o" "anim_ready_EmilyRN.phl[813]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_rotateZ.o" "anim_ready_EmilyRN.phl[467]"
+connectAttr "anim_ready_Emily:upperLip3_R_rotateZ.o" "anim_ready_EmilyRN.phl[814]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_scaleX.o" "anim_ready_EmilyRN.phl[468]"
+connectAttr "anim_ready_Emily:upperLip3_R_scaleX.o" "anim_ready_EmilyRN.phl[815]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_scaleY.o" "anim_ready_EmilyRN.phl[469]"
+connectAttr "anim_ready_Emily:upperLip3_R_scaleY.o" "anim_ready_EmilyRN.phl[816]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_R_scaleZ.o" "anim_ready_EmilyRN.phl[470]"
+connectAttr "anim_ready_Emily:upperLip3_R_scaleZ.o" "anim_ready_EmilyRN.phl[817]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_translateX.o" "anim_ready_EmilyRN.phl[471]"
+connectAttr "anim_ready_Emily:upperLip3_L_translateX.o" "anim_ready_EmilyRN.phl[818]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_translateY.o" "anim_ready_EmilyRN.phl[472]"
+connectAttr "anim_ready_Emily:upperLip3_L_translateY.o" "anim_ready_EmilyRN.phl[819]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_translateZ.o" "anim_ready_EmilyRN.phl[473]"
+connectAttr "anim_ready_Emily:upperLip3_L_translateZ.o" "anim_ready_EmilyRN.phl[820]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_rotateX.o" "anim_ready_EmilyRN.phl[474]"
+connectAttr "anim_ready_Emily:upperLip3_L_rotateX.o" "anim_ready_EmilyRN.phl[821]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_rotateY.o" "anim_ready_EmilyRN.phl[475]"
+connectAttr "anim_ready_Emily:upperLip3_L_rotateY.o" "anim_ready_EmilyRN.phl[822]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_rotateZ.o" "anim_ready_EmilyRN.phl[476]"
+connectAttr "anim_ready_Emily:upperLip3_L_rotateZ.o" "anim_ready_EmilyRN.phl[823]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_scaleX.o" "anim_ready_EmilyRN.phl[477]"
+connectAttr "anim_ready_Emily:upperLip3_L_scaleX.o" "anim_ready_EmilyRN.phl[824]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_scaleY.o" "anim_ready_EmilyRN.phl[478]"
+connectAttr "anim_ready_Emily:upperLip3_L_scaleY.o" "anim_ready_EmilyRN.phl[825]"
 		;
-connectAttr "anim_ready_Emily:upperLip3_L_scaleZ.o" "anim_ready_EmilyRN.phl[479]"
+connectAttr "anim_ready_Emily:upperLip3_L_scaleZ.o" "anim_ready_EmilyRN.phl[826]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_translateX.o" "anim_ready_EmilyRN.phl[480]"
+connectAttr "anim_ready_Emily:lowerLip0_M_translateX.o" "anim_ready_EmilyRN.phl[827]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_translateY.o" "anim_ready_EmilyRN.phl[481]"
+connectAttr "anim_ready_Emily:lowerLip0_M_translateY.o" "anim_ready_EmilyRN.phl[828]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_translateZ.o" "anim_ready_EmilyRN.phl[482]"
+connectAttr "anim_ready_Emily:lowerLip0_M_translateZ.o" "anim_ready_EmilyRN.phl[829]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_rotateX.o" "anim_ready_EmilyRN.phl[483]"
+connectAttr "anim_ready_Emily:lowerLip0_M_rotateX.o" "anim_ready_EmilyRN.phl[830]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_rotateY.o" "anim_ready_EmilyRN.phl[484]"
+connectAttr "anim_ready_Emily:lowerLip0_M_rotateY.o" "anim_ready_EmilyRN.phl[831]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_rotateZ.o" "anim_ready_EmilyRN.phl[485]"
+connectAttr "anim_ready_Emily:lowerLip0_M_rotateZ.o" "anim_ready_EmilyRN.phl[832]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_scaleX.o" "anim_ready_EmilyRN.phl[486]"
+connectAttr "anim_ready_Emily:lowerLip0_M_scaleX.o" "anim_ready_EmilyRN.phl[833]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_scaleY.o" "anim_ready_EmilyRN.phl[487]"
+connectAttr "anim_ready_Emily:lowerLip0_M_scaleY.o" "anim_ready_EmilyRN.phl[834]"
 		;
-connectAttr "anim_ready_Emily:lowerLip0_M_scaleZ.o" "anim_ready_EmilyRN.phl[488]"
+connectAttr "anim_ready_Emily:lowerLip0_M_scaleZ.o" "anim_ready_EmilyRN.phl[835]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_translateX.o" "anim_ready_EmilyRN.phl[489]"
+connectAttr "anim_ready_Emily:lowerLip3_R_translateX.o" "anim_ready_EmilyRN.phl[836]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_translateY.o" "anim_ready_EmilyRN.phl[490]"
+connectAttr "anim_ready_Emily:lowerLip3_R_translateY.o" "anim_ready_EmilyRN.phl[837]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_translateZ.o" "anim_ready_EmilyRN.phl[491]"
+connectAttr "anim_ready_Emily:lowerLip3_R_translateZ.o" "anim_ready_EmilyRN.phl[838]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_rotateX.o" "anim_ready_EmilyRN.phl[492]"
+connectAttr "anim_ready_Emily:lowerLip3_R_rotateX.o" "anim_ready_EmilyRN.phl[839]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_rotateY.o" "anim_ready_EmilyRN.phl[493]"
+connectAttr "anim_ready_Emily:lowerLip3_R_rotateY.o" "anim_ready_EmilyRN.phl[840]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_rotateZ.o" "anim_ready_EmilyRN.phl[494]"
+connectAttr "anim_ready_Emily:lowerLip3_R_rotateZ.o" "anim_ready_EmilyRN.phl[841]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_scaleX.o" "anim_ready_EmilyRN.phl[495]"
+connectAttr "anim_ready_Emily:lowerLip3_R_scaleX.o" "anim_ready_EmilyRN.phl[842]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_scaleY.o" "anim_ready_EmilyRN.phl[496]"
+connectAttr "anim_ready_Emily:lowerLip3_R_scaleY.o" "anim_ready_EmilyRN.phl[843]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_R_scaleZ.o" "anim_ready_EmilyRN.phl[497]"
+connectAttr "anim_ready_Emily:lowerLip3_R_scaleZ.o" "anim_ready_EmilyRN.phl[844]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_translateX.o" "anim_ready_EmilyRN.phl[498]"
+connectAttr "anim_ready_Emily:lowerLip3_L_translateX.o" "anim_ready_EmilyRN.phl[845]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_translateY.o" "anim_ready_EmilyRN.phl[499]"
+connectAttr "anim_ready_Emily:lowerLip3_L_translateY.o" "anim_ready_EmilyRN.phl[846]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_translateZ.o" "anim_ready_EmilyRN.phl[500]"
+connectAttr "anim_ready_Emily:lowerLip3_L_translateZ.o" "anim_ready_EmilyRN.phl[847]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_rotateX.o" "anim_ready_EmilyRN.phl[501]"
+connectAttr "anim_ready_Emily:lowerLip3_L_rotateX.o" "anim_ready_EmilyRN.phl[848]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_rotateY.o" "anim_ready_EmilyRN.phl[502]"
+connectAttr "anim_ready_Emily:lowerLip3_L_rotateY.o" "anim_ready_EmilyRN.phl[849]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_rotateZ.o" "anim_ready_EmilyRN.phl[503]"
+connectAttr "anim_ready_Emily:lowerLip3_L_rotateZ.o" "anim_ready_EmilyRN.phl[850]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_scaleX.o" "anim_ready_EmilyRN.phl[504]"
+connectAttr "anim_ready_Emily:lowerLip3_L_scaleX.o" "anim_ready_EmilyRN.phl[851]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_scaleY.o" "anim_ready_EmilyRN.phl[505]"
+connectAttr "anim_ready_Emily:lowerLip3_L_scaleY.o" "anim_ready_EmilyRN.phl[852]"
 		;
-connectAttr "anim_ready_Emily:lowerLip3_L_scaleZ.o" "anim_ready_EmilyRN.phl[506]"
+connectAttr "anim_ready_Emily:lowerLip3_L_scaleZ.o" "anim_ready_EmilyRN.phl[853]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_translateX.o" "anim_ready_EmilyRN.phl[507]"
+connectAttr "anim_ready_Emily:LidCorner1_R_translateX.o" "anim_ready_EmilyRN.phl[854]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_translateY.o" "anim_ready_EmilyRN.phl[508]"
+connectAttr "anim_ready_Emily:LidCorner1_R_translateY.o" "anim_ready_EmilyRN.phl[855]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_translateZ.o" "anim_ready_EmilyRN.phl[509]"
+connectAttr "anim_ready_Emily:LidCorner1_R_translateZ.o" "anim_ready_EmilyRN.phl[856]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_rotateX.o" "anim_ready_EmilyRN.phl[510]"
+connectAttr "anim_ready_Emily:LidCorner1_R_rotateX.o" "anim_ready_EmilyRN.phl[857]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_rotateY.o" "anim_ready_EmilyRN.phl[511]"
+connectAttr "anim_ready_Emily:LidCorner1_R_rotateY.o" "anim_ready_EmilyRN.phl[858]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_rotateZ.o" "anim_ready_EmilyRN.phl[512]"
+connectAttr "anim_ready_Emily:LidCorner1_R_rotateZ.o" "anim_ready_EmilyRN.phl[859]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_scaleX.o" "anim_ready_EmilyRN.phl[513]"
+connectAttr "anim_ready_Emily:LidCorner1_R_scaleX.o" "anim_ready_EmilyRN.phl[860]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_scaleY.o" "anim_ready_EmilyRN.phl[514]"
+connectAttr "anim_ready_Emily:LidCorner1_R_scaleY.o" "anim_ready_EmilyRN.phl[861]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_R_scaleZ.o" "anim_ready_EmilyRN.phl[515]"
+connectAttr "anim_ready_Emily:LidCorner1_R_scaleZ.o" "anim_ready_EmilyRN.phl[862]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_translateX.o" "anim_ready_EmilyRN.phl[516]"
+connectAttr "anim_ready_Emily:LidCorner2_R_translateX.o" "anim_ready_EmilyRN.phl[863]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_translateY.o" "anim_ready_EmilyRN.phl[517]"
+connectAttr "anim_ready_Emily:LidCorner2_R_translateY.o" "anim_ready_EmilyRN.phl[864]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_translateZ.o" "anim_ready_EmilyRN.phl[518]"
+connectAttr "anim_ready_Emily:LidCorner2_R_translateZ.o" "anim_ready_EmilyRN.phl[865]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_rotateX.o" "anim_ready_EmilyRN.phl[519]"
+connectAttr "anim_ready_Emily:LidCorner2_R_rotateX.o" "anim_ready_EmilyRN.phl[866]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_rotateY.o" "anim_ready_EmilyRN.phl[520]"
+connectAttr "anim_ready_Emily:LidCorner2_R_rotateY.o" "anim_ready_EmilyRN.phl[867]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_rotateZ.o" "anim_ready_EmilyRN.phl[521]"
+connectAttr "anim_ready_Emily:LidCorner2_R_rotateZ.o" "anim_ready_EmilyRN.phl[868]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_scaleX.o" "anim_ready_EmilyRN.phl[522]"
+connectAttr "anim_ready_Emily:LidCorner2_R_scaleX.o" "anim_ready_EmilyRN.phl[869]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_scaleY.o" "anim_ready_EmilyRN.phl[523]"
+connectAttr "anim_ready_Emily:LidCorner2_R_scaleY.o" "anim_ready_EmilyRN.phl[870]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_R_scaleZ.o" "anim_ready_EmilyRN.phl[524]"
+connectAttr "anim_ready_Emily:LidCorner2_R_scaleZ.o" "anim_ready_EmilyRN.phl[871]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_translateX.o" "anim_ready_EmilyRN.phl[525]"
+connectAttr "anim_ready_Emily:upperLid1_R_translateX.o" "anim_ready_EmilyRN.phl[872]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_translateY.o" "anim_ready_EmilyRN.phl[526]"
+connectAttr "anim_ready_Emily:upperLid1_R_translateY.o" "anim_ready_EmilyRN.phl[873]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_translateZ.o" "anim_ready_EmilyRN.phl[527]"
+connectAttr "anim_ready_Emily:upperLid1_R_translateZ.o" "anim_ready_EmilyRN.phl[874]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_rotateX.o" "anim_ready_EmilyRN.phl[528]"
+connectAttr "anim_ready_Emily:upperLid1_R_rotateX.o" "anim_ready_EmilyRN.phl[875]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_rotateY.o" "anim_ready_EmilyRN.phl[529]"
+connectAttr "anim_ready_Emily:upperLid1_R_rotateY.o" "anim_ready_EmilyRN.phl[876]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_rotateZ.o" "anim_ready_EmilyRN.phl[530]"
+connectAttr "anim_ready_Emily:upperLid1_R_rotateZ.o" "anim_ready_EmilyRN.phl[877]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_scaleX.o" "anim_ready_EmilyRN.phl[531]"
+connectAttr "anim_ready_Emily:upperLid1_R_scaleX.o" "anim_ready_EmilyRN.phl[878]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_scaleY.o" "anim_ready_EmilyRN.phl[532]"
+connectAttr "anim_ready_Emily:upperLid1_R_scaleY.o" "anim_ready_EmilyRN.phl[879]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_R_scaleZ.o" "anim_ready_EmilyRN.phl[533]"
+connectAttr "anim_ready_Emily:upperLid1_R_scaleZ.o" "anim_ready_EmilyRN.phl[880]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_translateX.o" "anim_ready_EmilyRN.phl[534]"
+connectAttr "anim_ready_Emily:lowerLid1_R_translateX.o" "anim_ready_EmilyRN.phl[881]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_translateY.o" "anim_ready_EmilyRN.phl[535]"
+connectAttr "anim_ready_Emily:lowerLid1_R_translateY.o" "anim_ready_EmilyRN.phl[882]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_translateZ.o" "anim_ready_EmilyRN.phl[536]"
+connectAttr "anim_ready_Emily:lowerLid1_R_translateZ.o" "anim_ready_EmilyRN.phl[883]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_rotateX.o" "anim_ready_EmilyRN.phl[537]"
+connectAttr "anim_ready_Emily:lowerLid1_R_rotateX.o" "anim_ready_EmilyRN.phl[884]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_rotateY.o" "anim_ready_EmilyRN.phl[538]"
+connectAttr "anim_ready_Emily:lowerLid1_R_rotateY.o" "anim_ready_EmilyRN.phl[885]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_rotateZ.o" "anim_ready_EmilyRN.phl[539]"
+connectAttr "anim_ready_Emily:lowerLid1_R_rotateZ.o" "anim_ready_EmilyRN.phl[886]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_scaleX.o" "anim_ready_EmilyRN.phl[540]"
+connectAttr "anim_ready_Emily:lowerLid1_R_scaleX.o" "anim_ready_EmilyRN.phl[887]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_scaleY.o" "anim_ready_EmilyRN.phl[541]"
+connectAttr "anim_ready_Emily:lowerLid1_R_scaleY.o" "anim_ready_EmilyRN.phl[888]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_R_scaleZ.o" "anim_ready_EmilyRN.phl[542]"
+connectAttr "anim_ready_Emily:lowerLid1_R_scaleZ.o" "anim_ready_EmilyRN.phl[889]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_translateX.o" "anim_ready_EmilyRN.phl[543]"
+connectAttr "anim_ready_Emily:LidCorner1_L_translateX.o" "anim_ready_EmilyRN.phl[890]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_translateY.o" "anim_ready_EmilyRN.phl[544]"
+connectAttr "anim_ready_Emily:LidCorner1_L_translateY.o" "anim_ready_EmilyRN.phl[891]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_translateZ.o" "anim_ready_EmilyRN.phl[545]"
+connectAttr "anim_ready_Emily:LidCorner1_L_translateZ.o" "anim_ready_EmilyRN.phl[892]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_rotateX.o" "anim_ready_EmilyRN.phl[546]"
+connectAttr "anim_ready_Emily:LidCorner1_L_rotateX.o" "anim_ready_EmilyRN.phl[893]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_rotateY.o" "anim_ready_EmilyRN.phl[547]"
+connectAttr "anim_ready_Emily:LidCorner1_L_rotateY.o" "anim_ready_EmilyRN.phl[894]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_rotateZ.o" "anim_ready_EmilyRN.phl[548]"
+connectAttr "anim_ready_Emily:LidCorner1_L_rotateZ.o" "anim_ready_EmilyRN.phl[895]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_scaleX.o" "anim_ready_EmilyRN.phl[549]"
+connectAttr "anim_ready_Emily:LidCorner1_L_scaleX.o" "anim_ready_EmilyRN.phl[896]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_scaleY.o" "anim_ready_EmilyRN.phl[550]"
+connectAttr "anim_ready_Emily:LidCorner1_L_scaleY.o" "anim_ready_EmilyRN.phl[897]"
 		;
-connectAttr "anim_ready_Emily:LidCorner1_L_scaleZ.o" "anim_ready_EmilyRN.phl[551]"
+connectAttr "anim_ready_Emily:LidCorner1_L_scaleZ.o" "anim_ready_EmilyRN.phl[898]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_translateX.o" "anim_ready_EmilyRN.phl[552]"
+connectAttr "anim_ready_Emily:LidCorner2_L_translateX.o" "anim_ready_EmilyRN.phl[899]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_translateY.o" "anim_ready_EmilyRN.phl[553]"
+connectAttr "anim_ready_Emily:LidCorner2_L_translateY.o" "anim_ready_EmilyRN.phl[900]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_translateZ.o" "anim_ready_EmilyRN.phl[554]"
+connectAttr "anim_ready_Emily:LidCorner2_L_translateZ.o" "anim_ready_EmilyRN.phl[901]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_rotateX.o" "anim_ready_EmilyRN.phl[555]"
+connectAttr "anim_ready_Emily:LidCorner2_L_rotateX.o" "anim_ready_EmilyRN.phl[902]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_rotateY.o" "anim_ready_EmilyRN.phl[556]"
+connectAttr "anim_ready_Emily:LidCorner2_L_rotateY.o" "anim_ready_EmilyRN.phl[903]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_rotateZ.o" "anim_ready_EmilyRN.phl[557]"
+connectAttr "anim_ready_Emily:LidCorner2_L_rotateZ.o" "anim_ready_EmilyRN.phl[904]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_scaleX.o" "anim_ready_EmilyRN.phl[558]"
+connectAttr "anim_ready_Emily:LidCorner2_L_scaleX.o" "anim_ready_EmilyRN.phl[905]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_scaleY.o" "anim_ready_EmilyRN.phl[559]"
+connectAttr "anim_ready_Emily:LidCorner2_L_scaleY.o" "anim_ready_EmilyRN.phl[906]"
 		;
-connectAttr "anim_ready_Emily:LidCorner2_L_scaleZ.o" "anim_ready_EmilyRN.phl[560]"
+connectAttr "anim_ready_Emily:LidCorner2_L_scaleZ.o" "anim_ready_EmilyRN.phl[907]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_translateX.o" "anim_ready_EmilyRN.phl[561]"
+connectAttr "anim_ready_Emily:upperLid1_L_translateX.o" "anim_ready_EmilyRN.phl[908]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_translateY.o" "anim_ready_EmilyRN.phl[562]"
+connectAttr "anim_ready_Emily:upperLid1_L_translateY.o" "anim_ready_EmilyRN.phl[909]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_translateZ.o" "anim_ready_EmilyRN.phl[563]"
+connectAttr "anim_ready_Emily:upperLid1_L_translateZ.o" "anim_ready_EmilyRN.phl[910]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_rotateX.o" "anim_ready_EmilyRN.phl[564]"
+connectAttr "anim_ready_Emily:upperLid1_L_rotateX.o" "anim_ready_EmilyRN.phl[911]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_rotateY.o" "anim_ready_EmilyRN.phl[565]"
+connectAttr "anim_ready_Emily:upperLid1_L_rotateY.o" "anim_ready_EmilyRN.phl[912]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_rotateZ.o" "anim_ready_EmilyRN.phl[566]"
+connectAttr "anim_ready_Emily:upperLid1_L_rotateZ.o" "anim_ready_EmilyRN.phl[913]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_scaleX.o" "anim_ready_EmilyRN.phl[567]"
+connectAttr "anim_ready_Emily:upperLid1_L_scaleX.o" "anim_ready_EmilyRN.phl[914]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_scaleY.o" "anim_ready_EmilyRN.phl[568]"
+connectAttr "anim_ready_Emily:upperLid1_L_scaleY.o" "anim_ready_EmilyRN.phl[915]"
 		;
-connectAttr "anim_ready_Emily:upperLid1_L_scaleZ.o" "anim_ready_EmilyRN.phl[569]"
+connectAttr "anim_ready_Emily:upperLid1_L_scaleZ.o" "anim_ready_EmilyRN.phl[916]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_translateX.o" "anim_ready_EmilyRN.phl[570]"
+connectAttr "anim_ready_Emily:lowerLid1_L_translateX.o" "anim_ready_EmilyRN.phl[917]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_translateY.o" "anim_ready_EmilyRN.phl[571]"
+connectAttr "anim_ready_Emily:lowerLid1_L_translateY.o" "anim_ready_EmilyRN.phl[918]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_translateZ.o" "anim_ready_EmilyRN.phl[572]"
+connectAttr "anim_ready_Emily:lowerLid1_L_translateZ.o" "anim_ready_EmilyRN.phl[919]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_rotateX.o" "anim_ready_EmilyRN.phl[573]"
+connectAttr "anim_ready_Emily:lowerLid1_L_rotateX.o" "anim_ready_EmilyRN.phl[920]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_rotateY.o" "anim_ready_EmilyRN.phl[574]"
+connectAttr "anim_ready_Emily:lowerLid1_L_rotateY.o" "anim_ready_EmilyRN.phl[921]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_rotateZ.o" "anim_ready_EmilyRN.phl[575]"
+connectAttr "anim_ready_Emily:lowerLid1_L_rotateZ.o" "anim_ready_EmilyRN.phl[922]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_scaleX.o" "anim_ready_EmilyRN.phl[576]"
+connectAttr "anim_ready_Emily:lowerLid1_L_scaleX.o" "anim_ready_EmilyRN.phl[923]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_scaleY.o" "anim_ready_EmilyRN.phl[577]"
+connectAttr "anim_ready_Emily:lowerLid1_L_scaleY.o" "anim_ready_EmilyRN.phl[924]"
 		;
-connectAttr "anim_ready_Emily:lowerLid1_L_scaleZ.o" "anim_ready_EmilyRN.phl[578]"
+connectAttr "anim_ready_Emily:lowerLid1_L_scaleZ.o" "anim_ready_EmilyRN.phl[925]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_translateX.o" "anim_ready_EmilyRN.phl[579]"
+connectAttr "anim_ready_Emily:upperLid2_R_translateX.o" "anim_ready_EmilyRN.phl[926]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_translateY.o" "anim_ready_EmilyRN.phl[580]"
+connectAttr "anim_ready_Emily:upperLid2_R_translateY.o" "anim_ready_EmilyRN.phl[927]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_translateZ.o" "anim_ready_EmilyRN.phl[581]"
+connectAttr "anim_ready_Emily:upperLid2_R_translateZ.o" "anim_ready_EmilyRN.phl[928]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_rotateX.o" "anim_ready_EmilyRN.phl[582]"
+connectAttr "anim_ready_Emily:upperLid2_R_rotateX.o" "anim_ready_EmilyRN.phl[929]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_rotateY.o" "anim_ready_EmilyRN.phl[583]"
+connectAttr "anim_ready_Emily:upperLid2_R_rotateY.o" "anim_ready_EmilyRN.phl[930]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_rotateZ.o" "anim_ready_EmilyRN.phl[584]"
+connectAttr "anim_ready_Emily:upperLid2_R_rotateZ.o" "anim_ready_EmilyRN.phl[931]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_scaleX.o" "anim_ready_EmilyRN.phl[585]"
+connectAttr "anim_ready_Emily:upperLid2_R_scaleX.o" "anim_ready_EmilyRN.phl[932]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_scaleY.o" "anim_ready_EmilyRN.phl[586]"
+connectAttr "anim_ready_Emily:upperLid2_R_scaleY.o" "anim_ready_EmilyRN.phl[933]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_R_scaleZ.o" "anim_ready_EmilyRN.phl[587]"
+connectAttr "anim_ready_Emily:upperLid2_R_scaleZ.o" "anim_ready_EmilyRN.phl[934]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_translateX.o" "anim_ready_EmilyRN.phl[588]"
+connectAttr "anim_ready_Emily:upperLid3_R_translateX.o" "anim_ready_EmilyRN.phl[935]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_translateY.o" "anim_ready_EmilyRN.phl[589]"
+connectAttr "anim_ready_Emily:upperLid3_R_translateY.o" "anim_ready_EmilyRN.phl[936]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_translateZ.o" "anim_ready_EmilyRN.phl[590]"
+connectAttr "anim_ready_Emily:upperLid3_R_translateZ.o" "anim_ready_EmilyRN.phl[937]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_rotateX.o" "anim_ready_EmilyRN.phl[591]"
+connectAttr "anim_ready_Emily:upperLid3_R_rotateX.o" "anim_ready_EmilyRN.phl[938]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_rotateY.o" "anim_ready_EmilyRN.phl[592]"
+connectAttr "anim_ready_Emily:upperLid3_R_rotateY.o" "anim_ready_EmilyRN.phl[939]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_rotateZ.o" "anim_ready_EmilyRN.phl[593]"
+connectAttr "anim_ready_Emily:upperLid3_R_rotateZ.o" "anim_ready_EmilyRN.phl[940]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_scaleX.o" "anim_ready_EmilyRN.phl[594]"
+connectAttr "anim_ready_Emily:upperLid3_R_scaleX.o" "anim_ready_EmilyRN.phl[941]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_scaleY.o" "anim_ready_EmilyRN.phl[595]"
+connectAttr "anim_ready_Emily:upperLid3_R_scaleY.o" "anim_ready_EmilyRN.phl[942]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_R_scaleZ.o" "anim_ready_EmilyRN.phl[596]"
+connectAttr "anim_ready_Emily:upperLid3_R_scaleZ.o" "anim_ready_EmilyRN.phl[943]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_translateX.o" "anim_ready_EmilyRN.phl[597]"
+connectAttr "anim_ready_Emily:lowerLid2_R_translateX.o" "anim_ready_EmilyRN.phl[944]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_translateY.o" "anim_ready_EmilyRN.phl[598]"
+connectAttr "anim_ready_Emily:lowerLid2_R_translateY.o" "anim_ready_EmilyRN.phl[945]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_translateZ.o" "anim_ready_EmilyRN.phl[599]"
+connectAttr "anim_ready_Emily:lowerLid2_R_translateZ.o" "anim_ready_EmilyRN.phl[946]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_rotateX.o" "anim_ready_EmilyRN.phl[600]"
+connectAttr "anim_ready_Emily:lowerLid2_R_rotateX.o" "anim_ready_EmilyRN.phl[947]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_rotateY.o" "anim_ready_EmilyRN.phl[601]"
+connectAttr "anim_ready_Emily:lowerLid2_R_rotateY.o" "anim_ready_EmilyRN.phl[948]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_rotateZ.o" "anim_ready_EmilyRN.phl[602]"
+connectAttr "anim_ready_Emily:lowerLid2_R_rotateZ.o" "anim_ready_EmilyRN.phl[949]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_scaleX.o" "anim_ready_EmilyRN.phl[603]"
+connectAttr "anim_ready_Emily:lowerLid2_R_scaleX.o" "anim_ready_EmilyRN.phl[950]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_scaleY.o" "anim_ready_EmilyRN.phl[604]"
+connectAttr "anim_ready_Emily:lowerLid2_R_scaleY.o" "anim_ready_EmilyRN.phl[951]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_R_scaleZ.o" "anim_ready_EmilyRN.phl[605]"
+connectAttr "anim_ready_Emily:lowerLid2_R_scaleZ.o" "anim_ready_EmilyRN.phl[952]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_translateX.o" "anim_ready_EmilyRN.phl[606]"
+connectAttr "anim_ready_Emily:lowerLid3_R_translateX.o" "anim_ready_EmilyRN.phl[953]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_translateY.o" "anim_ready_EmilyRN.phl[607]"
+connectAttr "anim_ready_Emily:lowerLid3_R_translateY.o" "anim_ready_EmilyRN.phl[954]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_translateZ.o" "anim_ready_EmilyRN.phl[608]"
+connectAttr "anim_ready_Emily:lowerLid3_R_translateZ.o" "anim_ready_EmilyRN.phl[955]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_rotateX.o" "anim_ready_EmilyRN.phl[609]"
+connectAttr "anim_ready_Emily:lowerLid3_R_rotateX.o" "anim_ready_EmilyRN.phl[956]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_rotateY.o" "anim_ready_EmilyRN.phl[610]"
+connectAttr "anim_ready_Emily:lowerLid3_R_rotateY.o" "anim_ready_EmilyRN.phl[957]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_rotateZ.o" "anim_ready_EmilyRN.phl[611]"
+connectAttr "anim_ready_Emily:lowerLid3_R_rotateZ.o" "anim_ready_EmilyRN.phl[958]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_scaleX.o" "anim_ready_EmilyRN.phl[612]"
+connectAttr "anim_ready_Emily:lowerLid3_R_scaleX.o" "anim_ready_EmilyRN.phl[959]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_scaleY.o" "anim_ready_EmilyRN.phl[613]"
+connectAttr "anim_ready_Emily:lowerLid3_R_scaleY.o" "anim_ready_EmilyRN.phl[960]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_R_scaleZ.o" "anim_ready_EmilyRN.phl[614]"
+connectAttr "anim_ready_Emily:lowerLid3_R_scaleZ.o" "anim_ready_EmilyRN.phl[961]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_translateX.o" "anim_ready_EmilyRN.phl[615]"
+connectAttr "anim_ready_Emily:upperLid2_L_translateX.o" "anim_ready_EmilyRN.phl[962]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_translateY.o" "anim_ready_EmilyRN.phl[616]"
+connectAttr "anim_ready_Emily:upperLid2_L_translateY.o" "anim_ready_EmilyRN.phl[963]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_translateZ.o" "anim_ready_EmilyRN.phl[617]"
+connectAttr "anim_ready_Emily:upperLid2_L_translateZ.o" "anim_ready_EmilyRN.phl[964]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_rotateX.o" "anim_ready_EmilyRN.phl[618]"
+connectAttr "anim_ready_Emily:upperLid2_L_rotateX.o" "anim_ready_EmilyRN.phl[965]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_rotateY.o" "anim_ready_EmilyRN.phl[619]"
+connectAttr "anim_ready_Emily:upperLid2_L_rotateY.o" "anim_ready_EmilyRN.phl[966]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_rotateZ.o" "anim_ready_EmilyRN.phl[620]"
+connectAttr "anim_ready_Emily:upperLid2_L_rotateZ.o" "anim_ready_EmilyRN.phl[967]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_scaleX.o" "anim_ready_EmilyRN.phl[621]"
+connectAttr "anim_ready_Emily:upperLid2_L_scaleX.o" "anim_ready_EmilyRN.phl[968]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_scaleY.o" "anim_ready_EmilyRN.phl[622]"
+connectAttr "anim_ready_Emily:upperLid2_L_scaleY.o" "anim_ready_EmilyRN.phl[969]"
 		;
-connectAttr "anim_ready_Emily:upperLid2_L_scaleZ.o" "anim_ready_EmilyRN.phl[623]"
+connectAttr "anim_ready_Emily:upperLid2_L_scaleZ.o" "anim_ready_EmilyRN.phl[970]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_translateX.o" "anim_ready_EmilyRN.phl[624]"
+connectAttr "anim_ready_Emily:upperLid3_L_translateX.o" "anim_ready_EmilyRN.phl[971]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_translateY.o" "anim_ready_EmilyRN.phl[625]"
+connectAttr "anim_ready_Emily:upperLid3_L_translateY.o" "anim_ready_EmilyRN.phl[972]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_translateZ.o" "anim_ready_EmilyRN.phl[626]"
+connectAttr "anim_ready_Emily:upperLid3_L_translateZ.o" "anim_ready_EmilyRN.phl[973]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_rotateX.o" "anim_ready_EmilyRN.phl[627]"
+connectAttr "anim_ready_Emily:upperLid3_L_rotateX.o" "anim_ready_EmilyRN.phl[974]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_rotateY.o" "anim_ready_EmilyRN.phl[628]"
+connectAttr "anim_ready_Emily:upperLid3_L_rotateY.o" "anim_ready_EmilyRN.phl[975]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_rotateZ.o" "anim_ready_EmilyRN.phl[629]"
+connectAttr "anim_ready_Emily:upperLid3_L_rotateZ.o" "anim_ready_EmilyRN.phl[976]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_scaleX.o" "anim_ready_EmilyRN.phl[630]"
+connectAttr "anim_ready_Emily:upperLid3_L_scaleX.o" "anim_ready_EmilyRN.phl[977]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_scaleY.o" "anim_ready_EmilyRN.phl[631]"
+connectAttr "anim_ready_Emily:upperLid3_L_scaleY.o" "anim_ready_EmilyRN.phl[978]"
 		;
-connectAttr "anim_ready_Emily:upperLid3_L_scaleZ.o" "anim_ready_EmilyRN.phl[632]"
+connectAttr "anim_ready_Emily:upperLid3_L_scaleZ.o" "anim_ready_EmilyRN.phl[979]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_translateX.o" "anim_ready_EmilyRN.phl[633]"
+connectAttr "anim_ready_Emily:lowerLid2_L_translateX.o" "anim_ready_EmilyRN.phl[980]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_translateY.o" "anim_ready_EmilyRN.phl[634]"
+connectAttr "anim_ready_Emily:lowerLid2_L_translateY.o" "anim_ready_EmilyRN.phl[981]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_translateZ.o" "anim_ready_EmilyRN.phl[635]"
+connectAttr "anim_ready_Emily:lowerLid2_L_translateZ.o" "anim_ready_EmilyRN.phl[982]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_rotateX.o" "anim_ready_EmilyRN.phl[636]"
+connectAttr "anim_ready_Emily:lowerLid2_L_rotateX.o" "anim_ready_EmilyRN.phl[983]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_rotateY.o" "anim_ready_EmilyRN.phl[637]"
+connectAttr "anim_ready_Emily:lowerLid2_L_rotateY.o" "anim_ready_EmilyRN.phl[984]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_rotateZ.o" "anim_ready_EmilyRN.phl[638]"
+connectAttr "anim_ready_Emily:lowerLid2_L_rotateZ.o" "anim_ready_EmilyRN.phl[985]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_scaleX.o" "anim_ready_EmilyRN.phl[639]"
+connectAttr "anim_ready_Emily:lowerLid2_L_scaleX.o" "anim_ready_EmilyRN.phl[986]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_scaleY.o" "anim_ready_EmilyRN.phl[640]"
+connectAttr "anim_ready_Emily:lowerLid2_L_scaleY.o" "anim_ready_EmilyRN.phl[987]"
 		;
-connectAttr "anim_ready_Emily:lowerLid2_L_scaleZ.o" "anim_ready_EmilyRN.phl[641]"
+connectAttr "anim_ready_Emily:lowerLid2_L_scaleZ.o" "anim_ready_EmilyRN.phl[988]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_translateX.o" "anim_ready_EmilyRN.phl[642]"
+connectAttr "anim_ready_Emily:lowerLid3_L_translateX.o" "anim_ready_EmilyRN.phl[989]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_translateY.o" "anim_ready_EmilyRN.phl[643]"
+connectAttr "anim_ready_Emily:lowerLid3_L_translateY.o" "anim_ready_EmilyRN.phl[990]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_translateZ.o" "anim_ready_EmilyRN.phl[644]"
+connectAttr "anim_ready_Emily:lowerLid3_L_translateZ.o" "anim_ready_EmilyRN.phl[991]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_rotateX.o" "anim_ready_EmilyRN.phl[645]"
+connectAttr "anim_ready_Emily:lowerLid3_L_rotateX.o" "anim_ready_EmilyRN.phl[992]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_rotateY.o" "anim_ready_EmilyRN.phl[646]"
+connectAttr "anim_ready_Emily:lowerLid3_L_rotateY.o" "anim_ready_EmilyRN.phl[993]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_rotateZ.o" "anim_ready_EmilyRN.phl[647]"
+connectAttr "anim_ready_Emily:lowerLid3_L_rotateZ.o" "anim_ready_EmilyRN.phl[994]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_scaleX.o" "anim_ready_EmilyRN.phl[648]"
+connectAttr "anim_ready_Emily:lowerLid3_L_scaleX.o" "anim_ready_EmilyRN.phl[995]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_scaleY.o" "anim_ready_EmilyRN.phl[649]"
+connectAttr "anim_ready_Emily:lowerLid3_L_scaleY.o" "anim_ready_EmilyRN.phl[996]"
 		;
-connectAttr "anim_ready_Emily:lowerLid3_L_scaleZ.o" "anim_ready_EmilyRN.phl[650]"
+connectAttr "anim_ready_Emily:lowerLid3_L_scaleZ.o" "anim_ready_EmilyRN.phl[997]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_translateX.o" "anim_ready_EmilyRN.phl[651]"
+connectAttr "anim_ready_Emily:browHalf_R_translateX.o" "anim_ready_EmilyRN.phl[998]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_translateY.o" "anim_ready_EmilyRN.phl[652]"
+connectAttr "anim_ready_Emily:browHalf_R_translateY.o" "anim_ready_EmilyRN.phl[999]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_translateZ.o" "anim_ready_EmilyRN.phl[653]"
+connectAttr "anim_ready_Emily:browHalf_R_translateZ.o" "anim_ready_EmilyRN.phl[1000]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_rotateX.o" "anim_ready_EmilyRN.phl[654]"
+connectAttr "anim_ready_Emily:browHalf_R_rotateX.o" "anim_ready_EmilyRN.phl[1001]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_rotateY.o" "anim_ready_EmilyRN.phl[655]"
+connectAttr "anim_ready_Emily:browHalf_R_rotateY.o" "anim_ready_EmilyRN.phl[1002]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_rotateZ.o" "anim_ready_EmilyRN.phl[656]"
+connectAttr "anim_ready_Emily:browHalf_R_rotateZ.o" "anim_ready_EmilyRN.phl[1003]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_scaleX.o" "anim_ready_EmilyRN.phl[657]"
+connectAttr "anim_ready_Emily:browHalf_R_scaleX.o" "anim_ready_EmilyRN.phl[1004]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_scaleY.o" "anim_ready_EmilyRN.phl[658]"
+connectAttr "anim_ready_Emily:browHalf_R_scaleY.o" "anim_ready_EmilyRN.phl[1005]"
 		;
-connectAttr "anim_ready_Emily:browHalf_R_scaleZ.o" "anim_ready_EmilyRN.phl[659]"
+connectAttr "anim_ready_Emily:browHalf_R_scaleZ.o" "anim_ready_EmilyRN.phl[1006]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_translateX.o" "anim_ready_EmilyRN.phl[660]"
+connectAttr "anim_ready_Emily:browHalf_L_translateX.o" "anim_ready_EmilyRN.phl[1007]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_translateY.o" "anim_ready_EmilyRN.phl[661]"
+connectAttr "anim_ready_Emily:browHalf_L_translateY.o" "anim_ready_EmilyRN.phl[1008]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_translateZ.o" "anim_ready_EmilyRN.phl[662]"
+connectAttr "anim_ready_Emily:browHalf_L_translateZ.o" "anim_ready_EmilyRN.phl[1009]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_rotateX.o" "anim_ready_EmilyRN.phl[663]"
+connectAttr "anim_ready_Emily:browHalf_L_rotateX.o" "anim_ready_EmilyRN.phl[1010]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_rotateY.o" "anim_ready_EmilyRN.phl[664]"
+connectAttr "anim_ready_Emily:browHalf_L_rotateY.o" "anim_ready_EmilyRN.phl[1011]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_rotateZ.o" "anim_ready_EmilyRN.phl[665]"
+connectAttr "anim_ready_Emily:browHalf_L_rotateZ.o" "anim_ready_EmilyRN.phl[1012]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_scaleX.o" "anim_ready_EmilyRN.phl[666]"
+connectAttr "anim_ready_Emily:browHalf_L_scaleX.o" "anim_ready_EmilyRN.phl[1013]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_scaleY.o" "anim_ready_EmilyRN.phl[667]"
+connectAttr "anim_ready_Emily:browHalf_L_scaleY.o" "anim_ready_EmilyRN.phl[1014]"
 		;
-connectAttr "anim_ready_Emily:browHalf_L_scaleZ.o" "anim_ready_EmilyRN.phl[668]"
+connectAttr "anim_ready_Emily:browHalf_L_scaleZ.o" "anim_ready_EmilyRN.phl[1015]"
 		;
-connectAttr "anim_ready_Emily:ctrlCheek_R_translateY.o" "anim_ready_EmilyRN.phl[669]"
+connectAttr "anim_ready_Emily:ctrlCheek_R_translateY.o" "anim_ready_EmilyRN.phl[1016]"
 		;
-connectAttr "anim_ready_Emily:ctrlCheek_R_translateX.o" "anim_ready_EmilyRN.phl[670]"
+connectAttr "anim_ready_Emily:ctrlCheek_R_translateX.o" "anim_ready_EmilyRN.phl[1017]"
 		;
-connectAttr "anim_ready_Emily:ctrlCheek_L_translateY.o" "anim_ready_EmilyRN.phl[671]"
+connectAttr "anim_ready_Emily:ctrlCheek_L_translateY.o" "anim_ready_EmilyRN.phl[1018]"
 		;
-connectAttr "anim_ready_Emily:ctrlCheek_L_translateX.o" "anim_ready_EmilyRN.phl[672]"
+connectAttr "anim_ready_Emily:ctrlCheek_L_translateX.o" "anim_ready_EmilyRN.phl[1019]"
 		;
-connectAttr "anim_ready_Emily:ctrlNose_R_translateY.o" "anim_ready_EmilyRN.phl[673]"
+connectAttr "anim_ready_Emily:ctrlNose_R_translateY.o" "anim_ready_EmilyRN.phl[1020]"
 		;
-connectAttr "anim_ready_Emily:ctrlNose_R_translateX.o" "anim_ready_EmilyRN.phl[674]"
+connectAttr "anim_ready_Emily:ctrlNose_R_translateX.o" "anim_ready_EmilyRN.phl[1021]"
 		;
-connectAttr "anim_ready_Emily:ctrlNose_L_translateY.o" "anim_ready_EmilyRN.phl[675]"
+connectAttr "anim_ready_Emily:ctrlNose_L_translateY.o" "anim_ready_EmilyRN.phl[1022]"
 		;
-connectAttr "anim_ready_Emily:ctrlNose_L_translateX.o" "anim_ready_EmilyRN.phl[676]"
+connectAttr "anim_ready_Emily:ctrlNose_L_translateX.o" "anim_ready_EmilyRN.phl[1023]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_translateY.o" "anim_ready_EmilyRN.phl[677]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_translateY.o" "anim_ready_EmilyRN.phl[1024]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_translateX.o" "anim_ready_EmilyRN.phl[678]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_translateX.o" "anim_ready_EmilyRN.phl[1025]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_jawSide.o" "anim_ready_EmilyRN.phl[679]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_jawSide.o" "anim_ready_EmilyRN.phl[1026]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_jawForward.o" "anim_ready_EmilyRN.phl[680]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_jawForward.o" "anim_ready_EmilyRN.phl[1027]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_chinRaiser.o" "anim_ready_EmilyRN.phl[681]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_chinRaiser.o" "anim_ready_EmilyRN.phl[1028]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipPress_R.o" "anim_ready_EmilyRN.phl[682]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipPress_R.o" "anim_ready_EmilyRN.phl[1029]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipPress_L.o" "anim_ready_EmilyRN.phl[683]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipPress_L.o" "anim_ready_EmilyRN.phl[1030]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipUpperRoll_R.o" "anim_ready_EmilyRN.phl[684]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipUpperRoll_R.o" "anim_ready_EmilyRN.phl[1031]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipUpperRoll_L.o" "anim_ready_EmilyRN.phl[685]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipUpperRoll_L.o" "anim_ready_EmilyRN.phl[1032]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipLowerRoll_R.o" "anim_ready_EmilyRN.phl[686]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipLowerRoll_R.o" "anim_ready_EmilyRN.phl[1033]"
 		;
-connectAttr "anim_ready_Emily:ctrlMouth_M_lipLowerRoll_L.o" "anim_ready_EmilyRN.phl[687]"
+connectAttr "anim_ready_Emily:ctrlMouth_M_lipLowerRoll_L.o" "anim_ready_EmilyRN.phl[1034]"
 		;
-connectAttr "anim_ready_Emily:FKJaw_M_rotateX.o" "anim_ready_EmilyRN.phl[688]";
-connectAttr "anim_ready_Emily:FKJaw_M_rotateY.o" "anim_ready_EmilyRN.phl[689]";
-connectAttr "anim_ready_Emily:FKJaw_M_rotateZ.o" "anim_ready_EmilyRN.phl[690]";
-connectAttr "anim_ready_EmilyRN.phl[691]" "nRigidShape4.imsh";
-connectAttr "anim_ready_EmilyRN.phl[692]" "nRigidShape5.imsh";
-connectAttr "anim_ready_EmilyRN.phl[693]" "nRigidShape6.imsh";
-connectAttr "anim_ready_EmilyRN.phl[694]" "nRigidShape7.imsh";
+connectAttr "anim_ready_Emily:FKJaw_M_rotateX.o" "anim_ready_EmilyRN.phl[1035]";
+connectAttr "anim_ready_Emily:FKJaw_M_rotateY.o" "anim_ready_EmilyRN.phl[1036]";
+connectAttr "anim_ready_Emily:FKJaw_M_rotateZ.o" "anim_ready_EmilyRN.phl[1037]";
+connectAttr "anim_ready_EmilyRN.phl[1038]" "nRigidShape4.imsh";
 connectAttr "bedroomRN.phl[1]" "nRigidShape3.imsh";
 connectAttr "bedroomRN.phl[2]" "nRigidShape1.imsh";
 connectAttr "bedroomRN.phl[3]" "nRigidShape2.imsh";
@@ -10129,8 +10323,11 @@ connectAttr ":time1.o" "nRigidShape1.cti";
 connectAttr ":time1.o" "nRigidShape2.cti";
 connectAttr ":time1.o" "nRigidShape3.cti";
 connectAttr ":time1.o" "nRigidShape4.cti";
+connectAttr "anim_ready_EmilyRN.phl[692]" "nRigidShape5.imsh";
 connectAttr ":time1.o" "nRigidShape5.cti";
+connectAttr "anim_ready_EmilyRN.phl[693]" "nRigidShape6.imsh";
 connectAttr ":time1.o" "nRigidShape6.cti";
+connectAttr "anim_ready_EmilyRN.phl[694]" "nRigidShape7.imsh";
 connectAttr ":time1.o" "nRigidShape7.cti";
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
