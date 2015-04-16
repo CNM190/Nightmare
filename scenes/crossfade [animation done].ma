@@ -1,13 +1,13 @@
 //Maya ASCII 2015 scene
 //Name: crossfade [animation done].ma
-//Last modified: Wed, Apr 15, 2015 03:09:14 PM
+//Last modified: Thu, Apr 16, 2015 08:44:09 AM
 //Codeset: 1252
-file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily_Enter_Unicorn.ma";
+file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Body_Rig:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
 file -rdi 2 -ns "Dress_Emily" -rfn "Emily_Body_Rig:Dress_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Dress_Emily.ma";
 file -rdi 1 -ns "sword" -rfn "swordRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma";
 file -rdi 1 -ns "bedroom2" -rfn "bedroom2RN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma";
-file -rdi 2 -ns "Emily" -dr 1 -rfn "bedroom2:EmilyRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily.ma";
+file -rdi 2 -ns "Emily" -dr 1 -rfn "bedroom2:EmilyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "bedroom" -rfn "bedroom2:bedroomRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/sets/bedroom.ma";
 file -rdi 3 -ns "bin" -rfn "bedroom2:bedroom:binRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/bin.ma";
 file -rdi 3 -ns "desk" -rfn "bedroom2:bedroom:deskRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/desk.ma";
@@ -26,19 +26,18 @@ file -rdi 3 -ns "bed" -rfn "bedroom2:bedroom:bedRN" "/Users/suchaaverchahal/Docu
 file -rdi 3 -ns "soft_toy" -rfn "bedroom2:bedroom:soft_toyRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/soft toy.ma";
 file -rdi 3 -ns "Lamp" -rfn "bedroom2:bedroom:LampRN" "C:/Users/Bernadette/Documents/GitHub/Nightmare//assets/props/Lamp.ma";
 file -rdi 2 -ns "bedsheet" -dr 1 -rfn "bedroom2:bedsheetRN" -op "v=0;" "/Users/mbdriscoll/Nightmare//assets/props/bedsheet.ma";
-file -rdi 1 -ns "Candy_Rig" -rfn "Candy_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Candy_Rig.ma";
-file -rdi 1 -ns "Clyde_rig_temporary2" -rfn "Clyde_rig_temporary2RN" "X:/Documents/Suchaaver/Nightmare//assets/chars/Clyde.ma";
-file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily_Enter_Unicorn.ma";
+file -rdi 1 -ns "Candy_Rig" -rfn "Candy_RigRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Crossfade.ma";
+file -rdi 1 -ns "Clyde_rig_temporary2" -rfn "Clyde_rig_temporary2RN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Clyde.ma";
+file -r -ns "Emily_Body_Rig" -dr 1 -rfn "Emily_Body_RigRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -r -ns "sword" -dr 1 -rfn "swordRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma";
 file -r -ns "bedroom2" -dr 1 -rfn "bedroom2RN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma";
-file -r -ns "Candy_Rig" -dr 1 -rfn "Candy_RigRN" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Candy_Rig.ma";
-file -r -ns "Clyde_rig_temporary2" -dr 1 -rfn "Clyde_rig_temporary2RN" "X:/Documents/Suchaaver/Nightmare//assets/chars/Clyde.ma";
+file -r -ns "Candy_Rig" -dr 1 -rfn "Candy_RigRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Crossfade.ma";
+file -r -ns "Clyde_rig_temporary2" -dr 1 -rfn "Clyde_rig_temporary2RN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Clyde.ma";
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
 requires -nodeType "RenderMan" -nodeType "PxrLMDiffuse" -nodeType "PxrConstant" -nodeType "RMSEnvLight"
 		 "RenderMan_for_Maya" "5.5";
-requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -4499,7 +4498,6 @@ createNode reference -n "Emily_Pre_VisRN";
 	setAttr ".fn[0]" -type "string" "/Users/Simon/Documents/CNM190/Nightmare//assets/chars/rigs/Emily Pre-Vis.ma";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Pre_VisRN"
-		"Emily_Pre_Vis:modelRN" 0
 		"Emily_Pre_VisRN" 4
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "translate" " -type \"double3\" 0.247784 -3.714513 0.211708"
 		
@@ -4508,7 +4506,8 @@ createNode reference -n "Emily_Pre_VisRN";
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.075255 -0.00108957"
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -90 3.046919 90";
+		"rotate" " -type \"double3\" -90 3.046919 90"
+		"Emily_Pre_Vis:modelRN" 0;
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode vectorRenderGlobals -s -n "vectorRenderGlobals";
@@ -4926,6 +4925,7 @@ createNode reference -n "Emily_Body_RigRN";
 		"Emily_Body_Rig:Dress_EmilyRN" 0
 		"Emily_Body_Rig:Hair_EmilyRN" 0
 		"Emily_Body_Rig:emilyHair001RN" 0
+		"Emily_Body_Rig:modelRN" 0
 		"Emily_Body_RigRN" 9
 		2 "Emily_Body_Rig:triggerPlusMinusAverage" "i1[0:125]" " -s 126 1 0 0 0 3 2 2 0 0 0 0 2 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -4940,11 +4940,8 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "|Emily_Body_Rig:Hair" "rotateZ" " -av"
 		2 "Emily_Body_Rig:Emily2015:Meshes" "visibility" " -av 1"
 		2 "Emily_Body_Rig:Emily2015:Emily1:Meshes" "visibility" " 1"
-		"Emily_Body_Rig:modelRN" 0
 		"Emily_Body_Rig:DressRN" 0
-		"Emily_Body_Rig:Hair_EmilyRN" 8
-		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Hair_Emily:Hair|Emily_Body_Rig:Hair_Emily:HairShape" 
-		"instObjGroups.objectGroups" " -s 2"
+		"Emily_Body_Rig:Hair_EmilyRN" 7
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Hair_Emily:Hair|Emily_Body_Rig:Hair_Emily:HairShape" 
 		"uvSet" " -s 4"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Hair_Emily:Hair|Emily_Body_Rig:Hair_Emily:HairShape" 
@@ -14116,8 +14113,8 @@ createNode reference -n "bedroom2RN";
 		"bedroom2:bedroomRN" 0
 		"bedroom2:bedroom:bookshelf:bookRN4" 0
 		"bedroom2:bedroom:bookshelf:bookRN3" 0
-		"bedroom2:bedroom:deskRN" 0
 		"bedroom2:bedroom:binRN" 0
+		"bedroom2:bedroom:deskRN" 0
 		"bedroom2:bedroom:bookshelf:OrbRN" 0
 		"bedroom2RN" 9
 		2 "|bedroom2:LightRig|bedroom2:rightwall" "translate" " -type \"double3\" 1.238169 -1.531529 -4.570328"
@@ -14363,7 +14360,6 @@ createNode reference -n "bedroom2RN";
 		2 "bedroom2:bedsheet:blanket" "displayType" " 0"
 		2 "bedroom2:bedsheet:blanket" "visibility" " 1"
 		2 "bedroom2:bedsheet:walls" "visibility" " 1"
-		"bedroom2:bedroom:bookshelf:bookRN1" 0
 		"bedroom2:Clyde:ClydeRN" 9
 		2 "|bedroom2:Clyde:Clyde:polySurface6" "visibility" " -av 1"
 		2 "|bedroom2:Clyde:Clyde:pSphere4|bedroom2:Clyde:Clyde:polySurface7|bedroom2:Clyde:Clyde:transform3" 
@@ -14381,6 +14377,7 @@ createNode reference -n "bedroom2RN";
 		" 0"
 		5 4 "bedroom2RN" "|bedroom2:Clyde:Clyde:polySurface6.visibility" "bedroom2RN.placeHolderList[2]" 
 		""
+		"bedroom2:bedroom:bookshelf:bookRN1" 0
 		"bedroom2:bedroom:bedRN" 0
 		"bedroom2:bedroom:soft_toyRN" 0
 		"bedroom2RN" 54
@@ -14388,7 +14385,7 @@ createNode reference -n "bedroom2RN";
 		
 		2 "|bedroom2:dog_group" "translate" " -type \"double3\" 3.942235 2.4716 -4.730317"
 		
-		2 "|bedroom2:camera1" "translate" " -type \"double3\" -13.33596260309001 122.34803967713512 10.144736025855703"
+		2 "|bedroom2:camera1" "translate" " -type \"double3\" 4.0335632006745428 3.3067540797144659 -14.685491888294559"
 		
 		2 "|bedroom2:camera1" "translateX" " -av"
 		2 "|bedroom2:camera1" "translateY" " -av"
@@ -17611,23 +17608,23 @@ createNode reference -n "Candy_RigRN";
 		2 "Candy_Rig:CONTROLLERS" "displayType" " 0"
 		2 "Candy_Rig:CONTROLLERS" "visibility" " 1"
 		2 "Candy_Rig:LOCATORS_MOUTH_UP" "visibility" " 1"
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateZ" 
 		""
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_5|Candy_Rig:CTRL_Candy_Eye_L_5_parentConstraint1.constraintTranslateX" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_5.translateX" 
@@ -17647,23 +17644,41 @@ createNode reference -n "Candy_RigRN";
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_5|Candy_Rig:CTRL_Candy_Eye_L_5_parentConstraint1.constraintRotateZ" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_5.rotateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintTranslateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.translateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintTranslateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.translateZ" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateX" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateX" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateY" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateY" 
 		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1|Candy_Rig:CTRL_Candy_Eye_R_1_parentConstraint1.constraintRotateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_1.rotateZ" 
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1|Candy_Rig:CTRL_Candy_Neck_1_parentConstraint1.constraintRotateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Neck_1.rotateZ" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateX" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateY" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateZ" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateX" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateX" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateY" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateY" 
+		""
+		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateZ" 
+		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateZ" 
 		""
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:GRP_CTRL_Candy_Neck_2|Candy_Rig:CTRL_Candy_Head_LowerJaw|Candy_Rig:CTRL_Candy_Head_LowerJaw_parentConstraint1.constraintTranslateX" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:GRP_CTRL_Candy_Neck_2|Candy_Rig:CTRL_Candy_Head_LowerJaw.translateX" 
@@ -17700,24 +17715,6 @@ createNode reference -n "Candy_RigRN";
 		""
 		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5|Candy_Rig:CTRL_Candy_Eye_R_5_parentConstraint1.constraintRotateZ" 
 		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_R_5.rotateZ" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateX" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateY" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintTranslateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.translateZ" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateX" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateX" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateY" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateY" 
-		""
-		3 "|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1|Candy_Rig:CTRL_Candy_Eye_L_1_parentConstraint1.constraintRotateZ" 
-		"|Candy_Rig:GRP_Candy_Main|Candy_Rig:CTRL_Candy_GLOBAL|Candy_Rig:CTRL_Candy_Char|Candy_Rig:GRP_Candy_Global|Candy_Rig:GRP_Candy_CTRL|Candy_Rig:CTRL_Candy_Eye_L_1.rotateZ" 
 		""
 		5 4 "Candy_RigRN" "|Candy_Rig:GRP_Candy_Main|Candy_Rig:GRP_Candy_MESH|Candy_Rig:Candy:GRP_MESH_Candy_MAIN|Candy_Rig:Candy:MESH_Candy_Tongue.visibility" 
 		"Candy_RigRN.placeHolderList[1]" ""
@@ -19338,7 +19335,7 @@ select -ne :defaultRenderingList1;
 select -ne :lightList1;
 	setAttr -s 5 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 40 ".tx";
+	setAttr -s 39 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -20676,6 +20673,6 @@ connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pPlaneShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "RMSEnvLight1.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Emily_Body_RigRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/Emily_Enter_Unicorn.ma\" 2144921048 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n1\n\"swordRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma\" 2114674399 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/props/sword.ma\" \"FileRef\"\n2\n\"bedroom2RN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma\" 632132252 \"C:/Users/Mark/Documents/GitHub/Nightmare/scenes/bedroom2.ma\" \"FileRef\"\n3\n\"Candy_RigRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/rigs/Candy_Rig.ma\" 3334871215 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Candy_Crossfade.ma\" \"FileRef\"\n4\n\"Clyde_rig_temporary2RN\" \"\" \"X:/Documents/Suchaaver/Nightmare//assets/chars/Clyde.ma\" 2069828767 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Clyde.ma\" \"FileRef\"\n5\n\"bedsheet:file1\" \"fileTextureName\" \"C:/Users/Mark/Documents/GitHub/Nightmare/images/trees2.jpg\" 3956612975 \"C:/Users/Mark/Documents/GitHub/Nightmare/images/trees2.jpg\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Emily_Body_RigRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Emily.ma\" 834339428 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n1\n\"swordRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/sword.ma\" 2114674399 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/props/sword.ma\" \"FileRef\"\n2\n\"bedroom2RN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//scenes/bedroom2.ma\" 632132252 \"C:/Users/Mark/Documents/GitHub/Nightmare/scenes/bedroom2.ma\" \"FileRef\"\n3\n\"Candy_RigRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Candy_Crossfade.ma\" 3224765738 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Candy_Crossfade.ma\" \"FileRef\"\n4\n\"Clyde_rig_temporary2RN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Clyde.ma\" 2026545450 \"C:/Users/Mark/Documents/GitHub/Nightmare/assets/chars/Clyde.ma\" \"FileRef\"\n5\n\"bedsheet:file1\" \"fileTextureName\" \"C:/Users/Mark/Documents/GitHub/Nightmare/images/trees2.jpg\" 3956612975 \"C:/Users/Mark/Documents/GitHub/Nightmare/images/trees2.jpg\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of crossfade [animation done].ma
