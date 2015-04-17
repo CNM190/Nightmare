@@ -26,7 +26,7 @@
 
 - name       : "Hallway Running"
   file       : "hallway_run.ma"
-  camera     : 'camera1'
+  camera     : 'camera2'
   startFrame : 1
   endFrame   : 64
 
