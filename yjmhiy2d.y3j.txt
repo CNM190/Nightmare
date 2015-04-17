@@ -1,0 +1,51 @@
+﻿Merge branch 'master' of https://github.com/CNM190/Nightmare
+
+Conflicts:
+	assets/chars/Emily.ma
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 27 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   assets/chars/.mayaSwatches/Emily.ma.swatches
+#	modified:   assets/chars/Clyde.ma
+#	deleted:    assets/chars/Clyde_rig_temporary2.ma
+#	modified:   assets/chars/Emily.ma
+#	new file:   assets/chars/Emily_Enter_Unicorn.ma
+#	new file:   assets/chars/Emily_animation_version.ma
+#	new file:   assets/chars/rigs/Candy_Enter_Unicorn.ma
+#	modified:   assets/chars/rigs/Candy_Rig.ma
+#	modified:   assets/props/sword_3.ma
+#	modified:   images/Textures/Emily/.mayaSwatches/Emily Body.tif.swatch
+#	new file:   images/Textures/Emily/knit.png
+#	new file:   images/Textures/Emily/muslin.png
+#	new file:   images/Textures/Emily/weave.png
+#	deleted:    scenes/Enter_Unicorn.ma
+#	new file:   scenes/Enter_Unicorn_anim_done.ma
+#	new file:   scenes/charge3_tests/test_basic.ma
+#	new file:   scenes/charge_3_crossfade.0001.ma
+#	modified:   scenes/charge_3_crossfade.ma
+#	modified:   scenes/hallway2_double_sided.ma
+#	modified:   scenes/shots.yaml
+#
+# Changes not staged for commit:
+#	modified:   assets/chars/.mayaSwatches/Emily.ma.swatches
+#
+# Untracked files:
+#	assets/chars/Emily2.ma
+#	images/Textures/Emily/Emily_Hair.psd
+#	images/Textures/Emily/Hair_Mask.psd
+#
+

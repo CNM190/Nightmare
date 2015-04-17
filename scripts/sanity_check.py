@@ -1,6 +1,6 @@
 import yaml, os, subprocess
 
-with open('scenes/shots.yaml') as s:
+with open('scenes [RENDER]/shots.yaml') as s:
     shots = yaml.load(s)
 
 for shot in shots:
@@ -9,20 +9,20 @@ for shot in shots:
     frameno = int((int(shot['endFrame']) - int(shot['startFrame']))/2.0)
     camera = shot['camera']
 
-    key = "%s.%s.frame%d" % (name.replace(' ', '_'), camera, frameno)
+    fname = "%s.%s" % (name.replace(' ', '_'), camera)
     cmd = [
         "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
-        "-r", "rman", "-reyes",
+        "-r", "rman",
         "-proj", str(os.getcwd()),
         "-res", "480", "270",
         "-cam", camera,
         "-of", "OpenEXR",
-        "-im", key,
-        "-rd", str(os.join(os.getcwd(), "sanity")),
+        "-im", fname,
+        "-rd", str(os.path.join(os.getcwd(), "scenes [RENDER]", "sanity")),
         "-s", str(frameno),
         "-e", str(frameno),
         "-fnc", "'name.#.ext'",
-        "-spool", '"immediate rib, remote render"',
+        #"-spool", '"immediate rib, remote render"',
         filename
     ]
 
