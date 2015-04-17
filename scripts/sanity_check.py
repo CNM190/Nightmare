@@ -9,7 +9,7 @@ for shot in shots:
     frameno = int((int(shot['endFrame']) - int(shot['startFrame']))/2.0)
     camera = shot['camera']
 
-    fname = "%s.%s.%d" % (name.replace(' ', '_'), camera, frameno)
+    fname = "%s.%s" % (name.replace(' ', '_'), camera)
     cmd = [
         "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
         "-r", "rman",
