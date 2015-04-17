@@ -6,7 +6,7 @@ with open('scenes [RENDER]/shots.yaml') as s:
 for shot in shots:
     name = shot['name']
     filename = shot['file']
-    frameno = int((int(shot['endFrame']) - int(shot['startFrame']))/2.0)
+    frame0, frameN = shot['endFrame'], shot['startFrame']
     camera = shot['camera']
 
     fname = "%s.%s.%d" % (name.replace(' ', '_'), camera, frameno)
@@ -19,10 +19,10 @@ for shot in shots:
         "-of", "OpenEXR",
         "-im", fname,
         "-rd", str(os.path.join(os.getcwd(), "scenes [RENDER]", "sanity")),
-        "-s", str(frameno),
-        "-e", str(frameno),
+        "-s", frame0,
+        "-e", frameN,
         "-fnc", "'name.#.ext'",
-        #"-spool", '"immediate rib, remote render"',
+        "-spool", '"immediate rib, remote render"',
         filename
     ]
 
