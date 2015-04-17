@@ -77,7 +77,7 @@
 # Act III
 
 - name       : "Bedroom Cuddle"
-  file       : "scenes/bedroom2.ma" # face close up
+  file       : "scenes/crossfade.ma" # face close up
   camera     : 'camera1'
-  startFrame : 55
-  endFrame   : 75
+  startFrame : 91
+  endFrame   : 140
