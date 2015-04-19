@@ -10,8 +10,9 @@ for i, shot in enumerate(shots):
     camera = shot['camera']
     print "% 2d: %s %d:%d %s" % (i, name, frame0, frameN, camera)
 
-i = int( input("Enter the number of the shot to render: ") )
+shot_ids = [int(i) for i in raw_input("Enter the number(s) of the shot to render, separated by spaces: ").split(' ')]
 
 job = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
-maya_cli.render(shots[i], job_key=job)
+for i in shot_ids:
+    maya_cli.render(shots[i], job_key=job)
 

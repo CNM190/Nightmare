@@ -37,4 +37,4 @@ def render(shot, frame=None, tractor=True, job_key="default"):
     subprocess.call(cmd_text, shell=True)
 
     print "Render job submitted with id:", "autorender_%s" % job_key
-    pirnt "Copy locally with:", "rsync -avz shay:%s ~/Desktop/" % output_dir
+    print "Copy locally with:", "rsync -avz shay:%s ~/Desktop/" % output_dir
