@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: fight shot_1.ma
-//Last modified: Fri, Apr 17, 2015 04:29:32 PM
+//Last modified: Sun, Apr 19, 2015 03:37:36 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Candy_Enter_Unicorn" -rfn "Candy_Enter_UnicornRN" -op "v=0;"
 		 "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Enter_Unicorn.ma";
@@ -10,10 +10,30 @@ file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Enter_Unicorn:Hair_EmilyRN" "C:/Users/M
 file -rdi 2 -ns "Dress_Emily" -rfn "Emily_Enter_Unicorn:Dress_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Dress_Emily.ma";
 file -rdi 1 -ns "nightmare" -rfn "nightmareRN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma";
 file -rdi 1 -ns "sword_3" -rfn "sword_3RN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/sword.ma";
+file -rdi 1 -ns "nightmare1" -rfn "nightmareRN1" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare2" -rfn "nightmareRN2" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare3" -rfn "nightmareRN3" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare4" -rfn "nightmareRN4" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare5" -rfn "nightmareRN5" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare6" -rfn "nightmareRN6" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare7" -rfn "nightmareRN7" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare8" -rfn "nightmareRN8" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare9" -rfn "nightmareRN9" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare10" -rfn "nightmareRN10" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "Candy_Enter_Unicorn" -dr 1 -rfn "Candy_Enter_UnicornRN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Enter_Unicorn.ma";
 file -r -ns "Emily_Enter_Unicorn" -dr 1 -rfn "Emily_Enter_UnicornRN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -r -ns "nightmare" -dr 1 -rfn "nightmareRN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "sword_3" -dr 1 -rfn "sword_3RN" -op "v=0;" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/sword.ma";
+file -r -ns "nightmare1" -dr 1 -rfn "nightmareRN1" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare2" -dr 1 -rfn "nightmareRN2" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare3" -dr 1 -rfn "nightmareRN3" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare4" -dr 1 -rfn "nightmareRN4" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare5" -dr 1 -rfn "nightmareRN5" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare6" -dr 1 -rfn "nightmareRN6" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare7" -dr 1 -rfn "nightmareRN7" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare8" -dr 1 -rfn "nightmareRN8" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare9" -dr 1 -rfn "nightmareRN9" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare10" -dr 1 -rfn "nightmareRN10" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
@@ -27,12 +47,12 @@ fileInfo "osv" "Mac OS X 10.9.2";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 2.748700307690072 2.4213523092398113 8.156568340311221 ;
-	setAttr ".r" -type "double3" -8.1383527253553183 -2204.5999999986025 -5.5836347197107806e-16 ;
+	setAttr ".t" -type "double3" -2.4810430745883556 -5.2495360505779125 4.6188263004637129 ;
+	setAttr ".r" -type "double3" 34.461647274662695 -2170.1999999998893 4.0395357585788577e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 8.7796787556272644;
+	setAttr ".coi" 18.504992004467841;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -298,13 +318,14 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 24.047234243026246;
+	setAttr ".coi" 484.76482328853018;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
 	setAttr ".man" -type "string" "camera1_mask";
-	setAttr ".tp" -type "double3" 2.2414472439733539 1.2148451896061245 -7.8871722896663652 ;
+	setAttr ".dgo" 1;
 	setAttr ".dr" yes;
+	setAttr ".dgc" -type "float3" 0 0 0 ;
 createNode transform -n "camera2";
 createNode camera -n "cameraShape2" -p "camera2";
 	setAttr -k off ".v";
@@ -4044,9 +4065,9 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 70 ".lnk";
+	setAttr -s 120 ".lnk";
 	setAttr -s 3 ".ign";
-	setAttr -s 70 ".slnk";
+	setAttr -s 120 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -5768,7 +5789,7 @@ createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals3";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color Cs";
 createNode reference -n "nightmareRN";
-	setAttr -s 110 ".phl";
+	setAttr -s 137 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -5879,17 +5900,44 @@ createNode reference -n "nightmareRN";
 	setAttr ".phl[108]" 0;
 	setAttr ".phl[109]" 0;
 	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN"
 		"nightmareRN" 0
-		"nightmareRN" 197
-		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 0 2.85441629326612167 -9.3292850952355586"
+		"nightmareRN" 293
+		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 0 2.85441629326612167 -8.57857956564272151"
 		
 		2 "|nightmare:Master_Controller" "translateY" " -av"
 		2 "|nightmare:Master_Controller" "translateZ" " -av"
 		2 "|nightmare:Master_Controller" "rotate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller" "rotateY" " -av"
-		2 "|nightmare:Master_Controller" "scale" " -type \"double3\" 1.81829358418727693 1.15479877825010191 1.81829358418727693"
+		2 "|nightmare:Master_Controller" "scale" " -type \"double3\" 1.8180728731124236 1.05302605734171228 1.8180728731124236"
 		
 		2 "|nightmare:Master_Controller" "scaleX" " -av"
 		2 "|nightmare:Master_Controller" "scaleY" " -av"
@@ -5940,13 +5988,15 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"translateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
-		"rotate" " -type \"double3\" 19.10589474274894783 0 0"
+		"rotate" " -type \"double3\" 16.04240980713126064 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"rotateY" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"rotateZ" " -av"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
+		"visibility" " 1"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
@@ -5956,13 +6006,15 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"translateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 0 -39.7487930956659099"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateY" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateZ" " -av"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
+		"scale" " -type \"double3\" 1 1 1"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow" 
@@ -5988,13 +6040,20 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand" 
 		"rotateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"visibility" " 1"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
+		"translate" " -type \"double3\" -1.244 0 0"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
+		"rotate" " -type \"double3\" -10.83678644241463829 -16.53533896904096068 44.09629860354069564"
+		
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"rotateY" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"rotateZ" " -av"
+		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
+		"scale" " -type \"double3\" -1 1 1"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow" 
@@ -6028,7 +6087,8 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand" 
 		"rotateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" -3.81603029515697756 -5.71543497763677788 -38.98391621700208987"
+		
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
@@ -6038,7 +6098,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
 		"segmentScaleCompensate" " 1"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
-		"translate" " -type \"double3\" 0.2043750709544363 -0.021328997057644905 -0.016986909261781591"
+		"translate" " -type \"double3\" 0.2043750709519534 -0.021328997107988301 -0.016986909228461577"
 		
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
 		"translateX" " -av"
@@ -6046,227 +6106,361 @@ createNode reference -n "nightmareRN";
 		"translateY" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
 		"translateZ" " -av"
-		2 "nightmare:Meshes" "displayType" " 2"
+		2 "|nightmare:Body" "visibility" " -av 1"
+		2 "|nightmare:Body|nightmare:BodyShape" "uvPivot" " -type \"double2\" 0.72851574420928955 0.10937549918889999"
+		
+		2 "|nightmare:Body|nightmare:BodyShape" "pnts" " -s 60"
+		2 "nightmare:Meshes" "displayType" " 0"
+		2 "nightmare:tweak1" "vlist[0].vertex" " -s 15"
+		2 "nightmare:tweak1" "vlist[0].vertex[793]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[793].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[793].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[793].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[794]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[794].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[794].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[794].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[808]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[808].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[808].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[808].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[830]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[830].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[830].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[830].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[853]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[853].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[853].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[853].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[855]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[855].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[855].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[855].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[856]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[856].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[856].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[856].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[878]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[878].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[878].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[878].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[893]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[893].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[893].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[893].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[973]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[973].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[973].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[973].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[974]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[974].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[974].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[974].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[975]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[975].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[975].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[975].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1113]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[1113].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1113].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1113].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1114]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[1114].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1114].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1114].zVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1115]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
+		
+		2 "nightmare:tweak1" "vlist[0].vertex[1115].xVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1115].yVertex" " -av"
+		2 "nightmare:tweak1" "vlist[0].vertex[1115].zVertex" " -av"
 		5 4 "nightmareRN" "|nightmare:Master_Controller.translateX" "nightmareRN.placeHolderList[1]" 
 		""
 		5 4 "nightmareRN" "|nightmare:Master_Controller.translateY" "nightmareRN.placeHolderList[2]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.translateZ" "nightmareRN.placeHolderList[3]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateX" "nightmareRN.placeHolderList[3]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateX" "nightmareRN.placeHolderList[4]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateY" "nightmareRN.placeHolderList[4]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateY" "nightmareRN.placeHolderList[5]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateZ" "nightmareRN.placeHolderList[5]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.rotateZ" "nightmareRN.placeHolderList[6]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleX" "nightmareRN.placeHolderList[6]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleX" "nightmareRN.placeHolderList[7]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleY" "nightmareRN.placeHolderList[7]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleY" "nightmareRN.placeHolderList[8]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleZ" "nightmareRN.placeHolderList[8]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleZ" "nightmareRN.placeHolderList[9]" 
-		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller.visibility" "nightmareRN.placeHolderList[10]" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller.visibility" "nightmareRN.placeHolderList[9]" 
 		""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.rotateX" 
-		"nightmareRN.placeHolderList[11]" ""
+		"nightmareRN.placeHolderList[10]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.rotateY" 
-		"nightmareRN.placeHolderList[12]" ""
+		"nightmareRN.placeHolderList[11]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.rotateZ" 
-		"nightmareRN.placeHolderList[13]" ""
+		"nightmareRN.placeHolderList[12]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.translateX" 
-		"nightmareRN.placeHolderList[14]" ""
+		"nightmareRN.placeHolderList[13]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.translateY" 
-		"nightmareRN.placeHolderList[15]" ""
+		"nightmareRN.placeHolderList[14]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.translateZ" 
-		"nightmareRN.placeHolderList[16]" ""
+		"nightmareRN.placeHolderList[15]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.visibility" 
-		"nightmareRN.placeHolderList[17]" ""
+		"nightmareRN.placeHolderList[16]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.scaleX" 
-		"nightmareRN.placeHolderList[18]" ""
+		"nightmareRN.placeHolderList[17]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.scaleY" 
-		"nightmareRN.placeHolderList[19]" ""
+		"nightmareRN.placeHolderList[18]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody.scaleZ" 
-		"nightmareRN.placeHolderList[20]" ""
+		"nightmareRN.placeHolderList[19]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.rotateX" 
-		"nightmareRN.placeHolderList[21]" ""
+		"nightmareRN.placeHolderList[20]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.rotateY" 
-		"nightmareRN.placeHolderList[22]" ""
+		"nightmareRN.placeHolderList[21]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.rotateZ" 
-		"nightmareRN.placeHolderList[23]" ""
+		"nightmareRN.placeHolderList[22]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.translateX" 
-		"nightmareRN.placeHolderList[24]" ""
+		"nightmareRN.placeHolderList[23]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.translateY" 
-		"nightmareRN.placeHolderList[25]" ""
+		"nightmareRN.placeHolderList[24]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.translateZ" 
-		"nightmareRN.placeHolderList[26]" ""
+		"nightmareRN.placeHolderList[25]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.scaleX" 
-		"nightmareRN.placeHolderList[27]" ""
+		"nightmareRN.placeHolderList[26]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.scaleY" 
-		"nightmareRN.placeHolderList[28]" ""
+		"nightmareRN.placeHolderList[27]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.scaleZ" 
-		"nightmareRN.placeHolderList[29]" ""
+		"nightmareRN.placeHolderList[28]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist.visibility" 
-		"nightmareRN.placeHolderList[30]" ""
+		"nightmareRN.placeHolderList[29]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateX" 
-		"nightmareRN.placeHolderList[31]" ""
+		"nightmareRN.placeHolderList[30]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateY" 
-		"nightmareRN.placeHolderList[32]" ""
+		"nightmareRN.placeHolderList[31]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateZ" 
-		"nightmareRN.placeHolderList[33]" ""
+		"nightmareRN.placeHolderList[32]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateX" 
-		"nightmareRN.placeHolderList[34]" ""
+		"nightmareRN.placeHolderList[33]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateY" 
-		"nightmareRN.placeHolderList[35]" ""
+		"nightmareRN.placeHolderList[34]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateZ" 
-		"nightmareRN.placeHolderList[36]" ""
+		"nightmareRN.placeHolderList[35]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleX" 
-		"nightmareRN.placeHolderList[37]" ""
+		"nightmareRN.placeHolderList[36]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleY" 
-		"nightmareRN.placeHolderList[38]" ""
+		"nightmareRN.placeHolderList[37]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleZ" 
-		"nightmareRN.placeHolderList[39]" ""
+		"nightmareRN.placeHolderList[38]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.visibility" 
-		"nightmareRN.placeHolderList[40]" ""
+		"nightmareRN.placeHolderList[39]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateX" 
-		"nightmareRN.placeHolderList[41]" ""
+		"nightmareRN.placeHolderList[40]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateY" 
-		"nightmareRN.placeHolderList[42]" ""
+		"nightmareRN.placeHolderList[41]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateZ" 
-		"nightmareRN.placeHolderList[43]" ""
+		"nightmareRN.placeHolderList[42]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateX" 
-		"nightmareRN.placeHolderList[44]" ""
+		"nightmareRN.placeHolderList[43]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateY" 
-		"nightmareRN.placeHolderList[45]" ""
+		"nightmareRN.placeHolderList[44]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateZ" 
-		"nightmareRN.placeHolderList[46]" ""
+		"nightmareRN.placeHolderList[45]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleX" 
-		"nightmareRN.placeHolderList[47]" ""
+		"nightmareRN.placeHolderList[46]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleY" 
-		"nightmareRN.placeHolderList[48]" ""
+		"nightmareRN.placeHolderList[47]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleZ" 
-		"nightmareRN.placeHolderList[49]" ""
+		"nightmareRN.placeHolderList[48]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.visibility" 
-		"nightmareRN.placeHolderList[50]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateX" 
-		"nightmareRN.placeHolderList[51]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateY" 
-		"nightmareRN.placeHolderList[52]" ""
+		"nightmareRN.placeHolderList[49]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateZ" 
-		"nightmareRN.placeHolderList[53]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateX" 
-		"nightmareRN.placeHolderList[54]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateY" 
-		"nightmareRN.placeHolderList[55]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateZ" 
-		"nightmareRN.placeHolderList[56]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleX" 
-		"nightmareRN.placeHolderList[57]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleY" 
-		"nightmareRN.placeHolderList[58]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleZ" 
-		"nightmareRN.placeHolderList[59]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.visibility" 
-		"nightmareRN.placeHolderList[60]" ""
+		"nightmareRN.placeHolderList[50]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.rotateX" 
-		"nightmareRN.placeHolderList[61]" ""
+		"nightmareRN.placeHolderList[51]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.rotateY" 
-		"nightmareRN.placeHolderList[62]" ""
+		"nightmareRN.placeHolderList[52]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.rotateZ" 
-		"nightmareRN.placeHolderList[63]" ""
+		"nightmareRN.placeHolderList[53]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.translateX" 
-		"nightmareRN.placeHolderList[64]" ""
+		"nightmareRN.placeHolderList[54]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.translateY" 
-		"nightmareRN.placeHolderList[65]" ""
+		"nightmareRN.placeHolderList[55]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.translateZ" 
-		"nightmareRN.placeHolderList[66]" ""
+		"nightmareRN.placeHolderList[56]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.scaleX" 
-		"nightmareRN.placeHolderList[67]" ""
+		"nightmareRN.placeHolderList[57]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.scaleY" 
-		"nightmareRN.placeHolderList[68]" ""
+		"nightmareRN.placeHolderList[58]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.scaleZ" 
-		"nightmareRN.placeHolderList[69]" ""
+		"nightmareRN.placeHolderList[59]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow.visibility" 
-		"nightmareRN.placeHolderList[70]" ""
+		"nightmareRN.placeHolderList[60]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.rotateX" 
-		"nightmareRN.placeHolderList[71]" ""
+		"nightmareRN.placeHolderList[61]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.rotateY" 
-		"nightmareRN.placeHolderList[72]" ""
+		"nightmareRN.placeHolderList[62]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.rotateZ" 
-		"nightmareRN.placeHolderList[73]" ""
+		"nightmareRN.placeHolderList[63]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.translateX" 
-		"nightmareRN.placeHolderList[74]" ""
+		"nightmareRN.placeHolderList[64]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.translateY" 
-		"nightmareRN.placeHolderList[75]" ""
+		"nightmareRN.placeHolderList[65]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.translateZ" 
-		"nightmareRN.placeHolderList[76]" ""
+		"nightmareRN.placeHolderList[66]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.scaleX" 
-		"nightmareRN.placeHolderList[77]" ""
+		"nightmareRN.placeHolderList[67]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.scaleY" 
-		"nightmareRN.placeHolderList[78]" ""
+		"nightmareRN.placeHolderList[68]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.scaleZ" 
-		"nightmareRN.placeHolderList[79]" ""
+		"nightmareRN.placeHolderList[69]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder|nightmare:LElbow|nightmare:LHand.visibility" 
-		"nightmareRN.placeHolderList[80]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateX" 
-		"nightmareRN.placeHolderList[81]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateY" 
-		"nightmareRN.placeHolderList[82]" ""
+		"nightmareRN.placeHolderList[70]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateZ" 
-		"nightmareRN.placeHolderList[83]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateX" 
-		"nightmareRN.placeHolderList[84]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateY" 
-		"nightmareRN.placeHolderList[85]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateZ" 
-		"nightmareRN.placeHolderList[86]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleX" 
-		"nightmareRN.placeHolderList[87]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleY" 
-		"nightmareRN.placeHolderList[88]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleZ" 
-		"nightmareRN.placeHolderList[89]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.visibility" 
-		"nightmareRN.placeHolderList[90]" ""
+		"nightmareRN.placeHolderList[71]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateX" 
-		"nightmareRN.placeHolderList[91]" ""
+		"nightmareRN.placeHolderList[72]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateY" 
-		"nightmareRN.placeHolderList[92]" ""
+		"nightmareRN.placeHolderList[73]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateZ" 
-		"nightmareRN.placeHolderList[93]" ""
+		"nightmareRN.placeHolderList[74]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateX" 
-		"nightmareRN.placeHolderList[94]" ""
+		"nightmareRN.placeHolderList[75]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateY" 
-		"nightmareRN.placeHolderList[95]" ""
+		"nightmareRN.placeHolderList[76]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateZ" 
-		"nightmareRN.placeHolderList[96]" ""
+		"nightmareRN.placeHolderList[77]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleX" 
-		"nightmareRN.placeHolderList[97]" ""
+		"nightmareRN.placeHolderList[78]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleY" 
-		"nightmareRN.placeHolderList[98]" ""
+		"nightmareRN.placeHolderList[79]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleZ" 
-		"nightmareRN.placeHolderList[99]" ""
+		"nightmareRN.placeHolderList[80]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.visibility" 
-		"nightmareRN.placeHolderList[100]" ""
+		"nightmareRN.placeHolderList[81]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.rotateX" 
-		"nightmareRN.placeHolderList[101]" ""
+		"nightmareRN.placeHolderList[82]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.rotateY" 
-		"nightmareRN.placeHolderList[102]" ""
+		"nightmareRN.placeHolderList[83]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.rotateZ" 
-		"nightmareRN.placeHolderList[103]" ""
+		"nightmareRN.placeHolderList[84]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.translateX" 
-		"nightmareRN.placeHolderList[104]" ""
+		"nightmareRN.placeHolderList[85]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.translateY" 
-		"nightmareRN.placeHolderList[105]" ""
+		"nightmareRN.placeHolderList[86]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.translateZ" 
-		"nightmareRN.placeHolderList[106]" ""
+		"nightmareRN.placeHolderList[87]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.scaleX" 
-		"nightmareRN.placeHolderList[107]" ""
+		"nightmareRN.placeHolderList[88]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.scaleY" 
-		"nightmareRN.placeHolderList[108]" ""
+		"nightmareRN.placeHolderList[89]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.scaleZ" 
-		"nightmareRN.placeHolderList[109]" ""
+		"nightmareRN.placeHolderList[90]" ""
 		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand.visibility" 
-		"nightmareRN.placeHolderList[110]" "";
+		"nightmareRN.placeHolderList[91]" ""
+		5 4 "nightmareRN" "|nightmare:Body.visibility" "nightmareRN.placeHolderList[92]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].xVertex" "nightmareRN.placeHolderList[93]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].yVertex" "nightmareRN.placeHolderList[94]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].zVertex" "nightmareRN.placeHolderList[95]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].xVertex" "nightmareRN.placeHolderList[96]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].yVertex" "nightmareRN.placeHolderList[97]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].zVertex" "nightmareRN.placeHolderList[98]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].xVertex" "nightmareRN.placeHolderList[99]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].yVertex" "nightmareRN.placeHolderList[100]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].zVertex" "nightmareRN.placeHolderList[101]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].xVertex" "nightmareRN.placeHolderList[102]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].yVertex" "nightmareRN.placeHolderList[103]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].zVertex" "nightmareRN.placeHolderList[104]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].xVertex" "nightmareRN.placeHolderList[105]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].yVertex" "nightmareRN.placeHolderList[106]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].zVertex" "nightmareRN.placeHolderList[107]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].xVertex" "nightmareRN.placeHolderList[108]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].yVertex" "nightmareRN.placeHolderList[109]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].zVertex" "nightmareRN.placeHolderList[110]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].xVertex" "nightmareRN.placeHolderList[111]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].yVertex" "nightmareRN.placeHolderList[112]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].zVertex" "nightmareRN.placeHolderList[113]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].xVertex" "nightmareRN.placeHolderList[114]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].yVertex" "nightmareRN.placeHolderList[115]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].zVertex" "nightmareRN.placeHolderList[116]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].xVertex" "nightmareRN.placeHolderList[117]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].yVertex" "nightmareRN.placeHolderList[118]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].zVertex" "nightmareRN.placeHolderList[119]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].xVertex" "nightmareRN.placeHolderList[120]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].yVertex" "nightmareRN.placeHolderList[121]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].zVertex" "nightmareRN.placeHolderList[122]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].xVertex" "nightmareRN.placeHolderList[123]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].yVertex" "nightmareRN.placeHolderList[124]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].zVertex" "nightmareRN.placeHolderList[125]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].xVertex" "nightmareRN.placeHolderList[126]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].yVertex" "nightmareRN.placeHolderList[127]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].zVertex" "nightmareRN.placeHolderList[128]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].xVertex" "nightmareRN.placeHolderList[129]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].yVertex" "nightmareRN.placeHolderList[130]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].zVertex" "nightmareRN.placeHolderList[131]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].xVertex" "nightmareRN.placeHolderList[132]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].yVertex" "nightmareRN.placeHolderList[133]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].zVertex" "nightmareRN.placeHolderList[134]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].xVertex" "nightmareRN.placeHolderList[135]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].yVertex" "nightmareRN.placeHolderList[136]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].zVertex" "nightmareRN.placeHolderList[137]" 
+		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode RenderMan -s -n "oldrmanFinalGlobals";
@@ -6714,41 +6908,41 @@ createNode partition -n "mtorPartition";
 	setAttr ".sr" -type "string" "";
 createNode script -n "uiConfigurationScriptNode";
 	setAttr ".b" -type "string" (
-		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
-		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n"
-		+ "                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n"
-		+ "                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
-		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
-		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
-		+ "                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n"
-		+ "                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
-		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
-		+ "        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
-		+ "            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n"
-		+ "            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n"
+		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n"
+		+ "                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n"
+		+ "                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n"
+		+ "            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n"
+		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n"
+		+ "            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n"
 		+ "                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
 		+ "                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n"
-		+ "                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
+		+ "                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n"
-		+ "            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n"
-		+ "            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n"
+		+ "            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n"
+		+ "            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n"
 		+ "                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n"
 		+ "                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n"
-		+ "\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
+		+ "\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
 		+ "            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n"
-		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n"
-		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n"
-		+ "                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n"
-		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n"
-		+ "            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n"
+		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n"
+		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n"
+		+ "                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n"
+		+ "                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n"
+		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n"
+		+ "            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n"
+		+ "                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n"
+		+ "                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n"
+		+ "            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n"
 		+ "                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n"
-		+ "                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 1\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
 		+ "                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
-		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 1\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
 		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n"
 		+ "                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n"
 		+ "\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n"
@@ -6854,13 +7048,16 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor3\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor3\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n"
 		+ "                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel3Info`) nodeEditor -e -restoreInfo nodeEditorPanel3Info $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor3\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n"
 		+ "                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel3Info`) nodeEditor -e -restoreInfo nodeEditorPanel3Info $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 68 100 -ps 2 32 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Top View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Top View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Top View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 71 -ast 1 -aet 71 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 96 -ast 1 -aet 96 ";
 	setAttr ".st" 6;
 createNode vectorRenderGlobals -s -n "vectorRenderGlobals";
 createNode reference -n "sword_3RN";
@@ -6881,8 +7078,8 @@ createNode reference -n "sword_3RN";
 		"sword_3RN" 13
 		0 "|sword_3RNfosterParent2|Sword_Anim_Control_parentConstraint2" "|sword_3:Sword_Anim_Control" 
 		"-s -r "
-		2 "|sword_3:particle1|sword_3:particleShape1" "currentSceneTime" " 71"
-		2 "|sword_3:particle1|sword_3:particleShape1" "cacheWidth" " 71"
+		2 "|sword_3:particle1|sword_3:particleShape1" "currentSceneTime" " 57"
+		2 "|sword_3:particle1|sword_3:particleShape1" "cacheWidth" " 96"
 		5 4 "sword_3RN" "|sword_3:Sword_Anim_Control.translateZ" "sword_3RN.placeHolderList[1]" 
 		""
 		5 4 "sword_3RN" "|sword_3:Sword_Anim_Control.translateY" "sword_3RN.placeHolderList[2]" 
@@ -6906,123 +7103,98 @@ createNode reference -n "sword_3RN";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTU -n "Master_Controller_scaleX";
-	setAttr ".tan" 18;
+	setAttr ".tan" 3;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1.4093882738059056 16 1.8182935841872769
-		 72 6.9737873735947407 96 6.9737873735947407 97 6.9737873735947407 123 7.4267202217030599;
-	setAttr -s 6 ".kit[3:5]"  1 18 18;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 18 18;
-	setAttr -s 6 ".kix[3:5]"  1 1 1;
-	setAttr -s 6 ".kiy[3:5]"  0 0 0;
+	setAttr -s 3 ".ktv[0:2]"  15 1.4093882738059056 30 1.8182935841872769
+		 70 1.818;
+	setAttr -s 3 ".kit[0:2]"  9 3 3;
+	setAttr -s 3 ".kot[0:2]"  9 3 5;
 createNode animCurveTU -n "Master_Controller_scaleY";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  1 0.12189249371603617 16 0.93465498401988067
-		 56 1.1547987782501019 71 1.1547987782501019 72 4.4290543665987716 96 4.4290543665987716
-		 97 4.4290543665987716 123 4.7167121486937447;
-	setAttr -s 8 ".kit[3:7]"  1 18 1 18 18;
-	setAttr -s 8 ".kot[0:7]"  5 5 5 5 5 5 18 18;
-	setAttr -s 8 ".kix[3:7]"  1 1 1 1 1;
-	setAttr -s 8 ".kiy[3:7]"  0 0 0 0 0;
+	setAttr -s 2 ".ktv[0:1]"  15 0.12189249371603617 70 1.1547987782501019;
+	setAttr -s 2 ".kit[1]"  3;
+	setAttr -s 2 ".kot[1]"  5;
 createNode animCurveTU -n "Master_Controller_scaleZ";
-	setAttr ".tan" 18;
+	setAttr ".tan" 3;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1.4093882738059056 16 1.8182935841872769
-		 72 6.9737873735947407 96 6.9737873735947407 97 6.9737873735947407 123 7.4267202217030599;
-	setAttr -s 6 ".kit[3:5]"  1 18 18;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 18 18;
-	setAttr -s 6 ".kix[3:5]"  1 1 1;
-	setAttr -s 6 ".kiy[3:5]"  0 0 0;
+	setAttr -s 3 ".ktv[0:2]"  15 1.4093882738059056 30 1.8182935841872769
+		 70 1.818;
+	setAttr -s 3 ".kit[0:2]"  9 3 3;
+	setAttr -s 3 ".kot[0:2]"  9 3 5;
 createNode animCurveTU -n "Master_Controller_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 97 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr ".ktv[0]"  15 1;
 createNode animCurveTL -n "Master_Controller_translateX";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 97 0;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr ".ktv[0]"  15 0;
 createNode animCurveTL -n "Master_Controller_translateY";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 2.8544162932661217 97 2.8544162932661217;
-	setAttr -s 2 ".kot[0:1]"  5 18;
-createNode animCurveTL -n "Master_Controller_translateZ";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 -10.982660624574299 40 -9.3292850952355586
-		 72 -30.588448053318409 96 -30.588448053318409 97 -30.588448053318409;
-	setAttr -s 5 ".kit[3:4]"  1 18;
-	setAttr -s 5 ".kot[0:4]"  5 5 5 5 18;
-	setAttr -s 5 ".kix[3:4]"  1 1;
-	setAttr -s 5 ".kiy[3:4]"  0 0;
+	setAttr ".ktv[0]"  15 2.8544162932661217;
 createNode animCurveTA -n "Master_Controller_rotateX";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 97 0;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr ".ktv[0]"  15 0;
 createNode animCurveTA -n "Master_Controller_rotateY";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 97 6.4484343993848325;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr ".ktv[0]"  15 0;
 createNode animCurveTA -n "Master_Controller_rotateZ";
-	setAttr ".tan" 18;
+	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 97 0;
-	setAttr -s 2 ".kot[0:1]"  5 18;
+	setAttr ".ktv[0]"  15 0;
 createNode animCurveTU -n "camera1_scaleX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 1;
 createNode animCurveTU -n "camera1_scaleY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 1;
 createNode animCurveTU -n "camera1_scaleZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 1;
 createNode animCurveTU -n "camera1_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 1;
 createNode animCurveTL -n "camera1_translateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 0.041865528865931881;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 0.041865528865931881;
 createNode animCurveTL -n "camera1_translateY";
-	setAttr ".tan" 18;
+	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1.5604400151028748 40 2 56 4;
-	setAttr -s 3 ".kit[0:2]"  9 18 18;
-	setAttr -s 3 ".kot[0:2]"  5 5 18;
+	setAttr -s 4 ".ktv[0:3]"  31 1.5604400151028748 44 2.530889862670028
+		 71 4.2411111347088131 82 4.0930397091378508;
+	setAttr -s 4 ".kit[2:3]"  1 18;
+	setAttr -s 4 ".kot[2:3]"  1 18;
+	setAttr -s 4 ".kix[2:3]"  0.99908250570297241 1;
+	setAttr -s 4 ".kiy[2:3]"  0.042827103286981583 0;
+	setAttr -s 4 ".kox[2:3]"  0.99908250570297241 1;
+	setAttr -s 4 ".koy[2:3]"  0.042827107012271881 0;
 createNode animCurveTL -n "camera1_translateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 -1.4379272411044539;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 -1.4379272411044539;
 createNode animCurveTA -n "camera1_rotateX";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 0;
-	setAttr ".kot[0]"  5;
+	setAttr -s 3 ".ktv[0:2]"  31 0 52 2.1961722488038289 79 12.000000000000002;
+	setAttr -s 3 ".kit[2]"  18;
+	setAttr -s 3 ".kot[2]"  18;
 createNode animCurveTA -n "camera1_rotateY";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 0;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 0;
 createNode animCurveTA -n "camera1_rotateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 0;
-	setAttr ".kot[0]"  5;
+	setAttr ".ktv[0]"  31 0;
 createNode animCurveTL -n "camera2_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -7286,51 +7458,51 @@ createNode animCurveTU -n "Waist_scaleZ";
 createNode animCurveTA -n "Torso_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 2.8858456044591052 160 2.8858456044591052
-		 180 9.8403670310685456;
+	setAttr -s 5 ".ktv[0:4]"  64 0 96 13.446921988290418 97 2.8858456044591052
+		 160 2.8858456044591052 180 9.8403670310685456;
 createNode animCurveTA -n "Torso_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 3.1262870654379382 160 3.1262870654379382
+	setAttr -s 5 ".ktv[0:4]"  64 0 96 0 97 3.1262870654379382 160 3.1262870654379382
 		 180 -7.0389164301515219;
 createNode animCurveTA -n "Torso_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 -0.053248046222637548 160 -0.053248046222637548
+	setAttr -s 5 ".ktv[0:4]"  64 0 96 0 97 -0.053248046222637548 160 -0.053248046222637548
 		 180 -0.33201716933271103;
 createNode animCurveTU -n "Torso_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr -s 3 ".ktv[0:2]"  64 1 96 1 160 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode animCurveTL -n "Torso_translateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 160 0;
+	setAttr -s 3 ".ktv[0:2]"  64 0 96 0 160 0;
 createNode animCurveTL -n "Torso_translateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 160 0;
+	setAttr -s 3 ".ktv[0:2]"  64 0 96 0 160 0;
 createNode animCurveTL -n "Torso_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 160 0;
+	setAttr -s 3 ".ktv[0:2]"  64 0 96 0 160 0;
 createNode animCurveTU -n "Torso_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
+	setAttr -s 3 ".ktv[0:2]"  64 1 96 1 160 1;
 createNode animCurveTU -n "Torso_scaleY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
+	setAttr -s 3 ".ktv[0:2]"  64 1 96 1 160 1;
 createNode animCurveTU -n "Torso_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
+	setAttr -s 3 ".ktv[0:2]"  64 1 96 1 160 1;
 createNode animCurveTA -n "Head_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  96 19.105894742748948 97 -23.084480387347384
+	setAttr -s 8 ".ktv[0:7]"  96 16.042409807131261 97 -23.084480387347384
 		 121 -40.364747220038197 147 -40.364747220038197 155 -37.533134499135066 163 -36.95397503643639
 		 185 -36.95397503643639 201 -20.576269498044031;
 createNode animCurveTA -n "Head_rotateY";
@@ -7375,94 +7547,14 @@ createNode animCurveTU -n "Head_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  96 1 147 1 185 1;
-createNode animCurveTA -n "LShoulder1_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  96 0 97 -32.716430850167761 123 -10.836786442414638
-		 160 -10.836786442414638 170 -74.930961955639788 181 -87.95807547886929 190 -58.13691316864103;
-createNode animCurveTA -n "LShoulder1_rotateY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  96 0 97 8.8068994863330143 123 -16.535338969040961
-		 160 -16.535338969040961 170 -62.504703387087943 181 -0.10624718615594853 190 33.343678530820462;
 createNode animCurveTA -n "LShoulder1_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  96 0 97 8.6912686372296069 123 -31.618406805304531
-		 160 -31.618406805304531 170 -43.922776970187527 181 -13.138851274410507 190 -21.164803418024722;
-createNode animCurveTU -n "LShoulder1_visibility";
-	setAttr ".tan" 9;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
-createNode animCurveTL -n "LShoulder1_translateX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 -1.244 160 -1.244;
-createNode animCurveTL -n "LShoulder1_translateY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 160 0;
-createNode animCurveTL -n "LShoulder1_translateZ";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 160 0;
-createNode animCurveTU -n "LShoulder1_scaleX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 -1 160 -1;
-createNode animCurveTU -n "LShoulder1_scaleY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
-createNode animCurveTU -n "LShoulder1_scaleZ";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 1 160 1;
-createNode animCurveTA -n "LShoulder_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 -19.096030186531355 123 -109.1778300561797
-		 148 -109.38620238215955;
-createNode animCurveTA -n "LShoulder_rotateY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 -4.4179971373233036 123 -16.16664877880255
-		 148 -34.374082471387766;
+	setAttr -s 2 ".ktv[0:1]"  14 47.249567961682963 71 43.533960852213383;
 createNode animCurveTA -n "LShoulder_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  96 0 97 -20.417855248015993 123 21.24287165068375
-		 148 11.489185857729483;
-createNode animCurveTU -n "LShoulder_visibility";
-	setAttr ".tan" 9;
-	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  96 1;
-	setAttr ".kot[0]"  5;
-createNode animCurveTL -n "LShoulder_translateX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 148 0.0014213345180479221;
-createNode animCurveTL -n "LShoulder_translateY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 148 -0.049491331817778483;
-createNode animCurveTL -n "LShoulder_translateZ";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  96 0 148 0.14184581092539872;
-createNode animCurveTU -n "LShoulder_scaleX";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  96 1;
-createNode animCurveTU -n "LShoulder_scaleY";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  96 1;
-createNode animCurveTU -n "LShoulder_scaleZ";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  96 1;
+	setAttr -s 2 ".ktv[0:1]"  12 -51.0716843777357 71 -37.871831867252112;
 createNode animCurveTA -n "LElbow_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -8199,19 +8291,1141 @@ createNode hyperView -n "hyperView3";
 createNode hyperLayout -n "hyperLayout3";
 	setAttr ".ihi" 0;
 	setAttr ".anf" yes;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1113__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1113__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1113__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1114__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1114__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1114__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1115__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1115__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_1115__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_793__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_793__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_793__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_794__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_794__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_794__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_808__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_808__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_808__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_830__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_830__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_830__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_853__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_853__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_853__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_855__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_855__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_855__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_856__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_856__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_856__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_878__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_878__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_878__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_893__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_893__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_893__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_973__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_973__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_973__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_974__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_974__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_974__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_975__xVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.070233367383480072 21 -0.059657607227563858
+		 36 0.096367880702018738 53 0.0043740421533584595;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_975__yVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.06145365908741951 21 0.04413512721657753
+		 36 0.12212291359901428 53 0.089307129383087158;
+createNode animCurveTL -n "tweak1_vlist_0__vertex_975__zVertex";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
+		 36 0.0021341070532798767 53 -0.004360598511993885;
+createNode reference -n "nightmareRN1";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN1"
+		"nightmareRN1" 0
+		"nightmareRN1" 18
+		2 "|nightmare1:Master_Controller" "translate" " -type \"double3\" 1.56957228477825739 9.44985312284078383 -4.21412165101492953"
+		
+		2 "|nightmare1:Master_Controller" "translateY" " -av"
+		2 "|nightmare1:Master_Controller" "translateZ" " -av"
+		2 "|nightmare1:Master_Controller" "translateX" " -av"
+		2 "|nightmare1:Master_Controller" "rotate" " -type \"double3\" -131.1890653001346152 -201.05302750549566326 -184.32705366874367314"
+		
+		2 "|nightmare1:Master_Controller" "rotateY" " -av"
+		2 "|nightmare1:Master_Controller" "rotateX" " -av"
+		2 "|nightmare1:Master_Controller" "rotateZ" " -av"
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.scaleX" "nightmareRN1.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.scaleY" "nightmareRN1.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.scaleZ" "nightmareRN1.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.translateY" "nightmareRN1.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.translateZ" "nightmareRN1.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.translateX" "nightmareRN1.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.rotateY" "nightmareRN1.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.rotateX" "nightmareRN1.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.rotateZ" "nightmareRN1.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller.visibility" "nightmareRN1.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode reference -n "nightmareRN2";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN2"
+		"nightmareRN2" 0
+		"nightmareRN2" 18
+		2 "|nightmare2:Master_Controller" "translate" " -type \"double3\" -1.13835681842151959 10.65656972501158251 -6.10547559752662039"
+		
+		2 "|nightmare2:Master_Controller" "translateY" " -av"
+		2 "|nightmare2:Master_Controller" "translateX" " -av"
+		2 "|nightmare2:Master_Controller" "translateZ" " -av"
+		2 "|nightmare2:Master_Controller" "rotate" " -type \"double3\" 370.31277737609275391 -136.27275472026619241 -9.25787395577856032"
+		
+		2 "|nightmare2:Master_Controller" "rotateY" " -av"
+		2 "|nightmare2:Master_Controller" "rotateX" " -av"
+		2 "|nightmare2:Master_Controller" "rotateZ" " -av"
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.translateY" "nightmareRN2.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.translateX" "nightmareRN2.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.translateZ" "nightmareRN2.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.scaleX" "nightmareRN2.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.scaleY" "nightmareRN2.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.scaleZ" "nightmareRN2.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.rotateY" "nightmareRN2.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.rotateX" "nightmareRN2.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.rotateZ" "nightmareRN2.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN2" "|nightmare2:Master_Controller.visibility" "nightmareRN2.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  -8 22.23015420293617 17 224.51065290084821
+		 26 225.04389295139751 35 225.71760282197596 41 343.61219865048548 47 374.18052069062242
+		 55 370.31277737609275;
+createNode animCurveTA -n "Master_Controller_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  -8 -126.12539703055072 17 -153.42437869215965
+		 26 -193.07925697103465 35 -224.69148022499601 41 -233.33146959304375 47 -150.12095230057136
+		 55 -136.27275472026619;
+createNode animCurveTA -n "Master_Controller_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  -8 17.60783637911608 17 -186.07476849026861
+		 26 -181.87866877141425 35 -161.16844159571249 41 -39.124613999342095 47 4.0148469494017869
+		 55 -9.2578739557785603;
+createNode animCurveTU -n "Master_Controller_visibility1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -8 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "Master_Controller_translateX1";
+	setAttr ".tan" 18;
+	setAttr -s 7 ".ktv[0:6]"  -8 5.9205506602990781 26 -1.3787962368215474
+		 35 0.23704000422894222 41 1.6159466978857873 47 1.6743934794530269 55 -0.76162934407512228
+		 61 -1.4496502867685424;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kwl[1:6]" no yes yes yes yes yes;
+	setAttr -s 7 ".kix[1:6]"  1.8215600252151489 0.375 0.25 0.25 0.33333337306976318 
+		0.25;
+	setAttr -s 7 ".kiy[1:6]"  0.36661508679389954 1.7968457937240601 
+		0.17534033954143524 0 -1.785167932510376 0;
+	setAttr -s 7 ".kox[1:6]"  0.78900015354156494 0.25 0.25 0.33333337306976318 
+		0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  -0.17304912209510803 1.19789719581604 0.17534033954143524 
+		0 -1.3388757705688477 0;
+createNode animCurveTL -n "Master_Controller_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  -8 3.3082455798137982 17 4.7282600313251457
+		 61 10.761377796736065;
+createNode animCurveTL -n "Master_Controller_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  -8 -6.9279484060604926 17 -8.3006491916621012
+		 35 -5.7093109954707968 41 -6.4869249838890939 47 -6.5539270316239184 55 -6.1721028178312656
+		 61 -6.0407804332287798;
+createNode animCurveTU -n "Master_Controller_scaleX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -8 0.33282111711560819;
+createNode animCurveTU -n "Master_Controller_scaleY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -8 0.33282111711560819;
+createNode animCurveTU -n "Master_Controller_scaleZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -8 0.33282111711560819;
+createNode animCurveTA -n "Master_Controller_rotateX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -13 36.043972741797603 12 -130.31845381010697
+		 20 -143.48559702233658 28 -168.78289020010533 41 -128.03112068894467 52 -131.18906530013462;
+createNode animCurveTA -n "Master_Controller_rotateY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -13 80.324699431350965 12 58.631418881080045
+		 20 28.39260975492498 28 -31.295939170796409 41 -175.99759744146544 52 -201.05302750549566;
+createNode animCurveTA -n "Master_Controller_rotateZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -13 0 12 -168.06871800852963 20 -141.29348930136118
+		 28 -143.70843875951789 41 -163.75098085742991 52 -184.32705366874367;
+createNode animCurveTU -n "Master_Controller_visibility2";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -13 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "Master_Controller_translateX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  -13 -4.9676404719020582 20 2.1645220467946236
+		 41 -0.97132014793188937 52 1.5695722847782574;
+createNode animCurveTL -n "Master_Controller_translateY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  -13 3.1485131441375445 12 3.9129835028669562
+		 52 9.4498531228407838;
+createNode animCurveTL -n "Master_Controller_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  -13 -5.6876339759759009 28 -7.4644424761696335
+		 34 -7.5484140206982229 41 -5.1138382600366352 52 -4.2141216510149295;
+createNode animCurveTU -n "Master_Controller_scaleX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -13 0.29947974195062049;
+createNode animCurveTU -n "Master_Controller_scaleY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -13 0.29947974195062049;
+createNode animCurveTU -n "Master_Controller_scaleZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -13 0.29947974195062049;
+createNode reference -n "nightmareRN3";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN3"
+		"nightmareRN3" 0
+		"nightmareRN3" 10
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.rotateX" "nightmareRN3.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.rotateY" "nightmareRN3.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.rotateZ" "nightmareRN3.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.scaleX" "nightmareRN3.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.scaleY" "nightmareRN3.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.scaleZ" "nightmareRN3.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.translateX" "nightmareRN3.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.translateY" "nightmareRN3.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.translateZ" "nightmareRN3.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller.visibility" "nightmareRN3.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -9 36.043973 16 -130.31845 24 -143.4856
+		 32 -168.78289 45 -128.03112000000002 56 -131.18907;
+createNode animCurveTA -n "Master_Controller_rotateY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -9 80.324699 16 58.631419000000008 24 28.39261
+		 32 -31.295939000000004 45 -175.99760000000003 56 -201.05303;
+createNode animCurveTA -n "Master_Controller_rotateZ3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  -9 0 16 -168.06872 24 -141.29349 32 -143.70844
+		 45 -163.75098 56 -184.32705;
+createNode animCurveTU -n "Master_Controller_scaleX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -9 0.29947973999999999;
+createNode animCurveTU -n "Master_Controller_scaleY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -9 0.29947973999999999;
+createNode animCurveTU -n "Master_Controller_scaleZ3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -9 0.29947973999999999;
+createNode animCurveTL -n "Master_Controller_translateX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  -9 -4.9676404999999999 24 2.164522 45 -0.97132015000000005
+		 56 1.5695722999999999;
+createNode animCurveTL -n "Master_Controller_translateY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  -9 3.1485131000000002 16 3.9129835000000002
+		 56 9.4498531000000003;
+createNode animCurveTL -n "Master_Controller_translateZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  -9 -5.687634 32 -7.4644424999999996 38 -7.548414
+		 45 -5.1138383000000003 56 -4.2141216999999997;
+createNode animCurveTU -n "Master_Controller_visibility3";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  -9 1;
+	setAttr ".kot[0]"  5;
+createNode reference -n "nightmareRN4";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN4"
+		"nightmareRN4" 0
+		"nightmareRN4" 10
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.rotateX" "nightmareRN4.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.rotateY" "nightmareRN4.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.rotateZ" "nightmareRN4.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.scaleX" "nightmareRN4.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.scaleY" "nightmareRN4.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.scaleZ" "nightmareRN4.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.translateX" "nightmareRN4.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.translateY" "nightmareRN4.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.translateZ" "nightmareRN4.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller.visibility" "nightmareRN4.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 36.043973 26 -130.31845 34 -143.4856 42 -168.78289
+		 55 -128.03112000000002 66 -131.18907;
+createNode animCurveTA -n "Master_Controller_rotateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 80.324699 26 58.631419000000008 34 28.39261
+		 42 -31.295939000000004 55 -175.99760000000003 66 -201.05303;
+createNode animCurveTA -n "Master_Controller_rotateZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 0 26 -168.06872 34 -141.29349 42 -143.70844
+		 55 -163.75098 66 -184.32705;
+createNode animCurveTU -n "Master_Controller_scaleX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.29947973999999999;
+createNode animCurveTU -n "Master_Controller_scaleY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.29947973999999999;
+createNode animCurveTU -n "Master_Controller_scaleZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.29947973999999999;
+createNode animCurveTL -n "Master_Controller_translateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -4.9676404999999999 34 2.164522 55 -0.97132015000000005
+		 66 1.5695722999999999;
+createNode animCurveTL -n "Master_Controller_translateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 3.1485131000000002 26 3.9129835000000002
+		 66 9.4498531000000003;
+createNode animCurveTL -n "Master_Controller_translateZ3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  1 -5.687634 42 -7.4644424999999996 48 -7.548414
+		 55 -5.1138383000000003 66 -4.2141216999999997;
+createNode animCurveTU -n "Master_Controller_visibility4";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode reference -n "nightmareRN5";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN5"
+		"nightmareRN5" 0
+		"nightmareRN5" 10
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.rotateX" "nightmareRN5.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.rotateY" "nightmareRN5.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.rotateZ" "nightmareRN5.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.scaleX" "nightmareRN5.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.scaleY" "nightmareRN5.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.scaleZ" "nightmareRN5.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.translateX" "nightmareRN5.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.translateY" "nightmareRN5.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.translateZ" "nightmareRN5.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN5" "|nightmare5:Master_Controller.visibility" "nightmareRN5.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  7 22.230154 32 224.51065 41 225.04389 50 225.7176
+		 56 343.6122 62 374.18052 70 370.31278;
+createNode animCurveTA -n "Master_Controller_rotateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  7 -126.1254 32 -153.42438 41 -193.07926
+		 50 -224.69148 56 -233.33147 62 -150.12095 70 -136.27275;
+createNode animCurveTA -n "Master_Controller_rotateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  7 17.607836 32 -186.07477 41 -181.87867
+		 50 -161.16844 56 -39.124614 62 4.0148469000000002 70 -9.257874;
+createNode animCurveTU -n "Master_Controller_scaleX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.33282112000000003;
+createNode animCurveTU -n "Master_Controller_scaleY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.33282112000000003;
+createNode animCurveTU -n "Master_Controller_scaleZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.33282112000000003;
+createNode animCurveTL -n "Master_Controller_translateX5";
+	setAttr ".tan" 18;
+	setAttr -s 7 ".ktv[0:6]"  7 5.9205506999999997 41 -1.3787962 50 0.23704
+		 56 1.6159467000000001 62 1.6743935000000001 70 -0.76162934000000004 76 -1.4496503000000001;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kwl[1:6]" no yes yes yes yes yes;
+	setAttr -s 7 ".kix[1:6]"  1.8215600252151489 0.37499988079071045 
+		0.25 0.25 0.33333349227905273 0.25;
+	setAttr -s 7 ".kiy[1:6]"  0.36661508679389954 1.796845555305481 0.17534039914608002 
+		0 -1.7851682901382446 0;
+	setAttr -s 7 ".kox[1:6]"  0.78900015354156494 0.25 0.25 0.33333349227905273 
+		0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  -0.17304910719394684 1.1978974342346191 
+		0.17534039914608002 0 -1.3388755321502686 0;
+createNode animCurveTL -n "Master_Controller_translateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  7 3.3082455999999998 32 4.72826 76 10.761378;
+createNode animCurveTL -n "Master_Controller_translateZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  7 -6.9279484 32 -8.3006492000000005 50 -5.709311
+		 56 -6.486925 62 -6.553927 70 -6.1721028000000002 76 -6.0407804;
+createNode animCurveTU -n "Master_Controller_visibility5";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 1;
+	setAttr ".kot[0]"  5;
+createNode reference -n "nightmareRN6";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN6"
+		"nightmareRN6" 0
+		"nightmareRN6" 10
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.rotateX" "nightmareRN6.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.rotateY" "nightmareRN6.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.rotateZ" "nightmareRN6.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.scaleX" "nightmareRN6.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.scaleY" "nightmareRN6.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.scaleZ" "nightmareRN6.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.translateX" "nightmareRN6.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.translateY" "nightmareRN6.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.translateZ" "nightmareRN6.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN6" "|nightmare6:Master_Controller.visibility" "nightmareRN6.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 22.230154 26 224.51065 35 225.04389 44 225.7176
+		 50 343.6122 56 374.18052 64 370.31278;
+createNode animCurveTA -n "Master_Controller_rotateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -126.1254 26 -153.42438 35 -193.07926
+		 44 -224.69148 50 -233.33147 56 -150.12095 64 -136.27275;
+createNode animCurveTA -n "Master_Controller_rotateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 17.607836 26 -186.07477 35 -181.87867
+		 44 -161.16844 50 -39.124614 56 4.0148469000000002 64 -9.257874;
+createNode animCurveTU -n "Master_Controller_scaleX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.33282112000000003;
+createNode animCurveTU -n "Master_Controller_scaleY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.33282112000000003;
+createNode animCurveTU -n "Master_Controller_scaleZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.33282112000000003;
+createNode animCurveTL -n "Master_Controller_translateX6";
+	setAttr ".tan" 18;
+	setAttr -s 7 ".ktv[0:6]"  1 5.9205506999999997 35 -1.3787962 44 0.23704
+		 50 1.6159467000000001 56 1.6743935000000001 64 -0.76162934000000004 70 -1.4496503000000001;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
+	setAttr -s 7 ".kwl[1:6]" no yes yes yes yes yes;
+	setAttr -s 7 ".kix[1:6]"  1.8215600252151489 0.375 0.24999988079071045 
+		0.25 0.33333349227905273 0.25;
+	setAttr -s 7 ".kiy[1:6]"  0.36661508679389954 1.7968460321426392 
+		0.17534030973911285 0 -1.7851682901382446 0;
+	setAttr -s 7 ".kox[1:6]"  0.78900015354156494 0.24999988079071045 
+		0.25 0.33333349227905273 0.25 0.25;
+	setAttr -s 7 ".koy[1:6]"  -0.17304910719394684 1.1978968381881714 
+		0.17534039914608002 0 -1.3388755321502686 0;
+createNode animCurveTL -n "Master_Controller_translateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 3.3082455999999998 26 4.72826 70 10.761378;
+createNode animCurveTL -n "Master_Controller_translateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 7 ".ktv[0:6]"  1 -6.9279484 26 -8.3006492000000005 44 -5.709311
+		 50 -6.486925 56 -6.553927 64 -6.1721028000000002 70 -6.0407804;
+createNode animCurveTU -n "Master_Controller_visibility6";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode reference -n "nightmareRN7";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN7"
+		"nightmareRN7" 0
+		"nightmareRN7" 18
+		2 "|nightmare7:Master_Controller" "translate" " -type \"double3\" -0.68314928450317081 1.62120991661920488 -7.81688213936251763"
+		
+		2 "|nightmare7:Master_Controller" "translateY" " -av"
+		2 "|nightmare7:Master_Controller" "translateZ" " -av"
+		2 "|nightmare7:Master_Controller" "translateX" " -av"
+		2 "|nightmare7:Master_Controller" "rotate" " -type \"double3\" 83.71478584646301613 -87.45578614324207933 0"
+		
+		2 "|nightmare7:Master_Controller" "rotateY" " -av"
+		2 "|nightmare7:Master_Controller" "rotateX" " -av"
+		2 "|nightmare7:Master_Controller" "rotateZ" " -av"
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.scaleX" "nightmareRN7.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.scaleY" "nightmareRN7.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.scaleZ" "nightmareRN7.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.translateY" "nightmareRN7.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.translateZ" "nightmareRN7.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.translateX" "nightmareRN7.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.rotateY" "nightmareRN7.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.rotateX" "nightmareRN7.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.rotateZ" "nightmareRN7.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller.visibility" "nightmareRN7.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTL -n "Master_Controller_translateX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 8.04228564045642 10 -0.68314928450317081;
+createNode animCurveTL -n "Master_Controller_translateY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 6.1058104573527396 10 1.6212099166192049;
+createNode animCurveTL -n "Master_Controller_translateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -7.8168821393625176;
+createNode animCurveTU -n "Master_Controller_visibility7";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTA -n "Master_Controller_rotateX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 76.250385983433091 10 83.714785846463016;
+createNode animCurveTA -n "Master_Controller_rotateY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -87.455786143242079;
+createNode animCurveTA -n "Master_Controller_rotateZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -7.1649739882334062e-14;
+createNode animCurveTU -n "Master_Controller_scaleX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.3757450081540023;
+createNode animCurveTU -n "Master_Controller_scaleY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.3757450081540023;
+createNode animCurveTU -n "Master_Controller_scaleZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.3757450081540023;
+createNode reference -n "nightmareRN8";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN8"
+		"nightmareRN8" 0
+		"nightmareRN8" 10
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.rotateX" "nightmareRN8.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.rotateY" "nightmareRN8.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.rotateZ" "nightmareRN8.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.scaleX" "nightmareRN8.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.scaleY" "nightmareRN8.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.scaleZ" "nightmareRN8.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.translateX" "nightmareRN8.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.translateY" "nightmareRN8.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.translateZ" "nightmareRN8.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller.visibility" "nightmareRN8.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  3 76.250386 12 83.714786;
+createNode animCurveTA -n "Master_Controller_rotateY8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -87.455786;
+createNode animCurveTA -n "Master_Controller_rotateZ8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 0;
+createNode animCurveTU -n "Master_Controller_scaleX8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 0.37574500999999999;
+createNode animCurveTU -n "Master_Controller_scaleY8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 0.37574500999999999;
+createNode animCurveTU -n "Master_Controller_scaleZ8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 0.37574500999999999;
+createNode animCurveTL -n "Master_Controller_translateX8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  3 8.0422855999999996 12 -0.68314927999999997;
+createNode animCurveTL -n "Master_Controller_translateY8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  3 6.1058104999999996 12 1.6212099;
+createNode animCurveTL -n "Master_Controller_translateZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 -7.8168820999999999;
+createNode animCurveTU -n "Master_Controller_visibility8";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  3 1;
+	setAttr ".kot[0]"  5;
+createNode reference -n "nightmareRN9";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN9"
+		"nightmareRN9" 0
+		"nightmareRN9" 13
+		2 "|nightmare9:Master_Controller" "translate" " -type \"double3\" 3.53284741673445968 1.72941623207854356 -7.3687997802031262"
+		
+		2 "|nightmare9:Master_Controller" "translateY" " -av"
+		2 "|nightmare9:Master_Controller" "translateX" " -av"
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.scaleX" "nightmareRN9.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.scaleY" "nightmareRN9.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.scaleZ" "nightmareRN9.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.translateY" "nightmareRN9.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.translateZ" "nightmareRN9.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.translateX" "nightmareRN9.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.rotateY" "nightmareRN9.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.rotateX" "nightmareRN9.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.rotateZ" "nightmareRN9.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN9" "|nightmare9:Master_Controller.visibility" "nightmareRN9.placeHolderList[10]" 
+		"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode animCurveTL -n "Master_Controller_translateX9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 -6.4917332678276747 19 3.5328474167344597;
+createNode animCurveTL -n "Master_Controller_translateY9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 5.2611210599998763 19 1.7294162320785436;
+createNode animCurveTL -n "Master_Controller_translateZ8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -7.3687997802031262;
+createNode animCurveTU -n "Master_Controller_visibility9";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTA -n "Master_Controller_rotateX9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 108.5427793831085;
+createNode animCurveTA -n "Master_Controller_rotateY9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 127.27916473746308;
+createNode animCurveTA -n "Master_Controller_rotateZ9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 36.426549867854817;
+createNode animCurveTU -n "Master_Controller_scaleX9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.30480750541596074;
+createNode animCurveTU -n "Master_Controller_scaleY9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.30480750541596074;
+createNode animCurveTU -n "Master_Controller_scaleZ9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0.30480750541596074;
+createNode reference -n "nightmareRN10";
+	setAttr -s 10 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN10"
+		"nightmareRN10" 0
+		"nightmareRN10" 10
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.rotateX" "nightmareRN10.placeHolderList[1]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.rotateY" "nightmareRN10.placeHolderList[2]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.rotateZ" "nightmareRN10.placeHolderList[3]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.scaleX" "nightmareRN10.placeHolderList[4]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.scaleY" "nightmareRN10.placeHolderList[5]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.scaleZ" "nightmareRN10.placeHolderList[6]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.translateX" "nightmareRN10.placeHolderList[7]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.translateY" "nightmareRN10.placeHolderList[8]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.translateZ" "nightmareRN10.placeHolderList[9]" 
+		""
+		5 4 "nightmareRN10" "|nightmare10:Master_Controller.visibility" "nightmareRN10.placeHolderList[10]" 
+		"";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 108.54278;
+createNode animCurveTA -n "Master_Controller_rotateY10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 127.27916;
+createNode animCurveTA -n "Master_Controller_rotateZ10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 36.42655;
+createNode animCurveTU -n "Master_Controller_scaleX10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.30480751;
+createNode animCurveTU -n "Master_Controller_scaleY10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.30480751;
+createNode animCurveTU -n "Master_Controller_scaleZ10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 0.30480751;
+createNode animCurveTL -n "Master_Controller_translateX10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  7 -6.4917332999999999 25 3.5328474000000001;
+createNode animCurveTL -n "Master_Controller_translateY10";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  7 5.2611211000000004 25 1.7294162;
+createNode animCurveTL -n "Master_Controller_translateZ9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 -7.3687997999999997;
+createNode animCurveTU -n "Master_Controller_visibility10";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  7 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTU -n "Body_visibility";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  11 0 14 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 71;
-	setAttr -av ".unw" 71;
+	setAttr -k on ".o" 57;
+	setAttr -av ".unw" 57;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 70 ".st";
+	setAttr -s 120 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -8224,7 +9438,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 63 ".s";
+	setAttr -s 103 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -8238,7 +9452,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 34 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 9 ".r";
+	setAttr -s 19 ".r";
 select -ne :lightList1;
 	setAttr -s 4 ".l";
 select -ne :defaultTextureList1;
@@ -8505,7 +9719,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 6 ".sol";
+	setAttr -s 7 ".sol";
 connectAttr "Main_FaceVis.o" "Candy_Enter_UnicornRN.phl[1]";
 connectAttr "Main_fkVis.o" "Candy_Enter_UnicornRN.phl[2]";
 connectAttr "Main_ikVis.o" "Candy_Enter_UnicornRN.phl[3]";
@@ -8672,140 +9886,167 @@ connectAttr "Emily_Enter_UnicornRN.phl[11]" "Sword_Anim_Control_parentConstraint
 		;
 connectAttr "Emily_Enter_UnicornRN.phl[12]" "Sword_Anim_Control_parentConstraint2.tg[0].ts"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[13]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[13]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[14]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[14]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[15]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[15]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[16]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[16]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[17]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[17]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[18]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[18]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[19]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[19]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[20]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[20]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[21]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[21]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[22]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[22]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[23]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[23]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[24]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[24]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
 		;
 connectAttr "Master_Controller_translateX.o" "nightmareRN.phl[1]";
 connectAttr "Master_Controller_translateY.o" "nightmareRN.phl[2]";
-connectAttr "Master_Controller_translateZ.o" "nightmareRN.phl[3]";
-connectAttr "Master_Controller_rotateX.o" "nightmareRN.phl[4]";
-connectAttr "Master_Controller_rotateY.o" "nightmareRN.phl[5]";
-connectAttr "Master_Controller_rotateZ.o" "nightmareRN.phl[6]";
-connectAttr "Master_Controller_scaleX.o" "nightmareRN.phl[7]";
-connectAttr "Master_Controller_scaleY.o" "nightmareRN.phl[8]";
-connectAttr "Master_Controller_scaleZ.o" "nightmareRN.phl[9]";
-connectAttr "Master_Controller_visibility.o" "nightmareRN.phl[10]";
-connectAttr "LowerBody_rotateX.o" "nightmareRN.phl[11]";
-connectAttr "LowerBody_rotateY.o" "nightmareRN.phl[12]";
-connectAttr "LowerBody_rotateZ.o" "nightmareRN.phl[13]";
-connectAttr "LowerBody_translateX.o" "nightmareRN.phl[14]";
-connectAttr "LowerBody_translateY.o" "nightmareRN.phl[15]";
-connectAttr "LowerBody_translateZ.o" "nightmareRN.phl[16]";
-connectAttr "LowerBody_visibility.o" "nightmareRN.phl[17]";
-connectAttr "LowerBody_scaleX.o" "nightmareRN.phl[18]";
-connectAttr "LowerBody_scaleY.o" "nightmareRN.phl[19]";
-connectAttr "LowerBody_scaleZ.o" "nightmareRN.phl[20]";
-connectAttr "Waist_rotateX.o" "nightmareRN.phl[21]";
-connectAttr "Waist_rotateY.o" "nightmareRN.phl[22]";
-connectAttr "Waist_rotateZ.o" "nightmareRN.phl[23]";
-connectAttr "Waist_translateX.o" "nightmareRN.phl[24]";
-connectAttr "Waist_translateY.o" "nightmareRN.phl[25]";
-connectAttr "Waist_translateZ.o" "nightmareRN.phl[26]";
-connectAttr "Waist_scaleX.o" "nightmareRN.phl[27]";
-connectAttr "Waist_scaleY.o" "nightmareRN.phl[28]";
-connectAttr "Waist_scaleZ.o" "nightmareRN.phl[29]";
-connectAttr "Waist_visibility.o" "nightmareRN.phl[30]";
-connectAttr "Torso_rotateX.o" "nightmareRN.phl[31]";
-connectAttr "Torso_rotateY.o" "nightmareRN.phl[32]";
-connectAttr "Torso_rotateZ.o" "nightmareRN.phl[33]";
-connectAttr "Torso_translateX.o" "nightmareRN.phl[34]";
-connectAttr "Torso_translateY.o" "nightmareRN.phl[35]";
-connectAttr "Torso_translateZ.o" "nightmareRN.phl[36]";
-connectAttr "Torso_scaleX.o" "nightmareRN.phl[37]";
-connectAttr "Torso_scaleY.o" "nightmareRN.phl[38]";
-connectAttr "Torso_scaleZ.o" "nightmareRN.phl[39]";
-connectAttr "Torso_visibility.o" "nightmareRN.phl[40]";
-connectAttr "Head_rotateX.o" "nightmareRN.phl[41]";
-connectAttr "Head_rotateY.o" "nightmareRN.phl[42]";
-connectAttr "Head_rotateZ.o" "nightmareRN.phl[43]";
-connectAttr "Head_translateX.o" "nightmareRN.phl[44]";
-connectAttr "Head_translateY.o" "nightmareRN.phl[45]";
-connectAttr "Head_translateZ.o" "nightmareRN.phl[46]";
-connectAttr "Head_scaleX.o" "nightmareRN.phl[47]";
-connectAttr "Head_scaleY.o" "nightmareRN.phl[48]";
-connectAttr "Head_scaleZ.o" "nightmareRN.phl[49]";
-connectAttr "Head_visibility.o" "nightmareRN.phl[50]";
-connectAttr "LShoulder_rotateX.o" "nightmareRN.phl[51]";
-connectAttr "LShoulder_rotateY.o" "nightmareRN.phl[52]";
-connectAttr "LShoulder_rotateZ.o" "nightmareRN.phl[53]";
-connectAttr "LShoulder_translateX.o" "nightmareRN.phl[54]";
-connectAttr "LShoulder_translateY.o" "nightmareRN.phl[55]";
-connectAttr "LShoulder_translateZ.o" "nightmareRN.phl[56]";
-connectAttr "LShoulder_scaleX.o" "nightmareRN.phl[57]";
-connectAttr "LShoulder_scaleY.o" "nightmareRN.phl[58]";
-connectAttr "LShoulder_scaleZ.o" "nightmareRN.phl[59]";
-connectAttr "LShoulder_visibility.o" "nightmareRN.phl[60]";
-connectAttr "LElbow_rotateX.o" "nightmareRN.phl[61]";
-connectAttr "LElbow_rotateY.o" "nightmareRN.phl[62]";
-connectAttr "LElbow_rotateZ.o" "nightmareRN.phl[63]";
-connectAttr "LElbow_translateX.o" "nightmareRN.phl[64]";
-connectAttr "LElbow_translateY.o" "nightmareRN.phl[65]";
-connectAttr "LElbow_translateZ.o" "nightmareRN.phl[66]";
-connectAttr "LElbow_scaleX.o" "nightmareRN.phl[67]";
-connectAttr "LElbow_scaleY.o" "nightmareRN.phl[68]";
-connectAttr "LElbow_scaleZ.o" "nightmareRN.phl[69]";
-connectAttr "LElbow_visibility.o" "nightmareRN.phl[70]";
-connectAttr "LHand_rotateX.o" "nightmareRN.phl[71]";
-connectAttr "LHand_rotateY.o" "nightmareRN.phl[72]";
-connectAttr "LHand_rotateZ.o" "nightmareRN.phl[73]";
-connectAttr "LHand_translateX.o" "nightmareRN.phl[74]";
-connectAttr "LHand_translateY.o" "nightmareRN.phl[75]";
-connectAttr "LHand_translateZ.o" "nightmareRN.phl[76]";
-connectAttr "LHand_scaleX.o" "nightmareRN.phl[77]";
-connectAttr "LHand_scaleY.o" "nightmareRN.phl[78]";
-connectAttr "LHand_scaleZ.o" "nightmareRN.phl[79]";
-connectAttr "LHand_visibility.o" "nightmareRN.phl[80]";
-connectAttr "LShoulder1_rotateX.o" "nightmareRN.phl[81]";
-connectAttr "LShoulder1_rotateY.o" "nightmareRN.phl[82]";
-connectAttr "LShoulder1_rotateZ.o" "nightmareRN.phl[83]";
-connectAttr "LShoulder1_translateX.o" "nightmareRN.phl[84]";
-connectAttr "LShoulder1_translateY.o" "nightmareRN.phl[85]";
-connectAttr "LShoulder1_translateZ.o" "nightmareRN.phl[86]";
-connectAttr "LShoulder1_scaleX.o" "nightmareRN.phl[87]";
-connectAttr "LShoulder1_scaleY.o" "nightmareRN.phl[88]";
-connectAttr "LShoulder1_scaleZ.o" "nightmareRN.phl[89]";
-connectAttr "LShoulder1_visibility.o" "nightmareRN.phl[90]";
-connectAttr "LElbow_rotateX1.o" "nightmareRN.phl[91]";
-connectAttr "LElbow_rotateY1.o" "nightmareRN.phl[92]";
-connectAttr "LElbow_rotateZ1.o" "nightmareRN.phl[93]";
-connectAttr "LElbow_translateX1.o" "nightmareRN.phl[94]";
-connectAttr "LElbow_translateY1.o" "nightmareRN.phl[95]";
-connectAttr "LElbow_translateZ1.o" "nightmareRN.phl[96]";
-connectAttr "LElbow_scaleX1.o" "nightmareRN.phl[97]";
-connectAttr "LElbow_scaleY1.o" "nightmareRN.phl[98]";
-connectAttr "LElbow_scaleZ1.o" "nightmareRN.phl[99]";
-connectAttr "LElbow_visibility1.o" "nightmareRN.phl[100]";
-connectAttr "LHand_rotateX1.o" "nightmareRN.phl[101]";
-connectAttr "LHand_rotateY1.o" "nightmareRN.phl[102]";
-connectAttr "LHand_rotateZ1.o" "nightmareRN.phl[103]";
-connectAttr "LHand_translateX1.o" "nightmareRN.phl[104]";
-connectAttr "LHand_translateY1.o" "nightmareRN.phl[105]";
-connectAttr "LHand_translateZ1.o" "nightmareRN.phl[106]";
-connectAttr "LHand_scaleX1.o" "nightmareRN.phl[107]";
-connectAttr "LHand_scaleY1.o" "nightmareRN.phl[108]";
-connectAttr "LHand_scaleZ1.o" "nightmareRN.phl[109]";
-connectAttr "LHand_visibility1.o" "nightmareRN.phl[110]";
+connectAttr "Master_Controller_rotateX.o" "nightmareRN.phl[3]";
+connectAttr "Master_Controller_rotateY.o" "nightmareRN.phl[4]";
+connectAttr "Master_Controller_rotateZ.o" "nightmareRN.phl[5]";
+connectAttr "Master_Controller_scaleX.o" "nightmareRN.phl[6]";
+connectAttr "Master_Controller_scaleY.o" "nightmareRN.phl[7]";
+connectAttr "Master_Controller_scaleZ.o" "nightmareRN.phl[8]";
+connectAttr "Master_Controller_visibility.o" "nightmareRN.phl[9]";
+connectAttr "LowerBody_rotateX.o" "nightmareRN.phl[10]";
+connectAttr "LowerBody_rotateY.o" "nightmareRN.phl[11]";
+connectAttr "LowerBody_rotateZ.o" "nightmareRN.phl[12]";
+connectAttr "LowerBody_translateX.o" "nightmareRN.phl[13]";
+connectAttr "LowerBody_translateY.o" "nightmareRN.phl[14]";
+connectAttr "LowerBody_translateZ.o" "nightmareRN.phl[15]";
+connectAttr "LowerBody_visibility.o" "nightmareRN.phl[16]";
+connectAttr "LowerBody_scaleX.o" "nightmareRN.phl[17]";
+connectAttr "LowerBody_scaleY.o" "nightmareRN.phl[18]";
+connectAttr "LowerBody_scaleZ.o" "nightmareRN.phl[19]";
+connectAttr "Waist_rotateX.o" "nightmareRN.phl[20]";
+connectAttr "Waist_rotateY.o" "nightmareRN.phl[21]";
+connectAttr "Waist_rotateZ.o" "nightmareRN.phl[22]";
+connectAttr "Waist_translateX.o" "nightmareRN.phl[23]";
+connectAttr "Waist_translateY.o" "nightmareRN.phl[24]";
+connectAttr "Waist_translateZ.o" "nightmareRN.phl[25]";
+connectAttr "Waist_scaleX.o" "nightmareRN.phl[26]";
+connectAttr "Waist_scaleY.o" "nightmareRN.phl[27]";
+connectAttr "Waist_scaleZ.o" "nightmareRN.phl[28]";
+connectAttr "Waist_visibility.o" "nightmareRN.phl[29]";
+connectAttr "Torso_rotateX.o" "nightmareRN.phl[30]";
+connectAttr "Torso_rotateY.o" "nightmareRN.phl[31]";
+connectAttr "Torso_rotateZ.o" "nightmareRN.phl[32]";
+connectAttr "Torso_translateX.o" "nightmareRN.phl[33]";
+connectAttr "Torso_translateY.o" "nightmareRN.phl[34]";
+connectAttr "Torso_translateZ.o" "nightmareRN.phl[35]";
+connectAttr "Torso_scaleX.o" "nightmareRN.phl[36]";
+connectAttr "Torso_scaleY.o" "nightmareRN.phl[37]";
+connectAttr "Torso_scaleZ.o" "nightmareRN.phl[38]";
+connectAttr "Torso_visibility.o" "nightmareRN.phl[39]";
+connectAttr "Head_rotateX.o" "nightmareRN.phl[40]";
+connectAttr "Head_rotateY.o" "nightmareRN.phl[41]";
+connectAttr "Head_rotateZ.o" "nightmareRN.phl[42]";
+connectAttr "Head_translateX.o" "nightmareRN.phl[43]";
+connectAttr "Head_translateY.o" "nightmareRN.phl[44]";
+connectAttr "Head_translateZ.o" "nightmareRN.phl[45]";
+connectAttr "Head_scaleX.o" "nightmareRN.phl[46]";
+connectAttr "Head_scaleY.o" "nightmareRN.phl[47]";
+connectAttr "Head_scaleZ.o" "nightmareRN.phl[48]";
+connectAttr "Head_visibility.o" "nightmareRN.phl[49]";
+connectAttr "LShoulder_rotateZ.o" "nightmareRN.phl[50]";
+connectAttr "LElbow_rotateX.o" "nightmareRN.phl[51]";
+connectAttr "LElbow_rotateY.o" "nightmareRN.phl[52]";
+connectAttr "LElbow_rotateZ.o" "nightmareRN.phl[53]";
+connectAttr "LElbow_translateX.o" "nightmareRN.phl[54]";
+connectAttr "LElbow_translateY.o" "nightmareRN.phl[55]";
+connectAttr "LElbow_translateZ.o" "nightmareRN.phl[56]";
+connectAttr "LElbow_scaleX.o" "nightmareRN.phl[57]";
+connectAttr "LElbow_scaleY.o" "nightmareRN.phl[58]";
+connectAttr "LElbow_scaleZ.o" "nightmareRN.phl[59]";
+connectAttr "LElbow_visibility.o" "nightmareRN.phl[60]";
+connectAttr "LHand_rotateX.o" "nightmareRN.phl[61]";
+connectAttr "LHand_rotateY.o" "nightmareRN.phl[62]";
+connectAttr "LHand_rotateZ.o" "nightmareRN.phl[63]";
+connectAttr "LHand_translateX.o" "nightmareRN.phl[64]";
+connectAttr "LHand_translateY.o" "nightmareRN.phl[65]";
+connectAttr "LHand_translateZ.o" "nightmareRN.phl[66]";
+connectAttr "LHand_scaleX.o" "nightmareRN.phl[67]";
+connectAttr "LHand_scaleY.o" "nightmareRN.phl[68]";
+connectAttr "LHand_scaleZ.o" "nightmareRN.phl[69]";
+connectAttr "LHand_visibility.o" "nightmareRN.phl[70]";
+connectAttr "LShoulder1_rotateZ.o" "nightmareRN.phl[71]";
+connectAttr "LElbow_rotateX1.o" "nightmareRN.phl[72]";
+connectAttr "LElbow_rotateY1.o" "nightmareRN.phl[73]";
+connectAttr "LElbow_rotateZ1.o" "nightmareRN.phl[74]";
+connectAttr "LElbow_translateX1.o" "nightmareRN.phl[75]";
+connectAttr "LElbow_translateY1.o" "nightmareRN.phl[76]";
+connectAttr "LElbow_translateZ1.o" "nightmareRN.phl[77]";
+connectAttr "LElbow_scaleX1.o" "nightmareRN.phl[78]";
+connectAttr "LElbow_scaleY1.o" "nightmareRN.phl[79]";
+connectAttr "LElbow_scaleZ1.o" "nightmareRN.phl[80]";
+connectAttr "LElbow_visibility1.o" "nightmareRN.phl[81]";
+connectAttr "LHand_rotateX1.o" "nightmareRN.phl[82]";
+connectAttr "LHand_rotateY1.o" "nightmareRN.phl[83]";
+connectAttr "LHand_rotateZ1.o" "nightmareRN.phl[84]";
+connectAttr "LHand_translateX1.o" "nightmareRN.phl[85]";
+connectAttr "LHand_translateY1.o" "nightmareRN.phl[86]";
+connectAttr "LHand_translateZ1.o" "nightmareRN.phl[87]";
+connectAttr "LHand_scaleX1.o" "nightmareRN.phl[88]";
+connectAttr "LHand_scaleY1.o" "nightmareRN.phl[89]";
+connectAttr "LHand_scaleZ1.o" "nightmareRN.phl[90]";
+connectAttr "LHand_visibility1.o" "nightmareRN.phl[91]";
+connectAttr "Body_visibility.o" "nightmareRN.phl[92]";
+connectAttr "tweak1_vlist_0__vertex_793__xVertex.o" "nightmareRN.phl[93]";
+connectAttr "tweak1_vlist_0__vertex_793__yVertex.o" "nightmareRN.phl[94]";
+connectAttr "tweak1_vlist_0__vertex_793__zVertex.o" "nightmareRN.phl[95]";
+connectAttr "tweak1_vlist_0__vertex_794__xVertex.o" "nightmareRN.phl[96]";
+connectAttr "tweak1_vlist_0__vertex_794__yVertex.o" "nightmareRN.phl[97]";
+connectAttr "tweak1_vlist_0__vertex_794__zVertex.o" "nightmareRN.phl[98]";
+connectAttr "tweak1_vlist_0__vertex_808__xVertex.o" "nightmareRN.phl[99]";
+connectAttr "tweak1_vlist_0__vertex_808__yVertex.o" "nightmareRN.phl[100]";
+connectAttr "tweak1_vlist_0__vertex_808__zVertex.o" "nightmareRN.phl[101]";
+connectAttr "tweak1_vlist_0__vertex_830__xVertex.o" "nightmareRN.phl[102]";
+connectAttr "tweak1_vlist_0__vertex_830__yVertex.o" "nightmareRN.phl[103]";
+connectAttr "tweak1_vlist_0__vertex_830__zVertex.o" "nightmareRN.phl[104]";
+connectAttr "tweak1_vlist_0__vertex_853__xVertex.o" "nightmareRN.phl[105]";
+connectAttr "tweak1_vlist_0__vertex_853__yVertex.o" "nightmareRN.phl[106]";
+connectAttr "tweak1_vlist_0__vertex_853__zVertex.o" "nightmareRN.phl[107]";
+connectAttr "tweak1_vlist_0__vertex_855__xVertex.o" "nightmareRN.phl[108]";
+connectAttr "tweak1_vlist_0__vertex_855__yVertex.o" "nightmareRN.phl[109]";
+connectAttr "tweak1_vlist_0__vertex_855__zVertex.o" "nightmareRN.phl[110]";
+connectAttr "tweak1_vlist_0__vertex_856__xVertex.o" "nightmareRN.phl[111]";
+connectAttr "tweak1_vlist_0__vertex_856__yVertex.o" "nightmareRN.phl[112]";
+connectAttr "tweak1_vlist_0__vertex_856__zVertex.o" "nightmareRN.phl[113]";
+connectAttr "tweak1_vlist_0__vertex_878__xVertex.o" "nightmareRN.phl[114]";
+connectAttr "tweak1_vlist_0__vertex_878__yVertex.o" "nightmareRN.phl[115]";
+connectAttr "tweak1_vlist_0__vertex_878__zVertex.o" "nightmareRN.phl[116]";
+connectAttr "tweak1_vlist_0__vertex_893__xVertex.o" "nightmareRN.phl[117]";
+connectAttr "tweak1_vlist_0__vertex_893__yVertex.o" "nightmareRN.phl[118]";
+connectAttr "tweak1_vlist_0__vertex_893__zVertex.o" "nightmareRN.phl[119]";
+connectAttr "tweak1_vlist_0__vertex_973__xVertex.o" "nightmareRN.phl[120]";
+connectAttr "tweak1_vlist_0__vertex_973__yVertex.o" "nightmareRN.phl[121]";
+connectAttr "tweak1_vlist_0__vertex_973__zVertex.o" "nightmareRN.phl[122]";
+connectAttr "tweak1_vlist_0__vertex_974__xVertex.o" "nightmareRN.phl[123]";
+connectAttr "tweak1_vlist_0__vertex_974__yVertex.o" "nightmareRN.phl[124]";
+connectAttr "tweak1_vlist_0__vertex_974__zVertex.o" "nightmareRN.phl[125]";
+connectAttr "tweak1_vlist_0__vertex_975__xVertex.o" "nightmareRN.phl[126]";
+connectAttr "tweak1_vlist_0__vertex_975__yVertex.o" "nightmareRN.phl[127]";
+connectAttr "tweak1_vlist_0__vertex_975__zVertex.o" "nightmareRN.phl[128]";
+connectAttr "tweak1_vlist_0__vertex_1113__xVertex.o" "nightmareRN.phl[129]";
+connectAttr "tweak1_vlist_0__vertex_1113__yVertex.o" "nightmareRN.phl[130]";
+connectAttr "tweak1_vlist_0__vertex_1113__zVertex.o" "nightmareRN.phl[131]";
+connectAttr "tweak1_vlist_0__vertex_1114__xVertex.o" "nightmareRN.phl[132]";
+connectAttr "tweak1_vlist_0__vertex_1114__yVertex.o" "nightmareRN.phl[133]";
+connectAttr "tweak1_vlist_0__vertex_1114__zVertex.o" "nightmareRN.phl[134]";
+connectAttr "tweak1_vlist_0__vertex_1115__xVertex.o" "nightmareRN.phl[135]";
+connectAttr "tweak1_vlist_0__vertex_1115__yVertex.o" "nightmareRN.phl[136]";
+connectAttr "tweak1_vlist_0__vertex_1115__zVertex.o" "nightmareRN.phl[137]";
 connectAttr "Sword_Anim_Control_parentConstraint2.ctz" "sword_3RN.phl[1]";
 connectAttr "Sword_Anim_Control_parentConstraint2.cty" "sword_3RN.phl[2]";
 connectAttr "Sword_Anim_Control_parentConstraint2.ctx" "sword_3RN.phl[3]";
@@ -8816,6 +10057,106 @@ connectAttr "Sword_Anim_Control_parentConstraint2.cry" "sword_3RN.phl[7]";
 connectAttr "Sword_Anim_Control_parentConstraint2.crz" "sword_3RN.phl[8]";
 connectAttr "sword_3RN.phl[9]" "Sword_Anim_Control_parentConstraint2.cro";
 connectAttr "sword_3RN.phl[10]" "Sword_Anim_Control_parentConstraint2.cpim";
+connectAttr "Master_Controller_scaleX2.o" "nightmareRN1.phl[1]";
+connectAttr "Master_Controller_scaleY2.o" "nightmareRN1.phl[2]";
+connectAttr "Master_Controller_scaleZ2.o" "nightmareRN1.phl[3]";
+connectAttr "Master_Controller_translateY2.o" "nightmareRN1.phl[4]";
+connectAttr "Master_Controller_translateZ1.o" "nightmareRN1.phl[5]";
+connectAttr "Master_Controller_translateX2.o" "nightmareRN1.phl[6]";
+connectAttr "Master_Controller_rotateY2.o" "nightmareRN1.phl[7]";
+connectAttr "Master_Controller_rotateX2.o" "nightmareRN1.phl[8]";
+connectAttr "Master_Controller_rotateZ2.o" "nightmareRN1.phl[9]";
+connectAttr "Master_Controller_visibility2.o" "nightmareRN1.phl[10]";
+connectAttr "Master_Controller_translateY1.o" "nightmareRN2.phl[1]";
+connectAttr "Master_Controller_translateX1.o" "nightmareRN2.phl[2]";
+connectAttr "Master_Controller_translateZ.o" "nightmareRN2.phl[3]";
+connectAttr "Master_Controller_scaleX1.o" "nightmareRN2.phl[4]";
+connectAttr "Master_Controller_scaleY1.o" "nightmareRN2.phl[5]";
+connectAttr "Master_Controller_scaleZ1.o" "nightmareRN2.phl[6]";
+connectAttr "Master_Controller_rotateY1.o" "nightmareRN2.phl[7]";
+connectAttr "Master_Controller_rotateX1.o" "nightmareRN2.phl[8]";
+connectAttr "Master_Controller_rotateZ1.o" "nightmareRN2.phl[9]";
+connectAttr "Master_Controller_visibility1.o" "nightmareRN2.phl[10]";
+connectAttr "Master_Controller_rotateX3.o" "nightmareRN3.phl[1]";
+connectAttr "Master_Controller_rotateY3.o" "nightmareRN3.phl[2]";
+connectAttr "Master_Controller_rotateZ3.o" "nightmareRN3.phl[3]";
+connectAttr "Master_Controller_scaleX3.o" "nightmareRN3.phl[4]";
+connectAttr "Master_Controller_scaleY3.o" "nightmareRN3.phl[5]";
+connectAttr "Master_Controller_scaleZ3.o" "nightmareRN3.phl[6]";
+connectAttr "Master_Controller_translateX3.o" "nightmareRN3.phl[7]";
+connectAttr "Master_Controller_translateY3.o" "nightmareRN3.phl[8]";
+connectAttr "Master_Controller_translateZ2.o" "nightmareRN3.phl[9]";
+connectAttr "Master_Controller_visibility3.o" "nightmareRN3.phl[10]";
+connectAttr "Master_Controller_rotateX4.o" "nightmareRN4.phl[1]";
+connectAttr "Master_Controller_rotateY4.o" "nightmareRN4.phl[2]";
+connectAttr "Master_Controller_rotateZ4.o" "nightmareRN4.phl[3]";
+connectAttr "Master_Controller_scaleX4.o" "nightmareRN4.phl[4]";
+connectAttr "Master_Controller_scaleY4.o" "nightmareRN4.phl[5]";
+connectAttr "Master_Controller_scaleZ4.o" "nightmareRN4.phl[6]";
+connectAttr "Master_Controller_translateX4.o" "nightmareRN4.phl[7]";
+connectAttr "Master_Controller_translateY4.o" "nightmareRN4.phl[8]";
+connectAttr "Master_Controller_translateZ3.o" "nightmareRN4.phl[9]";
+connectAttr "Master_Controller_visibility4.o" "nightmareRN4.phl[10]";
+connectAttr "Master_Controller_rotateX5.o" "nightmareRN5.phl[1]";
+connectAttr "Master_Controller_rotateY5.o" "nightmareRN5.phl[2]";
+connectAttr "Master_Controller_rotateZ5.o" "nightmareRN5.phl[3]";
+connectAttr "Master_Controller_scaleX5.o" "nightmareRN5.phl[4]";
+connectAttr "Master_Controller_scaleY5.o" "nightmareRN5.phl[5]";
+connectAttr "Master_Controller_scaleZ5.o" "nightmareRN5.phl[6]";
+connectAttr "Master_Controller_translateX5.o" "nightmareRN5.phl[7]";
+connectAttr "Master_Controller_translateY5.o" "nightmareRN5.phl[8]";
+connectAttr "Master_Controller_translateZ4.o" "nightmareRN5.phl[9]";
+connectAttr "Master_Controller_visibility5.o" "nightmareRN5.phl[10]";
+connectAttr "Master_Controller_rotateX6.o" "nightmareRN6.phl[1]";
+connectAttr "Master_Controller_rotateY6.o" "nightmareRN6.phl[2]";
+connectAttr "Master_Controller_rotateZ6.o" "nightmareRN6.phl[3]";
+connectAttr "Master_Controller_scaleX6.o" "nightmareRN6.phl[4]";
+connectAttr "Master_Controller_scaleY6.o" "nightmareRN6.phl[5]";
+connectAttr "Master_Controller_scaleZ6.o" "nightmareRN6.phl[6]";
+connectAttr "Master_Controller_translateX6.o" "nightmareRN6.phl[7]";
+connectAttr "Master_Controller_translateY6.o" "nightmareRN6.phl[8]";
+connectAttr "Master_Controller_translateZ5.o" "nightmareRN6.phl[9]";
+connectAttr "Master_Controller_visibility6.o" "nightmareRN6.phl[10]";
+connectAttr "Master_Controller_scaleX7.o" "nightmareRN7.phl[1]";
+connectAttr "Master_Controller_scaleY7.o" "nightmareRN7.phl[2]";
+connectAttr "Master_Controller_scaleZ7.o" "nightmareRN7.phl[3]";
+connectAttr "Master_Controller_translateY7.o" "nightmareRN7.phl[4]";
+connectAttr "Master_Controller_translateZ6.o" "nightmareRN7.phl[5]";
+connectAttr "Master_Controller_translateX7.o" "nightmareRN7.phl[6]";
+connectAttr "Master_Controller_rotateY7.o" "nightmareRN7.phl[7]";
+connectAttr "Master_Controller_rotateX7.o" "nightmareRN7.phl[8]";
+connectAttr "Master_Controller_rotateZ7.o" "nightmareRN7.phl[9]";
+connectAttr "Master_Controller_visibility7.o" "nightmareRN7.phl[10]";
+connectAttr "Master_Controller_rotateX8.o" "nightmareRN8.phl[1]";
+connectAttr "Master_Controller_rotateY8.o" "nightmareRN8.phl[2]";
+connectAttr "Master_Controller_rotateZ8.o" "nightmareRN8.phl[3]";
+connectAttr "Master_Controller_scaleX8.o" "nightmareRN8.phl[4]";
+connectAttr "Master_Controller_scaleY8.o" "nightmareRN8.phl[5]";
+connectAttr "Master_Controller_scaleZ8.o" "nightmareRN8.phl[6]";
+connectAttr "Master_Controller_translateX8.o" "nightmareRN8.phl[7]";
+connectAttr "Master_Controller_translateY8.o" "nightmareRN8.phl[8]";
+connectAttr "Master_Controller_translateZ7.o" "nightmareRN8.phl[9]";
+connectAttr "Master_Controller_visibility8.o" "nightmareRN8.phl[10]";
+connectAttr "Master_Controller_scaleX9.o" "nightmareRN9.phl[1]";
+connectAttr "Master_Controller_scaleY9.o" "nightmareRN9.phl[2]";
+connectAttr "Master_Controller_scaleZ9.o" "nightmareRN9.phl[3]";
+connectAttr "Master_Controller_translateY9.o" "nightmareRN9.phl[4]";
+connectAttr "Master_Controller_translateZ8.o" "nightmareRN9.phl[5]";
+connectAttr "Master_Controller_translateX9.o" "nightmareRN9.phl[6]";
+connectAttr "Master_Controller_rotateY9.o" "nightmareRN9.phl[7]";
+connectAttr "Master_Controller_rotateX9.o" "nightmareRN9.phl[8]";
+connectAttr "Master_Controller_rotateZ9.o" "nightmareRN9.phl[9]";
+connectAttr "Master_Controller_visibility9.o" "nightmareRN9.phl[10]";
+connectAttr "Master_Controller_rotateX10.o" "nightmareRN10.phl[1]";
+connectAttr "Master_Controller_rotateY10.o" "nightmareRN10.phl[2]";
+connectAttr "Master_Controller_rotateZ10.o" "nightmareRN10.phl[3]";
+connectAttr "Master_Controller_scaleX10.o" "nightmareRN10.phl[4]";
+connectAttr "Master_Controller_scaleY10.o" "nightmareRN10.phl[5]";
+connectAttr "Master_Controller_scaleZ10.o" "nightmareRN10.phl[6]";
+connectAttr "Master_Controller_translateX10.o" "nightmareRN10.phl[7]";
+connectAttr "Master_Controller_translateY10.o" "nightmareRN10.phl[8]";
+connectAttr "Master_Controller_translateZ9.o" "nightmareRN10.phl[9]";
+connectAttr "Master_Controller_visibility10.o" "nightmareRN10.phl[10]";
 connectAttr "cluster33.og[0]" "Sword_Anim_ControlShapeDeformed.cr";
 connectAttr "cluster1Set.mwc" "Sword_Anim_ControlShapeDeformed.iog.og[0].gco";
 connectAttr "cluster23GroupId.id" "Sword_Anim_ControlShapeDeformed.iog.og[2].gid"
@@ -9246,6 +10587,6 @@ connectAttr "hyperLayout3.msg" "hyperView3.hl";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Candy_Enter_UnicornRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Enter_Unicorn.ma\" 454608396 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Candy_Enter_Unicorn.ma\" \"FileRef\"\n1\n\"Emily_Enter_UnicornRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma\" 896507970 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n2\n\"nightmareRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n3\n\"sword_3RN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/sword.ma\" 995086096 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/props/sword.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Candy_Enter_UnicornRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Enter_Unicorn.ma\" 454608396 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Candy_Enter_Unicorn.ma\" \"FileRef\"\n1\n\"Emily_Enter_UnicornRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma\" 896507970 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n2\n\"nightmareRN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/nightmare.ma\" 2365698985 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n3\n\"sword_3RN\" \"\" \"C:/Users/Mark/Documents/GitHub/Nightmare//assets/props/sword.ma\" 995086096 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/props/sword.ma\" \"FileRef\"\n4\n\"nightmareRN1\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n5\n\"nightmareRN2\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n6\n\"nightmareRN3\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n7\n\"nightmareRN4\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n8\n\"nightmareRN5\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n9\n\"nightmareRN6\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n10\n\"nightmareRN7\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n11\n\"nightmareRN8\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n12\n\"nightmareRN9\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n13\n\"nightmareRN10\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of fight shot_1.ma
