@@ -40,16 +40,16 @@
   file       : "Blade_of_the_Heart.ma"
   camera     : 'Rendering_Camera'
   startFrame : 100
-  endFrame   : 336
+  endFrame   : 335
 
 - name       : "Monster Rising"
-  file       : "fight.ma"
+  file       : "fight shot_1.ma"
   camera     : 'camera1'
   startFrame : 1
   endFrame   : 71
 
 - name       : "Monster POV"
-  file       : "fight.ma"
+  file       : "fight shot_2.ma"
   camera     : 'camera2'
   startFrame : 72
   endFrame   : 96
@@ -61,7 +61,7 @@
   endFrame   : 201
 
 - name       : "Charge"
-  file       : "fight.ma"
+  file       : "fight shot_3.ma"
   camera     : 'camera3'
   startFrame : 97
   endFrame   : 241
