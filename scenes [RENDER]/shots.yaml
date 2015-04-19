@@ -40,7 +40,7 @@
   file       : "Blade_of_the_Heart.ma"
   camera     : 'Rendering_Camera'
   startFrame : 100
-  endFrame   : 336
+  endFrame   : 335
 
 - name       : "Monster Rising"
   file       : "fight shot_1.ma"
