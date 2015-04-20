@@ -66,18 +66,12 @@
   startFrame : 97
   endFrame   : 241
 
-- name       : "Crossfade"
-  file       : "crossfade.ma"
-  camera     : 'camera1'
-  startFrame : 1
-  endFrame   : 90
-
 
 # ---------------------------------------------------------------------------
 # Act III
 
-- name       : "Bedroom Cuddle"
-  file       : "crossfade.ma" # face close up
-  camera     : 'camera1'
-  startFrame : 91
-  endFrame   : 140
+- name       : "Crossfade"
+  file       : "crossfade.ma"
+  camera     : 'bedroom2:camera1'
+  startFrame : 1
+  endFrame   : 90
