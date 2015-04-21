@@ -17,7 +17,7 @@ def render(shot, frame=None, tractor=True):
 
     renderman_dir = os.path.join(os.getcwd(), 'renderman')
     if rm_rman_dir:
-        answer = raw_input("Are you sure you want to rm %s? (Y/n)" % renderman_dir) or 'y'
+        answer = raw_input("Are you sure you want to rm %s? (Y/n) " % renderman_dir) or 'y'
         confirmed = answer.lower() in ('y', 'yes')
         if confirmed:
             shutil.rmtree(renderman_dir)
