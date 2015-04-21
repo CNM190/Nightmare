@@ -1,6 +1,6 @@
-import os, subprocess, pipes
+import os, subprocess, pipes, shutil, datetime
 
-def render(shot, frame=None, tractor=True, job_key="default"):
+def render(shot, frame=None, tractor=True):
     name = shot['name']
     camera = shot['camera']
     scene = os.path.join(os.getcwd(), "scenes [RENDER]", shot['file'])
@@ -9,7 +9,18 @@ def render(shot, frame=None, tractor=True, job_key="default"):
     else:
         frame0, frameN = frame, frame
 
+    job_key = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
+    job_key = raw_input("Enter job key (%s): " % job_key) or job_key
+    rm_rman_dir = (raw_input("Zap renderman directory (Y/n): ") or 'y') in ('Y', 'y', 'yes', 'Yes')
+
     output_dir = str(os.path.join(os.getcwd(), "autorender_%s" % job_key))
+
+    renderman_dir = os.path.join(os.getcwd(), 'renderman')
+    if rm_rman_dir:
+        answer = raw_input("Are you sure you want to rm %s? (Y/n) " % renderman_dir) or 'y'
+        confirmed = answer.lower() in ('y', 'yes')
+        if confirmed:
+            shutil.rmtree(renderman_dir)
 
     image_name = "%s.%s" % (name.replace(' ', '_'), camera)
     cmd = [

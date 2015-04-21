@@ -1,13 +1,6 @@
 import yaml, datetime, sys
 import maya_cli
 
-if len(sys.argv) == 2:
-    job = sys.argv[1]
-    print "Using explicit job id:", job
-else:
-    job = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
-    print "Using auto job id:", job
-
 with open('scenes [RENDER]/shots.yaml') as s:
     shots = yaml.load(s)
 
@@ -20,5 +13,5 @@ for i, shot in enumerate(shots):
 shot_ids = [int(i) for i in raw_input("Enter the number(s) of the shot to render, separated by spaces: ").split(' ')]
 
 for i in shot_ids:
-    maya_cli.render(shots[i], job_key=job)
+    maya_cli.render(shots[i])
 
