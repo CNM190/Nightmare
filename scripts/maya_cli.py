@@ -45,7 +45,7 @@ def render(shot, frame=None, tractor=True):
 
     cmd_text =  " ".join([pipes.quote(token) for token in cmd])
     print "calling: ", cmd_text
-    subprocess.check_call(cmd_text, shell=True)
+    #subprocess.check_call(cmd_text, shell=True)
 
     print "Render job submitted with id:", "autorender_%s" % job_key
     print "Copy locally with:", "rsync -avz shay:%s ~/Desktop/" % output_dir
