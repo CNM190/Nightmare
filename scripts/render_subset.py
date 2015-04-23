@@ -10,7 +10,5 @@ for i, shot in enumerate(shots):
     camera = shot['camera']
     print "%2d: %s %d:%d %s" % (i, name, frame0, frameN, camera)
 
-shot_ids = [int(i) for i in raw_input("Enter the number(s) of the shot to render, separated by spaces: ").split(' ')]
-
+shot_ids = input("Enter shots to render: ")
 maya_cli.render([shots[i] for i in shot_ids])
-
