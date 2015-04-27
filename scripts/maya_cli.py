@@ -22,7 +22,7 @@ def render(shots, frame=None, tractor=True):
             frame0, frameN = shot['startFrame'], shot['endFrame']
         else:
             frame0, frameN = frame, frame
-    
+
         image_name = "%s.%s" % (name.replace(' ', '_'), camera)
         cmd = [
             "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
@@ -38,15 +38,15 @@ def render(shots, frame=None, tractor=True):
             "-e", str(frameN),
             "-fnc", "name.#.ext",
         ]
-    
+
         if tractor:
             cmd += ["-spool", 'immediate rib, remote render']
-    
+
         cmd += [scene]
-    
+
         cmd_text =  " ".join([pipes.quote(token) for token in cmd])
         print "calling: ", cmd_text
-        subprocess.check_call(cmd_text, shell=True)
+        #subprocess.check_call(cmd_text, shell=True)
 
     print "Render job submitted with id:", "autorender_%s" % job_key
     print "Copy locally with:", "rsync -avz shay:%s ~/Desktop/" % output_dir
