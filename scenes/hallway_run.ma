@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: hallway_run.ma
-//Last modified: Sun, May 03, 2015 01:05:35 PM
+//Last modified: Sun, May 03, 2015 01:14:11 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "hallway_sara" -dr 1 -rfn "hallway_saraRN" "assets/sets/hallway_sara_double_sided.ma";
 file -rdi 1 -ns "Emily" -rfn "anim_ready_EmilyRN" "assets/chars/Emily.ma";
@@ -11,11 +11,15 @@ file -rdi 1 -ns "hallway_sara_double_sided_large_lockers" -rfn "hallway_sara_dou
 		 -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/sets/hallway_sara_double_sided_large_lockers.ma";
 file -rdi 2 -ns "locker2" -rfn "hallway_sara_double_sided_large_lockers:locker2RN"
 		 -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/props/locker2.ma";
+file -rdi 1 -ns "nightmare1" -rfn "nightmareRN1" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -rdi 1 -ns "nightmare2" -rfn "nightmareRN2" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
 file -r -ns "hallway_sara" -dr 1 -rfn "hallway_saraRN" "assets/sets/hallway_sara_double_sided.ma";
 file -r -ns "Emily" -dr 1 -rfn "anim_ready_EmilyRN" "assets/chars/Emily.ma";
 file -r -ns "nightmare" -dr 1 -rfn "nightmareRN" -op "v=0;" "assets/chars/nightmare.ma";
 file -r -ns "hallway_sara_double_sided_large_lockers" -dr 1 -rfn "hallway_sara_double_sided_large_lockersRN"
 		 -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/sets/hallway_sara_double_sided_large_lockers.ma";
+file -r -ns "nightmare1" -dr 1 -rfn "nightmareRN1" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
+file -r -ns "nightmare2" -dr 1 -rfn "nightmareRN2" -op "v=0;" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
@@ -30,18 +34,18 @@ fileInfo "osv" "Mac OS X 10.9.2";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 85.499217453400917 35.624940964240757 1.2411638743654603 ;
-	setAttr ".r" -type "double3" -8.7383527330355264 444.19999999996929 -7.8682743433810992e-15 ;
+	setAttr ".t" -type "double3" 15.11047291002486 2.0366099302652776 -1.3955601398373625 ;
+	setAttr ".r" -type "double3" -2.7383527329948354 450.99999999995453 0 ;
 	setAttr ".rp" -type "double3" 2.4424906541753444e-15 0 1.7763568394002505e-15 ;
 	setAttr ".rpt" -type "double3" 4.7712973888797056e-16 -8.2452142742630945e-17 -1.1622333697847046e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 21.274827299994939;
+	setAttr ".coi" 20.24416591221296;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 64.578987367112262 32.392816741364143 -0.88383560545729445 ;
+	setAttr ".tp" -type "double3" -4.9225833318841552 1.2255712102239782 0.74975967303650859 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -293,6 +297,36 @@ createNode fosterParent -n "fosterParent129" -p "hallway_saraRNfosterParent1";
 createNode fosterParent -n "fosterParent130" -p "hallway_saraRNfosterParent1";
 createNode fosterParent -n "fosterParent131" -p "hallway_saraRNfosterParent1";
 createNode fosterParent -n "fosterParent132" -p "hallway_saraRNfosterParent1";
+createNode transform -n "lockerlocator1";
+	setAttr ".rp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+	setAttr ".sp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode locator -n "lockerlocator1Shape" -p "lockerlocator1";
+	setAttr -k off ".v";
+	setAttr ".lp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode transform -n "locker" -p "lockerlocator1";
+	setAttr ".rp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+	setAttr ".sp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode transform -n "nightmareRN1annotation" -p "lockerlocator1";
+	setAttr ".t" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode annotationShape -n "nightmareRN1annotationShape" -p "nightmareRN1annotation";
+	setAttr -k off ".v";
+	setAttr ".txt" -type "string" "nightmareRN1";
+	setAttr ".daro" no;
+createNode transform -n "lockerlocator2";
+	setAttr ".rp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+	setAttr ".sp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode locator -n "lockerlocator2Shape" -p "lockerlocator2";
+	setAttr -k off ".v";
+	setAttr ".lp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode transform -n "locker" -p "lockerlocator2";
+	setAttr ".rp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+	setAttr ".sp" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode transform -n "nightmareRN2annotation" -p "lockerlocator2";
+	setAttr ".t" -type "double3" -0.030448412874993558 -0.7703605491972505 0.99439088530072972 ;
+createNode annotationShape -n "nightmareRN2annotationShape" -p "nightmareRN2annotation";
+	setAttr -k off ".v";
+	setAttr ".txt" -type "string" "nightmareRN2";
+	setAttr ".daro" no;
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -3952,8 +3986,8 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 	setAttr ".dat" 2;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 59 ".lnk";
-	setAttr -s 59 ".slnk";
+	setAttr -s 69 ".lnk";
+	setAttr -s 69 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 3;
 	setAttr -s 7 ".dli[1:6]"  1 2 3 0 0 4;
@@ -3985,10 +4019,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
 		+ "            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n"
 		+ "            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera2\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
+		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
 		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n"
 		+ "                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 0\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n"
-		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera2\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
+		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
 		+ "            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n"
 		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 0\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n"
 		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n"
@@ -4107,8 +4141,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n"
 		+ "            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 0\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera2\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 0\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 0\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 0\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -22106,7 +22140,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "anim_ready_Emily:emilyHair001:head" "visibility" " 1"
 		"anim_ready_Emily:modelRN" 0
 		"anim_ready_EmilyRN" 723
-		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translate" " -type \"double3\" 6.37890917274970981 -0.047750516013642885 -0.75285504525129554"
+		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translate" " -type \"double3\" 5.71539082438700241 -0.049328255032569213 -0.75285504525129554"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translateX" " -av"
 		
@@ -22123,7 +22157,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "scaleY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 0 -0.55229558184277616"
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
@@ -22140,7 +22174,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"translate" " -type \"double3\" -0.037351722271490154 -0.090552475624274181 0.0029660828287188818"
+		"translate" " -type \"double3\" -0.00097600196343987713 -0.020838822501807394 -0.0010140580919559541"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateX" " -av"
@@ -22149,7 +22183,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"rotate" " -type \"double3\" -1.12782593460139124 3.99447019077193666 -24.41414359046008897"
+		"rotate" " -type \"double3\" 1.66752847274805593 -1.61192468554327117 -24.42340537697174341"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"rotateX" " -av"
@@ -22178,7 +22212,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -118.36408871404272247 -8.17070027202142057 -52.22406450588874804"
+		"rotate" " -type \"double3\" -0.86477413577323203 -0.84166231969826888 -11.03928012471535602"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"rotateX" " -av"
@@ -22215,7 +22249,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R" 
-		"rotate" " -type \"double3\" 0 -32.4226200032830576 0"
+		"rotate" " -type \"double3\" 0 -11.19144839539655578 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
@@ -22225,13 +22259,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKRootConstraint|Emily:IKOffsetSpine3_M|Emily:IKExtraSpine3_M|Emily:IKSpine3_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
-		"translate" " -type \"double3\" 0.010798605575504688 2.06441183938011896 0.81573973362049568"
+		"translate" " -type \"double3\" 0.010798605575504612 2.06441183938012118 0.81573973362049479"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -89.99999999999994316 -8.20488055154184082 89.99999999999994316"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
-		"translate" " -type \"double3\" 0.65197275200718519 -0.62229431552662851 1.67357869970323248"
+		"translate" " -type \"double3\" 0.5796075832294777 -0.43739154631430965 1.79048582778868104"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"translateX" " -av"
@@ -22240,7 +22274,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
-		"rotate" " -type \"double3\" -208.45539152698614771 -102.30905700625186228 183.66223098845657091"
+		"rotate" " -type \"double3\" -215.73250847347705417 -93.52621485853204319 152.86523412536658384"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"rotateX" " -av"
@@ -22249,7 +22283,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
-		"translate" " -type \"double3\" 0.15535455099044138 -0.39995513429317098 1.75876552992236057"
+		"translate" " -type \"double3\" 0.19170627481324137 -0.40198505422510089 1.75086612849327805"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
 		"translateX" " -av"
@@ -22258,7 +22292,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"translate" " -type \"double3\" -0.090755276304333637 0.47679807420378528 0.54756010922802156"
+		"translate" " -type \"double3\" 0.051545485707692344 0.17410977778198805 0.28617977989591092"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateX" " -av"
@@ -22267,7 +22301,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"rotate" " -type \"double3\" 76.62991024349501856 -156.07462648136194616 -144.89639546619758903"
+		"rotate" " -type \"double3\" 43.9868312026925139 -117.33810644850359495 -95.36803742091048264"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"rotateX" " -av"
@@ -22288,7 +22322,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R|Emily:IKLegFootRockInnerPivot_R|Emily:IKLegFootRockOuterPivot_R|Emily:RollOffsetHeelLeg_R|Emily:RollExtraHeelLeg_R|Emily:RollHeelLeg_R|Emily:RollOffsetToesEnd_R|Emily:RollExtraToesEnd_R|Emily:RollToesEnd_R|Emily:RollOffsetToes_R|Emily:RollExtraToes_R|Emily:RollToes_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
-		"translate" " -type \"double3\" -0.78201631590199605 -0.69211934786223084 1.64145493559243705"
+		"translate" " -type \"double3\" -0.70366565223143207 -0.43174451894115218 1.88781229551210639"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"translateX" " -av"
@@ -22297,7 +22331,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
-		"rotate" " -type \"double3\" 144.32002073325867286 -252.46378358687064747 -163.33064111757843762"
+		"rotate" " -type \"double3\" 148.56119329231981396 -281.4472073745405396 -165.91030556597664258"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"rotateX" " -av"
@@ -22306,7 +22340,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
-		"translate" " -type \"double3\" -0.31472474810205109 -0.29408627978489027 2.1002084037428963"
+		"translate" " -type \"double3\" -0.23542360055025263 -0.13604786806015726 2.28727014828230546"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
 		"translateX" " -av"
@@ -22315,7 +22349,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"translate" " -type \"double3\" -0.024949787053025752 0.58977792230209536 0.62814680244384069"
+		"translate" " -type \"double3\" 0.10785474027228237 0.28976778900874078 0.36884812390118837"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateX" " -av"
@@ -22324,7 +22358,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"rotate" " -type \"double3\" 82.29278694684786899 103.76684493426155598 103.5699217511465946"
+		"rotate" " -type \"double3\" 74.85314138408068629 124.11190625081373184 123.65348387735456015"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"rotateX" " -av"
@@ -22372,7 +22406,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups" " -s 18"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.022435799118010986 -0.095647395095621951 0.0017777338395443408"
+		"translate" " -type \"double3\" 0.0389865 0.039302299999999998 0.010005699999999999"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
 		"translateX" " -av"
@@ -22385,8 +22419,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
-		"translate" " -type \"double3\" -0.0017201245033608447 0.094737851957634206 -0.022018019158029027"
-		
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
@@ -22394,7 +22427,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.0093578292774913162 -0.10844383751213305 -0.015787736195269169"
+		"translate" " -type \"double3\" -0.043835100000000002 0.039634099999999998 -0.0026897900000000001"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
 		"translateX" " -av"
@@ -22403,8 +22436,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
-		"translate" " -type \"double3\" -0.015259524306264736 0.076345960509555957 -0.0049215065072870101"
-		
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
@@ -22418,7 +22450,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:lowerLip0Attach_M|Emily:lowerLip0Offset_M|Emily:lowerLip0Subtract_M|Emily:lowerLip0_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
-		"translate" " -type \"double3\" 0.019567060655549036 -0.017483398741133416 0.052211585770036331"
+		"translate" " -type \"double3\" 0.0047646900000000002 0.084728499999999998 0.0018696800000000001"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
 		"translateX" " -av"
@@ -22427,7 +22459,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" 0.02146923367501671 0.052993719835856733 -0.033171890526243059"
+		"translate" " -type \"double3\" -0.0025193806339410107 0.065502177652924487 -0.070428546516880117"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
 		"translateX" " -av"
@@ -22444,8 +22476,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
-		"translate" " -type \"double3\" 0.096103989435363191 0.059914803282239984 0.0043637328795983728"
-		
+		"translate" " -type \"double3\" 0.0057564799999999996 0.107423 -0.0133968"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
@@ -22453,7 +22484,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" 0.00022486145947683833 0.062986713944216496 -0.03264555674274866"
+		"translate" " -type \"double3\" -0.033733544388578465 0.055294230270204053 -0.067308699547859174"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L" 
 		"translateX" " -av"
@@ -22485,7 +22516,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
-		"rotate" " -type \"double3\" 0 0 -27.67086159879136886"
+		"rotate" " -type \"double3\" 0 0 -69.48541198510088179"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
@@ -22501,13 +22532,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxBrow_R|Emily:ctrlBrow_R" 
 		"translateY" " 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateX" " -av -1"
+		"translateX" " -av -0.0022784871346596403"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateY" " -av 0.36823082003362823"
+		"translateY" " -av -0.45735664578268731"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateX" " -av -0.99163295614711788"
+		"translateX" " -av 0.10899885222211717"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateY" " -av 0.40367323535477967"
+		"translateY" " -av -0.31585605498421743"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxCheek_R|Emily:ctrlCheek_R" 
 		"translateX" " 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxCheek_R|Emily:ctrlCheek_R" 
@@ -22535,10 +22566,10 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:JawSetup|Emily:JawSetupFollowHead|Emily:FKOffsetJaw_M|Emily:FKSDK1Jaw_M|Emily:FKSDK2Jaw_M|Emily:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 9.11908717153865744 1.2955533280931768 -1.09666367822193056"
+		"translate" " -type \"double3\" 8.83676154578818362 0.96305319425770763 -0.91160515613344184"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 67.9417234661981837 9.74991915202478943 62.32913840120864535"
+		"rotate" " -type \"double3\" -176.18175303209099525 -0.084121954892721562 20.51458801489911465"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed" 
 		"instObjGroups.objectGroups" " -s 8"
@@ -45577,7 +45608,7 @@ createNode animCurveTU -n "pCube79_scaleZ";
 	setAttr -s 2 ".ktv[0:1]"  26 1.2435493860695026 33 1.2435493860695026;
 createNode reference -n "nightmareRN";
 	setAttr ".fn[0]" -type "string" "/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/chars/nightmare.ma";
-	setAttr -s 52 ".phl";
+	setAttr -s 62 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -45630,12 +45661,22 @@ createNode reference -n "nightmareRN";
 	setAttr ".phl[50]" 0;
 	setAttr ".phl[51]" 0;
 	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN"
 		"nightmareRN" 0
-		"nightmareRN" 97
+		"nightmareRN" 107
 		2 "|nightmare:Master_Controller" "visibility" " -av 1"
-		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 5.29466106683986926 2.54390073011640006 1.15750350925536383"
+		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 1.00066597591351369 2.54390073011640006 0.73815262878407895"
 		
 		2 "|nightmare:Master_Controller" "translateX" " -av"
 		2 "|nightmare:Master_Controller" "translateY" " -av"
@@ -45645,14 +45686,13 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller" "rotateX" " -av"
 		2 "|nightmare:Master_Controller" "rotateY" " -av"
 		2 "|nightmare:Master_Controller" "rotateZ" " -av"
-		2 "|nightmare:Master_Controller" "scale" " -type \"double3\" 1.00120342813368457 1.38471203189174297 1.00120342813368457"
+		2 "|nightmare:Master_Controller" "scale" " -type \"double3\" 0.87341634527442424 1 0.87341634527442424"
 		
 		2 "|nightmare:Master_Controller" "scaleX" " -av"
 		2 "|nightmare:Master_Controller" "scaleY" " -av"
 		2 "|nightmare:Master_Controller" "scaleZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
-		"translate" " -type \"double3\" 0.00024947477015675214 -0.39475413246492946 0.42224790247191046"
-		
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"translateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
@@ -45660,7 +45700,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"translateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
-		"rotate" " -type \"double3\" 28.79432633433800248 0 0"
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
@@ -45668,8 +45708,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head" 
 		"scaleZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
-		"rotate" " -type \"double3\" -14.07195713445165808 -38.28335289789199436 -14.52598316505373077"
-		
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
@@ -45677,8 +45716,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
-		"scale" " -type \"double3\" 1.63501035410797768 1.63501035410797768 1.63501035410797768"
-		
+		"scale" " -type \"double3\" 1 1 1"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"scaleX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
@@ -45686,8 +45724,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"scaleZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
-		"rotate" " -type \"double3\" 21.12416560146600375 14.24122127722524134 17.783053742052644"
-		
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
@@ -45737,88 +45774,108 @@ createNode reference -n "nightmareRN";
 		""
 		5 4 "nightmareRN" "|nightmare:Master_Controller.scaleZ" "nightmareRN.placeHolderList[10]" 
 		""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateX" 
 		"nightmareRN.placeHolderList[11]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateY" 
 		"nightmareRN.placeHolderList[12]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.rotateZ" 
 		"nightmareRN.placeHolderList[13]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateX" 
 		"nightmareRN.placeHolderList[14]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateZ" 
 		"nightmareRN.placeHolderList[15]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.translateY" 
 		"nightmareRN.placeHolderList[16]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleX" 
 		"nightmareRN.placeHolderList[17]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleY" 
 		"nightmareRN.placeHolderList[18]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.scaleZ" 
 		"nightmareRN.placeHolderList[19]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.visibility" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso.visibility" 
 		"nightmareRN.placeHolderList[20]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateX" 
 		"nightmareRN.placeHolderList[21]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateY" 
 		"nightmareRN.placeHolderList[22]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.rotateZ" 
 		"nightmareRN.placeHolderList[23]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateX" 
 		"nightmareRN.placeHolderList[24]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateY" 
 		"nightmareRN.placeHolderList[25]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.translateZ" 
 		"nightmareRN.placeHolderList[26]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleX" 
 		"nightmareRN.placeHolderList[27]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleY" 
 		"nightmareRN.placeHolderList[28]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.scaleZ" 
 		"nightmareRN.placeHolderList[29]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.visibility" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:Head.visibility" 
 		"nightmareRN.placeHolderList[30]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateX" 
 		"nightmareRN.placeHolderList[31]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateY" 
 		"nightmareRN.placeHolderList[32]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.rotateZ" 
 		"nightmareRN.placeHolderList[33]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateX" 
 		"nightmareRN.placeHolderList[34]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateY" 
 		"nightmareRN.placeHolderList[35]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.translateZ" 
 		"nightmareRN.placeHolderList[36]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleX" 
 		"nightmareRN.placeHolderList[37]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleY" 
 		"nightmareRN.placeHolderList[38]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.scaleZ" 
 		"nightmareRN.placeHolderList[39]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.visibility" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder.visibility" 
 		"nightmareRN.placeHolderList[40]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateX" 
 		"nightmareRN.placeHolderList[41]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateY" 
 		"nightmareRN.placeHolderList[42]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.rotateZ" 
 		"nightmareRN.placeHolderList[43]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateX" 
 		"nightmareRN.placeHolderList[44]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateY" 
 		"nightmareRN.placeHolderList[45]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.translateZ" 
 		"nightmareRN.placeHolderList[46]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleX" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleX" 
 		"nightmareRN.placeHolderList[47]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleY" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleY" 
 		"nightmareRN.placeHolderList[48]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleZ" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.scaleZ" 
 		"nightmareRN.placeHolderList[49]" ""
-		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.visibility" 
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1.visibility" 
 		"nightmareRN.placeHolderList[50]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateX" 
+		"nightmareRN.placeHolderList[51]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateY" 
+		"nightmareRN.placeHolderList[52]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.rotateZ" 
+		"nightmareRN.placeHolderList[53]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateX" 
+		"nightmareRN.placeHolderList[54]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateY" 
+		"nightmareRN.placeHolderList[55]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.translateZ" 
+		"nightmareRN.placeHolderList[56]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleX" 
+		"nightmareRN.placeHolderList[57]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleY" 
+		"nightmareRN.placeHolderList[58]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.scaleZ" 
+		"nightmareRN.placeHolderList[59]" ""
+		5 4 "nightmareRN" "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow.visibility" 
+		"nightmareRN.placeHolderList[60]" ""
 		5 0 "nightmareRN" "|nightmare:Body|nightmare:BodyShape.instObjGroups" 
-		"nightmare:surfaceShader2SG.dagSetMembers" "nightmareRN.placeHolderList[51]" "nightmareRN.placeHolderList[52]" 
+		"nightmare:surfaceShader2SG.dagSetMembers" "nightmareRN.placeHolderList[61]" "nightmareRN.placeHolderList[62]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -47026,19 +47083,554 @@ createNode RenderMan -n "rmanFinalOutput9";
 	setAttr -k on ".rman__riopt__Display_dither" 0;
 	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
 	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode animCurveTA -n "Torso_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 10.249855442741607;
+createNode animCurveTA -n "Torso_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTA -n "Torso_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTU -n "Torso_visibility";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "Torso_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTL -n "Torso_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTL -n "Torso_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTU -n "Torso_scaleX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+createNode animCurveTU -n "Torso_scaleY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+createNode animCurveTU -n "Torso_scaleZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+createNode reference -n "nightmareRN1";
+	setAttr -s 20 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN1"
+		"nightmareRN1" 0
+		"nightmareRN1" 29
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translate" " -type \"double3\" -1.86512431570588522 2.47325812767171271 3.21007146096622131"
+		
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translateX" " -av"
+		
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translateZ" " -av"
+		
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "rotate" " -type \"double3\" 0 98.08410439218519628 0"
+		
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "rotateY" " -av"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
+		"rotateX" " -av"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
+		"rotateY" " -av"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
+		"rotateZ" " -av"
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.translateY" 
+		"nightmareRN1.placeHolderList[1]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.translateX" 
+		"nightmareRN1.placeHolderList[2]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.translateZ" 
+		"nightmareRN1.placeHolderList[3]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.rotateY" 
+		"nightmareRN1.placeHolderList[4]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.rotateX" 
+		"nightmareRN1.placeHolderList[5]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.rotateZ" 
+		"nightmareRN1.placeHolderList[6]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.scaleX" 
+		"nightmareRN1.placeHolderList[7]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.scaleY" 
+		"nightmareRN1.placeHolderList[8]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.scaleZ" 
+		"nightmareRN1.placeHolderList[9]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller.visibility" 
+		"nightmareRN1.placeHolderList[10]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.rotateX" 
+		"nightmareRN1.placeHolderList[11]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.rotateY" 
+		"nightmareRN1.placeHolderList[12]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.rotateZ" 
+		"nightmareRN1.placeHolderList[13]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.translateX" 
+		"nightmareRN1.placeHolderList[14]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.translateY" 
+		"nightmareRN1.placeHolderList[15]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.translateZ" 
+		"nightmareRN1.placeHolderList[16]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.scaleX" 
+		"nightmareRN1.placeHolderList[17]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.scaleY" 
+		"nightmareRN1.placeHolderList[18]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.scaleZ" 
+		"nightmareRN1.placeHolderList[19]" ""
+		5 4 "nightmareRN1" "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist.visibility" 
+		"nightmareRN1.placeHolderList[20]" "";
+	setAttr ".ptag" -type "string" "";
+	setAttr -s 3 ".asn";
+lockNode -l 1 ;
+createNode animCurveTU -n "Master_Controller_scaleX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0.49380349921142758;
+createNode animCurveTU -n "Master_Controller_scaleY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0.73646957292280424;
+createNode animCurveTU -n "Master_Controller_scaleZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+createNode animCurveTU -n "Master_Controller_visibility1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "Master_Controller_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  4 -7.8927068235247715 40 2.472200149960238
+		 54 3.9675485044729712;
+createNode animCurveTL -n "Master_Controller_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 2.4732581276717127;
+createNode animCurveTL -n "Master_Controller_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 2.9753850784006395 54 3.5086081034950358;
+createNode animCurveTA -n "Master_Controller_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTA -n "Master_Controller_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 94.913268429826573 54 102.11761801945173;
+createNode animCurveTA -n "Master_Controller_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTL -n "Waist_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 0 28 0;
+createNode animCurveTL -n "Waist_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 0 28 0;
+createNode animCurveTL -n "Waist_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 0 28 0;
+createNode animCurveTU -n "Waist_visibility";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 1 28 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTA -n "Waist_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  4 0 28 0 55 12.768721115936504;
+createNode animCurveTA -n "Waist_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  4 0 28 0 55 -0.63611984899562579;
+createNode animCurveTA -n "Waist_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  4 0 28 0 55 15.693404375375701;
+createNode animCurveTU -n "Waist_scaleX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 1 28 1;
+createNode animCurveTU -n "Waist_scaleY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 1 28 1;
+createNode animCurveTU -n "Waist_scaleZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 1 28 1;
+createNode reference -n "nightmareRN2";
+	setAttr -s 40 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"nightmareRN2"
+		"nightmareRN2" 0
+		"nightmareRN2" 55
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translate" " -type \"double3\" -3.79846353660866232 2.4906202053106461 -0.64506949747338893"
+		
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translateX" " -av"
+		
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translateZ" " -av"
+		
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist" 
+		"translateX" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist" 
+		"translateY" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist" 
+		"translateZ" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso" 
+		"rotate" " -type \"double3\" 5.40301828315759813 10.12416631397663913 -28.82242929309353485"
+		
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso" 
+		"rotateZ" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso" 
+		"rotateX" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso" 
+		"rotateY" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder" 
+		"rotateX" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder" 
+		"rotateY" " -av"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder" 
+		"rotateZ" " -av"
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.translateY" 
+		"nightmareRN2.placeHolderList[1]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.translateX" 
+		"nightmareRN2.placeHolderList[2]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.translateZ" 
+		"nightmareRN2.placeHolderList[3]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.rotateY" 
+		"nightmareRN2.placeHolderList[4]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.rotateX" 
+		"nightmareRN2.placeHolderList[5]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.rotateZ" 
+		"nightmareRN2.placeHolderList[6]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.scaleY" 
+		"nightmareRN2.placeHolderList[7]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.scaleX" 
+		"nightmareRN2.placeHolderList[8]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.scaleZ" 
+		"nightmareRN2.placeHolderList[9]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller.visibility" 
+		"nightmareRN2.placeHolderList[10]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.rotateX" 
+		"nightmareRN2.placeHolderList[11]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.rotateY" 
+		"nightmareRN2.placeHolderList[12]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.rotateZ" 
+		"nightmareRN2.placeHolderList[13]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.translateX" 
+		"nightmareRN2.placeHolderList[14]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.translateY" 
+		"nightmareRN2.placeHolderList[15]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.translateZ" 
+		"nightmareRN2.placeHolderList[16]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.scaleX" 
+		"nightmareRN2.placeHolderList[17]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.scaleY" 
+		"nightmareRN2.placeHolderList[18]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.scaleZ" 
+		"nightmareRN2.placeHolderList[19]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist.visibility" 
+		"nightmareRN2.placeHolderList[20]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.rotateZ" 
+		"nightmareRN2.placeHolderList[21]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.rotateX" 
+		"nightmareRN2.placeHolderList[22]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.rotateY" 
+		"nightmareRN2.placeHolderList[23]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.translateX" 
+		"nightmareRN2.placeHolderList[24]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.translateY" 
+		"nightmareRN2.placeHolderList[25]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.translateZ" 
+		"nightmareRN2.placeHolderList[26]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.scaleX" 
+		"nightmareRN2.placeHolderList[27]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.scaleY" 
+		"nightmareRN2.placeHolderList[28]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.scaleZ" 
+		"nightmareRN2.placeHolderList[29]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso.visibility" 
+		"nightmareRN2.placeHolderList[30]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.rotateX" 
+		"nightmareRN2.placeHolderList[31]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.rotateY" 
+		"nightmareRN2.placeHolderList[32]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.rotateZ" 
+		"nightmareRN2.placeHolderList[33]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.translateX" 
+		"nightmareRN2.placeHolderList[34]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.translateY" 
+		"nightmareRN2.placeHolderList[35]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.translateZ" 
+		"nightmareRN2.placeHolderList[36]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.scaleX" 
+		"nightmareRN2.placeHolderList[37]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.scaleY" 
+		"nightmareRN2.placeHolderList[38]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.scaleZ" 
+		"nightmareRN2.placeHolderList[39]" ""
+		5 4 "nightmareRN2" "|lockerlocator2|locker|nightmare2:Master_Controller|nightmare2:LowerBody|nightmare2:Waist|nightmare2:Torso|nightmare2:LShoulder.visibility" 
+		"nightmareRN2.placeHolderList[40]" "";
+	setAttr ".ptag" -type "string" "";
+	setAttr -s 3 ".asn";
+lockNode -l 1 ;
+createNode animCurveTA -n "Master_Controller_rotateX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTA -n "Master_Controller_rotateY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 79.577311942046265;
+createNode animCurveTA -n "Master_Controller_rotateZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0;
+createNode animCurveTU -n "Master_Controller_visibility2";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "Master_Controller_translateX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  4 -9.8994022562934845 39 0.1927338546974795
+		 54 2.1196597990145287;
+createNode animCurveTL -n "Master_Controller_translateY2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 2.4906202053106461;
+createNode animCurveTL -n "Master_Controller_translateZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  4 -0.44932052675297696 54 -0.89407516988820346;
+createNode animCurveTU -n "Master_Controller_scaleX2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0.91130776502585964;
+createNode animCurveTU -n "Master_Controller_scaleY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 1.2100669446470786;
+createNode animCurveTU -n "Master_Controller_scaleZ2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  4 0.91130776502585964;
+createNode animCurveTL -n "Torso_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 0.68519435822574459;
+createNode animCurveTL -n "Torso_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 -0.31789874612417329;
+createNode animCurveTL -n "Torso_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 -0.16248063343459362;
+createNode animCurveTU -n "Torso_visibility1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTA -n "Torso_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  42 5.4030182831575981 53 20.305411057579366;
+createNode animCurveTA -n "Torso_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 10.124166313976639;
+createNode animCurveTA -n "Torso_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 -28.822429293093535;
+createNode animCurveTU -n "Torso_scaleX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 1;
+createNode animCurveTU -n "Torso_scaleY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 1;
+createNode animCurveTU -n "Torso_scaleZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  42 1;
+createNode animCurveTA -n "LShoulder_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  41 0 53 -51.806975706393736;
+createNode animCurveTA -n "LShoulder_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  41 0 53 -25.895144509005092;
+createNode animCurveTA -n "LShoulder_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  41 0 53 -6.0912575289834194;
+createNode animCurveTU -n "LShoulder_visibility1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 0;
+createNode animCurveTL -n "LShoulder_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 0;
+createNode animCurveTL -n "LShoulder_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 0;
+createNode animCurveTU -n "LShoulder_scaleX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 1;
+createNode animCurveTU -n "LShoulder_scaleY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 1;
+createNode animCurveTU -n "LShoulder_scaleZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  41 1;
+createNode animCurveTL -n "Waist_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  39 0 55 0.55943988851090953;
+createNode animCurveTL -n "Waist_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 0;
+createNode animCurveTL -n "Waist_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  39 0 55 3.0413648633592349;
+createNode animCurveTU -n "Waist_visibility1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTA -n "Waist_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 0;
+createNode animCurveTA -n "Waist_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 0;
+createNode animCurveTA -n "Waist_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 0;
+createNode animCurveTU -n "Waist_scaleX1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 1;
+createNode animCurveTU -n "Waist_scaleY1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 1;
+createNode animCurveTU -n "Waist_scaleZ1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  39 1;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 57;
-	setAttr -av ".unw" 57;
+	setAttr -k on ".o" 27;
+	setAttr -av ".unw" 27;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 55 ".st";
+	setAttr -s 65 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
@@ -47052,7 +47644,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 23 ".s";
+	setAttr -s 31 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -47066,7 +47658,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 40 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 8 ".r";
+	setAttr -s 10 ".r";
 select -ne :lightList1;
 	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
@@ -47932,47 +48524,117 @@ connectAttr "Master_Controller_rotateZ.o" "nightmareRN.phl[7]";
 connectAttr "Master_Controller_scaleX.o" "nightmareRN.phl[8]";
 connectAttr "Master_Controller_scaleY1.o" "nightmareRN.phl[9]";
 connectAttr "Master_Controller_scaleZ.o" "nightmareRN.phl[10]";
-connectAttr "Head_rotateX.o" "nightmareRN.phl[11]";
-connectAttr "Head_rotateY.o" "nightmareRN.phl[12]";
-connectAttr "Head_rotateZ.o" "nightmareRN.phl[13]";
-connectAttr "Head_translateX.o" "nightmareRN.phl[14]";
-connectAttr "Head_translateY.o" "nightmareRN.phl[15]";
-connectAttr "Head_translateZ.o" "nightmareRN.phl[16]";
-connectAttr "Head_scaleX.o" "nightmareRN.phl[17]";
-connectAttr "Head_scaleY.o" "nightmareRN.phl[18]";
-connectAttr "Head_scaleZ.o" "nightmareRN.phl[19]";
-connectAttr "Head_visibility.o" "nightmareRN.phl[20]";
-connectAttr "LShoulder_rotateX.o" "nightmareRN.phl[21]";
-connectAttr "LShoulder_rotateY.o" "nightmareRN.phl[22]";
-connectAttr "LShoulder_rotateZ.o" "nightmareRN.phl[23]";
-connectAttr "LShoulder_translateX.o" "nightmareRN.phl[24]";
-connectAttr "LShoulder_translateY.o" "nightmareRN.phl[25]";
-connectAttr "LShoulder_translateZ.o" "nightmareRN.phl[26]";
-connectAttr "LShoulder_scaleX.o" "nightmareRN.phl[27]";
-connectAttr "LShoulder_scaleY.o" "nightmareRN.phl[28]";
-connectAttr "LShoulder_scaleZ.o" "nightmareRN.phl[29]";
-connectAttr "LShoulder_visibility.o" "nightmareRN.phl[30]";
-connectAttr "LShoulder1_rotateX.o" "nightmareRN.phl[31]";
-connectAttr "LShoulder1_rotateY.o" "nightmareRN.phl[32]";
-connectAttr "LShoulder1_rotateZ.o" "nightmareRN.phl[33]";
-connectAttr "LShoulder1_translateX.o" "nightmareRN.phl[34]";
-connectAttr "LShoulder1_translateY.o" "nightmareRN.phl[35]";
-connectAttr "LShoulder1_translateZ.o" "nightmareRN.phl[36]";
-connectAttr "LShoulder1_scaleX.o" "nightmareRN.phl[37]";
-connectAttr "LShoulder1_scaleY.o" "nightmareRN.phl[38]";
-connectAttr "LShoulder1_scaleZ.o" "nightmareRN.phl[39]";
-connectAttr "LShoulder1_visibility.o" "nightmareRN.phl[40]";
-connectAttr "LElbow_rotateX.o" "nightmareRN.phl[41]";
-connectAttr "LElbow_rotateY.o" "nightmareRN.phl[42]";
-connectAttr "LElbow_rotateZ.o" "nightmareRN.phl[43]";
-connectAttr "LElbow_translateX.o" "nightmareRN.phl[44]";
-connectAttr "LElbow_translateY.o" "nightmareRN.phl[45]";
-connectAttr "LElbow_translateZ.o" "nightmareRN.phl[46]";
-connectAttr "LElbow_scaleX.o" "nightmareRN.phl[47]";
-connectAttr "LElbow_scaleY.o" "nightmareRN.phl[48]";
-connectAttr "LElbow_scaleZ.o" "nightmareRN.phl[49]";
-connectAttr "LElbow_visibility.o" "nightmareRN.phl[50]";
-connectAttr "nightmareRN.phl[51]" "nightmareRN.phl[52]";
+connectAttr "Torso_rotateX.o" "nightmareRN.phl[11]";
+connectAttr "Torso_rotateY.o" "nightmareRN.phl[12]";
+connectAttr "Torso_rotateZ.o" "nightmareRN.phl[13]";
+connectAttr "Torso_translateX.o" "nightmareRN.phl[14]";
+connectAttr "Torso_translateZ.o" "nightmareRN.phl[15]";
+connectAttr "Torso_translateY.o" "nightmareRN.phl[16]";
+connectAttr "Torso_scaleX.o" "nightmareRN.phl[17]";
+connectAttr "Torso_scaleY.o" "nightmareRN.phl[18]";
+connectAttr "Torso_scaleZ.o" "nightmareRN.phl[19]";
+connectAttr "Torso_visibility.o" "nightmareRN.phl[20]";
+connectAttr "Head_rotateX.o" "nightmareRN.phl[21]";
+connectAttr "Head_rotateY.o" "nightmareRN.phl[22]";
+connectAttr "Head_rotateZ.o" "nightmareRN.phl[23]";
+connectAttr "Head_translateX.o" "nightmareRN.phl[24]";
+connectAttr "Head_translateY.o" "nightmareRN.phl[25]";
+connectAttr "Head_translateZ.o" "nightmareRN.phl[26]";
+connectAttr "Head_scaleX.o" "nightmareRN.phl[27]";
+connectAttr "Head_scaleY.o" "nightmareRN.phl[28]";
+connectAttr "Head_scaleZ.o" "nightmareRN.phl[29]";
+connectAttr "Head_visibility.o" "nightmareRN.phl[30]";
+connectAttr "LShoulder_rotateX.o" "nightmareRN.phl[31]";
+connectAttr "LShoulder_rotateY.o" "nightmareRN.phl[32]";
+connectAttr "LShoulder_rotateZ.o" "nightmareRN.phl[33]";
+connectAttr "LShoulder_translateX.o" "nightmareRN.phl[34]";
+connectAttr "LShoulder_translateY.o" "nightmareRN.phl[35]";
+connectAttr "LShoulder_translateZ.o" "nightmareRN.phl[36]";
+connectAttr "LShoulder_scaleX.o" "nightmareRN.phl[37]";
+connectAttr "LShoulder_scaleY.o" "nightmareRN.phl[38]";
+connectAttr "LShoulder_scaleZ.o" "nightmareRN.phl[39]";
+connectAttr "LShoulder_visibility.o" "nightmareRN.phl[40]";
+connectAttr "LShoulder1_rotateX.o" "nightmareRN.phl[41]";
+connectAttr "LShoulder1_rotateY.o" "nightmareRN.phl[42]";
+connectAttr "LShoulder1_rotateZ.o" "nightmareRN.phl[43]";
+connectAttr "LShoulder1_translateX.o" "nightmareRN.phl[44]";
+connectAttr "LShoulder1_translateY.o" "nightmareRN.phl[45]";
+connectAttr "LShoulder1_translateZ.o" "nightmareRN.phl[46]";
+connectAttr "LShoulder1_scaleX.o" "nightmareRN.phl[47]";
+connectAttr "LShoulder1_scaleY.o" "nightmareRN.phl[48]";
+connectAttr "LShoulder1_scaleZ.o" "nightmareRN.phl[49]";
+connectAttr "LShoulder1_visibility.o" "nightmareRN.phl[50]";
+connectAttr "LElbow_rotateX.o" "nightmareRN.phl[51]";
+connectAttr "LElbow_rotateY.o" "nightmareRN.phl[52]";
+connectAttr "LElbow_rotateZ.o" "nightmareRN.phl[53]";
+connectAttr "LElbow_translateX.o" "nightmareRN.phl[54]";
+connectAttr "LElbow_translateY.o" "nightmareRN.phl[55]";
+connectAttr "LElbow_translateZ.o" "nightmareRN.phl[56]";
+connectAttr "LElbow_scaleX.o" "nightmareRN.phl[57]";
+connectAttr "LElbow_scaleY.o" "nightmareRN.phl[58]";
+connectAttr "LElbow_scaleZ.o" "nightmareRN.phl[59]";
+connectAttr "LElbow_visibility.o" "nightmareRN.phl[60]";
+connectAttr "nightmareRN.phl[61]" "nightmareRN.phl[62]";
+connectAttr "Master_Controller_translateY1.o" "nightmareRN1.phl[1]";
+connectAttr "Master_Controller_translateX1.o" "nightmareRN1.phl[2]";
+connectAttr "Master_Controller_translateZ1.o" "nightmareRN1.phl[3]";
+connectAttr "Master_Controller_rotateY1.o" "nightmareRN1.phl[4]";
+connectAttr "Master_Controller_rotateX1.o" "nightmareRN1.phl[5]";
+connectAttr "Master_Controller_rotateZ1.o" "nightmareRN1.phl[6]";
+connectAttr "Master_Controller_scaleX1.o" "nightmareRN1.phl[7]";
+connectAttr "Master_Controller_scaleY2.o" "nightmareRN1.phl[8]";
+connectAttr "Master_Controller_scaleZ1.o" "nightmareRN1.phl[9]";
+connectAttr "Master_Controller_visibility1.o" "nightmareRN1.phl[10]";
+connectAttr "Waist_rotateX.o" "nightmareRN1.phl[11]";
+connectAttr "Waist_rotateY.o" "nightmareRN1.phl[12]";
+connectAttr "Waist_rotateZ.o" "nightmareRN1.phl[13]";
+connectAttr "Waist_translateX.o" "nightmareRN1.phl[14]";
+connectAttr "Waist_translateY.o" "nightmareRN1.phl[15]";
+connectAttr "Waist_translateZ.o" "nightmareRN1.phl[16]";
+connectAttr "Waist_scaleX.o" "nightmareRN1.phl[17]";
+connectAttr "Waist_scaleY.o" "nightmareRN1.phl[18]";
+connectAttr "Waist_scaleZ.o" "nightmareRN1.phl[19]";
+connectAttr "Waist_visibility.o" "nightmareRN1.phl[20]";
+connectAttr "Master_Controller_translateY2.o" "nightmareRN2.phl[1]";
+connectAttr "Master_Controller_translateX2.o" "nightmareRN2.phl[2]";
+connectAttr "Master_Controller_translateZ2.o" "nightmareRN2.phl[3]";
+connectAttr "Master_Controller_rotateY2.o" "nightmareRN2.phl[4]";
+connectAttr "Master_Controller_rotateX2.o" "nightmareRN2.phl[5]";
+connectAttr "Master_Controller_rotateZ2.o" "nightmareRN2.phl[6]";
+connectAttr "Master_Controller_scaleY3.o" "nightmareRN2.phl[7]";
+connectAttr "Master_Controller_scaleX2.o" "nightmareRN2.phl[8]";
+connectAttr "Master_Controller_scaleZ2.o" "nightmareRN2.phl[9]";
+connectAttr "Master_Controller_visibility2.o" "nightmareRN2.phl[10]";
+connectAttr "Waist_rotateX1.o" "nightmareRN2.phl[11]";
+connectAttr "Waist_rotateY1.o" "nightmareRN2.phl[12]";
+connectAttr "Waist_rotateZ1.o" "nightmareRN2.phl[13]";
+connectAttr "Waist_translateX1.o" "nightmareRN2.phl[14]";
+connectAttr "Waist_translateY1.o" "nightmareRN2.phl[15]";
+connectAttr "Waist_translateZ1.o" "nightmareRN2.phl[16]";
+connectAttr "Waist_scaleX1.o" "nightmareRN2.phl[17]";
+connectAttr "Waist_scaleY1.o" "nightmareRN2.phl[18]";
+connectAttr "Waist_scaleZ1.o" "nightmareRN2.phl[19]";
+connectAttr "Waist_visibility1.o" "nightmareRN2.phl[20]";
+connectAttr "Torso_rotateZ1.o" "nightmareRN2.phl[21]";
+connectAttr "Torso_rotateX1.o" "nightmareRN2.phl[22]";
+connectAttr "Torso_rotateY1.o" "nightmareRN2.phl[23]";
+connectAttr "Torso_translateX1.o" "nightmareRN2.phl[24]";
+connectAttr "Torso_translateY1.o" "nightmareRN2.phl[25]";
+connectAttr "Torso_translateZ1.o" "nightmareRN2.phl[26]";
+connectAttr "Torso_scaleX1.o" "nightmareRN2.phl[27]";
+connectAttr "Torso_scaleY1.o" "nightmareRN2.phl[28]";
+connectAttr "Torso_scaleZ1.o" "nightmareRN2.phl[29]";
+connectAttr "Torso_visibility1.o" "nightmareRN2.phl[30]";
+connectAttr "LShoulder_rotateX1.o" "nightmareRN2.phl[31]";
+connectAttr "LShoulder_rotateY1.o" "nightmareRN2.phl[32]";
+connectAttr "LShoulder_rotateZ1.o" "nightmareRN2.phl[33]";
+connectAttr "LShoulder_translateX1.o" "nightmareRN2.phl[34]";
+connectAttr "LShoulder_translateY1.o" "nightmareRN2.phl[35]";
+connectAttr "LShoulder_translateZ1.o" "nightmareRN2.phl[36]";
+connectAttr "LShoulder_scaleX1.o" "nightmareRN2.phl[37]";
+connectAttr "LShoulder_scaleY1.o" "nightmareRN2.phl[38]";
+connectAttr "LShoulder_scaleZ1.o" "nightmareRN2.phl[39]";
+connectAttr "LShoulder_visibility1.o" "nightmareRN2.phl[40]";
 connectAttr "motionTrail1.pts" "motionTrail1HandleShape.pts";
 connectAttr "motionTrail1.lp" "motionTrail1HandleShape.lp";
 connectAttr "motionTrail1.f" "motionTrail1HandleShape.f";
@@ -51993,7 +52655,8 @@ connectAttr "place2dTexture2.vt3" "file2.vt3";
 connectAttr "place2dTexture2.vc1" "file2.vc1";
 connectAttr "place2dTexture2.o" "file2.uv";
 connectAttr "place2dTexture2.ofs" "file2.fs";
-connectAttr "locker.msg" "hallway_sara_double_sided_large_lockersRN.asn[0]";
+connectAttr "|lockerlocator|locker.msg" "hallway_sara_double_sided_large_lockersRN.asn[0]"
+		;
 connectAttr "lockerlocator.msg" "hallway_sara_double_sided_large_lockersRN.asn[1]"
 		;
 connectAttr "hallway_sara_double_sided_large_lockersRNannotation.msg" "hallway_sara_double_sided_large_lockersRN.asn[2]"
@@ -52002,6 +52665,12 @@ connectAttr "sharedReferenceNode.sr" "hallway_sara_double_sided_large_lockersRN.
 		;
 connectAttr "hyperView3.msg" "nodeEditorPanel3Info.b[0]";
 connectAttr "hyperLayout3.msg" "hyperView3.hl";
+connectAttr "|lockerlocator1|locker.msg" "nightmareRN1.asn[0]";
+connectAttr "lockerlocator1.msg" "nightmareRN1.asn[1]";
+connectAttr "nightmareRN1annotation.msg" "nightmareRN1.asn[2]";
+connectAttr "|lockerlocator2|locker.msg" "nightmareRN2.asn[0]";
+connectAttr "lockerlocator2.msg" "nightmareRN2.asn[1]";
+connectAttr "nightmareRN2annotation.msg" "nightmareRN2.asn[2]";
 connectAttr "DefaultMaterial:DefaultShaderSG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "DefaultMaterial:DefaultShader.msg" ":defaultShaderList1.s" -na;
@@ -56988,6 +57657,6 @@ connectAttr "RMSGeoAreaLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "RMSGeoAreaLight2.iog" ":defaultLightSet.dsm" -na;
 connectAttr "RMSGeoAreaLight3.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"hallway_saraRN\" \"\" \"assets/sets/hallway_sara_double_sided.ma\" 1217209412 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/sets/hallway_sara_double_sided.ma\" \"FileRef\"\n1\n\"anim_ready_EmilyRN\" \"\" \"assets/chars/Emily.ma\" 4287519589 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n2\n\"nightmareRN\" \"\" \"assets/chars/nightmare.ma\" 899764508 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n3\n\"hallway_sara_double_sided_large_lockersRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/sets/hallway_sara_double_sided_large_lockers.ma\" 1253179878 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/sets/hallway_sara_double_sided_large_lockers.ma\" \"FileRef\"\n4\n\"file1\" \"fileTextureName\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" 243861723 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" \"sourceImages\"\n5\n\"file2\" \"fileTextureName\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" 243861723 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"hallway_saraRN\" \"\" \"assets/sets/hallway_sara_double_sided.ma\" 1217209412 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/sets/hallway_sara_double_sided.ma\" \"FileRef\"\n1\n\"anim_ready_EmilyRN\" \"\" \"assets/chars/Emily.ma\" 4287519589 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n2\n\"nightmareRN\" \"\" \"assets/chars/nightmare.ma\" 899764508 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n3\n\"hallway_sara_double_sided_large_lockersRN\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare//assets/sets/hallway_sara_double_sided_large_lockers.ma\" 1253179878 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/sets/hallway_sara_double_sided_large_lockers.ma\" \"FileRef\"\n4\n\"nightmareRN1\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n5\n\"nightmareRN2\" \"\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" 3011895725 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/assets/chars/nightmare.ma\" \"FileRef\"\n6\n\"file1\" \"fileTextureName\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" 243861723 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" \"sourceImages\"\n7\n\"file2\" \"fileTextureName\" \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" 243861723 \"/Users/suchaaverchahal/Documents/Berkeley/Fall 2014/CNM 190/Nightmare/images/Textures/Props/school_floor.jpg\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of hallway_run.ma
