@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: hallway_run.ma
-//Last modified: Sun, May 03, 2015 01:14:11 PM
+//Last modified: Sun, May 03, 2015 01:40:09 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "hallway_sara" -dr 1 -rfn "hallway_saraRN" "assets/sets/hallway_sara_double_sided.ma";
 file -rdi 1 -ns "Emily" -rfn "anim_ready_EmilyRN" "assets/chars/Emily.ma";
@@ -22140,7 +22140,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "anim_ready_Emily:emilyHair001:head" "visibility" " 1"
 		"anim_ready_Emily:modelRN" 0
 		"anim_ready_EmilyRN" 723
-		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translate" " -type \"double3\" 5.71539082438700241 -0.049328255032569213 -0.75285504525129554"
+		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translate" " -type \"double3\" 6.37890917274970981 -0.047750516013642885 -0.75285504525129554"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "translateX" " -av"
 		
@@ -22157,7 +22157,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "scaleY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 0 -0.55229558184277616"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
@@ -22174,7 +22174,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"translate" " -type \"double3\" -0.00097600196343987713 -0.020838822501807394 -0.0010140580919559541"
+		"translate" " -type \"double3\" 0.0097766329350901723 -0.00023152067481730862 -0.0021905846340305782"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateX" " -av"
@@ -22183,7 +22183,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"rotate" " -type \"double3\" 1.66752847274805593 -1.61192468554327117 -24.42340537697174341"
+		"rotate" " -type \"double3\" 2.1183819545444047 -1.30517431591323452 -39.37700030688003494"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"rotateX" " -av"
@@ -22212,7 +22212,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -0.86477413577323203 -0.84166231969826888 -11.03928012471535602"
+		"rotate" " -type \"double3\" 0.56143699655706936 -0.83062123063759041 -32.30591804686131496"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"rotateX" " -av"
@@ -22249,7 +22249,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R" 
-		"rotate" " -type \"double3\" 0 -11.19144839539655578 0"
+		"rotate" " -type \"double3\" 0 -28.97029111002735391 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
@@ -22259,13 +22259,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKRootConstraint|Emily:IKOffsetSpine3_M|Emily:IKExtraSpine3_M|Emily:IKSpine3_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
-		"translate" " -type \"double3\" 0.010798605575504612 2.06441183938012118 0.81573973362049479"
+		"translate" " -type \"double3\" 0.010798605575504688 2.06441183938011896 0.81573973362049568"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -89.99999999999994316 -8.20488055154184082 89.99999999999994316"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
-		"translate" " -type \"double3\" 0.5796075832294777 -0.43739154631430965 1.79048582778868104"
+		"translate" " -type \"double3\" 0.65197275200718519 -0.62229431552662851 1.67357869970323248"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"translateX" " -av"
@@ -22274,7 +22274,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
-		"rotate" " -type \"double3\" -215.73250847347705417 -93.52621485853204319 152.86523412536658384"
+		"rotate" " -type \"double3\" -208.45539152698614771 -102.30905700625186228 183.66223098845657091"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"rotateX" " -av"
@@ -22283,7 +22283,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_R|Emily:IKExtraArm_R|Emily:IKArm_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
-		"translate" " -type \"double3\" 0.19170627481324137 -0.40198505422510089 1.75086612849327805"
+		"translate" " -type \"double3\" 0.15535455099044138 -0.39995513429317098 1.75876552992236057"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
 		"translateX" " -av"
@@ -22292,7 +22292,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_R|Emily:PoleExtraArm_R|Emily:PoleArm_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"translate" " -type \"double3\" 0.051545485707692344 0.17410977778198805 0.28617977989591092"
+		"translate" " -type \"double3\" 0.0096728412504300618 0.24035354595469879 0.31402214784227417"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateX" " -av"
@@ -22301,7 +22301,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"rotate" " -type \"double3\" 43.9868312026925139 -117.33810644850359495 -95.36803742091048264"
+		"rotate" " -type \"double3\" 76.62991024349501856 -156.07462648136194616 -144.89639546619758903"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"rotateX" " -av"
@@ -22322,7 +22322,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R|Emily:IKLegFootRockInnerPivot_R|Emily:IKLegFootRockOuterPivot_R|Emily:RollOffsetHeelLeg_R|Emily:RollExtraHeelLeg_R|Emily:RollHeelLeg_R|Emily:RollOffsetToesEnd_R|Emily:RollExtraToesEnd_R|Emily:RollToesEnd_R|Emily:RollOffsetToes_R|Emily:RollExtraToes_R|Emily:RollToes_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
-		"translate" " -type \"double3\" -0.70366565223143207 -0.43174451894115218 1.88781229551210639"
+		"translate" " -type \"double3\" -0.78201631590199605 -0.69211934786223084 1.64145493559243705"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"translateX" " -av"
@@ -22331,7 +22331,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
-		"rotate" " -type \"double3\" 148.56119329231981396 -281.4472073745405396 -165.91030556597664258"
+		"rotate" " -type \"double3\" 144.32002073325867286 -252.46378358687064747 -163.33064111757843762"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"rotateX" " -av"
@@ -22340,7 +22340,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetArm_L|Emily:IKExtraArm_L|Emily:IKArm_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
-		"translate" " -type \"double3\" -0.23542360055025263 -0.13604786806015726 2.28727014828230546"
+		"translate" " -type \"double3\" -0.31472474810205109 -0.29408627978489027 2.1002084037428963"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
 		"translateX" " -av"
@@ -22349,7 +22349,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetArm_L|Emily:PoleExtraArm_L|Emily:PoleArm_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"translate" " -type \"double3\" 0.10785474027228237 0.28976778900874078 0.36884812390118837"
+		"translate" " -type \"double3\" 0.0038647437728384242 0.18435927600862617 0.48127247858499822"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateX" " -av"
@@ -22358,7 +22358,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"rotate" " -type \"double3\" 74.85314138408068629 124.11190625081373184 123.65348387735456015"
+		"rotate" " -type \"double3\" 63.535462511680727 171.45851621519307173 170.44009384663192463"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"rotateX" " -av"
@@ -22459,7 +22459,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.0025193806339410107 0.065502177652924487 -0.070428546516880117"
+		"translate" " -type \"double3\" -0.0028931998474831079 0.034379867085020624 -0.049821403192078742"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
 		"translateX" " -av"
@@ -22484,7 +22484,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" -0.033733544388578465 0.055294230270204053 -0.067308699547859174"
+		"translate" " -type \"double3\" -0.018814803254790038 0.015846141017447551 -0.042539830909080145"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L" 
 		"translateX" " -av"
@@ -22516,7 +22516,7 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
-		"rotate" " -type \"double3\" 0 0 -69.48541198510088179"
+		"rotate" " -type \"double3\" 0 0 -63.75210636658361807"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
@@ -22532,13 +22532,13 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxBrow_R|Emily:ctrlBrow_R" 
 		"translateY" " 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateX" " -av -0.0022784871346596403"
+		"translateX" " -av 0.17021130199760404"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateY" " -av -0.45735664578268731"
+		"translateY" " -av -0.52605699745710111"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateX" " -av 0.10899885222211717"
+		"translateX" " -av 0.22389187069205113"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateY" " -av -0.31585605498421743"
+		"translateY" " -av -0.45197447605462315"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxCheek_R|Emily:ctrlCheek_R" 
 		"translateX" " 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxCheek_R|Emily:ctrlCheek_R" 
@@ -22566,10 +22566,10 @@ createNode reference -n "anim_ready_EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:JawSetup|Emily:JawSetupFollowHead|Emily:FKOffsetJaw_M|Emily:FKSDK1Jaw_M|Emily:FKSDK2Jaw_M|Emily:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 8.83676154578818362 0.96305319425770763 -0.91160515613344184"
+		"translate" " -type \"double3\" 9.45739187263828462 0.91667973599515085 -0.913306010831751"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" -176.18175303209099525 -0.084121954892721562 20.51458801489911465"
+		"rotate" " -type \"double3\" -174.95887718540859623 -0.71812961538241427 26.24789363341638548"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed" 
 		"instObjGroups.objectGroups" " -s 8"
@@ -45676,7 +45676,7 @@ createNode reference -n "nightmareRN";
 		"nightmareRN" 0
 		"nightmareRN" 107
 		2 "|nightmare:Master_Controller" "visibility" " -av 1"
-		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 1.00066597591351369 2.54390073011640006 0.73815262878407895"
+		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 2.07069224637222771 2.54390073011640006 0.73815262878407895"
 		
 		2 "|nightmare:Master_Controller" "translateX" " -av"
 		2 "|nightmare:Master_Controller" "translateY" " -av"
@@ -47150,17 +47150,18 @@ createNode reference -n "nightmareRN1";
 		"nightmareRN1"
 		"nightmareRN1" 0
 		"nightmareRN1" 29
-		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translate" " -type \"double3\" -1.86512431570588522 2.47325812767171271 3.21007146096622131"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translate" " -type \"double3\" 0.016191128746704919 2.47325812767171271 3.28975632506846694"
 		
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translateX" " -av"
 		
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "translateZ" " -av"
 		
-		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "rotate" " -type \"double3\" 0 98.08410439218519628 0"
+		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "rotate" " -type \"double3\" 0 99.16072260065945443 0"
 		
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller" "rotateY" " -av"
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0.75770343543013008 -0.037747726695018372 0.93125586351599776"
+		
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
 		"rotateX" " -av"
 		2 "|lockerlocator1|locker|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist" 
@@ -47339,7 +47340,7 @@ createNode reference -n "nightmareRN2";
 		"nightmareRN2"
 		"nightmareRN2" 0
 		"nightmareRN2" 55
-		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translate" " -type \"double3\" -3.79846353660866232 2.4906202053106461 -0.64506949747338893"
+		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translate" " -type \"double3\" -1.93375608794378273 2.4906202053106461 -0.71153364404845376"
 		
 		2 "|lockerlocator2|locker|nightmare2:Master_Controller" "translateX" " -av"
 		
@@ -47623,8 +47624,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 27;
-	setAttr -av ".unw" 27;
+	setAttr -k on ".o" 32;
+	setAttr -av ".unw" 32;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";

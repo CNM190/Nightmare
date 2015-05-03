@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: fight shot_1.ma
-//Last modified: Sun, May 03, 2015 01:02:20 PM
+//Last modified: Sun, May 03, 2015 02:48:17 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Candy_Enter_Unicorn" -rfn "Candy_Enter_UnicornRN" -op "v=0;"
 		 "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Candy_Enter_Unicorn.ma";
@@ -38,6 +38,7 @@ requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
 requires -nodeType "RenderMan" "RenderMan_for_Maya" "5.5";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -47,13 +48,13 @@ fileInfo "osv" "Mac OS X 10.9.2";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 5.6337168108021576 11.242490315253301 38.731195962960641 ;
-	setAttr ".r" -type "double3" -8.1383527218115663 -2512.5999999990486 -1.0022710911256011e-16 ;
+	setAttr ".t" -type "double3" -0.41610749689222398 1.9902347259758628 -26.319871544024053 ;
+	setAttr ".r" -type "double3" -2.1383527218953984 -2341.4000000001383 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 42.828168329313961;
+	setAttr ".coi" 18.680196629649462;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -389,7 +390,6 @@ createNode fluidShape -n "fluidShape3" -p "fluid1";
 	setAttr ".dw" 10;
 	setAttr ".dh" 10;
 	setAttr ".dd" 10;
-	setAttr ".ots" 9;
 	setAttr ".cl[0].clp" 0;
 	setAttr ".cl[0].clc" -type "float3" 0.019607844 0.019607844 0.019607844 ;
 	setAttr ".cl[0].cli" 1;
@@ -417,18 +417,6 @@ createNode transform -n "directionalLight2";
 	setAttr ".t" -type "double3" 0 5.6512415849359243 0 ;
 createNode directionalLight -n "directionalLightShape2" -p "directionalLight2";
 	setAttr -k off ".v";
-createNode transform -n "pPlane2";
-	setAttr ".t" -type "double3" 1.1372923724119792 5.6487092165196504 -31.818734210649882 ;
-	setAttr ".r" -type "double3" 84.694250558755954 0 0 ;
-createNode mesh -n "pPlaneShape2" -p "pPlane2";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
 createNode fosterParent -n "Emily_Enter_UnicornRNfosterParent1";
 createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "MainW0" -dv 1 -min 0 -at "double";
@@ -451,23 +439,6 @@ createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornR
 	setAttr ".rsrr" -type "double3" 0 192.61895198086816 0 ;
 	setAttr -k on ".w0";
 createNode fosterParent -n "nightmareRNfosterParent1";
-createNode fluidEmitter -n "fluidEmitter1" -p "nightmareRNfosterParent1";
-	setAttr ".emt" 2;
-	setAttr -k off ".sro";
-	setAttr -l on -k off ".urpp";
-	setAttr -k off ".npuv";
-	setAttr ".max" 1;
-	setAttr -k off ".spr";
-	setAttr -k off ".spd";
-	setAttr -k off ".srnd";
-	setAttr ".pc" -type "float3" 0 0 0 ;
-	setAttr -k off ".afc";
-	setAttr -k off ".afa";
-	setAttr -k off ".rnd";
-	setAttr -k off ".ssz";
-	setAttr -k off ".dss";
-	setAttr ".fhe" 1;
-	setAttr ".ffe" 1;
 createNode fluidEmitter -n "fluidEmitter2" -p "nightmareRNfosterParent1";
 	setAttr ".emt" 2;
 	setAttr -k off ".sro";
@@ -483,6 +454,23 @@ createNode fluidEmitter -n "fluidEmitter2" -p "nightmareRNfosterParent1";
 	setAttr -k off ".ssz";
 	setAttr -k off ".dss";
 	setAttr ".fiob" yes;
+	setAttr ".fhe" 1;
+	setAttr ".ffe" 1;
+createNode fluidEmitter -n "fluidEmitter1" -p "nightmareRNfosterParent1";
+	setAttr ".emt" 2;
+	setAttr -k off ".sro";
+	setAttr -l on -k off ".urpp";
+	setAttr -k off ".npuv";
+	setAttr ".max" 1;
+	setAttr -k off ".spr";
+	setAttr -k off ".spd";
+	setAttr -k off ".srnd";
+	setAttr ".pc" -type "float3" 0 0 0 ;
+	setAttr -k off ".afc";
+	setAttr -k off ".afa";
+	setAttr -k off ".rnd";
+	setAttr -k off ".ssz";
+	setAttr -k off ".dss";
 	setAttr ".fhe" 1;
 	setAttr ".ffe" 1;
 createNode fosterParent -n "sword_3RNfosterParent2";
@@ -506,6 +494,163 @@ createNode parentConstraint -n "Sword_Anim_Control_parentConstraint2" -p "sword_
 	setAttr ".rst" -type "double3" 1.180022333490929 3.7713477227165306 8.1484144552387203 ;
 	setAttr ".rsrr" -type "double3" -80.544647141742573 -8.3324799629881271e-15 -2.4595701217726485e-14 ;
 	setAttr -k on ".w0";
+createNode mentalrayItemsList -s -n "mentalrayItemsList";
+createNode mentalrayGlobals -s -n "mentalrayGlobals";
+	addAttr -s false -ci true -h true -sn "sunAndSkyShader" -ln "sunAndSkyShader" -at "message";
+	setAttr ".rvb" 3;
+	setAttr ".ivb" no;
+createNode mentalrayOptions -s -n "miDefaultOptions";
+	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
+		3;
+	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr -s 48 ".stringOptions";
+	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
+	setAttr ".stringOptions[0].value" -type "string" "1.0";
+	setAttr ".stringOptions[0].type" -type "string" "scalar";
+	setAttr ".stringOptions[1].name" -type "string" "rast transparency depth";
+	setAttr ".stringOptions[1].value" -type "string" "8";
+	setAttr ".stringOptions[1].type" -type "string" "integer";
+	setAttr ".stringOptions[2].name" -type "string" "rast useopacity";
+	setAttr ".stringOptions[2].value" -type "string" "true";
+	setAttr ".stringOptions[2].type" -type "string" "boolean";
+	setAttr ".stringOptions[3].name" -type "string" "importon";
+	setAttr ".stringOptions[3].value" -type "string" "false";
+	setAttr ".stringOptions[3].type" -type "string" "boolean";
+	setAttr ".stringOptions[4].name" -type "string" "importon density";
+	setAttr ".stringOptions[4].value" -type "string" "1.0";
+	setAttr ".stringOptions[4].type" -type "string" "scalar";
+	setAttr ".stringOptions[5].name" -type "string" "importon merge";
+	setAttr ".stringOptions[5].value" -type "string" "0.0";
+	setAttr ".stringOptions[5].type" -type "string" "scalar";
+	setAttr ".stringOptions[6].name" -type "string" "importon trace depth";
+	setAttr ".stringOptions[6].value" -type "string" "0";
+	setAttr ".stringOptions[6].type" -type "string" "integer";
+	setAttr ".stringOptions[7].name" -type "string" "importon traverse";
+	setAttr ".stringOptions[7].value" -type "string" "true";
+	setAttr ".stringOptions[7].type" -type "string" "boolean";
+	setAttr ".stringOptions[8].name" -type "string" "shadowmap pixel samples";
+	setAttr ".stringOptions[8].value" -type "string" "3";
+	setAttr ".stringOptions[8].type" -type "string" "integer";
+	setAttr ".stringOptions[9].name" -type "string" "ambient occlusion";
+	setAttr ".stringOptions[9].value" -type "string" "false";
+	setAttr ".stringOptions[9].type" -type "string" "boolean";
+	setAttr ".stringOptions[10].name" -type "string" "ambient occlusion rays";
+	setAttr ".stringOptions[10].value" -type "string" "64";
+	setAttr ".stringOptions[10].type" -type "string" "integer";
+	setAttr ".stringOptions[11].name" -type "string" "ambient occlusion cache";
+	setAttr ".stringOptions[11].value" -type "string" "false";
+	setAttr ".stringOptions[11].type" -type "string" "boolean";
+	setAttr ".stringOptions[12].name" -type "string" "ambient occlusion cache density";
+	setAttr ".stringOptions[12].value" -type "string" "1.0";
+	setAttr ".stringOptions[12].type" -type "string" "scalar";
+	setAttr ".stringOptions[13].name" -type "string" "ambient occlusion cache points";
+	setAttr ".stringOptions[13].value" -type "string" "64";
+	setAttr ".stringOptions[13].type" -type "string" "integer";
+	setAttr ".stringOptions[14].name" -type "string" "irradiance particles";
+	setAttr ".stringOptions[14].value" -type "string" "false";
+	setAttr ".stringOptions[14].type" -type "string" "boolean";
+	setAttr ".stringOptions[15].name" -type "string" "irradiance particles rays";
+	setAttr ".stringOptions[15].value" -type "string" "256";
+	setAttr ".stringOptions[15].type" -type "string" "integer";
+	setAttr ".stringOptions[16].name" -type "string" "irradiance particles interpolate";
+	setAttr ".stringOptions[16].value" -type "string" "1";
+	setAttr ".stringOptions[16].type" -type "string" "integer";
+	setAttr ".stringOptions[17].name" -type "string" "irradiance particles interppoints";
+	setAttr ".stringOptions[17].value" -type "string" "64";
+	setAttr ".stringOptions[17].type" -type "string" "integer";
+	setAttr ".stringOptions[18].name" -type "string" "irradiance particles indirect passes";
+	setAttr ".stringOptions[18].value" -type "string" "0";
+	setAttr ".stringOptions[18].type" -type "string" "integer";
+	setAttr ".stringOptions[19].name" -type "string" "irradiance particles scale";
+	setAttr ".stringOptions[19].value" -type "string" "1.0";
+	setAttr ".stringOptions[19].type" -type "string" "scalar";
+	setAttr ".stringOptions[20].name" -type "string" "irradiance particles env";
+	setAttr ".stringOptions[20].value" -type "string" "true";
+	setAttr ".stringOptions[20].type" -type "string" "boolean";
+	setAttr ".stringOptions[21].name" -type "string" "irradiance particles env rays";
+	setAttr ".stringOptions[21].value" -type "string" "256";
+	setAttr ".stringOptions[21].type" -type "string" "integer";
+	setAttr ".stringOptions[22].name" -type "string" "irradiance particles env scale";
+	setAttr ".stringOptions[22].value" -type "string" "1";
+	setAttr ".stringOptions[22].type" -type "string" "integer";
+	setAttr ".stringOptions[23].name" -type "string" "irradiance particles rebuild";
+	setAttr ".stringOptions[23].value" -type "string" "true";
+	setAttr ".stringOptions[23].type" -type "string" "boolean";
+	setAttr ".stringOptions[24].name" -type "string" "irradiance particles file";
+	setAttr ".stringOptions[24].value" -type "string" "";
+	setAttr ".stringOptions[24].type" -type "string" "string";
+	setAttr ".stringOptions[25].name" -type "string" "geom displace motion factor";
+	setAttr ".stringOptions[25].value" -type "string" "1.0";
+	setAttr ".stringOptions[25].type" -type "string" "scalar";
+	setAttr ".stringOptions[26].name" -type "string" "contrast all buffers";
+	setAttr ".stringOptions[26].value" -type "string" "true";
+	setAttr ".stringOptions[26].type" -type "string" "boolean";
+	setAttr ".stringOptions[27].name" -type "string" "finalgather normal tolerance";
+	setAttr ".stringOptions[27].value" -type "string" "25.842";
+	setAttr ".stringOptions[27].type" -type "string" "scalar";
+	setAttr ".stringOptions[28].name" -type "string" "trace camera clip";
+	setAttr ".stringOptions[28].value" -type "string" "false";
+	setAttr ".stringOptions[28].type" -type "string" "boolean";
+	setAttr ".stringOptions[29].name" -type "string" "unified sampling";
+	setAttr ".stringOptions[29].value" -type "string" "true";
+	setAttr ".stringOptions[29].type" -type "string" "boolean";
+	setAttr ".stringOptions[30].name" -type "string" "samples quality";
+	setAttr ".stringOptions[30].value" -type "string" "0.25 0.25 0.25 0.25";
+	setAttr ".stringOptions[30].type" -type "string" "color";
+	setAttr ".stringOptions[31].name" -type "string" "samples min";
+	setAttr ".stringOptions[31].value" -type "string" "1.0";
+	setAttr ".stringOptions[31].type" -type "string" "scalar";
+	setAttr ".stringOptions[32].name" -type "string" "samples max";
+	setAttr ".stringOptions[32].value" -type "string" "100.0";
+	setAttr ".stringOptions[32].type" -type "string" "scalar";
+	setAttr ".stringOptions[33].name" -type "string" "samples error cutoff";
+	setAttr ".stringOptions[33].value" -type "string" "0.0 0.0 0.0 0.0";
+	setAttr ".stringOptions[33].type" -type "string" "color";
+	setAttr ".stringOptions[34].name" -type "string" "samples per object";
+	setAttr ".stringOptions[34].value" -type "string" "false";
+	setAttr ".stringOptions[34].type" -type "string" "boolean";
+	setAttr ".stringOptions[35].name" -type "string" "progressive";
+	setAttr ".stringOptions[35].value" -type "string" "false";
+	setAttr ".stringOptions[35].type" -type "string" "boolean";
+	setAttr ".stringOptions[36].name" -type "string" "progressive max time";
+	setAttr ".stringOptions[36].value" -type "string" "0";
+	setAttr ".stringOptions[36].type" -type "string" "integer";
+	setAttr ".stringOptions[37].name" -type "string" "progressive subsampling size";
+	setAttr ".stringOptions[37].value" -type "string" "4";
+	setAttr ".stringOptions[37].type" -type "string" "integer";
+	setAttr ".stringOptions[38].name" -type "string" "iray";
+	setAttr ".stringOptions[38].value" -type "string" "false";
+	setAttr ".stringOptions[38].type" -type "string" "boolean";
+	setAttr ".stringOptions[39].name" -type "string" "light relative scale";
+	setAttr ".stringOptions[39].value" -type "string" "0.31831";
+	setAttr ".stringOptions[39].type" -type "string" "scalar";
+	setAttr ".stringOptions[40].name" -type "string" "trace camera motion vectors";
+	setAttr ".stringOptions[40].value" -type "string" "false";
+	setAttr ".stringOptions[40].type" -type "string" "boolean";
+	setAttr ".stringOptions[41].name" -type "string" "ray differentials";
+	setAttr ".stringOptions[41].value" -type "string" "true";
+	setAttr ".stringOptions[41].type" -type "string" "boolean";
+	setAttr ".stringOptions[42].name" -type "string" "environment lighting mode";
+	setAttr ".stringOptions[42].value" -type "string" "off";
+	setAttr ".stringOptions[42].type" -type "string" "string";
+	setAttr ".stringOptions[43].name" -type "string" "environment lighting quality";
+	setAttr ".stringOptions[43].value" -type "string" "0.2";
+	setAttr ".stringOptions[43].type" -type "string" "scalar";
+	setAttr ".stringOptions[44].name" -type "string" "environment lighting shadow";
+	setAttr ".stringOptions[44].value" -type "string" "transparent";
+	setAttr ".stringOptions[44].type" -type "string" "string";
+	setAttr ".stringOptions[45].name" -type "string" "environment lighting resolution";
+	setAttr ".stringOptions[45].value" -type "string" "512";
+	setAttr ".stringOptions[45].type" -type "string" "integer";
+	setAttr ".stringOptions[46].name" -type "string" "environment lighting shader samples";
+	setAttr ".stringOptions[46].value" -type "string" "2";
+	setAttr ".stringOptions[46].type" -type "string" "integer";
+	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
+	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
+	setAttr ".stringOptions[47].type" -type "string" "color";
+createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -1148,6 +1293,269 @@ createNode RenderMan -s -n "rmanFinalOutputGlobals0";
 	setAttr -k on ".rman__riopt__Display_dither" 0;
 	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
 	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+createNode RenderMan -s -n "rmanRerenderRISGlobals";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___previewPass" -ln "rman__torattr___previewPass" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
+		-at "long2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize0" -ln "rman__riopt__limits_bucketsize0" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
+		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
+	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
+		-dv -1 -at "float";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_name" -ln "rman__riopt__Integrator_name" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX0" -ln "rman__riopt___CropWindowX0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowX1" -ln "rman__riopt___CropWindowX1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY" -ln "rman__riopt___CropWindowY" 
+		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY0" -ln "rman__riopt___CropWindowY0" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -k true -sn "rman__riopt___CropWindowY1" -ln "rman__riopt___CropWindowY1" 
+		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
+	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Hider_integrationmode" -ln "rman__riopt__Hider_integrationmode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergePaths" -ln "rman__riopt__Integrator_mergePaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergeRadiusScale" -ln "rman__riopt__Integrator_mergeRadiusScale" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_timeRadius" -ln "rman__riopt__Integrator_timeRadius" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_reduceRadius" -ln "rman__riopt__Integrator_reduceRadius" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_connectPaths" -ln "rman__riopt__Integrator_connectPaths" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_maxPathLength" -ln "rman__riopt__Integrator_maxPathLength" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_sampleMode" -ln "rman__riopt__Integrator_sampleMode" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numLightSamples" -ln "rman__riopt__Integrator_numLightSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numBxdfSamples" -ln "rman__riopt__Integrator_numBxdfSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numIndirectSamples" -ln "rman__riopt__Integrator_numIndirectSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numDiffuseSamples" -ln "rman__riopt__Integrator_numDiffuseSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSpecularSamples" -ln "rman__riopt__Integrator_numSpecularSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSubsurfaceSamples" -ln "rman__riopt__Integrator_numSubsurfaceSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numRefractionSamples" -ln "rman__riopt__Integrator_numRefractionSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteDepth" -ln "rman__riopt__Integrator_rouletteDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteThreshold" -ln "rman__riopt__Integrator_rouletteThreshold" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampDepth" -ln "rman__riopt__Integrator_clampDepth" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampLuminance" -ln "rman__riopt__Integrator_clampLuminance" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_allowCaustics" -ln "rman__riopt__Integrator_allowCaustics" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSamples" -ln "rman__riopt__Integrator_numSamples" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Integrator_viewchannel" -ln "rman__riopt__Integrator_viewchannel" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	addAttr -ci true -k true -sn "rman__riopt__Hider_incremental" -ln "rman__riopt__Hider_incremental" 
+		-dv -1 -at "long";
+	setAttr ".nt" -type "string" "pass:render";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "RerenderRIS";
+	setAttr ".rman__torattr___task" -type "string" "render";
+	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Images";
+	setAttr -k on ".rman__torattr___previewPass" 1;
+	setAttr -k on ".rman__torattr___motionBlur" 0;
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___passLayer" -type "string" "";
+	setAttr ".rman__torattr___camera" -type "string" "";
+	setAttr ".rman__torattr___crew" -type "string" "";
+	setAttr ".rman__torattr___flavor" -type "string" "";
+	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
+	setAttr ".rman__torattr___lightcrew" -type "string" "";
+	setAttr -k on ".rman__torattr___depthOfField" 1;
+	setAttr ".rman__torattr___passNameFormat" -type "string" "";
+	setAttr -k on ".rman__riopt__shading_directlightingsamples" 4;
+	setAttr ".rman__riopt__bucket_order" -type "string" "spiral";
+	setAttr -k on ".rman__riopt__limits_bucketsize" -type "long2" 16 16 ;
+	setAttr -k on ".rman__riopt___PixelVariance" 0.0099999997764825821;
+	setAttr ".rman__riopt__Hider_name" -type "string" "raytrace";
+	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
+	setAttr -k on ".rman__riopt__Hider_maxsamples" 16;
+	setAttr ".rman__riopt__Integrator_name" -type "string" "PxrPathTracer";
+	setAttr -k on ".rman__riopt___CropWindowX" -type "float2" 0 1 ;
+	setAttr -k on ".rman__riopt___CropWindowY" -type "float2" 0 1 ;
+	setAttr ".rman__riopt__photon_lifetime" -type "string" "transient";
+	setAttr -k on ".rman__riopt__photon_emit" 0;
+	setAttr -k on ".rman__riattr__trace_maxspeculardepth" 2;
+	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
+	setAttr -k on ".rman__riattr__trace_displacements" 1;
+	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
+	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
+	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "path";
+	setAttr -k on ".rman__riopt__Integrator_mergePaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_mergeRadiusScale" 5;
+	setAttr -k on ".rman__riopt__Integrator_timeRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_reduceRadius" 1;
+	setAttr -k on ".rman__riopt__Integrator_connectPaths" 1;
+	setAttr -k on ".rman__riopt__Integrator_maxPathLength" 10;
+	setAttr ".rman__riopt__Integrator_sampleMode" -type "string" "bxdf";
+	setAttr -k on ".rman__riopt__Integrator_numLightSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numBxdfSamples" 8;
+	setAttr -k on ".rman__riopt__Integrator_numIndirectSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numDiffuseSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSpecularSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numSubsurfaceSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_numRefractionSamples" 1;
+	setAttr -k on ".rman__riopt__Integrator_rouletteDepth" 4;
+	setAttr -k on ".rman__riopt__Integrator_rouletteThreshold" 0.20000000298023224;
+	setAttr -k on ".rman__riopt__Integrator_clampDepth" 2;
+	setAttr -k on ".rman__riopt__Integrator_clampLuminance" 10;
+	setAttr -k on ".rman__riopt__Integrator_allowCaustics" 0;
+	setAttr -k on ".rman__riopt__Integrator_numSamples" 4;
+	setAttr ".rman__riopt__Integrator_viewchannel" -type "string" "Nn";
+	setAttr -k on ".rman__riopt__Hider_incremental" 1;
+createNode RenderMan -s -n "rmanRerenderRISOutputGlobals0";
+	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___dspyGetChannelsFromCamera" -ln "rman__torattr___dspyGetChannelsFromCamera" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_filter" -ln "rman__riopt__Display_filter" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth" -ln "rman__riopt__Display_filterwidth" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth0" -ln "rman__riopt__Display_filterwidth0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth1" -ln "rman__riopt__Display_filterwidth1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
+		-at "float2" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".t" 1;
+	setAttr ".rman__torattr___class" -type "string" "PrimaryRerender";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr -k on ".rman__torattr___primaryDisplay" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "";
+	setAttr -k on ".rman__torattr___dspyGetChannelsFromCamera" 1;
+	setAttr ".rman__riopt__Display_name" -type "string" "[passinfo this filename]";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
+	setAttr ".rman__riopt__Display_filter" -type "string" "gaussian";
+	setAttr -k on ".rman__riopt__Display_filterwidth" -type "float2" 2 2 ;
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
 createNode RenderMan -s -n "rmanPreviewGlobals";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -1191,7 +1599,7 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
-		-dv -1 -smn 0 -smx 100 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
 		-at "compound" -nc 2;
 	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
@@ -1211,7 +1619,7 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
-		-dv -1 -smn 0 -smx 100 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
@@ -1365,7 +1773,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
-		-dv -1 -smn 0 -smx 10 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
@@ -1375,7 +1783,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
 		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
 	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
-		-dv -1 -smn 0 -smx 1 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___PixelSamples" -ln "rman__riopt___PixelSamples" 
@@ -1387,9 +1795,9 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
-		-dv -1 -smn 0 -smx 4096 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
-		-dv -1 -smn 0 -smx 4096 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
 		-at "compound" -nc 2;
 	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
@@ -1415,7 +1823,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
-		-dv -1 -smn 0 -smx 100 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -1716,269 +2124,6 @@ createNode RenderMan -s -n "rmanReyesRerenderOutputGlobals0";
 	setAttr ".nt" -type "string" "settings:display";
 	setAttr ".t" 1;
 	setAttr ".rman__torattr___class" -type "string" "Primary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr -k on ".rman__torattr___primaryDisplay" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "";
-	setAttr -k on ".rman__torattr___dspyGetChannelsFromCamera" 1;
-	setAttr ".rman__riopt__Display_name" -type "string" "[passinfo this filename]";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr ".rman__riopt__Display_mode" -type "string" "rgba";
-	setAttr ".rman__riopt__Display_filter" -type "string" "gaussian";
-	setAttr -k on ".rman__riopt__Display_filterwidth" -type "float2" 2 2 ;
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-createNode RenderMan -s -n "rmanRerenderRISGlobals";
-	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___phase" -ln "rman__torattr___phase" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___previewPass" -ln "rman__torattr___previewPass" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__torattr___motionBlur" -ln "rman__torattr___motionBlur" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___passLayer" -ln "rman__torattr___passLayer" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___camera" -ln "rman__torattr___camera" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___crew" -ln "rman__torattr___crew" -dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___flavor" -ln "rman__torattr___flavor" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___cameraFlavor" -ln "rman__torattr___cameraFlavor" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___lightcrew" -ln "rman__torattr___lightcrew" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
-		-at "long2" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize0" -ln "rman__riopt__limits_bucketsize0" 
-		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
-	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
-		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
-	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
-		-dv -1 -at "float";
-	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Integrator_name" -ln "rman__riopt__Integrator_name" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
-		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowX0" -ln "rman__riopt___CropWindowX0" 
-		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowX1" -ln "rman__riopt___CropWindowX1" 
-		-dv -1 -at "float" -p "rman__riopt___CropWindowX";
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowY" -ln "rman__riopt___CropWindowY" 
-		-at "float2" -p "rman__riopt___CropWindow" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowY0" -ln "rman__riopt___CropWindowY0" 
-		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
-	addAttr -ci true -k true -sn "rman__riopt___CropWindowY1" -ln "rman__riopt___CropWindowY1" 
-		-dv -1 -at "float" -p "rman__riopt___CropWindowY";
-	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Hider_integrationmode" -ln "rman__riopt__Hider_integrationmode" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergePaths" -ln "rman__riopt__Integrator_mergePaths" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_mergeRadiusScale" -ln "rman__riopt__Integrator_mergeRadiusScale" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_timeRadius" -ln "rman__riopt__Integrator_timeRadius" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_reduceRadius" -ln "rman__riopt__Integrator_reduceRadius" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_connectPaths" -ln "rman__riopt__Integrator_connectPaths" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_maxPathLength" -ln "rman__riopt__Integrator_maxPathLength" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Integrator_sampleMode" -ln "rman__riopt__Integrator_sampleMode" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numLightSamples" -ln "rman__riopt__Integrator_numLightSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numBxdfSamples" -ln "rman__riopt__Integrator_numBxdfSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numIndirectSamples" -ln "rman__riopt__Integrator_numIndirectSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numDiffuseSamples" -ln "rman__riopt__Integrator_numDiffuseSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSpecularSamples" -ln "rman__riopt__Integrator_numSpecularSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSubsurfaceSamples" -ln "rman__riopt__Integrator_numSubsurfaceSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numRefractionSamples" -ln "rman__riopt__Integrator_numRefractionSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteDepth" -ln "rman__riopt__Integrator_rouletteDepth" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_rouletteThreshold" -ln "rman__riopt__Integrator_rouletteThreshold" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampDepth" -ln "rman__riopt__Integrator_clampDepth" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_clampLuminance" -ln "rman__riopt__Integrator_clampLuminance" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_allowCaustics" -ln "rman__riopt__Integrator_allowCaustics" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__riopt__Integrator_numSamples" -ln "rman__riopt__Integrator_numSamples" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Integrator_viewchannel" -ln "rman__riopt__Integrator_viewchannel" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	addAttr -ci true -k true -sn "rman__riopt__Hider_incremental" -ln "rman__riopt__Hider_incremental" 
-		-dv -1 -at "long";
-	setAttr ".nt" -type "string" "pass:render";
-	setAttr ".t" 1;
-	setAttr ".rman__torattr___class" -type "string" "RerenderRIS";
-	setAttr ".rman__torattr___task" -type "string" "render";
-	setAttr ".rman__torattr___phase" -type "string" "/Job/Frames/Images";
-	setAttr -k on ".rman__torattr___previewPass" 1;
-	setAttr -k on ".rman__torattr___motionBlur" 0;
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___passLayer" -type "string" "";
-	setAttr ".rman__torattr___camera" -type "string" "";
-	setAttr ".rman__torattr___crew" -type "string" "";
-	setAttr ".rman__torattr___flavor" -type "string" "";
-	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
-	setAttr ".rman__torattr___lightcrew" -type "string" "";
-	setAttr -k on ".rman__torattr___depthOfField" 1;
-	setAttr ".rman__torattr___passNameFormat" -type "string" "";
-	setAttr -k on ".rman__riopt__shading_directlightingsamples" 4;
-	setAttr ".rman__riopt__bucket_order" -type "string" "spiral";
-	setAttr -k on ".rman__riopt__limits_bucketsize" -type "long2" 16 16 ;
-	setAttr -k on ".rman__riopt___PixelVariance" 0.0099999997764825821;
-	setAttr ".rman__riopt__Hider_name" -type "string" "raytrace";
-	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
-	setAttr -k on ".rman__riopt__Hider_maxsamples" 16;
-	setAttr ".rman__riopt__Integrator_name" -type "string" "PxrPathTracer";
-	setAttr -k on ".rman__riopt___CropWindowX" -type "float2" 0 1 ;
-	setAttr -k on ".rman__riopt___CropWindowY" -type "float2" 0 1 ;
-	setAttr ".rman__riopt__photon_lifetime" -type "string" "transient";
-	setAttr -k on ".rman__riopt__photon_emit" 0;
-	setAttr -k on ".rman__riattr__trace_maxspeculardepth" 2;
-	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
-	setAttr -k on ".rman__riattr__trace_displacements" 1;
-	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
-	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr ".rman__riopt__Hider_integrationmode" -type "string" "path";
-	setAttr -k on ".rman__riopt__Integrator_mergePaths" 1;
-	setAttr -k on ".rman__riopt__Integrator_mergeRadiusScale" 5;
-	setAttr -k on ".rman__riopt__Integrator_timeRadius" 1;
-	setAttr -k on ".rman__riopt__Integrator_reduceRadius" 1;
-	setAttr -k on ".rman__riopt__Integrator_connectPaths" 1;
-	setAttr -k on ".rman__riopt__Integrator_maxPathLength" 10;
-	setAttr ".rman__riopt__Integrator_sampleMode" -type "string" "bxdf";
-	setAttr -k on ".rman__riopt__Integrator_numLightSamples" 8;
-	setAttr -k on ".rman__riopt__Integrator_numBxdfSamples" 8;
-	setAttr -k on ".rman__riopt__Integrator_numIndirectSamples" 1;
-	setAttr -k on ".rman__riopt__Integrator_numDiffuseSamples" 1;
-	setAttr -k on ".rman__riopt__Integrator_numSpecularSamples" 1;
-	setAttr -k on ".rman__riopt__Integrator_numSubsurfaceSamples" 1;
-	setAttr -k on ".rman__riopt__Integrator_numRefractionSamples" 1;
-	setAttr -k on ".rman__riopt__Integrator_rouletteDepth" 4;
-	setAttr -k on ".rman__riopt__Integrator_rouletteThreshold" 0.20000000298023224;
-	setAttr -k on ".rman__riopt__Integrator_clampDepth" 2;
-	setAttr -k on ".rman__riopt__Integrator_clampLuminance" 10;
-	setAttr -k on ".rman__riopt__Integrator_allowCaustics" 0;
-	setAttr -k on ".rman__riopt__Integrator_numSamples" 4;
-	setAttr ".rman__riopt__Integrator_viewchannel" -type "string" "Nn";
-	setAttr -k on ".rman__riopt__Hider_incremental" 1;
-createNode RenderMan -s -n "rmanRerenderRISOutputGlobals0";
-	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___dspyGetChannelsFromCamera" -ln "rman__torattr___dspyGetChannelsFromCamera" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_filter" -ln "rman__riopt__Display_filter" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth" -ln "rman__riopt__Display_filterwidth" 
-		-at "float2" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth0" -ln "rman__riopt__Display_filterwidth0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
-	addAttr -ci true -k true -sn "rman__riopt__Display_filterwidth1" -ln "rman__riopt__Display_filterwidth1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_filterwidth";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_exposure" -ln "rman__riopt__Display_exposure" 
-		-at "float2" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_exposure0" -ln "rman__riopt__Display_exposure0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
-	addAttr -ci true -k true -sn "rman__riopt__Display_exposure1" -ln "rman__riopt__Display_exposure1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_exposure";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".t" 1;
-	setAttr ".rman__torattr___class" -type "string" "PrimaryRerender";
 	setAttr ".rman__torattr___task" -type "string" "display";
 	setAttr -k on ".rman__torattr___computeBehavior" 1;
 	setAttr -k on ".rman__torattr___primaryDisplay" 1;
@@ -4008,163 +4153,6 @@ createNode RenderMan -s -n "rmanSBMakePtexGlobals";
 	setAttr ".rman__param__ptxmake___inputfile" -type "string" "[passinfo this/0 filename]";
 	setAttr ".rman__param__ptxmake___channel" -type "string" "$BAKECHAN";
 	setAttr ".rman__param__ptxmake___outputfile" -type "string" "[passinfo this filename]";
-createNode mentalrayItemsList -s -n "mentalrayItemsList";
-createNode mentalrayGlobals -s -n "mentalrayGlobals";
-	addAttr -s false -ci true -h true -sn "sunAndSkyShader" -ln "sunAndSkyShader" -at "message";
-	setAttr ".rvb" 3;
-	setAttr ".ivb" no;
-createNode mentalrayOptions -s -n "miDefaultOptions";
-	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
-		3;
-	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
-	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
-	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
-	setAttr -s 48 ".stringOptions";
-	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
-	setAttr ".stringOptions[0].value" -type "string" "1.0";
-	setAttr ".stringOptions[0].type" -type "string" "scalar";
-	setAttr ".stringOptions[1].name" -type "string" "rast transparency depth";
-	setAttr ".stringOptions[1].value" -type "string" "8";
-	setAttr ".stringOptions[1].type" -type "string" "integer";
-	setAttr ".stringOptions[2].name" -type "string" "rast useopacity";
-	setAttr ".stringOptions[2].value" -type "string" "true";
-	setAttr ".stringOptions[2].type" -type "string" "boolean";
-	setAttr ".stringOptions[3].name" -type "string" "importon";
-	setAttr ".stringOptions[3].value" -type "string" "false";
-	setAttr ".stringOptions[3].type" -type "string" "boolean";
-	setAttr ".stringOptions[4].name" -type "string" "importon density";
-	setAttr ".stringOptions[4].value" -type "string" "1.0";
-	setAttr ".stringOptions[4].type" -type "string" "scalar";
-	setAttr ".stringOptions[5].name" -type "string" "importon merge";
-	setAttr ".stringOptions[5].value" -type "string" "0.0";
-	setAttr ".stringOptions[5].type" -type "string" "scalar";
-	setAttr ".stringOptions[6].name" -type "string" "importon trace depth";
-	setAttr ".stringOptions[6].value" -type "string" "0";
-	setAttr ".stringOptions[6].type" -type "string" "integer";
-	setAttr ".stringOptions[7].name" -type "string" "importon traverse";
-	setAttr ".stringOptions[7].value" -type "string" "true";
-	setAttr ".stringOptions[7].type" -type "string" "boolean";
-	setAttr ".stringOptions[8].name" -type "string" "shadowmap pixel samples";
-	setAttr ".stringOptions[8].value" -type "string" "3";
-	setAttr ".stringOptions[8].type" -type "string" "integer";
-	setAttr ".stringOptions[9].name" -type "string" "ambient occlusion";
-	setAttr ".stringOptions[9].value" -type "string" "false";
-	setAttr ".stringOptions[9].type" -type "string" "boolean";
-	setAttr ".stringOptions[10].name" -type "string" "ambient occlusion rays";
-	setAttr ".stringOptions[10].value" -type "string" "64";
-	setAttr ".stringOptions[10].type" -type "string" "integer";
-	setAttr ".stringOptions[11].name" -type "string" "ambient occlusion cache";
-	setAttr ".stringOptions[11].value" -type "string" "false";
-	setAttr ".stringOptions[11].type" -type "string" "boolean";
-	setAttr ".stringOptions[12].name" -type "string" "ambient occlusion cache density";
-	setAttr ".stringOptions[12].value" -type "string" "1.0";
-	setAttr ".stringOptions[12].type" -type "string" "scalar";
-	setAttr ".stringOptions[13].name" -type "string" "ambient occlusion cache points";
-	setAttr ".stringOptions[13].value" -type "string" "64";
-	setAttr ".stringOptions[13].type" -type "string" "integer";
-	setAttr ".stringOptions[14].name" -type "string" "irradiance particles";
-	setAttr ".stringOptions[14].value" -type "string" "false";
-	setAttr ".stringOptions[14].type" -type "string" "boolean";
-	setAttr ".stringOptions[15].name" -type "string" "irradiance particles rays";
-	setAttr ".stringOptions[15].value" -type "string" "256";
-	setAttr ".stringOptions[15].type" -type "string" "integer";
-	setAttr ".stringOptions[16].name" -type "string" "irradiance particles interpolate";
-	setAttr ".stringOptions[16].value" -type "string" "1";
-	setAttr ".stringOptions[16].type" -type "string" "integer";
-	setAttr ".stringOptions[17].name" -type "string" "irradiance particles interppoints";
-	setAttr ".stringOptions[17].value" -type "string" "64";
-	setAttr ".stringOptions[17].type" -type "string" "integer";
-	setAttr ".stringOptions[18].name" -type "string" "irradiance particles indirect passes";
-	setAttr ".stringOptions[18].value" -type "string" "0";
-	setAttr ".stringOptions[18].type" -type "string" "integer";
-	setAttr ".stringOptions[19].name" -type "string" "irradiance particles scale";
-	setAttr ".stringOptions[19].value" -type "string" "1.0";
-	setAttr ".stringOptions[19].type" -type "string" "scalar";
-	setAttr ".stringOptions[20].name" -type "string" "irradiance particles env";
-	setAttr ".stringOptions[20].value" -type "string" "true";
-	setAttr ".stringOptions[20].type" -type "string" "boolean";
-	setAttr ".stringOptions[21].name" -type "string" "irradiance particles env rays";
-	setAttr ".stringOptions[21].value" -type "string" "256";
-	setAttr ".stringOptions[21].type" -type "string" "integer";
-	setAttr ".stringOptions[22].name" -type "string" "irradiance particles env scale";
-	setAttr ".stringOptions[22].value" -type "string" "1";
-	setAttr ".stringOptions[22].type" -type "string" "integer";
-	setAttr ".stringOptions[23].name" -type "string" "irradiance particles rebuild";
-	setAttr ".stringOptions[23].value" -type "string" "true";
-	setAttr ".stringOptions[23].type" -type "string" "boolean";
-	setAttr ".stringOptions[24].name" -type "string" "irradiance particles file";
-	setAttr ".stringOptions[24].value" -type "string" "";
-	setAttr ".stringOptions[24].type" -type "string" "string";
-	setAttr ".stringOptions[25].name" -type "string" "geom displace motion factor";
-	setAttr ".stringOptions[25].value" -type "string" "1.0";
-	setAttr ".stringOptions[25].type" -type "string" "scalar";
-	setAttr ".stringOptions[26].name" -type "string" "contrast all buffers";
-	setAttr ".stringOptions[26].value" -type "string" "true";
-	setAttr ".stringOptions[26].type" -type "string" "boolean";
-	setAttr ".stringOptions[27].name" -type "string" "finalgather normal tolerance";
-	setAttr ".stringOptions[27].value" -type "string" "25.842";
-	setAttr ".stringOptions[27].type" -type "string" "scalar";
-	setAttr ".stringOptions[28].name" -type "string" "trace camera clip";
-	setAttr ".stringOptions[28].value" -type "string" "false";
-	setAttr ".stringOptions[28].type" -type "string" "boolean";
-	setAttr ".stringOptions[29].name" -type "string" "unified sampling";
-	setAttr ".stringOptions[29].value" -type "string" "true";
-	setAttr ".stringOptions[29].type" -type "string" "boolean";
-	setAttr ".stringOptions[30].name" -type "string" "samples quality";
-	setAttr ".stringOptions[30].value" -type "string" "0.25 0.25 0.25 0.25";
-	setAttr ".stringOptions[30].type" -type "string" "color";
-	setAttr ".stringOptions[31].name" -type "string" "samples min";
-	setAttr ".stringOptions[31].value" -type "string" "1.0";
-	setAttr ".stringOptions[31].type" -type "string" "scalar";
-	setAttr ".stringOptions[32].name" -type "string" "samples max";
-	setAttr ".stringOptions[32].value" -type "string" "100.0";
-	setAttr ".stringOptions[32].type" -type "string" "scalar";
-	setAttr ".stringOptions[33].name" -type "string" "samples error cutoff";
-	setAttr ".stringOptions[33].value" -type "string" "0.0 0.0 0.0 0.0";
-	setAttr ".stringOptions[33].type" -type "string" "color";
-	setAttr ".stringOptions[34].name" -type "string" "samples per object";
-	setAttr ".stringOptions[34].value" -type "string" "false";
-	setAttr ".stringOptions[34].type" -type "string" "boolean";
-	setAttr ".stringOptions[35].name" -type "string" "progressive";
-	setAttr ".stringOptions[35].value" -type "string" "false";
-	setAttr ".stringOptions[35].type" -type "string" "boolean";
-	setAttr ".stringOptions[36].name" -type "string" "progressive max time";
-	setAttr ".stringOptions[36].value" -type "string" "0";
-	setAttr ".stringOptions[36].type" -type "string" "integer";
-	setAttr ".stringOptions[37].name" -type "string" "progressive subsampling size";
-	setAttr ".stringOptions[37].value" -type "string" "4";
-	setAttr ".stringOptions[37].type" -type "string" "integer";
-	setAttr ".stringOptions[38].name" -type "string" "iray";
-	setAttr ".stringOptions[38].value" -type "string" "false";
-	setAttr ".stringOptions[38].type" -type "string" "boolean";
-	setAttr ".stringOptions[39].name" -type "string" "light relative scale";
-	setAttr ".stringOptions[39].value" -type "string" "0.31831";
-	setAttr ".stringOptions[39].type" -type "string" "scalar";
-	setAttr ".stringOptions[40].name" -type "string" "trace camera motion vectors";
-	setAttr ".stringOptions[40].value" -type "string" "false";
-	setAttr ".stringOptions[40].type" -type "string" "boolean";
-	setAttr ".stringOptions[41].name" -type "string" "ray differentials";
-	setAttr ".stringOptions[41].value" -type "string" "true";
-	setAttr ".stringOptions[41].type" -type "string" "boolean";
-	setAttr ".stringOptions[42].name" -type "string" "environment lighting mode";
-	setAttr ".stringOptions[42].value" -type "string" "off";
-	setAttr ".stringOptions[42].type" -type "string" "string";
-	setAttr ".stringOptions[43].name" -type "string" "environment lighting quality";
-	setAttr ".stringOptions[43].value" -type "string" "0.2";
-	setAttr ".stringOptions[43].type" -type "string" "scalar";
-	setAttr ".stringOptions[44].name" -type "string" "environment lighting shadow";
-	setAttr ".stringOptions[44].value" -type "string" "transparent";
-	setAttr ".stringOptions[44].type" -type "string" "string";
-	setAttr ".stringOptions[45].name" -type "string" "environment lighting resolution";
-	setAttr ".stringOptions[45].value" -type "string" "512";
-	setAttr ".stringOptions[45].type" -type "string" "integer";
-	setAttr ".stringOptions[46].name" -type "string" "environment lighting shader samples";
-	setAttr ".stringOptions[46].value" -type "string" "2";
-	setAttr ".stringOptions[46].type" -type "string" "integer";
-	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
-	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
-	setAttr ".stringOptions[47].type" -type "string" "color";
-createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 119 ".lnk";
 	setAttr -s 3 ".ign";
@@ -5892,7 +5880,7 @@ createNode RenderMan -s -n "rmanScatterVolumeRenderChannelGlobals3";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color Cs";
 createNode reference -n "nightmareRN";
-	setAttr -s 137 ".phl";
+	setAttr -s 139 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -6030,12 +6018,14 @@ createNode reference -n "nightmareRN";
 	setAttr ".phl[135]" 0;
 	setAttr ".phl[136]" 0;
 	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN"
 		"nightmareRN" 0
-		"nightmareRN" 294
-		0 "|nightmareRNfosterParent1|fluidEmitter2" "|nightmare:Body" "-s -r "
+		"nightmareRN" 298
 		0 "|nightmareRNfosterParent1|fluidEmitter1" "|nightmare:Body" "-s -r "
+		0 "|nightmareRNfosterParent1|fluidEmitter2" "|nightmare:Body" "-s -r "
 		2 "|nightmare:Master_Controller" "translate" " -type \"double3\" 0 2.85441629326612167 -8.57857956564272151"
 		
 		2 "|nightmare:Master_Controller" "translateY" " -av"
@@ -6077,7 +6067,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso" 
 		"translateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 13.44692198829041807 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso" 
@@ -6111,7 +6101,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"translateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
-		"rotate" " -type \"double3\" 0 0 -50.40943909843824855"
+		"rotate" " -type \"double3\" 0 0 -37.87183186725211215"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
 		"rotateX" " -av"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder" 
@@ -6149,7 +6139,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"translate" " -type \"double3\" -1.244 0 0"
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
-		"rotate" " -type \"double3\" -10.83678644241463829 -16.53533896904096068 47.13472487300337121"
+		"rotate" " -type \"double3\" -10.83678644241463829 -16.53533896904096068 43.53396085221338296"
 		
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1" 
 		"rotateX" " -av"
@@ -6192,7 +6182,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:LowerBody|nightmare:Waist|nightmare:Torso|nightmare:LShoulder1|nightmare:LElbow|nightmare:LHand" 
 		"rotateZ" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
-		"rotate" " -type \"double3\" -4.11131153394001458 -7.56829070931627967 -49.44452522095841118"
+		"rotate" " -type \"double3\" -3.72921279820767548 -5.39619107833895928 -37.14472587535975379"
 		
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
 		"rotateX" " -av"
@@ -6203,7 +6193,7 @@ createNode reference -n "nightmareRN";
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6" 
 		"segmentScaleCompensate" " 1"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
-		"translate" " -type \"double3\" 0.20437507095237706 -0.021328997099373803 -0.016986909234162573"
+		"translate" " -type \"double3\" 0.20437507095442609 -0.02132899705784852 -0.016986909261646588"
 		
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
 		"translateX" " -av"
@@ -6211,82 +6201,84 @@ createNode reference -n "nightmareRN";
 		"translateY" " -av"
 		2 "|nightmare:Master_Controller|nightmare:Cog|nightmare:joint1|nightmare:joint2|nightmare:joint3|nightmare:joint6|nightmare:joint7|nightmare:joint8|nightmare:joint15|nightmare:joint11" 
 		"translateZ" " -av"
-		2 "|nightmare:Body" "visibility" " -av 0"
+		2 "|nightmare:Body" "visibility" " -av 1"
 		2 "|nightmare:Body|nightmare:BodyShape" "uvPivot" " -type \"double2\" 0.72851574420928955 0.10937549918889999"
 		
+		2 "|nightmare:LeftEye" "visibility" " -av 1"
+		2 "|nightmare:RightEye" "visibility" " -av 1"
 		2 "nightmare:Meshes" "displayType" " 0"
 		2 "nightmare:tweak1" "vlist[0].vertex" " -s 15"
-		2 "nightmare:tweak1" "vlist[0].vertex[793]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[793]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[793].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[793].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[793].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[794]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[794]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[794].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[794].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[794].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[808]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[808]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[808].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[808].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[808].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[830]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[830]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[830].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[830].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[830].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[853]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[853]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[853].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[853].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[853].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[855]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[855]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[855].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[855].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[855].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[856]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[856]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[856].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[856].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[856].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[878]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[878]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[878].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[878].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[878].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[893]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[893]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[893].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[893].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[893].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[973]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[973]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[973].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[973].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[973].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[974]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[974]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[974].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[974].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[974].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[975]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[975]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[975].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[975].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[975].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[1113]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[1113]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[1113].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[1113].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[1113].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[1114]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[1114]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[1114].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[1114].yVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[1114].zVertex" " -av"
-		2 "nightmare:tweak1" "vlist[0].vertex[1115]" " -type \"float3\" -0.057101879000000001 0.044475886999999999 0.00016266435000000001"
+		2 "nightmare:tweak1" "vlist[0].vertex[1115]" " -type \"float3\" 0.0043740421999999999 0.089307128999999999 -0.0043605985"
 		
 		2 "nightmare:tweak1" "vlist[0].vertex[1115].xVertex" " -av"
 		2 "nightmare:tweak1" "vlist[0].vertex[1115].yVertex" " -av"
@@ -6475,95 +6467,99 @@ createNode reference -n "nightmareRN";
 		"nightmareRN.placeHolderList[91]" ""
 		5 3 "nightmareRN" "|nightmare:Body|nightmare:BodyShape.message" "nightmareRN.placeHolderList[92]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].xVertex" "nightmareRN.placeHolderList[93]" 
+		5 4 "nightmareRN" "|nightmare:LeftEye.visibility" "nightmareRN.placeHolderList[93]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].yVertex" "nightmareRN.placeHolderList[94]" 
+		5 4 "nightmareRN" "|nightmare:RightEye.visibility" "nightmareRN.placeHolderList[94]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].zVertex" "nightmareRN.placeHolderList[95]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].xVertex" "nightmareRN.placeHolderList[95]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].xVertex" "nightmareRN.placeHolderList[96]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].yVertex" "nightmareRN.placeHolderList[96]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].yVertex" "nightmareRN.placeHolderList[97]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[793].zVertex" "nightmareRN.placeHolderList[97]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].zVertex" "nightmareRN.placeHolderList[98]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].xVertex" "nightmareRN.placeHolderList[98]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].xVertex" "nightmareRN.placeHolderList[99]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].yVertex" "nightmareRN.placeHolderList[99]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].yVertex" "nightmareRN.placeHolderList[100]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[794].zVertex" "nightmareRN.placeHolderList[100]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].zVertex" "nightmareRN.placeHolderList[101]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].xVertex" "nightmareRN.placeHolderList[101]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].xVertex" "nightmareRN.placeHolderList[102]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].yVertex" "nightmareRN.placeHolderList[102]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].yVertex" "nightmareRN.placeHolderList[103]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[808].zVertex" "nightmareRN.placeHolderList[103]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].zVertex" "nightmareRN.placeHolderList[104]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].xVertex" "nightmareRN.placeHolderList[104]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].xVertex" "nightmareRN.placeHolderList[105]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].yVertex" "nightmareRN.placeHolderList[105]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].yVertex" "nightmareRN.placeHolderList[106]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[830].zVertex" "nightmareRN.placeHolderList[106]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].zVertex" "nightmareRN.placeHolderList[107]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].xVertex" "nightmareRN.placeHolderList[107]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].xVertex" "nightmareRN.placeHolderList[108]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].yVertex" "nightmareRN.placeHolderList[108]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].yVertex" "nightmareRN.placeHolderList[109]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[853].zVertex" "nightmareRN.placeHolderList[109]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].zVertex" "nightmareRN.placeHolderList[110]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].xVertex" "nightmareRN.placeHolderList[110]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].xVertex" "nightmareRN.placeHolderList[111]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].yVertex" "nightmareRN.placeHolderList[111]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].yVertex" "nightmareRN.placeHolderList[112]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[855].zVertex" "nightmareRN.placeHolderList[112]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].zVertex" "nightmareRN.placeHolderList[113]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].xVertex" "nightmareRN.placeHolderList[113]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].xVertex" "nightmareRN.placeHolderList[114]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].yVertex" "nightmareRN.placeHolderList[114]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].yVertex" "nightmareRN.placeHolderList[115]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[856].zVertex" "nightmareRN.placeHolderList[115]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].zVertex" "nightmareRN.placeHolderList[116]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].xVertex" "nightmareRN.placeHolderList[116]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].xVertex" "nightmareRN.placeHolderList[117]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].yVertex" "nightmareRN.placeHolderList[117]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].yVertex" "nightmareRN.placeHolderList[118]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[878].zVertex" "nightmareRN.placeHolderList[118]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].zVertex" "nightmareRN.placeHolderList[119]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].xVertex" "nightmareRN.placeHolderList[119]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].xVertex" "nightmareRN.placeHolderList[120]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].yVertex" "nightmareRN.placeHolderList[120]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].yVertex" "nightmareRN.placeHolderList[121]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[893].zVertex" "nightmareRN.placeHolderList[121]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].zVertex" "nightmareRN.placeHolderList[122]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].xVertex" "nightmareRN.placeHolderList[122]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].xVertex" "nightmareRN.placeHolderList[123]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].yVertex" "nightmareRN.placeHolderList[123]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].yVertex" "nightmareRN.placeHolderList[124]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[973].zVertex" "nightmareRN.placeHolderList[124]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].zVertex" "nightmareRN.placeHolderList[125]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].xVertex" "nightmareRN.placeHolderList[125]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].xVertex" "nightmareRN.placeHolderList[126]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].yVertex" "nightmareRN.placeHolderList[126]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].yVertex" "nightmareRN.placeHolderList[127]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[974].zVertex" "nightmareRN.placeHolderList[127]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].zVertex" "nightmareRN.placeHolderList[128]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].xVertex" "nightmareRN.placeHolderList[128]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].xVertex" "nightmareRN.placeHolderList[129]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].yVertex" "nightmareRN.placeHolderList[129]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].yVertex" "nightmareRN.placeHolderList[130]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[975].zVertex" "nightmareRN.placeHolderList[130]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].zVertex" "nightmareRN.placeHolderList[131]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].xVertex" "nightmareRN.placeHolderList[131]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].xVertex" "nightmareRN.placeHolderList[132]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].yVertex" "nightmareRN.placeHolderList[132]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].yVertex" "nightmareRN.placeHolderList[133]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1113].zVertex" "nightmareRN.placeHolderList[133]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].zVertex" "nightmareRN.placeHolderList[134]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].xVertex" "nightmareRN.placeHolderList[134]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].xVertex" "nightmareRN.placeHolderList[135]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].yVertex" "nightmareRN.placeHolderList[135]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].yVertex" "nightmareRN.placeHolderList[136]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1114].zVertex" "nightmareRN.placeHolderList[136]" 
 		""
-		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].zVertex" "nightmareRN.placeHolderList[137]" 
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].xVertex" "nightmareRN.placeHolderList[137]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].yVertex" "nightmareRN.placeHolderList[138]" 
+		""
+		5 4 "nightmareRN" "nightmare:tweak1.vlist[0].vertex[1115].zVertex" "nightmareRN.placeHolderList[139]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -7033,9 +7029,9 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n"
 		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera1\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n"
 		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n"
-		+ "                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n"
+		+ "                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n"
 		+ "                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n"
-		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n"
+		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n"
 		+ "            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n"
 		+ "                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n"
@@ -7153,8 +7149,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n"
 		+ "            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 0\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -7189,7 +7185,7 @@ createNode reference -n "sword_3RN";
 		"sword_3RN" 17
 		0 "|sword_3RNfosterParent2|Sword_Anim_Control_parentConstraint2" "|sword_3:Sword_Anim_Control" 
 		"-s -r "
-		2 "|sword_3:particle1|sword_3:particleShape1" "currentSceneTime" " 20"
+		2 "|sword_3:particle1|sword_3:particleShape1" "currentSceneTime" " 96"
 		2 "|sword_3:particle1|sword_3:particleShape1" "cacheWidth" " 96"
 		2 "|sword_3:RMSGeoAreaLight5" "translate" " -type \"double3\" -4.66557323120768963 1.04964039947984911 11.39792228301724109"
 		
@@ -8613,7 +8609,7 @@ createNode animCurveTL -n "tweak1_vlist_0__vertex_975__zVertex";
 	setAttr -s 4 ".ktv[0:3]"  9 0.00025672427727840841 21 0.00016077648615464568
 		 36 0.0021341070532798767 53 -0.004360598511993885;
 createNode reference -n "nightmareRN1";
-	setAttr -s 10 ".phl";
+	setAttr -s 30 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -8624,20 +8620,49 @@ createNode reference -n "nightmareRN1";
 	setAttr ".phl[8]" 0;
 	setAttr ".phl[9]" 0;
 	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN1"
 		"nightmareRN1" 0
-		"nightmareRN1" 18
-		2 "|nightmare1:Master_Controller" "translate" " -type \"double3\" 2.16452204679462357 4.76082284363419816 -7.08271272146102682"
+		"nightmareRN1" 42
+		2 "|nightmare1:Master_Controller" "translate" " -type \"double3\" 0.54374137525749466 5.37406559163209607 -7.21055927131251195"
 		
 		2 "|nightmare1:Master_Controller" "translateX" " -av"
 		2 "|nightmare1:Master_Controller" "translateY" " -av"
 		2 "|nightmare1:Master_Controller" "translateZ" " -av"
-		2 "|nightmare1:Master_Controller" "rotate" " -type \"double3\" -143.48559702233657731 28.39260975492497963 -141.29348930136117701"
+		2 "|nightmare1:Master_Controller" "rotate" " -type \"double3\" -46.14076175587557316 -183.46819292821345471 -207.21571030488595966"
 		
 		2 "|nightmare1:Master_Controller" "rotateX" " -av"
 		2 "|nightmare1:Master_Controller" "rotateY" " -av"
 		2 "|nightmare1:Master_Controller" "rotateZ" " -av"
+		2 "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder" 
+		"rotate" " -type \"double3\" 83.54861207797304701 6.80769957458867658 -23.86119760134608825"
+		
+		2 "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder" 
+		"rotateX" " -av"
+		2 "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder" 
+		"rotateY" " -av"
+		2 "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder" 
+		"rotateZ" " -av"
 		5 4 "nightmareRN1" "|nightmare1:Master_Controller.translateX" "nightmareRN1.placeHolderList[1]" 
 		""
 		5 4 "nightmareRN1" "|nightmare1:Master_Controller.translateY" "nightmareRN1.placeHolderList[2]" 
@@ -8657,7 +8682,47 @@ createNode reference -n "nightmareRN1";
 		5 4 "nightmareRN1" "|nightmare1:Master_Controller.scaleZ" "nightmareRN1.placeHolderList[9]" 
 		""
 		5 4 "nightmareRN1" "|nightmare1:Master_Controller.visibility" "nightmareRN1.placeHolderList[10]" 
-		"";
+		""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.rotateX" 
+		"nightmareRN1.placeHolderList[11]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.rotateY" 
+		"nightmareRN1.placeHolderList[12]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.rotateZ" 
+		"nightmareRN1.placeHolderList[13]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.translateX" 
+		"nightmareRN1.placeHolderList[14]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.translateY" 
+		"nightmareRN1.placeHolderList[15]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.translateZ" 
+		"nightmareRN1.placeHolderList[16]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.scaleX" 
+		"nightmareRN1.placeHolderList[17]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.scaleY" 
+		"nightmareRN1.placeHolderList[18]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.scaleZ" 
+		"nightmareRN1.placeHolderList[19]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder.visibility" 
+		"nightmareRN1.placeHolderList[20]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.rotateX" 
+		"nightmareRN1.placeHolderList[21]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.rotateY" 
+		"nightmareRN1.placeHolderList[22]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.rotateZ" 
+		"nightmareRN1.placeHolderList[23]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.translateX" 
+		"nightmareRN1.placeHolderList[24]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.translateY" 
+		"nightmareRN1.placeHolderList[25]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.translateZ" 
+		"nightmareRN1.placeHolderList[26]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.scaleX" 
+		"nightmareRN1.placeHolderList[27]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.scaleY" 
+		"nightmareRN1.placeHolderList[28]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.scaleZ" 
+		"nightmareRN1.placeHolderList[29]" ""
+		5 4 "nightmareRN1" "|nightmare1:Master_Controller|nightmare1:LowerBody|nightmare1:Waist|nightmare1:Torso|nightmare1:LShoulder1.visibility" 
+		"nightmareRN1.placeHolderList[30]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "nightmareRN2";
@@ -8696,12 +8761,12 @@ createNode reference -n "nightmareRN2";
 		"nightmareRN2"
 		"nightmareRN2" 0
 		"nightmareRN2" 40
-		2 "|nightmare2:Master_Controller" "translate" " -type \"double3\" -0.99631201452717821 5.08994217602138566 -8.10869824276937123"
+		2 "|nightmare2:Master_Controller" "translate" " -type \"double3\" -0.019167541692648893 7.28864672294009353 -7.44571266147425348"
 		
 		2 "|nightmare2:Master_Controller" "translateX" " -av"
 		2 "|nightmare2:Master_Controller" "translateY" " -av"
 		2 "|nightmare2:Master_Controller" "translateZ" " -av"
-		2 "|nightmare2:Master_Controller" "rotate" " -type \"double3\" 224.84119402709777091 -163.69139030983322414 -185.90934747579152031"
+		2 "|nightmare2:Master_Controller" "rotate" " -type \"double3\" 321.01487547898062758 -210.01593135962085057 211.55065682114079095"
 		
 		2 "|nightmare2:Master_Controller" "rotateX" " -av"
 		2 "|nightmare2:Master_Controller" "rotateY" " -av"
@@ -8839,18 +8904,18 @@ createNode animCurveTA -n "Master_Controller_rotateX2";
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -13 36.043972741797603 12 -130.31845381010697
 		 20 -143.48559702233658 28 -168.78289020010533 41 -128.03112068894467 52 -131.18906530013462
-		 72 -46.140761755875573;
+		 81 -46.140761755875573;
 createNode animCurveTA -n "Master_Controller_rotateY2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -13 80.324699431350965 12 58.631418881080045
 		 20 28.39260975492498 28 -31.295939170796409 41 -175.99759744146544 52 -201.05302750549566
-		 72 -183.46819292821345;
+		 81 -183.46819292821345;
 createNode animCurveTA -n "Master_Controller_rotateZ2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -13 0 12 -168.06871800852963 20 -141.29348930136118
-		 28 -143.70843875951789 41 -163.75098085742991 52 -184.32705366874367 72 -207.21571030488596;
+		 28 -143.70843875951789 41 -163.75098085742991 52 -184.32705366874367 81 -207.21571030488596;
 createNode animCurveTU -n "Master_Controller_visibility2";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
@@ -8860,17 +8925,17 @@ createNode animCurveTL -n "Master_Controller_translateX2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -13 -4.9676404719020582 20 2.1645220467946236
-		 41 -0.97132014793188937 52 1.5695722847782574 72 0.54374137525749466;
+		 41 -0.97132014793188937 52 1.5695722847782574 81 0.54374137525749466;
 createNode animCurveTL -n "Master_Controller_translateY2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -13 3.1485131441375445 12 3.9129835028669562
-		 52 9.4498531228407838 63 11.789517784532263 72 5.3740655916320961;
+		 52 9.4498531228407838 63 11.789517784532263 81 5.3740655916320961;
 createNode animCurveTL -n "Master_Controller_translateZ1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  -13 -5.6876339759759009 28 -7.4644424761696335
-		 34 -7.5484140206982229 41 -5.1138382600366352 52 -4.2141216510149295 72 -7.210559271312512;
+		 34 -7.5484140206982229 41 -5.1138382600366352 52 -4.2141216510149295 81 -7.210559271312512;
 createNode animCurveTU -n "Master_Controller_scaleX2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -8884,7 +8949,7 @@ createNode animCurveTU -n "Master_Controller_scaleZ2";
 	setAttr ".wgt" no;
 	setAttr ".ktv[0]"  -13 0.29947974195062049;
 createNode reference -n "nightmareRN3";
-	setAttr -s 10 ".phl";
+	setAttr -s 30 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -8895,16 +8960,36 @@ createNode reference -n "nightmareRN3";
 	setAttr ".phl[8]" 0;
 	setAttr ".phl[9]" 0;
 	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN3"
 		"nightmareRN3" 0
-		"nightmareRN3" 18
-		2 "|nightmare3:Master_Controller" "translate" " -type \"double3\" 1.87555990057565491 4.3034416526730217 -6.85922986228749387"
+		"nightmareRN3" 38
+		2 "|nightmare3:Master_Controller" "translate" " -type \"double3\" 0.36414376851368901 5.83380061397400507 -7.37701847843159442"
 		
 		2 "|nightmare3:Master_Controller" "translateX" " -av"
 		2 "|nightmare3:Master_Controller" "translateY" " -av"
 		2 "|nightmare3:Master_Controller" "translateZ" " -av"
-		2 "|nightmare3:Master_Controller" "rotate" " -type \"double3\" -139.43567828132930231 47.55877709913627882 -154.68110859083839159"
+		2 "|nightmare3:Master_Controller" "rotate" " -type \"double3\" -32.41767786819720243 -188.47704527014849418 -201.55528104402395684"
 		
 		2 "|nightmare3:Master_Controller" "rotateX" " -av"
 		2 "|nightmare3:Master_Controller" "rotateY" " -av"
@@ -8928,7 +9013,47 @@ createNode reference -n "nightmareRN3";
 		5 4 "nightmareRN3" "|nightmare3:Master_Controller.scaleZ" "nightmareRN3.placeHolderList[9]" 
 		""
 		5 4 "nightmareRN3" "|nightmare3:Master_Controller.visibility" "nightmareRN3.placeHolderList[10]" 
-		"";
+		""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.rotateX" 
+		"nightmareRN3.placeHolderList[11]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.rotateY" 
+		"nightmareRN3.placeHolderList[12]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.rotateZ" 
+		"nightmareRN3.placeHolderList[13]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.translateX" 
+		"nightmareRN3.placeHolderList[14]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.translateY" 
+		"nightmareRN3.placeHolderList[15]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.translateZ" 
+		"nightmareRN3.placeHolderList[16]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.scaleX" 
+		"nightmareRN3.placeHolderList[17]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.scaleY" 
+		"nightmareRN3.placeHolderList[18]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.scaleZ" 
+		"nightmareRN3.placeHolderList[19]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder.visibility" 
+		"nightmareRN3.placeHolderList[20]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.rotateX" 
+		"nightmareRN3.placeHolderList[21]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.rotateY" 
+		"nightmareRN3.placeHolderList[22]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.rotateZ" 
+		"nightmareRN3.placeHolderList[23]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.translateX" 
+		"nightmareRN3.placeHolderList[24]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.translateY" 
+		"nightmareRN3.placeHolderList[25]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.translateZ" 
+		"nightmareRN3.placeHolderList[26]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.scaleX" 
+		"nightmareRN3.placeHolderList[27]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.scaleY" 
+		"nightmareRN3.placeHolderList[28]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.scaleZ" 
+		"nightmareRN3.placeHolderList[29]" ""
+		5 4 "nightmareRN3" "|nightmare3:Master_Controller|nightmare3:LowerBody|nightmare3:Waist|nightmare3:Torso|nightmare3:LShoulder1.visibility" 
+		"nightmareRN3.placeHolderList[30]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "Master_Controller_rotateX3";
@@ -8936,17 +9061,17 @@ createNode animCurveTA -n "Master_Controller_rotateX3";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  -9 36.043973 16 -130.31845 24 -143.4856
 		 32 -168.78289 45 -128.03112000000002 56 -131.18907 62 -131.18907 65 -43.512878458974726
-		 73 -32.417677868197202;
+		 80 -32.417677868197202;
 createNode animCurveTA -n "Master_Controller_rotateY3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  -9 80.324699 16 58.631419000000008 24 28.39261
-		 32 -31.295939000000004 45 -175.99760000000003 56 -201.05303 62 -201.05303 73 -188.47704527014849;
+		 32 -31.295939000000004 45 -175.99760000000003 56 -201.05303 62 -201.05303 80 -188.47704527014849;
 createNode animCurveTA -n "Master_Controller_rotateZ3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  -9 0 16 -168.06872 24 -141.29349 32 -143.70844
-		 45 -163.75098 56 -184.32705 62 -184.32705 73 -201.55528104402396;
+		 45 -163.75098 56 -184.32705 62 -184.32705 80 -201.55528104402396;
 createNode animCurveTU -n "Master_Controller_scaleX3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -8963,24 +9088,24 @@ createNode animCurveTL -n "Master_Controller_translateX3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  -9 -4.9676404999999999 24 2.164522 45 -0.97132015000000005
-		 56 1.5695722999999999 62 1.5695722999999999 73 0.36414376851368901;
+		 56 1.5695722999999999 62 1.5695722999999999 80 0.36414376851368901;
 createNode animCurveTL -n "Master_Controller_translateY3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  -9 3.1485131000000002 16 3.9129835000000002
-		 56 9.4498531000000003 62 11.80967148645462 73 5.8338006139740051;
+		 56 9.4498531000000003 62 11.80967148645462 80 5.8338006139740051;
 createNode animCurveTL -n "Master_Controller_translateZ2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  -9 -5.687634 32 -7.4644424999999996 38 -7.548414
-		 45 -5.1138383000000003 56 -4.2141216999999997 62 -4.2141216999999997 73 -7.3770184784315944;
+		 45 -5.1138383000000003 56 -4.2141216999999997 62 -4.2141216999999997 80 -7.3770184784315944;
 createNode animCurveTU -n "Master_Controller_visibility3";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  -9 1 62 1;
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode reference -n "nightmareRN4";
-	setAttr -s 10 ".phl";
+	setAttr -s 30 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -8991,16 +9116,36 @@ createNode reference -n "nightmareRN4";
 	setAttr ".phl[8]" 0;
 	setAttr ".phl[9]" 0;
 	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN4"
 		"nightmareRN4" 0
-		"nightmareRN4" 18
-		2 "|nightmare4:Master_Controller" "translate" " -type \"double3\" -0.59728818647979587 3.56780583047184896 -6.29165376047537173"
+		"nightmareRN4" 38
+		2 "|nightmare4:Master_Controller" "translate" " -type \"double3\" -0.43440052519892847 7.54136239688433641 -7.30762064910265252"
 		
 		2 "|nightmare4:Master_Controller" "translateX" " -av"
 		2 "|nightmare4:Master_Controller" "translateY" " -av"
 		2 "|nightmare4:Master_Controller" "translateZ" " -av"
-		2 "|nightmare4:Master_Controller" "rotate" " -type \"double3\" -89.05856859408699222 67.23405724982305287 -143.67320026109425157"
+		2 "|nightmare4:Master_Controller" "rotate" " -type \"double3\" -233.64157527553828686 -247.64431887143013 -310.14173824373762045"
 		
 		2 "|nightmare4:Master_Controller" "rotateX" " -av"
 		2 "|nightmare4:Master_Controller" "rotateY" " -av"
@@ -9024,7 +9169,47 @@ createNode reference -n "nightmareRN4";
 		5 4 "nightmareRN4" "|nightmare4:Master_Controller.scaleZ" "nightmareRN4.placeHolderList[9]" 
 		""
 		5 4 "nightmareRN4" "|nightmare4:Master_Controller.visibility" "nightmareRN4.placeHolderList[10]" 
-		"";
+		""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.rotateX" 
+		"nightmareRN4.placeHolderList[11]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.rotateY" 
+		"nightmareRN4.placeHolderList[12]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.rotateZ" 
+		"nightmareRN4.placeHolderList[13]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.translateX" 
+		"nightmareRN4.placeHolderList[14]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.translateY" 
+		"nightmareRN4.placeHolderList[15]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.translateZ" 
+		"nightmareRN4.placeHolderList[16]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.scaleX" 
+		"nightmareRN4.placeHolderList[17]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.scaleY" 
+		"nightmareRN4.placeHolderList[18]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.scaleZ" 
+		"nightmareRN4.placeHolderList[19]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder.visibility" 
+		"nightmareRN4.placeHolderList[20]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.rotateX" 
+		"nightmareRN4.placeHolderList[21]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.rotateY" 
+		"nightmareRN4.placeHolderList[22]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.rotateZ" 
+		"nightmareRN4.placeHolderList[23]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.translateX" 
+		"nightmareRN4.placeHolderList[24]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.translateY" 
+		"nightmareRN4.placeHolderList[25]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.translateZ" 
+		"nightmareRN4.placeHolderList[26]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.scaleX" 
+		"nightmareRN4.placeHolderList[27]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.scaleY" 
+		"nightmareRN4.placeHolderList[28]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.scaleZ" 
+		"nightmareRN4.placeHolderList[29]" ""
+		5 4 "nightmareRN4" "|nightmare4:Master_Controller|nightmare4:LowerBody|nightmare4:Waist|nightmare4:Torso|nightmare4:LShoulder1.visibility" 
+		"nightmareRN4.placeHolderList[30]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "Master_Controller_rotateX4";
@@ -9109,14 +9294,14 @@ createNode reference -n "nightmareRN5";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN5"
 		"nightmareRN5" 0
-		"nightmareRN5" 47
+		"nightmareRN5" 51
 		2 "|nightmare5:Master_Controller" "visibility" " -av 1"
-		2 "|nightmare5:Master_Controller" "translate" " -type \"double3\" 3.20105584311138669 3.85141326547335261 -7.65545779020839756"
+		2 "|nightmare5:Master_Controller" "translate" " -type \"double3\" -0.0098880115907058475 7.37422274692748303 -8.06750134962052279"
 		
 		2 "|nightmare5:Master_Controller" "translateX" " -av"
 		2 "|nightmare5:Master_Controller" "translateY" " -av"
 		2 "|nightmare5:Master_Controller" "translateZ" " -av"
-		2 "|nightmare5:Master_Controller" "rotate" " -type \"double3\" 128.85881762679068174 -134.20366044387117199 -90.34067578575641733"
+		2 "|nightmare5:Master_Controller" "rotate" " -type \"double3\" 314.88565982110628738 -181.6615695159969448 195.12726676532238912"
 		
 		2 "|nightmare5:Master_Controller" "rotateX" " -av"
 		2 "|nightmare5:Master_Controller" "rotateY" " -av"
@@ -9126,6 +9311,15 @@ createNode reference -n "nightmareRN5";
 		2 "|nightmare5:Master_Controller" "scaleX" " -av"
 		2 "|nightmare5:Master_Controller" "scaleY" " -av"
 		2 "|nightmare5:Master_Controller" "scaleZ" " -av"
+		2 "|nightmare5:Master_Controller|nightmare5:LowerBody|nightmare5:Waist|nightmare5:Torso|nightmare5:LShoulder1" 
+		"rotate" " -type \"double3\" 57.50568462137912462 -26.08365672955582326 5.42505483904229902"
+		
+		2 "|nightmare5:Master_Controller|nightmare5:LowerBody|nightmare5:Waist|nightmare5:Torso|nightmare5:LShoulder1" 
+		"rotateX" " -av"
+		2 "|nightmare5:Master_Controller|nightmare5:LowerBody|nightmare5:Waist|nightmare5:Torso|nightmare5:LShoulder1" 
+		"rotateY" " -av"
+		2 "|nightmare5:Master_Controller|nightmare5:LowerBody|nightmare5:Waist|nightmare5:Torso|nightmare5:LShoulder1" 
+		"rotateZ" " -av"
 		2 "|nightmare5:Master_Controller|nightmare5:Cog|nightmare5:joint1|nightmare5:joint2|nightmare5:joint3" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|nightmare5:Master_Controller|nightmare5:Cog|nightmare5:joint1|nightmare5:joint2|nightmare5:joint3" 
@@ -9288,12 +9482,12 @@ createNode reference -n "nightmareRN6";
 		"nightmareRN6"
 		"nightmareRN6" 0
 		"nightmareRN6" 44
-		2 "|nightmare6:Master_Controller" "translate" " -type \"double3\" 1.13800310141678818 4.12478085693299779 -8.10139886084104432"
+		2 "|nightmare6:Master_Controller" "translate" " -type \"double3\" -0.080638354147110736 7.41559768415768339 -7.45583172885462719"
 		
 		2 "|nightmare6:Master_Controller" "translateX" " -av"
 		2 "|nightmare6:Master_Controller" "translateY" " -av"
 		2 "|nightmare6:Master_Controller" "translateZ" " -av"
-		2 "|nightmare6:Master_Controller" "rotate" " -type \"double3\" 194.53322183689869007 -142.63730918913140044 -156.50982159589023013"
+		2 "|nightmare6:Master_Controller" "rotate" " -type \"double3\" 335.66908393366787777 -173.55687024287269082 192.35880766996845637"
 		
 		2 "|nightmare6:Master_Controller" "rotateX" " -av"
 		2 "|nightmare6:Master_Controller" "rotateY" " -av"
@@ -9376,18 +9570,18 @@ createNode animCurveTA -n "Master_Controller_rotateX6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  1 22.230154 26 224.51065 35 225.04389 44 225.7176
-		 50 343.6122 56 374.18052 64 370.31278 66 329.25811917039215 70 335.66908393366788;
+		 50 343.6122 56 374.18052 64 370.31278 66 329.25811917039215 79 335.66908393366788;
 createNode animCurveTA -n "Master_Controller_rotateY6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  1 -126.1254 26 -153.42438 35 -193.07926
-		 44 -224.69148 50 -233.33147 56 -150.12095 64 -136.27275 66 -195.44467090650255 70 -173.55687024287269;
+		 44 -224.69148 50 -233.33147 56 -150.12095 64 -136.27275 66 -195.44467090650255 79 -173.55687024287269;
 createNode animCurveTA -n "Master_Controller_rotateZ6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  1 17.607836 26 -186.07477 35 -181.87867
 		 44 -161.16844 50 -39.124614 56 4.0148469000000002 64 -9.257874 66 157.2090321586499
-		 70 192.35880766996846;
+		 79 192.35880766996846;
 createNode animCurveTU -n "Master_Controller_scaleX6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -9403,35 +9597,35 @@ createNode animCurveTU -n "Master_Controller_scaleZ6";
 createNode animCurveTL -n "Master_Controller_translateX6";
 	setAttr ".tan" 18;
 	setAttr -s 7 ".ktv[0:6]"  1 5.9205506999999997 35 -1.3787962 44 0.23704
-		 50 1.6159467000000001 56 1.6743935000000001 64 -0.76162934000000004 70 -0.080638354147110736;
+		 50 1.6159467000000001 56 1.6743935000000001 64 -0.76162934000000004 79 -0.080638354147110736;
 	setAttr -s 7 ".kit[1:6]"  1 18 18 18 18 18;
 	setAttr -s 7 ".kot[1:6]"  1 18 18 18 18 18;
 	setAttr -s 7 ".kwl[1:6]" no yes yes yes yes yes;
 	setAttr -s 7 ".kix[1:6]"  1.8215600252151489 0.375 0.24999988079071045 
-		0.25 0.33333349227905273 0.25;
+		0.25 0.33333349227905273 0.625;
 	setAttr -s 7 ".kiy[1:6]"  0.36661508679389954 1.7968460321426392 
 		0.17534030973911285 0 0 0;
 	setAttr -s 7 ".kox[1:6]"  0.78900015354156494 0.24999988079071045 
-		0.25 0.33333349227905273 0.25 0.25;
+		0.25 0.33333349227905273 0.625 0.625;
 	setAttr -s 7 ".koy[1:6]"  -0.17304910719394684 1.1978968381881714 
 		0.17534039914608002 0 0 0;
 createNode animCurveTL -n "Master_Controller_translateY6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 4 ".ktv[0:3]"  1 3.3082455999999998 26 4.72826 64 10.531741628882509
-		 70 7.4155976841576834;
+		 79 7.4155976841576834;
 createNode animCurveTL -n "Master_Controller_translateZ5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  1 -6.9279484 26 -8.3006492000000005 44 -5.709311
-		 50 -6.486925 56 -6.553927 64 -6.1721028000000002 70 -7.4558317288546272;
+		 50 -6.486925 56 -6.553927 64 -6.1721028000000002 79 -7.4558317288546272;
 createNode animCurveTU -n "Master_Controller_visibility6";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  1 1 64 1;
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode reference -n "nightmareRN7";
-	setAttr -s 20 ".phl";
+	setAttr -s 30 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -9452,20 +9646,39 @@ createNode reference -n "nightmareRN7";
 	setAttr ".phl[18]" 0;
 	setAttr ".phl[19]" 0;
 	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN7"
 		"nightmareRN7" 0
-		"nightmareRN7" 28
-		2 "|nightmare7:Master_Controller" "translate" " -type \"double3\" 8.04228564045642003 6.10581045735273964 -7.81688213936251763"
+		"nightmareRN7" 42
+		2 "|nightmare7:Master_Controller" "translate" " -type \"double3\" -0.68314928450317081 1.62120991661920488 -7.81688213936251763"
 		
 		2 "|nightmare7:Master_Controller" "translateX" " -av"
 		2 "|nightmare7:Master_Controller" "translateY" " -av"
 		2 "|nightmare7:Master_Controller" "translateZ" " -av"
-		2 "|nightmare7:Master_Controller" "rotate" " -type \"double3\" 76.25038598343309104 -87.45578614324207933 0"
+		2 "|nightmare7:Master_Controller" "rotate" " -type \"double3\" 83.71478584646301613 -87.45578614324207933 0"
 		
 		2 "|nightmare7:Master_Controller" "rotateX" " -av"
 		2 "|nightmare7:Master_Controller" "rotateY" " -av"
 		2 "|nightmare7:Master_Controller" "rotateZ" " -av"
+		2 "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1" 
+		"rotate" " -type \"double3\" 52.72058461239144123 -14.29265291609972266 23.80834449807304054"
+		
+		2 "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1" 
+		"rotateX" " -av"
+		2 "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1" 
+		"rotateY" " -av"
+		2 "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1" 
+		"rotateZ" " -av"
 		5 4 "nightmareRN7" "|nightmare7:Master_Controller.translateX" "nightmareRN7.placeHolderList[1]" 
 		""
 		5 4 "nightmareRN7" "|nightmare7:Master_Controller.translateY" "nightmareRN7.placeHolderList[2]" 
@@ -9505,17 +9718,37 @@ createNode reference -n "nightmareRN7";
 		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder.scaleZ" 
 		"nightmareRN7.placeHolderList[19]" ""
 		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder.visibility" 
-		"nightmareRN7.placeHolderList[20]" "";
+		"nightmareRN7.placeHolderList[20]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.rotateX" 
+		"nightmareRN7.placeHolderList[21]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.rotateY" 
+		"nightmareRN7.placeHolderList[22]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.rotateZ" 
+		"nightmareRN7.placeHolderList[23]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.translateX" 
+		"nightmareRN7.placeHolderList[24]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.translateY" 
+		"nightmareRN7.placeHolderList[25]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.translateZ" 
+		"nightmareRN7.placeHolderList[26]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.scaleX" 
+		"nightmareRN7.placeHolderList[27]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.scaleY" 
+		"nightmareRN7.placeHolderList[28]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.scaleZ" 
+		"nightmareRN7.placeHolderList[29]" ""
+		5 4 "nightmareRN7" "|nightmare7:Master_Controller|nightmare7:LowerBody|nightmare7:Waist|nightmare7:Torso|nightmare7:LShoulder1.visibility" 
+		"nightmareRN7.placeHolderList[30]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTL -n "Master_Controller_translateX7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  25 8.04228564045642 34 -0.68314928450317081;
+	setAttr -s 2 ".ktv[0:1]"  25 8.04228564045642 53 -0.68314928450317081;
 createNode animCurveTL -n "Master_Controller_translateY7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  25 6.1058104573527396 34 1.6212099166192049;
+	setAttr -s 2 ".ktv[0:1]"  25 6.1058104573527396 53 1.6212099166192049;
 createNode animCurveTL -n "Master_Controller_translateZ6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -9528,7 +9761,7 @@ createNode animCurveTU -n "Master_Controller_visibility7";
 createNode animCurveTA -n "Master_Controller_rotateX7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  25 76.250385983433091 34 83.714785846463016;
+	setAttr -s 2 ".ktv[0:1]"  25 76.250385983433091 53 83.714785846463016;
 createNode animCurveTA -n "Master_Controller_rotateY7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -9550,7 +9783,7 @@ createNode animCurveTU -n "Master_Controller_scaleZ7";
 	setAttr ".wgt" no;
 	setAttr ".ktv[0]"  25 0.3757450081540023;
 createNode reference -n "nightmareRN8";
-	setAttr -s 10 ".phl";
+	setAttr -s 20 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -9561,13 +9794,28 @@ createNode reference -n "nightmareRN8";
 	setAttr ".phl[8]" 0;
 	setAttr ".phl[9]" 0;
 	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmareRN8"
 		"nightmareRN8" 0
-		"nightmareRN8" 12
-		2 "|nightmare8:Master_Controller" "translate" " -type \"double3\" 8.04228559999999959 8.4902141606117727 -7.81688209999999994"
+		"nightmareRN8" 24
+		2 "|nightmare8:Master_Controller" "translate" " -type \"double3\" -0.68314927999999997 1.62120989999999998 -7.81688209999999994"
 		
 		2 "|nightmare8:Master_Controller" "translateY" " -av"
+		2 "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder1" 
+		"rotate" " -type \"double3\" 53.2887142723246825 -25.87189632029587827 13.61117762578123447"
+		
+		2 "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder1|nightmare8:LElbow" 
+		"rotate" " -type \"double3\" 0 0 0"
 		5 4 "nightmareRN8" "|nightmare8:Master_Controller.translateX" "nightmareRN8.placeHolderList[1]" 
 		""
 		5 4 "nightmareRN8" "|nightmare8:Master_Controller.translateY" "nightmareRN8.placeHolderList[2]" 
@@ -9587,13 +9835,33 @@ createNode reference -n "nightmareRN8";
 		5 4 "nightmareRN8" "|nightmare8:Master_Controller.scaleZ" "nightmareRN8.placeHolderList[9]" 
 		""
 		5 4 "nightmareRN8" "|nightmare8:Master_Controller.visibility" "nightmareRN8.placeHolderList[10]" 
-		"";
+		""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.rotateX" 
+		"nightmareRN8.placeHolderList[11]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.rotateY" 
+		"nightmareRN8.placeHolderList[12]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.rotateZ" 
+		"nightmareRN8.placeHolderList[13]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.translateX" 
+		"nightmareRN8.placeHolderList[14]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.translateY" 
+		"nightmareRN8.placeHolderList[15]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.translateZ" 
+		"nightmareRN8.placeHolderList[16]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.scaleX" 
+		"nightmareRN8.placeHolderList[17]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.scaleY" 
+		"nightmareRN8.placeHolderList[18]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.scaleZ" 
+		"nightmareRN8.placeHolderList[19]" ""
+		5 4 "nightmareRN8" "|nightmare8:Master_Controller|nightmare8:LowerBody|nightmare8:Waist|nightmare8:Torso|nightmare8:LShoulder.visibility" 
+		"nightmareRN8.placeHolderList[20]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "Master_Controller_rotateX8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  30 76.250386 42 83.714786;
+	setAttr -s 2 ".ktv[0:1]"  30 76.250386 50 83.714786;
 createNode animCurveTA -n "Master_Controller_rotateY8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -9617,11 +9885,11 @@ createNode animCurveTU -n "Master_Controller_scaleZ8";
 createNode animCurveTL -n "Master_Controller_translateX8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  30 8.0422855999999996 42 -0.68314927999999997;
+	setAttr -s 2 ".ktv[0:1]"  30 8.0422855999999996 50 -0.68314927999999997;
 createNode animCurveTL -n "Master_Controller_translateY8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  30 8.4902141606117727 42 1.6212099;
+	setAttr -s 2 ".ktv[0:1]"  30 8.4902141606117727 50 1.6212099;
 createNode animCurveTL -n "Master_Controller_translateZ7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
@@ -9754,49 +10022,49 @@ lockNode -l 1 ;
 createNode animCurveTA -n "Master_Controller_rotateX10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 108.54278;
+	setAttr ".ktv[0]"  19.86 108.54278;
 createNode animCurveTA -n "Master_Controller_rotateY10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 127.27916;
+	setAttr ".ktv[0]"  19.86 127.27916;
 createNode animCurveTA -n "Master_Controller_rotateZ10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 36.42655;
+	setAttr ".ktv[0]"  19.86 36.42655;
 createNode animCurveTU -n "Master_Controller_scaleX10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 0.30480751;
+	setAttr ".ktv[0]"  19.86 0.30480751;
 createNode animCurveTU -n "Master_Controller_scaleY10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 0.30480751;
+	setAttr ".ktv[0]"  19.86 0.30480751;
 createNode animCurveTU -n "Master_Controller_scaleZ10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 0.30480751;
+	setAttr ".ktv[0]"  19.86 0.30480751;
 createNode animCurveTL -n "Master_Controller_translateX10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  7 -6.4917332999999999 25 3.5328474000000001;
+	setAttr -s 2 ".ktv[0:1]"  19.86 -6.4917332999999999 45.572 3.5328474000000001;
 createNode animCurveTL -n "Master_Controller_translateY10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  7 5.2611211000000004 25 1.7294162;
+	setAttr -s 2 ".ktv[0:1]"  19.86 5.2611211000000004 45.572 1.7294162;
 createNode animCurveTL -n "Master_Controller_translateZ9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 -7.3687997999999997;
+	setAttr ".ktv[0]"  19.86 -7.3687997999999997;
 createNode animCurveTU -n "Master_Controller_visibility10";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  7 1;
+	setAttr ".ktv[0]"  19.86 1;
 	setAttr ".kot[0]"  5;
 createNode animCurveTU -n "Body_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  11 0 14 0;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr -s 3 ".ktv[0:2]"  11 0 14 0 90 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode RenderMan -n "rmanFinalChannel0";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -10583,15 +10851,15 @@ createNode animCurveTU -n "LShoulder1_scaleZ1";
 createNode animCurveTA -n "LShoulder1_rotateX2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 67.740412623208186;
+	setAttr ".ktv[0]"  1 57.505684621379125;
 createNode animCurveTA -n "LShoulder1_rotateY2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 -20.27914765149275;
+	setAttr ".ktv[0]"  1 -26.083656729555823;
 createNode animCurveTA -n "LShoulder1_rotateZ3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  1 2.9332887619065255;
+	setAttr ".ktv[0]"  1 5.425054839042299;
 createNode animCurveTU -n "LShoulder1_visibility2";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
@@ -10788,20 +11056,352 @@ createNode animCurveTU -n "LShoulder_scaleZ3";
 createNode animCurveTU -n "fluidEmitter2_rate";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  33 3.9370078666824995 58 55.118110133554993;
-createNode polyPlane -n "polyPlane2";
-	setAttr ".w" 31.152045582211798;
-	setAttr ".h" 18.181626495032361;
-	setAttr ".sw" 1;
-	setAttr ".sh" 1;
-	setAttr ".cuv" 2;
+	setAttr -s 4 ".ktv[0:3]"  9 10 33 10 58 86.614173067014988 59 118.11023600047498;
+createNode animCurveTU -n "RightEye_visibility";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  65 0 88 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "LeftEye_visibility";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  65 0 88 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTA -n "LShoulder1_rotateX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 52.720584612391441;
+createNode animCurveTA -n "LShoulder1_rotateY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -14.292652916099723;
+createNode animCurveTA -n "LShoulder1_rotateZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 23.808344498073041;
+createNode animCurveTU -n "LShoulder1_visibility3";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder1_translateX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1.244;
+createNode animCurveTL -n "LShoulder1_translateY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder1_translateZ3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder1_scaleX3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1;
+createNode animCurveTU -n "LShoulder1_scaleY3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder1_scaleZ3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder_rotateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 41.025839856778695;
+createNode animCurveTA -n "LShoulder_rotateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 43.652469214235474;
+createNode animCurveTA -n "LShoulder_rotateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -4.2648717315812235;
+createNode animCurveTU -n "LShoulder_visibility4";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder_translateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder_scaleX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder1_rotateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 49.013503811557356;
+createNode animCurveTA -n "LShoulder1_rotateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -37.353597437279383;
+createNode animCurveTA -n "LShoulder1_rotateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 7.6319804489998644;
+createNode animCurveTU -n "LShoulder1_visibility4";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder1_translateX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1.244;
+createNode animCurveTL -n "LShoulder1_translateY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder1_translateZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder1_scaleX4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1;
+createNode animCurveTU -n "LShoulder1_scaleY4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder1_scaleZ4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder_rotateX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 48.097593076711846;
+createNode animCurveTA -n "LShoulder_rotateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 35.628698195206532;
+createNode animCurveTA -n "LShoulder_rotateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -13.224689470153404;
+createNode animCurveTU -n "LShoulder_visibility5";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder_translateX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder_scaleX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder_rotateX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 83.548612077973047;
+createNode animCurveTA -n "LShoulder_rotateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 6.8076995745886766;
+createNode animCurveTA -n "LShoulder_rotateZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -23.861197601346088;
+createNode animCurveTU -n "LShoulder_visibility6";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder_translateX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder_scaleX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder1_rotateX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 45.962755170806304;
+createNode animCurveTA -n "LShoulder1_rotateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -22.137906159470024;
+createNode animCurveTA -n "LShoulder1_rotateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 20.336554217874223;
+createNode animCurveTU -n "LShoulder1_visibility5";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder1_translateX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1.244;
+createNode animCurveTL -n "LShoulder1_translateY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder1_translateZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder1_scaleX5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1;
+createNode animCurveTU -n "LShoulder1_scaleY5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder1_scaleZ5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder_rotateX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 61.52295927636542;
+createNode animCurveTA -n "LShoulder_rotateY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 19.737084216783867;
+createNode animCurveTA -n "LShoulder_rotateZ8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -2.7665817799119901;
+createNode animCurveTU -n "LShoulder_visibility7";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder_translateX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder_translateZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder_scaleX7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleY7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder_scaleZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTA -n "LShoulder1_rotateX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 36.655475616049706;
+createNode animCurveTA -n "LShoulder1_rotateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -17.164635394099253;
+createNode animCurveTA -n "LShoulder1_rotateZ7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 14.269961887224065;
+createNode animCurveTU -n "LShoulder1_visibility6";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTL -n "LShoulder1_translateX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1.244;
+createNode animCurveTL -n "LShoulder1_translateY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "LShoulder1_translateZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "LShoulder1_scaleX6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -1;
+createNode animCurveTU -n "LShoulder1_scaleY6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "LShoulder1_scaleZ6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 20;
-	setAttr -av ".unw" 20;
+	setAttr -k on ".o" 96;
+	setAttr -av ".unw" 96;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -10845,7 +11445,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 27 ".dsm";
+	setAttr -s 26 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -11101,7 +11701,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 7 ".sol";
+	setAttr -s 6 ".sol";
 connectAttr "Main_FaceVis.o" "Candy_Enter_UnicornRN.phl[1]";
 connectAttr "Main_fkVis.o" "Candy_Enter_UnicornRN.phl[2]";
 connectAttr "Main_ikVis.o" "Candy_Enter_UnicornRN.phl[3]";
@@ -11384,51 +11984,53 @@ connectAttr "Body_visibility.o" "nightmareRN.phl[89]";
 connectAttr "nightmareRN.phl[90]" "geoConnector1.lge";
 connectAttr "nightmareRN.phl[91]" "geoConnector1.wm";
 connectAttr "nightmareRN.phl[92]" "geoConnector1.own";
-connectAttr "tweak1_vlist_0__vertex_793__xVertex.o" "nightmareRN.phl[93]";
-connectAttr "tweak1_vlist_0__vertex_793__yVertex.o" "nightmareRN.phl[94]";
-connectAttr "tweak1_vlist_0__vertex_793__zVertex.o" "nightmareRN.phl[95]";
-connectAttr "tweak1_vlist_0__vertex_794__xVertex.o" "nightmareRN.phl[96]";
-connectAttr "tweak1_vlist_0__vertex_794__yVertex.o" "nightmareRN.phl[97]";
-connectAttr "tweak1_vlist_0__vertex_794__zVertex.o" "nightmareRN.phl[98]";
-connectAttr "tweak1_vlist_0__vertex_808__xVertex.o" "nightmareRN.phl[99]";
-connectAttr "tweak1_vlist_0__vertex_808__yVertex.o" "nightmareRN.phl[100]";
-connectAttr "tweak1_vlist_0__vertex_808__zVertex.o" "nightmareRN.phl[101]";
-connectAttr "tweak1_vlist_0__vertex_830__xVertex.o" "nightmareRN.phl[102]";
-connectAttr "tweak1_vlist_0__vertex_830__yVertex.o" "nightmareRN.phl[103]";
-connectAttr "tweak1_vlist_0__vertex_830__zVertex.o" "nightmareRN.phl[104]";
-connectAttr "tweak1_vlist_0__vertex_853__xVertex.o" "nightmareRN.phl[105]";
-connectAttr "tweak1_vlist_0__vertex_853__yVertex.o" "nightmareRN.phl[106]";
-connectAttr "tweak1_vlist_0__vertex_853__zVertex.o" "nightmareRN.phl[107]";
-connectAttr "tweak1_vlist_0__vertex_855__xVertex.o" "nightmareRN.phl[108]";
-connectAttr "tweak1_vlist_0__vertex_855__yVertex.o" "nightmareRN.phl[109]";
-connectAttr "tweak1_vlist_0__vertex_855__zVertex.o" "nightmareRN.phl[110]";
-connectAttr "tweak1_vlist_0__vertex_856__xVertex.o" "nightmareRN.phl[111]";
-connectAttr "tweak1_vlist_0__vertex_856__yVertex.o" "nightmareRN.phl[112]";
-connectAttr "tweak1_vlist_0__vertex_856__zVertex.o" "nightmareRN.phl[113]";
-connectAttr "tweak1_vlist_0__vertex_878__xVertex.o" "nightmareRN.phl[114]";
-connectAttr "tweak1_vlist_0__vertex_878__yVertex.o" "nightmareRN.phl[115]";
-connectAttr "tweak1_vlist_0__vertex_878__zVertex.o" "nightmareRN.phl[116]";
-connectAttr "tweak1_vlist_0__vertex_893__xVertex.o" "nightmareRN.phl[117]";
-connectAttr "tweak1_vlist_0__vertex_893__yVertex.o" "nightmareRN.phl[118]";
-connectAttr "tweak1_vlist_0__vertex_893__zVertex.o" "nightmareRN.phl[119]";
-connectAttr "tweak1_vlist_0__vertex_973__xVertex.o" "nightmareRN.phl[120]";
-connectAttr "tweak1_vlist_0__vertex_973__yVertex.o" "nightmareRN.phl[121]";
-connectAttr "tweak1_vlist_0__vertex_973__zVertex.o" "nightmareRN.phl[122]";
-connectAttr "tweak1_vlist_0__vertex_974__xVertex.o" "nightmareRN.phl[123]";
-connectAttr "tweak1_vlist_0__vertex_974__yVertex.o" "nightmareRN.phl[124]";
-connectAttr "tweak1_vlist_0__vertex_974__zVertex.o" "nightmareRN.phl[125]";
-connectAttr "tweak1_vlist_0__vertex_975__xVertex.o" "nightmareRN.phl[126]";
-connectAttr "tweak1_vlist_0__vertex_975__yVertex.o" "nightmareRN.phl[127]";
-connectAttr "tweak1_vlist_0__vertex_975__zVertex.o" "nightmareRN.phl[128]";
-connectAttr "tweak1_vlist_0__vertex_1113__xVertex.o" "nightmareRN.phl[129]";
-connectAttr "tweak1_vlist_0__vertex_1113__yVertex.o" "nightmareRN.phl[130]";
-connectAttr "tweak1_vlist_0__vertex_1113__zVertex.o" "nightmareRN.phl[131]";
-connectAttr "tweak1_vlist_0__vertex_1114__xVertex.o" "nightmareRN.phl[132]";
-connectAttr "tweak1_vlist_0__vertex_1114__yVertex.o" "nightmareRN.phl[133]";
-connectAttr "tweak1_vlist_0__vertex_1114__zVertex.o" "nightmareRN.phl[134]";
-connectAttr "tweak1_vlist_0__vertex_1115__xVertex.o" "nightmareRN.phl[135]";
-connectAttr "tweak1_vlist_0__vertex_1115__yVertex.o" "nightmareRN.phl[136]";
-connectAttr "tweak1_vlist_0__vertex_1115__zVertex.o" "nightmareRN.phl[137]";
+connectAttr "LeftEye_visibility.o" "nightmareRN.phl[93]";
+connectAttr "RightEye_visibility.o" "nightmareRN.phl[94]";
+connectAttr "tweak1_vlist_0__vertex_793__xVertex.o" "nightmareRN.phl[95]";
+connectAttr "tweak1_vlist_0__vertex_793__yVertex.o" "nightmareRN.phl[96]";
+connectAttr "tweak1_vlist_0__vertex_793__zVertex.o" "nightmareRN.phl[97]";
+connectAttr "tweak1_vlist_0__vertex_794__xVertex.o" "nightmareRN.phl[98]";
+connectAttr "tweak1_vlist_0__vertex_794__yVertex.o" "nightmareRN.phl[99]";
+connectAttr "tweak1_vlist_0__vertex_794__zVertex.o" "nightmareRN.phl[100]";
+connectAttr "tweak1_vlist_0__vertex_808__xVertex.o" "nightmareRN.phl[101]";
+connectAttr "tweak1_vlist_0__vertex_808__yVertex.o" "nightmareRN.phl[102]";
+connectAttr "tweak1_vlist_0__vertex_808__zVertex.o" "nightmareRN.phl[103]";
+connectAttr "tweak1_vlist_0__vertex_830__xVertex.o" "nightmareRN.phl[104]";
+connectAttr "tweak1_vlist_0__vertex_830__yVertex.o" "nightmareRN.phl[105]";
+connectAttr "tweak1_vlist_0__vertex_830__zVertex.o" "nightmareRN.phl[106]";
+connectAttr "tweak1_vlist_0__vertex_853__xVertex.o" "nightmareRN.phl[107]";
+connectAttr "tweak1_vlist_0__vertex_853__yVertex.o" "nightmareRN.phl[108]";
+connectAttr "tweak1_vlist_0__vertex_853__zVertex.o" "nightmareRN.phl[109]";
+connectAttr "tweak1_vlist_0__vertex_855__xVertex.o" "nightmareRN.phl[110]";
+connectAttr "tweak1_vlist_0__vertex_855__yVertex.o" "nightmareRN.phl[111]";
+connectAttr "tweak1_vlist_0__vertex_855__zVertex.o" "nightmareRN.phl[112]";
+connectAttr "tweak1_vlist_0__vertex_856__xVertex.o" "nightmareRN.phl[113]";
+connectAttr "tweak1_vlist_0__vertex_856__yVertex.o" "nightmareRN.phl[114]";
+connectAttr "tweak1_vlist_0__vertex_856__zVertex.o" "nightmareRN.phl[115]";
+connectAttr "tweak1_vlist_0__vertex_878__xVertex.o" "nightmareRN.phl[116]";
+connectAttr "tweak1_vlist_0__vertex_878__yVertex.o" "nightmareRN.phl[117]";
+connectAttr "tweak1_vlist_0__vertex_878__zVertex.o" "nightmareRN.phl[118]";
+connectAttr "tweak1_vlist_0__vertex_893__xVertex.o" "nightmareRN.phl[119]";
+connectAttr "tweak1_vlist_0__vertex_893__yVertex.o" "nightmareRN.phl[120]";
+connectAttr "tweak1_vlist_0__vertex_893__zVertex.o" "nightmareRN.phl[121]";
+connectAttr "tweak1_vlist_0__vertex_973__xVertex.o" "nightmareRN.phl[122]";
+connectAttr "tweak1_vlist_0__vertex_973__yVertex.o" "nightmareRN.phl[123]";
+connectAttr "tweak1_vlist_0__vertex_973__zVertex.o" "nightmareRN.phl[124]";
+connectAttr "tweak1_vlist_0__vertex_974__xVertex.o" "nightmareRN.phl[125]";
+connectAttr "tweak1_vlist_0__vertex_974__yVertex.o" "nightmareRN.phl[126]";
+connectAttr "tweak1_vlist_0__vertex_974__zVertex.o" "nightmareRN.phl[127]";
+connectAttr "tweak1_vlist_0__vertex_975__xVertex.o" "nightmareRN.phl[128]";
+connectAttr "tweak1_vlist_0__vertex_975__yVertex.o" "nightmareRN.phl[129]";
+connectAttr "tweak1_vlist_0__vertex_975__zVertex.o" "nightmareRN.phl[130]";
+connectAttr "tweak1_vlist_0__vertex_1113__xVertex.o" "nightmareRN.phl[131]";
+connectAttr "tweak1_vlist_0__vertex_1113__yVertex.o" "nightmareRN.phl[132]";
+connectAttr "tweak1_vlist_0__vertex_1113__zVertex.o" "nightmareRN.phl[133]";
+connectAttr "tweak1_vlist_0__vertex_1114__xVertex.o" "nightmareRN.phl[134]";
+connectAttr "tweak1_vlist_0__vertex_1114__yVertex.o" "nightmareRN.phl[135]";
+connectAttr "tweak1_vlist_0__vertex_1114__zVertex.o" "nightmareRN.phl[136]";
+connectAttr "tweak1_vlist_0__vertex_1115__xVertex.o" "nightmareRN.phl[137]";
+connectAttr "tweak1_vlist_0__vertex_1115__yVertex.o" "nightmareRN.phl[138]";
+connectAttr "tweak1_vlist_0__vertex_1115__zVertex.o" "nightmareRN.phl[139]";
 connectAttr "Sword_Anim_Control_parentConstraint2.ctz" "sword_3RN.phl[1]";
 connectAttr "Sword_Anim_Control_parentConstraint2.cty" "sword_3RN.phl[2]";
 connectAttr "Sword_Anim_Control_parentConstraint2.ctx" "sword_3RN.phl[3]";
@@ -11449,6 +12051,26 @@ connectAttr "Master_Controller_scaleX2.o" "nightmareRN1.phl[7]";
 connectAttr "Master_Controller_scaleY2.o" "nightmareRN1.phl[8]";
 connectAttr "Master_Controller_scaleZ2.o" "nightmareRN1.phl[9]";
 connectAttr "Master_Controller_visibility2.o" "nightmareRN1.phl[10]";
+connectAttr "LShoulder_rotateX6.o" "nightmareRN1.phl[11]";
+connectAttr "LShoulder_rotateY6.o" "nightmareRN1.phl[12]";
+connectAttr "LShoulder_rotateZ7.o" "nightmareRN1.phl[13]";
+connectAttr "LShoulder_translateX6.o" "nightmareRN1.phl[14]";
+connectAttr "LShoulder_translateY6.o" "nightmareRN1.phl[15]";
+connectAttr "LShoulder_translateZ6.o" "nightmareRN1.phl[16]";
+connectAttr "LShoulder_scaleX6.o" "nightmareRN1.phl[17]";
+connectAttr "LShoulder_scaleY6.o" "nightmareRN1.phl[18]";
+connectAttr "LShoulder_scaleZ6.o" "nightmareRN1.phl[19]";
+connectAttr "LShoulder_visibility6.o" "nightmareRN1.phl[20]";
+connectAttr "LShoulder1_rotateX5.o" "nightmareRN1.phl[21]";
+connectAttr "LShoulder1_rotateY5.o" "nightmareRN1.phl[22]";
+connectAttr "LShoulder1_rotateZ6.o" "nightmareRN1.phl[23]";
+connectAttr "LShoulder1_translateX5.o" "nightmareRN1.phl[24]";
+connectAttr "LShoulder1_translateY5.o" "nightmareRN1.phl[25]";
+connectAttr "LShoulder1_translateZ5.o" "nightmareRN1.phl[26]";
+connectAttr "LShoulder1_scaleX5.o" "nightmareRN1.phl[27]";
+connectAttr "LShoulder1_scaleY5.o" "nightmareRN1.phl[28]";
+connectAttr "LShoulder1_scaleZ5.o" "nightmareRN1.phl[29]";
+connectAttr "LShoulder1_visibility5.o" "nightmareRN1.phl[30]";
 connectAttr "Master_Controller_translateX1.o" "nightmareRN2.phl[1]";
 connectAttr "Master_Controller_translateY1.o" "nightmareRN2.phl[2]";
 connectAttr "Master_Controller_translateZ.o" "nightmareRN2.phl[3]";
@@ -11489,6 +12111,26 @@ connectAttr "Master_Controller_scaleX3.o" "nightmareRN3.phl[7]";
 connectAttr "Master_Controller_scaleY3.o" "nightmareRN3.phl[8]";
 connectAttr "Master_Controller_scaleZ3.o" "nightmareRN3.phl[9]";
 connectAttr "Master_Controller_visibility3.o" "nightmareRN3.phl[10]";
+connectAttr "LShoulder_rotateX5.o" "nightmareRN3.phl[11]";
+connectAttr "LShoulder_rotateY5.o" "nightmareRN3.phl[12]";
+connectAttr "LShoulder_rotateZ6.o" "nightmareRN3.phl[13]";
+connectAttr "LShoulder_translateX5.o" "nightmareRN3.phl[14]";
+connectAttr "LShoulder_translateY5.o" "nightmareRN3.phl[15]";
+connectAttr "LShoulder_translateZ5.o" "nightmareRN3.phl[16]";
+connectAttr "LShoulder_scaleX5.o" "nightmareRN3.phl[17]";
+connectAttr "LShoulder_scaleY5.o" "nightmareRN3.phl[18]";
+connectAttr "LShoulder_scaleZ5.o" "nightmareRN3.phl[19]";
+connectAttr "LShoulder_visibility5.o" "nightmareRN3.phl[20]";
+connectAttr "LShoulder1_rotateX4.o" "nightmareRN3.phl[21]";
+connectAttr "LShoulder1_rotateY4.o" "nightmareRN3.phl[22]";
+connectAttr "LShoulder1_rotateZ5.o" "nightmareRN3.phl[23]";
+connectAttr "LShoulder1_translateX4.o" "nightmareRN3.phl[24]";
+connectAttr "LShoulder1_translateY4.o" "nightmareRN3.phl[25]";
+connectAttr "LShoulder1_translateZ4.o" "nightmareRN3.phl[26]";
+connectAttr "LShoulder1_scaleX4.o" "nightmareRN3.phl[27]";
+connectAttr "LShoulder1_scaleY4.o" "nightmareRN3.phl[28]";
+connectAttr "LShoulder1_scaleZ4.o" "nightmareRN3.phl[29]";
+connectAttr "LShoulder1_visibility4.o" "nightmareRN3.phl[30]";
 connectAttr "Master_Controller_translateX4.o" "nightmareRN4.phl[1]";
 connectAttr "Master_Controller_translateY4.o" "nightmareRN4.phl[2]";
 connectAttr "Master_Controller_translateZ3.o" "nightmareRN4.phl[3]";
@@ -11499,6 +12141,26 @@ connectAttr "Master_Controller_scaleX4.o" "nightmareRN4.phl[7]";
 connectAttr "Master_Controller_scaleY4.o" "nightmareRN4.phl[8]";
 connectAttr "Master_Controller_scaleZ4.o" "nightmareRN4.phl[9]";
 connectAttr "Master_Controller_visibility4.o" "nightmareRN4.phl[10]";
+connectAttr "LShoulder_rotateX7.o" "nightmareRN4.phl[11]";
+connectAttr "LShoulder_rotateY7.o" "nightmareRN4.phl[12]";
+connectAttr "LShoulder_rotateZ8.o" "nightmareRN4.phl[13]";
+connectAttr "LShoulder_translateX7.o" "nightmareRN4.phl[14]";
+connectAttr "LShoulder_translateY7.o" "nightmareRN4.phl[15]";
+connectAttr "LShoulder_translateZ7.o" "nightmareRN4.phl[16]";
+connectAttr "LShoulder_scaleX7.o" "nightmareRN4.phl[17]";
+connectAttr "LShoulder_scaleY7.o" "nightmareRN4.phl[18]";
+connectAttr "LShoulder_scaleZ7.o" "nightmareRN4.phl[19]";
+connectAttr "LShoulder_visibility7.o" "nightmareRN4.phl[20]";
+connectAttr "LShoulder1_rotateX6.o" "nightmareRN4.phl[21]";
+connectAttr "LShoulder1_rotateY6.o" "nightmareRN4.phl[22]";
+connectAttr "LShoulder1_rotateZ7.o" "nightmareRN4.phl[23]";
+connectAttr "LShoulder1_translateX6.o" "nightmareRN4.phl[24]";
+connectAttr "LShoulder1_translateY6.o" "nightmareRN4.phl[25]";
+connectAttr "LShoulder1_translateZ6.o" "nightmareRN4.phl[26]";
+connectAttr "LShoulder1_scaleX6.o" "nightmareRN4.phl[27]";
+connectAttr "LShoulder1_scaleY6.o" "nightmareRN4.phl[28]";
+connectAttr "LShoulder1_scaleZ6.o" "nightmareRN4.phl[29]";
+connectAttr "LShoulder1_visibility6.o" "nightmareRN4.phl[30]";
 connectAttr "Master_Controller_visibility5.o" "nightmareRN5.phl[1]";
 connectAttr "Master_Controller_translateX5.o" "nightmareRN5.phl[2]";
 connectAttr "Master_Controller_translateY5.o" "nightmareRN5.phl[3]";
@@ -11579,6 +12241,16 @@ connectAttr "LShoulder_scaleX3.o" "nightmareRN7.phl[17]";
 connectAttr "LShoulder_scaleY3.o" "nightmareRN7.phl[18]";
 connectAttr "LShoulder_scaleZ3.o" "nightmareRN7.phl[19]";
 connectAttr "LShoulder_visibility3.o" "nightmareRN7.phl[20]";
+connectAttr "LShoulder1_rotateX3.o" "nightmareRN7.phl[21]";
+connectAttr "LShoulder1_rotateY3.o" "nightmareRN7.phl[22]";
+connectAttr "LShoulder1_rotateZ4.o" "nightmareRN7.phl[23]";
+connectAttr "LShoulder1_translateX3.o" "nightmareRN7.phl[24]";
+connectAttr "LShoulder1_translateY3.o" "nightmareRN7.phl[25]";
+connectAttr "LShoulder1_translateZ3.o" "nightmareRN7.phl[26]";
+connectAttr "LShoulder1_scaleX3.o" "nightmareRN7.phl[27]";
+connectAttr "LShoulder1_scaleY3.o" "nightmareRN7.phl[28]";
+connectAttr "LShoulder1_scaleZ3.o" "nightmareRN7.phl[29]";
+connectAttr "LShoulder1_visibility3.o" "nightmareRN7.phl[30]";
 connectAttr "Master_Controller_translateX8.o" "nightmareRN8.phl[1]";
 connectAttr "Master_Controller_translateY8.o" "nightmareRN8.phl[2]";
 connectAttr "Master_Controller_translateZ7.o" "nightmareRN8.phl[3]";
@@ -11589,6 +12261,16 @@ connectAttr "Master_Controller_scaleX8.o" "nightmareRN8.phl[7]";
 connectAttr "Master_Controller_scaleY8.o" "nightmareRN8.phl[8]";
 connectAttr "Master_Controller_scaleZ8.o" "nightmareRN8.phl[9]";
 connectAttr "Master_Controller_visibility8.o" "nightmareRN8.phl[10]";
+connectAttr "LShoulder_rotateX4.o" "nightmareRN8.phl[11]";
+connectAttr "LShoulder_rotateY4.o" "nightmareRN8.phl[12]";
+connectAttr "LShoulder_rotateZ5.o" "nightmareRN8.phl[13]";
+connectAttr "LShoulder_translateX4.o" "nightmareRN8.phl[14]";
+connectAttr "LShoulder_translateY4.o" "nightmareRN8.phl[15]";
+connectAttr "LShoulder_translateZ4.o" "nightmareRN8.phl[16]";
+connectAttr "LShoulder_scaleX4.o" "nightmareRN8.phl[17]";
+connectAttr "LShoulder_scaleY4.o" "nightmareRN8.phl[18]";
+connectAttr "LShoulder_scaleZ4.o" "nightmareRN8.phl[19]";
+connectAttr "LShoulder_visibility4.o" "nightmareRN8.phl[20]";
 connectAttr "Master_Controller_translateX9.o" "nightmareRN9.phl[1]";
 connectAttr "Master_Controller_translateY9.o" "nightmareRN9.phl[2]";
 connectAttr "Master_Controller_translateZ8.o" "nightmareRN9.phl[3]";
@@ -11704,14 +12386,7 @@ connectAttr "polyPlane1.out" "pPlaneShape1.i";
 connectAttr ":time1.o" "fluidShape3.cti";
 connectAttr "fluidEmitter2.ef" "fluidShape3.eml[0].emfr";
 connectAttr "fluidEmitter2.efc" "fluidShape3.fce[0]";
-connectAttr "polyPlane2.out" "pPlaneShape2.i";
 connectAttr "Main_parentConstraint1.w0" "Main_parentConstraint1.tg[0].tw";
-connectAttr ":time1.o" "fluidEmitter1.ct";
-connectAttr "geoConnector1.ocd" "fluidEmitter1.ocd";
-connectAttr "geoConnector1.ocl" "fluidEmitter1.t";
-connectAttr "geoConnector1.pos" "fluidEmitter1.opd";
-connectAttr "geoConnector1.vel" "fluidEmitter1.ovd";
-connectAttr "geoConnector1.swg" "fluidEmitter1.swge";
 connectAttr ":time1.o" "fluidEmitter2.ct";
 connectAttr "geoConnector1.ocd" "fluidEmitter2.ocd";
 connectAttr "geoConnector1.ocl" "fluidEmitter2.t";
@@ -11724,13 +12399,24 @@ connectAttr "fluidShape3.inh" "fluidEmitter2.inh[0]";
 connectAttr "fluidShape3.sti" "fluidEmitter2.stt[0]";
 connectAttr "fluidShape3.sd[0]" "fluidEmitter2.sd[0]";
 connectAttr "fluidEmitter2_rate.o" "fluidEmitter2.rat";
+connectAttr ":time1.o" "fluidEmitter1.ct";
+connectAttr "geoConnector1.ocd" "fluidEmitter1.ocd";
+connectAttr "geoConnector1.ocl" "fluidEmitter1.t";
+connectAttr "geoConnector1.pos" "fluidEmitter1.opd";
+connectAttr "geoConnector1.vel" "fluidEmitter1.ovd";
+connectAttr "geoConnector1.swg" "fluidEmitter1.swge";
 connectAttr "Sword_Anim_Control_parentConstraint2.w0" "Sword_Anim_Control_parentConstraint2.tg[0].tw"
 		;
+connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
+connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
+connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
+connectAttr ":rmanRerenderRISGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanPreviewGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanRerenderGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanReyesRerenderGlobals.msg" ":renderManRISGlobals.p" -na;
-connectAttr ":rmanRerenderRISGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanDeepShadowGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanAreaShadowGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanShadowGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -11764,12 +12450,12 @@ connectAttr "rmanFinalChannel5.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel6.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel7.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel8.msg" ":rmanFinalGlobals.c" -na;
+connectAttr ":rmanRerenderRISOutputGlobals0.msg" ":rmanRerenderRISGlobals.d" -na
+		;
 connectAttr ":rmanPreviewOutputGlobals0.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr ":rmanRerenderOutputGlobals0.msg" ":rmanRerenderGlobals.d" -na;
 connectAttr ":rmanReyesRerenderOutputGlobals0.msg" ":rmanReyesRerenderGlobals.d"
 		 -na;
-connectAttr ":rmanRerenderRISOutputGlobals0.msg" ":rmanRerenderRISGlobals.d" -na
-		;
 connectAttr ":rmanDeepShadowOutputGlobals0.msg" ":rmanDeepShadowGlobals.d" -na;
 connectAttr ":rmanDeepShadowOutputGlobals1.msg" ":rmanDeepShadowGlobals.d" -na;
 connectAttr ":rmanAreaShadowOutputGlobals0.msg" ":rmanAreaShadowGlobals.d" -na;
@@ -11850,11 +12536,6 @@ connectAttr ":rmanSBRenderChannelGlobals5.msg" ":rmanSBRenderGlobals.c" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtCloudGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBPtRenderGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtexGlobals.p" -na;
-connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
-connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
-connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
-connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
-connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "fluidShape1SG.message" ":defaultLightSet.message";
@@ -12120,7 +12801,6 @@ connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "directionalLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "directionalLightShape2.ltd" ":lightList1.l" -na;
 connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pPlaneShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "directionalLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "directionalLight2.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
