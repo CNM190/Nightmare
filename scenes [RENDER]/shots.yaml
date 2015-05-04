@@ -61,10 +61,10 @@
   endFrame   : 68
 
 - name       : "Charge"
-  file       : "fight shot_3.ma"
-  camera     : 'camera3'
-  startFrame : 97
-  endFrame   : 241
+  file       : "The_Fight.ma"
+  camera     : 'Rendering_Camera'
+  startFrame : 1
+  endFrame   : 136
 
 
 # ---------------------------------------------------------------------------
