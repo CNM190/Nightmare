@@ -1,0 +1,77 @@
+# ---------------------------------------------------------------------------
+# Act I
+
+# names must be unique, and alphanumeric with spaces.
+
+- name       : "Bedroom Establishing"
+  file       : "bedroom1.ma"
+  camera     : 'Full_Bedroom_shot'
+  startFrame : 1
+  endFrame   : 47
+
+- name       : "Bedroom Closeup"
+  file       : "bedroom1.ma"
+  camera     : 'Face_Close_Up'
+  startFrame : 48
+  endFrame   : 125
+
+# ---------------------------------------------------------------------------
+# Act II
+
+- name       : "Hallway Walking"
+  file       : "hallway_walk.ma"
+  camera     : 'Hallway_Medium_Shot'
+  startFrame : 1
+  endFrame   : 69
+
+- name       : "Hallway Running"
+  file       : "hallway_run.ma"
+  camera     : 'camera2'
+  startFrame : 1
+  endFrame   : 64
+
+- name       : "Enter Unicorn"
+  file       : "Enter_Unicorn_Part1.ma"
+  camera     : 'Rendering_Camera'
+  startFrame : 1
+  endFrame   : 99
+
+- name       : "Blade of the Heart"
+  file       : "Blade_of_the_Heart.ma"
+  camera     : 'Rendering_Camera'
+  startFrame : 100
+  endFrame   : 335
+
+- name       : "Monster Rising"
+  file       : "fight shot_1.ma"
+  camera     : 'camera1'
+  startFrame : 1
+  endFrame   : 96
+
+# name       : "Monster POV"
+# file       : "fight shot_2.ma"
+# camera     : 'camera2'
+# startFrame : 72
+# endFrame   : 96
+
+- name       : "Emily Looking Determined"
+  file       : "determination.ma"
+  camera     : 'camera3'
+  startFrame : 117
+  endFrame   : 201
+
+- name       : "Charge"
+  file       : "fight shot_3.ma"
+  camera     : 'camera3'
+  startFrame : 97
+  endFrame   : 241
+
+
+# ---------------------------------------------------------------------------
+# Act III
+
+- name       : "Crossfade"
+  file       : "crossfade.ma"
+  camera     : 'bedroom2:camera1'
+  startFrame : 1
+  endFrame   : 90

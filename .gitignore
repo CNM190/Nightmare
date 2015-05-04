@@ -17,3 +17,9 @@ _*
 
 renderman
 *.swatch
+*.swatches
+assets/chars/rigs/Nightmare_can't_figure_out_how_to_mirror.ma
+
+*.pyc
+*.mel
+*.log
