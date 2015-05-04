@@ -71,7 +71,7 @@
 # Act III
 
 - name       : "Crossfade"
-  file       : "crossfade.ma"
+  file       : "crossfade [animation done].ma"
   camera     : 'bedroom2:camera1'
   startFrame : 1
   endFrame   : 90

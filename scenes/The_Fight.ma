@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: The_Fight.ma
-//Last modified: Mon, May 04, 2015 12:33:55 PM
+//Last modified: Mon, May 04, 2015 02:22:20 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "nightmare_huge" -rfn "nightmare_hugeRN" -op "v=0;" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma";
 file -rdi 1 -ns "Candy_Enter_Unicorn" -rfn "Candy_Enter_UnicornRN" -op "v=0;"
@@ -102,7 +102,7 @@ createNode camera -n "Rendering_CameraShape" -p "Rendering_Camera";
 	setAttr ".ovr" 1.3;
 	setAttr ".pze" yes;
 	setAttr ".zom" 1.1486495597980011;
-	setAttr ".coi" 3.1887379414374859;
+	setAttr ".coi" 2.3523123895253608;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -8156,10 +8156,10 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "Candy_Enter_Unicorn:Candy_Meshes" "visibility" " 1"
 		2 "Candy_Enter_Unicorn:Candy_Armature" "visibility" " 0"
 		2 "Candy_Enter_Unicorn:Candy_Armature" "displayOrder" " 6"
-		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Body|Candy_Enter_Unicorn:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
 		"Candy_Enter_Unicorn:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main.FaceVis" 
 		"Candy_Enter_UnicornRN.placeHolderList[1]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main.fkVis" 
@@ -10583,7 +10583,7 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".st" 6;
 createNode reference -n "Emily_Enter_UnicornRN";
 	setAttr ".fn[0]" -type "string" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily_Enter_Unicorn.ma";
-	setAttr -s 1478 ".phl";
+	setAttr -s 1480 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -12062,6 +12062,8 @@ createNode reference -n "Emily_Enter_UnicornRN";
 	setAttr ".phl[1476]" 0;
 	setAttr ".phl[1477]" 0;
 	setAttr ".phl[1478]" 0;
+	setAttr ".phl[1479]" 0;
+	setAttr ".phl[1480]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Enter_UnicornRN"
 		"Emily_Enter_Unicorn:Hair_EmilyRN" 0
@@ -12085,7 +12087,7 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		" -av 1"
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Hair_Emily:Hair.visibility" 
 		"Emily_Enter_UnicornRN.placeHolderList[1]" ""
-		"Emily_Enter_UnicornRN" 1678
+		"Emily_Enter_UnicornRN" 1706
 		0 "|Emily_Enter_UnicornRNfosterParent1|Main_parentConstraint1" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main" 
 		"-s -r "
 		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKSpine1_MShape 
@@ -12491,16 +12493,70 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:SquashSetup|Emily_Enter_Unicorn:squashIKHandle" 
 		"rotate" " -type \"double3\" 70.50792182221087501 -0.64710150183344595 92.20725654513269376"
 		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
+		"instObjGroups.objectGroups" " -s 43"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
+		"instObjGroups.objectGroups[0].objectGrpColor" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
+		"instObjGroups.objectGroups[1].objectGrpColor" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:RightEye|Emily_Enter_Unicorn:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:LeftEye|Emily_Enter_Unicorn:LeftEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
-		2 "Emily_Enter_Unicorn:Meshes" "displayType" " 2"
+		2 "Emily_Enter_Unicorn:Meshes" "displayType" " 0"
 		2 "Emily_Enter_Unicorn:Meshes" "visibility" " -av 1"
 		2 "Emily_Enter_Unicorn:Meshes" "displayOrder" " 2"
 		2 "Emily_Enter_Unicorn:Armature" "visibility" " 0"
 		2 "Emily_Enter_Unicorn:Armature" "displayOrder" " 7"
 		2 "Emily_Enter_Unicorn:blendShape2" "weight[0]" " 0"
+		2 "Emily_Enter_Unicorn:groupParts144" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:4317]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts144" "groupId" " 392"
+		2 "Emily_Enter_Unicorn:groupParts145" "inputRemoveComponent" " -type \"componentList\" 14 \"f[43:235]\" \"f[431:441]\" \"f[462:478]\" \"f[484:506]\" \"f[795]\" \"f[1377:1717]\" \"f[1917:1948]\" \"f[2202:2394]\" \"f[2590:2600]\" \"f[2621:2637]\" \"f[2643:2665]\" \"f[2954]\" \"f[3536:3876]\" \"f[4076:4107]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts145" "groupId" " 394"
+		2 "Emily_Enter_Unicorn:groupParts146" "inputRemoveComponent" " -type \"componentList\" 4 \"f[1416:1658]\" \"f[1677:1714]\" \"f[3575:3817]\" \"f[3836:3873]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts146" "groupId" " 395"
+		3 "Emily_Enter_Unicorn:groupId672.groupId" "Emily_Enter_Unicorn:groupParts144.groupId" 
+		""
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43]" 
+		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		
+		3 "Emily_Enter_Unicorn:groupId672.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
+		"-na"
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0]" 
+		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		
+		3 "Emily_Enter_Unicorn:groupId673.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
+		"-na"
+		3 "Emily_Enter_Unicorn:groupId674.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:RMSGPSurface5SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId675.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:RMSGPSurface6SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId672.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.memberWireframeColor" 
+		"|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId673.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:groupId675.groupId" "Emily_Enter_Unicorn:groupParts146.groupId" 
+		""
+		3 "Emily_Enter_Unicorn:groupId674.groupId" "Emily_Enter_Unicorn:groupParts145.groupId" 
+		""
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45]" 
+		"Emily_Enter_Unicorn:RMSGPSurface6SG.dagSetMembers" "-na"
+		3 "Emily_Enter_Unicorn:groupId675.message" "Emily_Enter_Unicorn:RMSGPSurface6SG.groupNodes" 
+		"-na"
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44]" 
+		"Emily_Enter_Unicorn:RMSGPSurface5SG.dagSetMembers" "-na"
+		3 "Emily_Enter_Unicorn:groupId674.message" "Emily_Enter_Unicorn:RMSGPSurface5SG.groupNodes" 
+		"-na"
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main.visibility" 
 		"Emily_Enter_UnicornRN.placeHolderList[5]" ""
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateX" 
@@ -15445,9 +15501,12 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		"Emily_Enter_UnicornRN.placeHolderList[1475]" ""
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:JawSetup|Emily_Enter_Unicorn:JawSetupFollowHead|Emily_Enter_Unicorn:FKOffsetJaw_M|Emily_Enter_Unicorn:FKSDK1Jaw_M|Emily_Enter_Unicorn:FKSDK2Jaw_M|Emily_Enter_Unicorn:FKJaw_M.rotateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[1476]" ""
-		5 0 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups" 
-		"Emily_Enter_Unicorn:RMSGPSurface7SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1477]" 
+		5 0 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups" 
+		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1477]" 
 		"Emily_Enter_UnicornRN.placeHolderList[1478]" ""
+		5 0 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups" 
+		"Emily_Enter_Unicorn:RMSGPSurface7SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1479]" 
+		"Emily_Enter_UnicornRN.placeHolderList[1480]" ""
 		"Emily_Enter_Unicorn:Dress_EmilyRN" 4
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Dress_Emily:Dress" "visibility" 
 		" -av 1"
@@ -29494,35 +29553,35 @@ connectAttr "Emily_Enter_UnicornRN.phl[139]" "Sword_Anim_Control_parentConstrain
 		;
 connectAttr "Emily_Enter_UnicornRN.phl[140]" "Sword_Anim_Control_parentConstraint2.tg[0].ts"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[141]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[141]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[142]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[142]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
 		;
 connectAttr "FKWrist_R_rotateX.o" "Emily_Enter_UnicornRN.phl[143]";
 connectAttr "FKWrist_R_rotateY.o" "Emily_Enter_UnicornRN.phl[144]";
 connectAttr "FKWrist_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[145]";
-connectAttr "Emily_Enter_UnicornRN.phl[146]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[146]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[147]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[147]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
 		;
 connectAttr "FKWrist_R_translateX.o" "Emily_Enter_UnicornRN.phl[148]";
 connectAttr "FKWrist_R_translateY.o" "Emily_Enter_UnicornRN.phl[149]";
 connectAttr "FKWrist_R_translateZ.o" "Emily_Enter_UnicornRN.phl[150]";
-connectAttr "Emily_Enter_UnicornRN.phl[151]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[151]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[152]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[152]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[153]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[153]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[154]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[154]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[155]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[155]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[156]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[156]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[157]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[157]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[158]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[158]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
 		;
 connectAttr "FKWrist_RShape_lockLength.o" "Emily_Enter_UnicornRN.phl[159]";
 connectAttr "FKExtraScapula_L_translateX.o" "Emily_Enter_UnicornRN.phl[160]";
@@ -30945,6 +31004,7 @@ connectAttr "FKJaw_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[1474]";
 connectAttr "FKJaw_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[1475]";
 connectAttr "FKJaw_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[1476]";
 connectAttr "Emily_Enter_UnicornRN.phl[1477]" "Emily_Enter_UnicornRN.phl[1478]";
+connectAttr "Emily_Enter_UnicornRN.phl[1479]" "Emily_Enter_UnicornRN.phl[1480]";
 connectAttr "Dress_visibility.o" "Emily_Enter_UnicornRN.phl[2]";
 connectAttr "Emily_Enter_UnicornRN.phl[3]" "Emily_Enter_UnicornRN.phl[4]";
 connectAttr "Sword_visibility.o" "swordRN.phl[1]";
@@ -30965,8 +31025,8 @@ connectAttr "swordRN.phl[15]" "pairBlend1.w";
 connectAttr "Sword_Anim_Control_blendParent1.o" "swordRN.phl[16]";
 connectAttr "swordRN.phl[17]" "pairBlend2.w";
 connectAttr "Sword_Anim_Control_blendParent4.o" "swordRN.phl[18]";
-connectAttr "swordRN.phl[19]" "Sword_Anim_Control_parentConstraint2.cpim";
-connectAttr "swordRN.phl[20]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[19]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[20]" "Sword_Anim_Control_parentConstraint2.cpim";
 connectAttr "Floor.di" "Floor1.do";
 connectAttr "polyPlane1.out" "FloorShape1.i";
 connectAttr "Rendering_Camera_translateX.o" "Rendering_Camera.tx" -l on;
