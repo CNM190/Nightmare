@@ -5,7 +5,6 @@ def render(shots, frame=None, tractor=True):
     job_key = raw_input("Enter job key (%s): " % job_key) or job_key
     rm_rman_dir = (raw_input("Zap renderman directory (Y/n): ") or 'y') in ('Y', 'y', 'yes', 'Yes')
 
-    output_dir = str(os.path.join(os.getcwd(), "autorender_%s" % job_key))
 
     renderman_dir = os.path.join(os.getcwd(), 'renderman')
     if rm_rman_dir:
@@ -24,6 +23,8 @@ def render(shots, frame=None, tractor=True):
             frame0, frameN = frame, frame
 
         image_name = "%s.%s" % (name.replace(' ', '_'), camera)
+        output_dir = str(os.path.join(os.getcwd(), "autorender_%s" % job_key, image_name))
+
         cmd = [
             "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
             "-r", "rman",
@@ -46,7 +47,7 @@ def render(shots, frame=None, tractor=True):
 
         cmd_text =  " ".join([pipes.quote(token) for token in cmd])
         print "calling: ", cmd_text
-        #subprocess.check_call(cmd_text, shell=True)
+        subprocess.call(cmd_text, shell=True)
 
     print "Render job submitted with id:", "autorender_%s" % job_key
     print "Copy locally with:", "rsync -avz shay:%s ~/Desktop/" % output_dir
