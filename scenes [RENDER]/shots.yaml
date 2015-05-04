@@ -56,9 +56,9 @@
 
 - name       : "Emily Looking Determined"
   file       : "determination.ma"
-  camera     : 'camera3'
-  startFrame : 117
-  endFrame   : 201
+  camera     : 'camera2'
+  startFrame : 1
+  endFrame   : 68
 
 - name       : "Charge"
   file       : "fight shot_3.ma"
