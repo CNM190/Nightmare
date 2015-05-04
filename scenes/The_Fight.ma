@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
-//Name: The_Fight_jumping_breaking.ma
-//Last modified: Fri, May 01, 2015 07:37:33 PM
+//Name: The_Fight_Emily_Sword.ma
+//Last modified: Sun, May 03, 2015 06:00:27 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "nightmare_huge" -rfn "nightmare_hugeRN" -op "v=0;" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma";
 file -rdi 1 -ns "Candy_Enter_Unicorn" -rfn "Candy_Enter_UnicornRN" -op "v=0;"
@@ -28,16 +28,16 @@ fileInfo "osv" "Mac OS X 10.9.2";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.7184196871620148 4.3265830395388658 42.894633987444337 ;
-	setAttr ".r" -type "double3" 168.26199999985798 -17.000000000043642 179.9999999999996 ;
+	setAttr ".t" -type "double3" 3.8658611793921809 3.4198016422201256 38.109707983246892 ;
+	setAttr ".r" -type "double3" -12.338000000620722 55.399999999961381 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 3.5059676065783942;
+	setAttr ".coi" 0.79029447999308411;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 2.7220297609689545 3.6133405738171018 46.177294625283892 ;
+	setAttr ".tp" -type "double3" 3.2303654168085227 3.2509328291896402 37.671308821715613 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -102,13 +102,13 @@ createNode camera -n "Rendering_CameraShape" -p "Rendering_Camera";
 	setAttr ".ovr" 1.3;
 	setAttr ".pze" yes;
 	setAttr ".zom" 1.1486495597980011;
-	setAttr ".coi" 1.9093075098170673;
+	setAttr ".coi" 3.1887379414374859;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
 	setAttr ".man" -type "string" "camera1_mask";
-	setAttr ".tp" -type "double3" 0.093322057128888081 3.8247010505952335 -3.3334074683185513 ;
-	setAttr -s 2 ".b";
+	setAttr ".tp" -type "double3" 3.9438146836127501 4.2651411883979744 80.947648232749302 ;
+	setAttr -s 4 ".b";
 	setAttr ".dgo" 1;
 	setAttr ".dr" yes;
 	setAttr ".dgc" -type "float3" 0 0 0 ;
@@ -227,8 +227,8 @@ createNode transform -n "tmButtonValue7" -p "tmButton7";
 createNode transform -n "tmGroups1" -p "tmXML1";
 	addAttr -ci true -sn "type" -ln "type" -dt "string";
 	setAttr ".type" -type "string" "tmGroups";
-createNode transform -n "pPlane1";
-createNode mesh -n "pPlaneShape1" -p "pPlane1";
+createNode transform -n "Sword_Magic";
+createNode mesh -n "Sword_MagicShape" -p "Sword_Magic";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -242,6 +242,18 @@ createNode mesh -n "pPlaneShape1" -p "pPlane1";
 	setAttr ".pt[0]" -type "float3" -0.14176342 -1.4400841 1.9533256 ;
 	setAttr ".pt[1]" -type "float3" -0.68767679 -0.98998934 1.5656759 ;
 	setAttr ".pt[3]" -type "float3" -0.11092732 0.024281774 0.0098510776 ;
+createNode transform -n "Tunnel";
+	setAttr ".t" -type "double3" 3.1931972520612173 4.5263447193867075 92.770031647216499 ;
+	setAttr ".r" -type "double3" 90 0 0 ;
+createNode mesh -n "TunnelShape" -p "Tunnel";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
 createNode fosterParent -n "Emily_Enter_UnicornRNfosterParent1";
 createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "RootX_MW0" -dv 1 -min 0 -at "double";
@@ -260,11 +272,31 @@ createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornR
 	setAttr ".tg[0].tot" -type "double3" -0.17034267835679018 -0.055980133153564759 
 		0.23847667061604927 ;
 	setAttr ".tg[0].tor" -type "double3" -0.032136047539899147 -5.2739991751142021 0.0029539046011726002 ;
-	setAttr ".lr" -type "double3" 5.3975103072196884 0.54284196222734071 -0.49765681755540847 ;
+	setAttr ".lr" -type "double3" 9.4709911917694605 -2.8733366560000393 -0.86899736855176735 ;
 	setAttr ".rst" -type "double3" 0.2679999999999999 1.5210000000000001 -5.3830000000000009 ;
 	setAttr ".rsrr" -type "double3" -1.6756040577587681e-14 4.1692464847616879e-19 4.7366659074529917e-17 ;
 	setAttr -k on ".w0";
 createNode fosterParent -n "swordRNfosterParent1";
+createNode parentConstraint -n "Sword_Anim_Control_parentConstraint2" -p "swordRNfosterParent1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKWrist_RW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.35036900690279571 0.13824579933741149 -0.03094249792622944 ;
+	setAttr ".tg[0].tor" -type "double3" 169.19236369613742 14.624301853708772 125.45469689093478 ;
+	setAttr ".lr" -type "double3" 43.082346471505552 4.1292297371938123 77.715114545584981 ;
+	setAttr ".rst" -type "double3" 3.0381172147350193 2.7471332381368541 36.379678187935923 ;
+	setAttr ".rsrr" -type "double3" 43.082346471505552 4.1292297371938123 77.715114545584981 ;
+	setAttr -k on ".w0";
 createNode parentConstraint -n "Sword_Anim_Control_parentConstraint1" -p "swordRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKWrist_RW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
@@ -3911,19 +3943,19 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 58 ".lnk";
+	setAttr -s 59 ".lnk";
 	setAttr -s 3 ".ign";
-	setAttr -s 58 ".slnk";
+	setAttr -s 59 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	setAttr ".cdl" 1;
-	setAttr -s 2 ".dli";
-	setAttr ".dli[2]" 1;
+	setAttr ".cdl" 3;
+	setAttr -s 4 ".dli[1:3]"  2 1 3;
+	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode reference -n "nightmare_hugeRN";
-	setAttr -s 310 ".phl";
+	setAttr -s 309 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -4233,22 +4265,21 @@ createNode reference -n "nightmare_hugeRN";
 	setAttr ".phl[307]" 0;
 	setAttr ".phl[308]" 0;
 	setAttr ".phl[309]" 0;
-	setAttr ".phl[310]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmare_hugeRN"
 		"nightmare_hugeRN" 0
-		"nightmare_hugeRN" 352
+		"nightmare_hugeRN" 408
 		2 "|nightmare_huge:Master_Controller" "translate" " -type \"double3\" -4.979 2.504 112.73298209367567324"
 		
 		2 "|nightmare_huge:Master_Controller" "translateY" " -av"
 		2 "|nightmare_huge:Master_Controller" "translateZ" " -av"
-		2 "|nightmare_huge:Master_Controller" "scale" " -type \"double3\" 15.17076875959436677 12.7043639072707677 13.08222126346156244"
+		2 "|nightmare_huge:Master_Controller" "scale" " -type \"double3\" 14.2160692743554975 11.90487576828716421 12.25895448615279726"
 		
 		2 "|nightmare_huge:Master_Controller" "scaleX" " -av"
 		2 "|nightmare_huge:Master_Controller" "scaleY" " -av"
 		2 "|nightmare_huge:Master_Controller" "scaleZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
-		"translate" " -type \"double3\" -0.177 -0.26929600371693857 -0.85070154000244103"
+		"translate" " -type \"double3\" -0.177 -0.24668201414918425 -0.91862452002099881"
 		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
 		"translateX" " -av"
@@ -4257,15 +4288,24 @@ createNode reference -n "nightmare_hugeRN";
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
 		"translateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
-		"rotate" " -type \"double3\" 21.65670059450192397 -3.351 5.935"
+		"rotate" " -type \"double3\" 21.36470664073804571 -3.351 5.935"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
 		"rotateX" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
 		"rotateY" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist" 
 		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso" 
+		"rotate" " -type \"double3\" 16.372 0 2.15504899573775122"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso" 
+		"rotateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:Head" 
-		"rotate" " -type \"double3\" -53.303 9.07 -6.67"
+		"rotate" " -type \"double3\" -31.40450053167842981 10.8642674546339979 -8.6208727239007672"
+		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:Head" 
 		"rotateX" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:Head" 
@@ -4273,7 +4313,9 @@ createNode reference -n "nightmare_hugeRN";
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:Head" 
 		"rotateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
-		"translate" " -type \"double3\" 0.56385705962515009 1.8503622168467635 0.76368400192056418"
+		"visibility" " 1"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
+		"translate" " -type \"double3\" 0.6393941329980285 2.46545359098532968 1.50611646282515377"
 		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
 		"translateX" " -av"
@@ -4282,7 +4324,7 @@ createNode reference -n "nightmare_hugeRN";
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
 		"translateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
-		"rotate" " -type \"double3\" -56.14140966148861622 -37.6182309814231175 71.60344197491677676"
+		"rotate" " -type \"double3\" -56.36293396795643673 -19.92328437654258622 69.20258406537990936"
 		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
 		"rotateX" " -av"
@@ -4291,7 +4333,7 @@ createNode reference -n "nightmare_hugeRN";
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder" 
 		"rotateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow" 
-		"translate" " -type \"double3\" 0.41787493595420266 -0.079170159034512647 0.47365771512545091"
+		"translate" " -type \"double3\" 0.44825422397806708 -0.19095276339116823 0.46664827389005337"
 		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow" 
 		"translateX" " -av"
@@ -4309,7 +4351,7 @@ createNode reference -n "nightmare_hugeRN";
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow" 
 		"rotateZ" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand" 
-		"rotate" " -type \"double3\" -18.30229729965110863 40.17317870781205613 -23.62776362877600889"
+		"rotate" " -type \"double3\" -9.8330223210803176 18.38331702838042148 -38.42720434055522105"
 		
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand" 
 		"rotateX" " -av"
@@ -4317,9 +4359,124 @@ createNode reference -n "nightmare_hugeRN";
 		"rotateY" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand" 
 		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotate" " -type \"double3\" 0 0 -71.5069799300221689"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint" 
+		"rotate" " -type \"double3\" -14.11845158310491755 -9.54744540277304132 3.42121070983353226"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle" 
+		"rotate" " -type \"double3\" -15.07925071645679971 -2.12806048917431401 -10.11302434504449721"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint" 
+		"rotate" " -type \"double3\" -4.23141098650272074 -9.50482475594408882 0.53777175964134971"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle" 
+		"rotate" " -type \"double3\" 9.72933085183330881 7.44951461530217962 18.48369116625775632"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint" 
+		"rotate" " -type \"double3\" -2.02647645063864124 -8.13446242911471273 -0.29256680384122996"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle" 
+		"rotate" " -type \"double3\" -7.31159466743549746 10.98378827885515463 -4.68565423799209047"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint" 
+		"rotate" " -type \"double3\" 3.63376321986882411 -0.45414380354245898 0.99293904644905806"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle" 
+		"rotate" " -type \"double3\" -0.085047174282817814 -0.55935861396426045 31.04906761696753748"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1" 
+		"rotate" " -type \"double3\" -40.48163875905105868 12.85390075345672933 0.44240574669659893"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow" 
+		"rotate" " -type \"double3\" 8.31363323815903321 0.47238913759425244 43.49116681839790033"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand" 
+		"rotate" " -type \"double3\" -14.40974317459841814 33.99431970600247865 -30.89906245259984274"
+		
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand" 
+		"rotateZ" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotate" " -type \"double3\" -48.69344378698136211 0 0"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateX" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateY" " -av"
+		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint" 
+		"rotateZ" " -av"
 		2 "nightmare_huge:Meshes" "displayType" " 2"
 		2 "nightmare_huge:Meshes" "visibility" " 1"
-		2 "nightmare_huge:Controls" "visibility" " 1"
+		2 "nightmare_huge:Controls" "visibility" " 0"
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller.translateX" 
 		"nightmare_hugeRN.placeHolderList[1]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller.translateY" 
@@ -4438,512 +4595,510 @@ createNode reference -n "nightmare_hugeRN";
 		"nightmare_hugeRN.placeHolderList[58]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder.scaleZ" 
 		"nightmare_hugeRN.placeHolderList[59]" ""
-		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder.visibility" 
-		"nightmare_hugeRN.placeHolderList[60]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.rotateX" 
-		"nightmare_hugeRN.placeHolderList[61]" ""
+		"nightmare_hugeRN.placeHolderList[60]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.rotateY" 
-		"nightmare_hugeRN.placeHolderList[62]" ""
+		"nightmare_hugeRN.placeHolderList[61]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[63]" ""
+		"nightmare_hugeRN.placeHolderList[62]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.translateX" 
-		"nightmare_hugeRN.placeHolderList[64]" ""
+		"nightmare_hugeRN.placeHolderList[63]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.translateY" 
-		"nightmare_hugeRN.placeHolderList[65]" ""
+		"nightmare_hugeRN.placeHolderList[64]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.translateZ" 
-		"nightmare_hugeRN.placeHolderList[66]" ""
+		"nightmare_hugeRN.placeHolderList[65]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.scaleX" 
-		"nightmare_hugeRN.placeHolderList[67]" ""
+		"nightmare_hugeRN.placeHolderList[66]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.scaleY" 
-		"nightmare_hugeRN.placeHolderList[68]" ""
+		"nightmare_hugeRN.placeHolderList[67]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[69]" ""
+		"nightmare_hugeRN.placeHolderList[68]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow.visibility" 
-		"nightmare_hugeRN.placeHolderList[70]" ""
+		"nightmare_hugeRN.placeHolderList[69]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.rotateX" 
-		"nightmare_hugeRN.placeHolderList[71]" ""
+		"nightmare_hugeRN.placeHolderList[70]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.rotateY" 
-		"nightmare_hugeRN.placeHolderList[72]" ""
+		"nightmare_hugeRN.placeHolderList[71]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[73]" ""
+		"nightmare_hugeRN.placeHolderList[72]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.translateX" 
-		"nightmare_hugeRN.placeHolderList[74]" ""
+		"nightmare_hugeRN.placeHolderList[73]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.translateY" 
-		"nightmare_hugeRN.placeHolderList[75]" ""
+		"nightmare_hugeRN.placeHolderList[74]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.translateZ" 
-		"nightmare_hugeRN.placeHolderList[76]" ""
+		"nightmare_hugeRN.placeHolderList[75]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.scaleX" 
-		"nightmare_hugeRN.placeHolderList[77]" ""
+		"nightmare_hugeRN.placeHolderList[76]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.scaleY" 
-		"nightmare_hugeRN.placeHolderList[78]" ""
+		"nightmare_hugeRN.placeHolderList[77]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[79]" ""
+		"nightmare_hugeRN.placeHolderList[78]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand.visibility" 
-		"nightmare_hugeRN.placeHolderList[80]" ""
+		"nightmare_hugeRN.placeHolderList[79]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[81]" ""
+		"nightmare_hugeRN.placeHolderList[80]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[82]" ""
+		"nightmare_hugeRN.placeHolderList[81]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[83]" ""
+		"nightmare_hugeRN.placeHolderList[82]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[84]" ""
+		"nightmare_hugeRN.placeHolderList[83]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[85]" ""
+		"nightmare_hugeRN.placeHolderList[84]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[86]" ""
+		"nightmare_hugeRN.placeHolderList[85]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[87]" ""
+		"nightmare_hugeRN.placeHolderList[86]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[88]" ""
+		"nightmare_hugeRN.placeHolderList[87]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[89]" ""
+		"nightmare_hugeRN.placeHolderList[88]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[90]" ""
+		"nightmare_hugeRN.placeHolderList[89]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[91]" ""
+		"nightmare_hugeRN.placeHolderList[90]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[92]" ""
+		"nightmare_hugeRN.placeHolderList[91]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[93]" ""
+		"nightmare_hugeRN.placeHolderList[92]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[94]" ""
+		"nightmare_hugeRN.placeHolderList[93]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[95]" ""
+		"nightmare_hugeRN.placeHolderList[94]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[96]" ""
+		"nightmare_hugeRN.placeHolderList[95]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[97]" ""
+		"nightmare_hugeRN.placeHolderList[96]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[98]" ""
+		"nightmare_hugeRN.placeHolderList[97]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[99]" ""
+		"nightmare_hugeRN.placeHolderList[98]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[100]" ""
+		"nightmare_hugeRN.placeHolderList[99]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[101]" ""
+		"nightmare_hugeRN.placeHolderList[100]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[102]" ""
+		"nightmare_hugeRN.placeHolderList[101]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[103]" ""
+		"nightmare_hugeRN.placeHolderList[102]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[104]" ""
+		"nightmare_hugeRN.placeHolderList[103]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[105]" ""
+		"nightmare_hugeRN.placeHolderList[104]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[106]" ""
+		"nightmare_hugeRN.placeHolderList[105]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[107]" ""
+		"nightmare_hugeRN.placeHolderList[106]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[108]" ""
+		"nightmare_hugeRN.placeHolderList[107]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[109]" ""
+		"nightmare_hugeRN.placeHolderList[108]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[110]" ""
+		"nightmare_hugeRN.placeHolderList[109]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[111]" ""
+		"nightmare_hugeRN.placeHolderList[110]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[112]" ""
+		"nightmare_hugeRN.placeHolderList[111]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[113]" ""
+		"nightmare_hugeRN.placeHolderList[112]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[114]" ""
+		"nightmare_hugeRN.placeHolderList[113]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[115]" ""
+		"nightmare_hugeRN.placeHolderList[114]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[116]" ""
+		"nightmare_hugeRN.placeHolderList[115]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[117]" ""
+		"nightmare_hugeRN.placeHolderList[116]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[118]" ""
+		"nightmare_hugeRN.placeHolderList[117]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[119]" ""
+		"nightmare_hugeRN.placeHolderList[118]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[120]" ""
+		"nightmare_hugeRN.placeHolderList[119]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[121]" ""
+		"nightmare_hugeRN.placeHolderList[120]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[122]" ""
+		"nightmare_hugeRN.placeHolderList[121]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[123]" ""
+		"nightmare_hugeRN.placeHolderList[122]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[124]" ""
+		"nightmare_hugeRN.placeHolderList[123]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[125]" ""
+		"nightmare_hugeRN.placeHolderList[124]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[126]" ""
+		"nightmare_hugeRN.placeHolderList[125]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[127]" ""
+		"nightmare_hugeRN.placeHolderList[126]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[128]" ""
+		"nightmare_hugeRN.placeHolderList[127]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[129]" ""
+		"nightmare_hugeRN.placeHolderList[128]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[130]" ""
+		"nightmare_hugeRN.placeHolderList[129]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[131]" ""
+		"nightmare_hugeRN.placeHolderList[130]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[132]" ""
+		"nightmare_hugeRN.placeHolderList[131]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[133]" ""
+		"nightmare_hugeRN.placeHolderList[132]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[134]" ""
+		"nightmare_hugeRN.placeHolderList[133]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[135]" ""
+		"nightmare_hugeRN.placeHolderList[134]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[136]" ""
+		"nightmare_hugeRN.placeHolderList[135]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[137]" ""
+		"nightmare_hugeRN.placeHolderList[136]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[138]" ""
+		"nightmare_hugeRN.placeHolderList[137]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[139]" ""
+		"nightmare_hugeRN.placeHolderList[138]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[140]" ""
+		"nightmare_hugeRN.placeHolderList[139]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[141]" ""
+		"nightmare_hugeRN.placeHolderList[140]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[142]" ""
+		"nightmare_hugeRN.placeHolderList[141]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[143]" ""
+		"nightmare_hugeRN.placeHolderList[142]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[144]" ""
+		"nightmare_hugeRN.placeHolderList[143]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[145]" ""
+		"nightmare_hugeRN.placeHolderList[144]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[146]" ""
+		"nightmare_hugeRN.placeHolderList[145]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[147]" ""
+		"nightmare_hugeRN.placeHolderList[146]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[148]" ""
+		"nightmare_hugeRN.placeHolderList[147]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[149]" ""
+		"nightmare_hugeRN.placeHolderList[148]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[150]" ""
+		"nightmare_hugeRN.placeHolderList[149]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[151]" ""
+		"nightmare_hugeRN.placeHolderList[150]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[152]" ""
+		"nightmare_hugeRN.placeHolderList[151]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[153]" ""
+		"nightmare_hugeRN.placeHolderList[152]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[154]" ""
+		"nightmare_hugeRN.placeHolderList[153]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[155]" ""
+		"nightmare_hugeRN.placeHolderList[154]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[156]" ""
+		"nightmare_hugeRN.placeHolderList[155]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[157]" ""
+		"nightmare_hugeRN.placeHolderList[156]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[158]" ""
+		"nightmare_hugeRN.placeHolderList[157]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[159]" ""
+		"nightmare_hugeRN.placeHolderList[158]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[160]" ""
+		"nightmare_hugeRN.placeHolderList[159]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[161]" ""
+		"nightmare_hugeRN.placeHolderList[160]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[162]" ""
+		"nightmare_hugeRN.placeHolderList[161]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[163]" ""
+		"nightmare_hugeRN.placeHolderList[162]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[164]" ""
+		"nightmare_hugeRN.placeHolderList[163]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[165]" ""
+		"nightmare_hugeRN.placeHolderList[164]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[166]" ""
+		"nightmare_hugeRN.placeHolderList[165]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[167]" ""
+		"nightmare_hugeRN.placeHolderList[166]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[168]" ""
+		"nightmare_hugeRN.placeHolderList[167]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[169]" ""
+		"nightmare_hugeRN.placeHolderList[168]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[170]" ""
+		"nightmare_hugeRN.placeHolderList[169]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[171]" ""
+		"nightmare_hugeRN.placeHolderList[170]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[172]" ""
+		"nightmare_hugeRN.placeHolderList[171]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[173]" ""
+		"nightmare_hugeRN.placeHolderList[172]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[174]" ""
+		"nightmare_hugeRN.placeHolderList[173]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[175]" ""
+		"nightmare_hugeRN.placeHolderList[174]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[176]" ""
+		"nightmare_hugeRN.placeHolderList[175]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[177]" ""
+		"nightmare_hugeRN.placeHolderList[176]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[178]" ""
+		"nightmare_hugeRN.placeHolderList[177]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[179]" ""
+		"nightmare_hugeRN.placeHolderList[178]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[180]" ""
+		"nightmare_hugeRN.placeHolderList[179]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.rotateX" 
-		"nightmare_hugeRN.placeHolderList[181]" ""
+		"nightmare_hugeRN.placeHolderList[180]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.rotateY" 
-		"nightmare_hugeRN.placeHolderList[182]" ""
+		"nightmare_hugeRN.placeHolderList[181]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[183]" ""
+		"nightmare_hugeRN.placeHolderList[182]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.translateX" 
-		"nightmare_hugeRN.placeHolderList[184]" ""
+		"nightmare_hugeRN.placeHolderList[183]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.translateY" 
-		"nightmare_hugeRN.placeHolderList[185]" ""
+		"nightmare_hugeRN.placeHolderList[184]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.translateZ" 
-		"nightmare_hugeRN.placeHolderList[186]" ""
+		"nightmare_hugeRN.placeHolderList[185]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.scaleX" 
-		"nightmare_hugeRN.placeHolderList[187]" ""
+		"nightmare_hugeRN.placeHolderList[186]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.scaleY" 
-		"nightmare_hugeRN.placeHolderList[188]" ""
+		"nightmare_hugeRN.placeHolderList[187]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[189]" ""
+		"nightmare_hugeRN.placeHolderList[188]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1.visibility" 
-		"nightmare_hugeRN.placeHolderList[190]" ""
+		"nightmare_hugeRN.placeHolderList[189]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.rotateX" 
-		"nightmare_hugeRN.placeHolderList[191]" ""
+		"nightmare_hugeRN.placeHolderList[190]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.rotateY" 
-		"nightmare_hugeRN.placeHolderList[192]" ""
+		"nightmare_hugeRN.placeHolderList[191]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[193]" ""
+		"nightmare_hugeRN.placeHolderList[192]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.translateX" 
-		"nightmare_hugeRN.placeHolderList[194]" ""
+		"nightmare_hugeRN.placeHolderList[193]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.translateY" 
-		"nightmare_hugeRN.placeHolderList[195]" ""
+		"nightmare_hugeRN.placeHolderList[194]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.translateZ" 
-		"nightmare_hugeRN.placeHolderList[196]" ""
+		"nightmare_hugeRN.placeHolderList[195]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.scaleX" 
-		"nightmare_hugeRN.placeHolderList[197]" ""
+		"nightmare_hugeRN.placeHolderList[196]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.scaleY" 
-		"nightmare_hugeRN.placeHolderList[198]" ""
+		"nightmare_hugeRN.placeHolderList[197]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[199]" ""
+		"nightmare_hugeRN.placeHolderList[198]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow.visibility" 
-		"nightmare_hugeRN.placeHolderList[200]" ""
+		"nightmare_hugeRN.placeHolderList[199]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.rotateX" 
-		"nightmare_hugeRN.placeHolderList[201]" ""
+		"nightmare_hugeRN.placeHolderList[200]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.rotateY" 
-		"nightmare_hugeRN.placeHolderList[202]" ""
+		"nightmare_hugeRN.placeHolderList[201]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[203]" ""
+		"nightmare_hugeRN.placeHolderList[202]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.translateX" 
-		"nightmare_hugeRN.placeHolderList[204]" ""
+		"nightmare_hugeRN.placeHolderList[203]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.translateY" 
-		"nightmare_hugeRN.placeHolderList[205]" ""
+		"nightmare_hugeRN.placeHolderList[204]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.translateZ" 
-		"nightmare_hugeRN.placeHolderList[206]" ""
+		"nightmare_hugeRN.placeHolderList[205]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.scaleX" 
-		"nightmare_hugeRN.placeHolderList[207]" ""
+		"nightmare_hugeRN.placeHolderList[206]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.scaleY" 
-		"nightmare_hugeRN.placeHolderList[208]" ""
+		"nightmare_hugeRN.placeHolderList[207]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[209]" ""
+		"nightmare_hugeRN.placeHolderList[208]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand.visibility" 
-		"nightmare_hugeRN.placeHolderList[210]" ""
+		"nightmare_hugeRN.placeHolderList[209]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[211]" ""
+		"nightmare_hugeRN.placeHolderList[210]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[212]" ""
+		"nightmare_hugeRN.placeHolderList[211]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[213]" ""
+		"nightmare_hugeRN.placeHolderList[212]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[214]" ""
+		"nightmare_hugeRN.placeHolderList[213]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[215]" ""
+		"nightmare_hugeRN.placeHolderList[214]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[216]" ""
+		"nightmare_hugeRN.placeHolderList[215]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[217]" ""
+		"nightmare_hugeRN.placeHolderList[216]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[218]" ""
+		"nightmare_hugeRN.placeHolderList[217]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[219]" ""
+		"nightmare_hugeRN.placeHolderList[218]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[220]" ""
+		"nightmare_hugeRN.placeHolderList[219]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[221]" ""
+		"nightmare_hugeRN.placeHolderList[220]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[222]" ""
+		"nightmare_hugeRN.placeHolderList[221]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[223]" ""
+		"nightmare_hugeRN.placeHolderList[222]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[224]" ""
+		"nightmare_hugeRN.placeHolderList[223]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[225]" ""
+		"nightmare_hugeRN.placeHolderList[224]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[226]" ""
+		"nightmare_hugeRN.placeHolderList[225]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[227]" ""
+		"nightmare_hugeRN.placeHolderList[226]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[228]" ""
+		"nightmare_hugeRN.placeHolderList[227]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[229]" ""
+		"nightmare_hugeRN.placeHolderList[228]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LThumbJoint|nightmare_huge:LThumbKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[230]" ""
+		"nightmare_hugeRN.placeHolderList[229]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[231]" ""
+		"nightmare_hugeRN.placeHolderList[230]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[232]" ""
+		"nightmare_hugeRN.placeHolderList[231]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[233]" ""
+		"nightmare_hugeRN.placeHolderList[232]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[234]" ""
+		"nightmare_hugeRN.placeHolderList[233]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[235]" ""
+		"nightmare_hugeRN.placeHolderList[234]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[236]" ""
+		"nightmare_hugeRN.placeHolderList[235]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[237]" ""
+		"nightmare_hugeRN.placeHolderList[236]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[238]" ""
+		"nightmare_hugeRN.placeHolderList[237]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[239]" ""
+		"nightmare_hugeRN.placeHolderList[238]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[240]" ""
+		"nightmare_hugeRN.placeHolderList[239]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[241]" ""
+		"nightmare_hugeRN.placeHolderList[240]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[242]" ""
+		"nightmare_hugeRN.placeHolderList[241]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[243]" ""
+		"nightmare_hugeRN.placeHolderList[242]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[244]" ""
+		"nightmare_hugeRN.placeHolderList[243]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[245]" ""
+		"nightmare_hugeRN.placeHolderList[244]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[246]" ""
+		"nightmare_hugeRN.placeHolderList[245]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[247]" ""
+		"nightmare_hugeRN.placeHolderList[246]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[248]" ""
+		"nightmare_hugeRN.placeHolderList[247]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[249]" ""
+		"nightmare_hugeRN.placeHolderList[248]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LIndexJoint|nightmare_huge:LIndexKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[250]" ""
+		"nightmare_hugeRN.placeHolderList[249]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[251]" ""
+		"nightmare_hugeRN.placeHolderList[250]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[252]" ""
+		"nightmare_hugeRN.placeHolderList[251]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[253]" ""
+		"nightmare_hugeRN.placeHolderList[252]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[254]" ""
+		"nightmare_hugeRN.placeHolderList[253]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[255]" ""
+		"nightmare_hugeRN.placeHolderList[254]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[256]" ""
+		"nightmare_hugeRN.placeHolderList[255]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[257]" ""
+		"nightmare_hugeRN.placeHolderList[256]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[258]" ""
+		"nightmare_hugeRN.placeHolderList[257]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[259]" ""
+		"nightmare_hugeRN.placeHolderList[258]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[260]" ""
+		"nightmare_hugeRN.placeHolderList[259]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[261]" ""
+		"nightmare_hugeRN.placeHolderList[260]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[262]" ""
+		"nightmare_hugeRN.placeHolderList[261]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[263]" ""
+		"nightmare_hugeRN.placeHolderList[262]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[264]" ""
+		"nightmare_hugeRN.placeHolderList[263]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[265]" ""
+		"nightmare_hugeRN.placeHolderList[264]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[266]" ""
+		"nightmare_hugeRN.placeHolderList[265]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[267]" ""
+		"nightmare_hugeRN.placeHolderList[266]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[268]" ""
+		"nightmare_hugeRN.placeHolderList[267]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[269]" ""
+		"nightmare_hugeRN.placeHolderList[268]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LMidJoint|nightmare_huge:LMidKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[270]" ""
+		"nightmare_hugeRN.placeHolderList[269]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[271]" ""
+		"nightmare_hugeRN.placeHolderList[270]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[272]" ""
+		"nightmare_hugeRN.placeHolderList[271]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[273]" ""
+		"nightmare_hugeRN.placeHolderList[272]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[274]" ""
+		"nightmare_hugeRN.placeHolderList[273]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[275]" ""
+		"nightmare_hugeRN.placeHolderList[274]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[276]" ""
+		"nightmare_hugeRN.placeHolderList[275]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[277]" ""
+		"nightmare_hugeRN.placeHolderList[276]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[278]" ""
+		"nightmare_hugeRN.placeHolderList[277]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[279]" ""
+		"nightmare_hugeRN.placeHolderList[278]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[280]" ""
+		"nightmare_hugeRN.placeHolderList[279]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[281]" ""
+		"nightmare_hugeRN.placeHolderList[280]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[282]" ""
+		"nightmare_hugeRN.placeHolderList[281]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[283]" ""
+		"nightmare_hugeRN.placeHolderList[282]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[284]" ""
+		"nightmare_hugeRN.placeHolderList[283]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[285]" ""
+		"nightmare_hugeRN.placeHolderList[284]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[286]" ""
+		"nightmare_hugeRN.placeHolderList[285]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[287]" ""
+		"nightmare_hugeRN.placeHolderList[286]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[288]" ""
+		"nightmare_hugeRN.placeHolderList[287]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[289]" ""
+		"nightmare_hugeRN.placeHolderList[288]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LRingJoint|nightmare_huge:LRingKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[290]" ""
+		"nightmare_hugeRN.placeHolderList[289]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateX" 
-		"nightmare_hugeRN.placeHolderList[291]" ""
+		"nightmare_hugeRN.placeHolderList[290]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateY" 
-		"nightmare_hugeRN.placeHolderList[292]" ""
+		"nightmare_hugeRN.placeHolderList[291]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[293]" ""
+		"nightmare_hugeRN.placeHolderList[292]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.visibility" 
-		"nightmare_hugeRN.placeHolderList[294]" ""
+		"nightmare_hugeRN.placeHolderList[293]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateX" 
-		"nightmare_hugeRN.placeHolderList[295]" ""
+		"nightmare_hugeRN.placeHolderList[294]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateY" 
-		"nightmare_hugeRN.placeHolderList[296]" ""
+		"nightmare_hugeRN.placeHolderList[295]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.translateZ" 
-		"nightmare_hugeRN.placeHolderList[297]" ""
+		"nightmare_hugeRN.placeHolderList[296]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleX" 
-		"nightmare_hugeRN.placeHolderList[298]" ""
+		"nightmare_hugeRN.placeHolderList[297]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleY" 
-		"nightmare_hugeRN.placeHolderList[299]" ""
+		"nightmare_hugeRN.placeHolderList[298]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[300]" ""
+		"nightmare_hugeRN.placeHolderList[299]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateX" 
-		"nightmare_hugeRN.placeHolderList[301]" ""
+		"nightmare_hugeRN.placeHolderList[300]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateY" 
-		"nightmare_hugeRN.placeHolderList[302]" ""
+		"nightmare_hugeRN.placeHolderList[301]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.rotateZ" 
-		"nightmare_hugeRN.placeHolderList[303]" ""
+		"nightmare_hugeRN.placeHolderList[302]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.visibility" 
-		"nightmare_hugeRN.placeHolderList[304]" ""
+		"nightmare_hugeRN.placeHolderList[303]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateX" 
-		"nightmare_hugeRN.placeHolderList[305]" ""
+		"nightmare_hugeRN.placeHolderList[304]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateY" 
-		"nightmare_hugeRN.placeHolderList[306]" ""
+		"nightmare_hugeRN.placeHolderList[305]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.translateZ" 
-		"nightmare_hugeRN.placeHolderList[307]" ""
+		"nightmare_hugeRN.placeHolderList[306]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleX" 
-		"nightmare_hugeRN.placeHolderList[308]" ""
+		"nightmare_hugeRN.placeHolderList[307]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleY" 
-		"nightmare_hugeRN.placeHolderList[309]" ""
+		"nightmare_hugeRN.placeHolderList[308]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[310]" "";
+		"nightmare_hugeRN.placeHolderList[309]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "Candy_Enter_UnicornRN";
-	setAttr -s 698 ".phl";
+	setAttr -s 697 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -5641,11 +5796,10 @@ createNode reference -n "Candy_Enter_UnicornRN";
 	setAttr ".phl[695]" 0;
 	setAttr ".phl[696]" 0;
 	setAttr ".phl[697]" 0;
-	setAttr ".phl[698]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Candy_Enter_UnicornRN"
 		"Candy_Enter_UnicornRN" 0
-		"Candy_Enter_UnicornRN" 928
+		"Candy_Enter_UnicornRN" 931
 		1 |Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M|Candy_Enter_Unicorn:FKChest_MShape 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		1 |Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:HipSwingerOffset_M|Candy_Enter_Unicorn:HipSwinger_M|Candy_Enter_Unicorn:HipSwinger_MShape 
@@ -5697,7 +5851,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		1 |Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M|Candy_Enter_Unicorn:curveShape4 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M" 
-		"rotate" " -type \"double3\" -16.93509220497160328 0 -9.038"
+		"rotate" " -type \"double3\" -13.29215655979915489 0 -9.038"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M" 
@@ -5705,7 +5859,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M" 
 		"rotateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
-		"translate" " -type \"double3\" 0.11098974036474621 -0.020492507539220207 0"
+		"translate" " -type \"double3\" 0.081963717025869659 -0.022112146329246209 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
@@ -5713,7 +5867,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
-		"rotate" " -type \"double3\" 0 -3.03223836630341159 -4.0607747637757825"
+		"rotate" " -type \"double3\" 0 -1.02507686667802278 4.97830335766040388"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
@@ -5721,7 +5875,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M" 
 		"rotateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M" 
-		"translate" " -type \"double3\" 0.11107473937921022 0.035507492460779791 0.12424450430907252"
+		"translate" " -type \"double3\" 0.081963717025869659 0.033887853670753795 0.24847089723850183"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M" 
 		"translateX" " -av"
@@ -5730,7 +5884,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M" 
-		"rotate" " -type \"double3\" 15.22313849882145753 15.74489324217902109 -9.16883314264744875"
+		"rotate" " -type \"double3\" 9.94049044331485732 15.74489324217902109 -15.22003126912536253"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M" 
 		"rotateX" " -av"
@@ -5741,7 +5895,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:FKXOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Candy_Enter_Unicorn:HipSwingerGroupRoot_M|Candy_Enter_Unicorn:FKXRoot_M|Candy_Enter_Unicorn:HipSwingerStabalizeRoot_M|Candy_Enter_Unicorn:FKOffsetSpine1_M|Candy_Enter_Unicorn:FKExtraSpine1_M|Candy_Enter_Unicorn:FKSpine1_M|Candy_Enter_Unicorn:FKXOffsetSpine1_M|Candy_Enter_Unicorn:FKXSpine1_M|Candy_Enter_Unicorn:FKOffsetChest_M|Candy_Enter_Unicorn:FKExtraChest_M|Candy_Enter_Unicorn:FKChest_M|Candy_Enter_Unicorn:FKChest_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:HipSwingerOffset_M|Candy_Enter_Unicorn:HipSwinger_M" 
-		"rotate" " -type \"double3\" 10.96468040281783018 -8.07827005374850593 -9.01083663331163898"
+		"rotate" " -type \"double3\" 8.49432561705842026 -16.74767925986090589 6.46580055938241216"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:HipSwingerOffset_M|Candy_Enter_Unicorn:HipSwinger_M" 
 		"rotateX" " -av"
@@ -5752,7 +5906,11 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKOffsetRoot_M|Candy_Enter_Unicorn:FKExtraRoot_M|Candy_Enter_Unicorn:FKRoot_M|Candy_Enter_Unicorn:HipSwingerOffset_M|Candy_Enter_Unicorn:HipSwinger_M|Candy_Enter_Unicorn:HipSwinger_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M" 
-		"rotate" " -type \"double3\" 0 0 37.10819759018933439"
+		"rotate" " -type \"double3\" 0 -24.46507999198084349 -7.29305773533833879"
+		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M" 
+		"rotateX" " -av"
+		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M" 
+		"rotateY" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M" 
 		"rotateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:LegAimScapula_R|Candy_Enter_Unicorn:FKOffsetScapula_R|Candy_Enter_Unicorn:FKExtraScapula_R|Candy_Enter_Unicorn:FKScapula_R" 
@@ -5768,7 +5926,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M" 
-		"rotate" " -type \"double3\" -55.041 0 -5.27677261371864059"
+		"rotate" " -type \"double3\" -55.041 0 -6.49712281461314589"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M" 
@@ -5784,7 +5942,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M" 
-		"rotate" " -type \"double3\" -29.71047191493225981 3.78469721945927651 2.69147368271178511"
+		"rotate" " -type \"double3\" -11.11233950227736678 -4.2088883362028966 -20.0848378696476324"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M" 
 		"rotateX" " -av"
@@ -5801,7 +5959,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R" 
 		"translateY" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R" 
-		"rotate" " -type \"double3\" 65.58816114926534624 89.99999999998004796 0"
+		"rotate" " -type \"double3\" 89.97733781039215728 89.99999999998004796 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R" 
@@ -5811,13 +5969,13 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarA_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R" 
-		"rotate" " -type \"double3\" -0.40687534161352168 0 0"
+		"rotate" " -type \"double3\" -13.55342424870063489 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarB_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R" 
-		"rotate" " -type \"double3\" 0 -0.56860375629981419 0"
+		"rotate" " -type \"double3\" 56.71952652107336945 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R" 
 		"rotateY" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R|Candy_Enter_Unicorn:FKEarC_RShape" 
@@ -5837,7 +5995,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R" 
-		"rotate" " -type \"double3\" 0 0 3.04551563645826251"
+		"rotate" " -type \"double3\" 0 0 5.08720245750515865"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R" 
@@ -5851,17 +6009,18 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L" 
 		"rotateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKSpineHandle_M" 
-		"translate" " -type \"double3\" -0.33630999626654534 2.18812434329814032 19.33825695007061185"
+		"translate" " -type \"double3\" 0.32883746925045776 2.03882687197092327 21.40988017979039171"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -92.51229850134139099 -78.06541064187960899 -87.54193919212575281"
+		"rotate" " -type \"double3\" -79.40573851978824393 -73.77219641562625441 -100.18117304147934021"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKTailHandle_M" 
-		"translate" " -type \"double3\" 0 3.2156313740699769 -11.57726432973592701"
+		"translate" " -type \"double3\" 0 3.21563137406996447 -12.7295707554062556"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKTailHandle_M" 
-		"rotate" " -type \"double3\" 179.88426550119811509 89.99999999999639044 0"
+		"rotate" " -type \"double3\" 179.87922116799902028 89.99999999999728573 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
-		"translate" " -type \"double3\" -1.51959536882769441 0 17.32629559739578085"
+		"translate" " -type \"double3\" -0.62328389226703274 0.72677464820093873 18.40468254360764533"
+		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
@@ -5869,7 +6028,8 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
-		"rotate" " -type \"double3\" 0 8.73685075582291759 0"
+		"rotate" " -type \"double3\" 75.65611167527158898 5.15947064803305988 -22.87596008248400992"
+		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R" 
@@ -5887,8 +6047,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
-		"translate" " -type \"double3\" -0.31611372602362864 0.87666315437619802 20.04720977493254352"
-		
+		"translate" " -type \"double3\" 1.17374789313584915 0 20.79921445779090305"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
@@ -5896,8 +6055,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
-		"rotate" " -type \"double3\" -6.21230988146942398 -4.15361237825107743 -5.85489666572933842"
-		
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R" 
@@ -5919,7 +6077,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R|Candy_Enter_Unicorn:RollToesA_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R" 
-		"translate" " -type \"double3\" -0.99560333682735047 0 0"
+		"translate" " -type \"double3\" -0.99564585547055495 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R" 
@@ -5927,7 +6085,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
-		"translate" " -type \"double3\" -1.56612635534882716 0.53192851749913639 16.07423906558273785"
+		"translate" " -type \"double3\" 0.26189850306417251 0.713157553433036 19.93379262623102477"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
 		"translateX" " -av"
@@ -5936,8 +6094,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
-		"rotate" " -type \"double3\" 44.3096239433507364 -13.12191895584436629 -12.25940395198741051"
-		
+		"rotate" " -type \"double3\" 69.63275354699803188 0 -37.83497125288668173"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L" 
@@ -5965,8 +6122,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
-		"translate" " -type \"double3\" 0.79445326878141587 0.29296324005646412 19.33440791106225731"
-		
+		"translate" " -type \"double3\" 1.00518007759986716 0 19.33440791106225731"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
@@ -5974,8 +6130,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
-		"rotate" " -type \"double3\" -32.22801705404283723 3.66967471031075476 19.19520872598598871"
-		
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L" 
@@ -6043,7 +6198,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
-		"translate" " -type \"double3\" -0.36064513169218004 0.052481578819034813 17.69761551373041186"
+		"translate" " -type \"double3\" 0.46437501160904415 0.091004969493407514 19.81924816001573575"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
 		"translateX" " -av"
@@ -6052,7 +6207,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
-		"rotate" " -type \"double3\" 5.42503075177145444 0.51937109738476406 0"
+		"rotate" " -type \"double3\" 9.46697516030605435 -2.94509619083658736 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
 		"rotateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M" 
@@ -6088,13 +6243,17 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashTopOffset|Candy_Enter_Unicorn:squashTop_M" 
 		"translateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M" 
-		"translate" " -type \"double3\" 0 0 -0.11874011889004187"
+		"translate" " -type \"double3\" 0 0 -0.10546059646408909"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M" 
 		"translateX" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M" 
 		"translateY" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M" 
 		"translateZ" " -av"
+		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R" 
+		"blink" " -av -k 1 2.80000000000000027"
+		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L" 
+		"blink" " -av -k 1 2.80000000000000027"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M" 
@@ -6104,19 +6263,19 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M" 
 		"rotateZ" " -av"
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:SquashSetup|Candy_Enter_Unicorn:squashIKHandle" 
-		"translate" " -type \"double3\" 1.3329038599074734 4.09547553975626943 15.69374056558256925"
+		"translate" " -type \"double3\" 2.36484598615543407 3.52423059826302687 18.02949756978330953"
 		
 		2 "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:SquashSetup|Candy_Enter_Unicorn:squashIKHandle" 
-		"rotate" " -type \"double3\" 65.37323788551644554 -3.39201936132226178 89.3937956988356035"
+		"rotate" " -type \"double3\" 82.6171127757133803 -26.57706859797626464 93.39483991225212378"
 		
 		2 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Tongue" 
 		"visibility" " 0"
 		2 "Candy_Enter_Unicorn:Candy_Meshes" "displayType" " 2"
 		2 "Candy_Enter_Unicorn:Candy_Meshes" "visibility" " 1"
-		2 "Candy_Enter_Unicorn:Candy_Armature" "visibility" " 1"
-		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
+		2 "Candy_Enter_Unicorn:Candy_Armature" "visibility" " 0"
 		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Body|Candy_Enter_Unicorn:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main.FaceVis" 
 		"Candy_Enter_UnicornRN.placeHolderList[1]" ""
@@ -6240,17 +6399,17 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		"Candy_Enter_UnicornRN.placeHolderList[60]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.scaleZ" 
 		"Candy_Enter_UnicornRN.placeHolderList[61]" ""
-		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[62]" ""
-		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[63]" ""
-		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[64]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[65]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[62]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[66]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[63]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.rotateZ" 
+		"Candy_Enter_UnicornRN.placeHolderList[64]" ""
+		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateX" 
+		"Candy_Enter_UnicornRN.placeHolderList[65]" ""
+		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateY" 
+		"Candy_Enter_UnicornRN.placeHolderList[66]" ""
+		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.translateZ" 
 		"Candy_Enter_UnicornRN.placeHolderList[67]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToRoot_M|Candy_Enter_Unicorn:FKOffsetTail1_M|Candy_Enter_Unicorn:FKExtraTail1_M|Candy_Enter_Unicorn:FKTail1_M|Candy_Enter_Unicorn:FKXOffsetTail1_M|Candy_Enter_Unicorn:FKXTail1_M|Candy_Enter_Unicorn:FKOffsetTail2_M|Candy_Enter_Unicorn:FKExtraTail2_M|Candy_Enter_Unicorn:FKTail2_M.visibility" 
 		"Candy_Enter_UnicornRN.placeHolderList[68]" ""
@@ -6364,13 +6523,13 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		"Candy_Enter_UnicornRN.placeHolderList[122]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.rotateZ" 
 		"Candy_Enter_UnicornRN.placeHolderList[123]" ""
-		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[124]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[125]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[124]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[126]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[125]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.translateZ" 
+		"Candy_Enter_UnicornRN.placeHolderList[126]" ""
+		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.visibility" 
 		"Candy_Enter_UnicornRN.placeHolderList[127]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R.scaleX" 
 		"Candy_Enter_UnicornRN.placeHolderList[128]" ""
@@ -6400,1120 +6559,1118 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		"Candy_Enter_UnicornRN.placeHolderList[140]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.rotateX" 
 		"Candy_Enter_UnicornRN.placeHolderList[141]" ""
-		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[142]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[143]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[142]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[144]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[143]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[145]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[144]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[146]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[145]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[147]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[146]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[148]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[147]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[149]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[148]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_R|Candy_Enter_Unicorn:FKEarB_R|Candy_Enter_Unicorn:FKEarC_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[150]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[149]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[151]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[150]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[152]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[151]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[153]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[152]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[154]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[153]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[155]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[154]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[156]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[155]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[157]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[156]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[158]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[157]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[159]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[158]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[160]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[159]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[161]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[160]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[162]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[161]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[163]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[162]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[164]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[163]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[165]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[164]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[166]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[165]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[167]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[166]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[168]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[167]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[169]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[168]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[170]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[169]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[171]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[170]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[172]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[171]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[173]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[172]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[174]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[173]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[175]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[174]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[176]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[175]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[177]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[176]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[178]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[177]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[179]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[178]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:FKOffsetNeck_M|Candy_Enter_Unicorn:FKGlobalStaticNeck_M|Candy_Enter_Unicorn:FKGlobalNeck_M|Candy_Enter_Unicorn:FKExtraNeck_M|Candy_Enter_Unicorn:FKNeck_M|Candy_Enter_Unicorn:FKXOffsetNeck_M|Candy_Enter_Unicorn:FKXNeck_M|Candy_Enter_Unicorn:FKOffsetHead_M|Candy_Enter_Unicorn:FKGlobalStaticHead_M|Candy_Enter_Unicorn:FKGlobalHead_M|Candy_Enter_Unicorn:FKExtraHead_M|Candy_Enter_Unicorn:FKHead_M|Candy_Enter_Unicorn:FKEarA_L|Candy_Enter_Unicorn:FKEarB_L|Candy_Enter_Unicorn:FKEarC_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[180]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[179]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[181]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[180]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[182]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[181]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[183]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[182]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[184]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[183]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[185]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[184]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[186]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[185]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[187]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[186]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[188]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[187]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[189]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[188]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_R|Candy_Enter_Unicorn:FKOffsetScapula1_R|Candy_Enter_Unicorn:FKExtraScapula1_R|Candy_Enter_Unicorn:FKScapula1_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[190]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[189]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[191]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[190]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[192]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[191]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[193]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[192]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[194]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[193]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[195]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[194]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[196]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[195]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[197]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[196]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[198]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[197]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[199]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[198]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKSystem|Candy_Enter_Unicorn:FKParentConstraintToChest_M|Candy_Enter_Unicorn:LegAimScapula1_L|Candy_Enter_Unicorn:FKOffsetScapula1_L|Candy_Enter_Unicorn:FKExtraScapula1_L|Candy_Enter_Unicorn:FKScapula1_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[200]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[199]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[201]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[200]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[202]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[201]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[203]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[202]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[204]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[203]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[205]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[204]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[206]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[205]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[207]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[206]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[208]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[207]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[209]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[208]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.swivel" 
-		"Candy_Enter_UnicornRN.placeHolderList[210]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[209]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.toe" 
-		"Candy_Enter_UnicornRN.placeHolderList[211]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[210]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.rollAngle" 
-		"Candy_Enter_UnicornRN.placeHolderList[212]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[211]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.roll" 
-		"Candy_Enter_UnicornRN.placeHolderList[213]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[212]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.legAim" 
-		"Candy_Enter_UnicornRN.placeHolderList[214]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[213]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.stretchy" 
-		"Candy_Enter_UnicornRN.placeHolderList[215]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[214]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.antiPop" 
-		"Candy_Enter_UnicornRN.placeHolderList[216]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[215]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.Lenght1" 
-		"Candy_Enter_UnicornRN.placeHolderList[217]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[216]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.Lenght2" 
-		"Candy_Enter_UnicornRN.placeHolderList[218]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[217]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.volume" 
-		"Candy_Enter_UnicornRN.placeHolderList[219]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[218]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[220]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[219]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[221]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[220]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[222]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[221]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[223]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[222]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[224]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[223]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[225]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[224]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[226]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[225]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[227]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[226]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[228]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[227]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[229]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[228]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[230]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[229]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[231]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[230]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[232]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[231]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[233]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[232]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[234]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[233]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[235]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[234]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[236]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[235]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[237]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[236]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[238]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[237]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[239]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[238]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[240]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[239]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[241]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[240]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[242]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[241]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[243]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[242]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[244]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[243]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[245]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[244]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[246]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[245]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[247]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[246]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[248]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[247]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[249]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[248]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_R|Candy_Enter_Unicorn:IKExtraLeg_R|Candy_Enter_Unicorn:IKLeg_R|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLeg_R|Candy_Enter_Unicorn:RollExtraHeelLeg_R|Candy_Enter_Unicorn:RollHeelLeg_R|Candy_Enter_Unicorn:RollOffsetToesEnd_R|Candy_Enter_Unicorn:RollExtraToesEnd_R|Candy_Enter_Unicorn:RollToesEnd_R|Candy_Enter_Unicorn:RollOffsetToes_R|Candy_Enter_Unicorn:RollExtraToes_R|Candy_Enter_Unicorn:RollToes_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[250]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[249]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[251]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[250]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[252]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[251]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[253]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[252]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R.follow" 
-		"Candy_Enter_UnicornRN.placeHolderList[254]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[253]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_R|Candy_Enter_Unicorn:PoleExtraLeg_R|Candy_Enter_Unicorn:PoleLeg_R.lock" 
-		"Candy_Enter_UnicornRN.placeHolderList[255]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[254]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[256]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[255]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[257]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[256]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[258]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[257]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[259]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[258]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[260]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[259]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[261]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[260]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[262]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[261]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[263]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[262]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[264]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[263]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.swivel" 
-		"Candy_Enter_UnicornRN.placeHolderList[265]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[264]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.toe" 
-		"Candy_Enter_UnicornRN.placeHolderList[266]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[265]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.rollAngle" 
-		"Candy_Enter_UnicornRN.placeHolderList[267]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[266]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.roll" 
-		"Candy_Enter_UnicornRN.placeHolderList[268]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[267]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.legAim" 
-		"Candy_Enter_UnicornRN.placeHolderList[269]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[268]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.stretchy" 
-		"Candy_Enter_UnicornRN.placeHolderList[270]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[269]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.antiPop" 
-		"Candy_Enter_UnicornRN.placeHolderList[271]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[270]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.Lenght1" 
-		"Candy_Enter_UnicornRN.placeHolderList[272]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[271]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.Lenght2" 
-		"Candy_Enter_UnicornRN.placeHolderList[273]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[272]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.volume" 
-		"Candy_Enter_UnicornRN.placeHolderList[274]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[273]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[275]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[274]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegA_RShape.lockLength" 
-		"Candy_Enter_UnicornRN.placeHolderList[276]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[275]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[277]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[276]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[278]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[277]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[279]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[278]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[280]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[279]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[281]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[280]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[282]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[281]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[283]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[282]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[284]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[283]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[285]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[284]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[286]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[285]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[287]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[286]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[288]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[287]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[289]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[288]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[290]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[289]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[291]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[290]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[292]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[291]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[293]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[292]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[294]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[293]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[295]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[294]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[296]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[295]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[297]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[296]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[298]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[297]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[299]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[298]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[300]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[299]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[301]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[300]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[302]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[301]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[303]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[302]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[304]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[303]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[305]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[304]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_R|Candy_Enter_Unicorn:IKExtraLegA_R|Candy_Enter_Unicorn:IKLegA_R|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_R|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_R|Candy_Enter_Unicorn:RollOffsetHeelLegA_R|Candy_Enter_Unicorn:RollExtraHeelLegA_R|Candy_Enter_Unicorn:RollHeelLegA_R|Candy_Enter_Unicorn:RollOffsetToesAEnd_R|Candy_Enter_Unicorn:RollExtraToesAEnd_R|Candy_Enter_Unicorn:RollToesAEnd_R|Candy_Enter_Unicorn:RollOffsetToesA_R|Candy_Enter_Unicorn:RollExtraToesA_R|Candy_Enter_Unicorn:RollToesA_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[306]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[305]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[307]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[306]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[308]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[307]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[309]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[308]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R.follow" 
-		"Candy_Enter_UnicornRN.placeHolderList[310]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[309]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_R|Candy_Enter_Unicorn:PoleExtraLegA_R|Candy_Enter_Unicorn:PoleLegA_R.lock" 
-		"Candy_Enter_UnicornRN.placeHolderList[311]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[310]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[312]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[311]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[313]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[312]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[314]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[313]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[315]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[314]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[316]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[315]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[317]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[316]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[318]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[317]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[319]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[318]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[320]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[319]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.swivel" 
-		"Candy_Enter_UnicornRN.placeHolderList[321]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[320]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.toe" 
-		"Candy_Enter_UnicornRN.placeHolderList[322]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[321]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.rollAngle" 
-		"Candy_Enter_UnicornRN.placeHolderList[323]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[322]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.roll" 
-		"Candy_Enter_UnicornRN.placeHolderList[324]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[323]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.legAim" 
-		"Candy_Enter_UnicornRN.placeHolderList[325]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[324]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.stretchy" 
-		"Candy_Enter_UnicornRN.placeHolderList[326]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[325]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.antiPop" 
-		"Candy_Enter_UnicornRN.placeHolderList[327]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[326]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.Lenght1" 
-		"Candy_Enter_UnicornRN.placeHolderList[328]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[327]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.Lenght2" 
-		"Candy_Enter_UnicornRN.placeHolderList[329]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[328]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.volume" 
-		"Candy_Enter_UnicornRN.placeHolderList[330]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[329]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[331]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[330]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[332]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[331]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[333]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[332]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[334]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[333]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[335]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[334]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[336]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[335]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[337]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[336]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[338]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[337]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[339]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[338]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[340]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[339]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[341]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[340]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[342]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[341]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[343]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[342]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[344]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[343]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[345]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[344]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[346]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[345]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[347]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[346]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[348]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[347]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[349]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[348]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[350]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[349]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[351]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[350]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[352]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[351]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[353]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[352]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[354]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[353]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[355]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[354]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[356]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[355]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[357]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[356]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[358]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[357]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[359]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[358]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[360]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[359]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLeg_L|Candy_Enter_Unicorn:IKExtraLeg_L|Candy_Enter_Unicorn:IKLeg_L|Candy_Enter_Unicorn:IKLegFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLeg_L|Candy_Enter_Unicorn:RollExtraHeelLeg_L|Candy_Enter_Unicorn:RollHeelLeg_L|Candy_Enter_Unicorn:RollOffsetToesEnd_L|Candy_Enter_Unicorn:RollExtraToesEnd_L|Candy_Enter_Unicorn:RollToesEnd_L|Candy_Enter_Unicorn:RollOffsetToes_L|Candy_Enter_Unicorn:RollExtraToes_L|Candy_Enter_Unicorn:RollToes_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[361]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[360]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[362]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[361]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[363]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[362]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[364]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[363]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L.follow" 
-		"Candy_Enter_UnicornRN.placeHolderList[365]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[364]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLeg_L|Candy_Enter_Unicorn:PoleExtraLeg_L|Candy_Enter_Unicorn:PoleLeg_L.lock" 
-		"Candy_Enter_UnicornRN.placeHolderList[366]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[365]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[367]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[366]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[368]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[367]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[369]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[368]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[370]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[369]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[371]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[370]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[372]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[371]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[373]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[372]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[374]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[373]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[375]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[374]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.swivel" 
-		"Candy_Enter_UnicornRN.placeHolderList[376]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[375]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.toe" 
-		"Candy_Enter_UnicornRN.placeHolderList[377]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[376]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.rollAngle" 
-		"Candy_Enter_UnicornRN.placeHolderList[378]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[377]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.roll" 
-		"Candy_Enter_UnicornRN.placeHolderList[379]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[378]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.legAim" 
-		"Candy_Enter_UnicornRN.placeHolderList[380]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[379]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.stretchy" 
-		"Candy_Enter_UnicornRN.placeHolderList[381]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[380]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.antiPop" 
-		"Candy_Enter_UnicornRN.placeHolderList[382]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[381]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.Lenght1" 
-		"Candy_Enter_UnicornRN.placeHolderList[383]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[382]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.Lenght2" 
-		"Candy_Enter_UnicornRN.placeHolderList[384]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[383]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.volume" 
-		"Candy_Enter_UnicornRN.placeHolderList[385]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[384]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[386]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[385]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[387]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[386]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[388]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[387]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[389]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[388]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[390]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[389]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[391]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[390]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[392]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[391]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[393]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[392]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[394]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[393]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[395]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[394]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[396]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[395]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[397]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[396]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[398]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[397]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[399]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[398]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[400]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[399]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[401]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[400]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[402]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[401]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[403]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[402]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[404]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[403]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[405]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[404]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[406]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[405]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[407]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[406]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[408]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[407]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[409]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[408]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[410]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[409]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[411]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[410]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[412]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[411]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[413]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[412]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[414]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[413]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[415]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[414]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:IKOffsetLegA_L|Candy_Enter_Unicorn:IKExtraLegA_L|Candy_Enter_Unicorn:IKLegA_L|Candy_Enter_Unicorn:IKLegAFootRockInnerPivot_L|Candy_Enter_Unicorn:IKLegAFootRockOuterPivot_L|Candy_Enter_Unicorn:RollOffsetHeelLegA_L|Candy_Enter_Unicorn:RollExtraHeelLegA_L|Candy_Enter_Unicorn:RollHeelLegA_L|Candy_Enter_Unicorn:RollOffsetToesAEnd_L|Candy_Enter_Unicorn:RollExtraToesAEnd_L|Candy_Enter_Unicorn:RollToesAEnd_L|Candy_Enter_Unicorn:RollOffsetToesA_L|Candy_Enter_Unicorn:RollExtraToesA_L|Candy_Enter_Unicorn:RollToesA_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[416]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[415]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_L|Candy_Enter_Unicorn:PoleExtraLegA_L|Candy_Enter_Unicorn:PoleLegA_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[417]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[416]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_L|Candy_Enter_Unicorn:PoleExtraLegA_L|Candy_Enter_Unicorn:PoleLegA_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[418]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[417]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_L|Candy_Enter_Unicorn:PoleExtraLegA_L|Candy_Enter_Unicorn:PoleLegA_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[419]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[418]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_L|Candy_Enter_Unicorn:PoleExtraLegA_L|Candy_Enter_Unicorn:PoleLegA_L.follow" 
-		"Candy_Enter_UnicornRN.placeHolderList[420]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[419]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:IKSystem|Candy_Enter_Unicorn:IKHandle|Candy_Enter_Unicorn:PoleOffsetLegA_L|Candy_Enter_Unicorn:PoleExtraLegA_L|Candy_Enter_Unicorn:PoleLegA_L.lock" 
-		"Candy_Enter_UnicornRN.placeHolderList[421]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[420]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintSpine_M|Candy_Enter_Unicorn:FKIKSpine_M.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[422]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[421]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintSpine_M|Candy_Enter_Unicorn:FKIKSpine_M.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[423]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[422]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintSpine_M|Candy_Enter_Unicorn:FKIKSpine_M.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[424]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[423]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintTail_M|Candy_Enter_Unicorn:FKIKTail_M.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[425]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[424]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintTail_M|Candy_Enter_Unicorn:FKIKTail_M.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[426]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[425]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintTail_M|Candy_Enter_Unicorn:FKIKTail_M.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[427]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[426]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_R|Candy_Enter_Unicorn:FKIKLeg_R.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[428]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[427]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_R|Candy_Enter_Unicorn:FKIKLeg_R.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[429]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[428]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_R|Candy_Enter_Unicorn:FKIKLeg_R.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[430]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[429]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_R|Candy_Enter_Unicorn:FKIKLegA_R.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[431]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[430]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_R|Candy_Enter_Unicorn:FKIKLegA_R.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[432]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[431]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_R|Candy_Enter_Unicorn:FKIKLegA_R.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[433]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[432]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_L|Candy_Enter_Unicorn:FKIKLeg_L.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[434]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[433]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_L|Candy_Enter_Unicorn:FKIKLeg_L.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[435]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[434]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLeg_L|Candy_Enter_Unicorn:FKIKLeg_L.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[436]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[435]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_L|Candy_Enter_Unicorn:FKIKLegA_L.FKIKBlend" 
-		"Candy_Enter_UnicornRN.placeHolderList[437]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[436]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_L|Candy_Enter_Unicorn:FKIKLegA_L.IKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[438]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[437]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:FKIKSystem|Candy_Enter_Unicorn:FKIKParentConstraintLegA_L|Candy_Enter_Unicorn:FKIKLegA_L.FKVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[439]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[438]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[440]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[439]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[441]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[440]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[442]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[441]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[443]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[442]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[444]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[443]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[445]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[444]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[446]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[445]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[447]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[446]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[448]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[447]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck1_M|Candy_Enter_Unicorn:BendExtraNeck1_M|Candy_Enter_Unicorn:BendNeck1_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[449]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[448]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[450]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[449]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[451]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[450]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[452]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[451]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[453]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[452]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[454]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[453]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[455]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[454]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[456]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[455]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[457]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[456]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[458]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[457]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[459]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[458]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetNeck_M|Candy_Enter_Unicorn:BendParentConstraintNeck_M|Candy_Enter_Unicorn:BendOffsetNeck2_M|Candy_Enter_Unicorn:BendExtraNeck2_M|Candy_Enter_Unicorn:BendNeck2_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[460]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[459]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[461]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[460]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[462]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[461]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[463]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[462]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[464]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[463]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[465]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[464]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[466]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[465]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[467]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[466]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[468]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[467]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[469]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[468]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead1_M|Candy_Enter_Unicorn:BendExtraHead1_M|Candy_Enter_Unicorn:BendHead1_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[470]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[469]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[471]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[470]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[472]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[471]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[473]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[472]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[474]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[473]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[475]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[474]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[476]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[475]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[477]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[476]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[478]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[477]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[479]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[478]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[480]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[479]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHead_M|Candy_Enter_Unicorn:BendParentConstraintHead_M|Candy_Enter_Unicorn:BendOffsetHead2_M|Candy_Enter_Unicorn:BendExtraHead2_M|Candy_Enter_Unicorn:BendHead2_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[481]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[480]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[482]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[481]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[483]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[482]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[484]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[483]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[485]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[484]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[486]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[485]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[487]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[486]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[488]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[487]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[489]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[488]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[490]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[489]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA1_R|Candy_Enter_Unicorn:BendExtraHipA1_R|Candy_Enter_Unicorn:BendHipA1_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[491]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[490]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[492]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[491]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[493]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[492]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[494]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[493]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[495]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[494]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[496]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[495]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[497]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[496]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[498]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[497]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[499]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[498]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[500]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[499]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[501]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[500]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_R|Candy_Enter_Unicorn:BendParentConstraintHipA_R|Candy_Enter_Unicorn:BendOffsetHipA2_R|Candy_Enter_Unicorn:BendExtraHipA2_R|Candy_Enter_Unicorn:BendHipA2_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[502]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[501]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[503]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[502]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[504]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[503]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[505]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[504]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[506]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[505]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[507]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[506]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[508]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[507]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[509]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[508]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[510]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[509]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[511]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[510]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA1_R|Candy_Enter_Unicorn:BendExtraKneeA1_R|Candy_Enter_Unicorn:BendKneeA1_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[512]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[511]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[513]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[512]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[514]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[513]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[515]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[514]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[516]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[515]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[517]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[516]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[518]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[517]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[519]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[518]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[520]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[519]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[521]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[520]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[522]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[521]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_R|Candy_Enter_Unicorn:BendParentConstraintKneeA_R|Candy_Enter_Unicorn:BendOffsetKneeA2_R|Candy_Enter_Unicorn:BendExtraKneeA2_R|Candy_Enter_Unicorn:BendKneeA2_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[523]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[522]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[524]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[523]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[525]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[524]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[526]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[525]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[527]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[526]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[528]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[527]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[529]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[528]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[530]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[529]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[531]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[530]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[532]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[531]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA1_L|Candy_Enter_Unicorn:BendExtraHipA1_L|Candy_Enter_Unicorn:BendHipA1_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[533]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[532]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[534]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[533]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[535]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[534]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[536]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[535]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[537]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[536]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[538]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[537]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[539]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[538]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[540]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[539]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[541]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[540]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[542]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[541]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[543]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[542]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetHipA_L|Candy_Enter_Unicorn:BendParentConstraintHipA_L|Candy_Enter_Unicorn:BendOffsetHipA2_L|Candy_Enter_Unicorn:BendExtraHipA2_L|Candy_Enter_Unicorn:BendHipA2_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[544]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[543]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[545]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[544]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[546]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[545]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[547]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[546]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[548]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[547]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[549]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[548]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[550]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[549]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[551]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[550]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[552]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[551]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[553]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[552]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA1_L|Candy_Enter_Unicorn:BendExtraKneeA1_L|Candy_Enter_Unicorn:BendKneeA1_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[554]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[553]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.stiff" 
-		"Candy_Enter_UnicornRN.placeHolderList[555]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[554]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[556]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[555]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[557]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[556]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[558]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[557]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[559]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[558]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[560]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[559]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[561]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[560]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[562]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[561]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[563]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[562]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[564]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[563]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:BendSystem|Candy_Enter_Unicorn:BendParentConstraintOffsetKneeA_L|Candy_Enter_Unicorn:BendParentConstraintKneeA_L|Candy_Enter_Unicorn:BendOffsetKneeA2_L|Candy_Enter_Unicorn:BendExtraKneeA2_L|Candy_Enter_Unicorn:BendKneeA2_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[565]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[564]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.scale" 
-		"Candy_Enter_UnicornRN.placeHolderList[566]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[565]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.CenterBtwFeet" 
-		"Candy_Enter_UnicornRN.placeHolderList[567]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[566]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.translate" 
-		"Candy_Enter_UnicornRN.placeHolderList[568]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[567]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[569]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[568]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[570]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[569]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[571]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[570]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotate" 
-		"Candy_Enter_UnicornRN.placeHolderList[572]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[571]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[573]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[572]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[574]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[573]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[575]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[574]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotatePivot" 
-		"Candy_Enter_UnicornRN.placeHolderList[576]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[575]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotatePivotTranslate" 
-		"Candy_Enter_UnicornRN.placeHolderList[577]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[576]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.rotateOrder" 
-		"Candy_Enter_UnicornRN.placeHolderList[578]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[577]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.parentMatrix" 
-		"Candy_Enter_UnicornRN.placeHolderList[579]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[578]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main|Candy_Enter_Unicorn:MotionSystem|Candy_Enter_Unicorn:RootSystem|Candy_Enter_Unicorn:RootCenterBtwLegsBlended_M|Candy_Enter_Unicorn:RootOffsetX_M|Candy_Enter_Unicorn:RootExtraX_M|Candy_Enter_Unicorn:RootX_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[580]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[579]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Acontrols|Candy_Enter_Unicorn:Lip6Attach_R|Candy_Enter_Unicorn:Lip6Offset_R|Candy_Enter_Unicorn:Lip6Subtract_R|Candy_Enter_Unicorn:Lip6_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[581]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[580]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[582]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[581]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[583]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[582]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[584]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[583]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.aim" 
-		"Candy_Enter_UnicornRN.placeHolderList[585]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[584]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.follow" 
-		"Candy_Enter_UnicornRN.placeHolderList[586]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[585]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[587]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[586]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[588]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[587]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[589]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[588]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:Aimcontrols|Candy_Enter_Unicorn:AimEyeOffset_M|Candy_Enter_Unicorn:AimEyeFollow_M|Candy_Enter_Unicorn:AimEye_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[590]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[589]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[591]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[590]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[592]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[591]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[593]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[592]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[594]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[593]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[595]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[594]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[596]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[595]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashTopOffset|Candy_Enter_Unicorn:squashTop_M.volume" 
-		"Candy_Enter_UnicornRN.placeHolderList[597]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[596]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashTopOffset|Candy_Enter_Unicorn:squashTop_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[598]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[597]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashTopOffset|Candy_Enter_Unicorn:squashTop_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[599]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[598]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashTopOffset|Candy_Enter_Unicorn:squashTop_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[600]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[599]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[601]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[600]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[602]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[601]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ControlsSetup|Candy_Enter_Unicorn:SquashControls|Candy_Enter_Unicorn:squashBase_M|Candy_Enter_Unicorn:squashMiddleOffset|Candy_Enter_Unicorn:squashMiddle_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[603]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[602]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.ACtrlVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[604]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[603]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.RenderSpheres" 
-		"Candy_Enter_UnicornRN.placeHolderList[605]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[604]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.BCtrlVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[606]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[605]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.CCtrlVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[607]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[606]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.AimCtrlVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[608]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[607]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.SquashCtrlVis" 
-		"Candy_Enter_UnicornRN.placeHolderList[609]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[608]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.limits" 
-		"Candy_Enter_UnicornRN.placeHolderList[610]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[609]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[611]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[610]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[612]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[611]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[613]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[612]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[614]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[613]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[615]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[614]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[616]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[615]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[617]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[616]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[618]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[617]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[619]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[618]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_R|Candy_Enter_Unicorn:ctrlBrow_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[620]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[619]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_R|Candy_Enter_Unicorn:ctrlBrow_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[621]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[620]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_R|Candy_Enter_Unicorn:ctrlBrow_R.squeeze" 
-		"Candy_Enter_UnicornRN.placeHolderList[622]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[621]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_R|Candy_Enter_Unicorn:ctrlBrow_R.outerUpDown" 
-		"Candy_Enter_UnicornRN.placeHolderList[623]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[622]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_L|Candy_Enter_Unicorn:ctrlBrow_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[624]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[623]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_L|Candy_Enter_Unicorn:ctrlBrow_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[625]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[624]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_L|Candy_Enter_Unicorn:ctrlBrow_L.squeeze" 
-		"Candy_Enter_UnicornRN.placeHolderList[626]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[625]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxBrow_L|Candy_Enter_Unicorn:ctrlBrow_L.outerUpDown" 
-		"Candy_Enter_UnicornRN.placeHolderList[627]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[626]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[628]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[627]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[629]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[628]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[630]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[629]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[631]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[630]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[632]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[631]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.blink" 
-		"Candy_Enter_UnicornRN.placeHolderList[633]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[632]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.blinkCenter" 
-		"Candy_Enter_UnicornRN.placeHolderList[634]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[633]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.upperLid" 
-		"Candy_Enter_UnicornRN.placeHolderList[635]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[634]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.lowerLid" 
-		"Candy_Enter_UnicornRN.placeHolderList[636]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[635]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.upperLidFollow" 
-		"Candy_Enter_UnicornRN.placeHolderList[637]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[636]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.lowerLidFollow" 
-		"Candy_Enter_UnicornRN.placeHolderList[638]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[637]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_R|Candy_Enter_Unicorn:ctrlEye_R.squint" 
-		"Candy_Enter_UnicornRN.placeHolderList[639]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[638]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[640]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[639]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[641]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[640]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[642]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[641]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[643]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[642]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[644]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[643]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.blink" 
-		"Candy_Enter_UnicornRN.placeHolderList[645]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[644]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.blinkCenter" 
-		"Candy_Enter_UnicornRN.placeHolderList[646]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[645]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.upperLid" 
-		"Candy_Enter_UnicornRN.placeHolderList[647]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[646]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.lowerLid" 
-		"Candy_Enter_UnicornRN.placeHolderList[648]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[647]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.upperLidFollow" 
-		"Candy_Enter_UnicornRN.placeHolderList[649]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[648]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.lowerLidFollow" 
-		"Candy_Enter_UnicornRN.placeHolderList[650]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[649]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxEye_L|Candy_Enter_Unicorn:ctrlEye_L.squint" 
-		"Candy_Enter_UnicornRN.placeHolderList[651]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[650]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxCheek_R|Candy_Enter_Unicorn:ctrlCheek_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[652]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[651]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxCheek_R|Candy_Enter_Unicorn:ctrlCheek_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[653]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[652]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxCheek_L|Candy_Enter_Unicorn:ctrlCheek_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[654]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[653]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxCheek_L|Candy_Enter_Unicorn:ctrlCheek_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[655]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[654]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxNose_R|Candy_Enter_Unicorn:ctrlNose_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[656]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[655]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxNose_R|Candy_Enter_Unicorn:ctrlNose_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[657]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[656]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxNose_L|Candy_Enter_Unicorn:ctrlNose_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[658]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[657]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxNose_L|Candy_Enter_Unicorn:ctrlNose_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[659]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[658]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[660]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[659]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[661]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[660]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.jawSide" 
-		"Candy_Enter_UnicornRN.placeHolderList[662]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[661]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.jawForward" 
-		"Candy_Enter_UnicornRN.placeHolderList[663]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[662]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.chinRaiser" 
-		"Candy_Enter_UnicornRN.placeHolderList[664]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[663]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipPress_R" 
-		"Candy_Enter_UnicornRN.placeHolderList[665]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[664]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipPress_L" 
-		"Candy_Enter_UnicornRN.placeHolderList[666]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[665]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipUpperRoll_R" 
-		"Candy_Enter_UnicornRN.placeHolderList[667]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[666]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipUpperRoll_L" 
-		"Candy_Enter_UnicornRN.placeHolderList[668]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[667]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipLowerRoll_R" 
-		"Candy_Enter_UnicornRN.placeHolderList[669]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[668]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouth_M|Candy_Enter_Unicorn:ctrlMouth_M.lipLowerRoll_L" 
-		"Candy_Enter_UnicornRN.placeHolderList[670]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[669]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouthCorner_R|Candy_Enter_Unicorn:ctrlMouthCorner_R.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[671]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[670]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouthCorner_R|Candy_Enter_Unicorn:ctrlMouthCorner_R.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[672]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[671]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouthCorner_L|Candy_Enter_Unicorn:ctrlMouthCorner_L.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[673]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[672]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxMouthCorner_L|Candy_Enter_Unicorn:ctrlMouthCorner_L.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[674]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[673]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.sizeX" 
-		"Candy_Enter_UnicornRN.placeHolderList[675]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[674]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.sizeY" 
-		"Candy_Enter_UnicornRN.placeHolderList[676]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[675]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.sizeZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[677]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[676]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotX1" 
-		"Candy_Enter_UnicornRN.placeHolderList[678]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[677]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotX2" 
-		"Candy_Enter_UnicornRN.placeHolderList[679]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[678]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotX3" 
-		"Candy_Enter_UnicornRN.placeHolderList[680]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[679]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotY1" 
-		"Candy_Enter_UnicornRN.placeHolderList[681]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[680]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotY2" 
-		"Candy_Enter_UnicornRN.placeHolderList[682]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[681]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotY3" 
-		"Candy_Enter_UnicornRN.placeHolderList[683]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[682]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotZ1" 
-		"Candy_Enter_UnicornRN.placeHolderList[684]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[683]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotZ2" 
-		"Candy_Enter_UnicornRN.placeHolderList[685]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[684]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:ctrlBoxOffset|Candy_Enter_Unicorn:ctrlBox|Candy_Enter_Unicorn:ctrlBoxTongue_M|Candy_Enter_Unicorn:ctrlTongue_M.rotZ3" 
-		"Candy_Enter_UnicornRN.placeHolderList[686]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[685]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.translateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[687]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[686]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.translateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[688]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[687]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.translateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[689]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[688]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.rotateX" 
-		"Candy_Enter_UnicornRN.placeHolderList[690]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[689]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.rotateY" 
-		"Candy_Enter_UnicornRN.placeHolderList[691]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[690]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.rotateZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[692]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[691]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.scaleX" 
-		"Candy_Enter_UnicornRN.placeHolderList[693]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[692]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.scaleY" 
-		"Candy_Enter_UnicornRN.placeHolderList[694]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[693]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.scaleZ" 
-		"Candy_Enter_UnicornRN.placeHolderList[695]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[694]" ""
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:FaceGroup|Candy_Enter_Unicorn:FaceMotionSystem|Candy_Enter_Unicorn:JawSetup|Candy_Enter_Unicorn:JawSetupFollowHead|Candy_Enter_Unicorn:FKOffsetJaw_M|Candy_Enter_Unicorn:FKSDK1Jaw_M|Candy_Enter_Unicorn:FKSDK2Jaw_M|Candy_Enter_Unicorn:FKJaw_M.visibility" 
-		"Candy_Enter_UnicornRN.placeHolderList[696]" ""
+		"Candy_Enter_UnicornRN.placeHolderList[695]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Body|Candy_Enter_Unicorn:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
-		"Candy_Enter_UnicornRN.placeHolderList[697]" ":initialShadingGroup.dsm"
+		"Candy_Enter_UnicornRN.placeHolderList[696]" ":initialShadingGroup.dsm"
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		"Candy_Enter_UnicornRN.placeHolderList[698]" ":initialShadingGroup.dsm";
+		"Candy_Enter_UnicornRN.placeHolderList[697]" ":initialShadingGroup.dsm";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode mentalrayOptions -s -n "miContourPreset";
@@ -7798,20 +7955,20 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
 		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
-		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 1\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 1\n                -clipGhosts 0\n"
+		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 1\n                -clipGhosts 0\n"
 		+ "                -greasePencils 0\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n"
 		+ "            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n"
-		+ "            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 1\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 1\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n"
+		+ "            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 1\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n"
 		+ "        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tmodelPanel -e -to $panelName;\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
 		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 0\\n    -planes 0\\n    -lights 0\\n    -cameras 0\\n    -controlVertices 0\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 0\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 0\\n    -particleInstancers 0\\n    -fluids 0\\n    -hairSystems 0\\n    -follicles 0\\n    -nCloths 0\\n    -nParticles 0\\n    -nRigids 0\\n    -dynamicConstraints 0\\n    -locators 0\\n    -manipulators 0\\n    -pluginShapes 0\\n    -dimensions 0\\n    -handles 0\\n    -pivots 0\\n    -textures 0\\n    -strokes 0\\n    -motionTrails 1\\n    -clipGhosts 0\\n    -greasePencils 0\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 0 \\n    $editorName\"\n"
 		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 0\\n    -polymeshes 1\\n    -subdivSurfaces 0\\n    -planes 0\\n    -lights 0\\n    -cameras 0\\n    -controlVertices 0\\n    -hulls 0\\n    -grid 0\\n    -imagePlane 0\\n    -joints 0\\n    -ikHandles 0\\n    -deformers 0\\n    -dynamics 0\\n    -particleInstancers 0\\n    -fluids 0\\n    -hairSystems 0\\n    -follicles 0\\n    -nCloths 0\\n    -nParticles 0\\n    -nRigids 0\\n    -dynamicConstraints 0\\n    -locators 0\\n    -manipulators 0\\n    -pluginShapes 0\\n    -dimensions 0\\n    -handles 0\\n    -pivots 0\\n    -textures 0\\n    -strokes 0\\n    -motionTrails 1\\n    -clipGhosts 0\\n    -greasePencils 0\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 0 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 136 -ast -10 -aet 144 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 60 -ast -10 -aet 144 ";
 	setAttr ".st" 6;
 createNode reference -n "Emily_Enter_UnicornRN";
-	setAttr -s 18 ".phl";
+	setAttr -s 140 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -7830,89 +7987,402 @@ createNode reference -n "Emily_Enter_UnicornRN";
 	setAttr ".phl[16]" 0;
 	setAttr ".phl[17]" 0;
 	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Enter_UnicornRN"
 		"Emily_Enter_Unicorn:Hair_EmilyRN" 0
 		"Emily_Enter_UnicornRN" 0
 		"Emily_Enter_Unicorn:Dress_EmilyRN" 0
-		"Emily_Enter_UnicornRN" 68
+		"Emily_Enter_UnicornRN" 279
 		0 "|Emily_Enter_UnicornRNfosterParent1|Main_parentConstraint1" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main" 
 		"-s -r "
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKSpine1_MShape 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M|Emily_Enter_Unicorn:FKChest_MShape 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKShoulder_RShape 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKElbow_RShape 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R|Emily_Enter_Unicorn:FKWrist_RShape 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape1 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape2 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape3 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
+		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape4 
+		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 0 -5.544"
+		"rotate" " -type \"double3\" 0 0 3.39362216814213591"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M" 
-		"rotate" " -type \"double3\" 0 0 -15.998"
+		"rotate" " -type \"double3\" -31.89286886698178947 45.87856844602799811 -6.18958598462527743"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKSpine1_MShape" 
+		"lockLength" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M" 
-		"rotate" " -type \"double3\" 0 0 -7.067"
-		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
-		"translate" " -type \"double3\" 0 0 -0.043"
+		"rotate" " -type \"double3\" -10.50442329372044981 0.84811022986441298 -41.85335739492305152"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M|Emily_Enter_Unicorn:FKChest_MShape" 
+		"lockLength" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
 		"rotate" " -type \"double3\" 0 22.511 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M" 
 		"Global" " -k 1 10"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M" 
-		"rotate" " -type \"double3\" -12.85600000000000165 -0.391 -1.71400000000000019"
+		"rotate" " -type \"double3\" -37.15851002442391149 6.95038572042046709 -7.30433416851604189"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M" 
 		"Global" " -k 1 10"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R" 
-		"translate" " -type \"double3\" 0 0.058 -0.047"
+		"translate" " -type \"double3\" 0 0.058 -0.067982797837858558"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R" 
+		"translateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R" 
+		"translateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R" 
+		"translateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R" 
-		"rotate" " -type \"double3\" 10.585 58.346 -17.479"
+		"rotate" " -type \"double3\" 66.87351861028633948 15.94351040479377346 -13.22805617089866814"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R" 
+		"Global" " -k 1 10"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKShoulder_RShape" 
+		"lockLength" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R" 
-		"rotate" " -type \"double3\" 0 0 54.547"
+		"rotate" " -type \"double3\" 0 0 58.19232218689852942"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKElbow_RShape" 
+		"lockLength" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R" 
-		"rotate" " -type \"double3\" 18.103 -3.046 -9.369"
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R" 
+		"rotate" " -type \"double3\" 21.55555146901424735 -4.69803301353876268 -5.36935912396293524"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R|Emily_Enter_Unicorn:FKWrist_RShape" 
+		"lockLength" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L" 
-		"translate" " -type \"double3\" 0 -0.047 0.094"
+		"translate" " -type \"double3\" 0 -0.047000000000000888 0.13804501456268026"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L" 
+		"translateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L" 
-		"rotate" " -type \"double3\" 0 71.976 0"
+		"rotate" " -type \"double3\" 79.29059975412690164 63.64854532340229554 32.76197573367083038"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L" 
-		"rotate" " -type \"double3\" 0 0 51.704"
+		"rotate" " -type \"double3\" 0 0 21.14295157080415777"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L|Emily_Enter_Unicorn:FKXOffsetElbow_L|Emily_Enter_Unicorn:FKXElbow_L|Emily_Enter_Unicorn:FKOffsetWrist_L|Emily_Enter_Unicorn:FKExtraWrist_L|Emily_Enter_Unicorn:FKWrist_L" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L|Emily_Enter_Unicorn:FKXOffsetElbow_L|Emily_Enter_Unicorn:FKXElbow_L|Emily_Enter_Unicorn:FKOffsetWrist_L|Emily_Enter_Unicorn:FKExtraWrist_L|Emily_Enter_Unicorn:FKWrist_L" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R" 
-		"rotate" " -type \"double3\" 1.414 -36.632 30.428"
+		"rotate" " -type \"double3\" 4.59878719875649189 -46.1414892516324926 21.49444822020790014"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R" 
-		"rotate" " -type \"double3\" 0 0 -58.616"
+		"rotate" " -type \"double3\" 0 0 -48.81794675450183263"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R" 
-		"rotate" " -type \"double3\" -37.361 -1.84300000000000019 -12.418"
+		"rotate" " -type \"double3\" -37.361 -1.84300000000000019 -57.67682367380185582"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_L|Emily_Enter_Unicorn:FKGlobalStaticHip_L|Emily_Enter_Unicorn:FKGlobalHip_L|Emily_Enter_Unicorn:FKExtraHip_L|Emily_Enter_Unicorn:FKHip_L" 
 		"rotate" " -type \"double3\" -0.98699999999999988 -50.968 12.632"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_L|Emily_Enter_Unicorn:FKGlobalStaticHip_L|Emily_Enter_Unicorn:FKGlobalHip_L|Emily_Enter_Unicorn:FKExtraHip_L|Emily_Enter_Unicorn:FKHip_L|Emily_Enter_Unicorn:FKXOffsetHip_L|Emily_Enter_Unicorn:FKXHip_L|Emily_Enter_Unicorn:FKOffsetKnee_L|Emily_Enter_Unicorn:FKExtraKnee_L|Emily_Enter_Unicorn:FKKnee_L" 
 		"rotate" " -type \"double3\" 10.335 14.80699999999999861 -34.164"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R" 
-		"rotate" " -type \"double3\" 0 18.575 0"
+		"rotate" " -type \"double3\" -5.94301942419799278 26.65703798410094194 -19.27844261463606657"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R" 
-		"rotate" " -type \"double3\" 0 22.156 0"
+		"rotate" " -type \"double3\" 0 93.40760093227319771 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R" 
+		"rotateY" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R" 
-		"rotate" " -type \"double3\" 0 36.72 0"
+		"rotate" " -type \"double3\" -11.97854209270992065 85.39811178801183189 -7.27778823131018004"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R" 
-		"rotate" " -type \"double3\" 0 26.28 0"
+		"rotate" " -type \"double3\" 0 40.6800000280461802 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R" 
+		"rotateY" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R" 
-		"rotate" " -type \"double3\" 0 36.72 0"
+		"rotate" " -type \"double3\" 0 84.6335463238071668 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R" 
+		"rotateY" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R" 
-		"rotate" " -type \"double3\" 0 26.28 0"
+		"rotate" " -type \"double3\" 0 40.6800000280461802 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R" 
+		"rotateY" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R" 
-		"rotate" " -type \"double3\" 0 36.72 0"
+		"rotate" " -type \"double3\" 9.50119397816424005 82.4477308551788326 9.58279870688724067"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R" 
+		"rotateZ" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R" 
-		"rotate" " -type \"double3\" 0 26.28 0"
-		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:IKSystem|Emily_Enter_Unicorn:IKHandle|Emily_Enter_Unicorn:IKSpineHandle_M" 
-		"translate" " -type \"double3\" 0.17321872481771416 1.77125509805297732 0.81441077403914797"
+		"rotate" " -type \"double3\" 0 55.49171447119523748 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R" 
+		"rotate" " -type \"double3\" 0 9.46330629040788907 -5.86789091294892096"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R" 
+		"rotateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R" 
+		"rotateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R" 
+		"rotateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_L|Emily_Enter_Unicorn:FKOffsetIndexFinger1_L|Emily_Enter_Unicorn:SDK1FKIndexFinger1_L|Emily_Enter_Unicorn:SDK2FKIndexFinger1_L|Emily_Enter_Unicorn:FKExtraIndexFinger1_L|Emily_Enter_Unicorn:FKIndexFinger1_L" 
+		"rotate" " -type \"double3\" 0 35.79174264129373029 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_L|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_L|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_L|Emily_Enter_Unicorn:FKExtraMiddleFinger1_L|Emily_Enter_Unicorn:FKMiddleFinger1_L" 
+		"rotate" " -type \"double3\" 0 35.79174264129373029 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_L|Emily_Enter_Unicorn:FKOffsetRingFinger1_L|Emily_Enter_Unicorn:SDK1FKRingFinger1_L|Emily_Enter_Unicorn:SDK2FKRingFinger1_L|Emily_Enter_Unicorn:SDK3FKRingFinger1_LAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_L|Emily_Enter_Unicorn:SDK3FKRingFinger1_LAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_L|Emily_Enter_Unicorn:FKRingFinger1_L" 
+		"rotate" " -type \"double3\" 0 35.79174264129373029 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_L|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_L|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_L|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_L|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_L|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_L|Emily_Enter_Unicorn:FKPinkyFinger1_L" 
+		"rotate" " -type \"double3\" 0 35.79174264129373029 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_L|Emily_Enter_Unicorn:FKOffsetThumbFinger1_L|Emily_Enter_Unicorn:FKExtraThumbFinger1_L|Emily_Enter_Unicorn:FKThumbFinger1_L" 
+		"rotate" " -type \"double3\" -2.27570602061928318 26.57772285384999122 -11.78706317283050353"
 		
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:IKSystem|Emily_Enter_Unicorn:IKHandle|Emily_Enter_Unicorn:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -99.21280088092257188 3.00768758396310831 89.51240707197193558"
+		"translate" " -type \"double3\" 0.34045951838238864 1.81555745930763202 0.81441077403914619"
+		
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:IKSystem|Emily_Enter_Unicorn:IKHandle|Emily_Enter_Unicorn:IKSpineHandle_M" 
+		"rotate" " -type \"double3\" -99.21280088092257188 3.00768758396310965 89.51240707197193558"
 		
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKIKSystem|Emily_Enter_Unicorn:FKIKParentConstraintLeg_R|Emily_Enter_Unicorn:FKIKLeg_R" 
 		"FKIKBlend" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKIKSystem|Emily_Enter_Unicorn:FKIKParentConstraintLeg_L|Emily_Enter_Unicorn:FKIKLeg_L" 
 		"FKIKBlend" " -k 1 0"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M" 
-		"translate" " -type \"double3\" 0.167 -0.304 0.815"
+		"translate" " -type \"double3\" 0.33424079356467429 -0.25969763874534191 0.815"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M" 
-		"rotate" " -type \"double3\" 0 -9.20000000000000107 0"
+		"translateX" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M" 
+		"translateY" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M" 
+		"translateZ" " -av"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape1" 
+		"lockLength" " -k 1 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape2" 
+		"lockLength" " -k 1 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape3" 
+		"lockLength" " -k 1 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M|Emily_Enter_Unicorn:curveShape4" 
+		"lockLength" " -k 1 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:ControlsSetup|Emily_Enter_Unicorn:Aimcontrols|Emily_Enter_Unicorn:AimEyeOffset_M|Emily_Enter_Unicorn:AimEyeFollow_M|Emily_Enter_Unicorn:AimEye_M" 
+		"aim" " -k 1 0"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:ctrlBoxOffset|Emily_Enter_Unicorn:ctrlBox|Emily_Enter_Unicorn:ctrlBoxEye_R|Emily_Enter_Unicorn:ctrlEye_R" 
+		"blink" " -k 1 2"
+		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:ctrlBoxOffset|Emily_Enter_Unicorn:ctrlBox|Emily_Enter_Unicorn:ctrlBoxEye_L|Emily_Enter_Unicorn:ctrlEye_L" 
+		"blink" " -k 1 2"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:SquashSetup|Emily_Enter_Unicorn:squashIKHandle" 
-		"translate" " -type \"double3\" 1.26348861970951853 4.31642277812956454 13.64770281303741761"
+		"translate" " -type \"double3\" 2.54655370224817057 4.16841064366412173 15.76983596989936487"
 		
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:SquashSetup|Emily_Enter_Unicorn:squashIKHandle" 
-		"rotate" " -type \"double3\" 77.71312459539691986 -3.67954628118103022 89.0756089965012734"
+		"rotate" " -type \"double3\" 49.72559883144452897 -1.80025745901257839 96.184703647158031"
 		
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:RightEye|Emily_Enter_Unicorn:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
@@ -7926,8 +8396,6 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		2 "Emily_Enter_Unicorn:groupParts143" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:559]\""
 		
 		2 "Emily_Enter_Unicorn:groupParts143" "groupId" " 393"
-		3 "Emily_Enter_Unicorn:groupId671.message" ":initialShadingGroup.groupNodes" 
-		"-na"
 		3 "Emily_Enter_Unicorn:groupId671.groupId" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
 		3 ":initialShadingGroup.memberWireframeColor" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
@@ -7936,42 +8404,291 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		":initialShadingGroup.dagSetMembers" "-na"
 		3 "Emily_Enter_Unicorn:groupId671.groupId" "Emily_Enter_Unicorn:groupParts143.groupId" 
 		""
+		3 "Emily_Enter_Unicorn:groupId671.message" ":initialShadingGroup.groupNodes" 
+		"-na"
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateX" 
-		"Emily_Enter_UnicornRN.placeHolderList[1]" ""
-		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateY" 
 		"Emily_Enter_UnicornRN.placeHolderList[2]" ""
-		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateZ" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateY" 
 		"Emily_Enter_UnicornRN.placeHolderList[3]" ""
-		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateX" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[4]" ""
-		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateY" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateX" 
 		"Emily_Enter_UnicornRN.placeHolderList[5]" ""
-		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateZ" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateY" 
 		"Emily_Enter_UnicornRN.placeHolderList[6]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateOrder" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[7]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.parentInverseMatrix" 
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotateOrder" 
 		"Emily_Enter_UnicornRN.placeHolderList[8]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotatePivot" 
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.parentInverseMatrix" 
 		"Emily_Enter_UnicornRN.placeHolderList[9]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotatePivotTranslate" 
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotatePivot" 
 		"Emily_Enter_UnicornRN.placeHolderList[10]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.scale" 
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.rotatePivotTranslate" 
 		"Emily_Enter_UnicornRN.placeHolderList[11]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotate" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M.rotateX" 
 		"Emily_Enter_UnicornRN.placeHolderList[12]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.translate" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M.rotateY" 
 		"Emily_Enter_UnicornRN.placeHolderList[13]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivot" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M.rotateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[14]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivotTranslate" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.rotateX" 
 		"Emily_Enter_UnicornRN.placeHolderList[15]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateOrder" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.rotateY" 
 		"Emily_Enter_UnicornRN.placeHolderList[16]" ""
-		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.parentMatrix" 
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.rotateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[17]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[18]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[19]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[20]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[21]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[22]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[23]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[24]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[25]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKXOffsetSpine1_M|Emily_Enter_Unicorn:FKXSpine1_M|Emily_Enter_Unicorn:FKOffsetChest_M|Emily_Enter_Unicorn:FKExtraChest_M|Emily_Enter_Unicorn:FKChest_M.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[26]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[27]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[28]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[29]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[30]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[31]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[32]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[33]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[34]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[35]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[36]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[37]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetNeck_M|Emily_Enter_Unicorn:FKGlobalStaticNeck_M|Emily_Enter_Unicorn:FKGlobalNeck_M|Emily_Enter_Unicorn:FKExtraNeck_M|Emily_Enter_Unicorn:FKNeck_M|Emily_Enter_Unicorn:FKXOffsetNeck_M|Emily_Enter_Unicorn:FKXNeck_M|Emily_Enter_Unicorn:FKOffsetHead_M|Emily_Enter_Unicorn:FKGlobalStaticHead_M|Emily_Enter_Unicorn:FKGlobalHead_M|Emily_Enter_Unicorn:FKExtraHead_M|Emily_Enter_Unicorn:FKHead_M.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[38]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[39]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[40]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[41]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[42]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[43]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[44]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[45]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[46]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[47]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[48]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[49]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[50]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[51]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.scale" 
+		"Emily_Enter_UnicornRN.placeHolderList[52]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.scale" 
+		"Emily_Enter_UnicornRN.placeHolderList[53]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.translate" 
+		"Emily_Enter_UnicornRN.placeHolderList[54]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.translate" 
+		"Emily_Enter_UnicornRN.placeHolderList[55]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotate" 
+		"Emily_Enter_UnicornRN.placeHolderList[56]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotate" 
+		"Emily_Enter_UnicornRN.placeHolderList[57]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[58]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[59]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[60]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivot" 
+		"Emily_Enter_UnicornRN.placeHolderList[61]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivot" 
+		"Emily_Enter_UnicornRN.placeHolderList[62]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivotTranslate" 
+		"Emily_Enter_UnicornRN.placeHolderList[63]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotatePivotTranslate" 
+		"Emily_Enter_UnicornRN.placeHolderList[64]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateOrder" 
+		"Emily_Enter_UnicornRN.placeHolderList[65]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.rotateOrder" 
+		"Emily_Enter_UnicornRN.placeHolderList[66]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.parentMatrix" 
+		"Emily_Enter_UnicornRN.placeHolderList[67]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_R|Emily_Enter_Unicorn:FKGlobalStaticScapula_R|Emily_Enter_Unicorn:FKGlobalScapula_R|Emily_Enter_Unicorn:FKExtraScapula_R|Emily_Enter_Unicorn:FKScapula_R|Emily_Enter_Unicorn:FKXOffsetScapula_R|Emily_Enter_Unicorn:FKXScapula_R|Emily_Enter_Unicorn:FKOffsetShoulder_R|Emily_Enter_Unicorn:FKGlobalStaticShoulder_R|Emily_Enter_Unicorn:FKGlobalShoulder_R|Emily_Enter_Unicorn:FKExtraShoulder_R|Emily_Enter_Unicorn:FKShoulder_R|Emily_Enter_Unicorn:FKXOffsetShoulder_R|Emily_Enter_Unicorn:FKXShoulder_R|Emily_Enter_Unicorn:FKOffsetElbow_R|Emily_Enter_Unicorn:FKExtraElbow_R|Emily_Enter_Unicorn:FKElbow_R|Emily_Enter_Unicorn:FKXOffsetElbow_R|Emily_Enter_Unicorn:FKXElbow_R|Emily_Enter_Unicorn:FKOffsetWrist_R|Emily_Enter_Unicorn:FKExtraWrist_R|Emily_Enter_Unicorn:FKWrist_R.parentMatrix" 
+		"Emily_Enter_UnicornRN.placeHolderList[68]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[69]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.Global" 
+		"Emily_Enter_UnicornRN.placeHolderList[70]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[71]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[72]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[73]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[74]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[75]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[76]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[77]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L|Emily_Enter_Unicorn:FKXOffsetElbow_L|Emily_Enter_Unicorn:FKXElbow_L|Emily_Enter_Unicorn:FKOffsetWrist_L|Emily_Enter_Unicorn:FKExtraWrist_L|Emily_Enter_Unicorn:FKWrist_L.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[78]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L|Emily_Enter_Unicorn:FKXOffsetElbow_L|Emily_Enter_Unicorn:FKXElbow_L|Emily_Enter_Unicorn:FKOffsetWrist_L|Emily_Enter_Unicorn:FKExtraWrist_L|Emily_Enter_Unicorn:FKWrist_L.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[79]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToChest_M|Emily_Enter_Unicorn:FKOffsetScapula_L|Emily_Enter_Unicorn:FKGlobalStaticScapula_L|Emily_Enter_Unicorn:FKGlobalScapula_L|Emily_Enter_Unicorn:FKExtraScapula_L|Emily_Enter_Unicorn:FKScapula_L|Emily_Enter_Unicorn:FKXOffsetScapula_L|Emily_Enter_Unicorn:FKXScapula_L|Emily_Enter_Unicorn:FKOffsetShoulder_L|Emily_Enter_Unicorn:FKGlobalStaticShoulder_L|Emily_Enter_Unicorn:FKGlobalShoulder_L|Emily_Enter_Unicorn:FKExtraShoulder_L|Emily_Enter_Unicorn:FKShoulder_L|Emily_Enter_Unicorn:FKXOffsetShoulder_L|Emily_Enter_Unicorn:FKXShoulder_L|Emily_Enter_Unicorn:FKOffsetElbow_L|Emily_Enter_Unicorn:FKExtraElbow_L|Emily_Enter_Unicorn:FKElbow_L|Emily_Enter_Unicorn:FKXOffsetElbow_L|Emily_Enter_Unicorn:FKXElbow_L|Emily_Enter_Unicorn:FKOffsetWrist_L|Emily_Enter_Unicorn:FKExtraWrist_L|Emily_Enter_Unicorn:FKWrist_L.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[80]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R.Global" 
+		"Emily_Enter_UnicornRN.placeHolderList[81]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[82]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[83]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[84]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[85]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[86]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[87]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToRoot_M|Emily_Enter_Unicorn:FKOffsetHip_R|Emily_Enter_Unicorn:FKGlobalStaticHip_R|Emily_Enter_Unicorn:FKGlobalHip_R|Emily_Enter_Unicorn:FKExtraHip_R|Emily_Enter_Unicorn:FKHip_R|Emily_Enter_Unicorn:FKXOffsetHip_R|Emily_Enter_Unicorn:FKXHip_R|Emily_Enter_Unicorn:FKOffsetKnee_R|Emily_Enter_Unicorn:FKExtraKnee_R|Emily_Enter_Unicorn:FKKnee_R|Emily_Enter_Unicorn:FKXOffsetKnee_R|Emily_Enter_Unicorn:FKXKnee_R|Emily_Enter_Unicorn:FKOffsetAnkle_R|Emily_Enter_Unicorn:FKExtraAnkle_R|Emily_Enter_Unicorn:FKAnkle_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[88]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[89]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[90]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[91]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[92]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[93]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[94]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger2_R|Emily_Enter_Unicorn:FKXIndexFinger2_R|Emily_Enter_Unicorn:FKOffsetIndexFinger3_R|Emily_Enter_Unicorn:SDK1FKIndexFinger3_R|Emily_Enter_Unicorn:FKExtraIndexFinger3_R|Emily_Enter_Unicorn:FKIndexFinger3_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[95]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger2_R|Emily_Enter_Unicorn:FKXIndexFinger2_R|Emily_Enter_Unicorn:FKOffsetIndexFinger3_R|Emily_Enter_Unicorn:SDK1FKIndexFinger3_R|Emily_Enter_Unicorn:FKExtraIndexFinger3_R|Emily_Enter_Unicorn:FKIndexFinger3_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[96]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetIndexFinger1_R|Emily_Enter_Unicorn:SDK1FKIndexFinger1_R|Emily_Enter_Unicorn:SDK2FKIndexFinger1_R|Emily_Enter_Unicorn:FKExtraIndexFinger1_R|Emily_Enter_Unicorn:FKIndexFinger1_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger1_R|Emily_Enter_Unicorn:FKXIndexFinger1_R|Emily_Enter_Unicorn:FKOffsetIndexFinger2_R|Emily_Enter_Unicorn:SDK1FKIndexFinger2_R|Emily_Enter_Unicorn:FKExtraIndexFinger2_R|Emily_Enter_Unicorn:FKIndexFinger2_R|Emily_Enter_Unicorn:FKXOffsetIndexFinger2_R|Emily_Enter_Unicorn:FKXIndexFinger2_R|Emily_Enter_Unicorn:FKOffsetIndexFinger3_R|Emily_Enter_Unicorn:SDK1FKIndexFinger3_R|Emily_Enter_Unicorn:FKExtraIndexFinger3_R|Emily_Enter_Unicorn:FKIndexFinger3_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[97]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[98]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[99]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[100]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[101]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[102]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[103]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger2_R|Emily_Enter_Unicorn:FKXMiddleFinger2_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger3_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger3_R|Emily_Enter_Unicorn:FKExtraMiddleFinger3_R|Emily_Enter_Unicorn:FKMiddleFinger3_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[104]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger2_R|Emily_Enter_Unicorn:FKXMiddleFinger2_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger3_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger3_R|Emily_Enter_Unicorn:FKExtraMiddleFinger3_R|Emily_Enter_Unicorn:FKMiddleFinger3_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[105]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger1_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger1_R|Emily_Enter_Unicorn:FKExtraMiddleFinger1_R|Emily_Enter_Unicorn:FKMiddleFinger1_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger1_R|Emily_Enter_Unicorn:FKXMiddleFinger1_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger2_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger2_R|Emily_Enter_Unicorn:FKExtraMiddleFinger2_R|Emily_Enter_Unicorn:FKMiddleFinger2_R|Emily_Enter_Unicorn:FKXOffsetMiddleFinger2_R|Emily_Enter_Unicorn:FKXMiddleFinger2_R|Emily_Enter_Unicorn:FKOffsetMiddleFinger3_R|Emily_Enter_Unicorn:SDK1FKMiddleFinger3_R|Emily_Enter_Unicorn:FKExtraMiddleFinger3_R|Emily_Enter_Unicorn:FKMiddleFinger3_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[106]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[107]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[108]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[109]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[110]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[111]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[112]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R|Emily_Enter_Unicorn:FKXOffsetRingFinger2_R|Emily_Enter_Unicorn:FKXRingFinger2_R|Emily_Enter_Unicorn:FKOffsetRingFinger3_R|Emily_Enter_Unicorn:SDK1FKRingFinger3_R|Emily_Enter_Unicorn:FKExtraRingFinger3_R|Emily_Enter_Unicorn:FKRingFinger3_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[113]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R|Emily_Enter_Unicorn:FKXOffsetRingFinger2_R|Emily_Enter_Unicorn:FKXRingFinger2_R|Emily_Enter_Unicorn:FKOffsetRingFinger3_R|Emily_Enter_Unicorn:SDK1FKRingFinger3_R|Emily_Enter_Unicorn:FKExtraRingFinger3_R|Emily_Enter_Unicorn:FKRingFinger3_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[114]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetRingFinger1_R|Emily_Enter_Unicorn:SDK1FKRingFinger1_R|Emily_Enter_Unicorn:SDK2FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKRingFinger1_R|Emily_Enter_Unicorn:SDK3FKRingFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraRingFinger1_R|Emily_Enter_Unicorn:FKRingFinger1_R|Emily_Enter_Unicorn:FKXOffsetRingFinger1_R|Emily_Enter_Unicorn:FKXRingFinger1_R|Emily_Enter_Unicorn:FKOffsetRingFinger2_R|Emily_Enter_Unicorn:SDK1FKRingFinger2_R|Emily_Enter_Unicorn:FKExtraRingFinger2_R|Emily_Enter_Unicorn:FKRingFinger2_R|Emily_Enter_Unicorn:FKXOffsetRingFinger2_R|Emily_Enter_Unicorn:FKXRingFinger2_R|Emily_Enter_Unicorn:FKOffsetRingFinger3_R|Emily_Enter_Unicorn:SDK1FKRingFinger3_R|Emily_Enter_Unicorn:FKExtraRingFinger3_R|Emily_Enter_Unicorn:FKRingFinger3_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[115]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[116]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[117]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[118]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[119]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[120]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[121]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger2_R|Emily_Enter_Unicorn:FKXPinkyFinger2_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger3_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger3_R|Emily_Enter_Unicorn:FKExtraPinkyFinger3_R|Emily_Enter_Unicorn:FKPinkyFinger3_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[122]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger2_R|Emily_Enter_Unicorn:FKXPinkyFinger2_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger3_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger3_R|Emily_Enter_Unicorn:FKExtraPinkyFinger3_R|Emily_Enter_Unicorn:FKPinkyFinger3_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[123]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger1_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK2FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_R|Emily_Enter_Unicorn:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily_Enter_Unicorn:FKExtraPinkyFinger1_R|Emily_Enter_Unicorn:FKPinkyFinger1_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger1_R|Emily_Enter_Unicorn:FKXPinkyFinger1_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger2_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger2_R|Emily_Enter_Unicorn:FKExtraPinkyFinger2_R|Emily_Enter_Unicorn:FKPinkyFinger2_R|Emily_Enter_Unicorn:FKXOffsetPinkyFinger2_R|Emily_Enter_Unicorn:FKXPinkyFinger2_R|Emily_Enter_Unicorn:FKOffsetPinkyFinger3_R|Emily_Enter_Unicorn:SDK1FKPinkyFinger3_R|Emily_Enter_Unicorn:FKExtraPinkyFinger3_R|Emily_Enter_Unicorn:FKPinkyFinger3_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[124]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[125]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[126]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[127]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[128]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[129]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[130]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[131]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[132]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKParentConstraintToWrist_R|Emily_Enter_Unicorn:FKOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKExtraThumbFinger1_R|Emily_Enter_Unicorn:FKThumbFinger1_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger1_R|Emily_Enter_Unicorn:FKXThumbFinger1_R|Emily_Enter_Unicorn:FKOffsetThumbFinger2_R|Emily_Enter_Unicorn:SDK1FKThumbFinger2_R|Emily_Enter_Unicorn:FKExtraThumbFinger2_R|Emily_Enter_Unicorn:FKThumbFinger2_R|Emily_Enter_Unicorn:FKXOffsetThumbFinger2_R|Emily_Enter_Unicorn:FKXThumbFinger2_R|Emily_Enter_Unicorn:FKOffsetThumbFinger3_R|Emily_Enter_Unicorn:SDK1FKThumbFinger3_R|Emily_Enter_Unicorn:FKExtraThumbFinger3_R|Emily_Enter_Unicorn:FKThumbFinger3_R.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[133]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.translateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[134]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.translateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[135]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.translateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[136]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.rotateX" 
+		"Emily_Enter_UnicornRN.placeHolderList[137]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.rotateY" 
+		"Emily_Enter_UnicornRN.placeHolderList[138]" ""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:RootSystem|Emily_Enter_Unicorn:RootCenterBtwLegsBlended_M|Emily_Enter_Unicorn:RootOffsetX_M|Emily_Enter_Unicorn:RootExtraX_M|Emily_Enter_Unicorn:RootX_M.rotateZ" 
+		"Emily_Enter_UnicornRN.placeHolderList[139]" ""
 		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups" 
-		"Emily_Enter_UnicornRN.placeHolderList[18]" "";
+		"Emily_Enter_UnicornRN.placeHolderList[140]" ""
+		"Emily_Enter_Unicorn:Dress_EmilyRN" 2
+		3 "Emily_Enter_Unicorn:Meshes.drawInfo" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Dress_Emily:Dress|Emily_Enter_Unicorn:Dress_Emily:Skirt.drawOverride" 
+		""
+		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Dress_Emily:Dress|Emily_Enter_Unicorn:Dress_Emily:Skirt.drawOverride" 
+		"Emily_Enter_UnicornRN.placeHolderList[1]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode vectorRenderGlobals -s -n "vectorRenderGlobals";
@@ -8651,7 +9368,7 @@ createNode displayLayer -n "Floor";
 	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode reference -n "swordRN";
-	setAttr -s 7 ".phl";
+	setAttr -s 19 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -8659,18 +9376,46 @@ createNode reference -n "swordRN";
 	setAttr ".phl[5]" 0;
 	setAttr ".phl[6]" 0;
 	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"swordRN"
 		"swordRN" 1
 		2 "|sword:Sword_Anim_Control" "visibility" " 0"
-		"swordRN" 17
+		"swordRN" 41
 		0 "|swordRNfosterParent1|Sword_Anim_Control_parentConstraint1" "|sword:Sword_Anim_Control" 
 		"-s -r "
-		2 "|sword:particle1|sword:particleShape1" "currentSceneTime" " 57"
-		2 "|sword:particle1|sword:particleShape1" "cacheWidth" " 136"
-		2 "|sword:Sword_Anim_Control" "rotate" " -type \"double3\" 45.853 10.893 44.348"
+		0 "|swordRNfosterParent1|Sword_Anim_Control_parentConstraint2" "|sword:Sword_Anim_Control" 
+		"-s -r "
+		1 |sword:Sword_Anim_Control "blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
 		
-		2 "|sword:RMSGeoAreaLight5" "translate" " -type \"double3\" -0.01780325904867322 3.4509150961078201 14.29187885105785938"
+		1 |sword:Sword_Anim_Control "blendParent2" "blendParent2" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		
+		2 "|sword:particle1|sword:particleShape1" "currentSceneTime" " 60"
+		2 "|sword:particle1|sword:particleShape1" "cacheWidth" " 60"
+		2 "|sword:Sword_Anim_Control" "translate" " -type \"double3\" 1.95728343438038843 3.28342812707156284 15.66409432000229884"
+		
+		2 "|sword:Sword_Anim_Control" "translateX" " -av"
+		2 "|sword:Sword_Anim_Control" "translateY" " -av"
+		2 "|sword:Sword_Anim_Control" "translateZ" " -av"
+		2 "|sword:Sword_Anim_Control" "rotate" " -type \"double3\" -9.63234740080323704 37.84514394722658892 -16.66048896757493125"
+		
+		2 "|sword:Sword_Anim_Control" "rotateX" " -av"
+		2 "|sword:Sword_Anim_Control" "rotateY" " -av"
+		2 "|sword:Sword_Anim_Control" "rotateZ" " -av"
+		2 "|sword:Sword_Anim_Control" "blendParent1" " -av -k 1 1"
+		2 "|sword:Sword_Anim_Control" "blendParent2" " -av -k 1 0"
+		2 "|sword:RMSGeoAreaLight5" "translate" " -type \"double3\" 2.0732229173036707 4.81171111191052603 15.35183458353701091"
 		
 		2 "|sword:RMSGeoAreaLight5" "translateX" " -av"
 		2 "|sword:RMSGeoAreaLight5" "translateY" " -av"
@@ -8685,11 +9430,35 @@ createNode reference -n "swordRN";
 		""
 		5 3 "swordRN" "|sword:Sword_Anim_Control.rotatePivot" "swordRN.placeHolderList[4]" 
 		""
-		5 3 "swordRN" "|sword:Sword_Anim_Control.rotatePivotTranslate" "swordRN.placeHolderList[5]" 
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotatePivot" "swordRN.placeHolderList[5]" 
 		""
-		5 3 "swordRN" "|sword:Sword_Anim_Control.rotateOrder" "swordRN.placeHolderList[6]" 
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotatePivotTranslate" "swordRN.placeHolderList[6]" 
 		""
-		5 3 "swordRN" "|sword:Sword_Anim_Control.parentInverseMatrix" "swordRN.placeHolderList[7]" 
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotatePivotTranslate" "swordRN.placeHolderList[7]" 
+		""
+		5 4 "swordRN" "|sword:Sword_Anim_Control.rotateX" "swordRN.placeHolderList[8]" 
+		""
+		5 4 "swordRN" "|sword:Sword_Anim_Control.rotateY" "swordRN.placeHolderList[9]" 
+		""
+		5 4 "swordRN" "|sword:Sword_Anim_Control.rotateZ" "swordRN.placeHolderList[10]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotateOrder" "swordRN.placeHolderList[11]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotateOrder" "swordRN.placeHolderList[12]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.rotateOrder" "swordRN.placeHolderList[13]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.blendParent1" "swordRN.placeHolderList[14]" 
+		""
+		5 4 "swordRN" "|sword:Sword_Anim_Control.blendParent1" "swordRN.placeHolderList[15]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.blendParent2" "swordRN.placeHolderList[16]" 
+		""
+		5 4 "swordRN" "|sword:Sword_Anim_Control.blendParent2" "swordRN.placeHolderList[17]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.parentInverseMatrix" "swordRN.placeHolderList[18]" 
+		""
+		5 3 "swordRN" "|sword:Sword_Anim_Control.parentInverseMatrix" "swordRN.placeHolderList[19]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -8702,55 +9471,80 @@ createNode shadingEngine -n "lambert2SG";
 createNode materialInfo -n "materialInfo1";
 createNode animCurveTL -n "Rendering_Camera_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 8 ".ktv[0:7]"  1 -6.523 45 -6.523 69 -3.6077355489113385
-		 95 -3.737004788078039 107 -3.0166547507050003 110 -2.673049121574063 112 -2.2058704528640645
-		 117 -1.6064037296249363;
-	setAttr -s 8 ".kit[1:7]"  1 18 18 18 18 18 18;
-	setAttr -s 8 ".kix[1:7]"  1.8333333730697632 1 1.0833332538604736 
-		0.5000002384185791 0.125 0.083333015441894531 0.20833349227905273;
-	setAttr -s 8 ".kiy[1:7]"  0 0 0 0.85116463899612427 0.48647132515907288 
-		0.3047548234462738 0;
+	setAttr -s 10 ".ktv[0:9]"  1 -6.523 24 -6.523 53 -8.6464331040347897
+		 58 -7.8199516771625142 73 -4.2159350556767503 95 -4.3452042948434517 107 -3.0166547507050003
+		 110 -2.673049121574063 112 -2.2058704528640645 117 -1.6064037296249363;
+	setAttr -s 10 ".kit[1:9]"  1 1 18 1 18 18 18 18 
+		18;
+	setAttr -s 10 ".kot[1:9]"  1 3 18 18 18 18 18 18 
+		18;
+	setAttr -s 10 ".ktl[2:9]" no no no yes yes yes yes yes;
+	setAttr -s 10 ".kwl[2:9]" no no no yes yes yes yes yes;
+	setAttr -s 10 ".kix[1:9]"  1.8333333730697632 1.4870988130569458 0.20833349227905273 
+		0.78313237428665161 0.91666650772094727 0.5000002384185791 0.125 0.083333015441894531 
+		0.20833349227905273;
+	setAttr -s 10 ".kiy[1:9]"  0 0 1.1076251268386841 0 0 1.3377242088317871 
+		0.48647132515907288 0.3047548234462738 0;
+	setAttr -s 10 ".kox[1:9]"  1.1388144493103027 0.20833349227905273 
+		0.625 0.91666650772094727 0.5000002384185791 0.125 0.083333015441894531 0.20833349227905273 
+		0.20833349227905273;
+	setAttr -s 10 ".koy[1:9]"  0 0 3.3228728771209717 0 0 0.33443090319633484 
+		0.32431298494338989 0.76189059019088745 0;
 createNode animCurveTL -n "Rendering_Camera_translateY";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 3.299 20 3.299 95 1.1104743525155878 103 0.96810665052285105
-		 110 2.6414253497839515 114 2.7869313236327424;
-	setAttr -s 6 ".kit[0:5]"  18 1 1 1 18 1;
-	setAttr -s 6 ".kot[0:5]"  18 18 1 1 18 1;
-	setAttr -s 6 ".kix[1:5]"  0.79166662693023682 3.125 0.33333349227905273 
-		0.29166698455810547 0.16666603088378906;
-	setAttr -s 6 ".kiy[1:5]"  0 -1.9013135433197021 -0.088852755725383759 
-		0.76390790939331055 0;
-	setAttr -s 6 ".kox[2:5]"  0.33333277702331543 0.29166698455810547 
-		0.16666650772094727 0.79166674613952637;
-	setAttr -s 6 ".koy[2:5]"  -0.20280684530735016 -0.07774621993303299 
-		0.43651792407035828 0;
+	setAttr -s 8 ".ktv[0:7]"  1 3.299 40 3.299 45 3.3562564616269448 58 2.7334463790318217
+		 95 1.1104743525155878 103 0.96810665052285105 110 2.6414253497839515 114 2.7869313236327424;
+	setAttr -s 8 ".kit[0:7]"  18 1 18 1 1 1 18 1;
+	setAttr -s 8 ".kot[0:7]"  18 1 18 1 1 1 18 1;
+	setAttr -s 8 ".ktl[1:7]" no yes yes yes yes yes yes;
+	setAttr -s 8 ".kwl[1:7]" no yes yes yes yes yes yes;
+	setAttr -s 8 ".kix[1:7]"  1.625 0.20833337306976318 0.54166674613952637 
+		2.2916665077209473 0.33333349227905273 0.29166698455810547 0.16666603088378906;
+	setAttr -s 8 ".kiy[1:7]"  0 0 -0.51728790998458862 -1.3942966461181641 
+		-0.088852755725383759 0.76390790939331055 0;
+	setAttr -s 8 ".kox[1:7]"  0.20833325386047363 0.54166674613952637 
+		1.5416665077209473 0.33333277702331543 0.29166698455810547 0.16666650772094727 0.79166674613952637;
+	setAttr -s 8 ".koy[1:7]"  0 0 -1.4722808599472046 -0.20280684530735016 
+		-0.07774621993303299 0.43651792407035828 0;
 createNode animCurveTL -n "Rendering_Camera_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 9 ".ktv[0:8]"  1 -14.15 20 -14.15 45 -11.317 69 7.0518262016447508
-		 95 41.290954184521674 107 61.304689620376784 110 65.642397261818942 112 68.048296852730203
-		 117 71.006524597365697;
-	setAttr -s 9 ".kit[1:8]"  1 18 18 18 18 18 18 18;
-	setAttr -s 9 ".kix[1:8]"  0.79166662693023682 1.0416667461395264 
-		1 1.0833332538604736 0.5000002384185791 0.125 0.083333015441894531 0.20833349227905273;
-	setAttr -s 9 ".kiy[1:8]"  0 8.4989995956420898 25.251819610595703 
-		37.120372772216797 19.481155395507812 4.046170711517334 1.5326027870178223 0;
+	setAttr -s 10 ".ktv[0:9]"  1 -14.15 33 -14.15 45 -11.317 58 -2.7746250714988996
+		 69 7.0518262016447508 95 41.290954184521674 107 61.304689620376784 110 65.642397261818942
+		 112 68.048296852730203 117 71.006524597365697;
+	setAttr -s 10 ".kit[1:9]"  1 18 18 18 18 18 18 18 
+		18;
+	setAttr -s 10 ".kix[1:9]"  0.79166662693023682 0.5 0.54166674613952637 
+		0.45833325386047363 1.0833332538604736 0.5000002384185791 0.125 0.083333015441894531 
+		0.20833349227905273;
+	setAttr -s 10 ".kiy[1:9]"  0 5.460179328918457 9.9497823715209961 
+		13.100576400756836 37.120372772216797 19.481155395507812 4.046170711517334 1.5326027870178223 
+		0;
 createNode animCurveTA -n "Rendering_Camera_rotateX";
-	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 0 20 0;
+	setAttr ".tan" 1;
+	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 44 2.2146268003598402 58 0;
+	setAttr -s 4 ".kit[0:3]"  18 1 1 1;
+	setAttr -s 4 ".kot[0:3]"  18 1 1 1;
+	setAttr -s 4 ".ktl[1:3]" no no yes;
+	setAttr -s 4 ".kwl[1:3]" no no yes;
+	setAttr -s 4 ".kix[1:3]"  0.79166662693023682 1.3041622638702393 
+		0.58333325386047363;
+	setAttr -s 4 ".kiy[1:3]"  0 0 0;
+	setAttr -s 4 ".kox[1:3]"  1.6846421957015991 1.0500825643539429 1.5833334922790527;
+	setAttr -s 4 ".koy[1:3]"  0 0 0;
 createNode animCurveTA -n "Rendering_Camera_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 197.6 20 197.6;
-	setAttr -s 2 ".kit[1]"  1;
-	setAttr -s 2 ".kot[1]"  1;
-	setAttr -s 2 ".ktl[1]" no;
-	setAttr -s 2 ".kwl[1]" no;
-	setAttr -s 2 ".kix[1]"  0.79166662693023682;
-	setAttr -s 2 ".kiy[1]"  0;
-	setAttr -s 2 ".kox[1]"  0.98509359359741211;
-	setAttr -s 2 ".koy[1]"  0;
+	setAttr -s 3 ".ktv[0:2]"  1 197.6 20 197.6 58 197.6;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".ktl[1:2]" no yes;
+	setAttr -s 3 ".kwl[1:2]" no yes;
+	setAttr -s 3 ".kix[1:2]"  0.79166662693023682 1.5833334922790527;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  0.98509359359741211 1.5833334922790527;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTA -n "Rendering_Camera_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 0 20 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 20 0 58 0;
 createNode cameraView -n "Playblast_oregon";
 	setAttr ".e" -type "double3" -6.523 3.299 -14.15 ;
 	setAttr ".coi" -type "double3" -5.0111505462477774 3.299 -9.3840466610352635 ;
@@ -9075,7 +9869,7 @@ createNode animCurveTA -n "HipSwinger_M_rotateY";
 		 13 -1.8044115161418539 20 1.3186084156421269 25 -9.604660105000002e-29 30 4.1942955243979769
 		 37 -4.576662254058804 47 4.1045929965958337 53 -3.7874572312720178 56 -5.561273646483186
 		 61 -17.336604868763946 68 15.128437932938152 71 16.253209478724724 77 -8.339488752475015
-		 82 10.12885567851847 89 2.1131058393473832 95 10.113409505532093 100 2.7250983857667661;
+		 82 10.12885567851847 89 2.1131058393473832 95 10.113409505532095 100 2.7250983857667661;
 	setAttr -s 18 ".kit[8:17]"  18 18 1 1 1 1 1 1 
 		1 1;
 	setAttr -s 18 ".kot[6:17]"  18 1 18 18 1 18 18 1 
@@ -9175,29 +9969,36 @@ createNode animCurveTA -n "FKTail2_M_rotateX";
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKTail2_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 10 ".ktv[0:9]"  1 0 25 0 33 16.129239769274125 41 -4.1056246685425055
+		 50 11.557600148119036 56 -16.940767226640148 62 -25.257816518758013 68 21.686156037969734
+		 78 -12.414652507784535 85 0;
+	setAttr -s 10 ".kit[0:9]"  1 1 1 1 1 18 1 1 
+		1 18;
+	setAttr -s 10 ".kix[0:9]"  0 0.99999994039535522 0.33333337306976318 
+		0.33333337306976318 0.45833337306976318 0.25 0.25 0.25 0.41666674613952637 0.29166674613952637;
+	setAttr -s 10 ".kiy[0:9]"  0 0 0 0 0 -0.32127511501312256 0 0 0 0;
 createNode animCurveTA -n "FKTail2_M_rotateZ";
 	setAttr ".tan" 1;
-	setAttr -s 18 ".ktv[0:17]"  1 88.601 10 88.601 14 82.655213884297467
+	setAttr -s 19 ".ktv[0:18]"  1 88.601 10 88.601 14 82.655213884297467
 		 21 88.624509301660183 31 21.63340719993284 38 46.869560806943582 49 11.883075124496891
 		 56 39.895213220948534 61 -9.6935446347150549 67 40.490058742197967 74 -12.664528978278101
 		 80 29.030547749240188 84 -19.815936877349444 89 30.586543014397137 96 -20.734212627950637
-		 102 26.981819795599087 108 4.0955196370755802 112 7.5617548043602012;
-	setAttr -s 18 ".kit[17]"  18;
-	setAttr -s 18 ".kot[0:17]"  18 18 18 1 1 1 1 1 
-		1 1 1 1 1 1 1 1 18 18;
-	setAttr -s 18 ".kwl[3:17]" no no no no no no no no no no no no no yes 
-		yes;
-	setAttr -s 18 ".kix[0:17]"  0 0.375 0.1666666567325592 0.50720840692520142 
+		 102 26.981819795599087 108 4.0955196370755802 112 12.438228447646051 116 4.1010316768434478;
+	setAttr -s 19 ".kit[18]"  18;
+	setAttr -s 19 ".kot[0:18]"  18 18 18 1 1 1 1 1 
+		1 1 1 1 1 1 1 1 18 18 18;
+	setAttr -s 19 ".kwl[3:18]" no no no no no no no no no no no no no yes 
+		yes yes;
+	setAttr -s 19 ".kix[0:18]"  0 0.375 0.1666666567325592 0.50720840692520142 
 		0.5732237696647644 0.50805723667144775 0.69499129056930542 0.42935037612915039 0.36889863014221191 
 		0.37710613012313843 0.40194740891456604 0.36875253915786743 0.25154352188110352 0.31851077079772949 
-		0.36803761124610901 0.32601475715637207 0.25 0.16666650772094727;
-	setAttr -s 18 ".kiy[0:17]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-	setAttr -s 18 ".kox[3:17]"  0.63220834732055664 0.44822394847869873 
+		0.36803761124610901 0.32601475715637207 0.25 0.16666650772094727 0.16666698455810547;
+	setAttr -s 19 ".kiy[0:18]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 19 ".kox[3:18]"  0.63220834732055664 0.44822394847869873 
 		0.67472386360168457 0.52832448482513428 0.34601736068725586 0.41056513786315918 0.41877263784408569 
 		0.36028090119361877 0.2854192852973938 0.29321002960205078 0.40184426307678223 0.32637086510658264 
-		0.32601475715637207 0.16666650772094727 0.16666650772094727;
-	setAttr -s 18 ".koy[3:17]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+		0.32601475715637207 0.16666650772094727 0.16666698455810547 0.16666698455810547;
+	setAttr -s 19 ".koy[3:18]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTU -n "FKTail2_M_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 1;
@@ -9225,28 +10026,35 @@ createNode animCurveTA -n "FKTail3_M_rotateX";
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKTail3_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 10 ".ktv[0:9]"  1 0 26 0 34 16.129239769274125 42 -4.1056246685425055
+		 51 11.557600148119036 57 -16.940767226640148 63 -25.257816518758013 69 21.686156037969734
+		 79 -12.414652507784535 86 0;
+	setAttr -s 10 ".kit[0:9]"  1 1 1 1 1 18 1 1 
+		1 18;
+	setAttr -s 10 ".kix[0:9]"  0 0.99999994039535522 0.33333337306976318 
+		0.33333337306976318 0.45833337306976318 0.25 0.25 0.25 0.41666674613952637 0.29166650772094727;
+	setAttr -s 10 ".kiy[0:9]"  0 0 0 0 0 -0.32127511501312256 0 0 0 0;
 createNode animCurveTA -n "FKTail3_M_rotateZ";
 	setAttr ".tan" 1;
 	setAttr -s 19 ".ktv[0:18]"  1 0 11 0 15 -5.9457861157025267 22 0.023509301660185621
-		 32 -4.2527519946767454 39 36.377942279147014 50 1.3914565967002701 57 29.403594693151948
+		 32 -4.2527519946767454 39 36.377942279147021 50 1.3914565967002701 57 29.403594693151948
 		 62 6.0069372775521472 68 29.998440214401377 75 3.0359529339890901 81 18.538929221443567
 		 85 -4.1154549650822583 90 20.094924486600537 97 -5.0337307156834603 103 16.490201267802458
-		 109 -3.3178927302175767 114 1.6341311015711377 119 -3.6633827649935404;
+		 109 -3.3178927302175767 114 23.20556154497298 119 -3.6633827649935404;
 	setAttr -s 19 ".kit[18]"  18;
 	setAttr -s 19 ".kot[0:18]"  18 18 18 1 1 1 1 1 
-		1 1 1 1 1 1 1 1 18 18 18;
-	setAttr -s 19 ".kwl[3:18]" no no no no no no no no no no no no no yes 
-		yes yes;
+		1 1 1 1 1 1 1 1 1 1 18;
+	setAttr -s 19 ".kwl[3:18]" no no no no no no no no no no no no no no 
+		no yes;
 	setAttr -s 19 ".kix[0:18]"  0 0.375 0.1666666567325592 0.50720840692520142 
 		0.5732237696647644 0.50805723667144775 0.69499129056930542 0.42935037612915039 0.36889863014221191 
 		0.37710613012313843 0.40194740891456604 0.36875253915786743 0.25154352188110352 0.31851077079772949 
-		0.36803761124610901 0.32601475715637207 0.25 0.20833349227905273 0.20833349227905273;
+		0.36803761124610901 0.32601475715637207 0.34253087639808655 0.28258365392684937 0.20833349227905273;
 	setAttr -s 19 ".kiy[0:18]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 	setAttr -s 19 ".kox[3:18]"  0.63220834732055664 0.44822394847869873 
 		0.67472386360168457 0.52832448482513428 0.34601736068725586 0.41056513786315918 0.41877263784408569 
 		0.36028090119361877 0.2854192852973938 0.29321002960205078 0.40184426307678223 0.32637086510658264 
-		0.32601475715637207 0.20833349227905273 0.20833349227905273 0.20833349227905273;
+		0.32601475715637207 0.30086433887481689 0.28258365392684937 0.20833349227905273;
 	setAttr -s 19 ".koy[3:18]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTU -n "FKTail3_M_scaleX";
 	setAttr ".tan" 18;
@@ -9355,26 +10163,26 @@ createNode animCurveTA -n "FKNeck_M_rotateZ";
 	setAttr -s 21 ".ktv[0:20]"  1 -23.871 6 -22.135248612278478 20 -39.428125872125896
 		 23 -41.031926873283986 28 -24.078272326292769 30 -28.195 35 14.254 42 -15.325241159514858
 		 47 10.937649125253152 53 -48.546705788648097 58 -1.7480000000000002 62 -13.293468778134503
-		 67 7.2822346431099012 74 -51.295153307435399 79 3.744888266939042 86 -34.234 93 22.74061723840342
+		 67 7.2822346431099012 74 -28.892467371361036 79 3.744888266939042 86 -34.234 93 22.74061723840342
 		 95 25.713985029500385 102 -16.153217113344457 105 -13.202949325966671 110 6.5599042685449271;
-	setAttr -s 21 ".kit[3:20]"  18 1 1 3 1 1 1 1 
+	setAttr -s 21 ".kit[3:20]"  18 1 1 1 1 1 1 1 
 		18 1 1 1 1 1 1 1 1 1;
-	setAttr -s 21 ".kot[3:20]"  18 1 1 3 3 1 1 1 
+	setAttr -s 21 ".kot[3:20]"  18 1 1 1 1 1 1 1 
 		18 1 1 1 1 1 18 1 1 1;
-	setAttr -s 21 ".ktl[3:20]" no no no yes no yes yes yes yes yes yes 
-		no yes yes yes yes yes yes;
-	setAttr -s 21 ".kwl[0:20]" no no yes no no no yes no no no no yes no 
-		no no no no yes yes yes yes;
+	setAttr -s 21 ".ktl[3:20]" no no no no no yes yes yes yes yes yes no 
+		yes yes yes yes yes yes;
+	setAttr -s 21 ".kwl[0:20]" no no yes no no no no no no no no yes no 
+		yes no no no yes yes yes yes;
 	setAttr -s 21 ".kix[0:20]"  0.3360215425491333 0.32273325324058533 
-		0.56586527824401855 0.125 0.24226219952106476 0.125 0.20833337306976318 0.34351372718811035 
-		0.27803674340248108 0.32400092482566833 0.2801206111907959 0.16666650772094727 0.24994564056396484 
+		0.56586527824401855 0.125 0.24226219952106476 0.125 0.27696090936660767 0.34351372718811035 
+		0.31995832920074463 0.43487599492073059 0.2801206111907959 0.16666650772094727 0.24994564056396484 
 		0.37383025884628296 0.35200104117393494 0.47358196973800659 0.43735986948013306 0.16666674613952637 
 		0.29166650772094727 0.1249995231628418 0.20833396911621094;
 	setAttr -s 21 ".kiy[0:20]"  0 0 -0.24389712512493134 0 0 0 0 0 0 0 
 		0 0 0 0 0 0 0.44840735197067261 0 0 0.08581986278295517 0;
 	setAttr -s 21 ".kox[0:20]"  0.3360215425491333 0.61439979076385498 
-		0.13185282051563263 0.20833331346511841 0.11733256280422211 0.32123303413391113 0.29166662693023682 
-		0.20833337306976318 0.36136999726295471 0.28233453631401062 0.23845362663269043 0.20833349227905273 
+		0.13185282051563263 0.20833331346511841 0.11733256280422211 0.44818940758705139 0.42963677644729614 
+		0.26359295845031738 0.40329158306121826 0.39320960640907288 0.23845362663269043 0.20833349227905273 
 		0.33327865600585938 0.33216375112533569 0.42345532774925232 0.43191546201705933 0.091124832630157471 
 		0.29166674613952637 0.1249995231628418 0.20833396911621094 0.33333349227905273;
 	setAttr -s 21 ".koy[0:20]"  0 0 -0.056830689311027527 0 0 0 0 0 0 0 
@@ -9487,24 +10295,25 @@ createNode animCurveTL -n "FKEarA_R_translateZ";
 	setAttr ".ktv[0]"  1 3.7637692750199138e-13;
 createNode animCurveTA -n "FKEarA_R_rotateX";
 	setAttr ".tan" 1;
-	setAttr -s 12 ".ktv[0:11]"  1 89.999994555282271 9 103.065930834254
-		 22 67.83036916699092 27 69.58690503959555 38 93.390368735331791 55 58.251679880856145
-		 63 105.20522044949573 73 62.34772270745205 82 108.14998931479953 91 65.01381530544522
-		 98 116.56279562238629 110 67.530690249783817;
-	setAttr -s 12 ".kit[0:11]"  18 18 18 18 1 1 1 1 
-		3 1 1 18;
-	setAttr -s 12 ".kot[0:11]"  18 1 18 18 1 18 18 1 
-		3 1 1 18;
-	setAttr -s 12 ".ktl[1:11]" no yes yes yes yes yes no yes yes yes yes;
-	setAttr -s 12 ".kwl[1:11]" no yes yes yes yes yes no yes no no yes;
-	setAttr -s 12 ".kix[4:11]"  0.45833337306976318 0.70833337306976318 
-		0.33333325386047363 0.52624350786209106 0.375 0.50931715965270996 0.44398230314254761 
-		0.5;
-	setAttr -s 12 ".kiy[4:11]"  0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".ktv[0:11]"  1 89.999994555282271 9 96.943767693632168
+		 22 77.56301574722805 27 78.550134941191942 38 83.840396052505398 55 77.630990315401306
+		 63 96.795794881498438 73 81.727033141997211 82 99.740563746802295 91 84.393125739990381
+		 98 108.153370054389 110 86.910000684328992;
+	setAttr -s 12 ".kit[0:11]"  18 18 1 18 1 1 1 1 
+		1 1 1 18;
+	setAttr -s 12 ".kot[0:11]"  18 1 18 18 1 1 1 1 
+		1 1 1 18;
+	setAttr -s 12 ".ktl[1:11]" no no yes yes yes yes no yes yes yes yes;
+	setAttr -s 12 ".kwl[1:11]" no no yes yes no no no no no no yes;
+	setAttr -s 12 ".kix[2:11]"  0.83195739984512329 0.20833331346511841 
+		0.45833337306976318 1.1360812187194824 0.55754518508911133 0.62818747758865356 0.64078783988952637 
+		0.50931715965270996 0.44398230314254761 0.5;
+	setAttr -s 12 ".kiy[2:11]"  0 0.034237794578075409 0 0 0 0 0 0 0 0;
 	setAttr -s 12 ".kox[1:11]"  1.0510411262512207 0.20833331346511841 
-		0.45833337306976318 0.66666668653488159 0.33333325386047363 0.41666674613952637 0.75980859994888306 
-		0.375 0.42598393559455872 0.81898206472396851 0.5;
-	setAttr -s 12 ".koy[1:11]"  0 0 0.20233844220638275 0 0 0 0 0 0 0 0;
+		0.45833337306976318 0.66666668653488159 0.7610810399055481 0.64087867736816406 0.75980859994888306 
+		0.64078783988952637 0.42598393559455872 0.81898206472396851 0.5;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.075323157012462616 0 0 0 0 0 0 0 
+		0;
 createNode animCurveTA -n "FKEarA_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr -s 2 ".ktv[0:1]"  1 89.999999999980048 38 89.999999999980048;
@@ -9534,8 +10343,25 @@ createNode animCurveTL -n "FKEarB_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKEarB_R_rotateX";
-	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 0 55 0 78 -19.040233220501953;
+	setAttr ".tan" 1;
+	setAttr -s 12 ".ktv[0:11]"  1 0 10 13.065936278971744 23 -22.169625388291351
+		 28 -20.413089515686718 39 3.3903741800495295 56 -31.748314674426123 64 15.205225894213465
+		 74 -27.652271847830214 83 18.149994759517263 92 -24.986179249837051 99 26.562801067104026
+		 111 -22.469304305498444;
+	setAttr -s 12 ".kit[0:11]"  18 18 18 18 1 1 1 1 
+		3 1 1 18;
+	setAttr -s 12 ".kot[0:11]"  18 1 18 18 1 1 1 1 
+		3 1 1 18;
+	setAttr -s 12 ".ktl[1:11]" no yes yes yes no yes no yes yes yes yes;
+	setAttr -s 12 ".kwl[1:11]" no yes yes yes no no no yes no no yes;
+	setAttr -s 12 ".kix[4:11]"  0.45833337306976318 1.0976617336273193 
+		0.47307801246643066 0.52624350786209106 0.375 0.50931715965270996 0.44398230314254761 
+		0.5;
+	setAttr -s 12 ".kiy[4:11]"  0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1.0510411262512207 0.20833331346511841 
+		0.45833337306976318 0.66666668653488159 0.61553573608398438 0.5564115047454834 0.75980859994888306 
+		0.375 0.42598393559455872 0.81898206472396851 0.5;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.20233844220638275 0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "FKEarB_R_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
@@ -9565,11 +10391,28 @@ createNode animCurveTL -n "FKEarC_R_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKEarC_R_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
-createNode animCurveTA -n "FKEarC_R_rotateY";
-	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 0 55 0 78 -26.608513770012472;
+	setAttr ".tan" 1;
+	setAttr -s 13 ".ktv[0:12]"  1 25.973714314937041 12 39.039650593908753
+		 25 28.934297871994925 30 30.690833744599558 41 16.425150591370382 54 53.638183268386634
+		 58 56.722616997595999 66 55.907670037697187 77 13.865119255552314 85 59.667385862899799
+		 95 16.531211853545468 101 68.080192170486541 114 19.048086797884071;
+	setAttr -s 13 ".kit[0:12]"  18 18 18 18 1 1 1 18 
+		1 3 1 1 18;
+	setAttr -s 13 ".kot[0:12]"  18 1 18 18 1 1 1 18 
+		1 3 1 1 18;
+	setAttr -s 13 ".ktl[1:12]" no yes yes yes yes no yes no yes yes yes 
+		yes;
+	setAttr -s 13 ".kwl[1:12]" no yes yes yes yes no no no yes no no yes;
+	setAttr -s 13 ".kix[4:12]"  0.45833337306976318 0.72880911827087402 
+		0.18617105484008789 0.33333325386047363 0.52624350786209106 0.33333349227905273 0.50931715965270996 
+		0.44398230314254761 0.54166650772094727;
+	setAttr -s 13 ".kiy[4:12]"  0 0.49353453516960144 0 -0.042670521885156631 
+		0 0 0 0 0;
+	setAttr -s 13 ".kox[1:12]"  1.0510411262512207 0.20833337306976318 
+		0.45833337306976318 0.55359542369842529 0.14885830879211426 0.61553573608398438 0.45833325386047363 
+		0.75980859994888306 0.41666650772094727 0.42598393559455872 0.81898206472396851 0.54166650772094727;
+	setAttr -s 13 ".koy[1:12]"  0 0 0 0 0.10080398619174957 0 -0.058671973645687103 
+		0 0 0 0 0;
 createNode animCurveTA -n "FKEarC_R_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
@@ -9596,8 +10439,25 @@ createNode animCurveTL -n "FKEarA_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 3.7637692750199138e-13;
 createNode animCurveTA -n "FKEarA_L_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 89.999994555282271;
+	setAttr ".tan" 1;
+	setAttr -s 12 ".ktv[0:11]"  1 89.999994555282271 10 103.065930834254
+		 23 76.255007393538776 28 78.011543266143406 39 83.840396052505398 56 68.023604584088517
+		 64 96.921255123615794 74 72.119647410684422 83 99.866023988919679 92 74.785740008677593
+		 99 108.27883029650637 111 77.302614953016189;
+	setAttr -s 12 ".kit[0:11]"  18 18 18 18 1 1 1 1 
+		1 1 1 18;
+	setAttr -s 12 ".kot[0:11]"  18 1 18 18 1 1 1 1 
+		1 1 1 18;
+	setAttr -s 12 ".ktl[1:11]" no yes yes yes yes yes no yes yes yes yes;
+	setAttr -s 12 ".kwl[1:11]" no yes yes no no no no no no no yes;
+	setAttr -s 12 ".kix[4:11]"  0.69674491882324219 1.012315034866333 0.55754518508911133 
+		0.52624350786209106 0.64078783988952637 0.50931715965270996 0.44398230314254761 0.5;
+	setAttr -s 12 ".kiy[4:11]"  0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1.0510411262512207 0.20833331346511841 
+		0.45833337306976318 0.9050782322883606 0.63731527328491211 0.64087867736816406 0.75980859994888306 
+		0.64078783988952637 0.42598393559455872 0.81898206472396851 0.5;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.091018132865428925 0 0 0 0 0 0 0 
+		0;
 createNode animCurveTA -n "FKEarA_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 89.999999999980048;
@@ -9627,8 +10487,25 @@ createNode animCurveTL -n "FKEarB_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKEarB_L_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr ".tan" 1;
+	setAttr -s 12 ".ktv[0:11]"  1 0 10 13.065936278971744 23 -22.169625388291351
+		 28 -20.413089515686718 39 3.3903741800495295 56 -31.748314674426123 64 15.205225894213465
+		 74 -27.652271847830214 83 18.149994759517263 92 -24.986179249837051 99 26.562801067104026
+		 111 -22.469304305498444;
+	setAttr -s 12 ".kit[0:11]"  18 18 18 18 1 1 1 1 
+		3 1 1 18;
+	setAttr -s 12 ".kot[0:11]"  18 1 18 18 1 1 1 1 
+		3 1 1 18;
+	setAttr -s 12 ".ktl[1:11]" no yes yes yes no yes no yes yes yes yes;
+	setAttr -s 12 ".kwl[1:11]" no yes yes yes no no no yes no no yes;
+	setAttr -s 12 ".kix[4:11]"  0.45833337306976318 1.0976617336273193 
+		0.47307801246643066 0.52624350786209106 0.375 0.50931715965270996 0.44398230314254761 
+		0.5;
+	setAttr -s 12 ".kiy[4:11]"  0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1.0510411262512207 0.20833331346511841 
+		0.45833337306976318 0.66666668653488159 0.61553573608398438 0.5564115047454834 0.75980859994888306 
+		0.375 0.42598393559455872 0.81898206472396851 0.5;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.20233844220638275 0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "FKEarB_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
@@ -9658,8 +10535,28 @@ createNode animCurveTL -n "FKEarC_L_translateZ";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "FKEarC_L_rotateX";
-	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr ".tan" 1;
+	setAttr -s 13 ".ktv[0:12]"  1 0 13 13.065936278971712 26 2.9605835570578836
+		 31 4.7171194296625192 42 -9.5485637235666569 55 27.664468953449596 59 30.748902682658958
+		 67 29.933955722760146 78 -12.108595059384726 86 33.693671547962758 96 -9.4425024613915731
+		 102 42.106477855549507 115 -6.9256275170529689;
+	setAttr -s 13 ".kit[0:12]"  18 18 18 18 1 1 1 18 
+		1 3 1 1 18;
+	setAttr -s 13 ".kot[0:12]"  18 1 18 18 1 1 1 18 
+		1 3 1 1 18;
+	setAttr -s 13 ".ktl[1:12]" no yes yes yes yes no yes no yes yes yes 
+		yes;
+	setAttr -s 13 ".kwl[1:12]" no yes yes yes yes no no no yes no no yes;
+	setAttr -s 13 ".kix[4:12]"  0.45833337306976318 0.72880911827087402 
+		0.18617105484008789 0.33333349227905273 0.52624350786209106 0.33333325386047363 0.50931715965270996 
+		0.44398230314254761 0.54166650772094727;
+	setAttr -s 13 ".kiy[4:12]"  0 0.49353453516960144 0 -0.042670521885156631 
+		0 0 0 0 0;
+	setAttr -s 13 ".kox[1:12]"  1.0510411262512207 0.20833325386047363 
+		0.45833337306976318 0.55359542369842529 0.14885830879211426 0.61553573608398438 0.45833325386047363 
+		0.75980859994888306 0.41666674613952637 0.42598393559455872 0.81898206472396851 0.54166650772094727;
+	setAttr -s 13 ".koy[1:12]"  0 0 0 0 0.10080398619174957 0 -0.05867193266749382 
+		0 0 0 0 0;
 createNode animCurveTA -n "FKEarC_L_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0;
@@ -9854,7 +10751,7 @@ createNode animCurveTL -n "IKLeg_R_translateY";
 		 52 0 57 0 62 0.91535095739485461 66 0 69 0 72 0.78022611786175999 73 0.88822582766950808
 		 74 0.930018114392544 78 0 81 0 82 0.54192737417702819 83 0.74258765760995993 85 0.930018114392544
 		 89 0 92 0 96 0.930018114392544 100 0 103 0 104 0.58679816275217378 105 0.98789822883612044
-		 107 1.9012880023567971 108 2.1262932912431185 110 2.725316851980502 111 2.8749103832278475
+		 107 1.9012880023567971 108 2.1262932912431185 110 2.7666464592668385 111 2.916239990514184
 		 113 3.1292250947248959 114 3.2391627205807767 115 3.3680633008364596 117 3.6227013202630576;
 	setAttr -s 40 ".kit[5:39]"  18 1 1 1 1 1 1 1 
 		18 1 1 1 1 1 1 1 1 1 18 1 1 1 1 1 1 
@@ -9908,8 +10805,8 @@ createNode animCurveTL -n "IKLeg_R_translateZ";
 		 82 46.146756016466561 83 47.141202311722594 84 48.998560600324062 89 59.252527400290738
 		 92 59.252527400290738 93 60.740075069185693 94 63.272102073412661 99 74.502237562236687
 		 100 77.077886762154606 102 77.077886762154606 103 76.028200276915925 104 77.726321905487836
-		 105 79.982950625842122 107 84.145996398098802 108 86.624901420639915 110 91.381996444474481
-		 111 93.999370336674801 113 98.208698898707937 115 101.31273964927529 119 107.31775800089498
+		 105 79.982950625842122 107 84.173367074450923 108 86.624901420639915 110 91.381996444474481
+		 111 93.900908282046473 113 98.208698898707937 115 101.31273964927529 119 107.31775800089498
 		 123 111.8127035222945 127 121.405785060925 130 122.5023797921511;
 	setAttr -s 44 ".kit[1:43]"  18 18 1 1 1 1 1 1 
 		1 18 18 18 1 18 1 1 18 1 1 1 1 18 18 1 1 
@@ -10730,13 +11627,13 @@ createNode animCurveTL -n "IKLeg_L_translateY";
 		 49 0 55 0 60 0.713157553433036 64 0 67 0 72 1.0145459230783938 76 0 79 0 80 0.44446096551098058
 		 82 0.93649714089907143 87 0 90 0 92 0.59287965386264929 94 0.74399033467445685 98 0
 		 102 0 104 0.66507943125612667 107 1.792579441899198 108 2.1436493107569454 111 3.2237113338228909
-		 112 3.3985292875021615 113 3.4765563584503156 117 3.608667733555444 123 3.682659263236995;
+		 112 3.3985292875021615 113 3.4765563584503156 117 3.7247298976000103 123 3.682659263236995;
 	setAttr -s 36 ".kit[4:35]"  18 1 1 1 1 1 1 18 
 		1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-		18 18 1 1 1 1 1;
+		18 18 1 18 18 1 1;
 	setAttr -s 36 ".kot[0:35]"  18 18 1 18 1 1 18 1 
 		1 1 1 1 18 1 1 18 1 1 18 1 1 1 1 1 1 
-		1 1 1 1 18 18 1 1 1 1 1;
+		1 1 1 1 18 18 1 18 18 1 1;
 	setAttr -s 36 ".ktl[3:35]" no no no no yes yes yes yes no no yes no 
 		no no yes no yes yes yes no no yes no no no yes yes yes yes yes yes yes yes;
 	setAttr -s 36 ".kwl[2:35]" no no no no no yes yes yes yes no no yes 
@@ -10747,23 +11644,23 @@ createNode animCurveTL -n "IKLeg_L_translateY";
 		0.16666650772094727 0.56833291053771973 0.025504887104034424 0.125 0.33298897743225098 
 		0.013593767769634724 0.16666674613952637 0.054319381713867188 0.14387226104736328 
 		0.025504887104034424 0.125 0.0819854736328125 0.11448454856872559 0.025504887104034424 
-		0.125 0.13547229766845703 0.125 0.041666507720947266 0.14349603652954102 0.0411529541015625 
-		0.039803981781005859 0.16666603088378906 0.2500004768371582;
+		0.125 0.13547229766845703 0.125 0.041666507720947266 0.14349603652954102 0.041666507720947266 
+		0.041666984558105469 0.16666603088378906 0.2500004768371582;
 	setAttr -s 36 ".kiy[0:35]"  0 0 0 0 0 0 0 0 0.37916341423988342 0.24794299900531769 
 		0.091945663094520569 0 0 0 0 0 0 0 0 0 0.79721444845199585 0 0 0 0.62385886907577515 
 		0 0 0 0.98043400049209595 1.1089284420013428 0.35778194665908813 0.44198057055473328 
-		0.12384600937366486 0.12301982194185257 0.23953282833099365 0;
+		0.12642179429531097 0.065240569412708282 0.23953282833099365 0;
 	setAttr -s 36 ".kox[2:35]"  0.22802756726741791 0.37499994039535522 
 		0.13933312892913818 0.25613802671432495 0.125 0.044964194297790527 0.036038875579833984 
 		0.052839145064353943 0.125 0.28029042482376099 0.25 0.16666674613952637 0.39086320996284485 
 		0.125 0.25946667790412903 0.41062292456626892 0.125 0.072999715805053711 0.038693904876708984 
 		0.38751029968261719 0.125 0.10710525512695312 0.06177520751953125 0.39817580580711365 
 		0.125 0.0032973289489746094 0.095259189605712891 0.041666507720947266 0.125 0.041796684265136719 
-		0.043089866638183594 0.16666650772094727 0.2500004768371582 0.41666650772094727;
+		0.041666984558105469 0.16666650772094727 0.2500004768371582 0.41666650772094727;
 	setAttr -s 36 ".koy[2:35]"  0 0 0 0 0 0 0.32354941964149475 0.26362606883049011 
 		0.27583718299865723 0 0 0 0 0 0 0 0 0 0.56788718700408936 0 0 0 0.47007063031196594 
 		0 0 0 0.68940222263336182 0.36964142322540283 1.0733499526977539 0.12873724102973938 
-		0.12967424094676971 0.51510459184646606 0.35929930210113525 0;
+		0.12642323970794678 0.26096004247665405 0.35929930210113525 0;
 createNode animCurveTL -n "IKLeg_L_translateZ";
 	setAttr ".tan" 1;
 	setAttr -s 42 ".ktv[0:41]"  1 0 22 0 26 0 36 8.8622051209730444 39 8.8622051209730444
@@ -12198,7 +13095,7 @@ createNode animCurveTU -n "ctrlEye_R_scaleZ";
 	setAttr ".ktv[0]"  1 1;
 createNode animCurveTU -n "ctrlEye_R_blink";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr ".ktv[0]"  1 2.8000000000000003;
 createNode animCurveTU -n "ctrlEye_R_blinkCenter";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0.2;
@@ -12234,7 +13131,7 @@ createNode animCurveTU -n "ctrlEye_L_scaleZ";
 	setAttr ".ktv[0]"  1 1;
 createNode animCurveTU -n "ctrlEye_L_blink";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr ".ktv[0]"  1 2.8000000000000003;
 createNode animCurveTU -n "ctrlEye_L_blinkCenter";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 0.2;
@@ -12413,13 +13310,13 @@ createNode animCurveTA -n "Master_Controller_rotateZ";
 	setAttr -s 2 ".ktv[0:1]"  1 -1.88 81 -1.88;
 createNode animCurveTU -n "Master_Controller_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 15.170768759594367;
+	setAttr ".ktv[0]"  1 14.216069274355497;
 createNode animCurveTU -n "Master_Controller_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 12.704363907270768;
+	setAttr ".ktv[0]"  1 11.904875768287164;
 createNode animCurveTU -n "Master_Controller_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 13.082221263461562;
+	setAttr ".ktv[0]"  1 12.258954486152797;
 createNode animCurveTU -n "LowerBody_visibility";
 	setAttr ".tan" 9;
 	setAttr ".ktv[0]"  1 1;
@@ -12456,28 +13353,62 @@ createNode animCurveTU -n "Waist_visibility";
 	setAttr ".ktv[0]"  1 1;
 	setAttr ".kot[0]"  5;
 createNode animCurveTL -n "Waist_translateX";
-	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -0.177;
+	setAttr ".tan" 1;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.177 16 -0.15738049857865163 37 0.21974991763171076
+		 45 0.20178725462226307 56 -0.177;
+	setAttr -s 5 ".ktl[1:4]" no yes yes no;
+	setAttr -s 5 ".kwl[1:4]" no no yes no;
+	setAttr -s 5 ".kix[0:4]"  0 0.79774361848831177 0.83424293994903564 
+		0.42830696702003479 0.072612456977367401;
+	setAttr -s 5 ".kiy[0:4]"  0 0.052820242941379547 0 -0.052942365407943726 
+		0;
+	setAttr -s 5 ".kox[0:4]"  1.2916667461395264 1.0892870426177979 0.1868051290512085 
+		0.93701750040054321 0.75000011920928955;
+	setAttr -s 5 ".koy[0:4]"  0 0.072123944759368896 0 -0.11582322418689728 
+		0;
 createNode animCurveTL -n "Waist_translateY";
 	setAttr ".tan" 1;
-	setAttr -s 3 ".ktv[0:2]"  1 -0.122 57 -0.26929600371693857 87 -0.8802151305977105;
-	setAttr -s 3 ".kit[1:2]"  18 1;
-	setAttr -s 3 ".kot[1:2]"  18 1;
-	setAttr -s 3 ".kix[0:2]"  3.5833332538604736 2.3333332538604736 1.2500002384185791;
-	setAttr -s 3 ".kiy[0:2]"  0 -0.44188800454139709 0;
-	setAttr -s 3 ".kox[0:2]"  2.3333332538604736 1.25 3.5833332538604736;
-	setAttr -s 3 ".koy[0:2]"  0 -0.23672573268413544 0;
+	setAttr -s 6 ".ktv[0:5]"  1 -0.38024529836772963 21 -0.3881728577149367
+		 39 -0.0069094844834502933 51 -0.020022568613269481 55 -0.20581446753007646 87 -0.8802151305977105;
+	setAttr -s 6 ".kot[4:5]"  3 1;
+	setAttr -s 6 ".ktl[2:5]" no no no yes;
+	setAttr -s 6 ".kwl[1:5]" no no no no yes;
+	setAttr -s 6 ".kix[0:5]"  3.5833332538604736 1.4223253726959229 1.0448157787322998 
+		0.375 0.13909564912319183 0.8826899528503418;
+	setAttr -s 6 ".kiy[0:5]"  0 0.017083892598748207 0 -0.039339251816272736 
+		0 0;
+	setAttr -s 6 ".kox[0:5]"  1.1773738861083984 1.3481514453887939 0.38792896270751953 
+		0.4938310980796814 1.3333332538604736 3.5833332538604736;
+	setAttr -s 6 ".koy[0:5]"  0 0.016192993149161339 0 -0.051805213093757629 
+		0 0;
 createNode animCurveTL -n "Waist_translateZ";
 	setAttr ".tan" 1;
-	setAttr -s 3 ".ktv[0:2]"  1 -0.697 57 -0.85070154000244103 87 -1.3302664468502168;
-	setAttr -s 3 ".kix[0:2]"  3.5833332538604736 2.3333334922790527 1.2500002384185791;
-	setAttr -s 3 ".kiy[0:2]"  0 -0.5620044469833374 0;
-	setAttr -s 3 ".kox[0:2]"  2.3333332538604736 1.2500002384185791 3.5833332538604736;
-	setAttr -s 3 ".koy[0:2]"  0 -0.30107375979423523 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.697 32 -0.70384822114225409 55 -0.85070154000244103
+		 87 -1.3302664468502168;
+	setAttr -s 4 ".kit[1:3]"  18 1 1;
+	setAttr -s 4 ".kot[1:3]"  18 1 1;
+	setAttr -s 4 ".kix[0:3]"  3.5833332538604736 1.2916667461395264 1.0416669845581055 
+		1.2500002384185791;
+	setAttr -s 4 ".kiy[0:3]"  0 -0.020544663071632385 -0.25089481472969055 
+		0;
+	setAttr -s 4 ".kox[0:3]"  1.2916666269302368 0.95833337306976318 
+		1.2500002384185791 3.5833332538604736;
+	setAttr -s 4 ".koy[0:3]"  0 -0.015242814086377621 -0.30107375979423523 
+		0;
 createNode animCurveTA -n "Waist_rotateX";
-	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 15.979000000000001 57 21.656700594501924
-		 87 17.565504826545883;
+	setAttr ".tan" 1;
+	setAttr -s 5 ".ktv[0:4]"  1 15.979000000000001 26 16.803019891305723
+		 39 17.000928957777699 55 21.656700594501924 87 17.565504826545883;
+	setAttr -s 5 ".kit[4]"  18;
+	setAttr -s 5 ".kot[4]"  18;
+	setAttr -s 5 ".kix[0:4]"  2.3333332538604736 1.125 0.29166662693023682 
+		0.91666674613952637 1.3333332538604736;
+	setAttr -s 5 ".kiy[0:4]"  0 0.010395211167633533 0.0042736534960567951 
+		0 0;
+	setAttr -s 5 ".kox[0:4]"  1.1249998807907104 0.29166662693023682 
+		0.91666662693023682 1.25 1.3333332538604736;
+	setAttr -s 5 ".koy[0:4]"  0 0.0026950419414788485 0.013431470841169357 
+		0 0;
 createNode animCurveTA -n "Waist_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 -3.351;
@@ -12514,7 +13445,18 @@ createNode animCurveTA -n "Torso_rotateY";
 	setAttr ".ktv[0]"  1 0;
 createNode animCurveTA -n "Torso_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 31 0 41 5.3118960237409096 46 5.1885180661075232
+		 59 2.1550489957377512;
+	setAttr -s 5 ".kit[2:4]"  1 18 1;
+	setAttr -s 5 ".kot[1:4]"  1 1 18 1;
+	setAttr -s 5 ".ktl[1:4]" no no yes no;
+	setAttr -s 5 ".kwl[1:4]" no no yes no;
+	setAttr -s 5 ".kix[2:4]"  0.59951257705688477 0.20833325386047363 
+		0.12102842330932617;
+	setAttr -s 5 ".kiy[2:4]"  0 -0.0064600547775626183 0;
+	setAttr -s 5 ".kox[1:4]"  0.53489303588867188 0.19173502922058105 
+		0.54166662693023682 0.74999988079071045;
+	setAttr -s 5 ".koy[1:4]"  0 0 -0.01679614745080471 0;
 createNode animCurveTU -n "Torso_scaleX";
 	setAttr ".tan" 18;
 	setAttr ".ktv[0]"  1 1;
@@ -12526,664 +13468,835 @@ createNode animCurveTU -n "Torso_scaleZ";
 	setAttr ".ktv[0]"  1 1;
 createNode animCurveTU -n "Head_visibility";
 	setAttr ".tan" 9;
-	setAttr -s 2 ".ktv[0:1]"  1 1 75 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 80 1;
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "Head_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 -0.186 75 -0.186;
+	setAttr -s 2 ".ktv[0:1]"  1 -0.186 80 -0.186;
 createNode animCurveTL -n "Head_translateY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 -0.039 75 -0.039;
+	setAttr -s 2 ".ktv[0:1]"  1 -0.039 80 -0.039;
 createNode animCurveTL -n "Head_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 0.286 75 0.286;
+	setAttr -s 2 ".ktv[0:1]"  1 0.286 80 0.286;
 createNode animCurveTA -n "Head_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 -53.303 75 -53.303 87 -28.969136846233923;
-	setAttr -s 3 ".kit[1:2]"  1 18;
-	setAttr -s 3 ".kot[1:2]"  1 18;
-	setAttr -s 3 ".kix[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".kiy[1:2]"  0 0;
-	setAttr -s 3 ".kox[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".koy[1:2]"  0 0;
+	setAttr -s 9 ".ktv[0:8]"  1 -53.303 21 -49.407417102177035 36 -45.034191175051895
+		 42 -41.309708268463531 52 -49.512692082782394 57 -30.579839846629795 69 -34.526269513765158
+		 80 -33.978077420346089 96 -21.90138915769742;
+	setAttr -s 9 ".kit[5:8]"  1 1 18 1;
+	setAttr -s 9 ".kot[0:8]"  1 18 18 18 1 18 18 1 
+		18;
+	setAttr -s 9 ".ktl[0:8]" no yes yes yes no no no no no;
+	setAttr -s 9 ".kwl[0:8]" no yes yes yes no no no no no;
+	setAttr -s 9 ".kix[5:8]"  0.23250159621238708 0.86291903257369995 
+		0.45833325386047363 0.69391876459121704;
+	setAttr -s 9 ".kiy[5:8]"  0 0 0.028703270480036736 0;
+	setAttr -s 9 ".kox[0:8]"  1.2393163442611694 0.625 0.25 0.41666674613952637 
+		0.37997457385063171 0.5 0.45833325386047363 0.55703288316726685 0.66666674613952637;
+	setAttr -s 9 ".koy[0:8]"  0 0.061850544065237045 0.040380481630563736 
+		0 0 0 0 0.022572236135601997 0;
 createNode animCurveTA -n "Head_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 9.07 75 9.07 87 17.681057818478646;
-	setAttr -s 3 ".kit[1:2]"  1 18;
-	setAttr -s 3 ".kot[1:2]"  1 18;
-	setAttr -s 3 ".kix[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".kiy[1:2]"  0 0;
-	setAttr -s 3 ".kox[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".koy[1:2]"  0 0;
+	setAttr -s 7 ".ktv[0:6]"  1 9.07 21 7.7657062989134999 42 9.0387797382208195
+		 52 9.8324192996245792 57 10.864267454633998 80 10.864267454633998 96 11.677320294719095;
+	setAttr -s 7 ".kit[6]"  1;
+	setAttr -s 7 ".kot[0:6]"  1 18 18 18 1 1 18;
+	setAttr -s 7 ".ktl[0:6]" no yes yes yes yes no no;
+	setAttr -s 7 ".kwl[0:6]" no yes yes yes yes no no;
+	setAttr -s 7 ".kix[6]"  0.69391876459121704;
+	setAttr -s 7 ".kiy[6]"  0;
+	setAttr -s 7 ".kox[0:6]"  1.9754568338394165 0.875 0.41666674613952637 
+		0.20833325386047363 1.2800649404525757 0.55718624591827393 0.66666674613952637;
+	setAttr -s 7 ".koy[0:6]"  0 0 0.011635790579020977 0.010620253160595894 
+		0 0 0;
 createNode animCurveTA -n "Head_rotateZ";
-	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 -6.67 75 -6.67 87 -11.451355693120972;
-	setAttr -s 3 ".kit[1:2]"  1 18;
-	setAttr -s 3 ".kot[1:2]"  1 18;
-	setAttr -s 3 ".kix[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".kiy[1:2]"  0 0;
-	setAttr -s 3 ".kox[1:2]"  3.5833332538604736 0.5;
-	setAttr -s 3 ".koy[1:2]"  0 0;
+	setAttr ".tan" 1;
+	setAttr -s 7 ".ktv[0:6]"  1 -6.67 21 -5.1252449450157451 42 -7.0110490394656662
+		 52 -7.360538587028894 57 -8.6208727239007672 80 -8.6208727239007672 96 -9.0064520254990033;
+	setAttr -s 7 ".kit[0:6]"  18 18 1 18 18 18 1;
+	setAttr -s 7 ".kot[3:6]"  18 1 1 18;
+	setAttr -s 7 ".ktl[0:6]" no no no yes yes no no;
+	setAttr -s 7 ".kwl[0:6]" no no no yes yes no no;
+	setAttr -s 7 ".kix[2:6]"  0.95970910787582397 0.41666674613952637 
+		0.20833325386047363 0.95833325386047363 0.69391876459121704;
+	setAttr -s 7 ".kiy[2:6]"  -0.010698502883315086 -0.018299229443073273 
+		0 0 0;
+	setAttr -s 7 ".kox[0:6]"  1.9034228324890137 1.5057121515274048 0.75240939855575562 
+		0.20833325386047363 1.2646169662475586 0.55718624591827393 0.66666674613952637;
+	setAttr -s 7 ".koy[0:6]"  0 0 -0.0083876019343733788 -0.0091496100649237633 
+		0 0 0;
 createNode animCurveTU -n "Head_scaleX";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 1 75 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 80 1;
 createNode animCurveTU -n "Head_scaleY";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 1 75 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 80 1;
 createNode animCurveTU -n "Head_scaleZ";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  1 1 75 1;
-createNode animCurveTU -n "LShoulder_visibility";
-	setAttr ".tan" 5;
-	setAttr -s 7 ".ktv[0:6]"  1 1 27 1 34 1 47 1 52 1 61 1 77 1;
-	setAttr -s 7 ".kit[0:6]"  9 9 18 18 18 18 18;
+	setAttr -s 2 ".ktv[0:1]"  1 1 80 1;
 createNode animCurveTL -n "LShoulder_translateX";
-	setAttr ".tan" 5;
-	setAttr -s 10 ".ktv[0:9]"  1 0 27 0 34 0 40 0 47 0 52 0.27459838803744813
-		 55 0.56385705962515009 61 0.45644228976655898 71 0 77 0;
-	setAttr -s 10 ".kit[0:9]"  18 1 18 1 18 18 18 18 
-		18 18;
-	setAttr -s 10 ".kix[1:9]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25;
-	setAttr -s 10 ".kiy[1:9]"  0 0 0 0 0.35241067409515381 0 -0.21144644916057587 
-		0 0;
+	setAttr ".tan" 1;
+	setAttr -s 7 ".ktv[0:6]"  1 0 26 0 38 0.020235495273048694 43 0.33117319752312707
+		 55 0.63964661925576716 58 0.63964661925576716 86 0.60576191731989437;
+	setAttr -s 7 ".kit[0:6]"  18 18 1 1 1 18 1;
+	setAttr -s 7 ".kot[0:6]"  5 18 1 1 1 1 18;
+	setAttr -s 7 ".ktl[3:6]" no no no no;
+	setAttr -s 7 ".kwl[2:6]" no no no no no;
+	setAttr -s 7 ".kix[2:6]"  0.7012406587600708 0.40314802527427673 
+		0.17503161728382111 0.125 1.5920510292053223;
+	setAttr -s 7 ".kiy[2:6]"  0 0.15219691395759583 0 0 0;
+	setAttr -s 7 ".kox[2:6]"  0.22621893882751465 0.51404678821563721 
+		0.62500011920928955 1.7186219692230225 1.1666665077209473;
+	setAttr -s 7 ".koy[2:6]"  0 0.19406263530254364 0 0 0;
 createNode animCurveTL -n "LShoulder_translateY";
-	setAttr ".tan" 5;
-	setAttr -s 10 ".ktv[0:9]"  1 0 27 0 34 0 40 0 47 0 52 0.90112639960437391
-		 55 1.8503622168467635 61 1.4978682145374551 71 0 77 0;
-	setAttr -s 10 ".kit[0:9]"  18 1 18 1 18 18 18 18 
-		18 18;
-	setAttr -s 10 ".kix[1:9]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25;
-	setAttr -s 10 ".kiy[1:9]"  0 0 0 0 1.1564764976501465 0 -0.69388598203659058 
-		0 0;
+	setAttr ".tan" 1;
+	setAttr -s 8 ".ktv[0:7]"  1 0 26 0 38 0.48700051589465509 43 1.7362860554463144
+		 53 2.3509229917923573 55 2.4693011371414624 58 2.4693011371414624 86 1.5838913069596241;
+	setAttr -s 8 ".kit[0:7]"  18 18 1 1 1 1 18 1;
+	setAttr -s 8 ".kot[0:7]"  5 18 1 1 1 1 1 18;
+	setAttr -s 8 ".ktl[3:7]" no yes no no no;
+	setAttr -s 8 ".kwl[3:7]" no yes no no no;
+	setAttr -s 8 ".kix[2:7]"  0.54166662693023682 0.31006655097007751 
+		0.21912360191345215 0.0092096328735351562 0.125 1.6036993265151978;
+	setAttr -s 8 ".kiy[2:7]"  1.1464611291885376 0.25049474835395813 
+		0.55449891090393066 0 0 0;
+	setAttr -s 8 ".kox[2:7]"  0.29166662693023682 0.43072915077209473 
+		0.15186095237731934 0.62500011920928955 2.2601473331451416 1.1666665077209473;
+	setAttr -s 8 ".koy[2:7]"  0.61732542514801025 0.23288044333457947 
+		0.38428780436515808 0 0 0;
 createNode animCurveTL -n "LShoulder_translateZ";
-	setAttr ".tan" 5;
-	setAttr -s 10 ".ktv[0:9]"  1 0 27 0 34 0 40 0 47 0 52 0.37191410893531479
-		 55 0.76368400192056418 61 0.61820219955469669 71 0 77 0;
-	setAttr -s 10 ".kit[0:9]"  18 1 18 1 18 18 18 18 
-		18 18;
-	setAttr -s 10 ".kix[1:9]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25;
-	setAttr -s 10 ".kiy[1:9]"  0 0 0 0 0.47730252146720886 0 -0.28638157248497009 
-		0 0;
+	setAttr ".tan" 1;
+	setAttr -s 9 ".ktv[0:8]"  1 0 26 0 38 0 43 0.52898673080583614 53 0.97112232455673442
+		 55 1.5028036815589287 58 1.5028036815589287 68 1.5346573812298665 86 1.3200653572055521;
+	setAttr -s 9 ".kit[0:8]"  18 18 1 1 1 1 1 18 
+		1;
+	setAttr -s 9 ".kot[0:8]"  5 18 1 1 1 1 1 18 
+		1;
+	setAttr -s 9 ".ktl[3:8]" no yes no no yes no;
+	setAttr -s 9 ".kwl[3:8]" no yes no no yes no;
+	setAttr -s 9 ".kix[2:8]"  0.54166662693023682 0.26724570989608765 
+		0.18292880058288574 0.0041506290435791016 0.125 0.41666650772094727 0.75;
+	setAttr -s 9 ".kiy[2:8]"  0 0.21057450771331787 0.66228657960891724 
+		0 0 0 0;
+	setAttr -s 9 ".kox[2:8]"  0.25000011920928955 0.50899744033813477 
+		0.19149255752563477 0.62500011920928955 0.41666650772094727 0.75 1.1666665077209473;
+	setAttr -s 9 ".koy[2:8]"  0 0.21412473917007446 0.69329041242599487 
+		0 0 0 0;
 createNode animCurveTA -n "LShoulder_rotateX";
-	setAttr ".tan" 5;
-	setAttr -s 11 ".ktv[0:10]"  1 -1.7980000000000003 27 -1.7980000000000003
-		 34 -17.100426499069506 40 -50.897328498340649 47 -46.539504761842359 52 -51.215632447970094
-		 55 -56.141409661488616 61 -56.050567679191609 71 -55.664548862029271 77 -42.803681792753046
-		 82 -38.577414823286006;
-	setAttr -s 11 ".kit[0:10]"  18 1 18 1 18 18 18 18 
-		18 18 18;
-	setAttr -s 11 ".kix[1:10]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25 0.20833349227905273;
-	setAttr -s 11 ".kiy[1:10]"  0 -0.46143186092376709 0 0 -0.10474054515361786 
-		0 0.003121047280728817 0.020211897790431976 0.16266907751560211 0;
+	setAttr ".tan" 1;
+	setAttr -s 6 ".ktv[0:5]"  1 -1.7980000000000003 26 -1.7980000000000003
+		 38 -37.284640279495811 42 -44.434109473158294 55 -56.362933967956437 58 -56.362933967956437;
+	setAttr -s 6 ".kit[0:5]"  18 18 1 1 1 18;
+	setAttr -s 6 ".kot[0:5]"  5 18 1 1 1 18;
+	setAttr -s 6 ".ktl[3:5]" no no yes;
+	setAttr -s 6 ".kwl[3:5]" no no yes;
+	setAttr -s 6 ".kix[2:5]"  0.54993933439254761 0.26518696546554565 
+		0.018616890534758568 0.125;
+	setAttr -s 6 ".kiy[2:5]"  -0.051811031997203827 -0.047467827796936035 
+		0 0;
+	setAttr -s 6 ".kox[2:5]"  0.25240838527679443 0.76795798540115356 
+		0.62500011920928955 0.125;
+	setAttr -s 6 ".koy[2:5]"  -0.023779917508363724 -0.093056574463844299 
+		0 0;
 createNode animCurveTA -n "LShoulder_rotateY";
-	setAttr ".tan" 5;
-	setAttr -s 11 ".ktv[0:10]"  1 -20.508 27 -20.508 34 -11.20796714638767
-		 40 0.66787679372923248 47 -9.7141619841621676 52 -23.303443585828251 55 -37.618230981423117
-		 61 -37.722113980360227 71 -38.163548561145483 77 -37.477455214104438 82 -26.042283341335853;
-	setAttr -s 11 ".kit[0:10]"  18 1 18 1 18 18 18 18 
-		18 18 18;
-	setAttr -s 11 ".kix[1:10]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25 0.20833349227905273;
-	setAttr -s 11 ".kiy[1:10]"  0 0.19900932908058167 0 -0.24405410885810852 
-		-0.3043861985206604 -0.0027196505106985569 -0.0035690960939973593 0 0.035923764109611511 
-		0;
+	setAttr ".tan" 1;
+	setAttr -s 6 ".ktv[0:5]"  1 -20.508 26 -20.508 38 3.9106584999433669
+		 43 -5.6345358544857387 55 -19.923284376542586 58 -19.923284376542586;
+	setAttr -s 6 ".kit[0:5]"  18 18 1 1 1 18;
+	setAttr -s 6 ".kot[0:5]"  5 18 1 1 1 18;
+	setAttr -s 6 ".ktl[2:5]" no yes no yes;
+	setAttr -s 6 ".kwl[2:5]" no no no yes;
+	setAttr -s 6 ".kix[2:5]"  0.72561269998550415 0.34690409898757935 
+		0.0081162340939044952 0.125;
+	setAttr -s 6 ".kiy[2:5]"  0 -0.019789895042777061 0 0;
+	setAttr -s 6 ".kox[2:5]"  0.40905433893203735 0.90520769357681274 
+		0.62500011920928955 0.125;
+	setAttr -s 6 ".koy[2:5]"  0 -0.051638972014188766 0 0;
 createNode animCurveTA -n "LShoulder_rotateZ";
-	setAttr ".tan" 5;
-	setAttr -s 11 ".ktv[0:10]"  1 52.083 27 52.083 34 55.512592957301578
-		 40 70.972583307953244 47 60.865997235705478 52 66.095132823701377 55 71.603441974916777
-		 61 71.333487959337248 71 70.186360528305102 77 49.819737684463938 82 41.921751264167419;
-	setAttr -s 11 ".kit[0:10]"  18 1 18 1 18 18 18 18 
-		18 18 18;
-	setAttr -s 11 ".kix[1:10]"  1.0833333730697632 0.29166662693023682 
-		1.0833333730697632 0.29166674613952637 0.20833337306976318 0.125 0.25 0.41666650772094727 
-		0.25 0.20833349227905273;
-	setAttr -s 11 ".kiy[1:10]"  0 0.17752291262149811 0 0 0.11712735891342163 
-		0 -0.009274778887629509 -0.060063451528549194 -0.26907834410667419 0;
+	setAttr ".tan" 1;
+	setAttr -s 6 ".ktv[0:5]"  1 52.083 26 52.083 38 44.252993789842556
+		 43 54.074148120202786 55 69.202584065379909 58 69.202584065379909;
+	setAttr -s 6 ".kit[0:5]"  18 18 1 1 1 18;
+	setAttr -s 6 ".kot[0:5]"  5 18 1 1 1 18;
+	setAttr -s 6 ".ktl[2:5]" no no no yes;
+	setAttr -s 6 ".kwl[2:5]" no no no yes;
+	setAttr -s 6 ".kix[2:5]"  0.93213164806365967 0.28057262301445007 
+		0.030269861221313477 0.125;
+	setAttr -s 6 ".kiy[2:5]"  0 0.042533379048109055 0 0;
+	setAttr -s 6 ".kox[2:5]"  0.21311509609222412 0.6157461404800415 
+		0.62500011920928955 0.125;
+	setAttr -s 6 ".koy[2:5]"  0 0.093343853950500488 0 0;
 createNode animCurveTU -n "LShoulder_scaleX";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 1 27 1 34 1 47 1 52 1 61 1 77 1;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
+	setAttr -s 2 ".kot[0:1]"  5 18;
 createNode animCurveTU -n "LShoulder_scaleY";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 1 27 1 34 1 47 1 52 1 61 1 77 1;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
+	setAttr -s 2 ".kot[0:1]"  5 18;
 createNode animCurveTU -n "LShoulder_scaleZ";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 1 27 1 34 1 47 1 52 1 61 1 77 1;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
+	setAttr -s 2 ".kot[0:1]"  5 18;
 createNode animCurveTU -n "LElbow_visibility";
 	setAttr ".tan" 5;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kit[0:2]"  9 18 18;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 55 1;
+	setAttr -s 3 ".kit[0:2]"  9 18 9;
 createNode animCurveTL -n "LElbow_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  1 0 27 0 34 0.041830952588759504 47 0.12160160636267299
-		 55 0.41787493595420266 66 0.41787493595420266;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 0 27 0 34 0.041830952588759504 55 0.44825422397806708;
 createNode animCurveTL -n "LElbow_translateY";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  1 0 27 0 34 -0.0079252495999908544 47 -0.023038516279043183
-		 55 -0.079170159034512647 66 -0.079170159034512647;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 0 27 0 34 -0.0079252495999908544 55 -0.19095276339116823;
 createNode animCurveTL -n "LElbow_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  1 0 27 0 34 0.047415031914918138 47 0.13783439510150622
-		 55 0.47365771512545091 66 0.47365771512545091;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 0 27 0 34 0.047415031914918138 55 0.46664827389005337;
 createNode animCurveTA -n "LElbow_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 -36.198 27 -36.198 34 -31.547850636632013
-		 40 -22.680123943697712 47 -13.147975071896457 55 11.030769922592718 66 10.076401388952643;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 6 ".ktv[0:5]"  1 -36.198 27 -36.198 34 -27.072883278540662
+		 40 -17.020804978108423 50 11.834566530633788 55 11.030769922592718;
 createNode animCurveTA -n "LElbow_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 -12.89 27 -12.89 34 -15.886902408669942
-		 40 -21.601925606598666 47 -11.481962115072985 55 12.305853591735511 66 13.174581237132189;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 6 ".ktv[0:5]"  1 -12.89 27 -12.89 34 -36.835203999662987
+		 40 -17.685131296226633 50 5.8198465397089487 55 12.305853591735511;
 createNode animCurveTA -n "LElbow_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 36.895 27 36.895 34 38.169392833239627
-		 40 40.599630329184954 47 46.101664165125364 55 61.434442212542017 66 59.506963098739632;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 6 ".ktv[0:5]"  1 36.895 27 36.895 34 51.478941482209244
+		 40 39.309557991114097 50 62.19311801690246 55 61.434442212542017;
 createNode animCurveTU -n "LElbow_scaleX";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 55 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 18;
 createNode animCurveTU -n "LElbow_scaleY";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 55 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 18;
 createNode animCurveTU -n "LElbow_scaleZ";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 55 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 18;
 createNode animCurveTU -n "LHand_visibility";
 	setAttr ".tan" 5;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kit[0:2]"  9 18 18;
+	setAttr -s 4 ".ktv[0:3]"  1 1 36 1 46 1 60 1;
+	setAttr -s 4 ".kit[0:3]"  9 18 9 9;
 createNode animCurveTL -n "LHand_translateX";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  1 0 27 0 34 0 47 0 66 0;
-	setAttr -s 5 ".kot[0:4]"  5 5 5 5 5;
+	setAttr -s 5 ".ktv[0:4]"  1 0 25 0 36 0 46 0 60 0;
+	setAttr -s 5 ".kot[0:4]"  5 5 5 18 18;
 createNode animCurveTL -n "LHand_translateY";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  1 0 27 0 34 0 47 0 66 0;
-	setAttr -s 5 ".kot[0:4]"  5 5 5 5 5;
+	setAttr -s 5 ".ktv[0:4]"  1 0 25 0 36 0 46 0 60 0;
+	setAttr -s 5 ".kot[0:4]"  5 5 5 18 18;
 createNode animCurveTL -n "LHand_translateZ";
 	setAttr ".tan" 18;
-	setAttr -s 5 ".ktv[0:4]"  1 0 27 0 34 0 47 0 66 0;
-	setAttr -s 5 ".kot[0:4]"  5 5 5 5 5;
+	setAttr -s 5 ".ktv[0:4]"  1 0 25 0 36 0 46 0 60 0;
+	setAttr -s 5 ".kot[0:4]"  5 5 5 18 18;
 createNode animCurveTA -n "LHand_rotateX";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 -14.623999999999999 27 -14.623999999999999
-		 34 -21.236982307413108 40 -33.84778577736369 47 -31.620976048321122 55 -18.302297299651109
-		 66 -26.195518667251772;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 5 5;
+	setAttr -s 9 ".ktv[0:8]"  1 -14.623999999999999 25 -14.623999999999999
+		 36 5.9147009300195252 40 18.344162171641678 46 -33.84778577736369 53 -55.24899779080576
+		 55 -43.139620142903915 56 -9.8330223210803176 60 -9.8330223210803176;
+	setAttr -s 9 ".kit[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kix[4:8]"  0.083333253860473633 0.29166662693023682 
+		0.083333492279052734 0.0023567676544189453 0.16666674613952637;
+	setAttr -s 9 ".kiy[4:8]"  -0.23113507032394409 0 0.52843987941741943 
+		0 0;
+	setAttr -s 9 ".kox[4:8]"  0.16666674613952637 0.083333492279052734 
+		0.041666507720947266 0.125 0.16666674613952637;
+	setAttr -s 9 ".koy[4:8]"  -0.46227079629898071 0 0.26421841979026794 
+		0 0;
 createNode animCurveTA -n "LHand_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 19.104 27 19.104 34 26.229553439175081
-		 40 39.817818137136868 47 39.817818137136868 55 40.207106082781301 66 39.817818137136868;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 18 5;
+	setAttr -s 9 ".ktv[0:8]"  1 19.104 25 19.104 36 9.8643926239211659
+		 40 -30.233891823290421 46 39.817818137136868 53 45.029134892189759 55 38.823989366578637
+		 56 18.383317028380421 60 18.383317028380421;
+	setAttr -s 9 ".kit[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kix[4:8]"  0.083333253860473633 0.29166662693023682 
+		0.083333492279052734 0.0023775100708007812 0.16666674613952637;
+	setAttr -s 9 ".kiy[4:8]"  0.091161534190177917 0 -0.31003877520561218 
+		0 0;
+	setAttr -s 9 ".kox[4:8]"  0.16666674613952637 0.083333492279052734 
+		0.041666507720947266 0.125 0.16666674613952637;
+	setAttr -s 9 ".koy[4:8]"  0.18232332170009613 0 -0.15501849353313446 
+		0 0;
 createNode animCurveTA -n "LHand_rotateZ";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  1 -19.115 27 -19.115 34 -21.501401828863024
-		 40 -26.052214618787861 47 -26.052214618787861 55 -23.396293779218936 66 -26.052214618787861;
-	setAttr -s 7 ".kot[0:6]"  5 5 5 5 5 18 5;
+	setAttr -s 9 ".ktv[0:8]"  1 -19.115 25 -19.115 36 -34.510316408521788
+		 40 -47.728769279302163 46 -26.052214618787861 53 -56.498989113505566 55 -50.916584142921458
+		 56 -38.427204340555221 60 -38.427204340555221;
+	setAttr -s 9 ".kit[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kot[4:8]"  1 18 18 1 18;
+	setAttr -s 9 ".kix[4:8]"  0.083333253860473633 0.29166662693023682 
+		0.083333492279052734 0.0023775100708007812 0.16666674613952637;
+	setAttr -s 9 ".kiy[4:8]"  0 0 0.21027515828609467 0 0;
+	setAttr -s 9 ".kox[4:8]"  0.16666674613952637 0.083333492279052734 
+		0.041666507720947266 0.125 0.16666674613952637;
+	setAttr -s 9 ".koy[4:8]"  0 0 0.10513698309659958 0 0;
 createNode animCurveTU -n "LHand_scaleX";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 1 36 1 46 1 60 1;
+	setAttr -s 4 ".kot[0:3]"  5 5 18 18;
 createNode animCurveTU -n "LHand_scaleY";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 1 36 1 46 1 60 1;
+	setAttr -s 4 ".kot[0:3]"  5 5 18 18;
 createNode animCurveTU -n "LHand_scaleZ";
 	setAttr ".tan" 18;
-	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 47 1;
-	setAttr -s 3 ".kot[0:2]"  5 5 5;
+	setAttr -s 4 ".ktv[0:3]"  1 1 36 1 46 1 60 1;
+	setAttr -s 4 ".kot[0:3]"  5 5 18 18;
 createNode animCurveTU -n "LThumbJoint_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 5 ".ktv[0:4]"  1 1 47 1 54 1 57 1 71 1;
+	setAttr -s 5 ".kot[0:4]"  5 5 5 5 5;
 createNode animCurveTL -n "LThumbJoint_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 47 0 54 0 57 0 71 0;
 createNode animCurveTL -n "LThumbJoint_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 47 0 54 0 57 0 71 0;
 createNode animCurveTL -n "LThumbJoint_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 47 0 54 0 57 0 71 0;
 createNode animCurveTA -n "LThumbJoint_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 7 ".ktv[0:6]"  1 0 47 0 54 -10.147724641547629 55 -16.372192249546263
+		 57 0 71 0 79 -0.45705731920026205;
 createNode animCurveTA -n "LThumbJoint_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 6 ".ktv[0:5]"  1 0 47 0 54 0 57 0 71 0 79 1.1525489721362379;
 createNode animCurveTA -n "LThumbJoint_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 0 47 0 52 -18.582707166890682 54 0 55 -16.527118733643082
+		 57 -71.506979930022169 71 -71.506979930022169 79 -76.643684024710652;
 createNode animCurveTU -n "LThumbJoint_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 5 ".ktv[0:4]"  1 1 47 1 54 1 57 1 71 1;
 createNode animCurveTU -n "LThumbJoint_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 5 ".ktv[0:4]"  1 1 47 1 54 1 57 1 71 1;
 createNode animCurveTU -n "LThumbJoint_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 5 ".ktv[0:4]"  1 1 47 1 54 1 57 1 71 1;
 createNode animCurveTU -n "LThumbKnuckle_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 54 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LThumbKnuckle_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTL -n "LThumbKnuckle_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTL -n "LThumbKnuckle_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTA -n "LThumbKnuckle_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTA -n "LThumbKnuckle_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTA -n "LThumbKnuckle_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 54 0;
 createNode animCurveTU -n "LThumbKnuckle_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 54 1;
 createNode animCurveTU -n "LThumbKnuckle_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 54 1;
 createNode animCurveTU -n "LThumbKnuckle_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 54 1;
 createNode animCurveTU -n "LIndexJoint_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LIndexJoint_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LIndexJoint_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LIndexJoint_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LIndexJoint_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 50 0 55 -22.837320351669412 56 -22.837320351669412
+		 57 -14.118451583104918;
 createNode animCurveTA -n "LIndexJoint_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 50 -5.8800123276786413 55 -6.0254210056614044
+		 56 -6.0254210056614044 57 -9.5474454027730413;
 createNode animCurveTA -n "LIndexJoint_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 50 1.8707925616953056 55 1.9170559805482885
+		 56 1.9170559805482885 57 3.4212107098335323;
 createNode animCurveTU -n "LIndexJoint_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LIndexJoint_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LIndexJoint_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LIndexKnuckle_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LIndexKnuckle_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LIndexKnuckle_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LIndexKnuckle_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LIndexKnuckle_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 -41.569174340447965 22 -42.932379823187581
+		 38 -27.583269317053645 43 31.07705021607757 50 0 55 -48.497570874556089 56 -79.328167038383739
+		 57 -15.0792507164568;
+	setAttr -s 8 ".kit[0:7]"  1 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kix[0:7]"  0 0.875 0.66666668653488159 0.20833325386047363 
+		0.29166662693023682 0.20833349227905273 0.041666507720947266 0.041666746139526367;
+	setAttr -s 8 ".kiy[0:7]"  0 0 0.80367755889892578 0 -0.81015586853027344 
+		-1.1537822484970093 0 0;
 createNode animCurveTA -n "LIndexKnuckle_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 3.5855961193865946 22 5.3781995569713912
+		 38 29.652630304752932 43 -13.267467874248593 50 0 55 0 56 26.777770291508475 57 -2.128060489174314;
 createNode animCurveTA -n "LIndexKnuckle_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 -27.345677091517732 22 -18.78811010589585
+		 38 -21.498553528237885 43 -24.40355863478846 50 0 55 0 56 -11.0882772412725 57 -10.113024345044497;
 createNode animCurveTU -n "LIndexKnuckle_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LIndexKnuckle_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LIndexKnuckle_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidJoint_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LMidJoint_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LMidJoint_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LMidJoint_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LMidJoint_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 50 0 55 -6.1200000889029296 56 -6.1200000889029296
+		 66 -0.75469265076396863;
 createNode animCurveTA -n "LMidJoint_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 56 0 66 -27.002330415050555;
 createNode animCurveTA -n "LMidJoint_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 56 0 66 1.5277599655519931;
 createNode animCurveTU -n "LMidJoint_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidJoint_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidJoint_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidKnuckle_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LMidKnuckle_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LMidKnuckle_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LMidKnuckle_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LMidKnuckle_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 9 ".ktv[0:8]"  1 -41.569174340447965 22 -42.932379823187581
+		 38 -27.583269317053645 43 31.07705021607757 50 0 55 -50.040001188450063 56 -18.955345950824583
+		 57 4.6005125136066338 66 11.888833486486485;
 createNode animCurveTA -n "LMidKnuckle_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 9 ".ktv[0:8]"  1 3.5855961193865946 22 5.3781995569713912
+		 38 29.652630304752932 43 -13.267467874248593 50 0 55 0 56 12.771304949746915 57 0.93123636303824786
+		 66 26.0731667646277;
 createNode animCurveTA -n "LMidKnuckle_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 9 ".ktv[0:8]"  1 -27.345677091517732 22 -18.78811010589585
+		 38 -21.498553528237885 43 -24.40355863478846 50 0 55 0 56 38.694072961909754 57 14.078480795604914
+		 66 31.070006510980161;
 createNode animCurveTU -n "LMidKnuckle_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidKnuckle_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LMidKnuckle_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingJoint_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LRingJoint_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LRingJoint_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LRingJoint_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LRingJoint_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 55 -6.1200000889029296 65 2.0670471876256471;
 createNode animCurveTA -n "LRingJoint_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 50 -7.1367705154615697 65 -8.2893722766328057;
 createNode animCurveTA -n "LRingJoint_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 50 -0.2566834818562484 65 -0.29813834335279221;
 createNode animCurveTU -n "LRingJoint_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingJoint_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingJoint_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingKnuckle_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LRingKnuckle_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LRingKnuckle_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LRingKnuckle_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LRingKnuckle_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 9 ".ktv[0:8]"  1 -41.569174340447965 22 -42.932379823187581
+		 38 -27.583269317053645 43 31.07705021607757 50 0 55 -50.040001188450063 56 -38.032313903315874
+		 57 -2.5135120190538598 65 -17.677816585714925;
 createNode animCurveTA -n "LRingKnuckle_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 3.5855961193865946 22 5.3781995569713912
+		 38 29.652630304752932 43 -13.267467874248593 50 0 55 0 56 9.8057890201279569 57 10.983788278855155;
 createNode animCurveTA -n "LRingKnuckle_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 -27.345677091517732 22 -18.78811010589585
+		 38 -21.498553528237885 43 -24.40355863478846 50 0 55 0 56 -1.2006345110482519 57 -4.6856542379920905;
 createNode animCurveTU -n "LRingKnuckle_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingKnuckle_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LRingKnuckle_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyJoint_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LPinkyJoint_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LPinkyJoint_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LPinkyJoint_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LPinkyJoint_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 55 14.831843769060782 57 3.6337632198688241;
 createNode animCurveTA -n "LPinkyJoint_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 55 0 57 -0.45414380354245898;
 createNode animCurveTA -n "LPinkyJoint_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 50 0 55 0 57 0.99293904644905806;
 createNode animCurveTU -n "LPinkyJoint_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyJoint_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyJoint_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyKnuckle_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LPinkyKnuckle_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LPinkyKnuckle_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTL -n "LPinkyKnuckle_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 50 0;
 createNode animCurveTA -n "LPinkyKnuckle_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 -41.569174340447965 22 -42.932379823187581
+		 38 -27.583269317053645 43 31.07705021607757 50 0 55 -34.003100918213583 56 -22.156755542659358
+		 57 -0.085047174282817814;
 createNode animCurveTA -n "LPinkyKnuckle_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 3.5855961193865946 22 5.3781995569713912
+		 38 29.652630304752932 43 -13.267467874248593 50 0 55 0 56 15.009127778117087 57 -0.55935861396426045;
 createNode animCurveTA -n "LPinkyKnuckle_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 8 ".ktv[0:7]"  1 -27.345677091517732 22 -18.78811010589585
+		 38 -21.498553528237885 43 -24.40355863478846 50 0 55 0 56 37.511485251511843 57 31.049067616967537;
 createNode animCurveTU -n "LPinkyKnuckle_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyKnuckle_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LPinkyKnuckle_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 50 1;
 createNode animCurveTU -n "LShoulder1_visibility";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 4 ".ktv[0:3]"  1 1 22 1 47 1 52 1;
+	setAttr -s 4 ".kot[0:3]"  5 5 5 5;
 createNode animCurveTL -n "LShoulder1_translateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -1.244;
+	setAttr -s 4 ".ktv[0:3]"  1 -1.244 22 -1.244 47 -1.244 52 -1.244;
 createNode animCurveTL -n "LShoulder1_translateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 22 0 47 0 52 0;
 createNode animCurveTL -n "LShoulder1_translateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 22 0 47 0 52 0;
 createNode animCurveTA -n "LShoulder1_rotateX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 5.548;
+	setAttr -s 9 ".ktv[0:8]"  1 5.548 22 5.548 32 9.9520456815512013 40 12.781026385662212
+		 47 13.665228723034009 52 12.191558160747672 59 -40.514195678681212 69 -39.351452398427057
+		 77 -39.553409245677592;
 createNode animCurveTA -n "LShoulder1_rotateY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 21.367;
+	setAttr -s 9 ".ktv[0:8]"  1 21.367 22 21.367 32 11.101234559809534
+		 40 -14.032261493037689 47 -15.528635474807382 52 -15.078438233487708 59 13.252275012774717
+		 69 2.1259992809074015 77 8.5085420640076368;
+	setAttr -s 9 ".kit[6:8]"  1 1 18;
+	setAttr -s 9 ".kot[6:8]"  1 18 18;
+	setAttr -s 9 ".ktl[6:8]" no no yes;
+	setAttr -s 9 ".kwl[6:8]" no no yes;
+	setAttr -s 9 ".kix[6:8]"  0.4353053867816925 0.45624580979347229 
+		0.33333325386047363;
+	setAttr -s 9 ".kiy[6:8]"  0 0 0;
+	setAttr -s 9 ".kox[6:8]"  0.35809963941574097 0.33333325386047363 
+		0.33333325386047363;
+	setAttr -s 9 ".koy[6:8]"  0 0 0;
 createNode animCurveTA -n "LShoulder1_rotateZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -33.537;
+	setAttr -s 9 ".ktv[0:8]"  1 -33.537 22 -33.537 32 -15.359655915250602
+		 40 -5.4611931044965409 47 -5.9742182799660384 52 -5.9742182799660384 59 -0.10308220638260024
+		 69 3.4098701774248981 77 -2.2224723175419494;
 createNode animCurveTU -n "LShoulder1_scaleX";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -1;
+	setAttr -s 4 ".ktv[0:3]"  1 -1 22 -1 47 -1 52 -1;
 createNode animCurveTU -n "LShoulder1_scaleY";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 4 ".ktv[0:3]"  1 1 22 1 47 1 52 1;
 createNode animCurveTU -n "LShoulder1_scaleZ";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 4 ".ktv[0:3]"  1 1 22 1 47 1 52 1;
 createNode animCurveTU -n "LElbow_visibility1";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode animCurveTL -n "LElbow_translateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 27 0;
 createNode animCurveTL -n "LElbow_translateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 27 0;
 createNode animCurveTL -n "LElbow_translateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 2 ".ktv[0:1]"  1 0 27 0;
 createNode animCurveTA -n "LElbow_rotateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 6 ".ktv[0:5]"  1 0 27 0 33 -1.471198604900579 42 8.3268292980479686
+		 55 8.2799571817387694 61 8.3163273330782452;
+	setAttr -s 6 ".kit[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kot[1:5]"  1 18 18 18 18;
+	setAttr -s 6 ".kix[1:5]"  1.3333333730697632 0.25 0.375 0.54166674613952637 
+		0.25;
+	setAttr -s 6 ".kiy[1:5]"  0 0 0 0 0;
+	setAttr -s 6 ".kox[1:5]"  1.3333333730697632 0.375 0.54166674613952637 
+		0.25 0.25;
+	setAttr -s 6 ".koy[1:5]"  0 0 0 0 0;
 createNode animCurveTA -n "LElbow_rotateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 27 0 42 -0.12790896774040444 55 0.89454960799323613
+		 61 0.43861616951863103;
 createNode animCurveTA -n "LElbow_rotateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 52.581;
+	setAttr -s 5 ".ktv[0:4]"  1 52.581 27 52.581 42 47.594383181087338
+		 55 40.59723454261313 61 43.722682294659137;
 createNode animCurveTU -n "LElbow_scaleX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
 createNode animCurveTU -n "LElbow_scaleY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
 createNode animCurveTU -n "LElbow_scaleZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 2 ".ktv[0:1]"  1 1 27 1;
 createNode animCurveTU -n "LHand_visibility1";
 	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 72 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
 createNode animCurveTL -n "LHand_translateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 34 0 72 0;
 createNode animCurveTL -n "LHand_translateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 34 0 72 0;
 createNode animCurveTL -n "LHand_translateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 34 0 72 0;
 createNode animCurveTA -n "LHand_rotateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 12.433;
+	setAttr -s 9 ".ktv[0:8]"  1 -61.083791699221976 34 -61.083791699221976
+		 44 -11.05914061300866 54 -22.63759569185293 59 -14.704350763367726 66 -13.908679425132021
+		 72 -13.908679425132021 80 -18.710619414943263 88 -28.497811271092498;
 createNode animCurveTA -n "LHand_rotateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -15.127000000000002;
+	setAttr -s 6 ".ktv[0:5]"  1 21.3960541234371 34 21.3960541234371 44 13.842614447709197
+		 54 28.966304694563618 66 36.000768098211005 72 36.000768098211005;
 createNode animCurveTA -n "LHand_rotateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 -23.684;
+	setAttr -s 6 ".ktv[0:5]"  1 -31.974031118542175 34 -31.974031118542175
+		 44 -38.832586507907259 54 -42.178556672154961 66 -19.619568233044738 72 -19.619568233044738;
 createNode animCurveTU -n "LHand_scaleX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 72 1;
 createNode animCurveTU -n "LHand_scaleY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 72 1;
 createNode animCurveTU -n "LHand_scaleZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 34 1 72 1;
 createNode animCurveTU -n "LThumbJoint_visibility1";
-	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  1 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".tan" 5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 42 1 55 1;
+	setAttr -s 3 ".kit[0:2]"  9 1 9;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
 createNode animCurveTL -n "LThumbJoint_translateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 42 0 55 0;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTL -n "LThumbJoint_translateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 42 0 55 0;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTL -n "LThumbJoint_translateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 3 ".ktv[0:2]"  1 0 42 0 55 0;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTA -n "LThumbJoint_rotateX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 5 ".ktv[0:4]"  1 0 42 0 49 10.524518507258344 55 0 60 -48.693443786981362;
+	setAttr -s 5 ".kit[1:4]"  1 18 18 18;
+	setAttr -s 5 ".kot[1:4]"  1 18 18 18;
+	setAttr -s 5 ".kix[1:4]"  2 0.29166674613952637 0.25 0.20833325386047363;
+	setAttr -s 5 ".kiy[1:4]"  0 0 -0.55106252431869507 0;
+	setAttr -s 5 ".kox[1:4]"  2 0.25 0.20833325386047363 0.20833325386047363;
+	setAttr -s 5 ".koy[1:4]"  0 0 -0.45921856164932251 0;
 createNode animCurveTA -n "LThumbJoint_rotateY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 42 0 49 22.804552932406075 55 0;
+	setAttr -s 4 ".kit[1:3]"  1 18 18;
+	setAttr -s 4 ".kot[1:3]"  1 18 18;
+	setAttr -s 4 ".kix[1:3]"  2 0.29166674613952637 0.25;
+	setAttr -s 4 ".kiy[1:3]"  0 0 0;
+	setAttr -s 4 ".kox[1:3]"  2 0.25 0.25;
+	setAttr -s 4 ".koy[1:3]"  0 0 0;
 createNode animCurveTA -n "LThumbJoint_rotateZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 42 0 49 7.0579945109385287 55 0;
+	setAttr -s 4 ".kit[1:3]"  1 18 18;
+	setAttr -s 4 ".kot[1:3]"  1 18 18;
+	setAttr -s 4 ".kix[1:3]"  2 0.29166674613952637 0.25;
+	setAttr -s 4 ".kiy[1:3]"  0 0 0;
+	setAttr -s 4 ".kox[1:3]"  2 0.25 0.25;
+	setAttr -s 4 ".koy[1:3]"  0 0 0;
 createNode animCurveTU -n "LThumbJoint_scaleX1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 42 1 55 1;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTU -n "LThumbJoint_scaleY1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 42 1 55 1;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTU -n "LThumbJoint_scaleZ1";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  1 1;
+	setAttr -s 3 ".ktv[0:2]"  1 1 42 1 55 1;
+	setAttr -s 3 ".kit[1:2]"  1 18;
+	setAttr -s 3 ".kot[1:2]"  1 18;
+	setAttr -s 3 ".kix[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[1:2]"  2.25 0.54166674613952637;
+	setAttr -s 3 ".koy[1:2]"  0 0;
 createNode animCurveTU -n "LThumbKnuckle_visibility1";
 	setAttr ".tan" 9;
 	setAttr ".ktv[0]"  1 1;
@@ -13469,7 +14582,7 @@ createNode animCurveTL -n "RootX_M_translateY";
 		 17 -0.26 20 -0.265 29 0.40245749173134848 37 -0.12198304878518307 44 0.23163546321153966
 		 53 -0.30237472642968516 59 0.095971589193979287 65 -0.064263041570453094 71 0.10137945284012084
 		 77 -0.0798951823786858 83 0.12046099338946908 89 -0.092870658469150019 95 0.094455071994587469
-		 101 -0.312411249120159 111 2.2666219665861007 120 2.9675907224779876;
+		 101 -0.312411249120159 111 2.3989735720596874 120 3.0999423279515743;
 	setAttr -s 19 ".kit[18]"  18;
 	setAttr -s 19 ".kot[0:18]"  18 1 1 18 1 1 1 1 
 		1 1 1 1 1 1 1 18 1 1 18;
@@ -13530,12 +14643,17 @@ createNode cameraView -n "Horse_close_up";
 	setAttr ".typ" 1;
 createNode animCurveTA -n "FKNeck_M_rotateY";
 	setAttr ".tan" 18;
-	setAttr -s 7 ".ktv[0:6]"  66 0 72 32.011627805500829 79 24.544586034320155
-		 85 12.520388355449748 91 21.881920690469425 97 14.918322793820041 113 19.635598713813749;
-	setAttr -s 7 ".kit[1:6]"  1 18 1 18 1 18;
-	setAttr -s 7 ".kix[1:6]"  0.25 0.29166674613952637 0.25 0.25 0.2499997615814209 
-		0.66666698455810547;
-	setAttr -s 7 ".kiy[1:6]"  0 -0.18317726254463196 0 0 0 0;
+	setAttr -s 8 ".ktv[0:7]"  66 0 71 17.000529309136322 74 11.592713683555111
+		 79 24.544586034320155 85 12.520388355449748 91 21.881920690469425 97 14.918322793820041
+		 113 19.635598713813749;
+	setAttr -s 8 ".kit[0:7]"  1 3 1 18 1 18 1 18;
+	setAttr -s 8 ".kot[0:7]"  1 3 1 18 18 18 18 18;
+	setAttr -s 8 ".kix[0:7]"  0.33333325386047363 0.20833325386047363 
+		0.1250002384185791 0.20833349227905273 0.25 0.25 0.2499997615814209 0.66666698455810547;
+	setAttr -s 8 ".kiy[0:7]"  0 0 0 0 0 0 0 0;
+	setAttr -s 8 ".kox[0:7]"  0.20833325386047363 0.125 0.20833349227905273 
+		0.25 0.25 0.2499997615814209 0.66666698455810547 0.66666698455810547;
+	setAttr -s 8 ".koy[0:7]"  0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "FKHead_M_rotateX";
 	setAttr ".tan" 18;
 	setAttr -s 20 ".ktv[0:19]"  1 -16.244602564424913 5 -15.258727277122111
@@ -13567,25 +14685,27 @@ createNode animCurveTA -n "FKHead_M_rotateX";
 		0 0 0 0.060705691576004028 0.092414587736129761 0.080805353820323944 0;
 createNode animCurveTA -n "FKNeck_M_rotateX";
 	setAttr ".tan" 1;
-	setAttr -s 7 ".ktv[0:6]"  72 -55.041 77 -46.757 85 -69.840001505971486
-		 92 0.717 98 -54.324 105 -34.001 112 -62.791;
-	setAttr -s 7 ".kit[0:6]"  18 1 1 1 1 1 18;
-	setAttr -s 7 ".kot[0:6]"  18 1 1 1 1 1 18;
-	setAttr -s 7 ".kwl[1:6]" no no no no no yes;
-	setAttr -s 7 ".kix[1:6]"  0.29720735549926758 0.43697905540466309 
+	setAttr -s 8 ".ktv[0:7]"  72 -55.041 74 -43.178159063060491 77 -46.757
+		 85 -69.840001505971486 92 0.717 98 -54.324 105 -34.001 112 -62.791;
+	setAttr -s 8 ".kit[0:7]"  18 18 1 1 1 1 1 18;
+	setAttr -s 8 ".kot[0:7]"  18 18 1 1 1 1 1 18;
+	setAttr -s 8 ".kwl[2:7]" no no no no no yes;
+	setAttr -s 8 ".kix[2:7]"  0.29720735549926758 0.43697905540466309 
 		0.42479333281517029 0.32369017601013184 0.3800092339515686 0.29166650772094727;
-	setAttr -s 7 ".kiy[1:6]"  0 0 0 0 0 0;
-	setAttr -s 7 ".kox[1:6]"  0.42220759391784668 0.39531207084655762 
+	setAttr -s 8 ".kiy[2:7]"  0 0 0 0 0 0;
+	setAttr -s 8 ".kox[2:7]"  0.42220759391784668 0.39531207084655762 
 		0.38312706351280212 0.3653564453125 0.3800092339515686 0.29166650772094727;
-	setAttr -s 7 ".koy[1:6]"  0 0 0 0 0 0;
+	setAttr -s 8 ".koy[2:7]"  0 0 0 0 0 0;
 createNode polyPlane -n "polyPlane2";
 	setAttr ".sw" 1;
 	setAttr ".sh" 1;
 	setAttr ".cuv" 2;
 createNode lambert -n "lambertYellow";
 	setAttr ".c" -type "float3" 0.95679295 1 0 ;
+	setAttr ".ambc" -type "float3" 0.73504233 0.73504233 0.73504233 ;
 createNode shadingEngine -n "lambert3SG";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo2";
 createNode animCurveTL -n "pPlane1_translateX";
@@ -13629,11 +14749,6 @@ createNode animCurveTU -n "pPlane1_visibility";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  75 0 76 1;
 	setAttr -s 2 ".kot[0:1]"  5 5;
-createNode mute -n "mute_pPlane1_visibility";
-	setAttr ".ihi" 0;
-	setAttr ".h" 0;
-	setAttr ".ht" 74;
-	setAttr ".m" yes;
 createNode animCurveTU -n "IKLegA_RShape_lockLength";
 	setAttr ".tan" 9;
 	setAttr -s 2 ".ktv[0:1]"  111 0 113 0;
@@ -13641,14 +14756,1078 @@ createNode animCurveTU -n "IKLegA_RShape_lockLength";
 createNode animCurveTL -n "Lip6_R_translateX";
 	setAttr ".tan" 18;
 	setAttr -s 2 ".ktv[0:1]"  69 -0.054496896610084139 74 0;
+createNode animCurveTL -n "RootX_M_translateX1";
+	setAttr ".tan" 1;
+	setAttr -s 6 ".ktv[0:5]"  1 0.167 37 0.167 46 0.167 52 0.33424079356467429
+		 67 0.33424079356467429 74 0.19910466645128655;
+	setAttr -s 6 ".kot[0:5]"  18 18 18 1 1 1;
+	setAttr -s 6 ".kix[0:5]"  0 1.5 0.375 0.25000011920928955 0.5000002384185791 
+		0.5000002384185791;
+	setAttr -s 6 ".kiy[0:5]"  0 0 0 0 0 0;
+	setAttr -s 6 ".kox[3:5]"  0.5000002384185791 0.5000002384185791 1;
+	setAttr -s 6 ".koy[3:5]"  0 0 0;
+createNode animCurveTL -n "RootX_M_translateY1";
+	setAttr ".tan" 1;
+	setAttr -s 21 ".ktv[0:20]"  1 -0.304 6 -0.32948462640972592 13 -0.27212658799505707
+		 21 -0.3136338811561013 25 -0.31731597939688971 31 -0.22707540118295089 36 -0.33972936082125338
+		 43 -0.26864595032662358 52 -0.29887682605422483 58 -0.2575547807463221 63 -0.26560250490385351
+		 68 -0.15130686677000982 73 -0.19711536795398985 78 -0.071467043361189489 83 -0.26074597610140759
+		 88 -0.071636003636510473 93 -0.26074597610140759 98 0.017041192123218109 102 0.050187603301119807
+		 109 -0.06605250535075527 114 -0.0068183178460671703;
+	setAttr -s 21 ".kit[0:20]"  18 1 1 1 1 1 1 1 
+		1 1 1 1 1 1 1 1 1 18 1 1 18;
+	setAttr -s 21 ".kot[4:20]"  18 1 1 1 1 1 18 1 
+		18 1 1 1 1 18 1 18 18;
+	setAttr -s 21 ".ktl[0:20]" no no yes no yes no no yes no yes no yes 
+		no yes no yes no yes no no yes;
+	setAttr -s 21 ".kwl[0:20]" no no no no yes no no yes no yes no no no 
+		no no no no yes no no yes;
+	setAttr -s 21 ".kix[1:20]"  0.015269070863723755 0.48404932022094727 
+		0.04182710126042366 0.16666662693023682 0.47658360004425049 0.015382397919893265 
+		0.29166662693023682 0.092071801424026489 0.2499997615814209 0.039539910852909088 
+		0.29145526885986328 0.024296527728438377 0.40394482016563416 0.12011493742465973 
+		0.43621239066123962 0.093991898000240326 0.20833349227905273 0.16666650772094727 
+		0.11847446113824844 0.20833349227905273;
+	setAttr -s 21 ".kiy[1:20]"  0 0 -0.0021347834262996912 0 0 0 0 0 0 
+		0 0 0 0 0 0 0 0.12429925799369812 0 0 0;
+	setAttr -s 21 ".kox[0:20]"  0.43560934066772461 0.38866356015205383 
+		0.52571594715118408 0.17724393308162689 0.25 0.53424251079559326 0.29166662693023682 
+		0.375 0.2499997615814209 0.20833325386047363 0.20833325386047363 0.29145550727844238 
+		0.20833325386047363 0.40394505858421326 0.33403193950653076 0.43621239066123962 0.36884909868240356 
+		0.16666650772094727 0.47701850533485413 0.20833349227905273 0.20833349227905273;
+	setAttr -s 21 ".koy[0:20]"  0 0 0 -0.0090462258085608482 0 0 0 0 0 
+		0 0 0 0 0 0 0 0 0.099439233541488647 0 0 0;
+createNode animCurveTL -n "RootX_M_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0.815;
+createNode animCurveTA -n "RootX_M_rotateX1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "RootX_M_rotateY1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 -9.2000000000000011;
+createNode animCurveTA -n "RootX_M_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "FKRoot_M_rotateX1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 6 0;
+createNode animCurveTA -n "FKRoot_M_rotateY1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 6 0;
+createNode animCurveTA -n "FKRoot_M_rotateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 11 ".ktv[0:10]"  1 -5.544 6 -7.628787692307692 10 -7.2308587505056003
+		 20 -1.6696818830051885 24 -1.3164034770783211 29 0.77876539812956003 32 -1.7733953159191163
+		 36 -7.5857612978934386 42 -2.6942956673092429 49 -5.5155268392250694 55 3.3936221681421359;
+	setAttr -s 11 ".kit[0:10]"  18 1 18 18 1 1 1 1 
+		1 1 18;
+	setAttr -s 11 ".kot[2:10]"  18 18 1 1 1 1 1 18 
+		18;
+	setAttr -s 11 ".ktl[0:10]" no yes yes yes yes yes yes no yes yes yes;
+	setAttr -s 11 ".kwl[0:10]" no yes yes yes yes no yes no no yes yes;
+	setAttr -s 11 ".kix[1:10]"  0.2083333283662796 0.1666666567325592 0.4166666567325592 
+		0.18266987800598145 0.24732829630374908 0.083215653896331787 0.17288604378700256 
+		0.30577796697616577 0.29166674613952637 0.25;
+	setAttr -s 11 ".kiy[1:10]"  0 0.020835511386394501 0.046244028955698013 
+		0 0 -0.062601864337921143 0 0 0 0;
+	setAttr -s 11 ".kox[0:10]"  0.36160168051719666 0.1666666567325592 
+		0.4166666567325592 0.16666668653488159 0.18914258480072021 0.24732817709445953 0.1387147456407547 
+		0.57216811180114746 0.34744471311569214 0.25 0.25;
+	setAttr -s 11 ".koy[0:10]"  0 0 0.052088778465986252 0.018497614189982414 
+		0 0 -0.10552111268043518 0 0 0 0;
+createNode animCurveTL -n "FKSpine1_M_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  19 0;
+createNode animCurveTL -n "FKSpine1_M_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  19 0;
+createNode animCurveTL -n "FKSpine1_M_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "FKSpine1_M_rotateX1";
+	setAttr ".tan" 18;
+	setAttr -s 6 ".ktv[0:5]"  19 0 50 0 58 -28.551292662990349 65 -50.541279209114059
+		 68 -53.491124112539218 73 11.30887796050833;
+	setAttr -s 6 ".kit[2:5]"  3 18 18 18;
+	setAttr -s 6 ".kot[2:5]"  3 18 18 18;
+createNode animCurveTA -n "FKSpine1_M_rotateY1";
+	setAttr ".tan" 1;
+	setAttr -s 9 ".ktv[0:8]"  17 0 24 8.0393739114267504 38 -8.5080356289578898
+		 44 5.4077867179620371 50 -4.1213324597866441 58 37.72768723977746 61 47.328214878512071
+		 65 37.72768723977746 74 -2.3758475433772133;
+	setAttr -s 9 ".kit[2:8]"  3 1 1 18 1 1 18;
+	setAttr -s 9 ".kot[5:8]"  18 1 1 18;
+	setAttr -s 9 ".ktl[0:8]" no yes no yes yes yes yes yes yes;
+	setAttr -s 9 ".kwl[0:8]" no yes no no no yes yes yes yes;
+	setAttr -s 9 ".kix[0:8]"  0 0.29166668653488159 0.58333337306976318 
+		0.4111996591091156 0.43798059225082397 0.33333349227905273 0.1250002384185791 0.16666674613952637 
+		0.375;
+	setAttr -s 9 ".kiy[0:8]"  0 0 0 0 0 0.6530647873878479 0 0 0;
+	setAttr -s 9 ".kox[0:8]"  0.67464935779571533 0.61313438415527344 
+		0.39457783102989197 0.41119953989982605 0.52131420373916626 0.125 0.16666674613952637 
+		0.375 0.375;
+	setAttr -s 9 ".koy[0:8]"  0 0 0 0 0 0.24489918351173401 0 0 0;
+createNode animCurveTA -n "FKSpine1_M_rotateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 19 ".ktv[0:18]"  1 -15.998 8 -18.857791603434574 12 -18.311935614967208
+		 22 -8.6954034248879921 25 -7.8221256756938216 33 -14.901255160551441 37 -16.963069259190494
+		 43 -11.050835327837069 50 -16.22897746242597 56 5.7937713437936749 61 -7.5805146685990321
+		 68 25.149275821611269 75 -43.698983722571761 80 -31.324520067567388 85 -36.274305529569141
+		 91 -13.009225993224232 98 -36.760815073692562 105 13.001628957096255 113 -23.736201470239884;
+	setAttr -s 19 ".kit[0:18]"  18 1 18 1 1 1 1 1 
+		1 3 3 1 1 1 1 1 1 1 18;
+	setAttr -s 19 ".kot[2:18]"  18 1 1 1 1 1 1 3 
+		1 1 1 1 1 1 1 1 18;
+	setAttr -s 19 ".ktl[0:18]" no yes yes yes yes yes no yes yes yes no 
+		no no no no no no no yes;
+	setAttr -s 19 ".kwl[0:18]" no yes yes no yes yes no no no yes no no 
+		no no no no no no yes;
+	setAttr -s 19 ".kix[1:18]"  0.2083333283662796 0.1666666567325592 0.50741767883300781 
+		0.13293027877807617 0.39259770512580872 0.090527556836605072 0.30577799677848816 
+		0.45884045958518982 0.25 0.20833349227905273 0.54148536920547485 0.44403848052024841 
+		0.50432264804840088 0.22718513011932373 0.17703524231910706 0.21757347881793976 0.49570584297180176 
+		0.33333349227905273;
+	setAttr -s 19 ".kiy[1:18]"  0 0.028580952435731888 0.16264910995960236 
+		0 -0.25073212385177612 0 0 0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 19 ".kox[0:18]"  0.36160168051719666 0.1666666567325592 
+		0.41666668653488159 0.12441723793745041 0.36950898170471191 0.1715342104434967 0.63061600923538208 
+		0.34744462370872498 0.417173832654953 0.20833349227905273 0.48091453313827515 0.70114982128143311 
+		0.19126701354980469 0.23469974100589752 0.54859054088592529 0.48366975784301758 0.43388426303863525 
+		0.75323343276977539 0.33333349227905273;
+	setAttr -s 19 ".koy[0:18]"  0 0 0.071452386677265167 0.039881050586700439 
+		0 -0.10955029726028442 0 0 0 0 0 0 0 0 0 0 0 0 0;
+createNode animCurveTA -n "FKChest_M_rotateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 21 ".ktv[0:20]"  1 -7.067 9 -9.9267916034345767 13 -9.3809356149672105
+		 23 -3.3457601666276298 26 -2.8816646400841366 34 -6.4862931649518565 38 -8.9650922885777149
+		 44 -0.095812391957355914 51 -15.416467333797309 55 3.7701004283378694 60 -41.853357394923052
+		 64 -0.6861090226635872 67 5.9144787936130419 70 4.6761599439842572 77 -17.137667961074879
+		 80 -5.5510791265195989 84 -17.9652814492574 90 5.2078962198531977 97 -31.207097260177694
+		 104 12.656417613495924 112 -3.0682386619719693;
+	setAttr -s 21 ".kit[0:20]"  18 1 18 1 1 1 1 1 
+		1 1 1 1 18 18 18 1 1 1 1 1 18;
+	setAttr -s 21 ".kot[2:20]"  18 1 1 1 1 1 18 18 
+		1 1 18 1 18 18 1 1 1 1 18;
+	setAttr -s 21 ".ktl[0:20]" no yes yes yes yes yes no yes yes yes no 
+		yes yes no yes yes no no no no yes;
+	setAttr -s 21 ".kwl[0:20]" no yes yes no yes yes no no yes yes no yes 
+		yes no yes yes no no no no yes;
+	setAttr -s 21 ".kix[1:20]"  0.2083333283662796 0.16666668653488159 
+		0.50741767883300781 0.13293027877807617 0.40996098518371582 0.14482247829437256 0.30577799677848816 
+		0.29166662693023682 0.16666674613952637 0.2598692774772644 0.2790566086769104 0.125 
+		0.125 0.29166650772094727 0.125 0.16666674613952637 0.20833325386047363 0.15212529897689819 
+		0.42445939779281616 0.33333301544189453;
+	setAttr -s 21 ".kiy[1:20]"  0 0.028580952435731888 0.086438395082950592 
+		0 -0.17457723617553711 0 0 0 0 0 0.60355955362319946 0 -0.064838223159313202 0 0 
+		0 0 0 0 0;
+	setAttr -s 21 ".kox[0:20]"  0.36160168051719666 0.1666666567325592 
+		0.41666662693023682 0.12441723793745041 0.36950898170471191 0.18366730213165283 0.57493865489959717 
+		0.34744462370872498 0.16666674613952637 0.20833325386047363 0.20833325386047363 0.1722298264503479 
+		0.125 0.36197921633720398 0.125 0.16666674613952637 0.55773282051086426 0.6588141918182373 
+		0.4343160092830658 0.79685145616531372 0.33333301544189453;
+	setAttr -s 21 ".koy[0:20]"  0 0 0.071452364325523376 0.021194424480199814 
+		0 -0.078212730586528778 0 0 0 0 0 0.37250733375549316 0 -0.18776071071624756 0 0 
+		0 0 0 0 0;
+createNode animCurveTL -n "FKChest_M_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "FKChest_M_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "FKChest_M_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "FKChest_M_rotateX1";
+	setAttr ".tan" 1;
+	setAttr -s 6 ".ktv[0:5]"  1 0 50 0 58 -9.7200004909471218 66 -22.805951385806008
+		 68 -22.962585667301934 74 -3.2285295633065547;
+	setAttr -s 6 ".kit[1:5]"  18 1 18 1 1;
+	setAttr -s 6 ".kot[1:5]"  18 1 18 1 1;
+	setAttr -s 6 ".ktl[2:5]" no yes yes yes;
+	setAttr -s 6 ".kwl[2:5]" no yes yes yes;
+	setAttr -s 6 ".kix[0:5]"  2.375 2.0416665077209473 0.33333349227905273 
+		0.33333325386047363 0.083333015441894531 0.2499997615814209;
+	setAttr -s 6 ".kiy[0:5]"  0 0 0 -0.032805431634187698 0 0;
+	setAttr -s 6 ".kox[0:5]"  2.0416665077209473 0.33333349227905273 
+		0.62947028875350952 0.083333253860473633 0.2499997615814209 0.33333325386047363;
+	setAttr -s 6 ".koy[0:5]"  0 0 0 -0.0082013513892889023 0 0;
+createNode animCurveTA -n "FKChest_M_rotateY1";
+	setAttr ".tan" 1;
+	setAttr -s 5 ".ktv[0:4]"  1 0 44 0 50 -10.701556776719565 58 0.84811022986441298
+		 65 0.84811022986441298;
+	setAttr -s 5 ".kit[4]"  18;
+	setAttr -s 5 ".kot[0:4]"  18 18 1 18 18;
+	setAttr -s 5 ".ktl[2:4]" no yes yes;
+	setAttr -s 5 ".kwl[2:4]" no yes yes;
+	setAttr -s 5 ".kix[0:4]"  0 1.7916667461395264 0.24999988079071045 
+		0.33333349227905273 0.29166650772094727;
+	setAttr -s 5 ".kiy[0:4]"  0 0 0 0 0;
+	setAttr -s 5 ".kox[2:4]"  0.47026717662811279 0.29166650772094727 
+		0.29166650772094727;
+	setAttr -s 5 ".koy[2:4]"  0 0 0;
+createNode animCurveTA -n "FKHead_M_rotateX1";
+	setAttr ".tan" 18;
+	setAttr -s 9 ".ktv[0:8]"  1 -19.467139972585262 22 -16.816379526589881
+		 40 -24.554452602284872 46 -18.226468762048739 52 -12.99472210308023 58 -40.177085251355706
+		 65 -24.951025698166312 69 -25.02578908496757 76 -11.410051032703187;
+createNode animCurveTA -n "FKHead_M_rotateY1";
+	setAttr ".tan" 18;
+	setAttr -s 9 ".ktv[0:8]"  1 2.2071133416773696 22 3.520746689939982
+		 40 -0.25690338491081938 46 -4.5827723788474204 52 1.1064867519390282 58 7.5894000170537383
+		 65 2.62650657303438 69 -1.7051858084716838 76 11.469395477944753;
+createNode animCurveTA -n "FKHead_M_rotateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 19 ".ktv[0:18]"  1 0.64758277188605529 10 4.3765927987534301
+		 22 4.2298008809894858 30 -9.9855459116192691 35 -2.9227769218833064 40 -5.1628109965949722
+		 46 -17.826850357124659 52 -4.1473809882048824 58 -6.5116227864766643 65 -11.686457606110242
+		 69 -28.744498033549444 72 -26.780170648290575 76 6.966050146102468 81 -4.6042292860784517
+		 86 2.4853705704170768 89 6.6069677511386766 95 -13.657551720742498 100 13.476296385674676
+		 106 -2.3231594737580954;
+	setAttr -s 19 ".kit[0:18]"  18 18 1 1 1 18 1 1 
+		18 18 1 18 1 1 18 1 1 1 18;
+	setAttr -s 19 ".kot[0:18]"  18 18 1 1 1 18 1 1 
+		18 18 1 18 1 18 18 1 1 1 18;
+	setAttr -s 19 ".ktl[3:18]" no no yes yes yes yes yes no yes no no no 
+		yes no no yes;
+	setAttr -s 19 ".kwl[3:18]" no no yes no yes yes yes no yes no no no 
+		yes no no yes;
+	setAttr -s 19 ".kix[2:18]"  0.69525772333145142 0.4052371084690094 
+		0.16679273545742035 0.20833325386047363 0.31312614679336548 0.5000002384185791 0.25 
+		0.29166650772094727 0.26612967252731323 0.125 0.16666674613952637 0.15515334904193878 
+		0.20833325386047363 0.095481634140014648 0.15194606781005859 0.11692773550748825 
+		0.25;
+	setAttr -s 19 ".kiy[2:18]"  0.0023016014602035284 0 0.0016049871919676661 
+		-0.11728791147470474 0 -0.029650034382939339 -0.060730036348104477 -0.24693246185779572 
+		0 0.10285194218158722 0 0 0.12229517102241516 -0.035400360822677612 0 0 0;
+	setAttr -s 19 ".kox[2:18]"  0.22963070869445801 0.37123963236808777 
+		0.3561568558216095 0.25 0.31312626600265503 0.25 0.29166650772094727 0.16666674613952637 
+		0.1250002384185791 0.16666674613952637 0.35352766513824463 0.20833325386047363 0.125 
+		0.3077545166015625 0.37117823958396912 0.44537526369094849 0.25;
+	setAttr -s 19 ".koy[2:18]"  0 0 0.0034271685872226954 -0.14074555039405823 
+		0 -0.014825011603534222 -0.07085166871547699 -0.14110441505908966 0 0.13713598251342773 
+		0 0 0.073377132415771484 -0.11410149186849594 0 0 0;
+createNode animCurveTL -n "FKHead_M_translateX1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 52 0;
+createNode animCurveTL -n "FKHead_M_translateY1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 52 0;
+createNode animCurveTL -n "FKHead_M_translateZ1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 52 0;
+createNode animCurveTL -n "FKShoulder_L_translateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 5 0;
+createNode animCurveTL -n "FKShoulder_L_translateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 5 0;
+createNode animCurveTL -n "FKShoulder_L_translateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 5 0;
+createNode animCurveTA -n "FKShoulder_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 13 31.845159153134972 32 31.845159153134972
+		 45 41.663095736693748 61 79.620350126286226 68 56.937926914404642 72 56.937926914404642
+		 76 30.292822844439488 82 39.539885395896839 91 39.539885395896839 96 30.103719237591189;
+	setAttr -s 12 ".kit[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kix[1:11]"  0.875 0.33333337306976318 0.33333337306976318 
+		0.54166662693023682 0.66666674613952637 0.29166650772094727 0.29166650772094727 0.16666674613952637 
+		0.25 0.25 0.20833325386047363;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0.12851651012897491 0.37378779053688049 
+		0 0 -0.40176606178283691 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  0.875 0.79166668653488159 1.3333332538604736 
+		0.66666674613952637 0.29166650772094727 0.16666674613952637 0.33333349227905273 0.25 
+		0.375 0.25 0.20833325386047363;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.51406598091125488 0.46004658937454224 
+		0 0 -0.45916169881820679 0 0 0 0;
+createNode animCurveTA -n "FKShoulder_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 12 ".ktv[0:11]"  1 50.376000765112217 5 50.376000765112217
+		 13 54.205825284807609 32 54.205825284807609 45 59.592011518893713 61 64.48992503698291
+		 68 86.081103698771074 72 86.081103698771074 76 75.121149185094424 82 78.714857210944402
+		 91 78.714857210944402 96 75.050905674198575;
+	setAttr -s 12 ".kit[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kix[1:11]"  0.875 0.33333337306976318 0.33333337306976318 
+		0.54166662693023682 0.66666674613952637 0.29166650772094727 0.29166650772094727 0.16666674613952637 
+		0.25 0.25 0.20833325386047363;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0.032169949263334274 0.080461651086807251 
+		0.25645413994789124 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  0.875 0.79166668653488159 1.3333332538604736 
+		0.66666674613952637 0.29166650772094727 0.16666674613952637 0.33333349227905273 0.25 
+		0.375 0.25 0.20833325386047363;
+	setAttr -s 12 ".koy[1:11]"  0 0 0.1286797821521759 0.099029749631881714 
+		0.1121986135840416 0 0 0 0 0 0;
+createNode animCurveTA -n "FKShoulder_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 13 31.917288157056905 32 31.917288157056905
+		 45 18.52811690808381 61 32.923644825692442 68 25.936800306045573 72 25.936800306045573
+		 76 21.8287502491747 82 23.813746889725323 91 23.813746889725323 96 21.781987874970778;
+	setAttr -s 12 ".kit[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 1 18 18 18 1 18 
+		18 1 18;
+	setAttr -s 12 ".kix[1:11]"  0.875 0.33333337306976318 0.33333337306976318 
+		0.54166662693023682 0.66666674613952637 0.29166650772094727 0.29166650772094727 0.16666674613952637 
+		0.25 0.25 0.20833325386047363;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 -0.0903664231300354 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  0.875 0.79166668653488159 1.3333332538604736 
+		0.66666674613952637 0.29166650772094727 0.16666674613952637 0.33333349227905273 0.25 
+		0.375 0.25 0.20833325386047363;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 -0.10327601432800293 0 0 0 
+		0;
+createNode animCurveTU -n "FKShoulder_L_Global";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 10 5 10;
+createNode animCurveTL -n "FKShoulder_R_translateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 8 0;
+createNode animCurveTL -n "FKShoulder_R_translateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 8 0;
+createNode animCurveTL -n "FKShoulder_R_translateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 8 0;
+createNode animCurveTA -n "FKShoulder_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 23 ".ktv[0:22]"  1 -7.4661355427386153 8 -5.074015268423401
+		 22 18.464427602655544 29 23.375892352192736 37 11.084612997165804 45 26.057492226640896
+		 50 12.17775739846922 54 11.269216901547741 57 35.431417380673849 63 86.429187195732311
+		 68 87.140552540650333 69 87.140552540650333 72 97.278572822919656 76 54.585031133885614
+		 79 47.876632669833313 82 67.118615284139864 85 74.972578593389784 89 74.614076769588252
+		 90 79.507771076320495 96 69.736229990366198 102 66.688964683224725 105 54.671844635538058
+		 109 57.3341542275775;
+	setAttr -s 23 ".kit[1:22]"  1 1 1 1 18 18 18 18 
+		18 18 18 18 18 18 18 1 3 1 18 18 18 18;
+	setAttr -s 23 ".kot[1:22]"  1 1 1 1 18 18 18 18 
+		18 18 18 1 18 18 18 1 1 1 18 18 18 18;
+	setAttr -s 23 ".ktl[2:22]" no yes no yes yes yes yes yes yes yes yes 
+		yes yes yes yes no no yes yes yes yes;
+	setAttr -s 23 ".kwl[1:22]" no no no no yes yes yes yes yes yes yes 
+		yes yes yes yes yes no no yes yes yes yes;
+	setAttr -s 23 ".kix[1:22]"  0.33115321397781372 0.54166662693023682 
+		0.40158846974372864 0.10354992747306824 0.33333337306976318 0.20833325386047363 0.16666674613952637 
+		0.125 0.25 0.20833325386047363 0.041666746139526367 0.125 0.16666674613952637 0.125 
+		0.125 0.16666674613952637 0.16666650772094727 0.040403366088867188 0.25 0.25 0.125 
+		0.16666650772094727;
+	setAttr -s 23 ".kiy[1:22]"  0.13153240084648132 0 0 0 0 -0.059463784098625183 
+		0 0.43726298213005066 0.044696420431137085 0 0 0 -0.46833479404449463 0 0.2364567369222641 
+		0 0 0 -0.11186518520116806 -0.15955443680286407 0 0;
+	setAttr -s 23 ".kox[1:22]"  0.63067799806594849 0.45374980568885803 
+		0.44325503706932068 0.4211808443069458 0.20833325386047363 0.16666674613952637 0.125 
+		0.25 0.20833325386047363 0.041666746139526367 0.125 0.25755977630615234 0.125 0.125 
+		0.125 0.13434362411499023 0.08660571277141571 0.40976369380950928 0.25 0.125 0.16666650772094727 
+		0.16666650772094727;
+	setAttr -s 23 ".koy[1:22]"  0.25050222873687744 0 0 0 0 -0.047571070492267609 
+		0 0.87452596426010132 0.037247002124786377 0 0 -0.50175660848617554 -0.35125091671943665 
+		0 0.2364567369222641 0 0 0 -0.11186518520116806 -0.079777218401432037 0 0;
+createNode animCurveTA -n "FKShoulder_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 22 ".ktv[0:21]"  1 65.182192248656662 8 64.794630239062883
+		 22 48.950014105491604 29 47.694156441771383 37 51.995255512307061 45 47.160556988429953
+		 50 51.380109392279046 54 51.386122965029742 57 48.513643961216758 63 -40.400090477797576
+		 68 -89.323845543053636 70 -89.323845543053636 72 -51.862501632880608 76 57.20146789257312
+		 79 49.225171387833349 82 46.769135355778403 85 40.039734796380046 89 47.306734318688818
+		 96 51.468302721623211 101 51.468302721623211 105 48.580121210843906 109 48.298580689746743;
+	setAttr -s 22 ".kit[2:21]"  3 1 1 18 18 18 18 1 
+		1 18 1 18 18 18 1 18 18 18 18 18;
+	setAttr -s 22 ".kot[2:21]"  3 1 1 18 18 18 18 1 
+		18 18 1 18 18 18 1 18 18 18 18 18;
+	setAttr -s 22 ".ktl[4:21]" no yes yes yes yes yes no yes yes yes yes 
+		yes yes yes yes yes yes yes;
+	setAttr -s 22 ".kwl[1:21]" no yes no no yes yes yes yes yes no yes 
+		yes yes yes yes yes yes yes yes yes yes;
+	setAttr -s 22 ".kix[3:21]"  0.40158846974372864 0.10354992747306824 
+		0.33333337306976318 0.20833325386047363 0.16666674613952637 0.125 0.2185341864824295 
+		0.37984767556190491 0.083333492279052734 0.10566331446170807 0.16666674613952637 
+		0.125 0.125 0.16666674613952637 0.16666650772094727 0.29166674613952637 0.20833349227905273 
+		0.16666650772094727 0.16666650772094727;
+	setAttr -s 22 ".kiy[3:21]"  0 0 0 0.00039358707726933062 0 -0.15040265023708344 
+		-1.740297794342041 0 0 1.4355127811431885 0 -0.091039277613162994 -0.080158054828643799 
+		0 0.072533085942268372 0 0 -0.014741427265107632 0;
+	setAttr -s 22 ".kox[3:21]"  0.44325503706932068 0.4211808443069458 
+		0.20833325386047363 0.16666674613952637 0.125 0.25 0.18463395535945892 0.083333492279052734 
+		0.083333253860473633 0.13683456182479858 0.125 0.125 0.125 0.16666674613952637 0.29166674613952637 
+		0.20833349227905273 0.16666650772094727 0.16666650772094727 0.16666650772094727;
+	setAttr -s 22 ".koy[3:21]"  0 0 0 0.00031486994703300297 0 -0.30080530047416687 
+		-1.4703330993652344 0 0 1.8589966297149658 0 -0.091039277613162994 -0.080158054828643799 
+		0 0.12693305313587189 0 0 -0.014741427265107632 0;
+createNode animCurveTA -n "FKShoulder_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 22 ".ktv[0:21]"  1 -26.550281039721511 8 -25.94428219151726
+		 22 -16.911585608418321 29 -12.68046226006431 37 -27.791757167737792 45 -10.265571565873881
+		 50 -21.528899154882392 54 -22.570223477526007 57 -1.6635989445183523 63 -24.641391739381969
+		 68 -9.1419790590322592 69 -7.5433989382898794 72 9.889444216802735 76 20.931972965607393
+		 79 9.5694814096387706 81 9.1096893950797408 85 -16.239321451299908 89 -7.7150346850394156
+		 96 -14.22021263611707 101 -12.420307475162341 105 -15.979683331842935 109 -13.631880835088825;
+	setAttr -s 22 ".kit[2:21]"  1 1 1 18 18 18 1 18 
+		1 1 1 1 18 1 1 18 18 18 18 18;
+	setAttr -s 22 ".kot[2:21]"  1 1 1 18 18 18 1 18 
+		1 1 1 1 18 1 1 18 18 18 18 18;
+	setAttr -s 22 ".ktl[4:21]" no yes yes yes yes yes no no yes yes yes 
+		no yes yes yes yes yes yes;
+	setAttr -s 22 ".kwl[1:21]" no yes no no yes yes yes no yes no no yes 
+		yes yes no yes yes yes yes yes yes;
+	setAttr -s 22 ".kix[2:21]"  0.54166662693023682 0.40158846974372864 
+		0.10354992747306824 0.33333337306976318 0.20833325386047363 0.16666674613952637 0.28726249933242798 
+		0.25 0.34762907028198242 0.055226560682058334 0.21019504964351654 0.20190702378749847 
+		0.125 0.26138255000114441 0.16666674613952637 0.16666650772094727 0.29166674613952637 
+		0.20833349227905273 0.16666650772094727 0.16666650772094727;
+	setAttr -s 22 ".kiy[2:21]"  0 0 0 0 -0.068154461681842804 0 0 0 0.15444374084472656 
+		0.05247381329536438 0 -0.014263032004237175 -0.036112014204263687 -0.0066902786493301392 
+		0 0 0 0 0 0;
+	setAttr -s 22 ".kox[2:21]"  0.54166662693023682 0.44325503706932068 
+		0.4211808443069458 0.20833325386047363 0.16666674613952637 0.125 0.24559600651264191 
+		0.20833325386047363 0.061273612082004547 0.14144392311573029 0.35535082221031189 
+		0.28867077827453613 0.083333253860473633 0.23945310711860657 0.16666674613952637 
+		0.29166674613952637 0.20833349227905273 0.16666650772094727 0.16666650772094727 0.16666650772094727;
+	setAttr -s 22 ".koy[2:21]"  0 0 0 0 -0.054523613303899765 0 0 0 0.012130375020205975 
+		0.13439366221427917 0 -0.020392203703522682 -0.024074653163552284 -0.006128998938947916 
+		0 0 0 0 0 0;
+createNode animCurveTA -n "FKElbow_R_rotateZ";
+	setAttr ".tan" 1;
+	setAttr -s 23 ".ktv[0:22]"  1 45.925412768410169 11 25.275212846798311
+		 16 21.13709937926135 23 27.438597084130897 27 24.837457806137849 31 34.018931994084049
+		 35 28.788737017807929 38 15.605250464553095 46 53.029403337161519 51 39.542087507830118
+		 55 76.772444570331544 61 49.77735785307253 67 14.577606927614958 70 21.651489355555153
+		 73 45.213190674801801 78 7.5936077470842989 83 11.961107855782938 86 3.9731723536938879
+		 90 9.722065328682195 97 0.063925130701893082 102 9.8012284222765551 106 4.6080007779905729
+		 110 9.8012284222766954;
+	setAttr -s 23 ".kit[2:22]"  3 1 1 1 1 1 1 1 
+		1 1 1 1 1 18 1 1 1 1 1 1 18;
+	setAttr -s 23 ".kot[9:22]"  18 1 1 1 1 1 18 1 
+		1 1 1 1 1 18;
+	setAttr -s 23 ".ktl[0:22]" no yes no no yes yes yes no no yes yes yes 
+		yes yes yes yes yes yes yes yes yes yes yes;
+	setAttr -s 23 ".kwl[0:22]" no yes no no no yes yes no no yes no yes 
+		yes yes no yes no no no no no no yes;
+	setAttr -s 23 ".kix[0:22]"  0.875 0.35410469770431519 0.2083333432674408 
+		0.2492775171995163 0.17270483076572418 0.22676968574523926 0.15754437446594238 0.06787419319152832 
+		0.41860514879226685 0.16666662693023682 0.29380694031715393 0.17249312996864319 0.25 
+		0.12577342987060547 0.14258122444152832 0.20833325386047363 0.25662833452224731 0.24907785654067993 
+		0.3105681836605072 0.44511505961418152 0.34479182958602905 0.27029210329055786 0.16666698455810547;
+	setAttr -s 23 ".kiy[0:22]"  0 -0.24951601028442383 0 0 0 0 -0.23442903161048889 
+		0 0 0 0 -0.61486291885375977 0 0.4214758574962616 0 0 0 0 0 0 0 0 0;
+	setAttr -s 23 ".kox[0:22]"  0.88144659996032715 0.20206509530544281 
+		0.40509867668151855 0.23642617464065552 0.17270477116107941 0.16221499443054199 0.1661914587020874 
+		0.48538148403167725 0.42849874496459961 0.16666674613952637 0.37714019417762756 0.1724931001663208 
+		0.13176226615905762 0.11286377906799316 0.25980484485626221 0.20833325386047363 0.17329508066177368 
+		0.2907446026802063 0.4355679452419281 0.36178207397460938 0.30312484502792358 0.27029258012771606 
+		0.16666698455810547;
+	setAttr -s 23 ".koy[0:22]"  0 -0.14238296449184418 0 0 0 0 -0.24729615449905396 
+		0 0 0 0 -0.61486291885375977 0 0.37821465730667114 0 0 0 0 0 0 0 0 0;
+createNode animCurveTA -n "FKElbow_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 51.704 22 21.142951570804158;
+createNode animCurveTA -n "FKWrist_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 8 ".ktv[0:7]"  1 18.103 15 21.126487966007584 22 21.555551469014247
+		 60 21.555551469014247 68 42.99694113318639 75 42.99694113318639 79 20.646390246584517
+		 87 3.7479075325085267;
+	setAttr -s 8 ".kit[3:7]"  1 18 18 18 18;
+	setAttr -s 8 ".kix[3:7]"  1.5833332538604736 0.33333325386047363 
+		0.29166674613952637 0.16666674613952637 0.33333325386047363;
+	setAttr -s 8 ".kiy[3:7]"  0 0 0 -0.2283417284488678 0;
+createNode animCurveTA -n "FKWrist_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 10 ".ktv[0:9]"  1 -3.046 15 -4.325137059386968 22 -4.6980330135387627
+		 60 -4.6980330135387627 64 45.373183931578602 68 -31.074233073743407 73 -29.642488956220213
+		 75 -18.354001355591354 79 42.082345222896222 87 46.666948073034206;
+	setAttr -s 10 ".kit[4:9]"  1 1 18 18 18 18;
+	setAttr -s 10 ".kix[4:9]"  0.16666674613952637 0.16666650772094727 
+		0.20833349227905273 0.083333253860473633 0.16666674613952637 0.33333325386047363;
+	setAttr -s 10 ".kiy[4:9]"  0 0 0.0749659463763237 0.41727778315544128 
+		0.12002471089363098 0;
+createNode animCurveTA -n "FKWrist_R_rotateZ";
+	setAttr ".tan" 1;
+	setAttr -s 23 ".ktv[0:22]"  1 -9.369 9 -9.4370623868025447 15 -9.8987484754881887
+		 19 -7.1456135756266361 22 0.83031514377708593 30 7.6064727023075385 35 3.0530838992743226
+		 39 -7.6050459640414374 44 -9.3637774676192009 47 4.2890517059364264 52 -1.0671752850042751
+		 56 5.4732326589373566 60 -5.3693591239629352 62 22.823283811568096 68 -12.099540980616119
+		 75 21.070166498821866 79 -15.692745811258305 84 -9.6541904884089202 87 -26.140661869862264
+		 91 -20.303522791097134 98 -26.829512892477066 103 -21.789301696329435 107 -25.076395954686582;
+	setAttr -s 23 ".kit[1:22]"  18 1 1 1 1 1 18 18 
+		1 1 18 1 1 1 18 1 1 1 1 1 1 18;
+	setAttr -s 23 ".kot[1:22]"  18 1 1 1 1 1 18 18 
+		1 18 18 1 18 18 18 18 1 18 1 1 1 18;
+	setAttr -s 23 ".ktl[4:22]" no yes yes no yes yes yes yes no yes yes 
+		yes yes yes yes no no yes yes;
+	setAttr -s 23 ".kwl[4:22]" no yes yes no yes yes yes yes no yes yes 
+		yes yes no yes no no no yes;
+	setAttr -s 23 ".kix[0:22]"  0.58333331346511841 0.3333333432674408 
+		0.24999994039535522 0.16666674613952637 0.17155714333057404 0.33333331346511841 0.18956826627254486 
+		0.16666662693023682 0.20833337306976318 0.16107308864593506 0.20833337306976318 0.16666650772094727 
+		0.12988288700580597 0.083333253860473633 0.25 0.29166674613952637 0.21343784034252167 
+		0.35719093680381775 0.125 0.16666674613952637 0.20455117523670197 0.29155150055885315 
+		0.16666698455810547;
+	setAttr -s 23 ".kiy[0:22]"  0 -0.0035637381952255964 0 0.11917126178741455 
+		0 0 -0.19800193607807159 -0.073669537901878357 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 23 ".kox[0:22]"  0.33333331346511841 0.25 0.16666674613952637 
+		0.12500005960464478 0.34463998675346375 0.20833325386047363 0.14852578938007355 0.20833337306976318 
+		0.125 0.20833337306976318 0.16666650772094727 0.16666674613952637 0.15904998779296875 
+		0.25 0.29166674613952637 0.16666674613952637 0.20833325386047363 0.27385765314102173 
+		0.16666674613952637 0.52565586566925049 0.32802325487136841 0.24988554418087006 0.16666698455810547;
+	setAttr -s 23 ".koy[0:22]"  0 -0.0026728035882115364 0 0.089378446340560913 
+		0 0 -0.15513335168361664 -0.092086963355541229 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+createNode animCurveTL -n "FKScapula_R_translateX1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 7 0;
+createNode animCurveTL -n "FKScapula_R_translateY1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0.058 7 0.058;
+createNode animCurveTL -n "FKScapula_R_translateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 18 ".ktv[0:17]"  1 -0.047 7 -0.092953387795145018 13 -0.099503537237302944
+		 23 -0.072235742782928353 30 -0.052508542256513406 37 -0.11528050330498514 44 -0.071556339556331533
+		 50 -0.098546558452512936 59 -0.066786152732409065 64 -0.088653973064283825 69 -0.0087322962623090829
+		 77 -0.057653734388130248 81 -0.030662596111815158 87 -0.064401518957209039 92 -0.031506070717076028
+		 97 -0.050062477416638197 104 -0.034036489812470844 115 -0.050062477416638204;
+	setAttr -s 18 ".kit[0:17]"  18 18 1 1 1 1 1 1 
+		1 1 1 1 1 1 1 1 1 18;
+	setAttr -s 18 ".kot[0:17]"  18 18 18 3 1 1 18 1 
+		1 1 1 1 1 1 1 18 1 18;
+	setAttr -s 18 ".ktl[4:17]" no no yes no yes no yes no no no yes yes 
+		yes yes;
+	setAttr -s 18 ".kwl[4:17]" no no yes no no no no no no no no yes no 
+		yes;
+	setAttr -s 18 ".kix[2:17]"  0.25000002980232239 0.41666662693023682 
+		0.29166668653488159 0.16952435672283173 0.29166674613952637 0.21207790076732635 0.49074321985244751 
+		0.20833349227905273 0.42849928140640259 0.22005048394203186 0.16666674613952637 0.16521137952804565 
+		0.33683291077613831 0.20833325386047363 0.62924981117248535 0.45833301544189453;
+	setAttr -s 18 ".kiy[2:17]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 18 ".kox[4:17]"  0.52216780185699463 0.47588390111923218 
+		0.24999988079071045 0.45151561498641968 0.32407671213150024 0.53210890293121338 0.55349928140640259 
+		0.33467084169387817 0.40775033831596375 0.40243834257125854 0.33683291077613831 0.29166698455810547 
+		0.79591584205627441 0.45833301544189453;
+	setAttr -s 18 ".koy[4:17]"  0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+createNode animCurveTA -n "FKScapula_R_rotateX1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 7 0;
+createNode animCurveTA -n "FKScapula_R_rotateY1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 7 0;
+createNode animCurveTA -n "FKScapula_R_rotateZ1";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 7 0;
+createNode animCurveTL -n "FKNeck_M_translateX1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  65 0;
+createNode animCurveTL -n "FKNeck_M_translateY1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  65 0;
+createNode animCurveTL -n "FKNeck_M_translateZ1";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  65 -0.043;
+createNode animCurveTA -n "FKNeck_M_rotateX1";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  65 0 69 -20.295735456614878 75 -6.3899994789315242;
+createNode animCurveTA -n "FKNeck_M_rotateY1";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  65 22.511 69 9.9505137262133623 75 43.586208335321523;
+createNode animCurveTA -n "FKNeck_M_rotateZ1";
+	setAttr ".tan" 1;
+	setAttr -s 3 ".ktv[0:2]"  65 0 69 -71.136502730369202 75 16.629062011001807;
+	setAttr -s 3 ".kit[0:2]"  18 1 18;
+	setAttr -s 3 ".kot[2]"  18;
+	setAttr -s 3 ".ktl[0:2]" no yes yes;
+	setAttr -s 3 ".kwl[0:2]" no no yes;
+	setAttr -s 3 ".kix[1:2]"  0.3662276566028595 0.25;
+	setAttr -s 3 ".kiy[1:2]"  0 0;
+	setAttr -s 3 ".kox[0:2]"  0.23479627072811127 0.44956091046333313 
+		0.25;
+	setAttr -s 3 ".koy[0:2]"  0 0 0;
+createNode cameraView -n "Emily_Magic";
+	setAttr ".e" -type "double3" -4.2224907855929308 1.8213575688145531 15.646697177677515 ;
+	setAttr ".coi" -type "double3" 61.645779309374824 1.8213575688145531 223.28979352686738 ;
+	setAttr ".tp" -type "double3" 2.1818216826125045 7.078054131927459 111.62737097227995 ;
+	setAttr ".ha" 1.41732;
+	setAttr ".ow" 30;
+	setAttr ".pze" yes;
+	setAttr ".hpn" -0.06007187506789162;
+	setAttr ".vpn" 0.027105602164771234;
+	setAttr ".zom" 0.43895008884020836;
+	setAttr ".typ" 1;
+createNode displayLayer -n "Dress";
+	setAttr ".dt" 2;
+	setAttr ".do" 2;
+createNode animCurveTL -n "FKScapula_L_translateZ1";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0.094 9 0.14874703625089028 23 0.067199205879484275
+		 40 0.13804501456268026;
+	setAttr -s 4 ".kit[2:3]"  1 18;
+	setAttr -s 4 ".kix[2:3]"  0.58333331346511841 0.70833331346511841;
+	setAttr -s 4 ".kiy[2:3]"  0 0;
+createNode animCurveTA -n "FKWrist_L_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  71 0;
+createNode animCurveTA -n "FKWrist_L_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  71 0;
+createNode animCurveTA -n "FKWrist_L_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 7 ".ktv[0:6]"  71 0 78 -13.320000461975891 82 24.224513136951852
+		 89 -11.055487150619228 93 29.624513091049089 96 21.72744296680413 99 -10.277446572961541;
+	setAttr -s 7 ".kit[4:6]"  1 1 1;
+	setAttr -s 7 ".kot[4:6]"  1 1 1;
+	setAttr -s 7 ".kix[4:6]"  0.16666674613952637 0.1250002384185791 
+		0.1249995231628418;
+	setAttr -s 7 ".kiy[4:6]"  0 -0.52231544256210327 0;
+	setAttr -s 7 ".kox[4:6]"  0.1250002384185791 0.1249995231628418 0.25;
+	setAttr -s 7 ".koy[4:6]"  0 -0.52231544256210327 0;
+createNode animCurveTA -n "FKHip_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 10 ".ktv[0:9]"  1 1.4139999999999995 9 -1.3602875925968578
+		 21 -0.4603923468184653 26 -0.4603923468184653 37 -10.973127519550269 41 -0.4603923468184653
+		 56 5.5286606214744856 60 4.5987871987564919 76 -2.2783306125062479 101 10.060428188197694;
+createNode animCurveTA -n "FKHip_R_rotateY";
+	setAttr ".tan" 1;
+	setAttr -s 12 ".ktv[0:11]"  1 -36.631999999999991 9 -31.664520799651623
+		 16 -33.497091452353537 21 -36.053113784586891 26 -36.053113784586891 37 -26.76317561892434
+		 41 -36.053113784586891 48 -37.659007708872124 56 -49.419973620467985 60 -46.141489251632493
+		 76 -33.043517005459307 101 -35.765950079688736;
+	setAttr -s 12 ".kit[0:11]"  18 1 1 1 18 18 1 1 
+		1 18 18 18;
+	setAttr -s 12 ".kot[0:11]"  18 1 1 1 18 18 1 1 
+		1 18 18 18;
+	setAttr -s 12 ".kwl[1:11]" no yes yes yes yes yes yes yes yes yes yes;
+	setAttr -s 12 ".kix[1:11]"  0.49022874236106873 0.24905991554260254 
+		0.22588902711868286 0.20833337306976318 0.45833325386047363 0.20923449099063873 0.27054619789123535 
+		0.34646916389465332 0.16666674613952637 0.66666674613952637 1.0416667461395264;
+	setAttr -s 12 ".kiy[1:11]"  0 -0.062400992959737778 0 0 0 -0.015572872944176197 
+		-0.14964276552200317 0 0.057164635509252548 0 0;
+	setAttr -s 12 ".kox[1:11]"  0.36012455821037292 0.20524495840072632 
+		0.5 0.45833325386047363 0.16666674613952637 0.32127642631530762 0.33653712272644043 
+		0.16666674613952637 0.66666674613952637 1.0416667461395264 1.0416667461395264;
+	setAttr -s 12 ".koy[1:11]"  0 -0.051423374563455582 0 0 0 -0.023911828175187111 
+		-0.18614351749420166 0 0.22865845263004303 0 0;
+createNode animCurveTA -n "FKHip_R_rotateZ";
+	setAttr ".tan" 1;
+	setAttr -s 20 ".ktv[0:19]"  1 22.520215579899869 9 29.166426239084135
+		 16 22.449783993964733 21 11.618728511323813 26 4.8005498610630122 37 20.697511653766554
+		 41 24.346155321649626 47 13.337431327019926 52 16.352547571579414 56 3.3425889395753017
+		 60 21.4944482202079 69 9.4091417226470284 76 27.723056679965978 84 19.532300566111264
+		 89 26.008700858436288 96 16.534627419538428 101 35.740022380830986 102 36.407662686303304
+		 107 20.705304361236337 114 26.338009021447796;
+	setAttr -s 20 ".kit[0:19]"  18 1 1 1 18 18 18 3 
+		3 1 1 1 1 18 1 1 18 1 18 18;
+	setAttr -s 20 ".kot[0:19]"  18 1 1 1 1 18 18 3 
+		3 1 1 1 1 18 1 1 18 1 18 18;
+	setAttr -s 20 ".ktl[1:19]" no yes yes no yes yes yes yes yes yes yes 
+		yes yes yes yes yes yes yes yes;
+	setAttr -s 20 ".kwl[1:19]" no yes no no yes yes yes yes no no no no 
+		yes no no yes no yes yes;
+	setAttr -s 20 ".kix[1:19]"  0.53207999467849731 0.21123504638671875 
+		0.23403418064117432 0.20833337306976318 0.45833325386047363 0.16666674613952637 0.25 
+		0.20833337306976318 0.3288198709487915 0.29595190286636353 0.52705913782119751 0.55439472198486328 
+		0.33333325386047363 0.37338310480117798 0.41828629374504089 0.20833349227905273 0.46242469549179077 
+		0.20833349227905273 0.29166650772094727;
+	setAttr -s 20 ".kiy[1:19]"  0 -0.23163945972919464 0 0 0.25016576051712036 
+		0 0 0 0 0 0 0 0 0 0 0.17478862404823303 0 0 0;
+	setAttr -s 20 ".kox[1:19]"  0.41300565004348755 0.20766520500183105 
+		0.4861646294593811 0.83228796720504761 0.16666674613952637 0.25 0.20833337306976318 
+		0.16666650772094727 0.3288198709487915 0.50428515672683716 0.44372591376304626 0.59606122970581055 
+		0.20833325386047363 0.45671659708023071 0.37661954760551453 0.041666507720947266 
+		0.42075818777084351 0.29166650772094727 0.29166650772094727;
+	setAttr -s 20 ".koy[1:19]"  0 -0.22772477567195892 0 0 0.090969420969486237 
+		0 0 0 0 0 0 0 0 0 0 0.034957565367221832 0 0 0;
+createNode animCurveTU -n "FKHip_R_Global";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 10 26 10 41 10;
+createNode animCurveTA -n "FKKnee_R_rotateZ";
+	setAttr ".tan" 1;
+	setAttr -s 21 ".ktv[0:20]"  1 -58.616 10 -51.969789340815737 22 -53.475887536355529
+		 25 -55.702991398956357 27 -61.029521658927507 38 -37.357338853312555 44 -56.953956365524682
+		 48 -60.553955518627724 53 -38.853131062977212 57 -51.64156462598055 61 -48.548123360368301
+		 65 -52.379333238137598 70 -41.12199804305564 75 -30.850713271049063 85 -46.076212535584745
+		 91 -39.599812243259699 97 -49.073885682157574 102 -45.39619319906889 103 -44.728552893596564
+		 108 -60.430911218663539 115 -54.798206558452087;
+	setAttr -s 21 ".kit[0:20]"  18 1 1 1 1 18 18 3 
+		1 1 1 3 1 1 1 1 1 18 1 1 18;
+	setAttr -s 21 ".kot[0:20]"  18 1 1 1 1 18 18 3 
+		1 1 1 3 1 1 1 1 1 18 1 18 18;
+	setAttr -s 21 ".ktl[1:20]" no no yes no yes yes yes yes yes yes yes 
+		no yes no yes yes yes no no yes;
+	setAttr -s 21 ".kwl[1:20]" no no yes no yes yes yes no no no yes no 
+		no no no no yes no no yes;
+	setAttr -s 21 ".kix[1:20]"  0.53207999467849731 0.52752894163131714 
+		0.069960951805114746 0.1230010986328125 0.45833337306976318 0.25 0.16666662693023682 
+		0.28606367111206055 0.3288198709487915 0.29595190286636353 0.16666650772094727 0.19021967053413391 
+		0.42591261863708496 0.58456063270568848 0.3385920524597168 0.39047423005104065 0.20833349227905273 
+		0.46242469549179077 0.29197031259536743 0.29166650772094727;
+	setAttr -s 21 ".kiy[1:20]"  0 0 -0.10425015538930893 0 0 -0.24291442334651947 
+		0 0 0 0 0 0.43469810485839844 0 0 0 0 0.06320035457611084 0 0 0;
+	setAttr -s 21 ".kox[1:20]"  0.87050831317901611 0.19913077354431152 
+		0.10084390640258789 0.83228796720504761 0.25 0.16666662693023682 0.20833325386047363 
+		0.24439713358879089 0.3288198709487915 0.22240090370178223 0.20833349227905273 0.13290473818778992 
+		0.6342461109161377 0.34942427277565002 0.42192554473876953 0.34880748391151428 0.041666507720947266 
+		0.3580305278301239 0.29166650772094727 0.29166650772094727;
+	setAttr -s 21 ".koy[1:20]"  0 0 -0.15026965737342834 0 0 -0.16194291412830353 
+		0 0 0 0 0 0.30371949076652527 0 0 0 0 0.012640012428164482 0 0 0;
+createNode animCurveTA -n "FKAnkle_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 -37.361 60 -37.361 68 -24.254529793429132
+		 73 -9.0940494652904089;
+createNode animCurveTA -n "FKAnkle_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 -1.8430000000000002 60 -1.8430000000000002
+		 68 -20.119808816426541 73 42.706118781724506;
+createNode animCurveTA -n "FKAnkle_R_rotateZ";
+	setAttr ".tan" 1;
+	setAttr -s 21 ".ktv[0:20]"  1 -12.417999999999996 12 0.088021743772524558
+		 24 -35.696914892997221 27 -39.887605010957508 29 -49.910414498347045 40 1.7231602657375202
+		 46 -61.148644500988553 50 -67.922680112401906 55 5.9701960839415626 59 -59.905660579202468
+		 63 -26.424454374774136 68 -45.701673290417077 73 -22.731682961705513 78 15.658717475434484
+		 86 -50.501861102412889 93 -4.3953539035085774 99 -48.346307184326996 104 -20.493539880273151
+		 105 -19.237256472265663 110 -67.874497601797046 117 -38.185092185375311;
+	setAttr -s 21 ".kit[0:20]"  18 1 1 1 1 1 18 3 
+		1 1 1 3 1 1 1 1 1 18 1 1 18;
+	setAttr -s 21 ".kot[0:20]"  18 1 1 1 1 1 18 3 
+		1 1 1 3 1 1 1 1 1 18 1 18 18;
+	setAttr -s 21 ".ktl[1:20]" no no yes no no yes yes yes yes yes yes 
+		yes no no yes yes yes no no yes;
+	setAttr -s 21 ".kwl[1:20]" no no yes no no yes yes no no no yes yes 
+		no no no no yes no no yes;
+	setAttr -s 21 ".kix[1:20]"  0.53207999467849731 0.52752894163131714 
+		0.069960951805114746 0.1230010986328125 0.70527070760726929 0.25 0.16666662693023682 
+		0.28606367111206055 0.3288198709487915 0.29595190286636353 0.20833325386047363 0.1742592453956604 
+		0.29773306846618652 0.58456063270568848 0.3385920524597168 0.39047423005104065 0.20833349227905273 
+		0.46242469549179077 0.29197031259536743 0.29166650772094727;
+	setAttr -s 21 ".kiy[1:20]"  0 0 -0.19616511464118958 0 0 -0.53203165531158447 
+		0 0 0 0 0 0.53846919536590576 0 0 0 0 0.32889571785926819 0 0 0;
+	setAttr -s 21 ".kox[1:20]"  0.87050831317901611 0.19913077354431152 
+		0.10084390640258789 0.83228796720504761 0.40166410803794861 0.16666662693023682 0.20833349227905273 
+		0.24439713358879089 0.3288198709487915 0.22240090370178223 0.20833349227905273 0.13985447585582733 
+		0.6342461109161377 0.34942427277565002 0.42192554473876953 0.34880748391151428 0.041666507720947266 
+		0.3580305278301239 0.29166650772094727 0.29166650772094727;
+	setAttr -s 21 ".koy[1:20]"  0 0 -0.28275895118713379 0 0 -0.35468766093254089 
+		0 0 0 0 0 0.43215683102607727 0 0 0 0 0.065778844058513641 0 0 0;
+createNode cameraView -n "Finger_close_up";
+	setAttr ".e" -type "double3" -6.523 3.299 -14.15 ;
+	setAttr ".coi" -type "double3" -2.5451786394252007 3.299 -1.6103182557727269 ;
+	setAttr ".tp" -type "double3" 2.9485393713278594 1.8195582500813863 21.419388877629537 ;
+	setAttr ".ha" 1.41732;
+	setAttr ".ow" 30;
+	setAttr ".pze" yes;
+	setAttr ".hpn" -0.27621466134026601;
+	setAttr ".vpn" -0.087450074559592611;
+	setAttr ".zom" 0.25215346435174518;
+	setAttr ".typ" 1;
+createNode animCurveTA -n "FKPinkyFinger1_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 9.5011939781642401 5 9.5011939781642401
+		 14 9.5011939781642401 51 9.5011939781642401;
+createNode animCurveTA -n "FKPinkyFinger1_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 16 ".ktv[0:15]"  1 45.152973046217625 5 45.152973046217625
+		 10 43.70400104385493 14 43.70400104385493 22 71.283540432681008 30 101.55095716483434
+		 38 59.316853473572721 43 71.069626773093759 51 71.069626773093759 56 94.442139100101613
+		 63 64.922138240600603 64 46.202138326526061 65 46.202138326526061 69 86.298887250065945
+		 73 86.298887250065945 74 112.39734540197533;
+createNode animCurveTA -n "FKPinkyFinger1_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 9.5827987068872407 5 9.5827987068872407
+		 14 9.5827987068872407 51 9.5827987068872407;
+createNode animCurveTA -n "FKRingFinger1_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 51 0;
+createNode animCurveTA -n "FKRingFinger1_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 11 ".ktv[0:10]"  1 58.394754678611008 14 58.394754678611008
+		 22 92.822669655054156 38 61.502668942200998 43 73.255442241722051 51 73.255442241722051
+		 56 96.627954568729933 63 67.107953709228937 64 48.387953795154388 65 48.387953795154388
+		 69 67.827953514386948;
+createNode animCurveTA -n "FKRingFinger1_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 51 0;
+createNode animCurveTA -n "FKMiddleFinger1_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 -11.978542092709921 14 -11.978542092709921
+		 51 -11.978542092709921;
+createNode animCurveTA -n "FKMiddleFinger1_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 11 ".ktv[0:10]"  1 59.159320142815716 14 59.159320142815716
+		 22 93.587235119258864 38 62.267234406405713 43 74.020007705926758 51 74.020007705926758
+		 56 97.392520032934613 63 67.872519173433602 64 49.15251925935906 65 49.15251925935906
+		 69 68.592518978591613;
+createNode animCurveTA -n "FKMiddleFinger1_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 -7.27778823131018 14 -7.27778823131018
+		 51 -7.27778823131018;
+createNode animCurveTA -n "FKIndexFinger1_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 -5.9430194241979928 14 -5.9430194241979928
+		 51 -5.9430194241979928;
+createNode animCurveTA -n "FKIndexFinger1_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 13 ".ktv[0:12]"  1 17.500006046252018 14 17.500006046252018
+		 22 29.896766590474432 38 30.445947732747928 43 42.198721032268963 51 42.198721032268963
+		 56 26.657037984100942 60 26.657037984100942 63 -2.8629628754000658 64 -21.582962789474614
+		 65 -21.582962789474614 66 -6.8270949359953335 73 -8.1367872866545472;
+createNode animCurveTA -n "FKIndexFinger1_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 -19.278442614636067 14 -19.278442614636067
+		 51 -19.278442614636067;
+createNode animCurveTA -n "FKIndexFinger2_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKIndexFinger2_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 77.236000551042338 14 77.236000551042338
+		 73 105.58053659506336 74 142.92071144046071;
+createNode animCurveTA -n "FKIndexFinger2_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKMiddleFinger2_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKMiddleFinger2_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 40.68000002804618 14 40.68000002804618
+		 73 40.68000002804618 74 78.02017487344358;
+createNode animCurveTA -n "FKMiddleFinger2_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKRingFinger2_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKRingFinger2_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 40.68000002804618 14 40.68000002804618
+		 73 40.68000002804618 74 78.02017487344358;
+createNode animCurveTA -n "FKRingFinger2_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 3 ".ktv[0:2]"  1 0 14 0 73 0;
+createNode animCurveTA -n "FKPinkyFinger2_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 14 0 52 0 73 0;
+createNode animCurveTA -n "FKPinkyFinger2_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 6 ".ktv[0:5]"  1 40.68000002804618 14 40.68000002804618
+		 52 40.68000002804618 56 55.491714471195237 73 55.491714471195237 74 92.831889316592637;
+createNode animCurveTA -n "FKPinkyFinger2_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 14 0 52 0 73 0;
+createNode animCurveTA -n "FKPinkyFinger3_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKPinkyFinger3_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKPinkyFinger3_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKRingFinger3_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKRingFinger3_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 31.276601235500809 14 31.276601235500809;
+createNode animCurveTA -n "FKRingFinger3_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKMiddleFinger3_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKMiddleFinger3_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 31.276601235500809 14 31.276601235500809;
+createNode animCurveTA -n "FKMiddleFinger3_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  1 0 14 0;
+createNode animCurveTA -n "FKIndexFinger3_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "FKIndexFinger3_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 25.919999347797241;
+createNode animCurveTA -n "FKIndexFinger3_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "FKThumbFinger1_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 74 0 77 -17.064193230975363 79 -20.657113678702558;
+createNode animCurveTA -n "FKThumbFinger1_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 5 ".ktv[0:4]"  1 9.4633062904078891 74 9.4633062904078891
+		 75 26.181748085411261 77 26.661468842623044 79 9.3850967552392515;
+createNode animCurveTA -n "FKThumbFinger1_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 -5.867890912948921 74 -5.867890912948921
+		 77 2.6787181280866386 79 -4.4743247884223498;
+createNode animCurveTA -n "FKThumbFinger2_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 74 0 77 -18.313656163192711 79 -20.49458240876691;
+createNode animCurveTA -n "FKThumbFinger2_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 74 0 75 16.718441795003404 77 15.848732196628628
+		 79 -1.5428555093986798;
+createNode animCurveTA -n "FKThumbFinger2_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 74 0 77 5.3916269803074757 79 -2.3096277295335077;
+createNode animCurveTA -n "FKThumbFinger3_R_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 74 0 77 -18.313656163192711 79 -20.49458240876691;
+createNode animCurveTA -n "FKThumbFinger3_R_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 74 0 75 16.718441795003404 77 15.848732196628628
+		 79 -1.5428555093986798;
+createNode animCurveTA -n "FKThumbFinger3_R_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0 74 0 77 5.3916269803074757 79 -2.3096277295335077;
+createNode animCurveTA -n "Sword_Anim_Control_rotateX";
+	setAttr ".tan" 18;
+	setAttr -s 28 ".ktv[0:27]"  1 41.960938812717153 8 43.81713103873922
+		 20 34.784530803810163 27 25.550509958508776 39 13.067993071175405 46 13.554864666316364
+		 50 13.730770291608721 55 0.3459197775682179 57 -23.270936031778 58 -50.449223836931765
+		 60 -9.632347400803237 65 -9.7791617413214507 68 -12.882696981213071 69 -0.39814785386769919
+		 70 -0.15445844689483257 72 -22.800900267469473 73 -14.987846698132593 74 -43.559341114347447
+		 75 -22.093536509752173 76 8.0913738582364108 77 44.661753574748751 79 41.50293936826241
+		 81 42.373679292957931 84 43.170901877465873 87 44.007895054566454 92 42.650530618238378
+		 98 44.729265390912204 107 44.25805098371152;
+createNode animCurveTA -n "Sword_Anim_Control_rotateY";
+	setAttr ".tan" 18;
+	setAttr -s 24 ".ktv[0:23]"  1 16.284355729694077 8 8.4237186657523413
+		 20 18.382301784873732 27 31.457005964093867 39 13.595960911753545 46 9.1404310171672094
+		 50 5.2612243497891873 55 21.136377830771742 57 78.733905690061661 58 80.990701576818239
+		 60 37.845143947226589 65 32.251505261191156 70 24.115943065455124 72 7.9858249562727446
+		 73 1.4443729887456329 75 24.172196671540831 76 12.258691614049004 77 4.4046982145877545
+		 81 3.6744631564869925 84 8.0506419906046407 87 10.395457997651141 92 15.877903600020446
+		 98 5.2689280931423017 107 8.9733612936459615;
+createNode animCurveTA -n "Sword_Anim_Control_rotateZ";
+	setAttr ".tan" 18;
+	setAttr -s 27 ".ktv[0:26]"  1 62.364359656517934 5 63.910746721339947
+		 8 66.27764226311352 16 65.858540797192845 20 62.078147849017043 27 51.630429588137716
+		 33 51.326440224536128 39 67.24291908777505 46 28.058955923857514 51 36.228717403068714
+		 55 5.0710438176835062 57 -25.880394857449311 58 -55.067664705551785 60 -16.660488967574931
+		 65 -22.388118322166239 70 -62.381957026400627 72 -75.768807507685921 73 -72.555173386809017
+		 75 -12.891360192807273 76 29.88111199411874 77 70.609750603908282 81 92.511259242319284
+		 84 90.388077016155776 87 92.042876505154382 92 86.082463592153744 98 97.327497865284798
+		 107 93.52974667493848;
+	setAttr -s 27 ".kit[0:26]"  1 1 1 1 1 1 18 1 
+		18 1 1 18 18 18 18 18 18 18 18 18 18 18 18 18 18 
+		18 18;
+	setAttr -s 27 ".kot[0:26]"  1 1 1 1 1 1 1 1 
+		18 1 1 18 18 18 18 18 18 18 18 18 18 18 18 18 18 
+		18 18;
+	setAttr -s 27 ".ktl[5:26]" no no no yes no yes yes yes yes yes yes 
+		yes yes yes yes yes yes yes yes yes yes yes;
+	setAttr -s 27 ".kwl[5:26]" no no no yes no yes yes yes yes yes yes 
+		yes yes yes yes yes yes yes yes yes yes yes;
+	setAttr -s 27 ".kix[0:26]"  0.29166668653488159 0.1666666567325592 
+		0.12500005960464478 0.45084020495414734 0.18147501349449158 0.4652266800403595 0.25 
+		0.28252521157264709 0.29166662693023682 0.16666662693023682 0.1250002384185791 0.083333253860473633 
+		0.041666746139526367 0.083333253860473633 0.20833325386047363 0.20833349227905273 
+		0.083333253860473633 0.041666746139526367 0.083333253860473633 0.041666746139526367 
+		0.041666507720947266 0.16666674613952637 0.125 0.125 0.20833325386047363 0.2500002384185791 
+		0.375;
+	setAttr -s 27 ".kiy[0:26]"  0 0.071097522974014282 0 -0.073627308011054993 
+		-0.085750363767147064 0 0 0 0 0 -0.46457493305206299 -0.69974499940872192 0 0 -0.29989796876907349 
+		-0.66547805070877075 0 0.16826549172401428 1.1918991804122925 0.72868674993515015 
+		0.218619704246521 0 0 0 0 0 0;
+	setAttr -s 27 ".kox[0:26]"  0.1666666716337204 0.12500001490116119 
+		0.20355015993118286 0.18454067409038544 0.33801886439323425 0.25000011920928955 0.31591132283210754 
+		0.29166662693023682 0.20833337306976318 0.31128561496734619 0.083333253860473633 
+		0.041666746139526367 0.083333253860473633 0.20833325386047363 0.20833349227905273 
+		0.083333253860473633 0.041666746139526367 0.083333253860473633 0.041666746139526367 
+		0.041666507720947266 0.16666674613952637 0.125 0.125 0.20833325386047363 0.2500002384185791 
+		0.375 0.375;
+	setAttr -s 27 ".koy[0:26]"  0 0.05332300066947937 0 -0.030137715861201286 
+		-0.15972030162811279 0 0 0 0 0 -0.30971634387969971 -0.34987348318099976 0 0 -0.29989832639694214 
+		-0.26619076728820801 0 0.33653002977371216 0.59595125913619995 0.72868257761001587 
+		0.87448257207870483 0 0 0 0 0 0;
+createNode polyPlane -n "polyPlane3";
+	setAttr ".sw" 1;
+	setAttr ".sh" 1;
+	setAttr ".cuv" 2;
+createNode lambert -n "lambertYellow1";
+createNode shadingEngine -n "lambert4SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo3";
+createNode animCurveTU -n "Tunnel_visibility";
+	setAttr ".tan" 9;
+	setAttr -s 2 ".ktv[0:1]"  82 0 83 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "TunnelShape_visibility";
+	setAttr ".tan" 9;
+	setAttr ".ktv[0]"  83 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTU -n "Tunnel_scaleX";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  83 3.0908859908995026 107 10.239142729718242;
+createNode animCurveTU -n "Tunnel_scaleY";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  83 3.0908859908995026 107 10.239142729718242;
+createNode animCurveTU -n "Tunnel_scaleZ";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  83 3.0908859908995026 107 10.239142729718242;
+createNode animCurveTU -n "TunnelShape_sofx";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  83 0;
+createNode animCurveTU -n "TunnelShape_sofy";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  83 0;
+createNode animCurveTU -n "TunnelShape_sofz";
+	setAttr ".tan" 18;
+	setAttr ".ktv[0]"  83 0;
+createNode displayLayer -n "Place_Holder_Effects_Delete_Me";
+	setAttr ".dt" 2;
+	setAttr ".do" 3;
+createNode mute -n "mute_pPlane1_visibility";
+	setAttr ".ihi" 0;
+	setAttr ".h" 0;
+	setAttr ".ht" 74;
+	setAttr ".m" yes;
+createNode pairBlend -n "pairBlend1";
+	setAttr ".rm" 2;
+createNode animCurveTL -n "pairBlend1_inTranslateX1";
+	setAttr ".tan" 18;
+	setAttr -s 10 ".ktv[0:9]"  1 -0.44469336521232977 66 4.0409462405552929
+		 67 4.3096725520046935 68 4.4214196158318373 71 4.1777122208915838 75 2.8660042720656884
+		 76 2.8866811032872239 77 3.0094034032096499 79 3.052028136361975 81 3.1114432640787024;
+createNode animCurveTL -n "pairBlend1_inTranslateY1";
+	setAttr ".tan" 18;
+	setAttr -s 10 ".ktv[0:9]"  1 2.1624061580985341 66 2.968237776565978
+		 68 3.0112607906626505 71 3.3280981696111733 75 3.2862456019341351 76 3.0718686418966619
+		 77 2.8306441026072466 79 2.7041089981308533 82 2.6225766885873423 85 2.474105651788046;
+createNode animCurveTL -n "pairBlend1_inTranslateZ1";
+	setAttr ".tan" 18;
+	setAttr -s 11 ".ktv[0:10]"  1 -4.0603143659718031 66 18.656412037962742
+		 67 19.802064703906566 68 21.103623755693459 71 25.162538189853009 75 31.918229799960251
+		 76 33.522443133777713 77 34.986955933309837 78 36.379678187935923 79 37.761705566236166
+		 81 40.859524715231039;
+createNode animCurveTU -n "Sword_Anim_Control_blendParent1";
+	setAttr ".tan" 18;
+	setAttr -s 9 ".ktv[0:8]"  65 1 66 0 68 0 69 1 70 1 71 0 72 1 74 1
+		 75 0;
+createNode animCurveTU -n "Sword_Anim_Control_blendParent2";
+	setAttr ".tan" 18;
+	setAttr -s 5 ".ktv[0:4]"  78 0 79 1 80 1 81 0 82 1;
+	setAttr -s 5 ".kit[1:4]"  1 1 18 18;
+	setAttr -s 5 ".kix[1:4]"  0.041666746139526367 0.041666507720947266 
+		0.041666746139526367 0.041666746139526367;
+	setAttr -s 5 ".kiy[1:4]"  0 0 0 0;
+createNode animCurveTU -n "Sword_Anim_Control_blendParent3";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  78 0 79 1;
+createNode pairBlend -n "pairBlend2";
+createNode animCurveTU -n "Sword_Anim_Control_blendParent4";
+	setAttr ".tan" 18;
+	setAttr -s 2 ".ktv[0:1]"  78 0 79 1;
 select -ne :time1;
-	setAttr ".o" 57;
-	setAttr ".unw" 57;
+	setAttr ".o" 60;
+	setAttr ".unw" 60;
 select -ne :renderPartition;
-	setAttr -s 58 ".st";
+	setAttr -s 59 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 54 ".s";
+	setAttr -s 55 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
@@ -13745,257 +15924,256 @@ connectAttr "LShoulder_translateZ.o" "nightmare_hugeRN.phl[56]";
 connectAttr "LShoulder_scaleX.o" "nightmare_hugeRN.phl[57]";
 connectAttr "LShoulder_scaleY.o" "nightmare_hugeRN.phl[58]";
 connectAttr "LShoulder_scaleZ.o" "nightmare_hugeRN.phl[59]";
-connectAttr "LShoulder_visibility.o" "nightmare_hugeRN.phl[60]";
-connectAttr "LElbow_rotateX.o" "nightmare_hugeRN.phl[61]";
-connectAttr "LElbow_rotateY.o" "nightmare_hugeRN.phl[62]";
-connectAttr "LElbow_rotateZ.o" "nightmare_hugeRN.phl[63]";
-connectAttr "LElbow_translateX.o" "nightmare_hugeRN.phl[64]";
-connectAttr "LElbow_translateY.o" "nightmare_hugeRN.phl[65]";
-connectAttr "LElbow_translateZ.o" "nightmare_hugeRN.phl[66]";
-connectAttr "LElbow_scaleX.o" "nightmare_hugeRN.phl[67]";
-connectAttr "LElbow_scaleY.o" "nightmare_hugeRN.phl[68]";
-connectAttr "LElbow_scaleZ.o" "nightmare_hugeRN.phl[69]";
-connectAttr "LElbow_visibility.o" "nightmare_hugeRN.phl[70]";
-connectAttr "LHand_rotateX.o" "nightmare_hugeRN.phl[71]";
-connectAttr "LHand_rotateY.o" "nightmare_hugeRN.phl[72]";
-connectAttr "LHand_rotateZ.o" "nightmare_hugeRN.phl[73]";
-connectAttr "LHand_translateX.o" "nightmare_hugeRN.phl[74]";
-connectAttr "LHand_translateY.o" "nightmare_hugeRN.phl[75]";
-connectAttr "LHand_translateZ.o" "nightmare_hugeRN.phl[76]";
-connectAttr "LHand_scaleX.o" "nightmare_hugeRN.phl[77]";
-connectAttr "LHand_scaleY.o" "nightmare_hugeRN.phl[78]";
-connectAttr "LHand_scaleZ.o" "nightmare_hugeRN.phl[79]";
-connectAttr "LHand_visibility.o" "nightmare_hugeRN.phl[80]";
-connectAttr "LThumbJoint_rotateX.o" "nightmare_hugeRN.phl[81]";
-connectAttr "LThumbJoint_rotateY.o" "nightmare_hugeRN.phl[82]";
-connectAttr "LThumbJoint_rotateZ.o" "nightmare_hugeRN.phl[83]";
-connectAttr "LThumbJoint_translateX.o" "nightmare_hugeRN.phl[84]";
-connectAttr "LThumbJoint_translateY.o" "nightmare_hugeRN.phl[85]";
-connectAttr "LThumbJoint_translateZ.o" "nightmare_hugeRN.phl[86]";
-connectAttr "LThumbJoint_scaleX.o" "nightmare_hugeRN.phl[87]";
-connectAttr "LThumbJoint_scaleY.o" "nightmare_hugeRN.phl[88]";
-connectAttr "LThumbJoint_scaleZ.o" "nightmare_hugeRN.phl[89]";
-connectAttr "LThumbJoint_visibility.o" "nightmare_hugeRN.phl[90]";
-connectAttr "LThumbKnuckle_rotateX.o" "nightmare_hugeRN.phl[91]";
-connectAttr "LThumbKnuckle_rotateY.o" "nightmare_hugeRN.phl[92]";
-connectAttr "LThumbKnuckle_rotateZ.o" "nightmare_hugeRN.phl[93]";
-connectAttr "LThumbKnuckle_translateX.o" "nightmare_hugeRN.phl[94]";
-connectAttr "LThumbKnuckle_translateY.o" "nightmare_hugeRN.phl[95]";
-connectAttr "LThumbKnuckle_translateZ.o" "nightmare_hugeRN.phl[96]";
-connectAttr "LThumbKnuckle_scaleX.o" "nightmare_hugeRN.phl[97]";
-connectAttr "LThumbKnuckle_scaleY.o" "nightmare_hugeRN.phl[98]";
-connectAttr "LThumbKnuckle_scaleZ.o" "nightmare_hugeRN.phl[99]";
-connectAttr "LThumbKnuckle_visibility.o" "nightmare_hugeRN.phl[100]";
-connectAttr "LIndexJoint_rotateX.o" "nightmare_hugeRN.phl[101]";
-connectAttr "LIndexJoint_rotateY.o" "nightmare_hugeRN.phl[102]";
-connectAttr "LIndexJoint_rotateZ.o" "nightmare_hugeRN.phl[103]";
-connectAttr "LIndexJoint_translateX.o" "nightmare_hugeRN.phl[104]";
-connectAttr "LIndexJoint_translateY.o" "nightmare_hugeRN.phl[105]";
-connectAttr "LIndexJoint_translateZ.o" "nightmare_hugeRN.phl[106]";
-connectAttr "LIndexJoint_scaleX.o" "nightmare_hugeRN.phl[107]";
-connectAttr "LIndexJoint_scaleY.o" "nightmare_hugeRN.phl[108]";
-connectAttr "LIndexJoint_scaleZ.o" "nightmare_hugeRN.phl[109]";
-connectAttr "LIndexJoint_visibility.o" "nightmare_hugeRN.phl[110]";
-connectAttr "LIndexKnuckle_rotateX.o" "nightmare_hugeRN.phl[111]";
-connectAttr "LIndexKnuckle_rotateY.o" "nightmare_hugeRN.phl[112]";
-connectAttr "LIndexKnuckle_rotateZ.o" "nightmare_hugeRN.phl[113]";
-connectAttr "LIndexKnuckle_translateX.o" "nightmare_hugeRN.phl[114]";
-connectAttr "LIndexKnuckle_translateY.o" "nightmare_hugeRN.phl[115]";
-connectAttr "LIndexKnuckle_translateZ.o" "nightmare_hugeRN.phl[116]";
-connectAttr "LIndexKnuckle_scaleX.o" "nightmare_hugeRN.phl[117]";
-connectAttr "LIndexKnuckle_scaleY.o" "nightmare_hugeRN.phl[118]";
-connectAttr "LIndexKnuckle_scaleZ.o" "nightmare_hugeRN.phl[119]";
-connectAttr "LIndexKnuckle_visibility.o" "nightmare_hugeRN.phl[120]";
-connectAttr "LMidJoint_rotateX.o" "nightmare_hugeRN.phl[121]";
-connectAttr "LMidJoint_rotateY.o" "nightmare_hugeRN.phl[122]";
-connectAttr "LMidJoint_rotateZ.o" "nightmare_hugeRN.phl[123]";
-connectAttr "LMidJoint_translateX.o" "nightmare_hugeRN.phl[124]";
-connectAttr "LMidJoint_translateY.o" "nightmare_hugeRN.phl[125]";
-connectAttr "LMidJoint_translateZ.o" "nightmare_hugeRN.phl[126]";
-connectAttr "LMidJoint_scaleX.o" "nightmare_hugeRN.phl[127]";
-connectAttr "LMidJoint_scaleY.o" "nightmare_hugeRN.phl[128]";
-connectAttr "LMidJoint_scaleZ.o" "nightmare_hugeRN.phl[129]";
-connectAttr "LMidJoint_visibility.o" "nightmare_hugeRN.phl[130]";
-connectAttr "LMidKnuckle_rotateX.o" "nightmare_hugeRN.phl[131]";
-connectAttr "LMidKnuckle_rotateY.o" "nightmare_hugeRN.phl[132]";
-connectAttr "LMidKnuckle_rotateZ.o" "nightmare_hugeRN.phl[133]";
-connectAttr "LMidKnuckle_translateX.o" "nightmare_hugeRN.phl[134]";
-connectAttr "LMidKnuckle_translateY.o" "nightmare_hugeRN.phl[135]";
-connectAttr "LMidKnuckle_translateZ.o" "nightmare_hugeRN.phl[136]";
-connectAttr "LMidKnuckle_scaleX.o" "nightmare_hugeRN.phl[137]";
-connectAttr "LMidKnuckle_scaleY.o" "nightmare_hugeRN.phl[138]";
-connectAttr "LMidKnuckle_scaleZ.o" "nightmare_hugeRN.phl[139]";
-connectAttr "LMidKnuckle_visibility.o" "nightmare_hugeRN.phl[140]";
-connectAttr "LRingJoint_rotateX.o" "nightmare_hugeRN.phl[141]";
-connectAttr "LRingJoint_rotateY.o" "nightmare_hugeRN.phl[142]";
-connectAttr "LRingJoint_rotateZ.o" "nightmare_hugeRN.phl[143]";
-connectAttr "LRingJoint_translateX.o" "nightmare_hugeRN.phl[144]";
-connectAttr "LRingJoint_translateY.o" "nightmare_hugeRN.phl[145]";
-connectAttr "LRingJoint_translateZ.o" "nightmare_hugeRN.phl[146]";
-connectAttr "LRingJoint_scaleX.o" "nightmare_hugeRN.phl[147]";
-connectAttr "LRingJoint_scaleY.o" "nightmare_hugeRN.phl[148]";
-connectAttr "LRingJoint_scaleZ.o" "nightmare_hugeRN.phl[149]";
-connectAttr "LRingJoint_visibility.o" "nightmare_hugeRN.phl[150]";
-connectAttr "LRingKnuckle_rotateX.o" "nightmare_hugeRN.phl[151]";
-connectAttr "LRingKnuckle_rotateY.o" "nightmare_hugeRN.phl[152]";
-connectAttr "LRingKnuckle_rotateZ.o" "nightmare_hugeRN.phl[153]";
-connectAttr "LRingKnuckle_translateX.o" "nightmare_hugeRN.phl[154]";
-connectAttr "LRingKnuckle_translateY.o" "nightmare_hugeRN.phl[155]";
-connectAttr "LRingKnuckle_translateZ.o" "nightmare_hugeRN.phl[156]";
-connectAttr "LRingKnuckle_scaleX.o" "nightmare_hugeRN.phl[157]";
-connectAttr "LRingKnuckle_scaleY.o" "nightmare_hugeRN.phl[158]";
-connectAttr "LRingKnuckle_scaleZ.o" "nightmare_hugeRN.phl[159]";
-connectAttr "LRingKnuckle_visibility.o" "nightmare_hugeRN.phl[160]";
-connectAttr "LPinkyJoint_rotateX.o" "nightmare_hugeRN.phl[161]";
-connectAttr "LPinkyJoint_rotateY.o" "nightmare_hugeRN.phl[162]";
-connectAttr "LPinkyJoint_rotateZ.o" "nightmare_hugeRN.phl[163]";
-connectAttr "LPinkyJoint_translateX.o" "nightmare_hugeRN.phl[164]";
-connectAttr "LPinkyJoint_translateY.o" "nightmare_hugeRN.phl[165]";
-connectAttr "LPinkyJoint_translateZ.o" "nightmare_hugeRN.phl[166]";
-connectAttr "LPinkyJoint_scaleX.o" "nightmare_hugeRN.phl[167]";
-connectAttr "LPinkyJoint_scaleY.o" "nightmare_hugeRN.phl[168]";
-connectAttr "LPinkyJoint_scaleZ.o" "nightmare_hugeRN.phl[169]";
-connectAttr "LPinkyJoint_visibility.o" "nightmare_hugeRN.phl[170]";
-connectAttr "LPinkyKnuckle_rotateX.o" "nightmare_hugeRN.phl[171]";
-connectAttr "LPinkyKnuckle_rotateY.o" "nightmare_hugeRN.phl[172]";
-connectAttr "LPinkyKnuckle_rotateZ.o" "nightmare_hugeRN.phl[173]";
-connectAttr "LPinkyKnuckle_translateX.o" "nightmare_hugeRN.phl[174]";
-connectAttr "LPinkyKnuckle_translateY.o" "nightmare_hugeRN.phl[175]";
-connectAttr "LPinkyKnuckle_translateZ.o" "nightmare_hugeRN.phl[176]";
-connectAttr "LPinkyKnuckle_scaleX.o" "nightmare_hugeRN.phl[177]";
-connectAttr "LPinkyKnuckle_scaleY.o" "nightmare_hugeRN.phl[178]";
-connectAttr "LPinkyKnuckle_scaleZ.o" "nightmare_hugeRN.phl[179]";
-connectAttr "LPinkyKnuckle_visibility.o" "nightmare_hugeRN.phl[180]";
-connectAttr "LShoulder1_rotateX.o" "nightmare_hugeRN.phl[181]";
-connectAttr "LShoulder1_rotateY.o" "nightmare_hugeRN.phl[182]";
-connectAttr "LShoulder1_rotateZ.o" "nightmare_hugeRN.phl[183]";
-connectAttr "LShoulder1_translateX.o" "nightmare_hugeRN.phl[184]";
-connectAttr "LShoulder1_translateY.o" "nightmare_hugeRN.phl[185]";
-connectAttr "LShoulder1_translateZ.o" "nightmare_hugeRN.phl[186]";
-connectAttr "LShoulder1_scaleX.o" "nightmare_hugeRN.phl[187]";
-connectAttr "LShoulder1_scaleY.o" "nightmare_hugeRN.phl[188]";
-connectAttr "LShoulder1_scaleZ.o" "nightmare_hugeRN.phl[189]";
-connectAttr "LShoulder1_visibility.o" "nightmare_hugeRN.phl[190]";
-connectAttr "LElbow_rotateX1.o" "nightmare_hugeRN.phl[191]";
-connectAttr "LElbow_rotateY1.o" "nightmare_hugeRN.phl[192]";
-connectAttr "LElbow_rotateZ1.o" "nightmare_hugeRN.phl[193]";
-connectAttr "LElbow_translateX1.o" "nightmare_hugeRN.phl[194]";
-connectAttr "LElbow_translateY1.o" "nightmare_hugeRN.phl[195]";
-connectAttr "LElbow_translateZ1.o" "nightmare_hugeRN.phl[196]";
-connectAttr "LElbow_scaleX1.o" "nightmare_hugeRN.phl[197]";
-connectAttr "LElbow_scaleY1.o" "nightmare_hugeRN.phl[198]";
-connectAttr "LElbow_scaleZ1.o" "nightmare_hugeRN.phl[199]";
-connectAttr "LElbow_visibility1.o" "nightmare_hugeRN.phl[200]";
-connectAttr "LHand_rotateX1.o" "nightmare_hugeRN.phl[201]";
-connectAttr "LHand_rotateY1.o" "nightmare_hugeRN.phl[202]";
-connectAttr "LHand_rotateZ1.o" "nightmare_hugeRN.phl[203]";
-connectAttr "LHand_translateX1.o" "nightmare_hugeRN.phl[204]";
-connectAttr "LHand_translateY1.o" "nightmare_hugeRN.phl[205]";
-connectAttr "LHand_translateZ1.o" "nightmare_hugeRN.phl[206]";
-connectAttr "LHand_scaleX1.o" "nightmare_hugeRN.phl[207]";
-connectAttr "LHand_scaleY1.o" "nightmare_hugeRN.phl[208]";
-connectAttr "LHand_scaleZ1.o" "nightmare_hugeRN.phl[209]";
-connectAttr "LHand_visibility1.o" "nightmare_hugeRN.phl[210]";
-connectAttr "LThumbJoint_rotateX1.o" "nightmare_hugeRN.phl[211]";
-connectAttr "LThumbJoint_rotateY1.o" "nightmare_hugeRN.phl[212]";
-connectAttr "LThumbJoint_rotateZ1.o" "nightmare_hugeRN.phl[213]";
-connectAttr "LThumbJoint_visibility1.o" "nightmare_hugeRN.phl[214]";
-connectAttr "LThumbJoint_translateX1.o" "nightmare_hugeRN.phl[215]";
-connectAttr "LThumbJoint_translateY1.o" "nightmare_hugeRN.phl[216]";
-connectAttr "LThumbJoint_translateZ1.o" "nightmare_hugeRN.phl[217]";
-connectAttr "LThumbJoint_scaleX1.o" "nightmare_hugeRN.phl[218]";
-connectAttr "LThumbJoint_scaleY1.o" "nightmare_hugeRN.phl[219]";
-connectAttr "LThumbJoint_scaleZ1.o" "nightmare_hugeRN.phl[220]";
-connectAttr "LThumbKnuckle_rotateX1.o" "nightmare_hugeRN.phl[221]";
-connectAttr "LThumbKnuckle_rotateY1.o" "nightmare_hugeRN.phl[222]";
-connectAttr "LThumbKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[223]";
-connectAttr "LThumbKnuckle_visibility1.o" "nightmare_hugeRN.phl[224]";
-connectAttr "LThumbKnuckle_translateX1.o" "nightmare_hugeRN.phl[225]";
-connectAttr "LThumbKnuckle_translateY1.o" "nightmare_hugeRN.phl[226]";
-connectAttr "LThumbKnuckle_translateZ1.o" "nightmare_hugeRN.phl[227]";
-connectAttr "LThumbKnuckle_scaleX1.o" "nightmare_hugeRN.phl[228]";
-connectAttr "LThumbKnuckle_scaleY1.o" "nightmare_hugeRN.phl[229]";
-connectAttr "LThumbKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[230]";
-connectAttr "LIndexJoint_rotateX1.o" "nightmare_hugeRN.phl[231]";
-connectAttr "LIndexJoint_rotateY1.o" "nightmare_hugeRN.phl[232]";
-connectAttr "LIndexJoint_rotateZ1.o" "nightmare_hugeRN.phl[233]";
-connectAttr "LIndexJoint_visibility1.o" "nightmare_hugeRN.phl[234]";
-connectAttr "LIndexJoint_translateX1.o" "nightmare_hugeRN.phl[235]";
-connectAttr "LIndexJoint_translateY1.o" "nightmare_hugeRN.phl[236]";
-connectAttr "LIndexJoint_translateZ1.o" "nightmare_hugeRN.phl[237]";
-connectAttr "LIndexJoint_scaleX1.o" "nightmare_hugeRN.phl[238]";
-connectAttr "LIndexJoint_scaleY1.o" "nightmare_hugeRN.phl[239]";
-connectAttr "LIndexJoint_scaleZ1.o" "nightmare_hugeRN.phl[240]";
-connectAttr "LIndexKnuckle_rotateX1.o" "nightmare_hugeRN.phl[241]";
-connectAttr "LIndexKnuckle_rotateY1.o" "nightmare_hugeRN.phl[242]";
-connectAttr "LIndexKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[243]";
-connectAttr "LIndexKnuckle_visibility1.o" "nightmare_hugeRN.phl[244]";
-connectAttr "LIndexKnuckle_translateX1.o" "nightmare_hugeRN.phl[245]";
-connectAttr "LIndexKnuckle_translateY1.o" "nightmare_hugeRN.phl[246]";
-connectAttr "LIndexKnuckle_translateZ1.o" "nightmare_hugeRN.phl[247]";
-connectAttr "LIndexKnuckle_scaleX1.o" "nightmare_hugeRN.phl[248]";
-connectAttr "LIndexKnuckle_scaleY1.o" "nightmare_hugeRN.phl[249]";
-connectAttr "LIndexKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[250]";
-connectAttr "LMidJoint_rotateX1.o" "nightmare_hugeRN.phl[251]";
-connectAttr "LMidJoint_rotateY1.o" "nightmare_hugeRN.phl[252]";
-connectAttr "LMidJoint_rotateZ1.o" "nightmare_hugeRN.phl[253]";
-connectAttr "LMidJoint_visibility1.o" "nightmare_hugeRN.phl[254]";
-connectAttr "LMidJoint_translateX1.o" "nightmare_hugeRN.phl[255]";
-connectAttr "LMidJoint_translateY1.o" "nightmare_hugeRN.phl[256]";
-connectAttr "LMidJoint_translateZ1.o" "nightmare_hugeRN.phl[257]";
-connectAttr "LMidJoint_scaleX1.o" "nightmare_hugeRN.phl[258]";
-connectAttr "LMidJoint_scaleY1.o" "nightmare_hugeRN.phl[259]";
-connectAttr "LMidJoint_scaleZ1.o" "nightmare_hugeRN.phl[260]";
-connectAttr "LMidKnuckle_rotateX1.o" "nightmare_hugeRN.phl[261]";
-connectAttr "LMidKnuckle_rotateY1.o" "nightmare_hugeRN.phl[262]";
-connectAttr "LMidKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[263]";
-connectAttr "LMidKnuckle_visibility1.o" "nightmare_hugeRN.phl[264]";
-connectAttr "LMidKnuckle_translateX1.o" "nightmare_hugeRN.phl[265]";
-connectAttr "LMidKnuckle_translateY1.o" "nightmare_hugeRN.phl[266]";
-connectAttr "LMidKnuckle_translateZ1.o" "nightmare_hugeRN.phl[267]";
-connectAttr "LMidKnuckle_scaleX1.o" "nightmare_hugeRN.phl[268]";
-connectAttr "LMidKnuckle_scaleY1.o" "nightmare_hugeRN.phl[269]";
-connectAttr "LMidKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[270]";
-connectAttr "LRingJoint_rotateX1.o" "nightmare_hugeRN.phl[271]";
-connectAttr "LRingJoint_rotateY1.o" "nightmare_hugeRN.phl[272]";
-connectAttr "LRingJoint_rotateZ1.o" "nightmare_hugeRN.phl[273]";
-connectAttr "LRingJoint_visibility1.o" "nightmare_hugeRN.phl[274]";
-connectAttr "LRingJoint_translateX1.o" "nightmare_hugeRN.phl[275]";
-connectAttr "LRingJoint_translateY1.o" "nightmare_hugeRN.phl[276]";
-connectAttr "LRingJoint_translateZ1.o" "nightmare_hugeRN.phl[277]";
-connectAttr "LRingJoint_scaleX1.o" "nightmare_hugeRN.phl[278]";
-connectAttr "LRingJoint_scaleY1.o" "nightmare_hugeRN.phl[279]";
-connectAttr "LRingJoint_scaleZ1.o" "nightmare_hugeRN.phl[280]";
-connectAttr "LRingKnuckle_rotateX1.o" "nightmare_hugeRN.phl[281]";
-connectAttr "LRingKnuckle_rotateY1.o" "nightmare_hugeRN.phl[282]";
-connectAttr "LRingKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[283]";
-connectAttr "LRingKnuckle_visibility1.o" "nightmare_hugeRN.phl[284]";
-connectAttr "LRingKnuckle_translateX1.o" "nightmare_hugeRN.phl[285]";
-connectAttr "LRingKnuckle_translateY1.o" "nightmare_hugeRN.phl[286]";
-connectAttr "LRingKnuckle_translateZ1.o" "nightmare_hugeRN.phl[287]";
-connectAttr "LRingKnuckle_scaleX1.o" "nightmare_hugeRN.phl[288]";
-connectAttr "LRingKnuckle_scaleY1.o" "nightmare_hugeRN.phl[289]";
-connectAttr "LRingKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[290]";
-connectAttr "LPinkyJoint_rotateX1.o" "nightmare_hugeRN.phl[291]";
-connectAttr "LPinkyJoint_rotateY1.o" "nightmare_hugeRN.phl[292]";
-connectAttr "LPinkyJoint_rotateZ1.o" "nightmare_hugeRN.phl[293]";
-connectAttr "LPinkyJoint_visibility1.o" "nightmare_hugeRN.phl[294]";
-connectAttr "LPinkyJoint_translateX1.o" "nightmare_hugeRN.phl[295]";
-connectAttr "LPinkyJoint_translateY1.o" "nightmare_hugeRN.phl[296]";
-connectAttr "LPinkyJoint_translateZ1.o" "nightmare_hugeRN.phl[297]";
-connectAttr "LPinkyJoint_scaleX1.o" "nightmare_hugeRN.phl[298]";
-connectAttr "LPinkyJoint_scaleY1.o" "nightmare_hugeRN.phl[299]";
-connectAttr "LPinkyJoint_scaleZ1.o" "nightmare_hugeRN.phl[300]";
-connectAttr "LPinkyKnuckle_rotateX1.o" "nightmare_hugeRN.phl[301]";
-connectAttr "LPinkyKnuckle_rotateY1.o" "nightmare_hugeRN.phl[302]";
-connectAttr "LPinkyKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[303]";
-connectAttr "LPinkyKnuckle_visibility1.o" "nightmare_hugeRN.phl[304]";
-connectAttr "LPinkyKnuckle_translateX1.o" "nightmare_hugeRN.phl[305]";
-connectAttr "LPinkyKnuckle_translateY1.o" "nightmare_hugeRN.phl[306]";
-connectAttr "LPinkyKnuckle_translateZ1.o" "nightmare_hugeRN.phl[307]";
-connectAttr "LPinkyKnuckle_scaleX1.o" "nightmare_hugeRN.phl[308]";
-connectAttr "LPinkyKnuckle_scaleY1.o" "nightmare_hugeRN.phl[309]";
-connectAttr "LPinkyKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[310]";
+connectAttr "LElbow_rotateX.o" "nightmare_hugeRN.phl[60]";
+connectAttr "LElbow_rotateY.o" "nightmare_hugeRN.phl[61]";
+connectAttr "LElbow_rotateZ.o" "nightmare_hugeRN.phl[62]";
+connectAttr "LElbow_translateX.o" "nightmare_hugeRN.phl[63]";
+connectAttr "LElbow_translateY.o" "nightmare_hugeRN.phl[64]";
+connectAttr "LElbow_translateZ.o" "nightmare_hugeRN.phl[65]";
+connectAttr "LElbow_scaleX.o" "nightmare_hugeRN.phl[66]";
+connectAttr "LElbow_scaleY.o" "nightmare_hugeRN.phl[67]";
+connectAttr "LElbow_scaleZ.o" "nightmare_hugeRN.phl[68]";
+connectAttr "LElbow_visibility.o" "nightmare_hugeRN.phl[69]";
+connectAttr "LHand_rotateX.o" "nightmare_hugeRN.phl[70]";
+connectAttr "LHand_rotateY.o" "nightmare_hugeRN.phl[71]";
+connectAttr "LHand_rotateZ.o" "nightmare_hugeRN.phl[72]";
+connectAttr "LHand_translateX.o" "nightmare_hugeRN.phl[73]";
+connectAttr "LHand_translateY.o" "nightmare_hugeRN.phl[74]";
+connectAttr "LHand_translateZ.o" "nightmare_hugeRN.phl[75]";
+connectAttr "LHand_scaleX.o" "nightmare_hugeRN.phl[76]";
+connectAttr "LHand_scaleY.o" "nightmare_hugeRN.phl[77]";
+connectAttr "LHand_scaleZ.o" "nightmare_hugeRN.phl[78]";
+connectAttr "LHand_visibility.o" "nightmare_hugeRN.phl[79]";
+connectAttr "LThumbJoint_rotateX.o" "nightmare_hugeRN.phl[80]";
+connectAttr "LThumbJoint_rotateY.o" "nightmare_hugeRN.phl[81]";
+connectAttr "LThumbJoint_rotateZ.o" "nightmare_hugeRN.phl[82]";
+connectAttr "LThumbJoint_translateX.o" "nightmare_hugeRN.phl[83]";
+connectAttr "LThumbJoint_translateY.o" "nightmare_hugeRN.phl[84]";
+connectAttr "LThumbJoint_translateZ.o" "nightmare_hugeRN.phl[85]";
+connectAttr "LThumbJoint_scaleX.o" "nightmare_hugeRN.phl[86]";
+connectAttr "LThumbJoint_scaleY.o" "nightmare_hugeRN.phl[87]";
+connectAttr "LThumbJoint_scaleZ.o" "nightmare_hugeRN.phl[88]";
+connectAttr "LThumbJoint_visibility.o" "nightmare_hugeRN.phl[89]";
+connectAttr "LThumbKnuckle_rotateX.o" "nightmare_hugeRN.phl[90]";
+connectAttr "LThumbKnuckle_rotateY.o" "nightmare_hugeRN.phl[91]";
+connectAttr "LThumbKnuckle_rotateZ.o" "nightmare_hugeRN.phl[92]";
+connectAttr "LThumbKnuckle_translateX.o" "nightmare_hugeRN.phl[93]";
+connectAttr "LThumbKnuckle_translateY.o" "nightmare_hugeRN.phl[94]";
+connectAttr "LThumbKnuckle_translateZ.o" "nightmare_hugeRN.phl[95]";
+connectAttr "LThumbKnuckle_scaleX.o" "nightmare_hugeRN.phl[96]";
+connectAttr "LThumbKnuckle_scaleY.o" "nightmare_hugeRN.phl[97]";
+connectAttr "LThumbKnuckle_scaleZ.o" "nightmare_hugeRN.phl[98]";
+connectAttr "LThumbKnuckle_visibility.o" "nightmare_hugeRN.phl[99]";
+connectAttr "LIndexJoint_rotateX.o" "nightmare_hugeRN.phl[100]";
+connectAttr "LIndexJoint_rotateY.o" "nightmare_hugeRN.phl[101]";
+connectAttr "LIndexJoint_rotateZ.o" "nightmare_hugeRN.phl[102]";
+connectAttr "LIndexJoint_translateX.o" "nightmare_hugeRN.phl[103]";
+connectAttr "LIndexJoint_translateY.o" "nightmare_hugeRN.phl[104]";
+connectAttr "LIndexJoint_translateZ.o" "nightmare_hugeRN.phl[105]";
+connectAttr "LIndexJoint_scaleX.o" "nightmare_hugeRN.phl[106]";
+connectAttr "LIndexJoint_scaleY.o" "nightmare_hugeRN.phl[107]";
+connectAttr "LIndexJoint_scaleZ.o" "nightmare_hugeRN.phl[108]";
+connectAttr "LIndexJoint_visibility.o" "nightmare_hugeRN.phl[109]";
+connectAttr "LIndexKnuckle_rotateX.o" "nightmare_hugeRN.phl[110]";
+connectAttr "LIndexKnuckle_rotateY.o" "nightmare_hugeRN.phl[111]";
+connectAttr "LIndexKnuckle_rotateZ.o" "nightmare_hugeRN.phl[112]";
+connectAttr "LIndexKnuckle_translateX.o" "nightmare_hugeRN.phl[113]";
+connectAttr "LIndexKnuckle_translateY.o" "nightmare_hugeRN.phl[114]";
+connectAttr "LIndexKnuckle_translateZ.o" "nightmare_hugeRN.phl[115]";
+connectAttr "LIndexKnuckle_scaleX.o" "nightmare_hugeRN.phl[116]";
+connectAttr "LIndexKnuckle_scaleY.o" "nightmare_hugeRN.phl[117]";
+connectAttr "LIndexKnuckle_scaleZ.o" "nightmare_hugeRN.phl[118]";
+connectAttr "LIndexKnuckle_visibility.o" "nightmare_hugeRN.phl[119]";
+connectAttr "LMidJoint_rotateX.o" "nightmare_hugeRN.phl[120]";
+connectAttr "LMidJoint_rotateY.o" "nightmare_hugeRN.phl[121]";
+connectAttr "LMidJoint_rotateZ.o" "nightmare_hugeRN.phl[122]";
+connectAttr "LMidJoint_translateX.o" "nightmare_hugeRN.phl[123]";
+connectAttr "LMidJoint_translateY.o" "nightmare_hugeRN.phl[124]";
+connectAttr "LMidJoint_translateZ.o" "nightmare_hugeRN.phl[125]";
+connectAttr "LMidJoint_scaleX.o" "nightmare_hugeRN.phl[126]";
+connectAttr "LMidJoint_scaleY.o" "nightmare_hugeRN.phl[127]";
+connectAttr "LMidJoint_scaleZ.o" "nightmare_hugeRN.phl[128]";
+connectAttr "LMidJoint_visibility.o" "nightmare_hugeRN.phl[129]";
+connectAttr "LMidKnuckle_rotateX.o" "nightmare_hugeRN.phl[130]";
+connectAttr "LMidKnuckle_rotateY.o" "nightmare_hugeRN.phl[131]";
+connectAttr "LMidKnuckle_rotateZ.o" "nightmare_hugeRN.phl[132]";
+connectAttr "LMidKnuckle_translateX.o" "nightmare_hugeRN.phl[133]";
+connectAttr "LMidKnuckle_translateY.o" "nightmare_hugeRN.phl[134]";
+connectAttr "LMidKnuckle_translateZ.o" "nightmare_hugeRN.phl[135]";
+connectAttr "LMidKnuckle_scaleX.o" "nightmare_hugeRN.phl[136]";
+connectAttr "LMidKnuckle_scaleY.o" "nightmare_hugeRN.phl[137]";
+connectAttr "LMidKnuckle_scaleZ.o" "nightmare_hugeRN.phl[138]";
+connectAttr "LMidKnuckle_visibility.o" "nightmare_hugeRN.phl[139]";
+connectAttr "LRingJoint_rotateX.o" "nightmare_hugeRN.phl[140]";
+connectAttr "LRingJoint_rotateY.o" "nightmare_hugeRN.phl[141]";
+connectAttr "LRingJoint_rotateZ.o" "nightmare_hugeRN.phl[142]";
+connectAttr "LRingJoint_translateX.o" "nightmare_hugeRN.phl[143]";
+connectAttr "LRingJoint_translateY.o" "nightmare_hugeRN.phl[144]";
+connectAttr "LRingJoint_translateZ.o" "nightmare_hugeRN.phl[145]";
+connectAttr "LRingJoint_scaleX.o" "nightmare_hugeRN.phl[146]";
+connectAttr "LRingJoint_scaleY.o" "nightmare_hugeRN.phl[147]";
+connectAttr "LRingJoint_scaleZ.o" "nightmare_hugeRN.phl[148]";
+connectAttr "LRingJoint_visibility.o" "nightmare_hugeRN.phl[149]";
+connectAttr "LRingKnuckle_rotateX.o" "nightmare_hugeRN.phl[150]";
+connectAttr "LRingKnuckle_rotateY.o" "nightmare_hugeRN.phl[151]";
+connectAttr "LRingKnuckle_rotateZ.o" "nightmare_hugeRN.phl[152]";
+connectAttr "LRingKnuckle_translateX.o" "nightmare_hugeRN.phl[153]";
+connectAttr "LRingKnuckle_translateY.o" "nightmare_hugeRN.phl[154]";
+connectAttr "LRingKnuckle_translateZ.o" "nightmare_hugeRN.phl[155]";
+connectAttr "LRingKnuckle_scaleX.o" "nightmare_hugeRN.phl[156]";
+connectAttr "LRingKnuckle_scaleY.o" "nightmare_hugeRN.phl[157]";
+connectAttr "LRingKnuckle_scaleZ.o" "nightmare_hugeRN.phl[158]";
+connectAttr "LRingKnuckle_visibility.o" "nightmare_hugeRN.phl[159]";
+connectAttr "LPinkyJoint_rotateX.o" "nightmare_hugeRN.phl[160]";
+connectAttr "LPinkyJoint_rotateY.o" "nightmare_hugeRN.phl[161]";
+connectAttr "LPinkyJoint_rotateZ.o" "nightmare_hugeRN.phl[162]";
+connectAttr "LPinkyJoint_translateX.o" "nightmare_hugeRN.phl[163]";
+connectAttr "LPinkyJoint_translateY.o" "nightmare_hugeRN.phl[164]";
+connectAttr "LPinkyJoint_translateZ.o" "nightmare_hugeRN.phl[165]";
+connectAttr "LPinkyJoint_scaleX.o" "nightmare_hugeRN.phl[166]";
+connectAttr "LPinkyJoint_scaleY.o" "nightmare_hugeRN.phl[167]";
+connectAttr "LPinkyJoint_scaleZ.o" "nightmare_hugeRN.phl[168]";
+connectAttr "LPinkyJoint_visibility.o" "nightmare_hugeRN.phl[169]";
+connectAttr "LPinkyKnuckle_rotateX.o" "nightmare_hugeRN.phl[170]";
+connectAttr "LPinkyKnuckle_rotateY.o" "nightmare_hugeRN.phl[171]";
+connectAttr "LPinkyKnuckle_rotateZ.o" "nightmare_hugeRN.phl[172]";
+connectAttr "LPinkyKnuckle_translateX.o" "nightmare_hugeRN.phl[173]";
+connectAttr "LPinkyKnuckle_translateY.o" "nightmare_hugeRN.phl[174]";
+connectAttr "LPinkyKnuckle_translateZ.o" "nightmare_hugeRN.phl[175]";
+connectAttr "LPinkyKnuckle_scaleX.o" "nightmare_hugeRN.phl[176]";
+connectAttr "LPinkyKnuckle_scaleY.o" "nightmare_hugeRN.phl[177]";
+connectAttr "LPinkyKnuckle_scaleZ.o" "nightmare_hugeRN.phl[178]";
+connectAttr "LPinkyKnuckle_visibility.o" "nightmare_hugeRN.phl[179]";
+connectAttr "LShoulder1_rotateX.o" "nightmare_hugeRN.phl[180]";
+connectAttr "LShoulder1_rotateY.o" "nightmare_hugeRN.phl[181]";
+connectAttr "LShoulder1_rotateZ.o" "nightmare_hugeRN.phl[182]";
+connectAttr "LShoulder1_translateX.o" "nightmare_hugeRN.phl[183]";
+connectAttr "LShoulder1_translateY.o" "nightmare_hugeRN.phl[184]";
+connectAttr "LShoulder1_translateZ.o" "nightmare_hugeRN.phl[185]";
+connectAttr "LShoulder1_scaleX.o" "nightmare_hugeRN.phl[186]";
+connectAttr "LShoulder1_scaleY.o" "nightmare_hugeRN.phl[187]";
+connectAttr "LShoulder1_scaleZ.o" "nightmare_hugeRN.phl[188]";
+connectAttr "LShoulder1_visibility.o" "nightmare_hugeRN.phl[189]";
+connectAttr "LElbow_rotateX1.o" "nightmare_hugeRN.phl[190]";
+connectAttr "LElbow_rotateY1.o" "nightmare_hugeRN.phl[191]";
+connectAttr "LElbow_rotateZ1.o" "nightmare_hugeRN.phl[192]";
+connectAttr "LElbow_translateX1.o" "nightmare_hugeRN.phl[193]";
+connectAttr "LElbow_translateY1.o" "nightmare_hugeRN.phl[194]";
+connectAttr "LElbow_translateZ1.o" "nightmare_hugeRN.phl[195]";
+connectAttr "LElbow_scaleX1.o" "nightmare_hugeRN.phl[196]";
+connectAttr "LElbow_scaleY1.o" "nightmare_hugeRN.phl[197]";
+connectAttr "LElbow_scaleZ1.o" "nightmare_hugeRN.phl[198]";
+connectAttr "LElbow_visibility1.o" "nightmare_hugeRN.phl[199]";
+connectAttr "LHand_rotateX1.o" "nightmare_hugeRN.phl[200]";
+connectAttr "LHand_rotateY1.o" "nightmare_hugeRN.phl[201]";
+connectAttr "LHand_rotateZ1.o" "nightmare_hugeRN.phl[202]";
+connectAttr "LHand_translateX1.o" "nightmare_hugeRN.phl[203]";
+connectAttr "LHand_translateY1.o" "nightmare_hugeRN.phl[204]";
+connectAttr "LHand_translateZ1.o" "nightmare_hugeRN.phl[205]";
+connectAttr "LHand_scaleX1.o" "nightmare_hugeRN.phl[206]";
+connectAttr "LHand_scaleY1.o" "nightmare_hugeRN.phl[207]";
+connectAttr "LHand_scaleZ1.o" "nightmare_hugeRN.phl[208]";
+connectAttr "LHand_visibility1.o" "nightmare_hugeRN.phl[209]";
+connectAttr "LThumbJoint_rotateX1.o" "nightmare_hugeRN.phl[210]";
+connectAttr "LThumbJoint_rotateY1.o" "nightmare_hugeRN.phl[211]";
+connectAttr "LThumbJoint_rotateZ1.o" "nightmare_hugeRN.phl[212]";
+connectAttr "LThumbJoint_visibility1.o" "nightmare_hugeRN.phl[213]";
+connectAttr "LThumbJoint_translateX1.o" "nightmare_hugeRN.phl[214]";
+connectAttr "LThumbJoint_translateY1.o" "nightmare_hugeRN.phl[215]";
+connectAttr "LThumbJoint_translateZ1.o" "nightmare_hugeRN.phl[216]";
+connectAttr "LThumbJoint_scaleX1.o" "nightmare_hugeRN.phl[217]";
+connectAttr "LThumbJoint_scaleY1.o" "nightmare_hugeRN.phl[218]";
+connectAttr "LThumbJoint_scaleZ1.o" "nightmare_hugeRN.phl[219]";
+connectAttr "LThumbKnuckle_rotateX1.o" "nightmare_hugeRN.phl[220]";
+connectAttr "LThumbKnuckle_rotateY1.o" "nightmare_hugeRN.phl[221]";
+connectAttr "LThumbKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[222]";
+connectAttr "LThumbKnuckle_visibility1.o" "nightmare_hugeRN.phl[223]";
+connectAttr "LThumbKnuckle_translateX1.o" "nightmare_hugeRN.phl[224]";
+connectAttr "LThumbKnuckle_translateY1.o" "nightmare_hugeRN.phl[225]";
+connectAttr "LThumbKnuckle_translateZ1.o" "nightmare_hugeRN.phl[226]";
+connectAttr "LThumbKnuckle_scaleX1.o" "nightmare_hugeRN.phl[227]";
+connectAttr "LThumbKnuckle_scaleY1.o" "nightmare_hugeRN.phl[228]";
+connectAttr "LThumbKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[229]";
+connectAttr "LIndexJoint_rotateX1.o" "nightmare_hugeRN.phl[230]";
+connectAttr "LIndexJoint_rotateY1.o" "nightmare_hugeRN.phl[231]";
+connectAttr "LIndexJoint_rotateZ1.o" "nightmare_hugeRN.phl[232]";
+connectAttr "LIndexJoint_visibility1.o" "nightmare_hugeRN.phl[233]";
+connectAttr "LIndexJoint_translateX1.o" "nightmare_hugeRN.phl[234]";
+connectAttr "LIndexJoint_translateY1.o" "nightmare_hugeRN.phl[235]";
+connectAttr "LIndexJoint_translateZ1.o" "nightmare_hugeRN.phl[236]";
+connectAttr "LIndexJoint_scaleX1.o" "nightmare_hugeRN.phl[237]";
+connectAttr "LIndexJoint_scaleY1.o" "nightmare_hugeRN.phl[238]";
+connectAttr "LIndexJoint_scaleZ1.o" "nightmare_hugeRN.phl[239]";
+connectAttr "LIndexKnuckle_rotateX1.o" "nightmare_hugeRN.phl[240]";
+connectAttr "LIndexKnuckle_rotateY1.o" "nightmare_hugeRN.phl[241]";
+connectAttr "LIndexKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[242]";
+connectAttr "LIndexKnuckle_visibility1.o" "nightmare_hugeRN.phl[243]";
+connectAttr "LIndexKnuckle_translateX1.o" "nightmare_hugeRN.phl[244]";
+connectAttr "LIndexKnuckle_translateY1.o" "nightmare_hugeRN.phl[245]";
+connectAttr "LIndexKnuckle_translateZ1.o" "nightmare_hugeRN.phl[246]";
+connectAttr "LIndexKnuckle_scaleX1.o" "nightmare_hugeRN.phl[247]";
+connectAttr "LIndexKnuckle_scaleY1.o" "nightmare_hugeRN.phl[248]";
+connectAttr "LIndexKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[249]";
+connectAttr "LMidJoint_rotateX1.o" "nightmare_hugeRN.phl[250]";
+connectAttr "LMidJoint_rotateY1.o" "nightmare_hugeRN.phl[251]";
+connectAttr "LMidJoint_rotateZ1.o" "nightmare_hugeRN.phl[252]";
+connectAttr "LMidJoint_visibility1.o" "nightmare_hugeRN.phl[253]";
+connectAttr "LMidJoint_translateX1.o" "nightmare_hugeRN.phl[254]";
+connectAttr "LMidJoint_translateY1.o" "nightmare_hugeRN.phl[255]";
+connectAttr "LMidJoint_translateZ1.o" "nightmare_hugeRN.phl[256]";
+connectAttr "LMidJoint_scaleX1.o" "nightmare_hugeRN.phl[257]";
+connectAttr "LMidJoint_scaleY1.o" "nightmare_hugeRN.phl[258]";
+connectAttr "LMidJoint_scaleZ1.o" "nightmare_hugeRN.phl[259]";
+connectAttr "LMidKnuckle_rotateX1.o" "nightmare_hugeRN.phl[260]";
+connectAttr "LMidKnuckle_rotateY1.o" "nightmare_hugeRN.phl[261]";
+connectAttr "LMidKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[262]";
+connectAttr "LMidKnuckle_visibility1.o" "nightmare_hugeRN.phl[263]";
+connectAttr "LMidKnuckle_translateX1.o" "nightmare_hugeRN.phl[264]";
+connectAttr "LMidKnuckle_translateY1.o" "nightmare_hugeRN.phl[265]";
+connectAttr "LMidKnuckle_translateZ1.o" "nightmare_hugeRN.phl[266]";
+connectAttr "LMidKnuckle_scaleX1.o" "nightmare_hugeRN.phl[267]";
+connectAttr "LMidKnuckle_scaleY1.o" "nightmare_hugeRN.phl[268]";
+connectAttr "LMidKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[269]";
+connectAttr "LRingJoint_rotateX1.o" "nightmare_hugeRN.phl[270]";
+connectAttr "LRingJoint_rotateY1.o" "nightmare_hugeRN.phl[271]";
+connectAttr "LRingJoint_rotateZ1.o" "nightmare_hugeRN.phl[272]";
+connectAttr "LRingJoint_visibility1.o" "nightmare_hugeRN.phl[273]";
+connectAttr "LRingJoint_translateX1.o" "nightmare_hugeRN.phl[274]";
+connectAttr "LRingJoint_translateY1.o" "nightmare_hugeRN.phl[275]";
+connectAttr "LRingJoint_translateZ1.o" "nightmare_hugeRN.phl[276]";
+connectAttr "LRingJoint_scaleX1.o" "nightmare_hugeRN.phl[277]";
+connectAttr "LRingJoint_scaleY1.o" "nightmare_hugeRN.phl[278]";
+connectAttr "LRingJoint_scaleZ1.o" "nightmare_hugeRN.phl[279]";
+connectAttr "LRingKnuckle_rotateX1.o" "nightmare_hugeRN.phl[280]";
+connectAttr "LRingKnuckle_rotateY1.o" "nightmare_hugeRN.phl[281]";
+connectAttr "LRingKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[282]";
+connectAttr "LRingKnuckle_visibility1.o" "nightmare_hugeRN.phl[283]";
+connectAttr "LRingKnuckle_translateX1.o" "nightmare_hugeRN.phl[284]";
+connectAttr "LRingKnuckle_translateY1.o" "nightmare_hugeRN.phl[285]";
+connectAttr "LRingKnuckle_translateZ1.o" "nightmare_hugeRN.phl[286]";
+connectAttr "LRingKnuckle_scaleX1.o" "nightmare_hugeRN.phl[287]";
+connectAttr "LRingKnuckle_scaleY1.o" "nightmare_hugeRN.phl[288]";
+connectAttr "LRingKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[289]";
+connectAttr "LPinkyJoint_rotateX1.o" "nightmare_hugeRN.phl[290]";
+connectAttr "LPinkyJoint_rotateY1.o" "nightmare_hugeRN.phl[291]";
+connectAttr "LPinkyJoint_rotateZ1.o" "nightmare_hugeRN.phl[292]";
+connectAttr "LPinkyJoint_visibility1.o" "nightmare_hugeRN.phl[293]";
+connectAttr "LPinkyJoint_translateX1.o" "nightmare_hugeRN.phl[294]";
+connectAttr "LPinkyJoint_translateY1.o" "nightmare_hugeRN.phl[295]";
+connectAttr "LPinkyJoint_translateZ1.o" "nightmare_hugeRN.phl[296]";
+connectAttr "LPinkyJoint_scaleX1.o" "nightmare_hugeRN.phl[297]";
+connectAttr "LPinkyJoint_scaleY1.o" "nightmare_hugeRN.phl[298]";
+connectAttr "LPinkyJoint_scaleZ1.o" "nightmare_hugeRN.phl[299]";
+connectAttr "LPinkyKnuckle_rotateX1.o" "nightmare_hugeRN.phl[300]";
+connectAttr "LPinkyKnuckle_rotateY1.o" "nightmare_hugeRN.phl[301]";
+connectAttr "LPinkyKnuckle_rotateZ1.o" "nightmare_hugeRN.phl[302]";
+connectAttr "LPinkyKnuckle_visibility1.o" "nightmare_hugeRN.phl[303]";
+connectAttr "LPinkyKnuckle_translateX1.o" "nightmare_hugeRN.phl[304]";
+connectAttr "LPinkyKnuckle_translateY1.o" "nightmare_hugeRN.phl[305]";
+connectAttr "LPinkyKnuckle_translateZ1.o" "nightmare_hugeRN.phl[306]";
+connectAttr "LPinkyKnuckle_scaleX1.o" "nightmare_hugeRN.phl[307]";
+connectAttr "LPinkyKnuckle_scaleY1.o" "nightmare_hugeRN.phl[308]";
+connectAttr "LPinkyKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[309]";
 connectAttr "Main_FaceVis.o" "Candy_Enter_UnicornRN.phl[1]";
 connectAttr "Main_fkVis.o" "Candy_Enter_UnicornRN.phl[2]";
 connectAttr "Main_ikVis.o" "Candy_Enter_UnicornRN.phl[3]";
@@ -14057,12 +16235,12 @@ connectAttr "FKTail1_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[58]";
 connectAttr "FKTail2_M_scaleX.o" "Candy_Enter_UnicornRN.phl[59]";
 connectAttr "FKTail2_M_scaleY.o" "Candy_Enter_UnicornRN.phl[60]";
 connectAttr "FKTail2_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[61]";
-connectAttr "FKTail2_M_translateX.o" "Candy_Enter_UnicornRN.phl[62]";
-connectAttr "FKTail2_M_translateY.o" "Candy_Enter_UnicornRN.phl[63]";
-connectAttr "FKTail2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[64]";
-connectAttr "FKTail2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[65]";
-connectAttr "FKTail2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[66]";
-connectAttr "FKTail2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[67]";
+connectAttr "FKTail2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[62]";
+connectAttr "FKTail2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[63]";
+connectAttr "FKTail2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[64]";
+connectAttr "FKTail2_M_translateX.o" "Candy_Enter_UnicornRN.phl[65]";
+connectAttr "FKTail2_M_translateY.o" "Candy_Enter_UnicornRN.phl[66]";
+connectAttr "FKTail2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[67]";
 connectAttr "FKTail2_M_visibility.o" "Candy_Enter_UnicornRN.phl[68]";
 connectAttr "FKTail3_M_scaleX.o" "Candy_Enter_UnicornRN.phl[69]";
 connectAttr "FKTail3_M_scaleY.o" "Candy_Enter_UnicornRN.phl[70]";
@@ -14119,10 +16297,10 @@ connectAttr "FKHead_M_visibility.o" "Candy_Enter_UnicornRN.phl[120]";
 connectAttr "FKEarA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[121]";
 connectAttr "FKEarA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[122]";
 connectAttr "FKEarA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[123]";
-connectAttr "FKEarA_R_visibility.o" "Candy_Enter_UnicornRN.phl[124]";
-connectAttr "FKEarA_R_translateX.o" "Candy_Enter_UnicornRN.phl[125]";
-connectAttr "FKEarA_R_translateY.o" "Candy_Enter_UnicornRN.phl[126]";
-connectAttr "FKEarA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[127]";
+connectAttr "FKEarA_R_translateX.o" "Candy_Enter_UnicornRN.phl[124]";
+connectAttr "FKEarA_R_translateY.o" "Candy_Enter_UnicornRN.phl[125]";
+connectAttr "FKEarA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[126]";
+connectAttr "FKEarA_R_visibility.o" "Candy_Enter_UnicornRN.phl[127]";
 connectAttr "FKEarA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[128]";
 connectAttr "FKEarA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[129]";
 connectAttr "FKEarA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[130]";
@@ -14137,595 +16315,735 @@ connectAttr "FKEarB_R_scaleX.o" "Candy_Enter_UnicornRN.phl[138]";
 connectAttr "FKEarB_R_scaleY.o" "Candy_Enter_UnicornRN.phl[139]";
 connectAttr "FKEarB_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[140]";
 connectAttr "FKEarC_R_rotateX.o" "Candy_Enter_UnicornRN.phl[141]";
-connectAttr "FKEarC_R_rotateY.o" "Candy_Enter_UnicornRN.phl[142]";
-connectAttr "FKEarC_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[143]";
-connectAttr "FKEarC_R_visibility.o" "Candy_Enter_UnicornRN.phl[144]";
-connectAttr "FKEarC_R_translateX.o" "Candy_Enter_UnicornRN.phl[145]";
-connectAttr "FKEarC_R_translateY.o" "Candy_Enter_UnicornRN.phl[146]";
-connectAttr "FKEarC_R_translateZ.o" "Candy_Enter_UnicornRN.phl[147]";
-connectAttr "FKEarC_R_scaleX.o" "Candy_Enter_UnicornRN.phl[148]";
-connectAttr "FKEarC_R_scaleY.o" "Candy_Enter_UnicornRN.phl[149]";
-connectAttr "FKEarC_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[150]";
-connectAttr "FKEarA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[151]";
-connectAttr "FKEarA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[152]";
-connectAttr "FKEarA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[153]";
-connectAttr "FKEarA_L_visibility.o" "Candy_Enter_UnicornRN.phl[154]";
-connectAttr "FKEarA_L_translateX.o" "Candy_Enter_UnicornRN.phl[155]";
-connectAttr "FKEarA_L_translateY.o" "Candy_Enter_UnicornRN.phl[156]";
-connectAttr "FKEarA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[157]";
-connectAttr "FKEarA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[158]";
-connectAttr "FKEarA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[159]";
-connectAttr "FKEarA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[160]";
-connectAttr "FKEarB_L_rotateX.o" "Candy_Enter_UnicornRN.phl[161]";
-connectAttr "FKEarB_L_rotateY.o" "Candy_Enter_UnicornRN.phl[162]";
-connectAttr "FKEarB_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[163]";
-connectAttr "FKEarB_L_visibility.o" "Candy_Enter_UnicornRN.phl[164]";
-connectAttr "FKEarB_L_translateX.o" "Candy_Enter_UnicornRN.phl[165]";
-connectAttr "FKEarB_L_translateY.o" "Candy_Enter_UnicornRN.phl[166]";
-connectAttr "FKEarB_L_translateZ.o" "Candy_Enter_UnicornRN.phl[167]";
-connectAttr "FKEarB_L_scaleX.o" "Candy_Enter_UnicornRN.phl[168]";
-connectAttr "FKEarB_L_scaleY.o" "Candy_Enter_UnicornRN.phl[169]";
-connectAttr "FKEarB_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[170]";
-connectAttr "FKEarC_L_rotateX.o" "Candy_Enter_UnicornRN.phl[171]";
-connectAttr "FKEarC_L_rotateY.o" "Candy_Enter_UnicornRN.phl[172]";
-connectAttr "FKEarC_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[173]";
-connectAttr "FKEarC_L_visibility.o" "Candy_Enter_UnicornRN.phl[174]";
-connectAttr "FKEarC_L_translateX.o" "Candy_Enter_UnicornRN.phl[175]";
-connectAttr "FKEarC_L_translateY.o" "Candy_Enter_UnicornRN.phl[176]";
-connectAttr "FKEarC_L_translateZ.o" "Candy_Enter_UnicornRN.phl[177]";
-connectAttr "FKEarC_L_scaleX.o" "Candy_Enter_UnicornRN.phl[178]";
-connectAttr "FKEarC_L_scaleY.o" "Candy_Enter_UnicornRN.phl[179]";
-connectAttr "FKEarC_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[180]";
-connectAttr "FKScapula1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[181]";
-connectAttr "FKScapula1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[182]";
-connectAttr "FKScapula1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[183]";
-connectAttr "FKScapula1_R_translateX.o" "Candy_Enter_UnicornRN.phl[184]";
-connectAttr "FKScapula1_R_translateY.o" "Candy_Enter_UnicornRN.phl[185]";
-connectAttr "FKScapula1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[186]";
-connectAttr "FKScapula1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[187]";
-connectAttr "FKScapula1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[188]";
-connectAttr "FKScapula1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[189]";
-connectAttr "FKScapula1_R_visibility.o" "Candy_Enter_UnicornRN.phl[190]";
-connectAttr "FKScapula1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[191]";
-connectAttr "FKScapula1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[192]";
-connectAttr "FKScapula1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[193]";
-connectAttr "FKScapula1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[194]";
-connectAttr "FKScapula1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[195]";
-connectAttr "FKScapula1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[196]";
-connectAttr "FKScapula1_L_visibility.o" "Candy_Enter_UnicornRN.phl[197]";
-connectAttr "FKScapula1_L_translateX.o" "Candy_Enter_UnicornRN.phl[198]";
-connectAttr "FKScapula1_L_translateY.o" "Candy_Enter_UnicornRN.phl[199]";
-connectAttr "FKScapula1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[200]";
-connectAttr "IKLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[201]";
-connectAttr "IKLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[202]";
-connectAttr "IKLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[203]";
-connectAttr "IKLeg_R_scaleX.o" "Candy_Enter_UnicornRN.phl[204]";
-connectAttr "IKLeg_R_scaleY.o" "Candy_Enter_UnicornRN.phl[205]";
-connectAttr "IKLeg_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[206]";
-connectAttr "IKLeg_R_rotateX.o" "Candy_Enter_UnicornRN.phl[207]";
-connectAttr "IKLeg_R_rotateY.o" "Candy_Enter_UnicornRN.phl[208]";
-connectAttr "IKLeg_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[209]";
-connectAttr "IKLeg_R_swivel.o" "Candy_Enter_UnicornRN.phl[210]";
-connectAttr "IKLeg_R_toe.o" "Candy_Enter_UnicornRN.phl[211]";
-connectAttr "IKLeg_R_rollAngle.o" "Candy_Enter_UnicornRN.phl[212]";
-connectAttr "IKLeg_R_roll.o" "Candy_Enter_UnicornRN.phl[213]";
-connectAttr "IKLeg_R_legAim.o" "Candy_Enter_UnicornRN.phl[214]";
-connectAttr "IKLeg_R_stretchy.o" "Candy_Enter_UnicornRN.phl[215]";
-connectAttr "IKLeg_R_antiPop.o" "Candy_Enter_UnicornRN.phl[216]";
-connectAttr "IKLeg_R_Lenght1.o" "Candy_Enter_UnicornRN.phl[217]";
-connectAttr "IKLeg_R_Lenght2.o" "Candy_Enter_UnicornRN.phl[218]";
-connectAttr "IKLeg_R_volume.o" "Candy_Enter_UnicornRN.phl[219]";
-connectAttr "IKLeg_R_visibility.o" "Candy_Enter_UnicornRN.phl[220]";
-connectAttr "RollHeelLeg_R_visibility.o" "Candy_Enter_UnicornRN.phl[221]";
-connectAttr "RollHeelLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[222]";
-connectAttr "RollHeelLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[223]";
-connectAttr "RollHeelLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[224]";
-connectAttr "RollHeelLeg_R_rotateX.o" "Candy_Enter_UnicornRN.phl[225]";
-connectAttr "RollHeelLeg_R_rotateY.o" "Candy_Enter_UnicornRN.phl[226]";
-connectAttr "RollHeelLeg_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[227]";
-connectAttr "RollHeelLeg_R_scaleX.o" "Candy_Enter_UnicornRN.phl[228]";
-connectAttr "RollHeelLeg_R_scaleY.o" "Candy_Enter_UnicornRN.phl[229]";
-connectAttr "RollHeelLeg_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[230]";
-connectAttr "RollToesEnd_R_visibility.o" "Candy_Enter_UnicornRN.phl[231]";
-connectAttr "RollToesEnd_R_translateX.o" "Candy_Enter_UnicornRN.phl[232]";
-connectAttr "RollToesEnd_R_translateY.o" "Candy_Enter_UnicornRN.phl[233]";
-connectAttr "RollToesEnd_R_translateZ.o" "Candy_Enter_UnicornRN.phl[234]";
-connectAttr "RollToesEnd_R_rotateX.o" "Candy_Enter_UnicornRN.phl[235]";
-connectAttr "RollToesEnd_R_rotateY.o" "Candy_Enter_UnicornRN.phl[236]";
-connectAttr "RollToesEnd_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[237]";
-connectAttr "RollToesEnd_R_scaleX.o" "Candy_Enter_UnicornRN.phl[238]";
-connectAttr "RollToesEnd_R_scaleY.o" "Candy_Enter_UnicornRN.phl[239]";
-connectAttr "RollToesEnd_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[240]";
-connectAttr "RollToes_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[241]";
-connectAttr "RollToes_R_rotateX.o" "Candy_Enter_UnicornRN.phl[242]";
-connectAttr "RollToes_R_rotateY.o" "Candy_Enter_UnicornRN.phl[243]";
-connectAttr "RollToes_R_visibility.o" "Candy_Enter_UnicornRN.phl[244]";
-connectAttr "RollToes_R_translateX.o" "Candy_Enter_UnicornRN.phl[245]";
-connectAttr "RollToes_R_translateY.o" "Candy_Enter_UnicornRN.phl[246]";
-connectAttr "RollToes_R_translateZ.o" "Candy_Enter_UnicornRN.phl[247]";
-connectAttr "RollToes_R_scaleX.o" "Candy_Enter_UnicornRN.phl[248]";
-connectAttr "RollToes_R_scaleY.o" "Candy_Enter_UnicornRN.phl[249]";
-connectAttr "RollToes_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[250]";
-connectAttr "PoleLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[251]";
-connectAttr "PoleLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[252]";
-connectAttr "PoleLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[253]";
-connectAttr "PoleLeg_R_follow.o" "Candy_Enter_UnicornRN.phl[254]";
-connectAttr "PoleLeg_R_lock.o" "Candy_Enter_UnicornRN.phl[255]";
-connectAttr "IKLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[256]";
-connectAttr "IKLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[257]";
-connectAttr "IKLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[258]";
-connectAttr "IKLegA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[259]";
-connectAttr "IKLegA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[260]";
-connectAttr "IKLegA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[261]";
-connectAttr "IKLegA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[262]";
-connectAttr "IKLegA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[263]";
-connectAttr "IKLegA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[264]";
-connectAttr "IKLegA_R_swivel.o" "Candy_Enter_UnicornRN.phl[265]";
-connectAttr "IKLegA_R_toe.o" "Candy_Enter_UnicornRN.phl[266]";
-connectAttr "IKLegA_R_rollAngle.o" "Candy_Enter_UnicornRN.phl[267]";
-connectAttr "IKLegA_R_roll.o" "Candy_Enter_UnicornRN.phl[268]";
-connectAttr "IKLegA_R_legAim.o" "Candy_Enter_UnicornRN.phl[269]";
-connectAttr "IKLegA_R_stretchy.o" "Candy_Enter_UnicornRN.phl[270]";
-connectAttr "IKLegA_R_antiPop.o" "Candy_Enter_UnicornRN.phl[271]";
-connectAttr "IKLegA_R_Lenght1.o" "Candy_Enter_UnicornRN.phl[272]";
-connectAttr "IKLegA_R_Lenght2.o" "Candy_Enter_UnicornRN.phl[273]";
-connectAttr "IKLegA_R_volume.o" "Candy_Enter_UnicornRN.phl[274]";
-connectAttr "IKLegA_R_visibility.o" "Candy_Enter_UnicornRN.phl[275]";
-connectAttr "IKLegA_RShape_lockLength.o" "Candy_Enter_UnicornRN.phl[276]";
-connectAttr "RollHeelLegA_R_visibility.o" "Candy_Enter_UnicornRN.phl[277]";
-connectAttr "RollHeelLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[278]";
-connectAttr "RollHeelLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[279]";
-connectAttr "RollHeelLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[280]";
-connectAttr "RollHeelLegA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[281]";
-connectAttr "RollHeelLegA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[282]";
-connectAttr "RollHeelLegA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[283]";
-connectAttr "RollHeelLegA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[284]";
-connectAttr "RollHeelLegA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[285]";
-connectAttr "RollHeelLegA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[286]";
-connectAttr "RollToesAEnd_R_visibility.o" "Candy_Enter_UnicornRN.phl[287]";
-connectAttr "RollToesAEnd_R_translateX.o" "Candy_Enter_UnicornRN.phl[288]";
-connectAttr "RollToesAEnd_R_translateY.o" "Candy_Enter_UnicornRN.phl[289]";
-connectAttr "RollToesAEnd_R_translateZ.o" "Candy_Enter_UnicornRN.phl[290]";
-connectAttr "RollToesAEnd_R_rotateX.o" "Candy_Enter_UnicornRN.phl[291]";
-connectAttr "RollToesAEnd_R_rotateY.o" "Candy_Enter_UnicornRN.phl[292]";
-connectAttr "RollToesAEnd_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[293]";
-connectAttr "RollToesAEnd_R_scaleX.o" "Candy_Enter_UnicornRN.phl[294]";
-connectAttr "RollToesAEnd_R_scaleY.o" "Candy_Enter_UnicornRN.phl[295]";
-connectAttr "RollToesAEnd_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[296]";
-connectAttr "RollToesA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[297]";
-connectAttr "RollToesA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[298]";
-connectAttr "RollToesA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[299]";
-connectAttr "RollToesA_R_visibility.o" "Candy_Enter_UnicornRN.phl[300]";
-connectAttr "RollToesA_R_translateX.o" "Candy_Enter_UnicornRN.phl[301]";
-connectAttr "RollToesA_R_translateY.o" "Candy_Enter_UnicornRN.phl[302]";
-connectAttr "RollToesA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[303]";
-connectAttr "RollToesA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[304]";
-connectAttr "RollToesA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[305]";
-connectAttr "RollToesA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[306]";
-connectAttr "PoleLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[307]";
-connectAttr "PoleLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[308]";
-connectAttr "PoleLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[309]";
-connectAttr "PoleLegA_R_follow.o" "Candy_Enter_UnicornRN.phl[310]";
-connectAttr "PoleLegA_R_lock.o" "Candy_Enter_UnicornRN.phl[311]";
-connectAttr "IKLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[312]";
-connectAttr "IKLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[313]";
-connectAttr "IKLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[314]";
-connectAttr "IKLeg_L_scaleX.o" "Candy_Enter_UnicornRN.phl[315]";
-connectAttr "IKLeg_L_scaleY.o" "Candy_Enter_UnicornRN.phl[316]";
-connectAttr "IKLeg_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[317]";
-connectAttr "IKLeg_L_rotateX.o" "Candy_Enter_UnicornRN.phl[318]";
-connectAttr "IKLeg_L_rotateY.o" "Candy_Enter_UnicornRN.phl[319]";
-connectAttr "IKLeg_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[320]";
-connectAttr "IKLeg_L_swivel.o" "Candy_Enter_UnicornRN.phl[321]";
-connectAttr "IKLeg_L_toe.o" "Candy_Enter_UnicornRN.phl[322]";
-connectAttr "IKLeg_L_rollAngle.o" "Candy_Enter_UnicornRN.phl[323]";
-connectAttr "IKLeg_L_roll.o" "Candy_Enter_UnicornRN.phl[324]";
-connectAttr "IKLeg_L_legAim.o" "Candy_Enter_UnicornRN.phl[325]";
-connectAttr "IKLeg_L_stretchy.o" "Candy_Enter_UnicornRN.phl[326]";
-connectAttr "IKLeg_L_antiPop.o" "Candy_Enter_UnicornRN.phl[327]";
-connectAttr "IKLeg_L_Lenght1.o" "Candy_Enter_UnicornRN.phl[328]";
-connectAttr "IKLeg_L_Lenght2.o" "Candy_Enter_UnicornRN.phl[329]";
-connectAttr "IKLeg_L_volume.o" "Candy_Enter_UnicornRN.phl[330]";
-connectAttr "IKLeg_L_visibility.o" "Candy_Enter_UnicornRN.phl[331]";
-connectAttr "RollHeelLeg_L_visibility.o" "Candy_Enter_UnicornRN.phl[332]";
-connectAttr "RollHeelLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[333]";
-connectAttr "RollHeelLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[334]";
-connectAttr "RollHeelLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[335]";
-connectAttr "RollHeelLeg_L_rotateX.o" "Candy_Enter_UnicornRN.phl[336]";
-connectAttr "RollHeelLeg_L_rotateY.o" "Candy_Enter_UnicornRN.phl[337]";
-connectAttr "RollHeelLeg_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[338]";
-connectAttr "RollHeelLeg_L_scaleX.o" "Candy_Enter_UnicornRN.phl[339]";
-connectAttr "RollHeelLeg_L_scaleY.o" "Candy_Enter_UnicornRN.phl[340]";
-connectAttr "RollHeelLeg_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[341]";
-connectAttr "RollToesEnd_L_visibility.o" "Candy_Enter_UnicornRN.phl[342]";
-connectAttr "RollToesEnd_L_translateX.o" "Candy_Enter_UnicornRN.phl[343]";
-connectAttr "RollToesEnd_L_translateY.o" "Candy_Enter_UnicornRN.phl[344]";
-connectAttr "RollToesEnd_L_translateZ.o" "Candy_Enter_UnicornRN.phl[345]";
-connectAttr "RollToesEnd_L_rotateX.o" "Candy_Enter_UnicornRN.phl[346]";
-connectAttr "RollToesEnd_L_rotateY.o" "Candy_Enter_UnicornRN.phl[347]";
-connectAttr "RollToesEnd_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[348]";
-connectAttr "RollToesEnd_L_scaleX.o" "Candy_Enter_UnicornRN.phl[349]";
-connectAttr "RollToesEnd_L_scaleY.o" "Candy_Enter_UnicornRN.phl[350]";
-connectAttr "RollToesEnd_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[351]";
-connectAttr "RollToes_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[352]";
-connectAttr "RollToes_L_rotateX.o" "Candy_Enter_UnicornRN.phl[353]";
-connectAttr "RollToes_L_rotateY.o" "Candy_Enter_UnicornRN.phl[354]";
-connectAttr "RollToes_L_visibility.o" "Candy_Enter_UnicornRN.phl[355]";
-connectAttr "RollToes_L_translateX.o" "Candy_Enter_UnicornRN.phl[356]";
-connectAttr "RollToes_L_translateY.o" "Candy_Enter_UnicornRN.phl[357]";
-connectAttr "RollToes_L_translateZ.o" "Candy_Enter_UnicornRN.phl[358]";
-connectAttr "RollToes_L_scaleX.o" "Candy_Enter_UnicornRN.phl[359]";
-connectAttr "RollToes_L_scaleY.o" "Candy_Enter_UnicornRN.phl[360]";
-connectAttr "RollToes_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[361]";
-connectAttr "PoleLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[362]";
-connectAttr "PoleLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[363]";
-connectAttr "PoleLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[364]";
-connectAttr "PoleLeg_L_follow.o" "Candy_Enter_UnicornRN.phl[365]";
-connectAttr "PoleLeg_L_lock.o" "Candy_Enter_UnicornRN.phl[366]";
-connectAttr "IKLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[367]";
-connectAttr "IKLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[368]";
-connectAttr "IKLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[369]";
-connectAttr "IKLegA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[370]";
-connectAttr "IKLegA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[371]";
-connectAttr "IKLegA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[372]";
-connectAttr "IKLegA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[373]";
-connectAttr "IKLegA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[374]";
-connectAttr "IKLegA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[375]";
-connectAttr "IKLegA_L_swivel.o" "Candy_Enter_UnicornRN.phl[376]";
-connectAttr "IKLegA_L_toe.o" "Candy_Enter_UnicornRN.phl[377]";
-connectAttr "IKLegA_L_rollAngle.o" "Candy_Enter_UnicornRN.phl[378]";
-connectAttr "IKLegA_L_roll.o" "Candy_Enter_UnicornRN.phl[379]";
-connectAttr "IKLegA_L_legAim.o" "Candy_Enter_UnicornRN.phl[380]";
-connectAttr "IKLegA_L_stretchy.o" "Candy_Enter_UnicornRN.phl[381]";
-connectAttr "IKLegA_L_antiPop.o" "Candy_Enter_UnicornRN.phl[382]";
-connectAttr "IKLegA_L_Lenght1.o" "Candy_Enter_UnicornRN.phl[383]";
-connectAttr "IKLegA_L_Lenght2.o" "Candy_Enter_UnicornRN.phl[384]";
-connectAttr "IKLegA_L_volume.o" "Candy_Enter_UnicornRN.phl[385]";
-connectAttr "IKLegA_L_visibility.o" "Candy_Enter_UnicornRN.phl[386]";
-connectAttr "RollHeelLegA_L_visibility.o" "Candy_Enter_UnicornRN.phl[387]";
-connectAttr "RollHeelLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[388]";
-connectAttr "RollHeelLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[389]";
-connectAttr "RollHeelLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[390]";
-connectAttr "RollHeelLegA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[391]";
-connectAttr "RollHeelLegA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[392]";
-connectAttr "RollHeelLegA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[393]";
-connectAttr "RollHeelLegA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[394]";
-connectAttr "RollHeelLegA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[395]";
-connectAttr "RollHeelLegA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[396]";
-connectAttr "RollToesAEnd_L_visibility.o" "Candy_Enter_UnicornRN.phl[397]";
-connectAttr "RollToesAEnd_L_translateX.o" "Candy_Enter_UnicornRN.phl[398]";
-connectAttr "RollToesAEnd_L_translateY.o" "Candy_Enter_UnicornRN.phl[399]";
-connectAttr "RollToesAEnd_L_translateZ.o" "Candy_Enter_UnicornRN.phl[400]";
-connectAttr "RollToesAEnd_L_rotateX.o" "Candy_Enter_UnicornRN.phl[401]";
-connectAttr "RollToesAEnd_L_rotateY.o" "Candy_Enter_UnicornRN.phl[402]";
-connectAttr "RollToesAEnd_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[403]";
-connectAttr "RollToesAEnd_L_scaleX.o" "Candy_Enter_UnicornRN.phl[404]";
-connectAttr "RollToesAEnd_L_scaleY.o" "Candy_Enter_UnicornRN.phl[405]";
-connectAttr "RollToesAEnd_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[406]";
-connectAttr "RollToesA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[407]";
-connectAttr "RollToesA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[408]";
-connectAttr "RollToesA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[409]";
-connectAttr "RollToesA_L_visibility.o" "Candy_Enter_UnicornRN.phl[410]";
-connectAttr "RollToesA_L_translateX.o" "Candy_Enter_UnicornRN.phl[411]";
-connectAttr "RollToesA_L_translateY.o" "Candy_Enter_UnicornRN.phl[412]";
-connectAttr "RollToesA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[413]";
-connectAttr "RollToesA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[414]";
-connectAttr "RollToesA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[415]";
-connectAttr "RollToesA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[416]";
-connectAttr "PoleLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[417]";
-connectAttr "PoleLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[418]";
-connectAttr "PoleLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[419]";
-connectAttr "PoleLegA_L_follow.o" "Candy_Enter_UnicornRN.phl[420]";
-connectAttr "PoleLegA_L_lock.o" "Candy_Enter_UnicornRN.phl[421]";
-connectAttr "FKIKSpine_M_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[422]";
-connectAttr "FKIKSpine_M_IKVis.o" "Candy_Enter_UnicornRN.phl[423]";
-connectAttr "FKIKSpine_M_FKVis.o" "Candy_Enter_UnicornRN.phl[424]";
-connectAttr "FKIKTail_M_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[425]";
-connectAttr "FKIKTail_M_IKVis.o" "Candy_Enter_UnicornRN.phl[426]";
-connectAttr "FKIKTail_M_FKVis.o" "Candy_Enter_UnicornRN.phl[427]";
-connectAttr "FKIKLeg_R_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[428]";
-connectAttr "FKIKLeg_R_IKVis.o" "Candy_Enter_UnicornRN.phl[429]";
-connectAttr "FKIKLeg_R_FKVis.o" "Candy_Enter_UnicornRN.phl[430]";
-connectAttr "FKIKLegA_R_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[431]";
-connectAttr "FKIKLegA_R_IKVis.o" "Candy_Enter_UnicornRN.phl[432]";
-connectAttr "FKIKLegA_R_FKVis.o" "Candy_Enter_UnicornRN.phl[433]";
-connectAttr "FKIKLeg_L_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[434]";
-connectAttr "FKIKLeg_L_IKVis.o" "Candy_Enter_UnicornRN.phl[435]";
-connectAttr "FKIKLeg_L_FKVis.o" "Candy_Enter_UnicornRN.phl[436]";
-connectAttr "FKIKLegA_L_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[437]";
-connectAttr "FKIKLegA_L_IKVis.o" "Candy_Enter_UnicornRN.phl[438]";
-connectAttr "FKIKLegA_L_FKVis.o" "Candy_Enter_UnicornRN.phl[439]";
-connectAttr "BendNeck1_M_translateX.o" "Candy_Enter_UnicornRN.phl[440]";
-connectAttr "BendNeck1_M_translateY.o" "Candy_Enter_UnicornRN.phl[441]";
-connectAttr "BendNeck1_M_translateZ.o" "Candy_Enter_UnicornRN.phl[442]";
-connectAttr "BendNeck1_M_rotateX.o" "Candy_Enter_UnicornRN.phl[443]";
-connectAttr "BendNeck1_M_rotateY.o" "Candy_Enter_UnicornRN.phl[444]";
-connectAttr "BendNeck1_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[445]";
-connectAttr "BendNeck1_M_visibility.o" "Candy_Enter_UnicornRN.phl[446]";
-connectAttr "BendNeck1_M_scaleX.o" "Candy_Enter_UnicornRN.phl[447]";
-connectAttr "BendNeck1_M_scaleY.o" "Candy_Enter_UnicornRN.phl[448]";
-connectAttr "BendNeck1_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[449]";
-connectAttr "BendNeck2_M_translateX.o" "Candy_Enter_UnicornRN.phl[450]";
-connectAttr "BendNeck2_M_translateY.o" "Candy_Enter_UnicornRN.phl[451]";
-connectAttr "BendNeck2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[452]";
-connectAttr "BendNeck2_M_stiff.o" "Candy_Enter_UnicornRN.phl[453]";
-connectAttr "BendNeck2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[454]";
-connectAttr "BendNeck2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[455]";
-connectAttr "BendNeck2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[456]";
-connectAttr "BendNeck2_M_visibility.o" "Candy_Enter_UnicornRN.phl[457]";
-connectAttr "BendNeck2_M_scaleX.o" "Candy_Enter_UnicornRN.phl[458]";
-connectAttr "BendNeck2_M_scaleY.o" "Candy_Enter_UnicornRN.phl[459]";
-connectAttr "BendNeck2_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[460]";
-connectAttr "BendHead1_M_translateX.o" "Candy_Enter_UnicornRN.phl[461]";
-connectAttr "BendHead1_M_translateY.o" "Candy_Enter_UnicornRN.phl[462]";
-connectAttr "BendHead1_M_translateZ.o" "Candy_Enter_UnicornRN.phl[463]";
-connectAttr "BendHead1_M_rotateX.o" "Candy_Enter_UnicornRN.phl[464]";
-connectAttr "BendHead1_M_rotateY.o" "Candy_Enter_UnicornRN.phl[465]";
-connectAttr "BendHead1_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[466]";
-connectAttr "BendHead1_M_visibility.o" "Candy_Enter_UnicornRN.phl[467]";
-connectAttr "BendHead1_M_scaleX.o" "Candy_Enter_UnicornRN.phl[468]";
-connectAttr "BendHead1_M_scaleY.o" "Candy_Enter_UnicornRN.phl[469]";
-connectAttr "BendHead1_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[470]";
-connectAttr "BendHead2_M_stiff.o" "Candy_Enter_UnicornRN.phl[471]";
-connectAttr "BendHead2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[472]";
-connectAttr "BendHead2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[473]";
-connectAttr "BendHead2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[474]";
-connectAttr "BendHead2_M_visibility.o" "Candy_Enter_UnicornRN.phl[475]";
-connectAttr "BendHead2_M_translateX.o" "Candy_Enter_UnicornRN.phl[476]";
-connectAttr "BendHead2_M_translateY.o" "Candy_Enter_UnicornRN.phl[477]";
-connectAttr "BendHead2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[478]";
-connectAttr "BendHead2_M_scaleX.o" "Candy_Enter_UnicornRN.phl[479]";
-connectAttr "BendHead2_M_scaleY.o" "Candy_Enter_UnicornRN.phl[480]";
-connectAttr "BendHead2_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[481]";
-connectAttr "BendHipA1_R_translateX.o" "Candy_Enter_UnicornRN.phl[482]";
-connectAttr "BendHipA1_R_translateY.o" "Candy_Enter_UnicornRN.phl[483]";
-connectAttr "BendHipA1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[484]";
-connectAttr "BendHipA1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[485]";
-connectAttr "BendHipA1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[486]";
-connectAttr "BendHipA1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[487]";
-connectAttr "BendHipA1_R_visibility.o" "Candy_Enter_UnicornRN.phl[488]";
-connectAttr "BendHipA1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[489]";
-connectAttr "BendHipA1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[490]";
-connectAttr "BendHipA1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[491]";
-connectAttr "BendHipA2_R_translateX.o" "Candy_Enter_UnicornRN.phl[492]";
-connectAttr "BendHipA2_R_translateY.o" "Candy_Enter_UnicornRN.phl[493]";
-connectAttr "BendHipA2_R_translateZ.o" "Candy_Enter_UnicornRN.phl[494]";
-connectAttr "BendHipA2_R_stiff.o" "Candy_Enter_UnicornRN.phl[495]";
-connectAttr "BendHipA2_R_rotateX.o" "Candy_Enter_UnicornRN.phl[496]";
-connectAttr "BendHipA2_R_rotateY.o" "Candy_Enter_UnicornRN.phl[497]";
-connectAttr "BendHipA2_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[498]";
-connectAttr "BendHipA2_R_visibility.o" "Candy_Enter_UnicornRN.phl[499]";
-connectAttr "BendHipA2_R_scaleX.o" "Candy_Enter_UnicornRN.phl[500]";
-connectAttr "BendHipA2_R_scaleY.o" "Candy_Enter_UnicornRN.phl[501]";
-connectAttr "BendHipA2_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[502]";
-connectAttr "BendKneeA1_R_translateX.o" "Candy_Enter_UnicornRN.phl[503]";
-connectAttr "BendKneeA1_R_translateY.o" "Candy_Enter_UnicornRN.phl[504]";
-connectAttr "BendKneeA1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[505]";
-connectAttr "BendKneeA1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[506]";
-connectAttr "BendKneeA1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[507]";
-connectAttr "BendKneeA1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[508]";
-connectAttr "BendKneeA1_R_visibility.o" "Candy_Enter_UnicornRN.phl[509]";
-connectAttr "BendKneeA1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[510]";
-connectAttr "BendKneeA1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[511]";
-connectAttr "BendKneeA1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[512]";
-connectAttr "BendKneeA2_R_stiff.o" "Candy_Enter_UnicornRN.phl[513]";
-connectAttr "BendKneeA2_R_rotateX.o" "Candy_Enter_UnicornRN.phl[514]";
-connectAttr "BendKneeA2_R_rotateY.o" "Candy_Enter_UnicornRN.phl[515]";
-connectAttr "BendKneeA2_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[516]";
-connectAttr "BendKneeA2_R_translateX.o" "Candy_Enter_UnicornRN.phl[517]";
-connectAttr "BendKneeA2_R_translateY.o" "Candy_Enter_UnicornRN.phl[518]";
-connectAttr "BendKneeA2_R_translateZ.o" "Candy_Enter_UnicornRN.phl[519]";
-connectAttr "BendKneeA2_R_visibility.o" "Candy_Enter_UnicornRN.phl[520]";
-connectAttr "BendKneeA2_R_scaleX.o" "Candy_Enter_UnicornRN.phl[521]";
-connectAttr "BendKneeA2_R_scaleY.o" "Candy_Enter_UnicornRN.phl[522]";
-connectAttr "BendKneeA2_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[523]";
-connectAttr "BendHipA1_L_translateX.o" "Candy_Enter_UnicornRN.phl[524]";
-connectAttr "BendHipA1_L_translateY.o" "Candy_Enter_UnicornRN.phl[525]";
-connectAttr "BendHipA1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[526]";
-connectAttr "BendHipA1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[527]";
-connectAttr "BendHipA1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[528]";
-connectAttr "BendHipA1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[529]";
-connectAttr "BendHipA1_L_visibility.o" "Candy_Enter_UnicornRN.phl[530]";
-connectAttr "BendHipA1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[531]";
-connectAttr "BendHipA1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[532]";
-connectAttr "BendHipA1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[533]";
-connectAttr "BendHipA2_L_translateX.o" "Candy_Enter_UnicornRN.phl[534]";
-connectAttr "BendHipA2_L_translateY.o" "Candy_Enter_UnicornRN.phl[535]";
-connectAttr "BendHipA2_L_translateZ.o" "Candy_Enter_UnicornRN.phl[536]";
-connectAttr "BendHipA2_L_stiff.o" "Candy_Enter_UnicornRN.phl[537]";
-connectAttr "BendHipA2_L_rotateX.o" "Candy_Enter_UnicornRN.phl[538]";
-connectAttr "BendHipA2_L_rotateY.o" "Candy_Enter_UnicornRN.phl[539]";
-connectAttr "BendHipA2_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[540]";
-connectAttr "BendHipA2_L_visibility.o" "Candy_Enter_UnicornRN.phl[541]";
-connectAttr "BendHipA2_L_scaleX.o" "Candy_Enter_UnicornRN.phl[542]";
-connectAttr "BendHipA2_L_scaleY.o" "Candy_Enter_UnicornRN.phl[543]";
-connectAttr "BendHipA2_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[544]";
-connectAttr "BendKneeA1_L_translateX.o" "Candy_Enter_UnicornRN.phl[545]";
-connectAttr "BendKneeA1_L_translateY.o" "Candy_Enter_UnicornRN.phl[546]";
-connectAttr "BendKneeA1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[547]";
-connectAttr "BendKneeA1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[548]";
-connectAttr "BendKneeA1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[549]";
-connectAttr "BendKneeA1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[550]";
-connectAttr "BendKneeA1_L_visibility.o" "Candy_Enter_UnicornRN.phl[551]";
-connectAttr "BendKneeA1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[552]";
-connectAttr "BendKneeA1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[553]";
-connectAttr "BendKneeA1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[554]";
-connectAttr "BendKneeA2_L_stiff.o" "Candy_Enter_UnicornRN.phl[555]";
-connectAttr "BendKneeA2_L_rotateX.o" "Candy_Enter_UnicornRN.phl[556]";
-connectAttr "BendKneeA2_L_rotateY.o" "Candy_Enter_UnicornRN.phl[557]";
-connectAttr "BendKneeA2_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[558]";
-connectAttr "BendKneeA2_L_translateX.o" "Candy_Enter_UnicornRN.phl[559]";
-connectAttr "BendKneeA2_L_translateY.o" "Candy_Enter_UnicornRN.phl[560]";
-connectAttr "BendKneeA2_L_translateZ.o" "Candy_Enter_UnicornRN.phl[561]";
-connectAttr "BendKneeA2_L_visibility.o" "Candy_Enter_UnicornRN.phl[562]";
-connectAttr "BendKneeA2_L_scaleX.o" "Candy_Enter_UnicornRN.phl[563]";
-connectAttr "BendKneeA2_L_scaleY.o" "Candy_Enter_UnicornRN.phl[564]";
-connectAttr "BendKneeA2_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[565]";
-connectAttr "Candy_Enter_UnicornRN.phl[566]" "Main_parentConstraint1.tg[0].ts";
-connectAttr "RootX_M_CenterBtwFeet.o" "Candy_Enter_UnicornRN.phl[567]";
-connectAttr "Candy_Enter_UnicornRN.phl[568]" "Main_parentConstraint1.tg[0].tt";
-connectAttr "RootX_M_translateX.o" "Candy_Enter_UnicornRN.phl[569]";
-connectAttr "RootX_M_translateY.o" "Candy_Enter_UnicornRN.phl[570]";
-connectAttr "RootX_M_translateZ.o" "Candy_Enter_UnicornRN.phl[571]";
-connectAttr "Candy_Enter_UnicornRN.phl[572]" "Main_parentConstraint1.tg[0].tr";
-connectAttr "RootX_M_rotateX.o" "Candy_Enter_UnicornRN.phl[573]";
-connectAttr "RootX_M_rotateY.o" "Candy_Enter_UnicornRN.phl[574]";
-connectAttr "RootX_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[575]";
-connectAttr "Candy_Enter_UnicornRN.phl[576]" "Main_parentConstraint1.tg[0].trp";
-connectAttr "Candy_Enter_UnicornRN.phl[577]" "Main_parentConstraint1.tg[0].trt";
-connectAttr "Candy_Enter_UnicornRN.phl[578]" "Main_parentConstraint1.tg[0].tro";
-connectAttr "Candy_Enter_UnicornRN.phl[579]" "Main_parentConstraint1.tg[0].tpm";
-connectAttr "RootX_M_visibility.o" "Candy_Enter_UnicornRN.phl[580]";
-connectAttr "Lip6_R_translateX.o" "Candy_Enter_UnicornRN.phl[581]";
-connectAttr "AimEye_M_translateX.o" "Candy_Enter_UnicornRN.phl[582]";
-connectAttr "AimEye_M_translateY.o" "Candy_Enter_UnicornRN.phl[583]";
-connectAttr "AimEye_M_translateZ.o" "Candy_Enter_UnicornRN.phl[584]";
-connectAttr "AimEye_M_aim.o" "Candy_Enter_UnicornRN.phl[585]";
-connectAttr "AimEye_M_follow.o" "Candy_Enter_UnicornRN.phl[586]";
-connectAttr "AimEye_M_visibility.o" "Candy_Enter_UnicornRN.phl[587]";
-connectAttr "AimEye_M_scaleX.o" "Candy_Enter_UnicornRN.phl[588]";
-connectAttr "AimEye_M_scaleY.o" "Candy_Enter_UnicornRN.phl[589]";
-connectAttr "AimEye_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[590]";
-connectAttr "squashBase_M_translateX.o" "Candy_Enter_UnicornRN.phl[591]";
-connectAttr "squashBase_M_translateY.o" "Candy_Enter_UnicornRN.phl[592]";
-connectAttr "squashBase_M_translateZ.o" "Candy_Enter_UnicornRN.phl[593]";
-connectAttr "squashBase_M_rotateX.o" "Candy_Enter_UnicornRN.phl[594]";
-connectAttr "squashBase_M_rotateY.o" "Candy_Enter_UnicornRN.phl[595]";
-connectAttr "squashBase_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[596]";
-connectAttr "squashTop_M_volume.o" "Candy_Enter_UnicornRN.phl[597]";
-connectAttr "squashTop_M_translateX.o" "Candy_Enter_UnicornRN.phl[598]";
-connectAttr "squashTop_M_translateY.o" "Candy_Enter_UnicornRN.phl[599]";
-connectAttr "squashTop_M_translateZ.o" "Candy_Enter_UnicornRN.phl[600]";
-connectAttr "squashMiddle_M_translateX.o" "Candy_Enter_UnicornRN.phl[601]";
-connectAttr "squashMiddle_M_translateY.o" "Candy_Enter_UnicornRN.phl[602]";
-connectAttr "squashMiddle_M_translateZ.o" "Candy_Enter_UnicornRN.phl[603]";
-connectAttr "ctrlBox_ACtrlVis.o" "Candy_Enter_UnicornRN.phl[604]";
-connectAttr "ctrlBox_RenderSpheres.o" "Candy_Enter_UnicornRN.phl[605]";
-connectAttr "ctrlBox_BCtrlVis.o" "Candy_Enter_UnicornRN.phl[606]";
-connectAttr "ctrlBox_CCtrlVis.o" "Candy_Enter_UnicornRN.phl[607]";
-connectAttr "ctrlBox_AimCtrlVis.o" "Candy_Enter_UnicornRN.phl[608]";
-connectAttr "ctrlBox_SquashCtrlVis.o" "Candy_Enter_UnicornRN.phl[609]";
-connectAttr "ctrlBox_limits.o" "Candy_Enter_UnicornRN.phl[610]";
-connectAttr "ctrlBox_translateX.o" "Candy_Enter_UnicornRN.phl[611]";
-connectAttr "ctrlBox_translateY.o" "Candy_Enter_UnicornRN.phl[612]";
-connectAttr "ctrlBox_translateZ.o" "Candy_Enter_UnicornRN.phl[613]";
-connectAttr "ctrlBox_rotateX.o" "Candy_Enter_UnicornRN.phl[614]";
-connectAttr "ctrlBox_rotateY.o" "Candy_Enter_UnicornRN.phl[615]";
-connectAttr "ctrlBox_rotateZ.o" "Candy_Enter_UnicornRN.phl[616]";
-connectAttr "ctrlBox_scaleX.o" "Candy_Enter_UnicornRN.phl[617]";
-connectAttr "ctrlBox_scaleY.o" "Candy_Enter_UnicornRN.phl[618]";
-connectAttr "ctrlBox_scaleZ.o" "Candy_Enter_UnicornRN.phl[619]";
-connectAttr "ctrlBrow_R_translateY.o" "Candy_Enter_UnicornRN.phl[620]";
-connectAttr "ctrlBrow_R_translateX.o" "Candy_Enter_UnicornRN.phl[621]";
-connectAttr "ctrlBrow_R_squeeze.o" "Candy_Enter_UnicornRN.phl[622]";
-connectAttr "ctrlBrow_R_outerUpDown.o" "Candy_Enter_UnicornRN.phl[623]";
-connectAttr "ctrlBrow_L_translateY.o" "Candy_Enter_UnicornRN.phl[624]";
-connectAttr "ctrlBrow_L_translateX.o" "Candy_Enter_UnicornRN.phl[625]";
-connectAttr "ctrlBrow_L_squeeze.o" "Candy_Enter_UnicornRN.phl[626]";
-connectAttr "ctrlBrow_L_outerUpDown.o" "Candy_Enter_UnicornRN.phl[627]";
-connectAttr "ctrlEye_R_translateX.o" "Candy_Enter_UnicornRN.phl[628]";
-connectAttr "ctrlEye_R_translateY.o" "Candy_Enter_UnicornRN.phl[629]";
-connectAttr "ctrlEye_R_scaleX.o" "Candy_Enter_UnicornRN.phl[630]";
-connectAttr "ctrlEye_R_scaleY.o" "Candy_Enter_UnicornRN.phl[631]";
-connectAttr "ctrlEye_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[632]";
-connectAttr "ctrlEye_R_blink.o" "Candy_Enter_UnicornRN.phl[633]";
-connectAttr "ctrlEye_R_blinkCenter.o" "Candy_Enter_UnicornRN.phl[634]";
-connectAttr "ctrlEye_R_upperLid.o" "Candy_Enter_UnicornRN.phl[635]";
-connectAttr "ctrlEye_R_lowerLid.o" "Candy_Enter_UnicornRN.phl[636]";
-connectAttr "ctrlEye_R_upperLidFollow.o" "Candy_Enter_UnicornRN.phl[637]";
-connectAttr "ctrlEye_R_lowerLidFollow.o" "Candy_Enter_UnicornRN.phl[638]";
-connectAttr "ctrlEye_R_squint.o" "Candy_Enter_UnicornRN.phl[639]";
-connectAttr "ctrlEye_L_translateX.o" "Candy_Enter_UnicornRN.phl[640]";
-connectAttr "ctrlEye_L_translateY.o" "Candy_Enter_UnicornRN.phl[641]";
-connectAttr "ctrlEye_L_scaleX.o" "Candy_Enter_UnicornRN.phl[642]";
-connectAttr "ctrlEye_L_scaleY.o" "Candy_Enter_UnicornRN.phl[643]";
-connectAttr "ctrlEye_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[644]";
-connectAttr "ctrlEye_L_blink.o" "Candy_Enter_UnicornRN.phl[645]";
-connectAttr "ctrlEye_L_blinkCenter.o" "Candy_Enter_UnicornRN.phl[646]";
-connectAttr "ctrlEye_L_upperLid.o" "Candy_Enter_UnicornRN.phl[647]";
-connectAttr "ctrlEye_L_lowerLid.o" "Candy_Enter_UnicornRN.phl[648]";
-connectAttr "ctrlEye_L_upperLidFollow.o" "Candy_Enter_UnicornRN.phl[649]";
-connectAttr "ctrlEye_L_lowerLidFollow.o" "Candy_Enter_UnicornRN.phl[650]";
-connectAttr "ctrlEye_L_squint.o" "Candy_Enter_UnicornRN.phl[651]";
-connectAttr "ctrlCheek_R_translateY.o" "Candy_Enter_UnicornRN.phl[652]";
-connectAttr "ctrlCheek_R_translateX.o" "Candy_Enter_UnicornRN.phl[653]";
-connectAttr "ctrlCheek_L_translateY.o" "Candy_Enter_UnicornRN.phl[654]";
-connectAttr "ctrlCheek_L_translateX.o" "Candy_Enter_UnicornRN.phl[655]";
-connectAttr "ctrlNose_R_translateY.o" "Candy_Enter_UnicornRN.phl[656]";
-connectAttr "ctrlNose_R_translateX.o" "Candy_Enter_UnicornRN.phl[657]";
-connectAttr "ctrlNose_L_translateY.o" "Candy_Enter_UnicornRN.phl[658]";
-connectAttr "ctrlNose_L_translateX.o" "Candy_Enter_UnicornRN.phl[659]";
-connectAttr "ctrlMouth_M_translateY.o" "Candy_Enter_UnicornRN.phl[660]";
-connectAttr "ctrlMouth_M_translateX.o" "Candy_Enter_UnicornRN.phl[661]";
-connectAttr "ctrlMouth_M_jawSide.o" "Candy_Enter_UnicornRN.phl[662]";
-connectAttr "ctrlMouth_M_jawForward.o" "Candy_Enter_UnicornRN.phl[663]";
-connectAttr "ctrlMouth_M_chinRaiser.o" "Candy_Enter_UnicornRN.phl[664]";
-connectAttr "ctrlMouth_M_lipPress_R.o" "Candy_Enter_UnicornRN.phl[665]";
-connectAttr "ctrlMouth_M_lipPress_L.o" "Candy_Enter_UnicornRN.phl[666]";
-connectAttr "ctrlMouth_M_lipUpperRoll_R.o" "Candy_Enter_UnicornRN.phl[667]";
-connectAttr "ctrlMouth_M_lipUpperRoll_L.o" "Candy_Enter_UnicornRN.phl[668]";
-connectAttr "ctrlMouth_M_lipLowerRoll_R.o" "Candy_Enter_UnicornRN.phl[669]";
-connectAttr "ctrlMouth_M_lipLowerRoll_L.o" "Candy_Enter_UnicornRN.phl[670]";
-connectAttr "ctrlMouthCorner_R_translateX.o" "Candy_Enter_UnicornRN.phl[671]";
-connectAttr "ctrlMouthCorner_R_translateY.o" "Candy_Enter_UnicornRN.phl[672]";
-connectAttr "ctrlMouthCorner_L_translateX.o" "Candy_Enter_UnicornRN.phl[673]";
-connectAttr "ctrlMouthCorner_L_translateY.o" "Candy_Enter_UnicornRN.phl[674]";
-connectAttr "ctrlTongue_M_sizeX.o" "Candy_Enter_UnicornRN.phl[675]";
-connectAttr "ctrlTongue_M_sizeY.o" "Candy_Enter_UnicornRN.phl[676]";
-connectAttr "ctrlTongue_M_sizeZ.o" "Candy_Enter_UnicornRN.phl[677]";
-connectAttr "ctrlTongue_M_rotX1.o" "Candy_Enter_UnicornRN.phl[678]";
-connectAttr "ctrlTongue_M_rotX2.o" "Candy_Enter_UnicornRN.phl[679]";
-connectAttr "ctrlTongue_M_rotX3.o" "Candy_Enter_UnicornRN.phl[680]";
-connectAttr "ctrlTongue_M_rotY1.o" "Candy_Enter_UnicornRN.phl[681]";
-connectAttr "ctrlTongue_M_rotY2.o" "Candy_Enter_UnicornRN.phl[682]";
-connectAttr "ctrlTongue_M_rotY3.o" "Candy_Enter_UnicornRN.phl[683]";
-connectAttr "ctrlTongue_M_rotZ1.o" "Candy_Enter_UnicornRN.phl[684]";
-connectAttr "ctrlTongue_M_rotZ2.o" "Candy_Enter_UnicornRN.phl[685]";
-connectAttr "ctrlTongue_M_rotZ3.o" "Candy_Enter_UnicornRN.phl[686]";
-connectAttr "FKJaw_M_translateX.o" "Candy_Enter_UnicornRN.phl[687]";
-connectAttr "FKJaw_M_translateY.o" "Candy_Enter_UnicornRN.phl[688]";
-connectAttr "FKJaw_M_translateZ.o" "Candy_Enter_UnicornRN.phl[689]";
-connectAttr "FKJaw_M_rotateX.o" "Candy_Enter_UnicornRN.phl[690]";
-connectAttr "FKJaw_M_rotateY.o" "Candy_Enter_UnicornRN.phl[691]";
-connectAttr "FKJaw_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[692]";
-connectAttr "FKJaw_M_scaleX.o" "Candy_Enter_UnicornRN.phl[693]";
-connectAttr "FKJaw_M_scaleY.o" "Candy_Enter_UnicornRN.phl[694]";
-connectAttr "FKJaw_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[695]";
-connectAttr "FKJaw_M_visibility.o" "Candy_Enter_UnicornRN.phl[696]";
+connectAttr "FKEarC_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[142]";
+connectAttr "FKEarC_R_visibility.o" "Candy_Enter_UnicornRN.phl[143]";
+connectAttr "FKEarC_R_translateX.o" "Candy_Enter_UnicornRN.phl[144]";
+connectAttr "FKEarC_R_translateY.o" "Candy_Enter_UnicornRN.phl[145]";
+connectAttr "FKEarC_R_translateZ.o" "Candy_Enter_UnicornRN.phl[146]";
+connectAttr "FKEarC_R_scaleX.o" "Candy_Enter_UnicornRN.phl[147]";
+connectAttr "FKEarC_R_scaleY.o" "Candy_Enter_UnicornRN.phl[148]";
+connectAttr "FKEarC_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[149]";
+connectAttr "FKEarA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[150]";
+connectAttr "FKEarA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[151]";
+connectAttr "FKEarA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[152]";
+connectAttr "FKEarA_L_visibility.o" "Candy_Enter_UnicornRN.phl[153]";
+connectAttr "FKEarA_L_translateX.o" "Candy_Enter_UnicornRN.phl[154]";
+connectAttr "FKEarA_L_translateY.o" "Candy_Enter_UnicornRN.phl[155]";
+connectAttr "FKEarA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[156]";
+connectAttr "FKEarA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[157]";
+connectAttr "FKEarA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[158]";
+connectAttr "FKEarA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[159]";
+connectAttr "FKEarB_L_rotateX.o" "Candy_Enter_UnicornRN.phl[160]";
+connectAttr "FKEarB_L_rotateY.o" "Candy_Enter_UnicornRN.phl[161]";
+connectAttr "FKEarB_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[162]";
+connectAttr "FKEarB_L_visibility.o" "Candy_Enter_UnicornRN.phl[163]";
+connectAttr "FKEarB_L_translateX.o" "Candy_Enter_UnicornRN.phl[164]";
+connectAttr "FKEarB_L_translateY.o" "Candy_Enter_UnicornRN.phl[165]";
+connectAttr "FKEarB_L_translateZ.o" "Candy_Enter_UnicornRN.phl[166]";
+connectAttr "FKEarB_L_scaleX.o" "Candy_Enter_UnicornRN.phl[167]";
+connectAttr "FKEarB_L_scaleY.o" "Candy_Enter_UnicornRN.phl[168]";
+connectAttr "FKEarB_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[169]";
+connectAttr "FKEarC_L_rotateX.o" "Candy_Enter_UnicornRN.phl[170]";
+connectAttr "FKEarC_L_rotateY.o" "Candy_Enter_UnicornRN.phl[171]";
+connectAttr "FKEarC_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[172]";
+connectAttr "FKEarC_L_visibility.o" "Candy_Enter_UnicornRN.phl[173]";
+connectAttr "FKEarC_L_translateX.o" "Candy_Enter_UnicornRN.phl[174]";
+connectAttr "FKEarC_L_translateY.o" "Candy_Enter_UnicornRN.phl[175]";
+connectAttr "FKEarC_L_translateZ.o" "Candy_Enter_UnicornRN.phl[176]";
+connectAttr "FKEarC_L_scaleX.o" "Candy_Enter_UnicornRN.phl[177]";
+connectAttr "FKEarC_L_scaleY.o" "Candy_Enter_UnicornRN.phl[178]";
+connectAttr "FKEarC_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[179]";
+connectAttr "FKScapula1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[180]";
+connectAttr "FKScapula1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[181]";
+connectAttr "FKScapula1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[182]";
+connectAttr "FKScapula1_R_translateX.o" "Candy_Enter_UnicornRN.phl[183]";
+connectAttr "FKScapula1_R_translateY.o" "Candy_Enter_UnicornRN.phl[184]";
+connectAttr "FKScapula1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[185]";
+connectAttr "FKScapula1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[186]";
+connectAttr "FKScapula1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[187]";
+connectAttr "FKScapula1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[188]";
+connectAttr "FKScapula1_R_visibility.o" "Candy_Enter_UnicornRN.phl[189]";
+connectAttr "FKScapula1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[190]";
+connectAttr "FKScapula1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[191]";
+connectAttr "FKScapula1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[192]";
+connectAttr "FKScapula1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[193]";
+connectAttr "FKScapula1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[194]";
+connectAttr "FKScapula1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[195]";
+connectAttr "FKScapula1_L_visibility.o" "Candy_Enter_UnicornRN.phl[196]";
+connectAttr "FKScapula1_L_translateX.o" "Candy_Enter_UnicornRN.phl[197]";
+connectAttr "FKScapula1_L_translateY.o" "Candy_Enter_UnicornRN.phl[198]";
+connectAttr "FKScapula1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[199]";
+connectAttr "IKLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[200]";
+connectAttr "IKLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[201]";
+connectAttr "IKLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[202]";
+connectAttr "IKLeg_R_scaleX.o" "Candy_Enter_UnicornRN.phl[203]";
+connectAttr "IKLeg_R_scaleY.o" "Candy_Enter_UnicornRN.phl[204]";
+connectAttr "IKLeg_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[205]";
+connectAttr "IKLeg_R_rotateX.o" "Candy_Enter_UnicornRN.phl[206]";
+connectAttr "IKLeg_R_rotateY.o" "Candy_Enter_UnicornRN.phl[207]";
+connectAttr "IKLeg_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[208]";
+connectAttr "IKLeg_R_swivel.o" "Candy_Enter_UnicornRN.phl[209]";
+connectAttr "IKLeg_R_toe.o" "Candy_Enter_UnicornRN.phl[210]";
+connectAttr "IKLeg_R_rollAngle.o" "Candy_Enter_UnicornRN.phl[211]";
+connectAttr "IKLeg_R_roll.o" "Candy_Enter_UnicornRN.phl[212]";
+connectAttr "IKLeg_R_legAim.o" "Candy_Enter_UnicornRN.phl[213]";
+connectAttr "IKLeg_R_stretchy.o" "Candy_Enter_UnicornRN.phl[214]";
+connectAttr "IKLeg_R_antiPop.o" "Candy_Enter_UnicornRN.phl[215]";
+connectAttr "IKLeg_R_Lenght1.o" "Candy_Enter_UnicornRN.phl[216]";
+connectAttr "IKLeg_R_Lenght2.o" "Candy_Enter_UnicornRN.phl[217]";
+connectAttr "IKLeg_R_volume.o" "Candy_Enter_UnicornRN.phl[218]";
+connectAttr "IKLeg_R_visibility.o" "Candy_Enter_UnicornRN.phl[219]";
+connectAttr "RollHeelLeg_R_visibility.o" "Candy_Enter_UnicornRN.phl[220]";
+connectAttr "RollHeelLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[221]";
+connectAttr "RollHeelLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[222]";
+connectAttr "RollHeelLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[223]";
+connectAttr "RollHeelLeg_R_rotateX.o" "Candy_Enter_UnicornRN.phl[224]";
+connectAttr "RollHeelLeg_R_rotateY.o" "Candy_Enter_UnicornRN.phl[225]";
+connectAttr "RollHeelLeg_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[226]";
+connectAttr "RollHeelLeg_R_scaleX.o" "Candy_Enter_UnicornRN.phl[227]";
+connectAttr "RollHeelLeg_R_scaleY.o" "Candy_Enter_UnicornRN.phl[228]";
+connectAttr "RollHeelLeg_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[229]";
+connectAttr "RollToesEnd_R_visibility.o" "Candy_Enter_UnicornRN.phl[230]";
+connectAttr "RollToesEnd_R_translateX.o" "Candy_Enter_UnicornRN.phl[231]";
+connectAttr "RollToesEnd_R_translateY.o" "Candy_Enter_UnicornRN.phl[232]";
+connectAttr "RollToesEnd_R_translateZ.o" "Candy_Enter_UnicornRN.phl[233]";
+connectAttr "RollToesEnd_R_rotateX.o" "Candy_Enter_UnicornRN.phl[234]";
+connectAttr "RollToesEnd_R_rotateY.o" "Candy_Enter_UnicornRN.phl[235]";
+connectAttr "RollToesEnd_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[236]";
+connectAttr "RollToesEnd_R_scaleX.o" "Candy_Enter_UnicornRN.phl[237]";
+connectAttr "RollToesEnd_R_scaleY.o" "Candy_Enter_UnicornRN.phl[238]";
+connectAttr "RollToesEnd_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[239]";
+connectAttr "RollToes_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[240]";
+connectAttr "RollToes_R_rotateX.o" "Candy_Enter_UnicornRN.phl[241]";
+connectAttr "RollToes_R_rotateY.o" "Candy_Enter_UnicornRN.phl[242]";
+connectAttr "RollToes_R_visibility.o" "Candy_Enter_UnicornRN.phl[243]";
+connectAttr "RollToes_R_translateX.o" "Candy_Enter_UnicornRN.phl[244]";
+connectAttr "RollToes_R_translateY.o" "Candy_Enter_UnicornRN.phl[245]";
+connectAttr "RollToes_R_translateZ.o" "Candy_Enter_UnicornRN.phl[246]";
+connectAttr "RollToes_R_scaleX.o" "Candy_Enter_UnicornRN.phl[247]";
+connectAttr "RollToes_R_scaleY.o" "Candy_Enter_UnicornRN.phl[248]";
+connectAttr "RollToes_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[249]";
+connectAttr "PoleLeg_R_translateX.o" "Candy_Enter_UnicornRN.phl[250]";
+connectAttr "PoleLeg_R_translateY.o" "Candy_Enter_UnicornRN.phl[251]";
+connectAttr "PoleLeg_R_translateZ.o" "Candy_Enter_UnicornRN.phl[252]";
+connectAttr "PoleLeg_R_follow.o" "Candy_Enter_UnicornRN.phl[253]";
+connectAttr "PoleLeg_R_lock.o" "Candy_Enter_UnicornRN.phl[254]";
+connectAttr "IKLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[255]";
+connectAttr "IKLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[256]";
+connectAttr "IKLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[257]";
+connectAttr "IKLegA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[258]";
+connectAttr "IKLegA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[259]";
+connectAttr "IKLegA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[260]";
+connectAttr "IKLegA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[261]";
+connectAttr "IKLegA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[262]";
+connectAttr "IKLegA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[263]";
+connectAttr "IKLegA_R_swivel.o" "Candy_Enter_UnicornRN.phl[264]";
+connectAttr "IKLegA_R_toe.o" "Candy_Enter_UnicornRN.phl[265]";
+connectAttr "IKLegA_R_rollAngle.o" "Candy_Enter_UnicornRN.phl[266]";
+connectAttr "IKLegA_R_roll.o" "Candy_Enter_UnicornRN.phl[267]";
+connectAttr "IKLegA_R_legAim.o" "Candy_Enter_UnicornRN.phl[268]";
+connectAttr "IKLegA_R_stretchy.o" "Candy_Enter_UnicornRN.phl[269]";
+connectAttr "IKLegA_R_antiPop.o" "Candy_Enter_UnicornRN.phl[270]";
+connectAttr "IKLegA_R_Lenght1.o" "Candy_Enter_UnicornRN.phl[271]";
+connectAttr "IKLegA_R_Lenght2.o" "Candy_Enter_UnicornRN.phl[272]";
+connectAttr "IKLegA_R_volume.o" "Candy_Enter_UnicornRN.phl[273]";
+connectAttr "IKLegA_R_visibility.o" "Candy_Enter_UnicornRN.phl[274]";
+connectAttr "IKLegA_RShape_lockLength.o" "Candy_Enter_UnicornRN.phl[275]";
+connectAttr "RollHeelLegA_R_visibility.o" "Candy_Enter_UnicornRN.phl[276]";
+connectAttr "RollHeelLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[277]";
+connectAttr "RollHeelLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[278]";
+connectAttr "RollHeelLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[279]";
+connectAttr "RollHeelLegA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[280]";
+connectAttr "RollHeelLegA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[281]";
+connectAttr "RollHeelLegA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[282]";
+connectAttr "RollHeelLegA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[283]";
+connectAttr "RollHeelLegA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[284]";
+connectAttr "RollHeelLegA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[285]";
+connectAttr "RollToesAEnd_R_visibility.o" "Candy_Enter_UnicornRN.phl[286]";
+connectAttr "RollToesAEnd_R_translateX.o" "Candy_Enter_UnicornRN.phl[287]";
+connectAttr "RollToesAEnd_R_translateY.o" "Candy_Enter_UnicornRN.phl[288]";
+connectAttr "RollToesAEnd_R_translateZ.o" "Candy_Enter_UnicornRN.phl[289]";
+connectAttr "RollToesAEnd_R_rotateX.o" "Candy_Enter_UnicornRN.phl[290]";
+connectAttr "RollToesAEnd_R_rotateY.o" "Candy_Enter_UnicornRN.phl[291]";
+connectAttr "RollToesAEnd_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[292]";
+connectAttr "RollToesAEnd_R_scaleX.o" "Candy_Enter_UnicornRN.phl[293]";
+connectAttr "RollToesAEnd_R_scaleY.o" "Candy_Enter_UnicornRN.phl[294]";
+connectAttr "RollToesAEnd_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[295]";
+connectAttr "RollToesA_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[296]";
+connectAttr "RollToesA_R_rotateX.o" "Candy_Enter_UnicornRN.phl[297]";
+connectAttr "RollToesA_R_rotateY.o" "Candy_Enter_UnicornRN.phl[298]";
+connectAttr "RollToesA_R_visibility.o" "Candy_Enter_UnicornRN.phl[299]";
+connectAttr "RollToesA_R_translateX.o" "Candy_Enter_UnicornRN.phl[300]";
+connectAttr "RollToesA_R_translateY.o" "Candy_Enter_UnicornRN.phl[301]";
+connectAttr "RollToesA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[302]";
+connectAttr "RollToesA_R_scaleX.o" "Candy_Enter_UnicornRN.phl[303]";
+connectAttr "RollToesA_R_scaleY.o" "Candy_Enter_UnicornRN.phl[304]";
+connectAttr "RollToesA_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[305]";
+connectAttr "PoleLegA_R_translateX.o" "Candy_Enter_UnicornRN.phl[306]";
+connectAttr "PoleLegA_R_translateY.o" "Candy_Enter_UnicornRN.phl[307]";
+connectAttr "PoleLegA_R_translateZ.o" "Candy_Enter_UnicornRN.phl[308]";
+connectAttr "PoleLegA_R_follow.o" "Candy_Enter_UnicornRN.phl[309]";
+connectAttr "PoleLegA_R_lock.o" "Candy_Enter_UnicornRN.phl[310]";
+connectAttr "IKLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[311]";
+connectAttr "IKLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[312]";
+connectAttr "IKLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[313]";
+connectAttr "IKLeg_L_scaleX.o" "Candy_Enter_UnicornRN.phl[314]";
+connectAttr "IKLeg_L_scaleY.o" "Candy_Enter_UnicornRN.phl[315]";
+connectAttr "IKLeg_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[316]";
+connectAttr "IKLeg_L_rotateX.o" "Candy_Enter_UnicornRN.phl[317]";
+connectAttr "IKLeg_L_rotateY.o" "Candy_Enter_UnicornRN.phl[318]";
+connectAttr "IKLeg_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[319]";
+connectAttr "IKLeg_L_swivel.o" "Candy_Enter_UnicornRN.phl[320]";
+connectAttr "IKLeg_L_toe.o" "Candy_Enter_UnicornRN.phl[321]";
+connectAttr "IKLeg_L_rollAngle.o" "Candy_Enter_UnicornRN.phl[322]";
+connectAttr "IKLeg_L_roll.o" "Candy_Enter_UnicornRN.phl[323]";
+connectAttr "IKLeg_L_legAim.o" "Candy_Enter_UnicornRN.phl[324]";
+connectAttr "IKLeg_L_stretchy.o" "Candy_Enter_UnicornRN.phl[325]";
+connectAttr "IKLeg_L_antiPop.o" "Candy_Enter_UnicornRN.phl[326]";
+connectAttr "IKLeg_L_Lenght1.o" "Candy_Enter_UnicornRN.phl[327]";
+connectAttr "IKLeg_L_Lenght2.o" "Candy_Enter_UnicornRN.phl[328]";
+connectAttr "IKLeg_L_volume.o" "Candy_Enter_UnicornRN.phl[329]";
+connectAttr "IKLeg_L_visibility.o" "Candy_Enter_UnicornRN.phl[330]";
+connectAttr "RollHeelLeg_L_visibility.o" "Candy_Enter_UnicornRN.phl[331]";
+connectAttr "RollHeelLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[332]";
+connectAttr "RollHeelLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[333]";
+connectAttr "RollHeelLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[334]";
+connectAttr "RollHeelLeg_L_rotateX.o" "Candy_Enter_UnicornRN.phl[335]";
+connectAttr "RollHeelLeg_L_rotateY.o" "Candy_Enter_UnicornRN.phl[336]";
+connectAttr "RollHeelLeg_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[337]";
+connectAttr "RollHeelLeg_L_scaleX.o" "Candy_Enter_UnicornRN.phl[338]";
+connectAttr "RollHeelLeg_L_scaleY.o" "Candy_Enter_UnicornRN.phl[339]";
+connectAttr "RollHeelLeg_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[340]";
+connectAttr "RollToesEnd_L_visibility.o" "Candy_Enter_UnicornRN.phl[341]";
+connectAttr "RollToesEnd_L_translateX.o" "Candy_Enter_UnicornRN.phl[342]";
+connectAttr "RollToesEnd_L_translateY.o" "Candy_Enter_UnicornRN.phl[343]";
+connectAttr "RollToesEnd_L_translateZ.o" "Candy_Enter_UnicornRN.phl[344]";
+connectAttr "RollToesEnd_L_rotateX.o" "Candy_Enter_UnicornRN.phl[345]";
+connectAttr "RollToesEnd_L_rotateY.o" "Candy_Enter_UnicornRN.phl[346]";
+connectAttr "RollToesEnd_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[347]";
+connectAttr "RollToesEnd_L_scaleX.o" "Candy_Enter_UnicornRN.phl[348]";
+connectAttr "RollToesEnd_L_scaleY.o" "Candy_Enter_UnicornRN.phl[349]";
+connectAttr "RollToesEnd_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[350]";
+connectAttr "RollToes_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[351]";
+connectAttr "RollToes_L_rotateX.o" "Candy_Enter_UnicornRN.phl[352]";
+connectAttr "RollToes_L_rotateY.o" "Candy_Enter_UnicornRN.phl[353]";
+connectAttr "RollToes_L_visibility.o" "Candy_Enter_UnicornRN.phl[354]";
+connectAttr "RollToes_L_translateX.o" "Candy_Enter_UnicornRN.phl[355]";
+connectAttr "RollToes_L_translateY.o" "Candy_Enter_UnicornRN.phl[356]";
+connectAttr "RollToes_L_translateZ.o" "Candy_Enter_UnicornRN.phl[357]";
+connectAttr "RollToes_L_scaleX.o" "Candy_Enter_UnicornRN.phl[358]";
+connectAttr "RollToes_L_scaleY.o" "Candy_Enter_UnicornRN.phl[359]";
+connectAttr "RollToes_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[360]";
+connectAttr "PoleLeg_L_translateX.o" "Candy_Enter_UnicornRN.phl[361]";
+connectAttr "PoleLeg_L_translateY.o" "Candy_Enter_UnicornRN.phl[362]";
+connectAttr "PoleLeg_L_translateZ.o" "Candy_Enter_UnicornRN.phl[363]";
+connectAttr "PoleLeg_L_follow.o" "Candy_Enter_UnicornRN.phl[364]";
+connectAttr "PoleLeg_L_lock.o" "Candy_Enter_UnicornRN.phl[365]";
+connectAttr "IKLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[366]";
+connectAttr "IKLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[367]";
+connectAttr "IKLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[368]";
+connectAttr "IKLegA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[369]";
+connectAttr "IKLegA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[370]";
+connectAttr "IKLegA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[371]";
+connectAttr "IKLegA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[372]";
+connectAttr "IKLegA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[373]";
+connectAttr "IKLegA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[374]";
+connectAttr "IKLegA_L_swivel.o" "Candy_Enter_UnicornRN.phl[375]";
+connectAttr "IKLegA_L_toe.o" "Candy_Enter_UnicornRN.phl[376]";
+connectAttr "IKLegA_L_rollAngle.o" "Candy_Enter_UnicornRN.phl[377]";
+connectAttr "IKLegA_L_roll.o" "Candy_Enter_UnicornRN.phl[378]";
+connectAttr "IKLegA_L_legAim.o" "Candy_Enter_UnicornRN.phl[379]";
+connectAttr "IKLegA_L_stretchy.o" "Candy_Enter_UnicornRN.phl[380]";
+connectAttr "IKLegA_L_antiPop.o" "Candy_Enter_UnicornRN.phl[381]";
+connectAttr "IKLegA_L_Lenght1.o" "Candy_Enter_UnicornRN.phl[382]";
+connectAttr "IKLegA_L_Lenght2.o" "Candy_Enter_UnicornRN.phl[383]";
+connectAttr "IKLegA_L_volume.o" "Candy_Enter_UnicornRN.phl[384]";
+connectAttr "IKLegA_L_visibility.o" "Candy_Enter_UnicornRN.phl[385]";
+connectAttr "RollHeelLegA_L_visibility.o" "Candy_Enter_UnicornRN.phl[386]";
+connectAttr "RollHeelLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[387]";
+connectAttr "RollHeelLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[388]";
+connectAttr "RollHeelLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[389]";
+connectAttr "RollHeelLegA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[390]";
+connectAttr "RollHeelLegA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[391]";
+connectAttr "RollHeelLegA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[392]";
+connectAttr "RollHeelLegA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[393]";
+connectAttr "RollHeelLegA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[394]";
+connectAttr "RollHeelLegA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[395]";
+connectAttr "RollToesAEnd_L_visibility.o" "Candy_Enter_UnicornRN.phl[396]";
+connectAttr "RollToesAEnd_L_translateX.o" "Candy_Enter_UnicornRN.phl[397]";
+connectAttr "RollToesAEnd_L_translateY.o" "Candy_Enter_UnicornRN.phl[398]";
+connectAttr "RollToesAEnd_L_translateZ.o" "Candy_Enter_UnicornRN.phl[399]";
+connectAttr "RollToesAEnd_L_rotateX.o" "Candy_Enter_UnicornRN.phl[400]";
+connectAttr "RollToesAEnd_L_rotateY.o" "Candy_Enter_UnicornRN.phl[401]";
+connectAttr "RollToesAEnd_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[402]";
+connectAttr "RollToesAEnd_L_scaleX.o" "Candy_Enter_UnicornRN.phl[403]";
+connectAttr "RollToesAEnd_L_scaleY.o" "Candy_Enter_UnicornRN.phl[404]";
+connectAttr "RollToesAEnd_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[405]";
+connectAttr "RollToesA_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[406]";
+connectAttr "RollToesA_L_rotateX.o" "Candy_Enter_UnicornRN.phl[407]";
+connectAttr "RollToesA_L_rotateY.o" "Candy_Enter_UnicornRN.phl[408]";
+connectAttr "RollToesA_L_visibility.o" "Candy_Enter_UnicornRN.phl[409]";
+connectAttr "RollToesA_L_translateX.o" "Candy_Enter_UnicornRN.phl[410]";
+connectAttr "RollToesA_L_translateY.o" "Candy_Enter_UnicornRN.phl[411]";
+connectAttr "RollToesA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[412]";
+connectAttr "RollToesA_L_scaleX.o" "Candy_Enter_UnicornRN.phl[413]";
+connectAttr "RollToesA_L_scaleY.o" "Candy_Enter_UnicornRN.phl[414]";
+connectAttr "RollToesA_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[415]";
+connectAttr "PoleLegA_L_translateX.o" "Candy_Enter_UnicornRN.phl[416]";
+connectAttr "PoleLegA_L_translateY.o" "Candy_Enter_UnicornRN.phl[417]";
+connectAttr "PoleLegA_L_translateZ.o" "Candy_Enter_UnicornRN.phl[418]";
+connectAttr "PoleLegA_L_follow.o" "Candy_Enter_UnicornRN.phl[419]";
+connectAttr "PoleLegA_L_lock.o" "Candy_Enter_UnicornRN.phl[420]";
+connectAttr "FKIKSpine_M_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[421]";
+connectAttr "FKIKSpine_M_IKVis.o" "Candy_Enter_UnicornRN.phl[422]";
+connectAttr "FKIKSpine_M_FKVis.o" "Candy_Enter_UnicornRN.phl[423]";
+connectAttr "FKIKTail_M_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[424]";
+connectAttr "FKIKTail_M_IKVis.o" "Candy_Enter_UnicornRN.phl[425]";
+connectAttr "FKIKTail_M_FKVis.o" "Candy_Enter_UnicornRN.phl[426]";
+connectAttr "FKIKLeg_R_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[427]";
+connectAttr "FKIKLeg_R_IKVis.o" "Candy_Enter_UnicornRN.phl[428]";
+connectAttr "FKIKLeg_R_FKVis.o" "Candy_Enter_UnicornRN.phl[429]";
+connectAttr "FKIKLegA_R_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[430]";
+connectAttr "FKIKLegA_R_IKVis.o" "Candy_Enter_UnicornRN.phl[431]";
+connectAttr "FKIKLegA_R_FKVis.o" "Candy_Enter_UnicornRN.phl[432]";
+connectAttr "FKIKLeg_L_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[433]";
+connectAttr "FKIKLeg_L_IKVis.o" "Candy_Enter_UnicornRN.phl[434]";
+connectAttr "FKIKLeg_L_FKVis.o" "Candy_Enter_UnicornRN.phl[435]";
+connectAttr "FKIKLegA_L_FKIKBlend.o" "Candy_Enter_UnicornRN.phl[436]";
+connectAttr "FKIKLegA_L_IKVis.o" "Candy_Enter_UnicornRN.phl[437]";
+connectAttr "FKIKLegA_L_FKVis.o" "Candy_Enter_UnicornRN.phl[438]";
+connectAttr "BendNeck1_M_translateX.o" "Candy_Enter_UnicornRN.phl[439]";
+connectAttr "BendNeck1_M_translateY.o" "Candy_Enter_UnicornRN.phl[440]";
+connectAttr "BendNeck1_M_translateZ.o" "Candy_Enter_UnicornRN.phl[441]";
+connectAttr "BendNeck1_M_rotateX.o" "Candy_Enter_UnicornRN.phl[442]";
+connectAttr "BendNeck1_M_rotateY.o" "Candy_Enter_UnicornRN.phl[443]";
+connectAttr "BendNeck1_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[444]";
+connectAttr "BendNeck1_M_visibility.o" "Candy_Enter_UnicornRN.phl[445]";
+connectAttr "BendNeck1_M_scaleX.o" "Candy_Enter_UnicornRN.phl[446]";
+connectAttr "BendNeck1_M_scaleY.o" "Candy_Enter_UnicornRN.phl[447]";
+connectAttr "BendNeck1_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[448]";
+connectAttr "BendNeck2_M_translateX.o" "Candy_Enter_UnicornRN.phl[449]";
+connectAttr "BendNeck2_M_translateY.o" "Candy_Enter_UnicornRN.phl[450]";
+connectAttr "BendNeck2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[451]";
+connectAttr "BendNeck2_M_stiff.o" "Candy_Enter_UnicornRN.phl[452]";
+connectAttr "BendNeck2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[453]";
+connectAttr "BendNeck2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[454]";
+connectAttr "BendNeck2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[455]";
+connectAttr "BendNeck2_M_visibility.o" "Candy_Enter_UnicornRN.phl[456]";
+connectAttr "BendNeck2_M_scaleX.o" "Candy_Enter_UnicornRN.phl[457]";
+connectAttr "BendNeck2_M_scaleY.o" "Candy_Enter_UnicornRN.phl[458]";
+connectAttr "BendNeck2_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[459]";
+connectAttr "BendHead1_M_translateX.o" "Candy_Enter_UnicornRN.phl[460]";
+connectAttr "BendHead1_M_translateY.o" "Candy_Enter_UnicornRN.phl[461]";
+connectAttr "BendHead1_M_translateZ.o" "Candy_Enter_UnicornRN.phl[462]";
+connectAttr "BendHead1_M_rotateX.o" "Candy_Enter_UnicornRN.phl[463]";
+connectAttr "BendHead1_M_rotateY.o" "Candy_Enter_UnicornRN.phl[464]";
+connectAttr "BendHead1_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[465]";
+connectAttr "BendHead1_M_visibility.o" "Candy_Enter_UnicornRN.phl[466]";
+connectAttr "BendHead1_M_scaleX.o" "Candy_Enter_UnicornRN.phl[467]";
+connectAttr "BendHead1_M_scaleY.o" "Candy_Enter_UnicornRN.phl[468]";
+connectAttr "BendHead1_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[469]";
+connectAttr "BendHead2_M_stiff.o" "Candy_Enter_UnicornRN.phl[470]";
+connectAttr "BendHead2_M_rotateX.o" "Candy_Enter_UnicornRN.phl[471]";
+connectAttr "BendHead2_M_rotateY.o" "Candy_Enter_UnicornRN.phl[472]";
+connectAttr "BendHead2_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[473]";
+connectAttr "BendHead2_M_visibility.o" "Candy_Enter_UnicornRN.phl[474]";
+connectAttr "BendHead2_M_translateX.o" "Candy_Enter_UnicornRN.phl[475]";
+connectAttr "BendHead2_M_translateY.o" "Candy_Enter_UnicornRN.phl[476]";
+connectAttr "BendHead2_M_translateZ.o" "Candy_Enter_UnicornRN.phl[477]";
+connectAttr "BendHead2_M_scaleX.o" "Candy_Enter_UnicornRN.phl[478]";
+connectAttr "BendHead2_M_scaleY.o" "Candy_Enter_UnicornRN.phl[479]";
+connectAttr "BendHead2_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[480]";
+connectAttr "BendHipA1_R_translateX.o" "Candy_Enter_UnicornRN.phl[481]";
+connectAttr "BendHipA1_R_translateY.o" "Candy_Enter_UnicornRN.phl[482]";
+connectAttr "BendHipA1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[483]";
+connectAttr "BendHipA1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[484]";
+connectAttr "BendHipA1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[485]";
+connectAttr "BendHipA1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[486]";
+connectAttr "BendHipA1_R_visibility.o" "Candy_Enter_UnicornRN.phl[487]";
+connectAttr "BendHipA1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[488]";
+connectAttr "BendHipA1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[489]";
+connectAttr "BendHipA1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[490]";
+connectAttr "BendHipA2_R_translateX.o" "Candy_Enter_UnicornRN.phl[491]";
+connectAttr "BendHipA2_R_translateY.o" "Candy_Enter_UnicornRN.phl[492]";
+connectAttr "BendHipA2_R_translateZ.o" "Candy_Enter_UnicornRN.phl[493]";
+connectAttr "BendHipA2_R_stiff.o" "Candy_Enter_UnicornRN.phl[494]";
+connectAttr "BendHipA2_R_rotateX.o" "Candy_Enter_UnicornRN.phl[495]";
+connectAttr "BendHipA2_R_rotateY.o" "Candy_Enter_UnicornRN.phl[496]";
+connectAttr "BendHipA2_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[497]";
+connectAttr "BendHipA2_R_visibility.o" "Candy_Enter_UnicornRN.phl[498]";
+connectAttr "BendHipA2_R_scaleX.o" "Candy_Enter_UnicornRN.phl[499]";
+connectAttr "BendHipA2_R_scaleY.o" "Candy_Enter_UnicornRN.phl[500]";
+connectAttr "BendHipA2_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[501]";
+connectAttr "BendKneeA1_R_translateX.o" "Candy_Enter_UnicornRN.phl[502]";
+connectAttr "BendKneeA1_R_translateY.o" "Candy_Enter_UnicornRN.phl[503]";
+connectAttr "BendKneeA1_R_translateZ.o" "Candy_Enter_UnicornRN.phl[504]";
+connectAttr "BendKneeA1_R_rotateX.o" "Candy_Enter_UnicornRN.phl[505]";
+connectAttr "BendKneeA1_R_rotateY.o" "Candy_Enter_UnicornRN.phl[506]";
+connectAttr "BendKneeA1_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[507]";
+connectAttr "BendKneeA1_R_visibility.o" "Candy_Enter_UnicornRN.phl[508]";
+connectAttr "BendKneeA1_R_scaleX.o" "Candy_Enter_UnicornRN.phl[509]";
+connectAttr "BendKneeA1_R_scaleY.o" "Candy_Enter_UnicornRN.phl[510]";
+connectAttr "BendKneeA1_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[511]";
+connectAttr "BendKneeA2_R_stiff.o" "Candy_Enter_UnicornRN.phl[512]";
+connectAttr "BendKneeA2_R_rotateX.o" "Candy_Enter_UnicornRN.phl[513]";
+connectAttr "BendKneeA2_R_rotateY.o" "Candy_Enter_UnicornRN.phl[514]";
+connectAttr "BendKneeA2_R_rotateZ.o" "Candy_Enter_UnicornRN.phl[515]";
+connectAttr "BendKneeA2_R_translateX.o" "Candy_Enter_UnicornRN.phl[516]";
+connectAttr "BendKneeA2_R_translateY.o" "Candy_Enter_UnicornRN.phl[517]";
+connectAttr "BendKneeA2_R_translateZ.o" "Candy_Enter_UnicornRN.phl[518]";
+connectAttr "BendKneeA2_R_visibility.o" "Candy_Enter_UnicornRN.phl[519]";
+connectAttr "BendKneeA2_R_scaleX.o" "Candy_Enter_UnicornRN.phl[520]";
+connectAttr "BendKneeA2_R_scaleY.o" "Candy_Enter_UnicornRN.phl[521]";
+connectAttr "BendKneeA2_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[522]";
+connectAttr "BendHipA1_L_translateX.o" "Candy_Enter_UnicornRN.phl[523]";
+connectAttr "BendHipA1_L_translateY.o" "Candy_Enter_UnicornRN.phl[524]";
+connectAttr "BendHipA1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[525]";
+connectAttr "BendHipA1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[526]";
+connectAttr "BendHipA1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[527]";
+connectAttr "BendHipA1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[528]";
+connectAttr "BendHipA1_L_visibility.o" "Candy_Enter_UnicornRN.phl[529]";
+connectAttr "BendHipA1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[530]";
+connectAttr "BendHipA1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[531]";
+connectAttr "BendHipA1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[532]";
+connectAttr "BendHipA2_L_translateX.o" "Candy_Enter_UnicornRN.phl[533]";
+connectAttr "BendHipA2_L_translateY.o" "Candy_Enter_UnicornRN.phl[534]";
+connectAttr "BendHipA2_L_translateZ.o" "Candy_Enter_UnicornRN.phl[535]";
+connectAttr "BendHipA2_L_stiff.o" "Candy_Enter_UnicornRN.phl[536]";
+connectAttr "BendHipA2_L_rotateX.o" "Candy_Enter_UnicornRN.phl[537]";
+connectAttr "BendHipA2_L_rotateY.o" "Candy_Enter_UnicornRN.phl[538]";
+connectAttr "BendHipA2_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[539]";
+connectAttr "BendHipA2_L_visibility.o" "Candy_Enter_UnicornRN.phl[540]";
+connectAttr "BendHipA2_L_scaleX.o" "Candy_Enter_UnicornRN.phl[541]";
+connectAttr "BendHipA2_L_scaleY.o" "Candy_Enter_UnicornRN.phl[542]";
+connectAttr "BendHipA2_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[543]";
+connectAttr "BendKneeA1_L_translateX.o" "Candy_Enter_UnicornRN.phl[544]";
+connectAttr "BendKneeA1_L_translateY.o" "Candy_Enter_UnicornRN.phl[545]";
+connectAttr "BendKneeA1_L_translateZ.o" "Candy_Enter_UnicornRN.phl[546]";
+connectAttr "BendKneeA1_L_rotateX.o" "Candy_Enter_UnicornRN.phl[547]";
+connectAttr "BendKneeA1_L_rotateY.o" "Candy_Enter_UnicornRN.phl[548]";
+connectAttr "BendKneeA1_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[549]";
+connectAttr "BendKneeA1_L_visibility.o" "Candy_Enter_UnicornRN.phl[550]";
+connectAttr "BendKneeA1_L_scaleX.o" "Candy_Enter_UnicornRN.phl[551]";
+connectAttr "BendKneeA1_L_scaleY.o" "Candy_Enter_UnicornRN.phl[552]";
+connectAttr "BendKneeA1_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[553]";
+connectAttr "BendKneeA2_L_stiff.o" "Candy_Enter_UnicornRN.phl[554]";
+connectAttr "BendKneeA2_L_rotateX.o" "Candy_Enter_UnicornRN.phl[555]";
+connectAttr "BendKneeA2_L_rotateY.o" "Candy_Enter_UnicornRN.phl[556]";
+connectAttr "BendKneeA2_L_rotateZ.o" "Candy_Enter_UnicornRN.phl[557]";
+connectAttr "BendKneeA2_L_translateX.o" "Candy_Enter_UnicornRN.phl[558]";
+connectAttr "BendKneeA2_L_translateY.o" "Candy_Enter_UnicornRN.phl[559]";
+connectAttr "BendKneeA2_L_translateZ.o" "Candy_Enter_UnicornRN.phl[560]";
+connectAttr "BendKneeA2_L_visibility.o" "Candy_Enter_UnicornRN.phl[561]";
+connectAttr "BendKneeA2_L_scaleX.o" "Candy_Enter_UnicornRN.phl[562]";
+connectAttr "BendKneeA2_L_scaleY.o" "Candy_Enter_UnicornRN.phl[563]";
+connectAttr "BendKneeA2_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[564]";
+connectAttr "Candy_Enter_UnicornRN.phl[565]" "Main_parentConstraint1.tg[0].ts";
+connectAttr "RootX_M_CenterBtwFeet.o" "Candy_Enter_UnicornRN.phl[566]";
+connectAttr "Candy_Enter_UnicornRN.phl[567]" "Main_parentConstraint1.tg[0].tt";
+connectAttr "RootX_M_translateX.o" "Candy_Enter_UnicornRN.phl[568]";
+connectAttr "RootX_M_translateY.o" "Candy_Enter_UnicornRN.phl[569]";
+connectAttr "RootX_M_translateZ.o" "Candy_Enter_UnicornRN.phl[570]";
+connectAttr "Candy_Enter_UnicornRN.phl[571]" "Main_parentConstraint1.tg[0].tr";
+connectAttr "RootX_M_rotateX.o" "Candy_Enter_UnicornRN.phl[572]";
+connectAttr "RootX_M_rotateY.o" "Candy_Enter_UnicornRN.phl[573]";
+connectAttr "RootX_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[574]";
+connectAttr "Candy_Enter_UnicornRN.phl[575]" "Main_parentConstraint1.tg[0].trp";
+connectAttr "Candy_Enter_UnicornRN.phl[576]" "Main_parentConstraint1.tg[0].trt";
+connectAttr "Candy_Enter_UnicornRN.phl[577]" "Main_parentConstraint1.tg[0].tro";
+connectAttr "Candy_Enter_UnicornRN.phl[578]" "Main_parentConstraint1.tg[0].tpm";
+connectAttr "RootX_M_visibility.o" "Candy_Enter_UnicornRN.phl[579]";
+connectAttr "Lip6_R_translateX.o" "Candy_Enter_UnicornRN.phl[580]";
+connectAttr "AimEye_M_translateX.o" "Candy_Enter_UnicornRN.phl[581]";
+connectAttr "AimEye_M_translateY.o" "Candy_Enter_UnicornRN.phl[582]";
+connectAttr "AimEye_M_translateZ.o" "Candy_Enter_UnicornRN.phl[583]";
+connectAttr "AimEye_M_aim.o" "Candy_Enter_UnicornRN.phl[584]";
+connectAttr "AimEye_M_follow.o" "Candy_Enter_UnicornRN.phl[585]";
+connectAttr "AimEye_M_visibility.o" "Candy_Enter_UnicornRN.phl[586]";
+connectAttr "AimEye_M_scaleX.o" "Candy_Enter_UnicornRN.phl[587]";
+connectAttr "AimEye_M_scaleY.o" "Candy_Enter_UnicornRN.phl[588]";
+connectAttr "AimEye_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[589]";
+connectAttr "squashBase_M_translateX.o" "Candy_Enter_UnicornRN.phl[590]";
+connectAttr "squashBase_M_translateY.o" "Candy_Enter_UnicornRN.phl[591]";
+connectAttr "squashBase_M_translateZ.o" "Candy_Enter_UnicornRN.phl[592]";
+connectAttr "squashBase_M_rotateX.o" "Candy_Enter_UnicornRN.phl[593]";
+connectAttr "squashBase_M_rotateY.o" "Candy_Enter_UnicornRN.phl[594]";
+connectAttr "squashBase_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[595]";
+connectAttr "squashTop_M_volume.o" "Candy_Enter_UnicornRN.phl[596]";
+connectAttr "squashTop_M_translateX.o" "Candy_Enter_UnicornRN.phl[597]";
+connectAttr "squashTop_M_translateY.o" "Candy_Enter_UnicornRN.phl[598]";
+connectAttr "squashTop_M_translateZ.o" "Candy_Enter_UnicornRN.phl[599]";
+connectAttr "squashMiddle_M_translateX.o" "Candy_Enter_UnicornRN.phl[600]";
+connectAttr "squashMiddle_M_translateY.o" "Candy_Enter_UnicornRN.phl[601]";
+connectAttr "squashMiddle_M_translateZ.o" "Candy_Enter_UnicornRN.phl[602]";
+connectAttr "ctrlBox_ACtrlVis.o" "Candy_Enter_UnicornRN.phl[603]";
+connectAttr "ctrlBox_RenderSpheres.o" "Candy_Enter_UnicornRN.phl[604]";
+connectAttr "ctrlBox_BCtrlVis.o" "Candy_Enter_UnicornRN.phl[605]";
+connectAttr "ctrlBox_CCtrlVis.o" "Candy_Enter_UnicornRN.phl[606]";
+connectAttr "ctrlBox_AimCtrlVis.o" "Candy_Enter_UnicornRN.phl[607]";
+connectAttr "ctrlBox_SquashCtrlVis.o" "Candy_Enter_UnicornRN.phl[608]";
+connectAttr "ctrlBox_limits.o" "Candy_Enter_UnicornRN.phl[609]";
+connectAttr "ctrlBox_translateX.o" "Candy_Enter_UnicornRN.phl[610]";
+connectAttr "ctrlBox_translateY.o" "Candy_Enter_UnicornRN.phl[611]";
+connectAttr "ctrlBox_translateZ.o" "Candy_Enter_UnicornRN.phl[612]";
+connectAttr "ctrlBox_rotateX.o" "Candy_Enter_UnicornRN.phl[613]";
+connectAttr "ctrlBox_rotateY.o" "Candy_Enter_UnicornRN.phl[614]";
+connectAttr "ctrlBox_rotateZ.o" "Candy_Enter_UnicornRN.phl[615]";
+connectAttr "ctrlBox_scaleX.o" "Candy_Enter_UnicornRN.phl[616]";
+connectAttr "ctrlBox_scaleY.o" "Candy_Enter_UnicornRN.phl[617]";
+connectAttr "ctrlBox_scaleZ.o" "Candy_Enter_UnicornRN.phl[618]";
+connectAttr "ctrlBrow_R_translateY.o" "Candy_Enter_UnicornRN.phl[619]";
+connectAttr "ctrlBrow_R_translateX.o" "Candy_Enter_UnicornRN.phl[620]";
+connectAttr "ctrlBrow_R_squeeze.o" "Candy_Enter_UnicornRN.phl[621]";
+connectAttr "ctrlBrow_R_outerUpDown.o" "Candy_Enter_UnicornRN.phl[622]";
+connectAttr "ctrlBrow_L_translateY.o" "Candy_Enter_UnicornRN.phl[623]";
+connectAttr "ctrlBrow_L_translateX.o" "Candy_Enter_UnicornRN.phl[624]";
+connectAttr "ctrlBrow_L_squeeze.o" "Candy_Enter_UnicornRN.phl[625]";
+connectAttr "ctrlBrow_L_outerUpDown.o" "Candy_Enter_UnicornRN.phl[626]";
+connectAttr "ctrlEye_R_translateX.o" "Candy_Enter_UnicornRN.phl[627]";
+connectAttr "ctrlEye_R_translateY.o" "Candy_Enter_UnicornRN.phl[628]";
+connectAttr "ctrlEye_R_scaleX.o" "Candy_Enter_UnicornRN.phl[629]";
+connectAttr "ctrlEye_R_scaleY.o" "Candy_Enter_UnicornRN.phl[630]";
+connectAttr "ctrlEye_R_scaleZ.o" "Candy_Enter_UnicornRN.phl[631]";
+connectAttr "ctrlEye_R_blink.o" "Candy_Enter_UnicornRN.phl[632]";
+connectAttr "ctrlEye_R_blinkCenter.o" "Candy_Enter_UnicornRN.phl[633]";
+connectAttr "ctrlEye_R_upperLid.o" "Candy_Enter_UnicornRN.phl[634]";
+connectAttr "ctrlEye_R_lowerLid.o" "Candy_Enter_UnicornRN.phl[635]";
+connectAttr "ctrlEye_R_upperLidFollow.o" "Candy_Enter_UnicornRN.phl[636]";
+connectAttr "ctrlEye_R_lowerLidFollow.o" "Candy_Enter_UnicornRN.phl[637]";
+connectAttr "ctrlEye_R_squint.o" "Candy_Enter_UnicornRN.phl[638]";
+connectAttr "ctrlEye_L_translateX.o" "Candy_Enter_UnicornRN.phl[639]";
+connectAttr "ctrlEye_L_translateY.o" "Candy_Enter_UnicornRN.phl[640]";
+connectAttr "ctrlEye_L_scaleX.o" "Candy_Enter_UnicornRN.phl[641]";
+connectAttr "ctrlEye_L_scaleY.o" "Candy_Enter_UnicornRN.phl[642]";
+connectAttr "ctrlEye_L_scaleZ.o" "Candy_Enter_UnicornRN.phl[643]";
+connectAttr "ctrlEye_L_blink.o" "Candy_Enter_UnicornRN.phl[644]";
+connectAttr "ctrlEye_L_blinkCenter.o" "Candy_Enter_UnicornRN.phl[645]";
+connectAttr "ctrlEye_L_upperLid.o" "Candy_Enter_UnicornRN.phl[646]";
+connectAttr "ctrlEye_L_lowerLid.o" "Candy_Enter_UnicornRN.phl[647]";
+connectAttr "ctrlEye_L_upperLidFollow.o" "Candy_Enter_UnicornRN.phl[648]";
+connectAttr "ctrlEye_L_lowerLidFollow.o" "Candy_Enter_UnicornRN.phl[649]";
+connectAttr "ctrlEye_L_squint.o" "Candy_Enter_UnicornRN.phl[650]";
+connectAttr "ctrlCheek_R_translateY.o" "Candy_Enter_UnicornRN.phl[651]";
+connectAttr "ctrlCheek_R_translateX.o" "Candy_Enter_UnicornRN.phl[652]";
+connectAttr "ctrlCheek_L_translateY.o" "Candy_Enter_UnicornRN.phl[653]";
+connectAttr "ctrlCheek_L_translateX.o" "Candy_Enter_UnicornRN.phl[654]";
+connectAttr "ctrlNose_R_translateY.o" "Candy_Enter_UnicornRN.phl[655]";
+connectAttr "ctrlNose_R_translateX.o" "Candy_Enter_UnicornRN.phl[656]";
+connectAttr "ctrlNose_L_translateY.o" "Candy_Enter_UnicornRN.phl[657]";
+connectAttr "ctrlNose_L_translateX.o" "Candy_Enter_UnicornRN.phl[658]";
+connectAttr "ctrlMouth_M_translateY.o" "Candy_Enter_UnicornRN.phl[659]";
+connectAttr "ctrlMouth_M_translateX.o" "Candy_Enter_UnicornRN.phl[660]";
+connectAttr "ctrlMouth_M_jawSide.o" "Candy_Enter_UnicornRN.phl[661]";
+connectAttr "ctrlMouth_M_jawForward.o" "Candy_Enter_UnicornRN.phl[662]";
+connectAttr "ctrlMouth_M_chinRaiser.o" "Candy_Enter_UnicornRN.phl[663]";
+connectAttr "ctrlMouth_M_lipPress_R.o" "Candy_Enter_UnicornRN.phl[664]";
+connectAttr "ctrlMouth_M_lipPress_L.o" "Candy_Enter_UnicornRN.phl[665]";
+connectAttr "ctrlMouth_M_lipUpperRoll_R.o" "Candy_Enter_UnicornRN.phl[666]";
+connectAttr "ctrlMouth_M_lipUpperRoll_L.o" "Candy_Enter_UnicornRN.phl[667]";
+connectAttr "ctrlMouth_M_lipLowerRoll_R.o" "Candy_Enter_UnicornRN.phl[668]";
+connectAttr "ctrlMouth_M_lipLowerRoll_L.o" "Candy_Enter_UnicornRN.phl[669]";
+connectAttr "ctrlMouthCorner_R_translateX.o" "Candy_Enter_UnicornRN.phl[670]";
+connectAttr "ctrlMouthCorner_R_translateY.o" "Candy_Enter_UnicornRN.phl[671]";
+connectAttr "ctrlMouthCorner_L_translateX.o" "Candy_Enter_UnicornRN.phl[672]";
+connectAttr "ctrlMouthCorner_L_translateY.o" "Candy_Enter_UnicornRN.phl[673]";
+connectAttr "ctrlTongue_M_sizeX.o" "Candy_Enter_UnicornRN.phl[674]";
+connectAttr "ctrlTongue_M_sizeY.o" "Candy_Enter_UnicornRN.phl[675]";
+connectAttr "ctrlTongue_M_sizeZ.o" "Candy_Enter_UnicornRN.phl[676]";
+connectAttr "ctrlTongue_M_rotX1.o" "Candy_Enter_UnicornRN.phl[677]";
+connectAttr "ctrlTongue_M_rotX2.o" "Candy_Enter_UnicornRN.phl[678]";
+connectAttr "ctrlTongue_M_rotX3.o" "Candy_Enter_UnicornRN.phl[679]";
+connectAttr "ctrlTongue_M_rotY1.o" "Candy_Enter_UnicornRN.phl[680]";
+connectAttr "ctrlTongue_M_rotY2.o" "Candy_Enter_UnicornRN.phl[681]";
+connectAttr "ctrlTongue_M_rotY3.o" "Candy_Enter_UnicornRN.phl[682]";
+connectAttr "ctrlTongue_M_rotZ1.o" "Candy_Enter_UnicornRN.phl[683]";
+connectAttr "ctrlTongue_M_rotZ2.o" "Candy_Enter_UnicornRN.phl[684]";
+connectAttr "ctrlTongue_M_rotZ3.o" "Candy_Enter_UnicornRN.phl[685]";
+connectAttr "FKJaw_M_translateX.o" "Candy_Enter_UnicornRN.phl[686]";
+connectAttr "FKJaw_M_translateY.o" "Candy_Enter_UnicornRN.phl[687]";
+connectAttr "FKJaw_M_translateZ.o" "Candy_Enter_UnicornRN.phl[688]";
+connectAttr "FKJaw_M_rotateX.o" "Candy_Enter_UnicornRN.phl[689]";
+connectAttr "FKJaw_M_rotateY.o" "Candy_Enter_UnicornRN.phl[690]";
+connectAttr "FKJaw_M_rotateZ.o" "Candy_Enter_UnicornRN.phl[691]";
+connectAttr "FKJaw_M_scaleX.o" "Candy_Enter_UnicornRN.phl[692]";
+connectAttr "FKJaw_M_scaleY.o" "Candy_Enter_UnicornRN.phl[693]";
+connectAttr "FKJaw_M_scaleZ.o" "Candy_Enter_UnicornRN.phl[694]";
+connectAttr "FKJaw_M_visibility.o" "Candy_Enter_UnicornRN.phl[695]";
+connectAttr "Candy_Enter_UnicornRN.phl[696]" "lambert2SG.dsm" -na;
 connectAttr "Candy_Enter_UnicornRN.phl[697]" "lambert2SG.dsm" -na;
-connectAttr "Candy_Enter_UnicornRN.phl[698]" "lambert2SG.dsm" -na;
-connectAttr "Main_parentConstraint1.ctx" "Emily_Enter_UnicornRN.phl[1]";
-connectAttr "Main_parentConstraint1.cty" "Emily_Enter_UnicornRN.phl[2]";
-connectAttr "Main_parentConstraint1.ctz" "Emily_Enter_UnicornRN.phl[3]";
-connectAttr "Main_parentConstraint1.crx" "Emily_Enter_UnicornRN.phl[4]";
-connectAttr "Main_parentConstraint1.cry" "Emily_Enter_UnicornRN.phl[5]";
-connectAttr "Main_parentConstraint1.crz" "Emily_Enter_UnicornRN.phl[6]";
-connectAttr "Emily_Enter_UnicornRN.phl[7]" "Main_parentConstraint1.cro";
-connectAttr "Emily_Enter_UnicornRN.phl[8]" "Main_parentConstraint1.cpim";
-connectAttr "Emily_Enter_UnicornRN.phl[9]" "Main_parentConstraint1.crp";
-connectAttr "Emily_Enter_UnicornRN.phl[10]" "Main_parentConstraint1.crt";
-connectAttr "Emily_Enter_UnicornRN.phl[11]" "Sword_Anim_Control_parentConstraint1.tg[0].ts"
+connectAttr "Main_parentConstraint1.ctx" "Emily_Enter_UnicornRN.phl[2]";
+connectAttr "Main_parentConstraint1.cty" "Emily_Enter_UnicornRN.phl[3]";
+connectAttr "Main_parentConstraint1.ctz" "Emily_Enter_UnicornRN.phl[4]";
+connectAttr "Main_parentConstraint1.crx" "Emily_Enter_UnicornRN.phl[5]";
+connectAttr "Main_parentConstraint1.cry" "Emily_Enter_UnicornRN.phl[6]";
+connectAttr "Main_parentConstraint1.crz" "Emily_Enter_UnicornRN.phl[7]";
+connectAttr "Emily_Enter_UnicornRN.phl[8]" "Main_parentConstraint1.cro";
+connectAttr "Emily_Enter_UnicornRN.phl[9]" "Main_parentConstraint1.cpim";
+connectAttr "Emily_Enter_UnicornRN.phl[10]" "Main_parentConstraint1.crp";
+connectAttr "Emily_Enter_UnicornRN.phl[11]" "Main_parentConstraint1.crt";
+connectAttr "FKRoot_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[12]";
+connectAttr "FKRoot_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[13]";
+connectAttr "FKRoot_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[14]";
+connectAttr "FKSpine1_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[15]";
+connectAttr "FKSpine1_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[16]";
+connectAttr "FKSpine1_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[17]";
+connectAttr "FKSpine1_M_translateX1.o" "Emily_Enter_UnicornRN.phl[18]";
+connectAttr "FKSpine1_M_translateY1.o" "Emily_Enter_UnicornRN.phl[19]";
+connectAttr "FKSpine1_M_translateZ1.o" "Emily_Enter_UnicornRN.phl[20]";
+connectAttr "FKChest_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[21]";
+connectAttr "FKChest_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[22]";
+connectAttr "FKChest_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[23]";
+connectAttr "FKChest_M_translateX1.o" "Emily_Enter_UnicornRN.phl[24]";
+connectAttr "FKChest_M_translateY1.o" "Emily_Enter_UnicornRN.phl[25]";
+connectAttr "FKChest_M_translateZ1.o" "Emily_Enter_UnicornRN.phl[26]";
+connectAttr "FKNeck_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[27]";
+connectAttr "FKNeck_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[28]";
+connectAttr "FKNeck_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[29]";
+connectAttr "FKNeck_M_translateX1.o" "Emily_Enter_UnicornRN.phl[30]";
+connectAttr "FKNeck_M_translateY1.o" "Emily_Enter_UnicornRN.phl[31]";
+connectAttr "FKNeck_M_translateZ1.o" "Emily_Enter_UnicornRN.phl[32]";
+connectAttr "FKHead_M_translateX1.o" "Emily_Enter_UnicornRN.phl[33]";
+connectAttr "FKHead_M_translateY1.o" "Emily_Enter_UnicornRN.phl[34]";
+connectAttr "FKHead_M_translateZ1.o" "Emily_Enter_UnicornRN.phl[35]";
+connectAttr "FKHead_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[36]";
+connectAttr "FKHead_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[37]";
+connectAttr "FKHead_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[38]";
+connectAttr "FKScapula_R_translateX1.o" "Emily_Enter_UnicornRN.phl[39]";
+connectAttr "FKScapula_R_translateY1.o" "Emily_Enter_UnicornRN.phl[40]";
+connectAttr "FKScapula_R_translateZ1.o" "Emily_Enter_UnicornRN.phl[41]";
+connectAttr "FKScapula_R_rotateX1.o" "Emily_Enter_UnicornRN.phl[42]";
+connectAttr "FKScapula_R_rotateY1.o" "Emily_Enter_UnicornRN.phl[43]";
+connectAttr "FKScapula_R_rotateZ1.o" "Emily_Enter_UnicornRN.phl[44]";
+connectAttr "FKShoulder_R_rotateX.o" "Emily_Enter_UnicornRN.phl[45]";
+connectAttr "FKShoulder_R_rotateY.o" "Emily_Enter_UnicornRN.phl[46]";
+connectAttr "FKShoulder_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[47]";
+connectAttr "FKShoulder_R_translateX.o" "Emily_Enter_UnicornRN.phl[48]";
+connectAttr "FKShoulder_R_translateY.o" "Emily_Enter_UnicornRN.phl[49]";
+connectAttr "FKShoulder_R_translateZ.o" "Emily_Enter_UnicornRN.phl[50]";
+connectAttr "FKElbow_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[51]";
+connectAttr "Emily_Enter_UnicornRN.phl[52]" "Sword_Anim_Control_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[12]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[53]" "Sword_Anim_Control_parentConstraint2.tg[0].ts"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[13]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[54]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[14]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[55]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[15]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[56]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[16]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[57]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[17]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
+connectAttr "FKWrist_R_rotateX.o" "Emily_Enter_UnicornRN.phl[58]";
+connectAttr "FKWrist_R_rotateY.o" "Emily_Enter_UnicornRN.phl[59]";
+connectAttr "FKWrist_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[60]";
+connectAttr "Emily_Enter_UnicornRN.phl[61]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[18]" "lambert2SG.dsm" -na;
-connectAttr "Sword_Anim_Control_parentConstraint1.ctx" "swordRN.phl[1]";
-connectAttr "Sword_Anim_Control_parentConstraint1.cty" "swordRN.phl[2]";
-connectAttr "Sword_Anim_Control_parentConstraint1.ctz" "swordRN.phl[3]";
+connectAttr "Emily_Enter_UnicornRN.phl[62]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[63]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[64]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[65]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[66]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[67]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Emily_Enter_UnicornRN.phl[68]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "FKScapula_L_translateZ1.o" "Emily_Enter_UnicornRN.phl[69]";
+connectAttr "FKShoulder_L_Global.o" "Emily_Enter_UnicornRN.phl[70]";
+connectAttr "FKShoulder_L_rotateX.o" "Emily_Enter_UnicornRN.phl[71]";
+connectAttr "FKShoulder_L_rotateY.o" "Emily_Enter_UnicornRN.phl[72]";
+connectAttr "FKShoulder_L_rotateZ.o" "Emily_Enter_UnicornRN.phl[73]";
+connectAttr "FKShoulder_L_translateX.o" "Emily_Enter_UnicornRN.phl[74]";
+connectAttr "FKShoulder_L_translateY.o" "Emily_Enter_UnicornRN.phl[75]";
+connectAttr "FKShoulder_L_translateZ.o" "Emily_Enter_UnicornRN.phl[76]";
+connectAttr "FKElbow_L_rotateZ.o" "Emily_Enter_UnicornRN.phl[77]";
+connectAttr "FKWrist_L_rotateX.o" "Emily_Enter_UnicornRN.phl[78]";
+connectAttr "FKWrist_L_rotateY.o" "Emily_Enter_UnicornRN.phl[79]";
+connectAttr "FKWrist_L_rotateZ.o" "Emily_Enter_UnicornRN.phl[80]";
+connectAttr "FKHip_R_Global.o" "Emily_Enter_UnicornRN.phl[81]";
+connectAttr "FKHip_R_rotateX.o" "Emily_Enter_UnicornRN.phl[82]";
+connectAttr "FKHip_R_rotateY.o" "Emily_Enter_UnicornRN.phl[83]";
+connectAttr "FKHip_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[84]";
+connectAttr "FKKnee_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[85]";
+connectAttr "FKAnkle_R_rotateX.o" "Emily_Enter_UnicornRN.phl[86]";
+connectAttr "FKAnkle_R_rotateY.o" "Emily_Enter_UnicornRN.phl[87]";
+connectAttr "FKAnkle_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[88]";
+connectAttr "FKIndexFinger1_R_rotateX.o" "Emily_Enter_UnicornRN.phl[89]";
+connectAttr "FKIndexFinger1_R_rotateY.o" "Emily_Enter_UnicornRN.phl[90]";
+connectAttr "FKIndexFinger1_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[91]";
+connectAttr "FKIndexFinger2_R_rotateX.o" "Emily_Enter_UnicornRN.phl[92]";
+connectAttr "FKIndexFinger2_R_rotateY.o" "Emily_Enter_UnicornRN.phl[93]";
+connectAttr "FKIndexFinger2_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[94]";
+connectAttr "FKIndexFinger3_R_rotateY.o" "Emily_Enter_UnicornRN.phl[95]";
+connectAttr "FKIndexFinger3_R_rotateX.o" "Emily_Enter_UnicornRN.phl[96]";
+connectAttr "FKIndexFinger3_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[97]";
+connectAttr "FKMiddleFinger1_R_rotateX.o" "Emily_Enter_UnicornRN.phl[98]";
+connectAttr "FKMiddleFinger1_R_rotateY.o" "Emily_Enter_UnicornRN.phl[99]";
+connectAttr "FKMiddleFinger1_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[100]";
+connectAttr "FKMiddleFinger2_R_rotateX.o" "Emily_Enter_UnicornRN.phl[101]";
+connectAttr "FKMiddleFinger2_R_rotateY.o" "Emily_Enter_UnicornRN.phl[102]";
+connectAttr "FKMiddleFinger2_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[103]";
+connectAttr "FKMiddleFinger3_R_rotateY.o" "Emily_Enter_UnicornRN.phl[104]";
+connectAttr "FKMiddleFinger3_R_rotateX.o" "Emily_Enter_UnicornRN.phl[105]";
+connectAttr "FKMiddleFinger3_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[106]";
+connectAttr "FKRingFinger1_R_rotateX.o" "Emily_Enter_UnicornRN.phl[107]";
+connectAttr "FKRingFinger1_R_rotateY.o" "Emily_Enter_UnicornRN.phl[108]";
+connectAttr "FKRingFinger1_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[109]";
+connectAttr "FKRingFinger2_R_rotateX.o" "Emily_Enter_UnicornRN.phl[110]";
+connectAttr "FKRingFinger2_R_rotateY.o" "Emily_Enter_UnicornRN.phl[111]";
+connectAttr "FKRingFinger2_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[112]";
+connectAttr "FKRingFinger3_R_rotateY.o" "Emily_Enter_UnicornRN.phl[113]";
+connectAttr "FKRingFinger3_R_rotateX.o" "Emily_Enter_UnicornRN.phl[114]";
+connectAttr "FKRingFinger3_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[115]";
+connectAttr "FKPinkyFinger1_R_rotateX.o" "Emily_Enter_UnicornRN.phl[116]";
+connectAttr "FKPinkyFinger1_R_rotateY.o" "Emily_Enter_UnicornRN.phl[117]";
+connectAttr "FKPinkyFinger1_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[118]";
+connectAttr "FKPinkyFinger2_R_rotateX.o" "Emily_Enter_UnicornRN.phl[119]";
+connectAttr "FKPinkyFinger2_R_rotateY.o" "Emily_Enter_UnicornRN.phl[120]";
+connectAttr "FKPinkyFinger2_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[121]";
+connectAttr "FKPinkyFinger3_R_rotateX.o" "Emily_Enter_UnicornRN.phl[122]";
+connectAttr "FKPinkyFinger3_R_rotateY.o" "Emily_Enter_UnicornRN.phl[123]";
+connectAttr "FKPinkyFinger3_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[124]";
+connectAttr "FKThumbFinger1_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[125]";
+connectAttr "FKThumbFinger1_R_rotateY.o" "Emily_Enter_UnicornRN.phl[126]";
+connectAttr "FKThumbFinger1_R_rotateX.o" "Emily_Enter_UnicornRN.phl[127]";
+connectAttr "FKThumbFinger2_R_rotateX.o" "Emily_Enter_UnicornRN.phl[128]";
+connectAttr "FKThumbFinger2_R_rotateY.o" "Emily_Enter_UnicornRN.phl[129]";
+connectAttr "FKThumbFinger2_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[130]";
+connectAttr "FKThumbFinger3_R_rotateX.o" "Emily_Enter_UnicornRN.phl[131]";
+connectAttr "FKThumbFinger3_R_rotateY.o" "Emily_Enter_UnicornRN.phl[132]";
+connectAttr "FKThumbFinger3_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[133]";
+connectAttr "RootX_M_translateX1.o" "Emily_Enter_UnicornRN.phl[134]";
+connectAttr "RootX_M_translateY1.o" "Emily_Enter_UnicornRN.phl[135]";
+connectAttr "RootX_M_translateZ1.o" "Emily_Enter_UnicornRN.phl[136]";
+connectAttr "RootX_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[137]";
+connectAttr "RootX_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[138]";
+connectAttr "RootX_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[139]";
+connectAttr "Emily_Enter_UnicornRN.phl[140]" "lambert2SG.dsm" -na;
+connectAttr "Dress.di" "Emily_Enter_UnicornRN.phl[1]";
+connectAttr "pairBlend2.otx" "swordRN.phl[1]";
+connectAttr "pairBlend2.oty" "swordRN.phl[2]";
+connectAttr "pairBlend2.otz" "swordRN.phl[3]";
 connectAttr "swordRN.phl[4]" "Sword_Anim_Control_parentConstraint1.crp";
-connectAttr "swordRN.phl[5]" "Sword_Anim_Control_parentConstraint1.crt";
-connectAttr "swordRN.phl[6]" "Sword_Anim_Control_parentConstraint1.cro";
-connectAttr "swordRN.phl[7]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[5]" "Sword_Anim_Control_parentConstraint2.crp";
+connectAttr "swordRN.phl[6]" "Sword_Anim_Control_parentConstraint1.crt";
+connectAttr "swordRN.phl[7]" "Sword_Anim_Control_parentConstraint2.crt";
+connectAttr "Sword_Anim_Control_rotateX.o" "swordRN.phl[8]";
+connectAttr "Sword_Anim_Control_rotateY.o" "swordRN.phl[9]";
+connectAttr "Sword_Anim_Control_rotateZ.o" "swordRN.phl[10]";
+connectAttr "swordRN.phl[11]" "Sword_Anim_Control_parentConstraint1.cro";
+connectAttr "swordRN.phl[12]" "pairBlend2.ro";
+connectAttr "swordRN.phl[13]" "Sword_Anim_Control_parentConstraint2.cro";
+connectAttr "swordRN.phl[14]" "pairBlend1.w";
+connectAttr "Sword_Anim_Control_blendParent1.o" "swordRN.phl[15]";
+connectAttr "swordRN.phl[16]" "pairBlend2.w";
+connectAttr "Sword_Anim_Control_blendParent4.o" "swordRN.phl[17]";
+connectAttr "swordRN.phl[18]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[19]" "Sword_Anim_Control_parentConstraint2.cpim";
 connectAttr "Floor.di" "Floor1.do";
 connectAttr "polyPlane1.out" "FloorShape1.i";
 connectAttr "Rendering_Camera_translateX.o" "Rendering_Camera.tx" -l on;
@@ -14736,21 +17054,34 @@ connectAttr "Rendering_Camera_rotateY.o" "Rendering_Camera.ry" -l on;
 connectAttr "Rendering_Camera_rotateZ.o" "Rendering_Camera.rz" -l on;
 connectAttr "Playblast_oregon.msg" "Rendering_CameraShape.b" -na;
 connectAttr "Horse_close_up.msg" "Rendering_CameraShape.b" -na;
-connectAttr "pPlane1_translateX.o" "pPlane1.tx";
-connectAttr "pPlane1_translateY.o" "pPlane1.ty";
-connectAttr "pPlane1_translateZ.o" "pPlane1.tz";
-connectAttr "pPlane1_rotateX.o" "pPlane1.rx";
-connectAttr "pPlane1_rotateY.o" "pPlane1.ry";
-connectAttr "pPlane1_rotateZ.o" "pPlane1.rz";
-connectAttr "pPlane1_scaleX.o" "pPlane1.sx";
-connectAttr "pPlane1_scaleY.o" "pPlane1.sy";
-connectAttr "pPlane1_scaleZ.o" "pPlane1.sz";
-connectAttr "mute_pPlane1_visibility.o" "pPlane1.v";
-connectAttr "polyPlane2.out" "pPlaneShape1.i";
-connectAttr "pPlaneShape1_sofx.o" "pPlaneShape1.sx";
-connectAttr "pPlaneShape1_sofy.o" "pPlaneShape1.sy";
-connectAttr "pPlaneShape1_sofz.o" "pPlaneShape1.sz";
+connectAttr "Emily_Magic.msg" "Rendering_CameraShape.b" -na;
+connectAttr "Finger_close_up.msg" "Rendering_CameraShape.b" -na;
+connectAttr "pPlane1_translateX.o" "Sword_Magic.tx";
+connectAttr "pPlane1_translateY.o" "Sword_Magic.ty";
+connectAttr "pPlane1_translateZ.o" "Sword_Magic.tz";
+connectAttr "pPlane1_rotateX.o" "Sword_Magic.rx";
+connectAttr "pPlane1_rotateY.o" "Sword_Magic.ry";
+connectAttr "pPlane1_rotateZ.o" "Sword_Magic.rz";
+connectAttr "pPlane1_scaleX.o" "Sword_Magic.sx";
+connectAttr "pPlane1_scaleY.o" "Sword_Magic.sy";
+connectAttr "pPlane1_scaleZ.o" "Sword_Magic.sz";
+connectAttr "mute_pPlane1_visibility.o" "Sword_Magic.v";
+connectAttr "polyPlane2.out" "Sword_MagicShape.i";
+connectAttr "pPlaneShape1_sofx.o" "Sword_MagicShape.sx";
+connectAttr "pPlaneShape1_sofy.o" "Sword_MagicShape.sy";
+connectAttr "pPlaneShape1_sofz.o" "Sword_MagicShape.sz";
+connectAttr "Tunnel_visibility.o" "Tunnel.v";
+connectAttr "Tunnel_scaleX.o" "Tunnel.sx";
+connectAttr "Tunnel_scaleY.o" "Tunnel.sy";
+connectAttr "Tunnel_scaleZ.o" "Tunnel.sz";
+connectAttr "TunnelShape_visibility.o" "TunnelShape.v";
+connectAttr "polyPlane3.out" "TunnelShape.i";
+connectAttr "TunnelShape_sofx.o" "TunnelShape.sx";
+connectAttr "TunnelShape_sofy.o" "TunnelShape.sy";
+connectAttr "TunnelShape_sofz.o" "TunnelShape.sz";
 connectAttr "Main_parentConstraint1.w0" "Main_parentConstraint1.tg[0].tw";
+connectAttr "Sword_Anim_Control_parentConstraint2.w0" "Sword_Anim_Control_parentConstraint2.tg[0].tw"
+		;
 connectAttr "Sword_Anim_Control_parentConstraint1.w0" "Sword_Anim_Control_parentConstraint1.tg[0].tw"
 		;
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -14868,10 +17199,12 @@ relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLigh
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert3SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert3SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
@@ -14883,16 +17216,36 @@ connectAttr "lambertGray.oc" "lambert2SG.ss";
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "lambertGray.msg" "materialInfo1.m";
 connectAttr "lambertYellow.oc" "lambert3SG.ss";
-connectAttr "pPlaneShape1.iog" "lambert3SG.dsm" -na;
+connectAttr "Sword_MagicShape.iog" "lambert3SG.dsm" -na;
+connectAttr "TunnelShape.iog" "lambert3SG.dsm" -na;
 connectAttr "lambert3SG.msg" "materialInfo2.sg";
 connectAttr "lambertYellow.msg" "materialInfo2.m";
+connectAttr "layerManager.dli[1]" "Dress.id";
+connectAttr "lambertYellow1.oc" "lambert4SG.ss";
+connectAttr "lambert4SG.msg" "materialInfo3.sg";
+connectAttr "lambertYellow1.msg" "materialInfo3.m";
+connectAttr "layerManager.dli[3]" "Place_Holder_Effects_Delete_Me.id";
 connectAttr "pPlane1_visibility.o" "mute_pPlane1_visibility.i";
+connectAttr "Sword_Anim_Control_parentConstraint1.ctx" "pairBlend1.itx2";
+connectAttr "Sword_Anim_Control_parentConstraint1.cty" "pairBlend1.ity2";
+connectAttr "Sword_Anim_Control_parentConstraint1.ctz" "pairBlend1.itz2";
+connectAttr "pairBlend1_inTranslateX1.o" "pairBlend1.itx1";
+connectAttr "pairBlend1_inTranslateY1.o" "pairBlend1.ity1";
+connectAttr "pairBlend1_inTranslateZ1.o" "pairBlend1.itz1";
+connectAttr "pairBlend1.otx" "pairBlend2.itx1";
+connectAttr "pairBlend1.oty" "pairBlend2.ity1";
+connectAttr "pairBlend1.otz" "pairBlend2.itz1";
+connectAttr "Sword_Anim_Control_parentConstraint2.ctx" "pairBlend2.itx2";
+connectAttr "Sword_Anim_Control_parentConstraint2.cty" "pairBlend2.ity2";
+connectAttr "Sword_Anim_Control_parentConstraint2.ctz" "pairBlend2.itz2";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
+connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
 connectAttr "lambertGray.msg" ":defaultShaderList1.s" -na;
 connectAttr "lambertYellow.msg" ":defaultShaderList1.s" -na;
+connectAttr "lambertYellow1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"nightmare_hugeRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma\" 2455297881 \"/Users/oliver/Documents/maya/projects/Nightmare/assets/chars/nightmare_huge.ma\" \"FileRef\"\n1\n\"Candy_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Candy_Enter_Unicorn.ma\" 1418175337 \"/Users/oliver/Documents/maya/projects/Nightmare/assets/chars/Candy_Enter_Unicorn.ma\" \"FileRef\"\n2\n\"Emily_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily_Enter_Unicorn.ma\" 4187508530 \"/Users/oliver/Documents/maya/projects/Nightmare/assets/chars/Emily_Enter_Unicorn.ma\" \"FileRef\"\n3\n\"swordRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/props/sword.ma\" 2015439448 \"/Users/oliver/Documents/maya/projects/Nightmare/assets/props/sword.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
-// End of The_Fight_jumping_breaking.ma
+// End of The_Fight_Emily_Sword.ma
