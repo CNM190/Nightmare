@@ -55,10 +55,10 @@
 # endFrame   : 96
 
 - name       : "Emily Looking Determined"
-  file       : "determination.ma"
-  camera     : 'camera2'
+  file       : "Determination.ma"
+  camera     : 'Rendering_Camera'
   startFrame : 1
-  endFrame   : 68
+  endFrame   : 42
 
 - name       : "Charge"
   file       : "The_Fight.ma"
