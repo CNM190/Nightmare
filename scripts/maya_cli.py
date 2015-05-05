@@ -1,15 +1,17 @@
 import os, subprocess, pipes, shutil, datetime
+from distutils.util import strtobool 
 
 def render(shots, frame=None, tractor=True):
     job_key = str(datetime.datetime.now().strftime("%Y%m%d%H%M%S"))
     job_key = raw_input("Enter job key (%s): " % job_key) or job_key
-    rm_rman_dir = (raw_input("Zap renderman directory (Y/n): ") or 'y') in ('Y', 'y', 'yes', 'Yes')
-
+    rm_rman_dir = strtobool(raw_input("Zap renderman directory (Y/n): ") or 'y')
+    res_y = int(raw_input("resolution (540, 720, 1080): "))
+    res_x, res_y = str(int(res_y * 16 / 9.0)), str(res_y)
 
     renderman_dir = os.path.join(os.getcwd(), 'renderman')
     if rm_rman_dir:
         answer = raw_input("Are you sure you want to rm %s? (Y/n) " % renderman_dir) or 'y'
-        confirmed = answer.lower() in ('y', 'yes')
+        confirmed = strtobool(answer)
         if confirmed:
             shutil.rmtree(renderman_dir)
 
@@ -29,7 +31,7 @@ def render(shots, frame=None, tractor=True):
             "/Applications/Autodesk/maya2015/Maya.app/Contents/bin/Render",
             "-r", "rman",
             "-proj", str(os.getcwd()),
-            "-res", "480", "270",
+            "-res", res_x, res_y,
             "-cam", camera,
             "-of", "OpenEXR",
             "-im", image_name,
