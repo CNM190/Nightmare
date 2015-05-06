@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: The_Fight.ma
-//Last modified: Mon, May 04, 2015 05:40:26 PM
+//Last modified: Wed, May 06, 2015 01:35:33 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "nightmare_huge" -rfn "nightmare_hugeRN" -op "v=0;" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma";
 file -rdi 1 -ns "Candy_Enter_Unicorn" -rfn "Candy_Enter_UnicornRN" -op "v=0;"
@@ -17,7 +17,8 @@ file -r -ns "sword" -dr 1 -rfn "swordRN" -op "v=0;" "/Users/oliver/Documents/may
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
-requires -nodeType "RenderMan" -nodeType "RMSGPSurface" "RenderMan_for_Maya" "5.5";
+requires -nodeType "RenderMan" -nodeType "RMSGeoAreaLight" -nodeType "RMSGPSurface"
+		 "RenderMan_for_Maya" "5.5";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -27,19 +28,19 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -67.974579230661163 24.962195885006231 -106.00043373668917 ;
-	setAttr ".r" -type "double3" 170.66199999935213 -27.799999999980674 -179.99999999994984 ;
+	setAttr ".t" -type "double3" -142.91189694931657 75.83704589381513 -157.32405576782514 ;
+	setAttr ".r" -type "double3" 344.06199999936752 219.00000000001157 0 ;
 	setAttr ".rp" -type "double3" 3.5527136788005009e-15 4.4408920985006262e-16 0 ;
 	setAttr ".rpt" -type "double3" -8.7007973268996506e-15 3.760216510322215e-15 -3.5254263284362316e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 124.6873190991721;
+	setAttr ".coi" 234.38739927573477;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 3.3209782904771572 2.697273622584845 15.719777387483575 ;
+	setAttr ".tp" -type "double3" 0 99.298538520620582 0 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -83,10 +84,14 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "Floor1";
+	setAttr ".s" -type "double3" 1265.1342897276654 186.63731888885715 1296.7907448548028 ;
+	setAttr -av ".sx";
+	setAttr -av ".sz";
 createNode mesh -n "FloorShape1" -p "Floor1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0 1 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -252,18 +257,13 @@ createNode mesh -n "TunnelShape" -p "Tunnel";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-createNode transform -n "sky";
-	setAttr ".t" -type "double3" 4.3542032627748597 0 4.9925318766471491 ;
-createNode mesh -n "sky" -p "|sky";
+createNode transform -n "RMSGeoAreaLight1";
+	setAttr ".t" -type "double3" 0 64.360453001799428 44.413062248402369 ;
+	setAttr ".r" -type "double3" -89.994428103610957 0 0 ;
+	setAttr ".s" -type "double3" 107.1297498267292 266.82445486091473 1 ;
+createNode RMSGeoAreaLight -n "RMSGeoAreaLightShape1" -p "RMSGeoAreaLight1";
 	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50000005960464478 0.5 ;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".intensity" 10;
 createNode fosterParent -n "Emily_Enter_UnicornRNfosterParent1";
 createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "RootX_MW0" -dv 1 -min 0 -at "double";
@@ -287,26 +287,6 @@ createNode parentConstraint -n "Main_parentConstraint1" -p "Emily_Enter_UnicornR
 	setAttr ".rsrr" -type "double3" -1.6756040577587681e-14 4.1692464847616879e-19 4.7366659074529917e-17 ;
 	setAttr -k on ".w0";
 createNode fosterParent -n "swordRNfosterParent1";
-createNode parentConstraint -n "Sword_Anim_Control_parentConstraint1" -p "swordRNfosterParent1";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKWrist_RW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 0.24624186728104119 0.20455375553406563 -0.013708778846840505 ;
-	setAttr ".tg[0].tor" -type "double3" 170.94787741982887 5.4974339715021436 176.45017421296868 ;
-	setAttr ".lr" -type "double3" 45.85299999999998 10.893000000000011 44.348000000000049 ;
-	setAttr ".rst" -type "double3" -0.46600000000000019 2.2089999999999996 -4.124 ;
-	setAttr ".rsrr" -type "double3" 45.85299999999998 10.893000000000011 44.348000000000049 ;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "Sword_Anim_Control_parentConstraint2" -p "swordRNfosterParent1";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKWrist_RW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
@@ -326,6 +306,26 @@ createNode parentConstraint -n "Sword_Anim_Control_parentConstraint2" -p "swordR
 	setAttr ".lr" -type "double3" 43.082346471505552 4.1292297371938123 77.715114545584981 ;
 	setAttr ".rst" -type "double3" 3.0381172147350193 2.7471332381368541 36.379678187935923 ;
 	setAttr ".rsrr" -type "double3" 43.082346471505552 4.1292297371938123 77.715114545584981 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Sword_Anim_Control_parentConstraint1" -p "swordRNfosterParent1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKWrist_RW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.24624186728104119 0.20455375553406563 -0.013708778846840505 ;
+	setAttr ".tg[0].tor" -type "double3" 170.94787741982887 5.4974339715021436 176.45017421296868 ;
+	setAttr ".lr" -type "double3" 45.85299999999998 10.893000000000011 44.348000000000049 ;
+	setAttr ".rst" -type "double3" -0.46600000000000019 2.2089999999999996 -4.124 ;
+	setAttr ".rsrr" -type "double3" 45.85299999999998 10.893000000000011 44.348000000000049 ;
 	setAttr -k on ".w0";
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -1003,7 +1003,7 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
-		-dv -1 -smn 0 -smx 100 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
 		-at "compound" -nc 2;
 	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
@@ -1023,7 +1023,7 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
-		-dv -1 -smn 0 -smx 100 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -k true -sn "rman__riattr__trace_maxspeculardepth" -ln "rman__riattr__trace_maxspeculardepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr__trace_maxdiffusedepth" -ln "rman__riattr__trace_maxdiffusedepth" 
@@ -1177,7 +1177,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__shading_directlightingsamples" -ln "rman__riopt__shading_directlightingsamples" 
-		-dv -1 -smn 0 -smx 10 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -h true -sn "rman__riopt__bucket_order" -ln "rman__riopt__bucket_order" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize" -ln "rman__riopt__limits_bucketsize" 
@@ -1187,7 +1187,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -k true -sn "rman__riopt__limits_bucketsize1" -ln "rman__riopt__limits_bucketsize1" 
 		-dv -1 -at "long" -p "rman__riopt__limits_bucketsize";
 	addAttr -ci true -k true -sn "rman__riopt___PixelVariance" -ln "rman__riopt___PixelVariance" 
-		-dv -1 -smn 0 -smx 1 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -k true -sn "rman__riopt__trace_maxdepth" -ln "rman__riopt__trace_maxdepth" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___PixelSamples" -ln "rman__riopt___PixelSamples" 
@@ -1199,9 +1199,9 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__Hider_name" -ln "rman__riopt__Hider_name" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__Hider_minsamples" -ln "rman__riopt__Hider_minsamples" 
-		-dv -1 -smn 0 -smx 4096 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt__Hider_maxsamples" -ln "rman__riopt__Hider_maxsamples" 
-		-dv -1 -smn 0 -smx 4096 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riopt___CropWindow" -ln "rman__riopt___CropWindow" 
 		-at "compound" -nc 2;
 	addAttr -ci true -k true -sn "rman__riopt___CropWindowX" -ln "rman__riopt___CropWindowX" 
@@ -1227,7 +1227,7 @@ createNode RenderMan -s -n "rmanRerenderGlobals";
 	addAttr -ci true -k true -sn "rman__riattr__trace_displacements" -ln "rman__riattr__trace_displacements" 
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__riattr___ShadingRate" -ln "rman__riattr___ShadingRate" 
-		-dv -1 -smn 0 -smx 100 -at "float";
+		-dv -1 -at "float";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -3956,9 +3956,9 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 76 ".lnk";
+	setAttr -s 88 ".lnk";
 	setAttr -s 3 ".ign";
-	setAttr -s 76 ".slnk";
+	setAttr -s 88 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 2;
 	setAttr -s 4 ".dli[1:3]"  2 1 3;
@@ -3968,7 +3968,7 @@ createNode renderLayerManager -n "renderLayerManager";
 createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode reference -n "nightmare_hugeRN";
-	setAttr -s 323 ".phl";
+	setAttr -s 324 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -4292,10 +4292,11 @@ createNode reference -n "nightmare_hugeRN";
 	setAttr ".phl[321]" 0;
 	setAttr ".phl[322]" 0;
 	setAttr ".phl[323]" 0;
+	setAttr ".phl[324]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmare_hugeRN"
 		"nightmare_hugeRN" 0
-		"nightmare_hugeRN" 491
+		"nightmare_hugeRN" 500
 		1 |nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LShoulderShape 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		1 |nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder|nightmare_huge:LElbow|nightmare_huge:LElbowShape 
@@ -4618,6 +4619,8 @@ createNode reference -n "nightmare_hugeRN";
 		"rotateY" " -av"
 		2 "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle" 
 		"rotateZ" " -av"
+		2 "|nightmare_huge:Body|nightmare_huge:BodyShape" "instObjGroups.objectGroups" 
+		" -s 4"
 		2 "nightmare_huge:Meshes" "displayType" " 2"
 		2 "nightmare_huge:Meshes" "visibility" " 1"
 		2 "nightmare_huge:Meshes" "displayOrder" " 4"
@@ -4625,6 +4628,19 @@ createNode reference -n "nightmare_hugeRN";
 		2 "nightmare_huge:Rig" "displayOrder" " 8"
 		2 "nightmare_huge:Controls" "visibility" " 0"
 		2 "nightmare_huge:Controls" "displayOrder" " 10"
+		2 "nightmare_huge:groupParts1" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:1473]\""
+		
+		2 "nightmare_huge:groupParts1" "groupId" " 391"
+		3 "|nightmare_huge:Body|nightmare_huge:BodyShape.instObjGroups.objectGroups[0]" 
+		"nightmare_huge:surfaceShader2SG.dagSetMembers" "-na"
+		3 "nightmare_huge:groupId4.message" "nightmare_huge:surfaceShader2SG.groupNodes" 
+		"-na"
+		3 "nightmare_huge:groupId4.groupId" "|nightmare_huge:Body|nightmare_huge:BodyShape.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 "nightmare_huge:surfaceShader2SG.memberWireframeColor" "|nightmare_huge:Body|nightmare_huge:BodyShape.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "nightmare_huge:groupId4.groupId" "nightmare_huge:groupParts1.groupId" 
+		""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller.translateX" 
 		"nightmare_hugeRN.placeHolderList[1]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller.translateY" 
@@ -5270,7 +5286,9 @@ createNode reference -n "nightmare_hugeRN";
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleY" 
 		"nightmare_hugeRN.placeHolderList[322]" ""
 		5 4 "nightmare_hugeRN" "|nightmare_huge:Master_Controller|nightmare_huge:LowerBody|nightmare_huge:Waist|nightmare_huge:Torso|nightmare_huge:LShoulder1|nightmare_huge:LElbow|nightmare_huge:LHand|nightmare_huge:LPinkyJoint|nightmare_huge:LPinkyKnuckle.scaleZ" 
-		"nightmare_hugeRN.placeHolderList[323]" "";
+		"nightmare_hugeRN.placeHolderList[323]" ""
+		5 3 "nightmare_hugeRN" "|nightmare_huge:Body|nightmare_huge:BodyShape.instObjGroups" 
+		"nightmare_hugeRN.placeHolderList[324]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "Candy_Enter_UnicornRN";
@@ -8170,7 +8188,7 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		2 "Candy_Enter_Unicorn:Candy_Armature" "visibility" " 0"
 		2 "Candy_Enter_Unicorn:Candy_Armature" "displayOrder" " 6"
 		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
+		"Candy_Enter_Unicorn:RMSGPSurface2SG.dagSetMembers" "-na"
 		3 "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Body|Candy_Enter_Unicorn:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
 		"Candy_Enter_Unicorn:RMSGPSurface1SG.dagSetMembers" "-na"
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:Candy_Rig|Candy_Enter_Unicorn:Main.FaceVis" 
@@ -10294,7 +10312,8 @@ createNode reference -n "Candy_Enter_UnicornRN";
 		5 4 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN.visibility" 
 		"Candy_Enter_UnicornRN.placeHolderList[1060]" ""
 		5 3 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Horn|Candy_Enter_Unicorn:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		"Candy_Enter_UnicornRN.placeHolderList[1061]" ":initialShadingGroup.dsm"
+		"Candy_Enter_UnicornRN.placeHolderList[1061]" "Candy_Enter_Unicorn:RMSGPSurface2SG.dsm"
+		
 		5 0 "Candy_Enter_UnicornRN" "|Candy_Enter_Unicorn:model:GRP_MESH_Candy_MAIN|Candy_Enter_Unicorn:model:MESH_Candy_Body|Candy_Enter_Unicorn:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
 		"Candy_Enter_Unicorn:RMSGPSurface1SG.dagSetMembers" "Candy_Enter_UnicornRN.placeHolderList[1062]" 
 		"Candy_Enter_UnicornRN.placeHolderList[1063]" "Candy_Enter_Unicorn:RMSGPSurface1SG.dsm";
@@ -10540,21 +10559,21 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 0\n                -showConnected 1\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
 		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n"
 		+ "            -showShapes 0\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 1\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n"
-		+ "            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n"
-		+ "            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n"
-		+ "                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n"
-		+ "                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.1\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n"
-		+ "                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n"
-		+ "                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n"
-		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.1\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n"
-		+ "            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n"
-		+ "                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n"
-		+ "                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n"
-		+ "                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n"
-		+ "                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n"
-		+ "                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n"
-		+ "                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
+		+ "            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
+		+ "                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
+		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.1\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n"
+		+ "                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n"
+		+ "                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n"
+		+ "                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.1\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n"
+		+ "                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
+		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n"
+		+ "                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n"
+		+ "                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n"
+		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n"
+		+ "            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n"
+		+ "                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
 		+ "                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n"
 		+ "                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
@@ -10664,7 +10683,7 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".st" 6;
 createNode reference -n "Emily_Enter_UnicornRN";
 	setAttr ".fn[0]" -type "string" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily_Enter_Unicorn.ma";
-	setAttr -s 1480 ".phl";
+	setAttr -s 1479 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -12144,14 +12163,22 @@ createNode reference -n "Emily_Enter_UnicornRN";
 	setAttr ".phl[1477]" 0;
 	setAttr ".phl[1478]" 0;
 	setAttr ".phl[1479]" 0;
-	setAttr ".phl[1480]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Enter_UnicornRN"
 		"Emily_Enter_Unicorn:Hair_EmilyRN" 0
-		"Emily_Enter_UnicornRN" 7
+		"Emily_Enter_UnicornRN" 31
 		2 "Emily_Enter_Unicorn:groupParts143" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:559]\""
 		
 		2 "Emily_Enter_Unicorn:groupParts143" "groupId" " 393"
+		2 "Emily_Enter_Unicorn:groupParts144" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:4317]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts144" "groupId" " 392"
+		2 "Emily_Enter_Unicorn:groupParts145" "inputRemoveComponent" " -type \"componentList\" 14 \"f[43:235]\" \"f[431:441]\" \"f[462:478]\" \"f[484:506]\" \"f[795]\" \"f[1377:1717]\" \"f[1917:1948]\" \"f[2202:2394]\" \"f[2590:2600]\" \"f[2621:2637]\" \"f[2643:2665]\" \"f[2954]\" \"f[3536:3876]\" \"f[4076:4107]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts145" "groupId" " 394"
+		2 "Emily_Enter_Unicorn:groupParts146" "inputRemoveComponent" " -type \"componentList\" 4 \"f[1416:1658]\" \"f[1677:1714]\" \"f[3575:3817]\" \"f[3836:3873]\""
+		
+		2 "Emily_Enter_Unicorn:groupParts146" "groupId" " 395"
 		3 "Emily_Enter_Unicorn:groupId671.groupId" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
 		3 ":initialShadingGroup.memberWireframeColor" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
@@ -12162,13 +12189,52 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		"-na"
 		3 "Emily_Enter_Unicorn:groupId671.groupId" "Emily_Enter_Unicorn:groupParts143.groupId" 
 		""
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43]" 
+		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		
+		3 "Emily_Enter_Unicorn:groupId672.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
+		"-na"
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0]" 
+		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		
+		3 "Emily_Enter_Unicorn:groupId673.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
+		"-na"
+		3 "Emily_Enter_Unicorn:groupId672.groupId" "Emily_Enter_Unicorn:groupParts144.groupId" 
+		""
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45]" 
+		"Emily_Enter_Unicorn:RMSGPSurface6SG.dagSetMembers" "-na"
+		3 "Emily_Enter_Unicorn:groupId675.message" "Emily_Enter_Unicorn:RMSGPSurface6SG.groupNodes" 
+		"-na"
+		3 "Emily_Enter_Unicorn:groupId674.groupId" "Emily_Enter_Unicorn:groupParts145.groupId" 
+		""
+		3 "Emily_Enter_Unicorn:groupId674.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:RMSGPSurface5SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId675.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:RMSGPSurface6SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId672.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGroupId" 
+		""
+		3 "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.memberWireframeColor" 
+		"|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGrpColor" 
+		""
+		3 "Emily_Enter_Unicorn:groupId673.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44]" 
+		"Emily_Enter_Unicorn:RMSGPSurface5SG.dagSetMembers" "-na"
+		3 "Emily_Enter_Unicorn:groupId674.message" "Emily_Enter_Unicorn:RMSGPSurface5SG.groupNodes" 
+		"-na"
+		3 "Emily_Enter_Unicorn:groupId675.groupId" "Emily_Enter_Unicorn:groupParts146.groupId" 
+		""
 		"Emily_Enter_Unicorn:Dress_EmilyRN" 0
 		"Emily_Enter_Unicorn:Hair_EmilyRN" 2
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Hair_Emily:Hair" "visibility" 
 		" -av 1"
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Hair_Emily:Hair.visibility" 
 		"Emily_Enter_UnicornRN.placeHolderList[1]" ""
-		"Emily_Enter_UnicornRN" 1706
+		"Emily_Enter_UnicornRN" 1679
 		0 "|Emily_Enter_UnicornRNfosterParent1|Main_parentConstraint1" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main" 
 		"-s -r "
 		1 |Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main|Emily_Enter_Unicorn:MotionSystem|Emily_Enter_Unicorn:FKSystem|Emily_Enter_Unicorn:FKOffsetRoot_M|Emily_Enter_Unicorn:FKExtraRoot_M|Emily_Enter_Unicorn:FKRoot_M|Emily_Enter_Unicorn:FKXOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupOffsetRoot_M|Emily_Enter_Unicorn:HipSwingerGroupRoot_M|Emily_Enter_Unicorn:FKXRoot_M|Emily_Enter_Unicorn:HipSwingerStabalizeRoot_M|Emily_Enter_Unicorn:FKOffsetSpine1_M|Emily_Enter_Unicorn:FKExtraSpine1_M|Emily_Enter_Unicorn:FKSpine1_M|Emily_Enter_Unicorn:FKSpine1_MShape 
@@ -12574,12 +12640,6 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:SquashSetup|Emily_Enter_Unicorn:squashIKHandle" 
 		"rotate" " -type \"double3\" 70.50792182221087501 -0.64710150183344595 92.20725654513269376"
 		
-		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
-		"instObjGroups.objectGroups" " -s 43"
-		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
-		"instObjGroups.objectGroups[0].objectGrpColor" " -av"
-		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed" 
-		"instObjGroups.objectGroups[1].objectGrpColor" " -av"
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:RightEye|Emily_Enter_Unicorn:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:LeftEye|Emily_Enter_Unicorn:LeftEyeShapeDeformed" 
@@ -12590,54 +12650,6 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		2 "Emily_Enter_Unicorn:Armature" "visibility" " 0"
 		2 "Emily_Enter_Unicorn:Armature" "displayOrder" " 7"
 		2 "Emily_Enter_Unicorn:blendShape2" "weight[0]" " 0"
-		2 "Emily_Enter_Unicorn:groupParts144" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:4317]\""
-		
-		2 "Emily_Enter_Unicorn:groupParts144" "groupId" " 392"
-		2 "Emily_Enter_Unicorn:groupParts145" "inputRemoveComponent" " -type \"componentList\" 14 \"f[43:235]\" \"f[431:441]\" \"f[462:478]\" \"f[484:506]\" \"f[795]\" \"f[1377:1717]\" \"f[1917:1948]\" \"f[2202:2394]\" \"f[2590:2600]\" \"f[2621:2637]\" \"f[2643:2665]\" \"f[2954]\" \"f[3536:3876]\" \"f[4076:4107]\""
-		
-		2 "Emily_Enter_Unicorn:groupParts145" "groupId" " 394"
-		2 "Emily_Enter_Unicorn:groupParts146" "inputRemoveComponent" " -type \"componentList\" 4 \"f[1416:1658]\" \"f[1677:1714]\" \"f[3575:3817]\" \"f[3836:3873]\""
-		
-		2 "Emily_Enter_Unicorn:groupParts146" "groupId" " 395"
-		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43]" 
-		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
-		
-		3 "Emily_Enter_Unicorn:groupId672.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
-		"-na"
-		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0]" 
-		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
-		
-		3 "Emily_Enter_Unicorn:groupId673.message" "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.groupNodes" 
-		"-na"
-		3 "Emily_Enter_Unicorn:groupId672.groupId" "Emily_Enter_Unicorn:groupParts144.groupId" 
-		""
-		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45]" 
-		"Emily_Enter_Unicorn:RMSGPSurface6SG.dagSetMembers" "-na"
-		3 "Emily_Enter_Unicorn:groupId675.message" "Emily_Enter_Unicorn:RMSGPSurface6SG.groupNodes" 
-		"-na"
-		3 "Emily_Enter_Unicorn:groupId674.groupId" "Emily_Enter_Unicorn:groupParts145.groupId" 
-		""
-		3 "Emily_Enter_Unicorn:groupId674.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGroupId" 
-		""
-		3 "Emily_Enter_Unicorn:RMSGPSurface5SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44].objectGrpColor" 
-		""
-		3 "Emily_Enter_Unicorn:groupId675.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGroupId" 
-		""
-		3 "Emily_Enter_Unicorn:RMSGPSurface6SG.memberWireframeColor" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[45].objectGrpColor" 
-		""
-		3 "Emily_Enter_Unicorn:groupId672.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGroupId" 
-		""
-		3 "Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.memberWireframeColor" 
-		"|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[43].objectGrpColor" 
-		""
-		3 "Emily_Enter_Unicorn:groupId673.groupId" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
-		""
-		3 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups.objectGroups[44]" 
-		"Emily_Enter_Unicorn:RMSGPSurface5SG.dagSetMembers" "-na"
-		3 "Emily_Enter_Unicorn:groupId674.message" "Emily_Enter_Unicorn:RMSGPSurface5SG.groupNodes" 
-		"-na"
-		3 "Emily_Enter_Unicorn:groupId675.groupId" "Emily_Enter_Unicorn:groupParts146.groupId" 
-		""
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main.visibility" 
 		"Emily_Enter_UnicornRN.placeHolderList[5]" ""
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:Main.translateX" 
@@ -15582,12 +15594,11 @@ createNode reference -n "Emily_Enter_UnicornRN";
 		"Emily_Enter_UnicornRN.placeHolderList[1475]" ""
 		5 4 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:Rig|Emily_Enter_Unicorn:FaceGroup|Emily_Enter_Unicorn:FaceMotionSystem|Emily_Enter_Unicorn:JawSetup|Emily_Enter_Unicorn:JawSetupFollowHead|Emily_Enter_Unicorn:FKOffsetJaw_M|Emily_Enter_Unicorn:FKSDK1Jaw_M|Emily_Enter_Unicorn:FKSDK2Jaw_M|Emily_Enter_Unicorn:FKJaw_M.rotateZ" 
 		"Emily_Enter_UnicornRN.placeHolderList[1476]" ""
-		5 0 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups" 
-		"Emily_Enter_Unicorn:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1477]" 
-		"Emily_Enter_UnicornRN.placeHolderList[1478]" ""
+		5 3 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Emily_Main|Emily_Enter_Unicorn:geo_Emily|Emily_Enter_Unicorn:Body2|Emily_Enter_Unicorn:BodyShapeDeformedDeformed.instObjGroups" 
+		"Emily_Enter_UnicornRN.placeHolderList[1477]" ""
 		5 0 "Emily_Enter_UnicornRN" "|Emily_Enter_Unicorn:Dress_EmilyRNfosterParent1|Emily_Enter_Unicorn:Dress_Emily:SkirtShapeDeformed.instObjGroups" 
-		"Emily_Enter_Unicorn:RMSGPSurface7SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1479]" 
-		"Emily_Enter_UnicornRN.placeHolderList[1480]" ""
+		"Emily_Enter_Unicorn:RMSGPSurface7SG.dagSetMembers" "Emily_Enter_UnicornRN.placeHolderList[1478]" 
+		"Emily_Enter_UnicornRN.placeHolderList[1479]" ""
 		"Emily_Enter_Unicorn:Dress_EmilyRN" 4
 		2 "|Emily_Enter_Unicorn:Emily|Emily_Enter_Unicorn:Dress_Emily:Dress" "visibility" 
 		" -av 1"
@@ -16302,10 +16313,10 @@ createNode reference -n "swordRN";
 		"swordRN"
 		"swordRN" 1
 		2 "|sword:Sword_Anim_Control" "visibility" " 0"
-		"swordRN" 44
-		0 "|swordRNfosterParent1|Sword_Anim_Control_parentConstraint2" "|sword:Sword_Anim_Control" 
-		"-s -r "
+		"swordRN" 51
 		0 "|swordRNfosterParent1|Sword_Anim_Control_parentConstraint1" "|sword:Sword_Anim_Control" 
+		"-s -r "
+		0 "|swordRNfosterParent1|Sword_Anim_Control_parentConstraint2" "|sword:Sword_Anim_Control" 
 		"-s -r "
 		1 |sword:Sword_Anim_Control "blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
 		
@@ -16326,6 +16337,20 @@ createNode reference -n "swordRN";
 		2 "|sword:Sword_Anim_Control" "rotateZ" " -av"
 		2 "|sword:Sword_Anim_Control" "blendParent1" " -av -k 1 1"
 		2 "|sword:Sword_Anim_Control" "blendParent2" " -av -k 1 0"
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "rman__riattr___ShadingRate" 
+		" 100"
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "intensity" " 5.30000019073486328"
+		
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "temperature" " 9619.71875"
+		
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "coneangle" " 52.34899139404296875"
+		
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "penumbraangle" " 5"
+		
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "penumbraexponent" 
+		" 0"
+		2 "|sword:RMSGeoAreaLight4|sword:RMSGeoAreaLightShape4" "angularVisibility" 
+		" 1"
 		2 "|sword:RMSGeoAreaLight5" "translate" " -type \"double3\" -1.16398602367560966 3.26374286613536935 -3.51669013965375932"
 		
 		2 "|sword:RMSGeoAreaLight5" "translateX" " -av"
@@ -28071,11 +28096,9 @@ createNode shadingEngine -n "RMSGPSurface2SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo4";
 createNode file -n "file1";
-	setAttr ".ftn" -type "string" "/tmp/Nightmare//images/charge scene floor.png";
+	setAttr ".ftn" -type "string" "/home/tmp/cs198-re/Nightmare//images/charge scene floor.png";
 createNode place2dTexture -n "place2dTexture1";
 	setAttr ".re" -type "float2" 20 20 ;
-createNode polySphere -n "polySphere1";
-	setAttr ".r" 181.63681441496411;
 createNode RMSGPSurface -n "sky1";
 	setAttr ".surfaceColor" -type "float3" 0.13745999 0.14708768 0.17399999 ;
 	setAttr ".roughness" 1;
@@ -28084,9 +28107,6 @@ createNode shadingEngine -n "RMSGPSurface3SG";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo5";
-createNode polyNormal -n "polyNormal1";
-	setAttr ".ics" -type "componentList" 1 "f[*]";
-	setAttr ".unm" no;
 createNode animCurveTU -n "Floor1_visibility";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
@@ -28139,14 +28159,8 @@ createNode hyperLayout -n "hyperLayout1";
 	setAttr ".hyp[2].nvs" 1920;
 	setAttr ".hyp[3].nvs" 1920;
 	setAttr ".hyp[4].nvs" 1920;
-	setAttr ".hyp[5].x" 1.4285714626312256;
-	setAttr ".hyp[5].y" -72.857139587402344;
 	setAttr ".hyp[5].nvs" 1920;
-	setAttr ".hyp[6].x" 515.71429443359375;
-	setAttr ".hyp[6].y" -72.857139587402344;
 	setAttr ".hyp[6].nvs" 1920;
-	setAttr ".hyp[7].x" 241.42857360839844;
-	setAttr ".hyp[7].y" -72.857139587402344;
 	setAttr ".hyp[7].nvs" 1920;
 	setAttr ".hyp[8].nvs" 1920;
 	setAttr ".hyp[9].nvs" 1920;
@@ -28173,14 +28187,8 @@ createNode hyperLayout -n "hyperLayout2";
 	setAttr ".hyp[2].nvs" 1920;
 	setAttr ".hyp[3].nvs" 1920;
 	setAttr ".hyp[4].nvs" 1920;
-	setAttr ".hyp[5].x" 1.4285714626312256;
-	setAttr ".hyp[5].y" -72.857139587402344;
 	setAttr ".hyp[5].nvs" 1920;
-	setAttr ".hyp[6].x" 515.71429443359375;
-	setAttr ".hyp[6].y" -72.857139587402344;
 	setAttr ".hyp[6].nvs" 1920;
-	setAttr ".hyp[7].x" 241.42857360839844;
-	setAttr ".hyp[7].y" -72.857139587402344;
 	setAttr ".hyp[7].nvs" 1920;
 	setAttr ".hyp[8].nvs" 1920;
 	setAttr ".hyp[9].nvs" 1920;
@@ -28207,14 +28215,8 @@ createNode hyperLayout -n "hyperLayout3";
 	setAttr ".hyp[2].nvs" 1920;
 	setAttr ".hyp[3].nvs" 1920;
 	setAttr ".hyp[4].nvs" 1920;
-	setAttr ".hyp[5].x" 1.4285714626312256;
-	setAttr ".hyp[5].y" -72.857139587402344;
 	setAttr ".hyp[5].nvs" 1920;
-	setAttr ".hyp[6].x" 515.71429443359375;
-	setAttr ".hyp[6].y" -72.857139587402344;
 	setAttr ".hyp[6].nvs" 1920;
-	setAttr ".hyp[7].x" 241.42857360839844;
-	setAttr ".hyp[7].y" -72.857139587402344;
 	setAttr ".hyp[7].nvs" 1920;
 	setAttr ".hyp[8].nvs" 1920;
 	setAttr ".hyp[9].nvs" 1920;
@@ -28230,6 +28232,19 @@ createNode hyperLayout -n "hyperLayout3";
 	setAttr ".hyp[19].nvs" 1920;
 	setAttr ".hyp[20].nvs" 1920;
 	setAttr ".anf" yes;
+createNode RMSGPSurface -n "EmilySkinStandin";
+	setAttr ".surfaceColor" -type "float3" 0.588 0.38068783 0.24284399 ;
+	setAttr ".specularGain" 0;
+createNode shadingEngine -n "RMSGPSurface4SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo6";
+createNode RMSGPSurface -n "NightmareSurfaceStandin";
+	setAttr ".surfaceColor" -type "float3" 0.222 0.222 0.222 ;
+createNode shadingEngine -n "RMSGPSurface5SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo7";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -28242,7 +28257,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 76 ".st";
+	setAttr -s 88 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -28255,7 +28270,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 55 ".s";
+	setAttr -s 60 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -28267,20 +28282,20 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 37 ".u";
+	setAttr -s 53 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 9 ".r";
 select -ne :lightList1;
-	setAttr -s 2 ".l";
+	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 31 ".tx";
+	setAttr -s 45 ".tx";
 select -ne :lambert1;
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 20 ".dsm";
+	setAttr -s 19 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -28289,7 +28304,7 @@ select -ne :initialShadingGroup;
 	setAttr -cb on ".fo";
 	setAttr -cb on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 14 ".gn";
+	setAttr -s 12 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -28349,9 +28364,10 @@ select -ne :defaultRenderGlobals;
 	setAttr -cb on ".sdf";
 	setAttr -av -k on ".outf";
 	setAttr -k on ".gama";
+	setAttr ".an" yes;
 	setAttr -cb on ".ar";
 	setAttr -k on ".fs";
-	setAttr -k on ".ef";
+	setAttr -k on ".ef" 136;
 	setAttr -av -k on ".bfs";
 	setAttr -cb on ".me";
 	setAttr -cb on ".se";
@@ -28364,6 +28380,7 @@ select -ne :defaultRenderGlobals;
 	setAttr -cb on ".oft";
 	setAttr -cb on ".umfn";
 	setAttr -cb on ".ufe";
+	setAttr ".pff" yes;
 	setAttr -cb on ".peie";
 	setAttr -cb on ".ifp";
 	setAttr -k on ".comp";
@@ -28440,7 +28457,7 @@ select -ne :defaultLightSet;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -s 2 ".dsm";
+	setAttr -s 3 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -28860,6 +28877,7 @@ connectAttr "LPinkyKnuckle_translateZ1.o" "nightmare_hugeRN.phl[320]";
 connectAttr "LPinkyKnuckle_scaleX1.o" "nightmare_hugeRN.phl[321]";
 connectAttr "LPinkyKnuckle_scaleY1.o" "nightmare_hugeRN.phl[322]";
 connectAttr "LPinkyKnuckle_scaleZ1.o" "nightmare_hugeRN.phl[323]";
+connectAttr "nightmare_hugeRN.phl[324]" "RMSGPSurface5SG.dsm" -na;
 connectAttr "Main_FaceVis.o" "Candy_Enter_UnicornRN.phl[1]";
 connectAttr "Main_fkVis.o" "Candy_Enter_UnicornRN.phl[2]";
 connectAttr "Main_ikVis.o" "Candy_Enter_UnicornRN.phl[3]";
@@ -30062,35 +30080,35 @@ connectAttr "Emily_Enter_UnicornRN.phl[139]" "Sword_Anim_Control_parentConstrain
 		;
 connectAttr "Emily_Enter_UnicornRN.phl[140]" "Sword_Anim_Control_parentConstraint2.tg[0].ts"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[141]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[141]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[142]" "Sword_Anim_Control_parentConstraint2.tg[0].tr"
+connectAttr "Emily_Enter_UnicornRN.phl[142]" "Sword_Anim_Control_parentConstraint1.tg[0].tr"
 		;
 connectAttr "FKWrist_R_rotateX.o" "Emily_Enter_UnicornRN.phl[143]";
 connectAttr "FKWrist_R_rotateY.o" "Emily_Enter_UnicornRN.phl[144]";
 connectAttr "FKWrist_R_rotateZ.o" "Emily_Enter_UnicornRN.phl[145]";
-connectAttr "Emily_Enter_UnicornRN.phl[146]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[146]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[147]" "Sword_Anim_Control_parentConstraint2.tg[0].tt"
+connectAttr "Emily_Enter_UnicornRN.phl[147]" "Sword_Anim_Control_parentConstraint1.tg[0].tt"
 		;
 connectAttr "FKWrist_R_translateX.o" "Emily_Enter_UnicornRN.phl[148]";
 connectAttr "FKWrist_R_translateY.o" "Emily_Enter_UnicornRN.phl[149]";
 connectAttr "FKWrist_R_translateZ.o" "Emily_Enter_UnicornRN.phl[150]";
-connectAttr "Emily_Enter_UnicornRN.phl[151]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[151]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[152]" "Sword_Anim_Control_parentConstraint2.tg[0].trp"
+connectAttr "Emily_Enter_UnicornRN.phl[152]" "Sword_Anim_Control_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[153]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[153]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[154]" "Sword_Anim_Control_parentConstraint2.tg[0].trt"
+connectAttr "Emily_Enter_UnicornRN.phl[154]" "Sword_Anim_Control_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[155]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[155]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[156]" "Sword_Anim_Control_parentConstraint2.tg[0].tro"
+connectAttr "Emily_Enter_UnicornRN.phl[156]" "Sword_Anim_Control_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[157]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[157]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
 		;
-connectAttr "Emily_Enter_UnicornRN.phl[158]" "Sword_Anim_Control_parentConstraint2.tg[0].tpm"
+connectAttr "Emily_Enter_UnicornRN.phl[158]" "Sword_Anim_Control_parentConstraint1.tg[0].tpm"
 		;
 connectAttr "FKWrist_RShape_lockLength.o" "Emily_Enter_UnicornRN.phl[159]";
 connectAttr "FKExtraScapula_L_translateX.o" "Emily_Enter_UnicornRN.phl[160]";
@@ -31512,8 +31530,8 @@ connectAttr "ctrlTongue_M_rotZ6.o" "Emily_Enter_UnicornRN.phl[1473]";
 connectAttr "FKJaw_M_rotateX1.o" "Emily_Enter_UnicornRN.phl[1474]";
 connectAttr "FKJaw_M_rotateY1.o" "Emily_Enter_UnicornRN.phl[1475]";
 connectAttr "FKJaw_M_rotateZ1.o" "Emily_Enter_UnicornRN.phl[1476]";
-connectAttr "Emily_Enter_UnicornRN.phl[1477]" "Emily_Enter_UnicornRN.phl[1478]";
-connectAttr "Emily_Enter_UnicornRN.phl[1479]" "Emily_Enter_UnicornRN.phl[1480]";
+connectAttr "Emily_Enter_UnicornRN.phl[1477]" "RMSGPSurface4SG.dsm" -na;
+connectAttr "Emily_Enter_UnicornRN.phl[1478]" "Emily_Enter_UnicornRN.phl[1479]";
 connectAttr "Dress_visibility.o" "Emily_Enter_UnicornRN.phl[2]";
 connectAttr "Emily_Enter_UnicornRN.phl[3]" "Emily_Enter_UnicornRN.phl[4]";
 connectAttr "Sword_visibility.o" "swordRN.phl[1]";
@@ -31534,8 +31552,8 @@ connectAttr "swordRN.phl[15]" "pairBlend1.w";
 connectAttr "Sword_Anim_Control_blendParent1.o" "swordRN.phl[16]";
 connectAttr "swordRN.phl[17]" "pairBlend2.w";
 connectAttr "Sword_Anim_Control_blendParent4.o" "swordRN.phl[18]";
-connectAttr "swordRN.phl[19]" "Sword_Anim_Control_parentConstraint2.cpim";
-connectAttr "swordRN.phl[20]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[19]" "Sword_Anim_Control_parentConstraint1.cpim";
+connectAttr "swordRN.phl[20]" "Sword_Anim_Control_parentConstraint2.cpim";
 connectAttr "Floor.di" "Floor1.do";
 connectAttr "Floor1_visibility.o" "Floor1.v";
 connectAttr "Floor1_translateX.o" "Floor1.tx";
@@ -31584,11 +31602,10 @@ connectAttr "polyPlane3.out" "TunnelShape.i";
 connectAttr "TunnelShape_sofx.o" "TunnelShape.sx";
 connectAttr "TunnelShape_sofy.o" "TunnelShape.sy";
 connectAttr "TunnelShape_sofz.o" "TunnelShape.sz";
-connectAttr "polyNormal1.out" "|sky|sky.i";
 connectAttr "Main_parentConstraint1.w0" "Main_parentConstraint1.tg[0].tw";
-connectAttr "Sword_Anim_Control_parentConstraint1.w0" "Sword_Anim_Control_parentConstraint1.tg[0].tw"
-		;
 connectAttr "Sword_Anim_Control_parentConstraint2.w0" "Sword_Anim_Control_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Sword_Anim_Control_parentConstraint1.w0" "Sword_Anim_Control_parentConstraint1.tg[0].tw"
 		;
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanPreviewGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -31708,6 +31725,8 @@ relationship "link" ":lightLinker1" "lambert3SG.message" ":defaultLightSet.messa
 relationship "link" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSGPSurface5SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -31715,6 +31734,8 @@ relationship "shadowLink" ":lightLinker1" "lambert3SG.message" ":defaultLightSet
 relationship "shadowLink" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSGPSurface5SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
@@ -31790,11 +31811,9 @@ connectAttr "place2dTexture1.vc1" "file1.vc1";
 connectAttr "place2dTexture1.o" "file1.uv";
 connectAttr "place2dTexture1.ofs" "file1.fs";
 connectAttr "sky1.oc" "RMSGPSurface3SG.ss";
-connectAttr "|sky|sky.iog" "RMSGPSurface3SG.dsm" -na;
 connectAttr "RMSGPSurface3SG.msg" "materialInfo5.sg";
 connectAttr "sky1.msg" "materialInfo5.m";
 connectAttr "sky1.msg" "materialInfo5.t" -na;
-connectAttr "polySphere1.out" "polyNormal1.ip";
 connectAttr "hyperView1.msg" "nodeEditorPanel1Info.b[0]";
 connectAttr "hyperLayout1.msg" "hyperView1.hl";
 connectAttr "RMSGPSurface1.msg" "hyperLayout1.hyp[0].dn";
@@ -31802,12 +31821,8 @@ connectAttr "charge_floor.msg" "hyperLayout1.hyp[1].dn";
 connectAttr "RMSGPSurface2SG.msg" "hyperLayout1.hyp[2].dn";
 connectAttr "file1.msg" "hyperLayout1.hyp[3].dn";
 connectAttr "place2dTexture1.msg" "hyperLayout1.hyp[4].dn";
-connectAttr "polySphere1.msg" "hyperLayout1.hyp[5].dn";
-connectAttr "|sky.msg" "hyperLayout1.hyp[6].dn";
-connectAttr "|sky|sky.msg" "hyperLayout1.hyp[7].dn";
 connectAttr "sky1.msg" "hyperLayout1.hyp[8].dn";
 connectAttr "RMSGPSurface3SG.msg" "hyperLayout1.hyp[9].dn";
-connectAttr "polyNormal1.msg" "hyperLayout1.hyp[10].dn";
 connectAttr "Floor1_visibility.msg" "hyperLayout1.hyp[11].dn";
 connectAttr "Floor1_translateX.msg" "hyperLayout1.hyp[12].dn";
 connectAttr "Floor1_translateY.msg" "hyperLayout1.hyp[13].dn";
@@ -31825,12 +31840,8 @@ connectAttr "charge_floor.msg" "hyperLayout2.hyp[1].dn";
 connectAttr "RMSGPSurface2SG.msg" "hyperLayout2.hyp[2].dn";
 connectAttr "file1.msg" "hyperLayout2.hyp[3].dn";
 connectAttr "place2dTexture1.msg" "hyperLayout2.hyp[4].dn";
-connectAttr "polySphere1.msg" "hyperLayout2.hyp[5].dn";
-connectAttr "|sky.msg" "hyperLayout2.hyp[6].dn";
-connectAttr "|sky|sky.msg" "hyperLayout2.hyp[7].dn";
 connectAttr "sky1.msg" "hyperLayout2.hyp[8].dn";
 connectAttr "RMSGPSurface3SG.msg" "hyperLayout2.hyp[9].dn";
-connectAttr "polyNormal1.msg" "hyperLayout2.hyp[10].dn";
 connectAttr "Floor1_visibility.msg" "hyperLayout2.hyp[11].dn";
 connectAttr "Floor1_translateX.msg" "hyperLayout2.hyp[12].dn";
 connectAttr "Floor1_translateY.msg" "hyperLayout2.hyp[13].dn";
@@ -31848,12 +31859,8 @@ connectAttr "charge_floor.msg" "hyperLayout3.hyp[1].dn";
 connectAttr "RMSGPSurface2SG.msg" "hyperLayout3.hyp[2].dn";
 connectAttr "file1.msg" "hyperLayout3.hyp[3].dn";
 connectAttr "place2dTexture1.msg" "hyperLayout3.hyp[4].dn";
-connectAttr "polySphere1.msg" "hyperLayout3.hyp[5].dn";
-connectAttr "|sky.msg" "hyperLayout3.hyp[6].dn";
-connectAttr "|sky|sky.msg" "hyperLayout3.hyp[7].dn";
 connectAttr "sky1.msg" "hyperLayout3.hyp[8].dn";
 connectAttr "RMSGPSurface3SG.msg" "hyperLayout3.hyp[9].dn";
-connectAttr "polyNormal1.msg" "hyperLayout3.hyp[10].dn";
 connectAttr "Floor1_visibility.msg" "hyperLayout3.hyp[11].dn";
 connectAttr "Floor1_translateX.msg" "hyperLayout3.hyp[12].dn";
 connectAttr "Floor1_translateY.msg" "hyperLayout3.hyp[13].dn";
@@ -31864,21 +31871,35 @@ connectAttr "Floor1_rotateZ.msg" "hyperLayout3.hyp[17].dn";
 connectAttr "Floor1_scaleX.msg" "hyperLayout3.hyp[18].dn";
 connectAttr "Floor1_scaleY.msg" "hyperLayout3.hyp[19].dn";
 connectAttr "Floor1_scaleZ.msg" "hyperLayout3.hyp[20].dn";
+connectAttr "EmilySkinStandin.oc" "RMSGPSurface4SG.ss";
+connectAttr "RMSGPSurface4SG.msg" "materialInfo6.sg";
+connectAttr "EmilySkinStandin.msg" "materialInfo6.m";
+connectAttr "EmilySkinStandin.msg" "materialInfo6.t" -na;
+connectAttr "NightmareSurfaceStandin.oc" "RMSGPSurface5SG.ss";
+connectAttr "RMSGPSurface5SG.msg" "materialInfo7.sg";
+connectAttr "NightmareSurfaceStandin.msg" "materialInfo7.m";
+connectAttr "NightmareSurfaceStandin.msg" "materialInfo7.t" -na;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface2SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface3SG.pa" ":renderPartition.st" -na;
+connectAttr "RMSGPSurface4SG.pa" ":renderPartition.st" -na;
+connectAttr "RMSGPSurface5SG.pa" ":renderPartition.st" -na;
 connectAttr "lambertGray.msg" ":defaultShaderList1.s" -na;
 connectAttr "lambertYellow.msg" ":defaultShaderList1.s" -na;
 connectAttr "lambertYellow1.msg" ":defaultShaderList1.s" -na;
 connectAttr "RMSGPSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "charge_floor.msg" ":defaultShaderList1.s" -na;
 connectAttr "sky1.msg" ":defaultShaderList1.s" -na;
+connectAttr "EmilySkinStandin.msg" ":defaultShaderList1.s" -na;
+connectAttr "NightmareSurfaceStandin.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "RMSGeoAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "RMSGeoAreaLight1.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"nightmare_hugeRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma\" 2455297881 \"/tmp/Nightmare/assets/chars/nightmare_huge.ma\" \"FileRef\"\n1\n\"Candy_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Candy_Enter_Unicorn.ma\" 1418175337 \"/tmp/Nightmare/assets/chars/Candy_Enter_Unicorn.ma\" \"FileRef\"\n2\n\"Emily_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily.ma\" 1979794698 \"/tmp/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n3\n\"swordRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/props/sword.ma\" 2015439448 \"/tmp/Nightmare/assets/props/sword.ma\" \"FileRef\"\n4\n\"file1\" \"fileTextureName\" \"/tmp/Nightmare/images/charge scene floor.png\" 2699400904 \"/tmp/Nightmare/images/charge scene floor.png\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"nightmare_hugeRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/nightmare_huge.ma\" 2455297881 \"/home/tmp/cs198-re/Nightmare/assets/chars/nightmare_huge.ma\" \"FileRef\"\n1\n\"Candy_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Candy_Enter_Unicorn.ma\" 1418175337 \"/home/tmp/cs198-re/Nightmare/assets/chars/Candy_Enter_Unicorn.ma\" \"FileRef\"\n2\n\"Emily_Enter_UnicornRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily.ma\" 1979794698 \"/home/tmp/cs198-re/Nightmare/assets/chars/Emily.ma\" \"FileRef\"\n3\n\"swordRN\" \"\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/props/sword.ma\" 2015439448 \"/home/tmp/cs198-re/Nightmare/assets/props/sword.ma\" \"FileRef\"\n4\n\"file1\" \"fileTextureName\" \"/home/tmp/cs198-re/Nightmare/images/charge scene floor.png\" 2616207991 \"/home/tmp/cs198-re/Nightmare/images/charge scene floor.png\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of The_Fight.ma
