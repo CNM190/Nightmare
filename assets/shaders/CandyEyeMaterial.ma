@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: CandyEyeMaterial.ma
-//Last modified: Sun, Apr 26, 2015 02:06:41 PM
+//Last modified: Wed, May 06, 2015 12:26:04 PM
 //Codeset: 1252
 requires maya "2015";
 requires -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
@@ -12,9 +12,10 @@ fileInfo "version" "2015";
 fileInfo "cutIdentifier" "201405190330-916664";
 fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
-createNode RMSGPSurface -n "EyeMaterial:Inner_Eye";
+createNode RMSGPSurface -n "CandyEyeMaterial:EyeMaterial:Inner_Eye";
 	addAttr -ci true -sn "resolution" -ln "resolution" -dv 32 -at "long";
 	setAttr ".diffuseGain" 0.69999998807907104;
+	setAttr ".diffAmount" -type "float3" 0 0 0 ;
 	setAttr ".roughness" 0.80000001192092896;
 	setAttr ".anisotropy" -0.30337077379226685;
 	setAttr ".indirectSpecularScale" 0;
@@ -24,16 +25,12 @@ createNode RMSGPSurface -n "EyeMaterial:Inner_Eye";
 	setAttr ".lightConeAngleSamples" 8;
 	setAttr ".maxLightSamples" 84;
 	setAttr ".specularClamp" 10;
-	setAttr ".enableDisplacement" 1;
-	setAttr ".displacementCenter" 0.20000000298023224;
-	setAttr ".sssMix" -type "float3" 0.67415887 0.67415887 0.67415887 ;
-	setAttr ".sssDmfpScale" 0.20000000298023224;
+	setAttr ".sssMix" -type "float3" 0.75 0.75 0.75 ;
+	setAttr ".sssDmfpScale" 0.10000000149011612;
+	setAttr ".sssDmfp" -type "float3" 0.12 0.034000002 0.026000001 ;
+	setAttr ".sssSamples" 128;
 	setAttr ".resolution" 256;
-createNode remapHsv -n "EyeMaterial:remapHsv4";
-	setAttr -s 2 ".h[0:1]"  0 0 1 1 1 1;
-	setAttr -s 2 ".s[0:1]"  0 0 1 1 1 1;
-	setAttr -s 2 ".v[0:1]"  0 0 1 1 0.98000002 1;
-createNode ramp -n "EyeMaterial:Main_Iris_Ramp";
+createNode ramp -n "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp";
 	addAttr -ci true -k true -sn "rman__flipU" -ln "rman__flipU" -dv -1 -at "float";
 	addAttr -ci true -k true -sn "rman__flipV" -ln "rman__flipV" -dv -1 -at "float";
 	addAttr -ci true -sn "resolution" -ln "resolution" -dv 32 -at "long";
@@ -50,71 +47,71 @@ createNode ramp -n "EyeMaterial:Main_Iris_Ramp";
 	setAttr -k on ".rman__flipU" 0;
 	setAttr -k on ".rman__flipV" 0;
 	setAttr ".resolution" 256;
-createNode place2dTexture -n "EyeMaterial:place2dTexture23";
-createNode ramp -n "EyeMaterial:IrisMap2";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture23";
+createNode ramp -n "CandyEyeMaterial:EyeMaterial:IrisMap2";
 	setAttr ".t" 1;
 	setAttr -s 5 ".cel";
 	setAttr ".cel[0].ep" 0;
-	setAttr ".cel[0].ec" -type "float3" 0.078714989 0.21703736 0.45500001 ;
+	setAttr ".cel[0].ec" -type "float3" 0.39899999 0.2139363 0.10972499 ;
 	setAttr ".cel[1].ep" 0.26072606444358826;
-	setAttr ".cel[1].ec" -type "float3" 0.080063999 0.37588203 0.55599999 ;
+	setAttr ".cel[1].ec" -type "float3" 0.45500001 0.26825392 0.140595 ;
 	setAttr ".cel[2].ep" 0.58415842056274414;
-	setAttr ".cel[2].ec" -type "float3" 0.0050520101 0.12151743 0.421 ;
+	setAttr ".cel[2].ec" -type "float3" 0.354 0.17257756 0.079650007 ;
 	setAttr ".cel[3].ep" 1;
-	setAttr ".cel[3].ec" -type "float3" 0.078714989 0.21703736 0.45500001 ;
+	setAttr ".cel[3].ec" -type "float3" 0.39899999 0.2139363 0.10972499 ;
 	setAttr ".cel[5].ep" 0.8547855019569397;
-	setAttr ".cel[5].ec" -type "float3" 0.17908801 0.429351 0.62400001 ;
+	setAttr ".cel[5].ec" -type "float3" 0.45500001 0.26825392 0.140595 ;
 	setAttr ".n" 0.30081301927566528;
 	setAttr ".nf" 0.56910568475723267;
 	setAttr ".hnf" 0.25;
-createNode place2dTexture -n "EyeMaterial:place2dTexture30";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture30";
 	setAttr ".re" -type "float2" 20 1 ;
-createNode water -n "EyeMaterial:water3";
+createNode water -n "CandyEyeMaterial:EyeMaterial:water3";
 	setAttr ".nw" 15;
 	setAttr ".wv" 0.86666667461395264;
 	setAttr ".wa" 0.13333334028720856;
 	setAttr ".wf" 5.3333334922790527;
 	setAttr ".swf" 0.14166666567325592;
 	setAttr ".fa" no;
-createNode place2dTexture -n "EyeMaterial:place2dTexture31";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture31";
 	setAttr ".re" -type "float2" 1 12 ;
-createNode ramp -n "EyeMaterial:IrisMap3";
+createNode ramp -n "CandyEyeMaterial:EyeMaterial:IrisMap3";
 	setAttr ".t" 1;
 	setAttr -s 3 ".cel";
 	setAttr ".cel[0].ep" 0;
-	setAttr ".cel[0].ec" -type "float3" 0.028279997 0.066741608 0.20200001 ;
+	setAttr ".cel[0].ec" -type "float3" 0.163 0.071594767 0.024776002 ;
 	setAttr ".cel[1].ep" 0.39603960514068604;
-	setAttr ".cel[1].ec" -type "float3" 0.039960001 0.12267088 0.27000001 ;
+	setAttr ".cel[1].ec" -type "float3" 0.22499999 0.098827131 0.034200002 ;
 	setAttr ".cel[2].ep" 1;
-	setAttr ".cel[2].ec" -type "float3" 0.028279997 0.066741608 0.20200001 ;
+	setAttr ".cel[2].ec" -type "float3" 0.163 0.071594767 0.024776002 ;
 	setAttr ".uw" 0.32499998807907104;
 	setAttr ".n" 0.34959349036216736;
 	setAttr ".nf" 0.56910568475723267;
-createNode place2dTexture -n "EyeMaterial:place2dTexture32";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture32";
 	setAttr ".re" -type "float2" 35 1 ;
-createNode ramp -n "EyeMaterial:IrisRamp1";
+createNode ramp -n "CandyEyeMaterial:EyeMaterial:IrisRamp1";
 	setAttr ".t" 1;
 	setAttr -s 5 ".cel";
 	setAttr ".cel[0].ep" 0.33993399143218994;
-	setAttr ".cel[0].ec" -type "float3" 0.118 0.32600001 0.65700001 ;
-	setAttr ".cel[1].ep" 0.89999997615814209;
-	setAttr ".cel[1].ec" -type "float3" 0.118 0.53899997 0.65700001 ;
+	setAttr ".cel[0].ec" -type "float3" 0.433 0.24918604 0.13856 ;
+	setAttr ".cel[1].ep" 0.90361446142196655;
+	setAttr ".cel[1].ec" -type "float3" 0.54500002 0.29920828 0.14714999 ;
 	setAttr ".cel[2].ep" 0;
-	setAttr ".cel[2].ec" -type "float3" 0.118 0.53899997 0.65700001 ;
+	setAttr ".cel[2].ec" -type "float3" 0.54500002 0.29920828 0.14714999 ;
 	setAttr ".cel[3].ep" 0.15841600298881531;
-	setAttr ".cel[3].ec" -type "float3" 0.011 0.18000001 0.36000001 ;
+	setAttr ".cel[3].ec" -type "float3" 0.39899999 0.21104307 0.12767999 ;
 	setAttr ".cel[4].ep" 0.62706267833709717;
-	setAttr ".cel[4].ec" -type "float3" 0.185 0.77499998 0.74699998 ;
+	setAttr ".cel[4].ec" -type "float3" 0.63999999 0.31041938 0.20863998 ;
 	setAttr ".uw" 0.41499999165534973;
 	setAttr ".n" 0.4065040647983551;
 	setAttr ".nf" 0.56999999284744263;
 	setAttr ".hnf" 0.024390244856476784;
 	setAttr ".snf" 0;
 	setAttr ".vnf" 0.27642276883125305;
-createNode place2dTexture -n "EyeMaterial:place2dTexture25";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture25";
 	setAttr ".tf" -type "float2" 0 0.69999999 ;
-	setAttr ".re" -type "float2" 15 1 ;
-createNode ramp -n "EyeMaterial:PupilMask";
+	setAttr ".re" -type "float2" 20 1 ;
+createNode ramp -n "CandyEyeMaterial:EyeMaterial:PupilMask";
 	setAttr -s 3 ".cel";
 	setAttr ".cel[0].ep" 0.79518073797225952;
 	setAttr ".cel[0].ec" -type "float3" 0.80000001 0.80000001 0.80000001 ;
@@ -122,47 +119,24 @@ createNode ramp -n "EyeMaterial:PupilMask";
 	setAttr ".cel[1].ec" -type "float3" 0 0 0 ;
 	setAttr ".cel[2].ep" 0.7850000262260437;
 	setAttr ".cel[2].ec" -type "float3" 0 0 0 ;
-createNode place2dTexture -n "EyeMaterial:place2dTexture33";
-createNode remapHsv -n "EyeMaterial:remapHsv2";
+createNode place2dTexture -n "CandyEyeMaterial:EyeMaterial:place2dTexture33";
+createNode remapHsv -n "CandyEyeMaterial:EyeMaterial:remapHsv2";
 	setAttr ".omx" 2;
 	setAttr -s 2 ".h[0:1]"  0 0 1 1 1 1;
 	setAttr -s 2 ".s[0:1]"  0 0 1 1 0.80000001 1;
 	setAttr -s 2 ".v[0:1]"  0 1 1 1 1.60000002 1;
-createNode remapValue -n "EyeMaterial:remapValue1";
-	setAttr -s 2 ".vl[3:4]"  1 0.80000001 0 0.0099999998 0.80000001 
-		0;
-	setAttr -s 2 ".cl";
-	setAttr ".cl[0].cli" 1;
-	setAttr ".cl[1].clp" 1;
-	setAttr ".cl[1].clc" -type "float3" 1 1 1 ;
-	setAttr ".cl[1].cli" 1;
-createNode ramp -n "ramp1";
+createNode ramp -n "CandyEyeMaterial:ramp1";
 	setAttr -s 2 ".cel";
 	setAttr ".cel[0].ep" 0;
 	setAttr ".cel[0].ec" -type "float3" 0.96078432 0.52748942 0.52748942 ;
 	setAttr ".cel[1].ep" 0.7850000262260437;
-createNode place2dTexture -n "place2dTexture5";
-createNode ramp -n "ramp2";
-	setAttr -s 2 ".cel";
-	setAttr ".cel[0].ep" 0.77999997138977051;
-	setAttr ".cel[0].ec" -type "float3" 0.096000001 0.028000001 0.017000001 ;
-	setAttr ".cel[1].ep" 0.7850000262260437;
-	setAttr ".cel[1].ec" -type "float3" 0.011 0.056000002 0.096000001 ;
-createNode place2dTexture -n "place2dTexture7";
-createNode shadingEngine -n "EyeMaterial:RMSGPSurface5SG";
-	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
-	setAttr ".ro" yes;
+createNode place2dTexture -n "CandyEyeMaterial:place2dTexture5";
 createNode partition -n "mtorPartition";
 	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
 	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
 	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
-createNode materialInfo -n "EyeMaterial:materialInfo29";
-createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 30 ".lnk";
-	setAttr -s 30 ".slnk";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -188,7 +162,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 27 ".s";
+	setAttr -s 26 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -196,17 +170,27 @@ select -ne :postProcessList1;
 	setAttr -cb on ".bnm";
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 23 ".u";
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 19 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 2 ".r";
+select -ne :lightList1;
+	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 19 ".tx";
+	setAttr -k on ".cch";
+	setAttr -cb on ".ihi";
+	setAttr -k on ".nds";
+	setAttr -cb on ".bnm";
+	setAttr -s 17 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 3 ".dsm";
+	setAttr -s 6 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -cb on ".an";
 	setAttr -cb on ".il";
@@ -342,17 +326,18 @@ select -ne :defaultRenderGlobals;
 	setAttr -cb on ".rsb";
 	setAttr -k on ".ope";
 	setAttr -k on ".oppf";
+	setAttr ".cpe" yes;
 	setAttr -cb on ".hbl";
 select -ne :defaultResolution;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -av ".w" 640;
-	setAttr -av ".h" 480;
+	setAttr -av ".w";
+	setAttr -av ".h";
 	setAttr -av ".pa" 1;
 	setAttr -av -k on ".al";
-	setAttr -av ".dar" 1.3333333730697632;
+	setAttr -av ".dar" 1.7777777910232544;
 	setAttr -av -k on ".ldar";
 	setAttr -k on ".dpi";
 	setAttr -av -k on ".off";
@@ -365,6 +350,7 @@ select -ne :defaultLightSet;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
+	setAttr -s 3 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -424,6 +410,11 @@ select -ne :hardwareRenderGlobals;
 	setAttr -k on ".bswa";
 	setAttr -k on ".shml";
 	setAttr -k on ".hwel";
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -469,77 +460,82 @@ select -ne :ikSystem;
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
 	setAttr -s 3 ".sol";
-connectAttr "EyeMaterial:remapHsv4.oc" "EyeMaterial:Inner_Eye.surfaceColor";
-connectAttr "EyeMaterial:PupilMask.oa" "EyeMaterial:Inner_Eye.specularGain";
-connectAttr "EyeMaterial:remapHsv2.oc" "EyeMaterial:Inner_Eye.specularColor";
-connectAttr "EyeMaterial:PupilMask.oa" "EyeMaterial:Inner_Eye.bumpScalar";
-connectAttr "EyeMaterial:remapValue1.oc" "EyeMaterial:Inner_Eye.diffAmount";
-connectAttr "ramp1.oc" "EyeMaterial:Inner_Eye.sssAlbedo";
-connectAttr "ramp2.oc" "EyeMaterial:Inner_Eye.sssDmfp";
-connectAttr "EyeMaterial:Main_Iris_Ramp.oc" "EyeMaterial:remapHsv4.cl";
-connectAttr "EyeMaterial:place2dTexture23.o" "EyeMaterial:Main_Iris_Ramp.uv";
-connectAttr "EyeMaterial:place2dTexture23.ofs" "EyeMaterial:Main_Iris_Ramp.fs";
-connectAttr "EyeMaterial:IrisMap2.oc" "EyeMaterial:Main_Iris_Ramp.cel[2].ec";
-connectAttr "EyeMaterial:IrisMap3.oc" "EyeMaterial:Main_Iris_Ramp.cel[3].ec";
-connectAttr "EyeMaterial:IrisRamp1.oc" "EyeMaterial:Main_Iris_Ramp.cel[6].ec";
-connectAttr "EyeMaterial:place2dTexture30.o" "EyeMaterial:IrisMap2.uv";
-connectAttr "EyeMaterial:place2dTexture30.ofs" "EyeMaterial:IrisMap2.fs";
-connectAttr "EyeMaterial:water3.oa" "EyeMaterial:IrisMap2.uw";
-connectAttr "EyeMaterial:place2dTexture31.o" "EyeMaterial:water3.uv";
-connectAttr "EyeMaterial:place2dTexture31.ofs" "EyeMaterial:water3.fs";
-connectAttr "EyeMaterial:place2dTexture32.o" "EyeMaterial:IrisMap3.uv";
-connectAttr "EyeMaterial:place2dTexture32.ofs" "EyeMaterial:IrisMap3.fs";
-connectAttr "EyeMaterial:place2dTexture25.o" "EyeMaterial:IrisRamp1.uv";
-connectAttr "EyeMaterial:place2dTexture25.ofs" "EyeMaterial:IrisRamp1.fs";
-connectAttr "EyeMaterial:place2dTexture33.o" "EyeMaterial:PupilMask.uv";
-connectAttr "EyeMaterial:place2dTexture33.ofs" "EyeMaterial:PupilMask.fs";
-connectAttr "EyeMaterial:Main_Iris_Ramp.oc" "EyeMaterial:remapHsv2.cl";
-connectAttr "EyeMaterial:PupilMask.oa" "EyeMaterial:remapValue1.i";
-connectAttr "place2dTexture5.o" "ramp1.uv";
-connectAttr "place2dTexture5.ofs" "ramp1.fs";
-connectAttr "EyeMaterial:Main_Iris_Ramp.oc" "ramp1.cel[1].ec";
-connectAttr "place2dTexture7.o" "ramp2.uv";
-connectAttr "place2dTexture7.ofs" "ramp2.fs";
-connectAttr "EyeMaterial:Inner_Eye.oc" "EyeMaterial:RMSGPSurface5SG.ss";
-connectAttr "Candy:MESH_Candy_RightEyeShape.iog" "EyeMaterial:RMSGPSurface5SG.dsm"
-		 -na;
-connectAttr "Candy:MESH_Candy_LeftEyeShape.iog" "EyeMaterial:RMSGPSurface5SG.dsm"
-		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.oc" "CandyEyeMaterial:EyeMaterial:Inner_Eye.surfaceColor"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:PupilMask.oa" "CandyEyeMaterial:EyeMaterial:Inner_Eye.specularGain"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:remapHsv2.oc" "CandyEyeMaterial:EyeMaterial:Inner_Eye.specularColor"
+		;
+connectAttr "CandyEyeMaterial:ramp1.oc" "CandyEyeMaterial:EyeMaterial:Inner_Eye.sssAlbedo"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture23.o" "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture23.ofs" "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisMap2.oc" "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.cel[2].ec"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisMap3.oc" "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.cel[3].ec"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisRamp1.oc" "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.cel[6].ec"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture30.o" "CandyEyeMaterial:EyeMaterial:IrisMap2.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture30.ofs" "CandyEyeMaterial:EyeMaterial:IrisMap2.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:water3.oa" "CandyEyeMaterial:EyeMaterial:IrisMap2.uw"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture31.o" "CandyEyeMaterial:EyeMaterial:water3.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture31.ofs" "CandyEyeMaterial:EyeMaterial:water3.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture32.o" "CandyEyeMaterial:EyeMaterial:IrisMap3.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture32.ofs" "CandyEyeMaterial:EyeMaterial:IrisMap3.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture25.o" "CandyEyeMaterial:EyeMaterial:IrisRamp1.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture25.ofs" "CandyEyeMaterial:EyeMaterial:IrisRamp1.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture33.o" "CandyEyeMaterial:EyeMaterial:PupilMask.uv"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture33.ofs" "CandyEyeMaterial:EyeMaterial:PupilMask.fs"
+		;
+connectAttr "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.oc" "CandyEyeMaterial:EyeMaterial:remapHsv2.cl"
+		;
+connectAttr "CandyEyeMaterial:place2dTexture5.o" "CandyEyeMaterial:ramp1.uv";
+connectAttr "CandyEyeMaterial:place2dTexture5.ofs" "CandyEyeMaterial:ramp1.fs";
+connectAttr "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.oc" "CandyEyeMaterial:ramp1.cel[1].ec"
+		;
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
-connectAttr "EyeMaterial:RMSGPSurface5SG.msg" "EyeMaterial:materialInfo29.sg";
-connectAttr "EyeMaterial:Inner_Eye.msg" "EyeMaterial:materialInfo29.m";
-connectAttr "EyeMaterial:Inner_Eye.msg" "EyeMaterial:materialInfo29.t" -na;
-relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" "EyeMaterial:RMSGPSurface5SG.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" "EyeMaterial:RMSGPSurface5SG.message" ":defaultLightSet.message";
-connectAttr "EyeMaterial:RMSGPSurface5SG.pa" ":renderPartition.st" -na;
-connectAttr "EyeMaterial:Inner_Eye.msg" ":defaultShaderList1.s" -na;
-connectAttr "EyeMaterial:place2dTexture23.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:place2dTexture25.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:place2dTexture30.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:place2dTexture31.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:place2dTexture32.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:place2dTexture33.msg" ":defaultRenderUtilityList1.u" -na
-		;
-connectAttr "EyeMaterial:remapHsv2.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "EyeMaterial:remapValue1.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "EyeMaterial:remapHsv4.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture5.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture7.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "EyeMaterial:Main_Iris_Ramp.msg" ":defaultTextureList1.tx" -na;
-connectAttr "EyeMaterial:IrisRamp1.msg" ":defaultTextureList1.tx" -na;
-connectAttr "EyeMaterial:IrisMap2.msg" ":defaultTextureList1.tx" -na;
-connectAttr "EyeMaterial:water3.msg" ":defaultTextureList1.tx" -na;
-connectAttr "EyeMaterial:IrisMap3.msg" ":defaultTextureList1.tx" -na;
-connectAttr "EyeMaterial:PupilMask.msg" ":defaultTextureList1.tx" -na;
-connectAttr "ramp1.msg" ":defaultTextureList1.tx" -na;
-connectAttr "ramp2.msg" ":defaultTextureList1.tx" -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:Inner_Eye.msg" ":defaultShaderList1.s"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture23.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture25.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture30.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture31.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture32.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:place2dTexture33.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:remapHsv2.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:place2dTexture5.msg" ":defaultRenderUtilityList1.u"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisRamp1.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisMap2.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:water3.msg" ":defaultTextureList1.tx" 
+		-na;
+connectAttr "CandyEyeMaterial:EyeMaterial:IrisMap3.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "CandyEyeMaterial:EyeMaterial:PupilMask.msg" ":defaultTextureList1.tx"
+		 -na;
+connectAttr "CandyEyeMaterial:ramp1.msg" ":defaultTextureList1.tx" -na;
 // End of CandyEyeMaterial.ma
