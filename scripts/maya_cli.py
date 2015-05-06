@@ -7,6 +7,7 @@ def render(shots, frame=None, tractor=True):
     rm_rman_dir = strtobool(raw_input("Zap renderman directory (Y/n): ") or 'y')
     res_y = int(raw_input("resolution (540, 720, 1080): "))
     res_x, res_y = str(int(res_y * 16 / 9.0)), str(res_y)
+    step = raw_input("Frame step size: ") or "1"
 
     renderman_dir = os.path.join(os.getcwd(), 'renderman')
     if rm_rman_dir:
@@ -39,6 +40,8 @@ def render(shots, frame=None, tractor=True):
             "-pad", "3",
             "-s", str(frame0),
             "-e", str(frameN),
+            "-b", str(step),
+            #"-pre", "hide Emily_Body_Rig:Emily; showHidden Emily_Body_Rig:Emily;",
             "-fnc", "name.#.ext",
         ]
 
