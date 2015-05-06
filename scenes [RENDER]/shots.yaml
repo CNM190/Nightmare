@@ -70,8 +70,14 @@
 # ---------------------------------------------------------------------------
 # Act III
 
-- name       : "Crossfade"
-  file       : "crossfade [animation done].ma"
+- name       : "Crossfade Part 1"
+  file       : "crossfade part1.ma"
   camera     : 'bedroom2:camera1'
-  startFrame : 1
+  startFrame : 0
   endFrame   : 90
+
+- name       : "Crossfade Part 2"
+  file       : "crossfade part2.ma"
+  camera     : 'bedroom2:camera1'
+  startFrame : 91
+  endFrame   : 140
