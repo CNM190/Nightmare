@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: Enter_Unicorn_Part1.ma
-//Last modified: Wed, May 06, 2015 11:48:57 PM
+//Last modified: Thu, May 07, 2015 02:47:24 AM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily" -rfn "EmilyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -146,6 +146,7 @@ createNode transform -n "Omnipresent_Orb" -p "Lights";
 	setAttr ".s" -type "double3" -230.2299964904785 230.2299964904785 230.2299964904785 ;
 createNode RMSEnvLight -n "Omnipresent_OrbShape" -p "Omnipresent_Orb";
 	setAttr -k off ".v";
+	setAttr ".ShadingRate" 7;
 	setAttr ".lightcolor" -type "float3" 0.012298772 0.013611048 0.033707179 ;
 	setAttr ".envtint" -type "float3" 0.102391 0.11595867 0.32300001 ;
 	setAttr ".temperature" 5500;
@@ -161,17 +162,17 @@ createNode RMSGeoAreaLight -n "EmilyFace" -p "Emily_Face";
 	setAttr ".lightcolor" -type "float3" 0.61699998 0.76335073 1 ;
 	setAttr ".temperature" -1;
 	setAttr ".diffAmount" -type "float3" 0.64100003 0.78200924 1 ;
-	setAttr ".__group" -type "string" "lightset7";
 createNode transform -n "Front_Light" -p "Lights";
 	addAttr -ci true -h true -sn "rman__param___ignoreObjects" -ln "rman__param___ignoreObjects" 
 		-dt "string";
 createNode RMSGeoAreaLight -n "Front_LightShape" -p "Front_Light";
 	setAttr -k off ".v";
+	setAttr ".ShadingRate" 1;
 	setAttr ".lightcolor" -type "float3" 0.60500002 0.8033163 1 ;
 	setAttr ".temperature" -1;
 	setAttr ".specAmount" -type "float3" 0.778 0.8980546 1 ;
 	setAttr ".diffAmount" -type "float3" 0.778 0.85271943 1 ;
-	setAttr ".__group" -type "string" "lightset3";
+	setAttr ".importance" 1.5;
 createNode transform -n "Candy_Face" -p "Lights";
 	addAttr -ci true -h true -sn "rman__param___ignoreObjects" -ln "rman__param___ignoreObjects" 
 		-dt "string";
@@ -198,18 +199,17 @@ createNode RMSGeoAreaLight -n "Hair" -p "HairLight";
 	setAttr ".temperature" -1;
 	setAttr ".specAmount" -type "float3" 0.51499999 0.63625002 1 ;
 	setAttr ".diffAmount" -type "float3" 0.24977501 0.25077859 0.48500001 ;
-	setAttr ".__group" -type "string" "lightset5";
 createNode transform -n "HornLight" -p "Lights";
+	setAttr ".v" no;
 	setAttr ".s" -type "double3" 0.036126359326437291 0.036126359326437291 0.036126359326437291 ;
 createNode RMSGeoAreaLight -n "HornLightShape" -p "HornLight";
 	setAttr -k off ".v";
+	setAttr ".rman__LightPrimaryVisibility" yes;
 	setAttr ".shape" -type "string" "sphere";
 	setAttr ".lightcolor" -type "float3" 0.75599998 0.9121803 1 ;
 	setAttr ".temperature" -1;
 	setAttr ".specAmount" -type "float3" 0.838 0.94169348 1 ;
 	setAttr ".diffAmount" -type "float3" 0.838 0.94169348 1 ;
-	setAttr ".importance" 2.5;
-	setAttr ".__group" -type "string" "lightset6";
 createNode parentConstraint -n "HornLight_parentConstraint1" -p "HornLight";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "FKHead_MW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
@@ -226,7 +226,7 @@ createNode parentConstraint -n "HornLight_parentConstraint1" -p "HornLight";
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 1.4076714925087455 -1.5282389884406686 0.015268927028330381 ;
 	setAttr ".tg[0].tor" -type "double3" -2.884104007800826 8.2992113711946498 -29.195712380985473 ;
-	setAttr ".lr" -type "double3" 0.88408201196168246 -2.512743926782675 42.771456484829073 ;
+	setAttr ".lr" -type "double3" -0.40421167219713694 0.40085831540463074 -8.9431421025811346 ;
 	setAttr ".rst" -type "double3" 0.57935641598684207 2.062587378933681 4.1970451172379226 ;
 	setAttr ".rsrr" -type "double3" 6.6095901974163663e-15 -9.9392333795734903e-15 3.146543867242788e-14 ;
 	setAttr -k on ".w0";
@@ -242,7 +242,6 @@ createNode RMSGeoAreaLight -n "Lightthedarkshit" -p "Emily_Face1";
 	setAttr ".temperature" -1;
 	setAttr ".specAmount" -type "float3" 0.28422982 0.30821699 0.46066988 ;
 	setAttr ".diffAmount" -type "float3" 0.53900003 0.72007316 1 ;
-	setAttr ".__group" -type "string" "lightset7";
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -770,7 +769,7 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
-		-dv -1 -smn 0 -smx 100 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -799,8 +798,8 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	setAttr -k on ".rman__riopt__photon_emit" 0;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 28 ".d";
-	setAttr -s 27 ".c";
+	setAttr -s 18 ".d";
+	setAttr -s 17 ".c";
 createNode RenderMan -s -n "rmanFinalOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -909,6 +908,8 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__torattr___depthOfField" -ln "rman__torattr___depthOfField" 
 		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___passNameFormat" -ln "rman__torattr___passNameFormat" 
+		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt___PixelSamples" -ln "rman__riopt___PixelSamples" 
 		-at "float2" -nc 2;
 	addAttr -ci true -k true -sn "rman__riopt___PixelSamples0" -ln "rman__riopt___PixelSamples0" 
@@ -972,6 +973,7 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	setAttr ".rman__torattr___cameraFlavor" -type "string" "";
 	setAttr ".rman__torattr___lightcrew" -type "string" "";
 	setAttr -k on ".rman__torattr___depthOfField" 1;
+	setAttr ".rman__torattr___passNameFormat" -type "string" "";
 	setAttr -k on ".rman__riopt___PixelSamples" -type "float2" 3 3 ;
 	setAttr -k on ".rman__riopt__Hider_minsamples" 0;
 	setAttr -k on ".rman__riopt__Hider_maxsamples" 4;
@@ -986,8 +988,8 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 19 ".d";
-	setAttr -s 18 ".c";
+	setAttr -s 9 ".d";
+	setAttr -s 8 ".c";
 createNode RenderMan -s -n "rmanPreviewOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -3904,8 +3906,8 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 	setAttr ".dat" 2;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 82 ".lnk";
-	setAttr -s 82 ".slnk";
+	setAttr -s 83 ".lnk";
+	setAttr -s 83 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 1;
 	setAttr -s 3 ".dli[1:2]"  1 2;
@@ -5067,7 +5069,7 @@ createNode reference -n "EmilyRN";
 		5 0 "EmilyRN" "|Emily:Emily|Emily:Hair_Emily:Hair|Emily:Hair_Emily:HairShape.instObjGroups" 
 		"Emily:Emily_Hair_Shader:RMSGPSurface1SG.dagSetMembers" "EmilyRN.placeHolderList[3]" 
 		"EmilyRN.placeHolderList[4]" "Emily:Emily_Hair_Shader:RMSGPSurface1SG.dsm"
-		"EmilyRN" 1678
+		"EmilyRN" 1680
 		1 |Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKRoot_MShape 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		1 |Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKSpine1_MShape 
@@ -5136,7 +5138,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "Resolution" " -k 1 1"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
-		"rotate" " -type \"double3\" 0 -0.025353852537236196 0"
+		"rotate" " -type \"double3\" 0 -0.24100144195898746 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
@@ -5152,7 +5154,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKRoot_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
-		"translate" " -type \"double3\" -0.0009282668236837426 0 0"
+		"translate" " -type \"double3\" -0.0009282668236837426 0 -0.0075704905944238825"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
@@ -5160,7 +5162,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
-		"rotate" " -type \"double3\" 0 0 1.210288"
+		"rotate" " -type \"double3\" -0.019159716325153359 0 1.22100144257893883"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
@@ -5180,7 +5182,8 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"rotate" " -type \"double3\" 3.5696905266368999 0 -29.74801500000000232"
+		"rotate" " -type \"double3\" -4.6191860586188449 -3.31647696234789358 -27.90017020439233519"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
@@ -5206,7 +5209,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:HipSwingerOffset_M|Emily:HipSwinger_M|Emily:HipSwinger_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
-		"translate" " -type \"double3\" -0.054453688317509193 -0.058254764967469772 0.039703200000000001"
+		"translate" " -type \"double3\" -0.077592132025368521 -0.093266065972649345 0.039703200000000001"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"translateX" " -av"
@@ -5215,7 +5218,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
-		"rotate" " -type \"double3\" 0 0 7.739329"
+		"rotate" " -type \"double3\" 0 0.48523567093647307 7.41035310069378816"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
@@ -5227,7 +5230,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"translate" " -type \"double3\" 0 -0.051624777643540704 -0.018298374331284957"
+		"translate" " -type \"double3\" 0 -0.0516 -0.018300826200975583"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
@@ -5235,7 +5238,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -4.4395902214558598 -2.9090584047576229 54.81797024104509575"
+		"rotate" " -type \"double3\" -26.86916041452150239 6.58010308582116288 36.1914973741227044"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"rotateX" " -av"
@@ -5252,8 +5255,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M|Emily:FKHead_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
-		"translate" " -type \"double3\" -0.019174933704338284 0.081 0.029483773955398803"
-		
+		"translate" " -type \"double3\" -0.01919872653573174 0.081 0.02817625801190898"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
@@ -5269,7 +5271,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
-		"translate" " -type \"double3\" 0 -0.016340898857806072 0"
+		"translate" " -type \"double3\" 0 -0.0044117707988967723 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
@@ -5277,7 +5279,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
-		"rotate" " -type \"double3\" 52.00493076680142224 84.62171394085922316 73.97788236062058331"
+		"rotate" " -type \"double3\" 24.24564853045071189 49.71488101630973233 78.96797925846730948"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"rotateX" " -av"
@@ -5300,13 +5302,13 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKShoulder_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
-		"translate" " -type \"double3\" 0.043540477773176239 0 0"
+		"translate" " -type \"double3\" 0.038086704903215508 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
-		"rotate" " -type \"double3\" 47.64239431602470631 0.0071423604698719499 86.35542382334881495"
+		"rotate" " -type \"double3\" 35.32114710564681559 0.20827128214894258 75.57322410550243319"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"rotateX" " -av"
@@ -5331,7 +5333,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKElbow_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R" 
-		"rotate" " -type \"double3\" -33.46466453214206638 18.34264338541563788 13.79739689058729546"
+		"rotate" " -type \"double3\" -28.59103248596178304 26.83373449456721715 -0.7787418745231921"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R" 
 		"rotateX" " -av"
@@ -5346,7 +5348,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R|Emily:FKWrist_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
-		"translate" " -type \"double3\" 0 -0.073833700000000002 -0.058914"
+		"translate" " -type \"double3\" 0 -0.073833700000000002 -0.058007738864449841"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
@@ -5358,7 +5360,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
-		"translate" " -type \"double3\" 0 -0.071238445302817491 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
@@ -5366,7 +5368,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
-		"rotate" " -type \"double3\" 171.90248497879650813 179.28687562816918444 93.62486526263860753"
+		"rotate" " -type \"double3\" 175.74556197108609013 187.87943845064526727 112.34039137430664823"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"rotateX" " -av"
@@ -5381,7 +5383,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
-		"translate" " -type \"double3\" -0.017019599999999999 -0.033139787224591245 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
@@ -5389,7 +5391,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
-		"rotate" " -type \"double3\" 0 0 116.68371681275678498"
+		"rotate" " -type \"double3\" 0 0 114.94854500119771501"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
@@ -5401,7 +5403,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
-		"rotate" " -type \"double3\" 2.33545395370390807 -7.43332963932585411 -19.98780175988647656"
+		"rotate" " -type \"double3\" -32.66194393533920248 15.14040226290373958 5.71107600188538367"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"rotateX" " -av"
@@ -5410,7 +5412,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R" 
-		"rotate" " -type \"double3\" -2.67509179824464161 46.7117950942421416 1.4913197610657849"
+		"rotate" " -type \"double3\" -7.59969438761422733 19.76538298815014016 4.2367048584077649"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R" 
 		"rotateX" " -av"
@@ -5431,7 +5433,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R|Emily:FKXOffsetIndexFinger1_R|Emily:FKXIndexFinger1_R|Emily:FKOffsetIndexFinger2_R|Emily:SDK1FKIndexFinger2_R|Emily:FKExtraIndexFinger2_R|Emily:FKIndexFinger2_R|Emily:FKXOffsetIndexFinger2_R|Emily:FKXIndexFinger2_R|Emily:FKOffsetIndexFinger3_R|Emily:SDK1FKIndexFinger3_R|Emily:FKExtraIndexFinger3_R|Emily:FKIndexFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
-		"rotate" " -type \"double3\" 0 26.15818567898432789 -9.95743343761524891"
+		"rotate" " -type \"double3\" 0 42.91496615589632313 -5.01764074123235027"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
@@ -5447,7 +5449,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R|Emily:FKXOffsetMiddleFinger1_R|Emily:FKXMiddleFinger1_R|Emily:FKOffsetMiddleFinger2_R|Emily:SDK1FKMiddleFinger2_R|Emily:FKExtraMiddleFinger2_R|Emily:FKMiddleFinger2_R|Emily:FKXOffsetMiddleFinger2_R|Emily:FKXMiddleFinger2_R|Emily:FKOffsetMiddleFinger3_R|Emily:SDK1FKMiddleFinger3_R|Emily:FKExtraMiddleFinger3_R|Emily:FKMiddleFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
-		"rotate" " -type \"double3\" 0 15.08373328324950258 0"
+		"rotate" " -type \"double3\" 0 37.54554806918415721 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
@@ -5455,17 +5457,17 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R" 
-		"rotate" " -type \"double3\" 0 24.095485 0"
+		"rotate" " -type \"double3\" 0 23.95361130416938877 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 15.04140041203249467 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
-		"rotate" " -type \"double3\" -8.77423086481634407 12.56178133036312161 -0.5958583976329318"
+		"rotate" " -type \"double3\" -8.77423086481634407 42.05825654255144741 -0.5958583976329318"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateX" " -av"
@@ -5474,7 +5476,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
-		"rotate" " -type \"double3\" 0 24.095485 0"
+		"rotate" " -type \"double3\" 0 24.45548493146485924 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
@@ -5482,7 +5484,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R|Emily:FKXOffsetPinkyFinger2_R|Emily:FKXPinkyFinger2_R|Emily:FKOffsetPinkyFinger3_R|Emily:SDK1FKPinkyFinger3_R|Emily:FKExtraPinkyFinger3_R|Emily:FKPinkyFinger3_R" 
-		"rotate" " -type \"double3\" 0 14.8657380938253727 0"
+		"rotate" " -type \"double3\" 0 27.53081277543376615 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R|Emily:FKXOffsetPinkyFinger2_R|Emily:FKXPinkyFinger2_R|Emily:FKOffsetPinkyFinger3_R|Emily:SDK1FKPinkyFinger3_R|Emily:FKExtraPinkyFinger3_R|Emily:FKPinkyFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R|Emily:FKXOffsetThumbFinger1_R|Emily:FKXThumbFinger1_R|Emily:FKOffsetThumbFinger2_R|Emily:SDK1FKThumbFinger2_R|Emily:FKExtraThumbFinger2_R|Emily:FKThumbFinger2_R" 
@@ -5502,7 +5504,8 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R|Emily:FKXOffsetThumbFinger1_R|Emily:FKXThumbFinger1_R|Emily:FKOffsetThumbFinger2_R|Emily:SDK1FKThumbFinger2_R|Emily:FKExtraThumbFinger2_R|Emily:FKThumbFinger2_R|Emily:FKXOffsetThumbFinger2_R|Emily:FKXThumbFinger2_R|Emily:FKOffsetThumbFinger3_R|Emily:SDK1FKThumbFinger3_R|Emily:FKExtraThumbFinger3_R|Emily:FKThumbFinger3_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
-		"rotate" " -type \"double3\" 0 11.00575153024352026 8.2746121474746257"
+		"rotate" " -type \"double3\" 11.49358901530186117 -41.58202678414696152 -6.26094926055572198"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
@@ -5510,7 +5513,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
-		"rotate" " -type \"double3\" 7.60174334003759444 22.09309969596737133 -4.33222500140283451"
+		"rotate" " -type \"double3\" 3.26212426988981274 -24.78938145210582533 -0.61764011712243139"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
 		"rotateX" " -av"
@@ -5519,7 +5522,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
-		"rotate" " -type \"double3\" 0 53.67698922953731255 0"
+		"rotate" " -type \"double3\" 0 12.33968050359093915 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
@@ -5527,7 +5530,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
-		"rotate" " -type \"double3\" -6.38081942171852212 38.23779252749859126 -10.55915161995366525"
+		"rotate" " -type \"double3\" 9.25868165248225949 65.87745325267609076 -19.03037277958669549"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
 		"rotateX" " -av"
@@ -5536,7 +5539,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
-		"rotate" " -type \"double3\" 2.0386304159466988 7.41209994935054972 -2.4618846504218288"
+		"rotate" " -type \"double3\" 1.02783695862941715 -31.49419032632792081 -1.24123334486458181"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
 		"rotateX" " -av"
@@ -5545,11 +5548,11 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L|Emily:FKXOffsetMiddleFinger2_L|Emily:FKXMiddleFinger2_L|Emily:FKOffsetMiddleFinger3_L|Emily:SDK1FKMiddleFinger3_L|Emily:FKExtraMiddleFinger3_L|Emily:FKMiddleFinger3_L" 
-		"rotate" " -type \"double3\" 0 41.12290159441704418 0"
+		"rotate" " -type \"double3\" 0 16.40511557815922572 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L|Emily:FKXOffsetMiddleFinger2_L|Emily:FKXMiddleFinger2_L|Emily:FKOffsetMiddleFinger3_L|Emily:SDK1FKMiddleFinger3_L|Emily:FKExtraMiddleFinger3_L|Emily:FKMiddleFinger3_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
-		"rotate" " -type \"double3\" -4.99466437609522984 21.68520543552600088 -9.60984504690027386"
+		"rotate" " -type \"double3\" -10.53037426629716222 -11.30633566328086381 -2.71779387147176177"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
 		"rotateX" " -av"
@@ -5558,7 +5561,8 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
-		"rotate" " -type \"double3\" 0 23.21578154928391058 0"
+		"rotate" " -type \"double3\" -6.46861588479619787 109.12758292104764735 7.64011394881477823"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
@@ -5566,7 +5570,8 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
-		"rotate" " -type \"double3\" 0 31.04745645848723257 0"
+		"rotate" " -type \"double3\" 2.86697072034481915 -40.96898885393761702 -0.75871735273649699"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
@@ -5574,7 +5579,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
-		"rotate" " -type \"double3\" 25.396692925679762 79.2905212936196051 16.58660191112398508"
+		"rotate" " -type \"double3\" 11.15819109783503471 38.80695935649559658 17.93833242599513866"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
 		"rotateX" " -av"
@@ -5583,7 +5588,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
-		"rotate" " -type \"double3\" 24.84000090893789903 16.71625918850701709 0"
+		"rotate" " -type \"double3\" 24.84000090893789903 17.95831254536442501 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
@@ -5603,12 +5608,13 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L|Emily:FKXOffsetThumbFinger2_L|Emily:FKXThumbFinger2_L|Emily:FKOffsetThumbFinger3_L|Emily:SDK1FKThumbFinger3_L|Emily:FKExtraThumbFinger3_L|Emily:FKThumbFinger3_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
-		"translate" " -type \"double3\" 0 1.32525350870751168 -0.0010895726795272509"
+		"translate" " -type \"double3\" 0 1.32525460738422463 -0.0010895726795272509"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -89.99999999999997158 3.04691861469472247 89.99999999999997158"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"translate" " -type \"double3\" -0.107874 0.51623728672010771 0.786417"
+		"translate" " -type \"double3\" -0.10792578411766535 0.51623646044305038 0.786417"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
@@ -5656,7 +5662,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R|Emily:IKLegFootRockInnerPivot_R|Emily:IKLegFootRockOuterPivot_R|Emily:RollOffsetHeelLeg_R|Emily:RollExtraHeelLeg_R|Emily:RollHeelLeg_R|Emily:RollOffsetToesEnd_R|Emily:RollExtraToesEnd_R|Emily:RollToesEnd_R|Emily:RollOffsetToes_R|Emily:RollExtraToes_R|Emily:RollToes_R|Emily:RollToes_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
-		"translate" " -type \"double3\" 0.30781326334240144 0 0"
+		"translate" " -type \"double3\" 0.038138852454898606 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
@@ -5704,7 +5710,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"volume" " -k 1 10"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
-		"translate" " -type \"double3\" 0.2190214491016329 0 0"
+		"translate" " -type \"double3\" 0.51080585343867468 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
@@ -5748,7 +5754,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:BendSystem|Emily:BendParentConstraintOffsetShoulder_L|Emily:BendParentConstraintShoulder_L|Emily:BendOffsetShoulder2_L|Emily:BendExtraShoulder2_L|Emily:BendShoulder2_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
-		"translate" " -type \"double3\" 0 -0.75000158934546435 0"
+		"translate" " -type \"double3\" 0 -0.7500004906687513 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
@@ -5770,7 +5776,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M|Emily:curveShape4" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:DrivingSystem|Emily:Fingers_R" 
-		"cup" " -av -k 1 4.9338193063287088"
+		"cup" " -av -k 1 2.09999999999999964"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape" 
 		"instObjGroups.objectGroups" " -s 2"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape" 
@@ -5778,7 +5784,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups" " -s 18"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
-		"translate" " -type \"double3\" 0 -0.025113995830558608 0"
+		"translate" " -type \"double3\" 0 0.093318879325304693 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
@@ -5788,7 +5794,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
-		"translate" " -type \"double3\" 0 -0.015765024691728108 0"
+		"translate" " -type \"double3\" 0 0.095139541406093792 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
@@ -5800,7 +5806,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.048308995996446322 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
@@ -5816,7 +5822,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
-		"translate" " -type \"double3\" 0 -0.0024264331741887801 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L" 
@@ -5826,7 +5832,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid2Attach_R|Emily:upperLid2Offset_R|Emily:upperLid2Subtract_R|Emily:upperLid2_R" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid3Attach_R|Emily:upperLid3Offset_R|Emily:upperLid3Subtract_R|Emily:upperLid3_R" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.02239551730094097 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid3Attach_R|Emily:upperLid3Offset_R|Emily:upperLid3Subtract_R|Emily:upperLid3_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid2Attach_R|Emily:lowerLid2Offset_R|Emily:lowerLid2Subtract_R|Emily:lowerLid2_R" 
@@ -5838,15 +5844,15 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid2Attach_L|Emily:upperLid2Offset_L|Emily:upperLid2Subtract_L|Emily:upperLid2_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid2Attach_L|Emily:lowerLid2Offset_L|Emily:lowerLid2Subtract_L|Emily:lowerLid2_L" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.033803402653598755 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid2Attach_L|Emily:lowerLid2Offset_L|Emily:lowerLid2Subtract_L|Emily:lowerLid2_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R" 
-		"translate" " -type \"double3\" 0 -0.055905296328135776 0"
+		"translate" " -type \"double3\" 0 0.016268879579117719 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L" 
-		"translate" " -type \"double3\" 0 -0.0047286325194687761 0"
+		"translate" " -type \"double3\" 0 0.048751116419101202 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
@@ -5862,34 +5868,34 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox" 
 		"RenderSpheres" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateX" " -av -0.043823118521105764"
+		"translateX" " -av -0.57776631552066504"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateY" " -av -0.12286117327312236"
+		"translateY" " -av 0.4021438642315549"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"blink" " -av -k 1 10"
+		"blink" " -av -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"squint" " -av -k 1 0"
+		"squint" " -av -k 1 -0.514587567033022"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R|Emily:ctrlEye_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateX" " -av -0.250431"
+		"translateX" " -av -0.578"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateY" " -av -0.12286117327312236"
+		"translateY" " -av 0.45620727063900801"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"blink" " -av -k 1 10"
+		"blink" " -av -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"squint" " -av -k 1 0"
+		"squint" " -av -k 1 -0.95519464261273901"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L|Emily:ctrlEye_LShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 0.45127712960228378 1.97658548751416707 3.93604176741820355"
+		"translate" " -type \"double3\" 0.2454579544463065 2.16114642448202066 3.7502047353906125"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 113.77129851142683492 -50.83435517110591917 65.66112652842997477"
+		"rotate" " -type \"double3\" 76.95019220463130694 -36.60300679834966076 87.06288479896248589"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed" 
 		"uvPivot" " -type \"double2\" 0.46817991137504578 0.59683001041412354"
@@ -5989,28 +5995,85 @@ createNode reference -n "EmilyRN";
 		2 "Emily:Emily_skin" "flakeScale" " 10"
 		2 "Emily:Emily_skin" "ior" " 1.33000004291534424"
 		2 "Emily:Emily_skin" "mediaIor" " 1"
-		3 "Emily:groupId201.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		2 "Emily:remapHsv3" "saturation" " -s 2"
+		2 "Emily:remapHsv3" "saturation[1].saturation_FloatValue" " 0.69999998807907104"
+		
+		3 "Emily:groupId57.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGroupId" 
 		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		3 "Emily:asWhiteSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGrpColor" 
 		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		3 "Emily:groupId59.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1].objectGroupId" 
+		""
+		3 "Emily:asBlackSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1].objectGrpColor" 
+		""
+		3 "Emily:groupId58.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_L|Emily:noseCornerOffset_L|Emily:noseCornerSubtract_L|Emily:noseCorner_L|Emily:noseCorner_LShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L|Emily:cheek_LShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_R|Emily:noseCornerOffset_R|Emily:noseCornerSubtract_R|Emily:noseCorner_R|Emily:noseCorner_RShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_R|Emily:cheekOffset_R|Emily:cheekSubtract_R|Emily:cheek_R|Emily:cheek_RShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftEye|Emily:LeftEyeShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEye|Emily:RightEyeShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "Emily:groupId41.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9]" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "Emily:groupId92.message" "Emily:asRedSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitTongue|Emily:FaceFitTongueGeo|Emily:TongueCylinder|Emily:TongueCylinderShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawMain|Emily:FaceFitJawMainGeo|Emily:JawCylinderMain|Emily:JawCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowMain|Emily:FaceFitEyeBrowMainGeo|Emily:EyeBrowCylinderMain|Emily:EyeBrowCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:lowerEyeLidCylinderMain|Emily:lowerEyeLidCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:upperEyeLidCylinderMain|Emily:upperEyeLidCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "Emily:groupId93.message" "Emily:asRedSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L|Emily:lowerLid1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L|Emily:upperLid1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L|Emily:LidCorner2_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L|Emily:LidCorner1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R|Emily:lowerLid1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R|Emily:upperLid1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_R|Emily:LidCorner2Offset_R|Emily:LidCorner2Subtract_R|Emily:LidCorner2_R|Emily:LidCorner2_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_R|Emily:LidCorner1Offset_R|Emily:LidCorner1Subtract_R|Emily:LidCorner1_R|Emily:LidCorner1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:lowerLip0Attach_M|Emily:lowerLip0Offset_M|Emily:lowerLip0Subtract_M|Emily:lowerLip0_M|Emily:lowerLip0_MShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip0Attach_M|Emily:upperLip0Offset_M|Emily:upperLip0Subtract_M|Emily:upperLip0_M|Emily:upperLip0_MShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_L|Emily:Lip6Offset_L|Emily:Lip6Subtract_L|Emily:Lip6_L|Emily:Lip6_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_R|Emily:Lip6Offset_R|Emily:Lip6Subtract_R|Emily:Lip6_R|Emily:Lip6_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "Emily:groupId201.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "Emily:groupId97.groupId" "Emily:groupParts91.groupId" ""
+		3 "Emily:groupId92.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
+		""
+		3 "Emily:asRedSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
+		""
+		3 "Emily:groupId94.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
+		""
+		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
+		""
+		3 "Emily:groupId93.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "Emily:blinn1SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "Emily:groupId208.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 "Emily:blinn2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
+		""
+		3 "Emily:groupId209.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2]" 
+		"Emily:blinn1SG.dagSetMembers" "-na"
+		3 "Emily:groupId208.message" "Emily:blinn1SG.groupNodes" "-na"
+		3 "Emily:groupId206.message" ":initialShadingGroup.groupNodes" "-na"
 		3 "Emily:groupId97.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
 		""
 		3 "Emily:asBlueSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
@@ -6021,93 +6084,36 @@ createNode reference -n "EmilyRN";
 		""
 		3 "Emily:groupId98.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
 		""
-		3 "Emily:groupId198.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0]" 
-		"Emily:asWhiteSG.dagSetMembers" "-na"
-		3 "Emily:groupId57.message" "Emily:asWhiteSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asWhiteSG.dagSetMembers" "-na"
-		3 "Emily:groupId58.message" "Emily:asWhiteSG.groupNodes" "-na"
+		3 "Emily:groupId209.groupId" "Emily:groupParts131.groupId" ""
+		3 "Emily:groupId201.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitcheek|Emily:FaceFitcheekGeo|Emily:cheekSphere|Emily:cheekSphereShape.instObjGroups" 
 		"Emily:asBlue2SG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitnoseCorner|Emily:FaceFitnoseCornerGeo|Emily:noseCornerSphere|Emily:noseCornerSphereShape.instObjGroups" 
 		"Emily:asBlue2SG.dagSetMembers" "-na"
-		3 "Emily:groupId206.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3]" 
-		"Emily:blinn2SG.dagSetMembers" "-na"
-		3 "Emily:groupId209.message" "Emily:blinn2SG.groupNodes" "-na"
-		3 "Emily:groupId41.groupId" "Emily:groupParts41.groupId" ""
-		3 "Emily:groupId44.groupId" "Emily:groupParts44.groupId" ""
-		3 "Emily:groupId206.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		3 "Emily:groupId207.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftBrow|Emily:LeftBrowShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightBrow|Emily:RightBrowShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
-		3 "Emily:groupId44.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_L|Emily:noseCornerOffset_L|Emily:noseCornerSubtract_L|Emily:noseCorner_L|Emily:noseCorner_LShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L|Emily:cheek_LShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_R|Emily:noseCornerOffset_R|Emily:noseCornerSubtract_R|Emily:noseCorner_R|Emily:noseCorner_RShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_R|Emily:cheekOffset_R|Emily:cheekSubtract_R|Emily:cheek_R|Emily:cheek_RShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10]" 
 		"Emily:asGreen2SG.dagSetMembers" "-na"
 		3 "Emily:groupId99.message" "Emily:asGreen2SG.groupNodes" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10]" 
 		"Emily:asGreen2SG.dagSetMembers" "-na"
 		3 "Emily:groupId94.message" "Emily:asGreen2SG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9]" 
-		"Emily:asBlueSG.dagSetMembers" "-na"
-		3 "Emily:groupId97.message" "Emily:asBlueSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asBlueSG.dagSetMembers" "-na"
-		3 "Emily:groupId98.message" "Emily:asBlueSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftEye|Emily:LeftEyeShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEye|Emily:RightEyeShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateX" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateX" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateY" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateY" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateZ" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateZ" 
-		""
-		3 "Emily:groupId44.message" "Emily:lambert2SG.groupNodes" "-na"
-		3 "Emily:groupId41.message" "Emily:lambert2SG.groupNodes" "-na"
-		3 "Emily:groupId209.groupId" "Emily:groupParts131.groupId" ""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:softer_features_blendshape|Emily:softer_features_blendshapeShapeDeformedDeformed.instObjGroups" 
-		"Emily:blinn4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2Base|Emily:Body2BaseShapeDeformedDeformed.instObjGroups" 
-		"Emily:blinn4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitNose|Emily:FaceFitNoseGeo|Emily:NoseCylinder|Emily:NoseCylinderShape.instObjGroups" 
-		"Emily:asGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawOuter|Emily:FaceFitJawOuterGeo|Emily:JawCylinderOuter|Emily:JawCylinderOuterShape.instObjGroups" 
-		"Emily:asGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowOuter|Emily:FaceFitEyeBrowOuterGeo|Emily:EyeBrowCylinderOuter|Emily:EyeBrowCylinderOuterShape.instObjGroups" 
-		"Emily:asGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidOuter|Emily:FaceFitEyeLidOuterGeo|Emily:lowerEyeLidCylinderOuter|Emily:lowerEyeLidCylinderOuterShape.instObjGroups" 
-		"Emily:asGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidOuter|Emily:FaceFitEyeLidOuterGeo|Emily:upperEyeLidCylinderOuter|Emily:upperEyeLidCylinderOuterShape.instObjGroups" 
-		"Emily:asGreenSG.dagSetMembers" "-na"
 		3 "Emily:groupId94.groupId" "Emily:groupParts88.groupId" ""
-		3 "Emily:groupId99.groupId" "Emily:groupParts92.groupId" ""
-		3 "Emily:groupId97.groupId" "Emily:groupParts91.groupId" ""
-		3 "Emily:groupId92.groupId" "Emily:groupParts87.groupId" ""
+		3 "Emily:groupId206.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L|Emily:browHalf_LShape.instObjGroups" 
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R|Emily:browHalf_RShape.instObjGroups" 
@@ -6136,6 +6142,19 @@ createNode reference -n "EmilyRN";
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip3Attach_R|Emily:upperLip3Offset_R|Emily:upperLip3Subtract_R|Emily:upperLip3_R|Emily:upperLip3_RShape.instObjGroups" 
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
+		3 "Emily:groupId207.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "Emily:groupId208.groupId" "Emily:groupParts130.groupId" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitNose|Emily:FaceFitNoseGeo|Emily:NoseCylinder|Emily:NoseCylinderShape.instObjGroups" 
+		"Emily:asGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawOuter|Emily:FaceFitJawOuterGeo|Emily:JawCylinderOuter|Emily:JawCylinderOuterShape.instObjGroups" 
+		"Emily:asGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowOuter|Emily:FaceFitEyeBrowOuterGeo|Emily:EyeBrowCylinderOuter|Emily:EyeBrowCylinderOuterShape.instObjGroups" 
+		"Emily:asGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidOuter|Emily:FaceFitEyeLidOuterGeo|Emily:lowerEyeLidCylinderOuter|Emily:lowerEyeLidCylinderOuterShape.instObjGroups" 
+		"Emily:asGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidOuter|Emily:FaceFitEyeLidOuterGeo|Emily:upperEyeLidCylinderOuter|Emily:upperEyeLidCylinderOuterShape.instObjGroups" 
+		"Emily:asGreenSG.dagSetMembers" "-na"
+		3 "Emily:groupId198.message" ":initialShadingGroup.groupNodes" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L|Emily:browOuter_LShape.instObjGroups" 
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L|Emily:browInner_LShape.instObjGroups" 
@@ -6144,48 +6163,79 @@ createNode reference -n "EmilyRN";
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R|Emily:browInner_RShape.instObjGroups" 
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L|Emily:lowerLid1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L|Emily:upperLid1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L|Emily:LidCorner2_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L|Emily:LidCorner1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R|Emily:lowerLid1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R|Emily:upperLid1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_R|Emily:LidCorner2Offset_R|Emily:LidCorner2Subtract_R|Emily:LidCorner2_R|Emily:LidCorner2_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_R|Emily:LidCorner1Offset_R|Emily:LidCorner1Subtract_R|Emily:LidCorner1_R|Emily:LidCorner1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:lowerLip0Attach_M|Emily:lowerLip0Offset_M|Emily:lowerLip0Subtract_M|Emily:lowerLip0_M|Emily:lowerLip0_MShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip0Attach_M|Emily:upperLip0Offset_M|Emily:upperLip0Subtract_M|Emily:upperLip0_M|Emily:upperLip0_MShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_L|Emily:Lip6Offset_L|Emily:Lip6Subtract_L|Emily:Lip6_L|Emily:Lip6_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_R|Emily:Lip6Offset_R|Emily:Lip6Subtract_R|Emily:Lip6_R|Emily:Lip6_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "Emily:groupId207.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "Emily:groupId92.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
+		3 "Emily:groupId198.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "Emily:asRedSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "Emily:groupId94.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "Emily:groupId44.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "Emily:groupId93.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
-		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9]" 
+		"Emily:asBlueSG.dagSetMembers" "-na"
+		3 "Emily:groupId97.message" "Emily:asBlueSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asBlueSG.dagSetMembers" "-na"
+		3 "Emily:groupId98.message" "Emily:asBlueSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Hip_L.message" 
+		"Emily:skinCluster18.paintTrans" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9]" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "Emily:groupId92.message" "Emily:asRedSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitTongue|Emily:FaceFitTongueGeo|Emily:TongueCylinder|Emily:TongueCylinderShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawMain|Emily:FaceFitJawMainGeo|Emily:JawCylinderMain|Emily:JawCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowMain|Emily:FaceFitEyeBrowMainGeo|Emily:EyeBrowCylinderMain|Emily:EyeBrowCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:lowerEyeLidCylinderMain|Emily:lowerEyeLidCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:upperEyeLidCylinderMain|Emily:upperEyeLidCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "Emily:groupId93.message" "Emily:asRedSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed.instObjGroups" 
+		"Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		3 "Emily:groupId99.groupId" "Emily:groupParts92.groupId" ""
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1]" 
 		"Emily:asBlackSG.dagSetMembers" "-na"
 		3 "Emily:groupId59.message" "Emily:asBlackSG.groupNodes" "-na"
-		3 "Emily:groupId208.groupId" "Emily:groupParts130.groupId" ""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2]" 
-		"Emily:blinn1SG.dagSetMembers" "-na"
-		3 "Emily:groupId208.message" "Emily:blinn1SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateX" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateX" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateY" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateY" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateZ" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateZ" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3]" 
+		"Emily:blinn2SG.dagSetMembers" "-na"
+		3 "Emily:groupId209.message" "Emily:blinn2SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftBrow|Emily:LeftBrowShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightBrow|Emily:RightBrowShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
+		3 "Emily:groupId41.groupId" "Emily:groupParts41.groupId" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:softer_features_blendshape|Emily:softer_features_blendshapeShapeDeformedDeformed.instObjGroups" 
+		"Emily:blinn4SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2Base|Emily:Body2BaseShapeDeformedDeformed.instObjGroups" 
+		"Emily:blinn4SG.dagSetMembers" "-na"
+		3 "Emily:groupId44.message" "Emily:lambert2SG.groupNodes" "-na"
+		3 "Emily:groupId41.message" "Emily:lambert2SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0]" 
+		"Emily:asWhiteSG.dagSetMembers" "-na"
+		3 "Emily:groupId57.message" "Emily:asWhiteSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asWhiteSG.dagSetMembers" "-na"
+		3 "Emily:groupId58.message" "Emily:asWhiteSG.groupNodes" "-na"
+		3 "Emily:groupId92.groupId" "Emily:groupParts87.groupId" ""
+		3 "Emily:groupId44.groupId" "Emily:groupParts44.groupId" ""
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleX" 
 		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleX" 
 		""
@@ -6195,47 +6245,6 @@ createNode reference -n "EmilyRN";
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleZ" 
 		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleZ" 
 		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed.instObjGroups" 
-		"Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
-		3 "Emily:blinn1SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "Emily:groupId208.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 "Emily:blinn2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
-		""
-		3 "Emily:groupId209.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
-		""
-		3 "Emily:groupId207.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId201.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "Emily:groupId41.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId198.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId57.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGroupId" 
-		""
-		3 "Emily:asWhiteSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGrpColor" 
-		""
-		3 "Emily:groupId59.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1].objectGroupId" 
-		""
-		3 "Emily:asBlackSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1].objectGrpColor" 
-		""
-		3 "Emily:groupId58.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Hip_L.message" 
-		"Emily:skinCluster18.paintTrans" ""
 		5 3 "EmilyRN" "|Emily:Emily.instObjGroups" "EmilyRN.placeHolderList[10]" 
 		""
 		5 4 "EmilyRN" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main.translateX" 
@@ -8397,8 +8406,8 @@ createNode reference -n "EmilyRN";
 		"Emily:RMSGPSurface1SG.dagSetMembers" "EmilyRN.placeHolderList[1089]" "EmilyRN.placeHolderList[1090]" 
 		"Emily:RMSGPSurface1SG.dsm"
 		5 0 "EmilyRN" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEye|Emily:RightEyeShapeDeformed.instObjGroups" 
-		"Emily:Emily_Eyes:RMSGPSurface5SG.dagSetMembers" "EmilyRN.placeHolderList[1091]" 
-		"EmilyRN.placeHolderList[1092]" "Emily:RMSGPSurface1SG.dsm"
+		"Emily:RMSGPSurface1SG.dagSetMembers" "EmilyRN.placeHolderList[1091]" "EmilyRN.placeHolderList[1092]" 
+		"Emily:RMSGPSurface1SG.dsm"
 		5 0 "EmilyRN" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightBrow|Emily:RightBrowShapeDeformed.instObjGroups" 
 		"Emily:RMSGPSurface4SG.dagSetMembers" "EmilyRN.placeHolderList[1093]" "EmilyRN.placeHolderList[1094]" 
 		"Emily:RMSGPSurface4SG.dsm"
@@ -8701,27 +8710,27 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 0\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
 		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n"
 		+ "            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 0\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n"
-		+ "            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
-		+ "                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
-		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n"
-		+ "                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n"
-		+ "                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n"
-		+ "                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n"
-		+ "                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
-		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n"
-		+ "                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n"
-		+ "                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n"
-		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n"
-		+ "            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n"
-		+ "                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
+		+ "            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n"
+		+ "            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n"
+		+ "                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n"
+		+ "                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n"
+		+ "                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n"
+		+ "                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n"
+		+ "                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 1\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n"
+		+ "            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n"
+		+ "                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n"
+		+ "                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n"
+		+ "                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n"
+		+ "                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n"
+		+ "                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n"
+		+ "                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
 		+ "                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n"
 		+ "                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n"
-		+ "                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n"
-		+ "            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n"
+		+ "\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n"
+		+ "                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;\n\t\t\tif (`objExists nodeEditorPanel1Info`) nodeEditor -e -restoreInfo nodeEditorPanel1Info $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
@@ -16017,7 +16026,7 @@ createNode reference -n "Candy_No_UVRN";
 	setAttr ".fn[0]" -type "string" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/rigs/Candy_No_UV_more_neck_fixes.ma";
 	setAttr ".fn[1]" -type "string" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/rigs/Candy_No_UV_toe_skin_fix.ma";
 	setAttr ".fn[2]" -type "string" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/rigs/Candy_No_UV.ma";
-	setAttr -s 53 ".phl";
+	setAttr -s 54 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -16071,6 +16080,7 @@ createNode reference -n "Candy_No_UVRN";
 	setAttr ".phl[51]" 0;
 	setAttr ".phl[52]" 0;
 	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Candy_No_UVRN"
 		"Candy_No_UVRN" 36
@@ -16140,7 +16150,7 @@ createNode reference -n "Candy_No_UVRN";
 		"Candy_No_UV:lambert4SG.dagSetMembers" "-na"
 		3 "Candy_No_UV:groupId119.message" "Candy_No_UV:lambert4SG.groupNodes" "-na"
 		
-		"Candy_No_UVRN" 243
+		"Candy_No_UVRN" 264
 		1 |Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M|Candy_No_UV:FKChest_MShape 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		1 |Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKHead_MShape 
@@ -16184,15 +16194,14 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main" "rotate" " -type \"double3\" -49.06154101487945951 93.64652547714592856 -49.23291644506109321"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
-		"translate" " -type \"double3\" 0.011130637524466837 -0.041782880965735528 -0.080783346423992958"
+		"translate" " -type \"double3\" -0.086910435603249389 0.030509576508842784 -0.089286239168554632"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"translateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"translateY" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
-		"rotate" " -type \"double3\" -7.29134158396051646 -9.87420322634921455 0.23581515145384185"
-		
+		"rotate" " -type \"double3\" -9.26455704694154925 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"rotateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
@@ -16204,7 +16213,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
 		"translate" " -type \"double3\" 0 0.47413855284845324 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
-		"rotate" " -type \"double3\" 0 11.26838373195098519 0"
+		"rotate" " -type \"double3\" 0 11.26838373195098519 81.26890230333216891"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
 		"rotateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
@@ -16212,7 +16221,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
-		"rotate" " -type \"double3\" -5.14945999455264491 -9.36933428987837402 -17.28970612300057041"
+		"rotate" " -type \"double3\" -5.14945999455264491 -9.36933428987837402 -57.69404912574238153"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
 		"rotateZ" " -av"
@@ -16221,7 +16230,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKHead_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R" 
-		"rotate" " -type \"double3\" 82.07191273479769222 89.99999999997997691 0"
+		"rotate" " -type \"double3\" 95.03007627223554721 89.99999999997997691 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R" 
 		"rotateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R|Candy_No_UV:FKEarA_RShape" 
@@ -16241,7 +16250,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_R|Candy_No_UV:FKOffsetScapula1_R|Candy_No_UV:FKExtraScapula1_R|Candy_No_UV:FKScapula1_R" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_R|Candy_No_UV:FKOffsetScapula1_R|Candy_No_UV:FKExtraScapula1_R|Candy_No_UV:FKScapula1_R" 
-		"rotate" " -type \"double3\" 0 0 0.86795782745016636"
+		"rotate" " -type \"double3\" 0 0 5.55492651980730656"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_R|Candy_No_UV:FKOffsetScapula1_R|Candy_No_UV:FKExtraScapula1_R|Candy_No_UV:FKScapula1_R" 
 		"rotateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_R|Candy_No_UV:FKOffsetScapula1_R|Candy_No_UV:FKExtraScapula1_R|Candy_No_UV:FKScapula1_R|Candy_No_UV:FKXOffsetScapula1_R|Candy_No_UV:FKXScapula1_R|Candy_No_UV:FKOffsetHipA_R|Candy_No_UV:FKGlobalStaticHipA_R|Candy_No_UV:FKGlobalHipA_R|Candy_No_UV:FKExtraHipA_R|Candy_No_UV:FKHipA_R|Candy_No_UV:FKXOffsetHipA_R|Candy_No_UV:FKXHipA_R|Candy_No_UV:FKOffsetKneeA_R|Candy_No_UV:FKGlobalStaticKneeA_R|Candy_No_UV:FKGlobalKneeA_R|Candy_No_UV:FKExtraKneeA_R|Candy_No_UV:FKKneeA_R|Candy_No_UV:FKXOffsetKneeA_R|Candy_No_UV:FKXKneeA_R|Candy_No_UV:FKOffsetAnkleA_R|Candy_No_UV:FKExtraAnkleA_R|Candy_No_UV:FKAnkleA_R" 
@@ -16249,7 +16258,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_R|Candy_No_UV:FKOffsetScapula1_R|Candy_No_UV:FKExtraScapula1_R|Candy_No_UV:FKScapula1_R|Candy_No_UV:FKXOffsetScapula1_R|Candy_No_UV:FKXScapula1_R|Candy_No_UV:FKOffsetHipA_R|Candy_No_UV:FKGlobalStaticHipA_R|Candy_No_UV:FKGlobalHipA_R|Candy_No_UV:FKExtraHipA_R|Candy_No_UV:FKHipA_R|Candy_No_UV:FKXOffsetHipA_R|Candy_No_UV:FKXHipA_R|Candy_No_UV:FKOffsetKneeA_R|Candy_No_UV:FKGlobalStaticKneeA_R|Candy_No_UV:FKGlobalKneeA_R|Candy_No_UV:FKExtraKneeA_R|Candy_No_UV:FKKneeA_R|Candy_No_UV:FKXOffsetKneeA_R|Candy_No_UV:FKXKneeA_R|Candy_No_UV:FKOffsetAnkleA_R|Candy_No_UV:FKExtraAnkleA_R|Candy_No_UV:FKAnkleA_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_L|Candy_No_UV:FKOffsetScapula1_L|Candy_No_UV:FKExtraScapula1_L|Candy_No_UV:FKScapula1_L" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 0 0 20.9677355388378075"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:LegAimScapula1_L|Candy_No_UV:FKOffsetScapula1_L|Candy_No_UV:FKExtraScapula1_L|Candy_No_UV:FKScapula1_L" 
 		"rotateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKJoints|Candy_No_UV:IKSpSpineOffset_M|Candy_No_UV:IKSpRoot_M" 
@@ -16261,12 +16270,12 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKJoints|Candy_No_UV:IKSpSpineOffset_M|Candy_No_UV:IKSpRoot_M" 
 		"rotateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKSpineHandle_M" 
-		"translate" " -type \"double3\" 0 2.39199567362474586 2.75053456418991926"
+		"translate" " -type \"double3\" 0 2.39199567362474497 3.50549355361167336"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -90.00000000000302691 -83.50158401473673564 -89.99999999999995737"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKTailHandle_M" 
-		"translate" " -type \"double3\" 0 3.21563137407038901 -3.28507308193925684"
+		"translate" " -type \"double3\" 0 3.21563137407039035 -3.66255239455760329"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKTailHandle_M" 
 		"rotate" " -type \"double3\" -179.99999999999931788 89.99999999999997158 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_R|Candy_No_UV:IKExtraLegA_R|Candy_No_UV:IKLegA_R" 
@@ -16318,7 +16327,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_R|Candy_No_UV:IKExtraLegA_R|Candy_No_UV:IKLegA_R|Candy_No_UV:IKLegAFootRockInnerPivot_R|Candy_No_UV:IKLegAFootRockOuterPivot_R|Candy_No_UV:RollOffsetHeelLegA_R|Candy_No_UV:RollExtraHeelLegA_R|Candy_No_UV:RollHeelLegA_R|Candy_No_UV:RollOffsetToesAEnd_R|Candy_No_UV:RollExtraToesAEnd_R|Candy_No_UV:RollToesAEnd_R|Candy_No_UV:RollOffsetToesA_R|Candy_No_UV:RollExtraToesA_R|Candy_No_UV:RollToesA_R|Candy_No_UV:RollToesA_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
-		"translate" " -type \"double3\" 0.0049710747535464993 0 0.16242689374263516"
+		"translate" " -type \"double3\" 0.11569034851123677 0 2.13579089776817233"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
 		"translateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
@@ -16330,7 +16339,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
 		"rotateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
-		"roll" " -av -k 1 6.36395207158128873"
+		"roll" " -av -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
 		"stretchy" " -k 1 10"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:IKSystem|Candy_No_UV:IKHandle|Candy_No_UV:IKOffsetLegA_L|Candy_No_UV:IKExtraLegA_L|Candy_No_UV:IKLegA_L" 
@@ -16372,7 +16381,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:BendSystem|Candy_No_UV:BendParentConstraintOffsetKneeA_R|Candy_No_UV:BendParentConstraintKneeA_R|Candy_No_UV:BendOffsetKneeA2_R|Candy_No_UV:BendExtraKneeA2_R|Candy_No_UV:BendKneeA2_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:RootSystem|Candy_No_UV:RootCenterBtwLegsBlended_M|Candy_No_UV:RootOffsetX_M|Candy_No_UV:RootExtraX_M|Candy_No_UV:RootX_M" 
-		"translate" " -type \"double3\" 0 0 1.06821252633700126"
+		"translate" " -type \"double3\" 0 0 1.82317151575875402"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:RootSystem|Candy_No_UV:RootCenterBtwLegsBlended_M|Candy_No_UV:RootOffsetX_M|Candy_No_UV:RootExtraX_M|Candy_No_UV:RootX_M" 
 		"translateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:RootSystem|Candy_No_UV:RootCenterBtwLegsBlended_M|Candy_No_UV:RootOffsetX_M|Candy_No_UV:RootExtraX_M|Candy_No_UV:RootX_M" 
@@ -16400,7 +16409,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
-		"rotate" " -type \"double3\" 7.3012539059761119 261.5638468271275201 2.5044690327123702e-06"
+		"rotate" " -type \"double3\" 29.81545513825489735 -35.65006457757448999 2.5044693852177448e-06"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
 		"rotateX" " -av -k 0"
@@ -16413,32 +16422,32 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashTopOffset|Candy_No_UV:squashTop_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashMiddleOffset|Candy_No_UV:squashMiddle_M" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0 0.04027906231883864"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashMiddleOffset|Candy_No_UV:squashMiddle_M" 
 		"translateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
-		"translateX" " -av 0"
+		"translateX" " -av 0.036181216247091461"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
-		"translateY" " -av 0"
+		"translateY" " -av 0.25851983274598478"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
-		"blink" " -av -k 1 0"
+		"blink" " -av -k 1 1.28759330879783418"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
-		"translateX" " -av 0"
+		"translateX" " -av 0.036181216247091461"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
-		"translateY" " -av 0"
+		"translateY" " -av 0.25851983274598478"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
-		"blink" " -av -k 1 0"
+		"blink" " -av -k 1 1.28759330879783418"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:JawSetup|Candy_No_UV:JawSetupFollowHead|Candy_No_UV:FKOffsetJaw_M|Candy_No_UV:FKSDK1Jaw_M|Candy_No_UV:FKSDK2Jaw_M|Candy_No_UV:FKJaw_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:SquashSetup|Candy_No_UV:squashIKHandle" 
-		"translate" " -type \"double3\" -1.75307033064694973 4.23148934559891376 4.1359377592567883"
+		"translate" " -type \"double3\" -0.93199512088430558 2.25733370928645494 4.06419338342974168"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:SquashSetup|Candy_No_UV:squashIKHandle" 
-		"rotate" " -type \"double3\" 178.01111400230999493 -11.2745113934043264 71.97239420790019437"
+		"rotate" " -type \"double3\" 178.1294541340543276 -8.73322570235182205 33.98035438278665055"
 		
 		2 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed" 
 		"instObjGroups.objectGroups" " -s 6"
@@ -16448,10 +16457,16 @@ createNode reference -n "Candy_No_UVRN";
 		"displaySmoothMesh" " 2"
 		2 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Body|Candy_No_UV:model:MESH_Candy_BodyShapeDeformed" 
 		"rman__torattr___ptexFaceOffset" " -k 1 0"
+		2 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed" 
+		"dispResolution" " 3"
+		2 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed" 
+		"displaySmoothMesh" " 2"
 		2 "Candy_No_UV:groupParts39" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:295]\""
 		
 		2 "Candy_No_UV:groupParts39" "groupId" " 221"
 		2 "Candy_No_UV:Candy_Armature" "visibility" " 0"
+		2 "Candy_No_UV:Color" "fileTextureName" " -type \"string\" \"/home/tmp/cs162-io/Nightmare//assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_MESH_Candy_Body.ptx\""
+		
 		2 "Candy_No_UV:Color" "rman__tx2dFilter" " -type \"string\" \"unspecified\""
 		
 		2 "Candy_No_UV:Color" "rman__tx2dSwidth" " -k 1 1"
@@ -16487,18 +16502,37 @@ createNode reference -n "Candy_No_UVRN";
 		2 "Candy_No_UV:Horn_Material" "bias" " -1"
 		2 "Candy_No_UV:Horn_Material" "mapbias" " 1"
 		2 "Candy_No_UV:Horn_Material" "mapbias2" " 1"
+		2 "Candy_No_UV:Pearl" "diffuseGain" " 0.80000001192092896"
+		2 "Candy_No_UV:Pearl" "sheen" " 0"
+		2 "Candy_No_UV:Pearl" "sheenTint" " 0.5"
 		2 "Candy_No_UV:Pearl" "mask" " 1"
+		2 "Candy_No_UV:Pearl" "refractionAmount" " 0"
+		2 "Candy_No_UV:Pearl" "roughness" " 0.30000001192092896"
+		2 "Candy_No_UV:Pearl" "specularGain" " 0.80000001192092896"
+		2 "Candy_No_UV:Pearl" "anisotropy" " 0"
+		2 "Candy_No_UV:Pearl" "indirectSpecularScale" " 1"
+		2 "Candy_No_UV:Pearl" "metallic" " 0"
+		2 "Candy_No_UV:Pearl" "flakeAmount" " 0"
+		2 "Candy_No_UV:Pearl" "flakeScale" " 10"
+		2 "Candy_No_UV:Pearl" "ior" " 1.33000004291534424"
+		2 "Candy_No_UV:Pearl" "mediaIor" " 1"
+		2 "Candy_No_UV:ramp5" "colorEntryList" " -s 2"
+		2 "Candy_No_UV:ramp5" "colorEntryList[0].color" " -type \"float3\" 0.98733336000000005 0.92000002000000003 1"
+		
+		2 "Candy_No_UV:ramp5" "colorEntryList[1].color" " -type \"float3\" 0.92000002000000003 0.94639998999999997 1"
+		
 		3 "Candy_No_UV:groupId39.groupId" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
 		3 ":initialShadingGroup.memberWireframeColor" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
 		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Candy_No_UV:groupId39.message" ":initialShadingGroup.groupNodes" "-na"
-		
-		3 "Candy_No_UV:ramp3.outAlpha" "Candy_No_UV:Pearl.mask" ""
 		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed.instObjGroups" 
 		"Candy_No_UV:RMSGPSurface2SG.dagSetMembers" "-na"
+		3 "Candy_No_UV:ramp3.outAlpha" "Candy_No_UV:Pearl.mask" ""
+		3 "Candy_No_UV:Film.message" "Candy_No_UV:Pearl.boundLayers[0]" ""
+		3 "Candy_No_UV:groupId39.message" ":initialShadingGroup.groupNodes" "-na"
+		
 		3 "Candy_No_UV:groupId39.groupId" "Candy_No_UV:groupParts39.groupId" ""
 		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Body|Candy_No_UV:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
 		"Candy_No_UV:RMSGPSurface1SG.dagSetMembers" "-na"
@@ -16588,22 +16622,23 @@ createNode reference -n "Candy_No_UVRN";
 		"Candy_No_UVRN.placeHolderList[42]" ""
 		5 3 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn.instObjGroups" 
 		"Candy_No_UVRN.placeHolderList[43]" ""
+		5 3 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed.instObjGroups" 
+		"Candy_No_UVRN.placeHolderList[44]" "Candy_No_UV:RMSGPSurface2SG.dsm"
 		5 3 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_LeftEye.instObjGroups" 
-		"Candy_No_UVRN.placeHolderList[44]" ""
-		5 3 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_RightEye.instObjGroups" 
 		"Candy_No_UVRN.placeHolderList[45]" ""
+		5 3 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_RightEye.instObjGroups" 
+		"Candy_No_UVRN.placeHolderList[46]" ""
 		5 0 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Body|Candy_No_UV:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
-		"Candy_No_UV:RMSGPSurface1SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[46]" "Candy_No_UVRN.placeHolderList[47]" 
+		"Candy_No_UV:RMSGPSurface1SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[47]" "Candy_No_UVRN.placeHolderList[48]" 
 		"Candy_No_UV:RMSGPSurface1SG.dsm"
-		5 0 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed.instObjGroups" 
-		"Candy_No_UV:RMSGPSurface3SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[48]" "Candy_No_UVRN.placeHolderList[49]" 
-		"Candy_No_UV:RMSGPSurface2SG.dsm"
+		5 0 "Candy_No_UVRN" "Candy_No_UV:ramp5.outColor" "Candy_No_UV:Pearl.surfaceColor" 
+		"Candy_No_UVRN.placeHolderList[49]" "Candy_No_UVRN.placeHolderList[50]" ""
 		5 0 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_RightEye|Candy_No_UV:MESH_Candy_RightEyeShapeDeformed.instObjGroups" 
-		"Candy_No_UV:CandyEyeMaterial:EyeMaterial:RMSGPSurface5SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[50]" 
-		"Candy_No_UVRN.placeHolderList[51]" ""
+		"Candy_No_UV:CandyEyeMaterial:EyeMaterial:RMSGPSurface5SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[51]" 
+		"Candy_No_UVRN.placeHolderList[52]" ""
 		5 0 "Candy_No_UVRN" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_LeftEye|Candy_No_UV:MESH_Candy_LeftEyeShapeDeformed.instObjGroups" 
-		"Candy_No_UV:CandyEyeMaterial:EyeMaterial:RMSGPSurface5SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[52]" 
-		"Candy_No_UVRN.placeHolderList[53]" "";
+		"Candy_No_UV:CandyEyeMaterial:EyeMaterial:RMSGPSurface5SG.dagSetMembers" "Candy_No_UVRN.placeHolderList[53]" 
+		"Candy_No_UVRN.placeHolderList[54]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTL -n "IKLegA_R_translateY";
@@ -17576,7 +17611,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr ".updateDisplaysUI" -type "string" "rmanPreviewOutput20";
 	setAttr ".updatePassesUI" -type "string" "rmanSBMakePtexGlobals";
 	setAttr -k on ".rman__riattr__trace_displacements" 0;
-	setAttr -k on ".rman__torattr___linearizeColors" 0;
+	setAttr -k on ".rman__torattr___linearizeColors" 1;
 	setAttr -k on ".rman__param__limits_threads" 0;
 createNode RenderMan -s -n "rmanScatterVolumeRenderGlobals";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
@@ -17831,10 +17866,24 @@ createNode shadingEngine -n "RMSGPSurface1SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo5";
 createNode RMSGPSurface -n "HornMaterial";
-	setAttr ".diffuseGain" 0.21126760542392731;
-	setAttr ".sheen" 0.28169015049934387;
-	setAttr ".emission" -type "float3" 0.88764781 0.70124364 0.88764781 ;
+	setAttr ".surfaceColor" -type "float3" 1 0.99646801 0.97600001 ;
+	setAttr ".diffuseGain" 0.80000001192092896;
+	setAttr ".emissionExposure" 4;
 	setAttr ".Emissive" yes;
+	setAttr ".roughness" 0.30000001192092896;
+	setAttr ".specularGain" 0.80000001192092896;
+	setAttr ".specularColor" -type "float3" 0.68224001 0.73216003 0.83200002 ;
+	setAttr ".ior" 1.3300000429153442;
+	setAttr ".specularBlend" 0.5;
+	setAttr ".specularBFeatures" 0;
+	setAttr ".roughnessB" 0.5;
+	setAttr ".specularGainB" 0.80000001192092896;
+	setAttr ".specColorB" -type "float3" 0.7907533 0.74159998 0.80000001 ;
+	setAttr ".sssAlbedo" -type "float3" 1 0.84799999 0.96200001 ;
+	setAttr ".sssMix" -type "float3" 0.75 0.75 0.75 ;
+	setAttr ".sssDmfpScale" 0.10000000149011612;
+	setAttr ".sssDmfp" -type "float3" 0.072999999 0.050000001 0.050000001 ;
+	setAttr ".sssSamples" 128;
 	setAttr ".__group" -type "string" "HornSet";
 createNode shadingEngine -n "RMSGPSurface2SG";
 	setAttr ".ihi" 0;
@@ -18976,7 +19025,7 @@ createNode partition -n "DefaultMaterial:mtorPartition";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
 createNode RMSGPSurface -n "DressSkirtMaterial:dress_skirt";
-	setAttr ".surfaceColor" -type "float3" 0.72911954 0.59191996 0.78399998 ;
+	setAttr ".surfaceColor" -type "float3" 0.54311967 0.44092 0.58399999 ;
 	setAttr ".sheen" 1;
 	setAttr ".diffuseRoughness" 0.15000000596046448;
 	setAttr ".roughness" 0.36629998683929443;
@@ -19000,7 +19049,7 @@ createNode RMSGPSurface -n "DressSleeveMaterial:dress_sleeves";
 	setAttr ".diffuseRoughness" 0.20000000298023224;
 	setAttr ".roughness" 0.44949325919151306;
 	setAttr ".specularGain" 0.69999998807907104;
-	setAttr ".specularColor" -type "float3" 1 0.64100003 0.67969418 ;
+	setAttr ".specularColor" -type "float3" 0.80000001 0.51280004 0.54375535 ;
 	setAttr ".specularFeatures" 0;
 	setAttr ".indirectSpecularScale" 0;
 	setAttr ".specularClamp" 5;
@@ -19025,12 +19074,12 @@ createNode shadingEngine -n "DressSleeveMaterial:dress_sleevesSG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo9";
 createNode RMSGPSurface -n "DressBandMaterial:dress_band";
-	setAttr ".surfaceColor" -type "float3" 0.43558767 0.37710202 0.671 ;
+	setAttr ".surfaceColor" -type "float3" 0.30575526 0.26470202 0.47099999 ;
 	setAttr ".diffuseGain" 0.80000001192092896;
 	setAttr ".sheen" 1;
 	setAttr ".roughness" 0.36649999022483826;
 	setAttr ".specularGain" 0.89999997615814209;
-	setAttr ".specularColor" -type "float3" 0.59860003 0.72913748 0.81999999 ;
+	setAttr ".specularColor" -type "float3" 0.52560002 0.64021832 0.72000003 ;
 	setAttr ".indirectSpecularScale" 0.10000000149011612;
 	setAttr ".specularClamp" 8;
 	setAttr ".enableDisplacement" 1;
@@ -19161,310 +19210,6 @@ createNode objectSet -n "lightset3";
 createNode objectSet -n "lightset5";
 	setAttr ".ihi" 0;
 	setAttr ".an" -type "string" "lightset";
-createNode RenderMan -n "rmanFinalOutput12";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel11";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset";
-createNode RenderMan -n "rmanFinalOutput13";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel12";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset";
-createNode RenderMan -n "rmanPreviewOutput3";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel2";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset";
-createNode RenderMan -n "rmanPreviewOutput4";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel3";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset";
 createNode RenderMan -n "rmanFinalOutput14";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -19769,310 +19514,6 @@ createNode RenderMan -n "rmanPreviewChannel5";
 	setAttr ".rman__torattr___class" -type "string" "Cs";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset1";
-createNode RenderMan -n "rmanFinalOutput16";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset3";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel15";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset3";
-createNode RenderMan -n "rmanFinalOutput17";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset3";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel16";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset3";
-createNode RenderMan -n "rmanPreviewOutput7";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset3";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel6";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset3";
-createNode RenderMan -n "rmanPreviewOutput8";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset3";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel7";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset3";
 createNode RenderMan -n "rmanFinalOutput18";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -20377,614 +19818,6 @@ createNode RenderMan -n "rmanPreviewChannel9";
 	setAttr ".rman__torattr___class" -type "string" "Cs";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset4";
-createNode RenderMan -n "rmanFinalOutput20";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset5";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel19";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset5";
-createNode RenderMan -n "rmanFinalOutput21";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset5";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel20";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset5";
-createNode RenderMan -n "rmanPreviewOutput11";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset5";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel10";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset5";
-createNode RenderMan -n "rmanPreviewOutput12";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset5";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel11";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset5";
-createNode RenderMan -n "rmanFinalOutput22";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset6";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel21";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset6";
-createNode RenderMan -n "rmanFinalOutput23";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset6";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel22";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset6";
-createNode RenderMan -n "rmanPreviewOutput13";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset6";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel12";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset6";
-createNode RenderMan -n "rmanPreviewOutput14";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset6";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel13";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset6";
 createNode objectSet -n "lightset7";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".dsm";
@@ -21368,326 +20201,46 @@ createNode animCurveTU -n "HornLightShape_intensity";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 5 ".ktv[0:4]"  24 0 40 3 50 3 64 2.5999999046325684 76 3;
-createNode RenderMan -n "rmanFinalOutput28";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset7";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel27";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset7";
-createNode RenderMan -n "rmanFinalOutput29";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset7";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanFinalChannel28";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset7";
-createNode RenderMan -n "rmanPreviewOutput19";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_lightset7";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel18";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_lightset7";
-createNode RenderMan -n "rmanPreviewOutput20";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
-		-dv -1 -at "long";
-	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
-		-dt "string";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
-		-at "compound" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
-		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
-		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
-	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
-		-dv -1 -at "float";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
-		-at "float3" -nc 3;
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
-		-dv -1 -at "float" -p "rman__riopt__Display_remap";
-	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
-		-dv -1 -at "long";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:display";
-	setAttr ".rman__torattr___class" -type "string" "Secondary";
-	setAttr ".rman__torattr___task" -type "string" "display";
-	setAttr -k on ".rman__torattr___computeBehavior" 1;
-	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
-	setAttr -k on ".rman__torattr___primaryDisplay" 0;
-	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
-	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_lightset7";
-	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
-	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
-	setAttr -k on ".rman__riopt__Display_dither" 0;
-	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
-	setAttr -k on ".rman__riopt__Display_asrgba" 1;
-createNode RenderMan -n "rmanPreviewChannel19";
-	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
-		-dt "string";
-	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
-	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
-		-dt "string";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
-	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
-	setAttr ".nt" -type "string" "settings:displaychannel";
-	setAttr ".rman__torattr___class" -type "string" "Cs";
-	setAttr ".rman__torattr___task" -type "string" "displaychannel";
-	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_lightset7";
 createNode objectSet -n "lightset";
 	setAttr ".ihi" 0;
 	setAttr ".an" -type "string" "lightset";
+createNode RMSGPSurface -n "HornMaterial1:HornMaterial";
+	setAttr ".diffuseGain" 0.21126760542392731;
+	setAttr ".sheen" 0.28169015049934387;
+	setAttr ".emission" -type "float3" 0.88764781 0.70124364 0.88764781 ;
+	setAttr ".Emissive" yes;
+createNode partition -n "HornMaterial1:mtorPartition";
+	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
+	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
+	addAttr -ci true -sn "sr" -ln "slimRIB" -dt "string";
+	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
+	setAttr ".sr" -type "string" "";
+createNode ramp -n "ramp2";
+	setAttr ".in" 2;
+	setAttr -s 2 ".cel";
+	setAttr ".cel[0].ep" 0.83498352766036987;
+	setAttr ".cel[0].ec" -type "float3" 0 0 0 ;
+	setAttr ".cel[1].ep" 0.98679870367050171;
+	setAttr ".cel[1].ec" -type "float3" 0.70124364 0.73417902 0.88764781 ;
+createNode place2dTexture -n "place2dTexture2";
+createNode RMSMatte -n "RMSMatte2";
+createNode shadingEngine -n "RMSMatte2SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo12";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 24;
-	setAttr -av ".unw" 24;
+	setAttr -k on ".o" 64;
+	setAttr -av ".unw" 64;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 82 ".st";
+	setAttr -s 83 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 lockNode -l 1 ;
@@ -21701,7 +20254,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 55 ".s";
+	setAttr -s 57 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -21713,7 +20266,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 55 ".u";
+	setAttr -s 56 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 7 ".r";
 select -ne :lightList1;
@@ -21723,7 +20276,7 @@ select -ne :defaultTextureList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 47 ".tx";
+	setAttr -s 48 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -21801,7 +20354,7 @@ select -ne :defaultRenderGlobals;
 	setAttr -cb on ".ar";
 	setAttr -k on ".fs";
 	setAttr -k on ".ef" 100;
-	setAttr -av -k on ".bfs" 10;
+	setAttr -av -k on ".bfs";
 	setAttr -cb on ".me";
 	setAttr -cb on ".se";
 	setAttr -k on ".be";
@@ -21867,6 +20420,9 @@ select -ne :defaultRenderGlobals;
 	setAttr -cb on ".rsb";
 	setAttr -k on ".ope";
 	setAttr -k on ".oppf";
+	setAttr ".cpe" yes;
+	setAttr ".icp" 2;
+	setAttr ".ocp" 3;
 	setAttr -cb on ".hbl";
 select -ne :defaultResolution;
 	setAttr -av -k on ".cch";
@@ -22000,9 +20556,9 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 7 ".sol";
-connectAttr "EmilyRN.phl[1]" "set2.dsm" -na;
-connectAttr "EmilyRN.phl[2]" "set4.dsm" -na;
+	setAttr -s 6 ".sol";
+connectAttr "EmilyRN.phl[1]" "set4.dsm" -na;
+connectAttr "EmilyRN.phl[2]" "set2.dsm" -na;
 connectAttr "EmilyRN.phl[3]" "EmilyRN.phl[4]";
 connectAttr "EmilyRN.phl[10]" "set3.dsm" -na;
 connectAttr "Emily:Main_translateX.o" "EmilyRN.phl[11]";
@@ -23082,8 +21638,8 @@ connectAttr "EmilyRN.phl[1089]" "EmilyRN.phl[1090]";
 connectAttr "EmilyRN.phl[1091]" "EmilyRN.phl[1092]";
 connectAttr "EmilyRN.phl[1093]" "EmilyRN.phl[1094]";
 connectAttr "EmilyRN.phl[1095]" "EmilyRN.phl[1096]";
-connectAttr "EmilyRN.phl[5]" "set2.dsm" -na;
-connectAttr "EmilyRN.phl[6]" "set3.dsm" -na;
+connectAttr "EmilyRN.phl[5]" "set3.dsm" -na;
+connectAttr "EmilyRN.phl[6]" "set2.dsm" -na;
 connectAttr "Dress.di" "EmilyRN.phl[7]";
 connectAttr "Dress.di" "EmilyRN.phl[8]";
 connectAttr "Dress.di" "EmilyRN.phl[9]";
@@ -23127,15 +21683,16 @@ connectAttr "ctrlEye_L_blink.o" "Candy_No_UVRN.phl[37]";
 connectAttr "Candy_No_UVRN.phl[38]" "set2.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[39]" "RMSGPSurface1SG.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[40]" "set2.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[41]" "set3.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[42]" "set2.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[41]" "set2.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[42]" "set3.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[43]" "set5.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[44]" "set2.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[44]" "RMSGPSurface2SG.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[45]" "set2.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[46]" "Candy_No_UVRN.phl[47]";
-connectAttr "Candy_No_UVRN.phl[48]" "Candy_No_UVRN.phl[49]";
-connectAttr "Candy_No_UVRN.phl[50]" "Candy_No_UVRN.phl[51]";
-connectAttr "Candy_No_UVRN.phl[52]" "Candy_No_UVRN.phl[53]";
+connectAttr "Candy_No_UVRN.phl[46]" "set2.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[47]" "Candy_No_UVRN.phl[48]";
+connectAttr "Candy_No_UVRN.phl[49]" "Candy_No_UVRN.phl[50]";
+connectAttr "Candy_No_UVRN.phl[51]" "Candy_No_UVRN.phl[52]";
+connectAttr "Candy_No_UVRN.phl[53]" "Candy_No_UVRN.phl[54]";
 connectAttr "Floor.di" "Floor1.do";
 connectAttr "polyPlane1.out" "FloorShape1.i";
 connectAttr "polyPlane2.out" "pPlaneShape2.i";
@@ -23196,12 +21753,12 @@ connectAttr "HornLight_parentConstraint1.cry" "HornLight.ry";
 connectAttr "HornLight_parentConstraint1.crz" "HornLight.rz";
 connectAttr "set5.msg" "HornLightShape.excludesubset";
 connectAttr "HornLightShape_intensity.o" "HornLightShape.intensity";
+connectAttr "HornLight_parentConstraint1.w0" "HornLight_parentConstraint1.tg[0].tw"
+		;
 connectAttr "HornLight.ro" "HornLight_parentConstraint1.cro";
 connectAttr "HornLight.pim" "HornLight_parentConstraint1.cpim";
 connectAttr "HornLight.rp" "HornLight_parentConstraint1.crp";
 connectAttr "HornLight.rpt" "HornLight_parentConstraint1.crt";
-connectAttr "HornLight_parentConstraint1.w0" "HornLight_parentConstraint1.tg[0].tw"
-		;
 connectAttr "Lightthedarkshit_intensity.o" "Lightthedarkshit.intensity";
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanPreviewGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -23234,22 +21791,12 @@ connectAttr "rmanFinalOutput8.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput9.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput10.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput11.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput12.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput13.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput14.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput15.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput16.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput17.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput18.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput19.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput20.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput21.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput22.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput23.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput26.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput27.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput28.msg" ":rmanFinalGlobals.d" -na;
-connectAttr "rmanFinalOutput29.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalChannel0.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel1.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel2.msg" ":rmanFinalGlobals.c" -na;
@@ -23261,59 +21808,29 @@ connectAttr "rmanFinalChannel7.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel8.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel9.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel10.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel11.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel12.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel13.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel14.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel15.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel16.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel17.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel18.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel19.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel20.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel21.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel22.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel25.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel26.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel27.msg" ":rmanFinalGlobals.c" -na;
-connectAttr "rmanFinalChannel28.msg" ":rmanFinalGlobals.c" -na;
 connectAttr ":rmanPreviewOutputGlobals0.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput1.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput2.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput3.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput4.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput5.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput6.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput7.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput8.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput9.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput10.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput11.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput12.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput13.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput14.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput17.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput18.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput19.msg" ":rmanPreviewGlobals.d" -na;
-connectAttr "rmanPreviewOutput20.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewChannel0.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel1.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel2.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel3.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel4.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel5.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel6.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel7.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel8.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel9.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel10.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel11.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel12.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel13.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel16.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel17.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel18.msg" ":rmanPreviewGlobals.c" -na;
-connectAttr "rmanPreviewChannel19.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr ":rmanRerenderOutputGlobals0.msg" ":rmanRerenderGlobals.d" -na;
 connectAttr ":rmanReyesRerenderOutputGlobals0.msg" ":rmanReyesRerenderGlobals.d"
 		 -na;
@@ -23417,6 +21934,7 @@ relationship "link" ":lightLinker1" "DressSkirtMaterial:dress_skirtSG.message" "
 relationship "link" ":lightLinker1" "DressSleeveMaterial:dress_sleevesSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "DressBandMaterial:dress_bandSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSMatte1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSMatte2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -23430,6 +21948,7 @@ relationship "shadowLink" ":lightLinker1" "DressSkirtMaterial:dress_skirtSG.mess
 relationship "shadowLink" ":lightLinker1" "DressSleeveMaterial:dress_sleevesSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "DressBandMaterial:dress_bandSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSMatte1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSMatte2SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "sharedReferenceNode.sr" "EmilyRN.sr";
@@ -24449,6 +22968,7 @@ connectAttr "DefaultShader.oc" "RMSGPSurface1SG.ss";
 connectAttr "RMSGPSurface1SG.msg" "materialInfo5.sg";
 connectAttr "DefaultShader.msg" "materialInfo5.m";
 connectAttr "DefaultShader.msg" "materialInfo5.t" -na;
+connectAttr "ramp2.oc" "HornMaterial.emission";
 connectAttr "HornMaterial.oc" "RMSGPSurface2SG.ss";
 connectAttr "RMSGPSurface2SG.msg" "materialInfo6.sg";
 connectAttr "HornMaterial.msg" "materialInfo6.m";
@@ -24607,6 +23127,13 @@ connectAttr "Emily_Face.iog" "lightset7.dsm" -na;
 connectAttr "Emily_Face1.iog" "lightset7.dsm" -na;
 connectAttr "HornLight.iog" "lightset6.dsm" -na;
 connectAttr "Emily_Face1.iog" "lightset.dsm" -na;
+connectAttr ":defaultRenderGlobals.msg" "HornMaterial1:mtorPartition.rgcnx";
+connectAttr "place2dTexture2.o" "ramp2.uv";
+connectAttr "place2dTexture2.ofs" "ramp2.fs";
+connectAttr "RMSMatte2.oc" "RMSMatte2SG.ss";
+connectAttr "RMSMatte2SG.msg" "materialInfo12.sg";
+connectAttr "RMSMatte2.msg" "materialInfo12.m";
+connectAttr "RMSMatte2.msg" "materialInfo12.t" -na;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
@@ -24618,6 +23145,7 @@ connectAttr "DressSkirtMaterial:dress_skirtSG.pa" ":renderPartition.st" -na;
 connectAttr "DressSleeveMaterial:dress_sleevesSG.pa" ":renderPartition.st" -na;
 connectAttr "DressBandMaterial:dress_bandSG.pa" ":renderPartition.st" -na;
 connectAttr "RMSMatte1SG.pa" ":renderPartition.st" -na;
+connectAttr "RMSMatte2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "lambert3.msg" ":defaultShaderList1.s" -na;
 connectAttr "lambertRed.msg" ":defaultShaderList1.s" -na;
@@ -24630,11 +23158,14 @@ connectAttr "DressSkirtMaterial:dress_skirt.msg" ":defaultShaderList1.s" -na;
 connectAttr "DressSleeveMaterial:dress_sleeves.msg" ":defaultShaderList1.s" -na;
 connectAttr "DressBandMaterial:dress_band.msg" ":defaultShaderList1.s" -na;
 connectAttr "RMSMatte1.msg" ":defaultShaderList1.s" -na;
+connectAttr "HornMaterial1:HornMaterial.msg" ":defaultShaderList1.s" -na;
+connectAttr "RMSMatte2.msg" ":defaultShaderList1.s" -na;
 connectAttr "DressSleeveMaterial:place2dTexture9.msg" ":defaultRenderUtilityList1.u"
 		 -na;
 connectAttr "DressBandMaterial:place2dTexture10.msg" ":defaultRenderUtilityList1.u"
 		 -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "CeilingLight.ltd" ":lightList1.l" -na;
 connectAttr "Omnipresent_OrbShape.ltd" ":lightList1.l" -na;
@@ -24647,6 +23178,7 @@ connectAttr "Lightthedarkshit.ltd" ":lightList1.l" -na;
 connectAttr "DressSleeveMaterial:file7.msg" ":defaultTextureList1.tx" -na;
 connectAttr "DressBandMaterial:file8.msg" ":defaultTextureList1.tx" -na;
 connectAttr "ramp1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "ramp2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Ceiling.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Omnipresent_Orb.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Emily_Face.iog" ":defaultLightSet.dsm" -na;
