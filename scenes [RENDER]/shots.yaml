@@ -22,7 +22,7 @@
   file       : "hallway_walk.ma"
   camera     : 'Hallway_Medium_Shot'
   startFrame : 1
-  endFrame   : 69
+  endFrame   : 72
 
 - name       : "Hallway Running"
   file       : "hallway_run.ma"
