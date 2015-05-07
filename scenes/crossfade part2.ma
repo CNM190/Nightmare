@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: crossfade part2.ma
-//Last modified: Wed, May 06, 2015 05:38:57 PM
+//Last modified: Wed, May 06, 2015 07:46:42 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily_Body_Rig" -rfn "Emily_Body_RigRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily_Body_Rig:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -30,15 +30,15 @@ fileInfo "cutIdentifier" "201405190330-916664";
 fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
-	setAttr ".t" -type "double3" -2.6766964297735205 0.32517555252472707 -14.892988861068819 ;
-	setAttr ".r" -type "double3" -30.338352727035659 -1170.2000000002097 0 ;
+	setAttr ".t" -type "double3" -12.750326809788948 19.147702731255961 5.9702776541405589 ;
+	setAttr ".r" -type "double3" -38.138352727220592 -1120.6000000001807 2.0944783839100829e-15 ;
 	setAttr ".rp" -type "double3" -1.7763568394002505e-15 2.2204460492503131e-16 0 ;
 	setAttr ".rpt" -type "double3" -3.2914949768789871e-15 5.5859379477347167e-16 -2.3750929480125643e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 8.2232093448426298;
+	setAttr ".coi" 34.335972565472559;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -99,20 +99,19 @@ createNode mesh -n "FloorShape1" -p "Floor1";
 	setAttr ".ugsdt" no;
 createNode transform -n "LightRig";
 createNode transform -n "Sunlight" -p "LightRig";
-	setAttr ".t" -type "double3" 17.305465681694649 -0.069397551886094977 -10.020483343794069 ;
-	setAttr ".r" -type "double3" -13.650355849142063 73.737011145149651 -5.8063929650834973 ;
+	setAttr ".t" -type "double3" 17.305465681694649 2.6617567347792797 -15.474949895595099 ;
+	setAttr ".r" -type "double3" -139.69543223603961 84.637411589858758 -127.80428048755964 ;
 createNode RMSGeoAreaLight -n "SunlightShape" -p "Sunlight";
 	setAttr -k off ".v";
 	setAttr ".shape" -type "string" "spot";
-	setAttr ".intensity" 12;
-	setAttr ".lightcolor" -type "float3" 0.90399998 0.98792797 1 ;
+	setAttr ".intensity" 10;
 	setAttr ".coneangle" 41.610736846923828;
 createNode transform -n "RMSEnvLight1" -p "LightRig";
 	setAttr ".r" -type "double3" -90 0 0 ;
 	setAttr ".s" -type "double3" -230.32394638061521 230.32394638061521 230.32394638061521 ;
 createNode RMSEnvLight -n "RMSEnvLightShape1" -p "RMSEnvLight1";
 	setAttr -k off ".v";
-	setAttr ".exposure" -3;
+	setAttr ".exposure" -2;
 createNode transform -n "Blanket";
 	setAttr ".t" -type "double3" 4.0988814797001547 -1.2688875207561887 -12.606500597310795 ;
 createNode mesh -n "BlanketShape" -p "Blanket";
@@ -926,7 +925,7 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
-		-dv -1 -smn 0 -smx 100 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -3901,10 +3900,10 @@ createNode RenderMan -s -n "rmanSBMakePtexGlobals";
 	setAttr ".rman__param__ptxmake___channel" -type "string" "$BAKECHAN";
 	setAttr ".rman__param__ptxmake___outputfile" -type "string" "[passinfo this filename]";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 75 ".lnk";
-	setAttr -s 75 ".slnk";
+	setAttr -s 67 ".lnk";
+	setAttr -s 67 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	setAttr ".cdl" 4;
+	setAttr ".cdl" 3;
 	setAttr -s 5 ".dli[1:4]"  1 2 3 4;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
@@ -4484,7 +4483,6 @@ createNode reference -n "Emily_Pre_VisRN";
 	setAttr ".fn[0]" -type "string" "/Users/Simon/Documents/CNM190/Nightmare//assets/chars/rigs/Emily Pre-Vis.ma";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Emily_Pre_VisRN"
-		"Emily_Pre_Vis:modelRN" 0
 		"Emily_Pre_VisRN" 4
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main" "translate" " -type \"double3\" 0.247784 -3.714513 0.211708"
 		
@@ -4493,7 +4491,8 @@ createNode reference -n "Emily_Pre_VisRN";
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.075255 -0.00108957"
 		2 "|Emily_Pre_Vis:Group|Emily_Pre_Vis:Main|Emily_Pre_Vis:MotionSystem|Emily_Pre_Vis:IKSystem|Emily_Pre_Vis:IKHandle|Emily_Pre_Vis:IKSpineHandle_M" 
-		"rotate" " -type \"double3\" -90 3.046919 90";
+		"rotate" " -type \"double3\" -90 3.046919 90"
+		"Emily_Pre_Vis:modelRN" 0;
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode vectorRenderGlobals -s -n "vectorRenderGlobals";
@@ -4912,6 +4911,7 @@ createNode reference -n "Emily_Body_RigRN";
 		"Emily_Body_Rig:Dress_EmilyRN" 0
 		"Emily_Body_Rig:Hair_EmilyRN" 0
 		"Emily_Body_Rig:emilyHair001RN" 0
+		"Emily_Body_Rig:modelRN" 0
 		"Emily_Body_RigRN" 30
 		2 "Emily_Body_Rig:triggerPlusMinusAverage" "i1[0:125]" " -s 126 1 0 0 0 3 2 2 0 0 0 0 2 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 		
@@ -4954,7 +4954,6 @@ createNode reference -n "Emily_Body_RigRN";
 		2 "Emily_Body_Rig:Emily_Skin_Shader:Emily_skin" "sssSamples" " 128"
 		2 "Emily_Body_Rig:Emily_Skin_Shader:Emily_skin" "sssMaxDepth" " 2"
 		2 "Emily_Body_Rig:Emily_Skin_Shader:Emily_skin" "sssMaxDist" " 10"
-		"Emily_Body_Rig:modelRN" 0
 		"Emily_Body_Rig:DressRN" 0
 		"Emily_Body_Rig:Hair_EmilyRN" 7
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Hair_Emily:Hair|Emily_Body_Rig:Hair_Emily:HairShape" 
@@ -9969,7 +9968,7 @@ createNode reference -n "Emily_Body_RigRN";
 		"visibility" " 0"
 		2 "|Emily_Body_Rig:Emily|Emily_Body_Rig:Emily_Main|Emily_Body_Rig:geo_Emily|Emily_Body_Rig:softer_features_blendshape" 
 		"visibility" " 0"
-		2 "Emily_Body_Rig:Meshes" "displayType" " 2"
+		2 "Emily_Body_Rig:Meshes" "displayType" " 0"
 		2 "Emily_Body_Rig:Meshes" "visibility" " -av 1"
 		2 "Emily_Body_Rig:Meshes" "displayOrder" " 4"
 		2 "Emily_Body_Rig:BodyCorrective" "w[0:59]" " -s 60 7.1855626000000001e-05 0.00012298779999999999 0 0 0 0 0.25623815999999999 0.32089823000000001 0 0 0 0 0.10834625000000001 0.27580768 0.34849026999999999 0.58694875000000002 0.6943028 0.54859108000000001 0 0.0015893069000000001 0.010560017 0 0.045448493 0 0.41183445000000002 0 1 0.88706499000000005 0.10027195999999999 0.060184803000000002 0 0 0 0 0 0.11499991 0.0055279735999999996 0 0 0 0 1.3410243999999999e-10 0.032577745999999998 0 0 0 0 0 0 0 0 0 0.011335698999999999 0 0 0 0 0 0 1"
@@ -13674,6 +13673,8 @@ createNode RenderMan -s -n "renderManGlobals";
 		-dv -1 -at "long";
 	addAttr -ci true -k true -sn "rman__param__limits_threads" -ln "rman__param__limits_threads" 
 		-dv -1 -at "long";
+	addAttr -ci true -sn "spoolingBatchContext" -ln "spoolingBatchContext" -dt "string";
+	addAttr -ci true -sn "spoolingSceneName" -ln "spoolingSceneName" -dt "string";
 	setAttr ".nt" -type "string" "settings:job";
 	setAttr ".rman__torattr___class" -type "string" "Job";
 	setAttr ".rman__torattr___task" -type "string" "job";
@@ -13705,7 +13706,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__toropt___furChunkSize" 10000;
 	setAttr -k on ".rman__torattr___enableRifs" 1;
 	setAttr -k on ".rman__torattr___motionBlur" 0;
-	setAttr -k on ".rman__torattr___rayTracing" 0;
+	setAttr -k on ".rman__torattr___rayTracing" 1;
 	setAttr -k on ".rman__torattr___mapResolution" -type "long2" 0 0 ;
 	setAttr -k on ".rman__torattr___depthOfField" 0;
 	setAttr -k on ".rman__torattr___cameraBlur" 0;
@@ -13771,7 +13772,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__riopt__limits_proceduralmemory" 0;
 	setAttr -k on ".rman__riopt__limits_brickmemory" 10240;
 	setAttr ".rman__riopt__Hider_name" -type "string" "hidden";
-	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 960 540 ;
+	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 480 270 ;
 	setAttr -k on ".rman__riopt__Format_pixelaspectratio" 1;
 	setAttr -k on ".rman__riopt__hair_minwidth" 0.5;
 	setAttr ".rman__riopt__rib_compression" -type "string" "none";
@@ -13814,6 +13815,8 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr ".rman__torattr___postWorldBeginScript" -type "string" "";
 	setAttr -k on ".rman__riopt__statistics_level" 1;
 	setAttr -k on ".rman__param__limits_threads" 0;
+	setAttr ".spoolingBatchContext" -type "string" "0507";
+	setAttr ".spoolingSceneName" -type "string" "/home/tmp/cs198-re/Nightmare/scenes/crossfade part2.ma";
 createNode partition -n "mtorPartition";
 	addAttr -s false -ci true -sn "rgcnx" -ln "rgcnx" -at "message";
 	addAttr -ci true -sn "sd" -ln "slimData" -dt "string";
@@ -13821,7 +13824,7 @@ createNode partition -n "mtorPartition";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
 createNode reference -n "bedroom2RN";
-	setAttr -s 33 ".phl";
+	setAttr -s 52 ".phl";
 	setAttr ".phl[30]" 0;
 	setAttr ".phl[31]" 0;
 	setAttr ".phl[32]" 0;
@@ -13831,6 +13834,25 @@ createNode reference -n "bedroom2RN";
 	setAttr ".phl[36]" 0;
 	setAttr ".phl[37]" 0;
 	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"bedroom2RN"
 		"bedroom2:bedroom:bookshelfRN" 7
@@ -14045,7 +14067,6 @@ createNode reference -n "bedroom2RN";
 		
 		"bedroom2:bedroom:bookshelf:bookRN3" 1
 		2 "|bedroom2:bedroom:bookshelf:book3:pCube1" "visibility" " 0"
-		"bedroom2:bedroom:deskRN" 0
 		"bedroom2:bedroom:binRN" 3
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:bin:bin_test:pCube1" "visibility" 
 		" 0"
@@ -14053,6 +14074,7 @@ createNode reference -n "bedroom2RN";
 		" -type \"double3\" 4.068149 -41.209725 -64.920976"
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:bin:bin_test:pCube1" "rotate" 
 		" -type \"double3\" 0 0 0"
+		"bedroom2:bedroom:deskRN" 0
 		"bedroom2:bedroom:bookshelf:OrbRN" 2
 		2 "|bedroom2:bedroom:bookshelf:Orb:Orb|bedroom2:bedroom:bookshelf:Orb:Orb_Holder" 
 		"visibility" " 0"
@@ -14302,8 +14324,6 @@ createNode reference -n "bedroom2RN";
 		2 "bedroom2:bedsheet:blanket" "displayType" " 0"
 		2 "bedroom2:bedsheet:blanket" "visibility" " 1"
 		2 "bedroom2:bedsheet:walls" "visibility" " 1"
-		"bedroom2:bedroom:bookshelf:bookRN1" 1
-		2 "|bedroom2:bedroom:bookshelf:book1:pCube1" "visibility" " 0"
 		"bedroom2:Clyde:ClydeRN" 9
 		2 "|bedroom2:Clyde:Clyde:polySurface6" "visibility" " -av 1"
 		2 "|bedroom2:Clyde:Clyde:pSphere4|bedroom2:Clyde:Clyde:polySurface7|bedroom2:Clyde:Clyde:transform3" 
@@ -14321,6 +14341,8 @@ createNode reference -n "bedroom2RN";
 		" 0"
 		5 4 "bedroom2RN" "|bedroom2:Clyde:Clyde:polySurface6.visibility" "bedroom2RN.placeHolderList[2]" 
 		""
+		"bedroom2:bedroom:bookshelf:bookRN1" 1
+		2 "|bedroom2:bedroom:bookshelf:book1:pCube1" "visibility" " 0"
 		"bedroom2:bedroom:bedRN" 7
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:bed:place3dTexture1" "translate" 
 		" -type \"double3\" 4.068149 -41.209725 -64.920976"
@@ -14384,7 +14406,7 @@ createNode reference -n "bedroom2RN";
 		2 "|bedroom2:camera1" "rotatePivot" " -type \"double3\" 0 0 0"
 		2 "|bedroom2:camera1" "rotatePivotTranslate" " -type \"double3\" 0 0 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "renderable" " 1"
-		2 "|bedroom2:camera1|bedroom2:camera1Shape" "overscan" " 1"
+		2 "|bedroom2:camera1|bedroom2:camera1Shape" "overscan" " 1.3"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "focalLength" " 35"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "nearClipPlane" " 0.1"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "farClipPlane" " 10000"
@@ -14394,7 +14416,7 @@ createNode reference -n "bedroom2RN";
 		
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayGateMask" " 1"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayFilmGate" " 0"
-		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayResolution" " 0"
+		2 "|bedroom2:camera1|bedroom2:camera1Shape" "displayResolution" " 1"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "depth" " 0"
 		2 "|bedroom2:camera1|bedroom2:camera1Shape" "mask" " 1"
 		2 "|bedroom2:LightRig" "visibility" " 0"
@@ -14433,23 +14455,23 @@ createNode reference -n "bedroom2RN";
 		" 71"
 		2 "|bedroom2:Bedsheet_SimRig|bedroom2:nRigid8|bedroom2:nRigidShape8" "cacheWidth" 
 		" 71"
-		5 4 "bedroom2RN" "|bedroom2:camera1.translateX" "bedroom2RN.placeHolderList[30]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.translateX" "bedroom2RN.placeHolderList[49]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.translateY" "bedroom2RN.placeHolderList[31]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.translateY" "bedroom2RN.placeHolderList[50]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.translateZ" "bedroom2RN.placeHolderList[32]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.translateZ" "bedroom2RN.placeHolderList[51]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.rotateX" "bedroom2RN.placeHolderList[33]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.rotateX" "bedroom2RN.placeHolderList[52]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.rotateY" "bedroom2RN.placeHolderList[34]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.rotateY" "bedroom2RN.placeHolderList[53]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.rotateZ" "bedroom2RN.placeHolderList[35]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.rotateZ" "bedroom2RN.placeHolderList[54]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.scaleX" "bedroom2RN.placeHolderList[36]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.scaleX" "bedroom2RN.placeHolderList[55]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.scaleY" "bedroom2RN.placeHolderList[37]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.scaleY" "bedroom2RN.placeHolderList[56]" 
 		""
-		5 4 "bedroom2RN" "|bedroom2:camera1.scaleZ" "bedroom2RN.placeHolderList[38]" 
+		5 4 "bedroom2RN" "|bedroom2:camera1.scaleZ" "bedroom2RN.placeHolderList[57]" 
 		""
 		"bedroom2:bedroom:LampRN" 3
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:Lamp:pCylinder1" "visibility" 
@@ -14458,7 +14480,7 @@ createNode reference -n "bedroom2RN";
 		" -type \"double3\" 46.235259 -18.317753 -108.407008"
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:Lamp:pCylinder1" "rotate" " -type \"double3\" 0 0 0"
 		
-		"bedroom2:bedroomRN" 26
+		"bedroom2:bedroomRN" 77
 		2 "|bedroom2:bedroom:Bedroom" "visibility" " 1"
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pillow2" "visibility" " 0"
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pillow2" "translate" " -type \"double3\" 31.641939 -36.660055 -60.19674"
@@ -14484,6 +14506,14 @@ createNode reference -n "bedroom2RN";
 		
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1" 
 		"visibility" " -k 0 1"
+		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1" 
+		"instObjGroups.objectGroups" " -s 6"
+		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1" 
+		"compInstObjGroups.compObjectGroups" " -s 2"
+		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1" 
+		"uvPivot" " -type \"double2\" 0.5 0.5"
+		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1" 
+		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:rightWall" "translate" " -type \"double3\" 5.903149 -15.937788 -16.912289"
 		
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:rightWall" "rotate" " -type \"double3\" 90 0 0"
@@ -14502,9 +14532,105 @@ createNode reference -n "bedroom2RN";
 		
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:ceiling|bedroom2:bedroom:ceilingShape" 
 		"visibility" " -k 0 0"
-		2 "bedroom2:bedroom:Main_Set" "displayType" " 2"
+		2 "bedroom2:bedroom:Main_Set" "displayType" " 0"
 		2 "bedroom2:bedroom:Main_Set" "visibility" " 1"
 		2 "bedroom2:bedroom:Main_Set" "displayOrder" " 5"
+		2 "bedroom2:bedroom:groupParts1" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:98]\""
+		
+		2 "bedroom2:bedroom:groupParts1" "groupId" " 215"
+		2 "bedroom2:bedroom:groupParts2" "inputRemoveComponent" " -type \"componentList\" 7 \"f[0]\" \"f[4]\" \"f[11]\" \"f[26]\" \"f[34]\" \"f[41]\" \"f[49]\""
+		
+		2 "bedroom2:bedroom:groupParts2" "groupId" " 217"
+		2 "bedroom2:bedroom:groupParts3" "inputRemoveComponent" " -type \"componentList\" 14 \"f[1:3]\" \"f[5:10]\" \"f[13:17]\" \"f[22:25]\" \"f[27]\" \"f[31:33]\" \"f[35]\" \"f[40]\" \"f[42]\" \"f[46:48]\" \"f[50]\" \"f[55:58]\" \"f[61:64]\" \"f[66]\""
+		
+		2 "bedroom2:bedroom:groupParts3" "groupId" " 218"
+		2 "bedroom2:bedroom:groupParts4" "inputRemoveComponent" " -type \"componentList\" 16 \"f[12]\" \"f[18:21]\" \"f[28:30]\" \"f[36:39]\" \"f[43:45]\" \"f[51:54]\" \"f[59:60]\" \"f[67:75]\" \"f[77:81]\" \"f[84]\" \"f[86]\" \"f[88]\" \"f[90:91]\" \"f[93]\" \"f[95]\" \"f[97]\""
+		
+		2 "bedroom2:bedroom:groupParts4" "groupId" " 219"
+		3 "bedroom2:bedroom:groupId1.groupId" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
+		3 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "bedroom2:bedroom:groupId3.groupId" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[1].objectGroupId" 
+		""
+		3 "bedroom2:bedroom:RMSGPSurface1SG.memberWireframeColor" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[1].objectGrpColor" 
+		""
+		3 "bedroom2:bedroom:groupId5.groupId" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[3].objectGroupId" 
+		""
+		3 "bedroom2:bedroom:RMSGPSurface3SG.memberWireframeColor" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[3].objectGrpColor" 
+		""
+		3 "bedroom2:bedroom:groupId4.groupId" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 "bedroom2:bedroom:RMSGPSurface2SG.memberWireframeColor" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "bedroom2:bedroom:groupId2.groupId" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.compInstObjGroups.compObjectGroups[0]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "bedroom2:bedroom:groupParts4.outputGeometry" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.inMesh" 
+		""
+		3 "bedroom2:bedroom:groupId3.groupId" "bedroom2:bedroom:groupParts2.groupId" 
+		""
+		3 "bedroom2:bedroom:groupId2.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[1]" 
+		"bedroom2:bedroom:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "bedroom2:bedroom:groupId3.message" "bedroom2:bedroom:RMSGPSurface1SG.groupNodes" 
+		"-na"
+		3 "bedroom2:bedroom:groupId1.groupId" "bedroom2:bedroom:groupParts1.groupId" 
+		""
+		3 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[2]" 
+		"bedroom2:bedroom:RMSGPSurface2SG.dagSetMembers" "-na"
+		3 "bedroom2:bedroom:groupId4.message" "bedroom2:bedroom:RMSGPSurface2SG.groupNodes" 
+		"-na"
+		3 "bedroom2:bedroom:groupId5.groupId" "bedroom2:bedroom:groupParts4.groupId" 
+		""
+		3 "bedroom2:bedroom:groupId1.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[3]" 
+		"bedroom2:bedroom:RMSGPSurface3SG.dagSetMembers" "-na"
+		3 "bedroom2:bedroom:groupId5.message" "bedroom2:bedroom:RMSGPSurface3SG.groupNodes" 
+		"-na"
+		3 "bedroom2:bedroom:groupId4.groupId" "bedroom2:bedroom:groupParts3.groupId" 
+		""
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.inMesh" 
+		"bedroom2RN.placeHolderList[30]" ""
+		5 3 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[4]" 
+		"bedroom2RN.placeHolderList[31]" ""
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[4].objectGroupId" 
+		"bedroom2RN.placeHolderList[32]" ""
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[4].objectGrpColor" 
+		"bedroom2RN.placeHolderList[33]" ""
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[5].objectGroupId" 
+		"bedroom2RN.placeHolderList[34]" ""
+		5 0 "bedroom2RN" "bedroom2:bedroom:RMSGPSurface1SG.memberWireframeColor" 
+		"|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[5].objectGrpColor" 
+		"bedroom2RN.placeHolderList[35]" "bedroom2RN.placeHolderList[36]" "bedroom2:bedroom:pPlaneShape1.iog.og[1].gco"
+		
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[6].objectGroupId" 
+		"bedroom2RN.placeHolderList[37]" ""
+		5 0 "bedroom2RN" "bedroom2:bedroom:RMSGPSurface2SG.memberWireframeColor" 
+		"|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[6].objectGrpColor" 
+		"bedroom2RN.placeHolderList[38]" "bedroom2RN.placeHolderList[39]" "bedroom2:bedroom:pPlaneShape1.iog.og[2].gco"
+		
+		5 3 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.compInstObjGroups.compObjectGroups[1]" 
+		"bedroom2RN.placeHolderList[40]" ""
+		5 4 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.compInstObjGroups.compObjectGroups[1].compObjectGroupId" 
+		"bedroom2RN.placeHolderList[41]" ""
+		5 4 "bedroom2RN" "bedroom2:bedroom:RMSGPSurface1SG.groupNodes" "bedroom2RN.placeHolderList[42]" 
+		""
+		5 0 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[5]" 
+		"bedroom2:bedroom:RMSGPSurface1SG.dagSetMembers" "bedroom2RN.placeHolderList[43]" 
+		"bedroom2RN.placeHolderList[44]" ""
+		5 4 "bedroom2RN" "bedroom2:bedroom:RMSGPSurface2SG.groupNodes" "bedroom2RN.placeHolderList[45]" 
+		""
+		5 0 "bedroom2RN" "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:pPlane1|bedroom2:bedroom:pPlaneShape1.instObjGroups.objectGroups[6]" 
+		"bedroom2:bedroom:RMSGPSurface2SG.dagSetMembers" "bedroom2RN.placeHolderList[46]" 
+		"bedroom2RN.placeHolderList[47]" ""
+		5 3 "bedroom2RN" "bedroom2:bedroom:groupParts4.outputGeometry" "bedroom2RN.placeHolderList[48]" 
+		"bedroom2:bedroom:pPlaneShape1.i"
 		"bedroom2:bedroom:deskRN" 7
 		2 "|bedroom2:bedroom:Bedroom|bedroom2:bedroom:desk:pCube1" "visibility" " -av 1"
 		
@@ -17504,7 +17630,6 @@ createNode partition -n "bedsheet:mtorPartition";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
 createNode displayLayer -n "bedsheet:walls";
-	setAttr ".v" no;
 	setAttr ".do" 12;
 createNode PxrLMDiffuse -n "bedsheet:PxrLMDiffuse1";
 	setAttr ".frontColor" -type "float3" 0.70099998 0.45775297 0.52766621 ;
@@ -18438,7 +18563,7 @@ createNode animCurveTU -n "pPlane1_visibility1";
 	setAttr -s 2 ".ktv[0:1]"  90 0 91 1;
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode displayLayer -n "Floor_Layer";
-	setAttr ".dt" 2;
+	setAttr ".v" no;
 	setAttr ".do" 14;
 createNode animCurveTL -n "CTRL_Clyde_Nose_translateY";
 	setAttr ".tan" 18;
@@ -18452,7 +18577,7 @@ createNode shadingEngine -n "RMSGPSurface1SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo2";
 createNode RMSGPSurface -n "ClydeFurStandin";
-	setAttr ".surfaceColor" -type "float3" 0.31461051 0.3080644 0.096009769 ;
+	setAttr ".surfaceColor" -type "float3" 0.65899998 0.55931467 0.24053501 ;
 	setAttr ".roughness" 9.9999997473787516e-05;
 	setAttr ".specularGain" 0;
 createNode shadingEngine -n "RMSGPSurface2SG";
@@ -18466,6 +18591,33 @@ createNode shadingEngine -n "RMSGPSurface3SG";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo4";
+createNode RMSGPSurface -n "FloorWallsStandin";
+	setAttr ".surfaceColor" -type "float3" 0.234 0.234 0.234 ;
+	setAttr ".specularGain" 0;
+createNode shadingEngine -n "RMSGPSurface4SG";
+	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
+	setAttr ".ro" yes;
+	setAttr -s 2 ".gn";
+createNode materialInfo -n "materialInfo5";
+createNode groupId -n "groupId1";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 12 "f[12]" "f[16]" "f[20:22]" "f[24:25]" "f[32]" "f[35:37]" "f[42:44]" "f[50:53]" "f[58]" "f[65]" "f[67:70]" "f[87]";
+	setAttr ".irc" -type "componentList" 13 "f[0:11]" "f[13:15]" "f[17:19]" "f[23]" "f[26:31]" "f[33:34]" "f[38:41]" "f[45:49]" "f[54:57]" "f[59:64]" "f[66]" "f[71:86]" "f[88:98]";
+createNode groupId -n "groupId2";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId3";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts2";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 7 "f[0]" "f[4]" "f[11]" "f[26]" "f[34]" "f[41]" "f[49]";
+createNode groupId -n "groupId4";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts3";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 14 "f[1:3]" "f[5:10]" "f[13:15]" "f[17:19]" "f[23]" "f[27:31]" "f[33]" "f[38:40]" "f[45:48]" "f[54:57]" "f[59:64]" "f[66]" "f[71:86]" "f[88:98]";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -k on ".ihi";
@@ -18478,7 +18630,7 @@ select -ne :renderPartition;
 	setAttr -k on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 66 ".st";
+	setAttr -s 67 ".st";
 	setAttr -k on ".an";
 	setAttr -k on ".pt";
 lockNode -l 1 ;
@@ -18492,7 +18644,7 @@ select -ne :defaultShaderList1;
 	setAttr -k on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 42 ".s";
+	setAttr -s 43 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -k on ".ihi";
@@ -18516,7 +18668,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 39 ".dsm";
+	setAttr -s 36 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -18525,7 +18677,7 @@ select -ne :initialShadingGroup;
 	setAttr -k on ".fo";
 	setAttr -k on ".epo";
 	setAttr -k on ".ro" yes;
-	setAttr -s 22 ".gn";
+	setAttr -s 20 ".gn";
 	setAttr -cb on ".mimt";
 	setAttr -cb on ".miop";
 	setAttr -k on ".mico";
@@ -18661,8 +18813,8 @@ select -ne :defaultResolution;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -av ".w";
-	setAttr -av ".h";
+	setAttr -av ".w" 480;
+	setAttr -av ".h" 270;
 	setAttr -av ".pa" 1;
 	setAttr -av -k on ".al" yes;
 	setAttr -av ".dar" 1.7777777910232544;
@@ -18782,7 +18934,7 @@ select -ne :ikSystem;
 	setAttr -k on ".bnm";
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
-	setAttr -s 5 ".sol";
+	setAttr -s 4 ".sol";
 connectAttr "Emily_Body_RigRN.phl[1]" "Emily_Body_RigRN.phl[2]";
 connectAttr "Emily_Body_Rig:Main_Resolution.o" "Emily_Body_RigRN.phl[3]";
 connectAttr "Emily_Body_Rig:Main_fkVis.o" "Emily_Body_RigRN.phl[4]";
@@ -19295,15 +19447,30 @@ connectAttr "Emily_Body_Rig:LidSetup_blinkCenter_R1.o" "Emily_Body_RigRN.phl[397
 		;
 connectAttr "Emily_Body_Rig:LidSetup_blink_L1.o" "Emily_Body_RigRN.phl[398]";
 connectAttr "Emily_Body_RigRN.phl[399]" "RMSGPSurface1SG.dsm" -na;
-connectAttr "bedroom2:camera1_translateX.o" "bedroom2RN.phl[30]";
-connectAttr "bedroom2:camera1_translateY.o" "bedroom2RN.phl[31]";
-connectAttr "bedroom2:camera1_translateZ.o" "bedroom2RN.phl[32]";
-connectAttr "bedroom2:camera1_rotateX.o" "bedroom2RN.phl[33]";
-connectAttr "bedroom2:camera1_rotateY.o" "bedroom2RN.phl[34]";
-connectAttr "bedroom2:camera1_rotateZ.o" "bedroom2RN.phl[35]";
-connectAttr "bedroom2:camera1_scaleX.o" "bedroom2RN.phl[36]";
-connectAttr "bedroom2:camera1_scaleY.o" "bedroom2RN.phl[37]";
-connectAttr "bedroom2:camera1_scaleZ.o" "bedroom2RN.phl[38]";
+connectAttr "bedroom2:camera1_translateX.o" "bedroom2RN.phl[49]";
+connectAttr "bedroom2:camera1_translateY.o" "bedroom2RN.phl[50]";
+connectAttr "bedroom2:camera1_translateZ.o" "bedroom2RN.phl[51]";
+connectAttr "bedroom2:camera1_rotateX.o" "bedroom2RN.phl[52]";
+connectAttr "bedroom2:camera1_rotateY.o" "bedroom2RN.phl[53]";
+connectAttr "bedroom2:camera1_rotateZ.o" "bedroom2RN.phl[54]";
+connectAttr "bedroom2:camera1_scaleX.o" "bedroom2RN.phl[55]";
+connectAttr "bedroom2:camera1_scaleY.o" "bedroom2RN.phl[56]";
+connectAttr "bedroom2:camera1_scaleZ.o" "bedroom2RN.phl[57]";
+connectAttr "groupParts3.og" "bedroom2RN.phl[30]";
+connectAttr "bedroom2RN.phl[31]" "RMSGPSurface4SG.dsm" -na;
+connectAttr "groupId1.id" "bedroom2RN.phl[32]";
+connectAttr "RMSGPSurface4SG.mwc" "bedroom2RN.phl[33]";
+connectAttr "groupId3.id" "bedroom2RN.phl[34]";
+connectAttr "bedroom2RN.phl[35]" "bedroom2RN.phl[36]";
+connectAttr "groupId4.id" "bedroom2RN.phl[37]";
+connectAttr "bedroom2RN.phl[38]" "bedroom2RN.phl[39]";
+connectAttr "bedroom2RN.phl[40]" "RMSGPSurface4SG.dsm" -na;
+connectAttr "groupId2.id" "bedroom2RN.phl[41]";
+connectAttr "groupId3.msg" "bedroom2RN.phl[42]";
+connectAttr "bedroom2RN.phl[43]" "bedroom2RN.phl[44]";
+connectAttr "groupId4.msg" "bedroom2RN.phl[45]";
+connectAttr "bedroom2RN.phl[46]" "bedroom2RN.phl[47]";
+connectAttr "bedroom2RN.phl[48]" "groupParts1.ig";
 connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_translateZ.o" "Clyde_rig_temporary2RN.phl[15]"
 		;
 connectAttr "Clyde_rig_temporary2:CTRL_Clyde_Main_translateX.o" "Clyde_rig_temporary2RN.phl[16]"
@@ -19473,6 +19640,7 @@ relationship "link" ":lightLinker1" "bedsheet:PxrConstant1SG.message" ":defaultL
 relationship "link" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -19482,9 +19650,11 @@ relationship "shadowLink" ":lightLinker1" "bedsheet:PxrConstant1SG.message" ":de
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "Floor.oc" "lambert2SG.ss";
+connectAttr "FloorShape1.iog" "lambert2SG.dsm" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "Floor.msg" "materialInfo1.m";
 connectAttr "sharedReferenceNode.sr" "Emily_Pre_VisRN.sr";
@@ -19658,6 +19828,17 @@ connectAttr "BlanketShape.iog" "RMSGPSurface3SG.dsm" -na;
 connectAttr "RMSGPSurface3SG.msg" "materialInfo4.sg";
 connectAttr "BlanketStandin.msg" "materialInfo4.m";
 connectAttr "BlanketStandin.msg" "materialInfo4.t" -na;
+connectAttr "FloorWallsStandin.oc" "RMSGPSurface4SG.ss";
+connectAttr "groupId1.msg" "RMSGPSurface4SG.gn" -na;
+connectAttr "groupId2.msg" "RMSGPSurface4SG.gn" -na;
+connectAttr "RMSGPSurface4SG.msg" "materialInfo5.sg";
+connectAttr "FloorWallsStandin.msg" "materialInfo5.m";
+connectAttr "FloorWallsStandin.msg" "materialInfo5.t" -na;
+connectAttr "groupId1.id" "groupParts1.gi";
+connectAttr "groupParts1.og" "groupParts2.ig";
+connectAttr "groupId3.id" "groupParts2.gi";
+connectAttr "groupParts2.og" "groupParts3.ig";
+connectAttr "groupId4.id" "groupParts3.gi";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "bedsheet:PxrLMDiffuse1SG.pa" ":renderPartition.st" -na;
 connectAttr "bedsheet:cubeFogSG.pa" ":renderPartition.st" -na;
@@ -19665,6 +19846,7 @@ connectAttr "bedsheet:PxrConstant1SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface2SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface3SG.pa" ":renderPartition.st" -na;
+connectAttr "RMSGPSurface4SG.pa" ":renderPartition.st" -na;
 connectAttr "Floor.msg" ":defaultShaderList1.s" -na;
 connectAttr "bedsheet:PxrLMDiffuse1.msg" ":defaultShaderList1.s" -na;
 connectAttr "bedsheet:cubeFog.msg" ":defaultShaderList1.s" -na;
@@ -19672,6 +19854,7 @@ connectAttr "bedsheet:PxrConstant1.msg" ":defaultShaderList1.s" -na;
 connectAttr "EmilySkinStandin.msg" ":defaultShaderList1.s" -na;
 connectAttr "ClydeFurStandin.msg" ":defaultShaderList1.s" -na;
 connectAttr "BlanketStandin.msg" ":defaultShaderList1.s" -na;
+connectAttr "FloorWallsStandin.msg" ":defaultShaderList1.s" -na;
 connectAttr "bedsheet:place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bedsheet:place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
@@ -19679,7 +19862,6 @@ connectAttr "SunlightShape.ltd" ":lightList1.l" -na;
 connectAttr "RMSEnvLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "bedsheet:file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "bedsheet:bulge1.msg" ":defaultTextureList1.tx" -na;
-connectAttr "FloorShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Sunlight.iog" ":defaultLightSet.dsm" -na;
 connectAttr "RMSEnvLight1.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
