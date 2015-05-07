@@ -1,20 +1,11 @@
 //Maya ASCII 2015 scene
 //Name: Candy_Crossfade.ma
-<<<<<<< Updated upstream
 //Last modified: Wed, May 06, 2015 12:47:23 PM
 //Codeset: 1252
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
 requires -nodeType "RenderMan" -nodeType "RMSGPSurface" "RenderMan_for_Maya" "5.5";
-=======
-//Last modified: Tue, May 05, 2015 01:07:40 AM
-//Codeset: UTF-8
-requires maya "2015";
-requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
-		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.18 ";
-requires -nodeType "RenderMan" -nodeType "RMSGPSurface" -nodeType "RMSEnvLight" "RenderMan_for_Maya" "5.5";
->>>>>>> Stashed changes
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2015";
@@ -24,29 +15,18 @@ fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-<<<<<<< Updated upstream
 	setAttr ".t" -type "double3" 0.015886569259583334 3.5151646678437132 6.2953355803306392 ;
 	setAttr ".r" -type "double3" -3.0000000000005507 -356.7999999999941 0 ;
 	setAttr ".rp" -type "double3" -1.1102230246251565e-016 2.7755575615628914e-017 -1.1102230246251565e-016 ;
 	setAttr ".rpt" -type "double3" -9.2832444723308377e-014 9.9987781680642117e-015 
 		-4.5257870899248449e-013 ;
-=======
-	setAttr ".t" -type "double3" 4.1362640489261659 3.4051520482128894 6.151354396759249 ;
-	setAttr ".r" -type "double3" 1.2000000000000008 43.600000000000058 6.8624824498457521e-17 ;
-	setAttr ".rp" -type "double3" -1.1102230246251565e-16 2.7755575615628914e-17 -1.1102230246251565e-16 ;
-	setAttr ".rpt" -type "double3" -9.2832444723308377e-14 9.9987781680642117e-15 -4.5257870899248449e-13 ;
->>>>>>> Stashed changes
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".ovr" 1.3;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999979;
-<<<<<<< Updated upstream
 	setAttr ".coi" 6.1131444828546382;
-=======
-	setAttr ".coi" 5.4742104716605908;
->>>>>>> Stashed changes
 	setAttr ".ow" 5.2739023138085503;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -30051,15 +30031,7 @@ createNode nurbsCurve -n "CTRL_FRZN_Candy_Eye_L_HOLDERShape" -p "CTRL_FRZN_Candy
 		0.24622394534589492 3.5899095922183957 2.6957303831292063
 		;
 createNode transform -n "Candy:MESH_Candy_LeftEye" -p "CTRL_FRZN_Candy_Eye_L_HOLDER";
-<<<<<<< Updated upstream
 	setAttr ".t" -type "double3" 0 -4.4408920985006262e-016 0 ;
-=======
-	setAttr ".t" -type "double3" 0 -4.4408920985006262e-16 0 ;
-	setAttr ".r" -type "double3" -9.2792434350863636e-12 -9.1670985989635145e-16 -5.4665783587646784e-16 ;
-	setAttr -av ".rx";
-	setAttr -av ".ry";
-	setAttr -av ".rz";
->>>>>>> Stashed changes
 	setAttr ".rp" -type "double3" 0.277348 3.548376 2.53981 ;
 	setAttr ".sp" -type "double3" 0.277348 3.548376 2.53981 ;
 createNode mesh -n "Candy:MESH_Candy_LeftEyeShape" -p "Candy:MESH_Candy_LeftEye";
@@ -38692,12 +38664,6 @@ createNode camera -n "sideShape2" -p "side1";
 	setAttr ".man" -type "string" "side1_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
-createNode transform -n "RMSEnvLight1";
-	setAttr ".r" -type "double3" -90 0 0 ;
-	setAttr ".s" -type "double3" -230.32394638061521 230.32394638061521 230.32394638061521 ;
-createNode RMSEnvLight -n "RMSEnvLightShape1" -p "RMSEnvLight1";
-	setAttr -k off ".v";
-	setAttr ".rman__EnvMap" -type "string" "/Users/ryandavis/Desktop/Animated Shorts/Nightmare/Color Scripts/Set 2/colorScript_set_resize2.png";
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -64176,10 +64142,12 @@ createNode shadingEngine -n "Candy:Candy:initialShadingGroup3";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 createNode materialInfo -n "Candy:Candy:materialInfo2";
+createNode lambert -n "Candy:Candy:initialShadingGroup4";
 createNode shadingEngine -n "Candy:Candy:initialShadingGroup1";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 createNode materialInfo -n "Candy:Candy:materialInfo1";
+createNode lambert -n "Candy:Candy:initialShadingGroup2";
 createNode groupId -n "Candy:groupId2";
 	setAttr ".ihi" 0;
 createNode groupId -n "Candy:groupId4";
@@ -64240,7 +64208,6 @@ createNode file -n "file1";
 	setAttr ".ftn" -type "string" "/Users/ryandavis/Desktop/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx";
 createNode place2dTexture -n "place2dTexture1";
 createNode RMSGPSurface -n "Candy_Body_Shader";
-	setAttr ".specularColor" -type "float3" 0.17978179 0.17978179 0.17978179 ;
 	setAttr ".enableDisplacement" 1;
 	setAttr ".dispMode" 2;
 createNode shadingEngine -n "RMSGPSurface1SG";
@@ -65109,7 +65076,6 @@ createNode lambert -n "eyeTestWhite";
 	setAttr ".c" -type "float3" 1 1 1 ;
 createNode shadingEngine -n "eyeTestWhiteSG";
 	setAttr ".ihi" 0;
-<<<<<<< Updated upstream
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo4";
 createNode groupId -n "groupId22";
@@ -65340,15 +65306,6 @@ createNode partition -n "CandySkinMaterial:mtorPartition";
 	addAttr -ci true -sn "rd" -ln "rlfData" -dt "string";
 	setAttr ".sr" -type "string" "";
 createNode shadingEngine -n "CandySkinMaterial:CandyBodyShaderSG";
-=======
-	setAttr -s 2 ".dsm";
-	setAttr ".ro" yes;
-	setAttr -s 2 ".gn";
-createNode materialInfo -n "materialInfo4";
-createNode groupId -n "groupId22";
-	setAttr ".ihi" 0;
-createNode groupId -n "groupId24";
->>>>>>> Stashed changes
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo5";
@@ -65359,7 +65316,6 @@ createNode shadingEngine -n "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner
 createNode materialInfo -n "materialInfo6";
 createNode shadingEngine -n "CandyHornMaterial:Horn_MaterialSG";
 	setAttr ".ihi" 0;
-<<<<<<< Updated upstream
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo7";
 createNode polyPlanarProj -n "polyPlanarProj1";
@@ -66808,50 +66764,6 @@ createNode polyTweakUV -n "Candy:polyTweakUV1";
 		 -0.011639968 0.0047521633 -0.01163362 0.004753713 -0.011772588 0.0047574085 -0.011887968
 		 0.0047599715 -0.011931092 0.0047603888 -0.014511794 0.0048406166 -0.014371276 0.0048366231
 		 0.010318488 0.0025869054 -0.014370948 0.0049625081;
-=======
-createNode RMSGPSurface -n "CandyHornShader";
-	setAttr ".sheen" 1;
-createNode shadingEngine -n "RMSGPSurface2SG";
-	setAttr ".ihi" 0;
-	setAttr ".ro" yes;
-createNode materialInfo -n "materialInfo5";
-createNode file -n "Horn_Base";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Horn_Base_Candy:MESH_Candy_Horn.ptx";
-createNode place2dTexture -n "place2dTexture4";
-createNode file -n "Horn_Incandescene";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Horn_Incandescene_Candy:MESH_Candy_Horn.ptx";
-createNode place2dTexture -n "place2dTexture5";
-createNode file -n "Horn_Gloss";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Horn_Gloss_Candy:MESH_Candy_Horn.ptx";
-createNode place2dTexture -n "place2dTexture6";
-createNode place2dTexture -n "place2dTexture7";
-createNode RMSGPSurface -n "CandyEyeShader";
-	setAttr ".sheen" 1;
-createNode shadingEngine -n "RMSGPSurface3SG";
-	setAttr ".ihi" 0;
-	setAttr ".ro" yes;
-createNode materialInfo -n "materialInfo6";
-createNode file -n "Eye_Base";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx";
-createNode place2dTexture -n "place2dTexture8";
-createNode file -n "Eye_Gloss";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Eye_Gloss_Candy:MESH_Candy_LeftEye.ptx";
-createNode place2dTexture -n "place2dTexture9";
-createNode file -n "Eye_Incandescence";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Eye_Incandescence_Candy:MESH_Candy_LeftEye.ptx";
-createNode place2dTexture -n "place2dTexture10";
-createNode file -n "file4";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Eye_Specular_Candy:MESH_Candy_LeftEye.ptx";
-createNode place2dTexture -n "place2dTexture11";
-createNode RMSGPSurface -n "CandyEyeShader2";
-createNode shadingEngine -n "RMSGPSurface4SG";
-	setAttr ".ihi" 0;
-	setAttr ".ro" yes;
-createNode materialInfo -n "materialInfo7";
-createNode file -n "file5";
-	setAttr ".ftn" -type "string" "/Users/ryandavis/Documents/Nightmare//assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx";
-createNode place2dTexture -n "place2dTexture12";
->>>>>>> Stashed changes
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -66877,11 +66789,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-<<<<<<< Updated upstream
 	setAttr -s 12 ".s";
-=======
-	setAttr -s 8 ".s";
->>>>>>> Stashed changes
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -66893,24 +66801,15 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-<<<<<<< Updated upstream
 	setAttr -s 18 ".u";
-=======
-	setAttr -s 12 ".u";
->>>>>>> Stashed changes
 select -ne :defaultRenderingList1;
 	setAttr -s 2 ".r";
-select -ne :lightList1;
 select -ne :defaultTextureList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-<<<<<<< Updated upstream
 	setAttr -s 16 ".tx";
-=======
-	setAttr -s 11 ".tx";
->>>>>>> Stashed changes
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -73253,15 +73152,9 @@ relationship "link" ":lightLinker1" "Candy:Candy:initialShadingGroup1.message" "
 relationship "link" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "eyeTestWhiteSG.message" ":defaultLightSet.message";
-<<<<<<< Updated upstream
 relationship "link" ":lightLinker1" "CandySkinMaterial:CandyBodyShaderSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner_EyeSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "CandyHornMaterial:Horn_MaterialSG.message" ":defaultLightSet.message";
-=======
-relationship "link" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
->>>>>>> Stashed changes
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -73270,15 +73163,9 @@ relationship "shadowLink" ":lightLinker1" "Candy:Candy:initialShadingGroup1.mess
 relationship "shadowLink" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "eyeTestWhiteSG.message" ":defaultLightSet.message";
-<<<<<<< Updated upstream
 relationship "shadowLink" ":lightLinker1" "CandySkinMaterial:CandyBodyShaderSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner_EyeSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "CandyHornMaterial:Horn_MaterialSG.message" ":defaultLightSet.message";
-=======
-relationship "shadowLink" ":lightLinker1" "RMSGPSurface2SG.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" "RMSGPSurface3SG.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" "RMSGPSurface4SG.message" ":defaultLightSet.message";
->>>>>>> Stashed changes
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "newCandy_JanFeb5:Candy:hyperView1.msg" "newCandy_JanFeb5:Candy:nodeEditorPanel2Info.b[0]"
@@ -74172,19 +74059,22 @@ connectAttr "CLU_Neck_6Cluster.og[0]" "cluster14GroupParts.ig";
 connectAttr "cluster14GroupId.id" "cluster14GroupParts.gi";
 connectAttr "layerManager.dli[24]" "LOCATORS_MOUTH_UP.id";
 connectAttr "eyeTest.oc" "lambert2SG.ss";
-<<<<<<< Updated upstream
-=======
-connectAttr "groupId26.msg" "lambert2SG.gn" -na;
-connectAttr "Candy:MESH_Candy_RightEyeShape.iog.og[1]" "lambert2SG.dsm" -na;
->>>>>>> Stashed changes
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "eyeTest.msg" "materialInfo1.m";
 connectAttr "transformGeometry10.og" "transformGeometry13.ig";
 connectAttr "makeNurbCircle12.oc" "transformGeometry17.ig";
 connectAttr "Candy:renderLayerManager.rlmi[0]" "Candy:defaultRenderLayer.rlid";
+connectAttr "Candy:Candy:initialShadingGroup4.oc" "Candy:Candy:initialShadingGroup3.ss"
+		;
 connectAttr "Candy:Candy:initialShadingGroup3.msg" "Candy:Candy:materialInfo2.sg"
 		;
+connectAttr "Candy:Candy:initialShadingGroup4.msg" "Candy:Candy:materialInfo2.m"
+		;
+connectAttr "Candy:Candy:initialShadingGroup2.oc" "Candy:Candy:initialShadingGroup1.ss"
+		;
 connectAttr "Candy:Candy:initialShadingGroup1.msg" "Candy:Candy:materialInfo1.sg"
+		;
+connectAttr "Candy:Candy:initialShadingGroup2.msg" "Candy:Candy:materialInfo1.m"
 		;
 connectAttr "CTRL_Candy_FrontLeg_Hoof_R.Hoof_FRONT_Curl_R" "unitConversion20.i";
 connectAttr "CTRL_Candy_FrontLeg_Hoof_R.Fetlock_FRONT_Curl_R" "unitConversion21.i"
@@ -74275,7 +74165,6 @@ connectAttr "place2dTexture3.vc1" "file3.vc1";
 connectAttr "place2dTexture3.o" "file3.uv";
 connectAttr "place2dTexture3.ofs" "file3.fs";
 connectAttr "eyeTestWhite.oc" "eyeTestWhiteSG.ss";
-<<<<<<< Updated upstream
 connectAttr "eyeTestWhiteSG.msg" "materialInfo4.sg";
 connectAttr "eyeTestWhite.msg" "materialInfo4.m";
 connectAttr "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.oc" "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner_Eye.surfaceColor"
@@ -74518,199 +74407,21 @@ connectAttr "CandyHornMaterial:ramp3.msg" "materialInfo7.t" -na;
 connectAttr "Candy:polySurfaceShape2.o" "polyPlanarProj1.ip";
 connectAttr "Candy:MESH_Candy_HornShape.wm" "polyPlanarProj1.mp";
 connectAttr "polyPlanarProj1.out" "Candy:polyTweakUV1.ip";
-=======
-connectAttr "Candy:MESH_Candy_RightEyeShape.iog.og[0]" "eyeTestWhiteSG.dsm" -na;
-connectAttr "Candy:MESH_Candy_RightEyeShape.ciog.cog[0]" "eyeTestWhiteSG.dsm" -na
-		;
-connectAttr "groupId24.msg" "eyeTestWhiteSG.gn" -na;
-connectAttr "groupId25.msg" "eyeTestWhiteSG.gn" -na;
-connectAttr "eyeTestWhiteSG.msg" "materialInfo4.sg";
-connectAttr "eyeTestWhite.msg" "materialInfo4.m";
-connectAttr "Horn_Base.oc" "CandyHornShader.surfaceColor";
-connectAttr "Horn_Incandescene.oc" "CandyHornShader.emission";
-connectAttr "CandyHornShader.oc" "RMSGPSurface2SG.ss";
-connectAttr "Candy:MESH_Candy_HornShape.iog" "RMSGPSurface2SG.dsm" -na;
-connectAttr "RMSGPSurface2SG.msg" "materialInfo5.sg";
-connectAttr "CandyHornShader.msg" "materialInfo5.m";
-connectAttr "CandyHornShader.msg" "materialInfo5.t" -na;
-connectAttr "place2dTexture4.c" "Horn_Base.c";
-connectAttr "place2dTexture4.tf" "Horn_Base.tf";
-connectAttr "place2dTexture4.rf" "Horn_Base.rf";
-connectAttr "place2dTexture4.mu" "Horn_Base.mu";
-connectAttr "place2dTexture4.mv" "Horn_Base.mv";
-connectAttr "place2dTexture4.s" "Horn_Base.s";
-connectAttr "place2dTexture4.wu" "Horn_Base.wu";
-connectAttr "place2dTexture4.wv" "Horn_Base.wv";
-connectAttr "place2dTexture4.re" "Horn_Base.re";
-connectAttr "place2dTexture4.of" "Horn_Base.of";
-connectAttr "place2dTexture4.r" "Horn_Base.ro";
-connectAttr "place2dTexture4.n" "Horn_Base.n";
-connectAttr "place2dTexture4.vt1" "Horn_Base.vt1";
-connectAttr "place2dTexture4.vt2" "Horn_Base.vt2";
-connectAttr "place2dTexture4.vt3" "Horn_Base.vt3";
-connectAttr "place2dTexture4.vc1" "Horn_Base.vc1";
-connectAttr "place2dTexture4.o" "Horn_Base.uv";
-connectAttr "place2dTexture4.ofs" "Horn_Base.fs";
-connectAttr "place2dTexture5.c" "Horn_Incandescene.c";
-connectAttr "place2dTexture5.tf" "Horn_Incandescene.tf";
-connectAttr "place2dTexture5.rf" "Horn_Incandescene.rf";
-connectAttr "place2dTexture5.mu" "Horn_Incandescene.mu";
-connectAttr "place2dTexture5.mv" "Horn_Incandescene.mv";
-connectAttr "place2dTexture5.s" "Horn_Incandescene.s";
-connectAttr "place2dTexture5.wu" "Horn_Incandescene.wu";
-connectAttr "place2dTexture5.wv" "Horn_Incandescene.wv";
-connectAttr "place2dTexture5.re" "Horn_Incandescene.re";
-connectAttr "place2dTexture5.of" "Horn_Incandescene.of";
-connectAttr "place2dTexture5.r" "Horn_Incandescene.ro";
-connectAttr "place2dTexture5.n" "Horn_Incandescene.n";
-connectAttr "place2dTexture5.vt1" "Horn_Incandescene.vt1";
-connectAttr "place2dTexture5.vt2" "Horn_Incandescene.vt2";
-connectAttr "place2dTexture5.vt3" "Horn_Incandescene.vt3";
-connectAttr "place2dTexture5.vc1" "Horn_Incandescene.vc1";
-connectAttr "place2dTexture5.o" "Horn_Incandescene.uv";
-connectAttr "place2dTexture5.ofs" "Horn_Incandescene.fs";
-connectAttr "place2dTexture6.c" "Horn_Gloss.c";
-connectAttr "place2dTexture6.tf" "Horn_Gloss.tf";
-connectAttr "place2dTexture6.rf" "Horn_Gloss.rf";
-connectAttr "place2dTexture6.mu" "Horn_Gloss.mu";
-connectAttr "place2dTexture6.mv" "Horn_Gloss.mv";
-connectAttr "place2dTexture6.s" "Horn_Gloss.s";
-connectAttr "place2dTexture6.wu" "Horn_Gloss.wu";
-connectAttr "place2dTexture6.wv" "Horn_Gloss.wv";
-connectAttr "place2dTexture6.re" "Horn_Gloss.re";
-connectAttr "place2dTexture6.of" "Horn_Gloss.of";
-connectAttr "place2dTexture6.r" "Horn_Gloss.ro";
-connectAttr "place2dTexture6.n" "Horn_Gloss.n";
-connectAttr "place2dTexture6.vt1" "Horn_Gloss.vt1";
-connectAttr "place2dTexture6.vt2" "Horn_Gloss.vt2";
-connectAttr "place2dTexture6.vt3" "Horn_Gloss.vt3";
-connectAttr "place2dTexture6.vc1" "Horn_Gloss.vc1";
-connectAttr "place2dTexture6.o" "Horn_Gloss.uv";
-connectAttr "place2dTexture6.ofs" "Horn_Gloss.fs";
-connectAttr "Eye_Base.oc" "CandyEyeShader.surfaceColor";
-connectAttr "Eye_Incandescence.oc" "CandyEyeShader.emission";
-connectAttr "file4.oa" "CandyEyeShader.specularGain";
-connectAttr "CandyEyeShader.oc" "RMSGPSurface3SG.ss";
-connectAttr "RMSGPSurface3SG.msg" "materialInfo6.sg";
-connectAttr "CandyEyeShader.msg" "materialInfo6.m";
-connectAttr "CandyEyeShader.msg" "materialInfo6.t" -na;
-connectAttr "place2dTexture8.c" "Eye_Base.c";
-connectAttr "place2dTexture8.tf" "Eye_Base.tf";
-connectAttr "place2dTexture8.rf" "Eye_Base.rf";
-connectAttr "place2dTexture8.mu" "Eye_Base.mu";
-connectAttr "place2dTexture8.mv" "Eye_Base.mv";
-connectAttr "place2dTexture8.s" "Eye_Base.s";
-connectAttr "place2dTexture8.wu" "Eye_Base.wu";
-connectAttr "place2dTexture8.wv" "Eye_Base.wv";
-connectAttr "place2dTexture8.re" "Eye_Base.re";
-connectAttr "place2dTexture8.of" "Eye_Base.of";
-connectAttr "place2dTexture8.r" "Eye_Base.ro";
-connectAttr "place2dTexture8.n" "Eye_Base.n";
-connectAttr "place2dTexture8.vt1" "Eye_Base.vt1";
-connectAttr "place2dTexture8.vt2" "Eye_Base.vt2";
-connectAttr "place2dTexture8.vt3" "Eye_Base.vt3";
-connectAttr "place2dTexture8.vc1" "Eye_Base.vc1";
-connectAttr "place2dTexture8.o" "Eye_Base.uv";
-connectAttr "place2dTexture8.ofs" "Eye_Base.fs";
-connectAttr "place2dTexture9.c" "Eye_Gloss.c";
-connectAttr "place2dTexture9.tf" "Eye_Gloss.tf";
-connectAttr "place2dTexture9.rf" "Eye_Gloss.rf";
-connectAttr "place2dTexture9.mu" "Eye_Gloss.mu";
-connectAttr "place2dTexture9.mv" "Eye_Gloss.mv";
-connectAttr "place2dTexture9.s" "Eye_Gloss.s";
-connectAttr "place2dTexture9.wu" "Eye_Gloss.wu";
-connectAttr "place2dTexture9.wv" "Eye_Gloss.wv";
-connectAttr "place2dTexture9.re" "Eye_Gloss.re";
-connectAttr "place2dTexture9.of" "Eye_Gloss.of";
-connectAttr "place2dTexture9.r" "Eye_Gloss.ro";
-connectAttr "place2dTexture9.n" "Eye_Gloss.n";
-connectAttr "place2dTexture9.vt1" "Eye_Gloss.vt1";
-connectAttr "place2dTexture9.vt2" "Eye_Gloss.vt2";
-connectAttr "place2dTexture9.vt3" "Eye_Gloss.vt3";
-connectAttr "place2dTexture9.vc1" "Eye_Gloss.vc1";
-connectAttr "place2dTexture9.o" "Eye_Gloss.uv";
-connectAttr "place2dTexture9.ofs" "Eye_Gloss.fs";
-connectAttr "place2dTexture10.c" "Eye_Incandescence.c";
-connectAttr "place2dTexture10.tf" "Eye_Incandescence.tf";
-connectAttr "place2dTexture10.rf" "Eye_Incandescence.rf";
-connectAttr "place2dTexture10.mu" "Eye_Incandescence.mu";
-connectAttr "place2dTexture10.mv" "Eye_Incandescence.mv";
-connectAttr "place2dTexture10.s" "Eye_Incandescence.s";
-connectAttr "place2dTexture10.wu" "Eye_Incandescence.wu";
-connectAttr "place2dTexture10.wv" "Eye_Incandescence.wv";
-connectAttr "place2dTexture10.re" "Eye_Incandescence.re";
-connectAttr "place2dTexture10.of" "Eye_Incandescence.of";
-connectAttr "place2dTexture10.r" "Eye_Incandescence.ro";
-connectAttr "place2dTexture10.n" "Eye_Incandescence.n";
-connectAttr "place2dTexture10.vt1" "Eye_Incandescence.vt1";
-connectAttr "place2dTexture10.vt2" "Eye_Incandescence.vt2";
-connectAttr "place2dTexture10.vt3" "Eye_Incandescence.vt3";
-connectAttr "place2dTexture10.vc1" "Eye_Incandescence.vc1";
-connectAttr "place2dTexture10.o" "Eye_Incandescence.uv";
-connectAttr "place2dTexture10.ofs" "Eye_Incandescence.fs";
-connectAttr "place2dTexture11.c" "file4.c";
-connectAttr "place2dTexture11.tf" "file4.tf";
-connectAttr "place2dTexture11.rf" "file4.rf";
-connectAttr "place2dTexture11.mu" "file4.mu";
-connectAttr "place2dTexture11.mv" "file4.mv";
-connectAttr "place2dTexture11.s" "file4.s";
-connectAttr "place2dTexture11.wu" "file4.wu";
-connectAttr "place2dTexture11.wv" "file4.wv";
-connectAttr "place2dTexture11.re" "file4.re";
-connectAttr "place2dTexture11.of" "file4.of";
-connectAttr "place2dTexture11.r" "file4.ro";
-connectAttr "place2dTexture11.n" "file4.n";
-connectAttr "place2dTexture11.vt1" "file4.vt1";
-connectAttr "place2dTexture11.vt2" "file4.vt2";
-connectAttr "place2dTexture11.vt3" "file4.vt3";
-connectAttr "place2dTexture11.vc1" "file4.vc1";
-connectAttr "place2dTexture11.o" "file4.uv";
-connectAttr "place2dTexture11.ofs" "file4.fs";
-connectAttr "file5.oc" "CandyEyeShader2.surfaceColor";
-connectAttr "CandyEyeShader2.oc" "RMSGPSurface4SG.ss";
-connectAttr "Candy:MESH_Candy_LeftEyeShape.iog" "RMSGPSurface4SG.dsm" -na;
-connectAttr "RMSGPSurface4SG.msg" "materialInfo7.sg";
-connectAttr "CandyEyeShader2.msg" "materialInfo7.m";
-connectAttr "CandyEyeShader2.msg" "materialInfo7.t" -na;
-connectAttr "place2dTexture12.c" "file5.c";
-connectAttr "place2dTexture12.tf" "file5.tf";
-connectAttr "place2dTexture12.rf" "file5.rf";
-connectAttr "place2dTexture12.mu" "file5.mu";
-connectAttr "place2dTexture12.mv" "file5.mv";
-connectAttr "place2dTexture12.s" "file5.s";
-connectAttr "place2dTexture12.wu" "file5.wu";
-connectAttr "place2dTexture12.wv" "file5.wv";
-connectAttr "place2dTexture12.re" "file5.re";
-connectAttr "place2dTexture12.of" "file5.of";
-connectAttr "place2dTexture12.r" "file5.ro";
-connectAttr "place2dTexture12.n" "file5.n";
-connectAttr "place2dTexture12.vt1" "file5.vt1";
-connectAttr "place2dTexture12.vt2" "file5.vt2";
-connectAttr "place2dTexture12.vt3" "file5.vt3";
-connectAttr "place2dTexture12.vc1" "file5.vc1";
-connectAttr "place2dTexture12.o" "file5.uv";
-connectAttr "place2dTexture12.ofs" "file5.fs";
->>>>>>> Stashed changes
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "Candy:Candy:initialShadingGroup3.pa" ":renderPartition.st" -na;
 connectAttr "Candy:Candy:initialShadingGroup1.pa" ":renderPartition.st" -na;
 connectAttr "blinn1SG.pa" ":renderPartition.st" -na;
 connectAttr "RMSGPSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "eyeTestWhiteSG.pa" ":renderPartition.st" -na;
-<<<<<<< Updated upstream
 connectAttr "CandySkinMaterial:CandyBodyShaderSG.pa" ":renderPartition.st" -na;
 connectAttr "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner_EyeSG.pa" ":renderPartition.st"
 		 -na;
 connectAttr "CandyHornMaterial:Horn_MaterialSG.pa" ":renderPartition.st" -na;
-=======
-connectAttr "RMSGPSurface2SG.pa" ":renderPartition.st" -na;
-connectAttr "RMSGPSurface3SG.pa" ":renderPartition.st" -na;
-connectAttr "RMSGPSurface4SG.pa" ":renderPartition.st" -na;
->>>>>>> Stashed changes
 connectAttr "eyeTest.msg" ":defaultShaderList1.s" -na;
+connectAttr "Candy:Candy:initialShadingGroup4.msg" ":defaultShaderList1.s" -na;
+connectAttr "Candy:Candy:initialShadingGroup2.msg" ":defaultShaderList1.s" -na;
 connectAttr "Candy_Body_Shader.msg" ":defaultShaderList1.s" -na;
 connectAttr "eyeTestWhite.msg" ":defaultShaderList1.s" -na;
-<<<<<<< Updated upstream
 connectAttr "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Inner_Eye.msg" ":defaultShaderList1.s"
 		 -na;
 connectAttr "CandyHornMaterial:Horn_Material.msg" ":defaultShaderList1.s" -na;
@@ -74750,30 +74461,11 @@ connectAttr "CandySkinMaterial:place2dTexture9.msg" ":defaultRenderUtilityList1.
 		 -na;
 connectAttr "CandySkinMaterial:remapValue1.msg" ":defaultRenderUtilityList1.u" -na
 		;
-=======
-connectAttr "CandyHornShader.msg" ":defaultShaderList1.s" -na;
-connectAttr "CandyEyeShader.msg" ":defaultShaderList1.s" -na;
-connectAttr "CandyEyeShader2.msg" ":defaultShaderList1.s" -na;
-connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture3.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture4.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture5.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture6.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture7.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture8.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture9.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture10.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture11.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place2dTexture12.msg" ":defaultRenderUtilityList1.u" -na;
->>>>>>> Stashed changes
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Candy:defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "RMSEnvLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
-<<<<<<< Updated upstream
 connectAttr "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:Main_Iris_Ramp.msg" ":defaultTextureList1.tx"
 		 -na;
 connectAttr "CandyEyeMaterial:CandyEyeMaterial:EyeMaterial:IrisRamp1.msg" ":defaultTextureList1.tx"
@@ -74797,36 +74489,16 @@ connectAttr "CandySkinMaterial:SSS_Tint.msg" ":defaultTextureList1.tx" -na;
 connectAttr "groupId7.msg" ":initialShadingGroup.gn" -na;
 connectAttr "Candy:groupId4.msg" ":initialShadingGroup.gn" -na;
 connectAttr "Candy:groupId5.msg" ":initialShadingGroup.gn" -na;
-=======
-connectAttr "Horn_Base.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Horn_Incandescene.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Horn_Gloss.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Eye_Base.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Eye_Gloss.msg" ":defaultTextureList1.tx" -na;
-connectAttr "Eye_Incandescence.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file4.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file5.msg" ":defaultTextureList1.tx" -na;
->>>>>>> Stashed changes
 connectAttr "MESH_Candy_TongueShapeDeformed.iog.og[2]" ":initialShadingGroup.dsm"
 		 -na;
 connectAttr "Candy:MESH_Candy_BodyShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Candy:MESH_Candy_TongueShape.iog.og[0]" ":initialShadingGroup.dsm" 
 		-na;
-<<<<<<< Updated upstream
-=======
-connectAttr "groupId7.msg" ":initialShadingGroup.gn" -na;
-connectAttr "Candy:groupId4.msg" ":initialShadingGroup.gn" -na;
-connectAttr "Candy:groupId5.msg" ":initialShadingGroup.gn" -na;
-connectAttr "RMSEnvLight1.iog" ":defaultLightSet.dsm" -na;
->>>>>>> Stashed changes
 connectAttr "ikSCsolver.msg" ":ikSystem.sol" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
 connectAttr "ikSplineSolver.msg" ":ikSystem.sol" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-<<<<<<< Updated upstream
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"file1\" \"fileTextureName\" \"/Users/ryandavis/Desktop/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 23290728 \"\" \"sourceImages\"\n1\n\"file2\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 3736093008 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" \"sourceImages\"\n2\n\"file3\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" 2226774275 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" \"sourceImages\"\n3\n\"CandySkinMaterial:Color\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 3736093008 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" \"sourceImages\"\n4\n\"CandySkinMaterial:Bump_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" 2226774275 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" \"sourceImages\"\n5\n\"CandySkinMaterial:SSS_Tint\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" 4134397310 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" \"sourceImages\"\n6\n\"CandySkinMaterial:Anistropy_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" 3328013752 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
-=======
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"file1\" \"fileTextureName\" \"/Users/ryandavis/Desktop/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 23290728 \"\" \"sourceImages\"\n1\n\"file2\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 3526236332 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" \"sourceImages\"\n2\n\"file3\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" 1354465591 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" \"sourceImages\"\n3\n\"Horn_Base\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Base_Candy:MESH_Candy_Horn.ptx\" 459536266 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Base_Candy:MESH_Candy_Horn.ptx\" \"sourceImages\"\n4\n\"Horn_Incandescene\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Incandescene_Candy:MESH_Candy_Horn.ptx\" 3291263454 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Incandescene_Candy:MESH_Candy_Horn.ptx\" \"sourceImages\"\n5\n\"Horn_Gloss\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Gloss_Candy:MESH_Candy_Horn.ptx\" 4164929162 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Horn_Gloss_Candy:MESH_Candy_Horn.ptx\" \"sourceImages\"\n6\n\"Eye_Base\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx\" 4234037278 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx\" \"sourceImages\"\n7\n\"Eye_Gloss\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Gloss_Candy:MESH_Candy_LeftEye.ptx\" 1441150106 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Gloss_Candy:MESH_Candy_LeftEye.ptx\" \"sourceImages\"\n8\n\"Eye_Incandescence\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Incandescence_Candy:MESH_Candy_LeftEye.ptx\" 2403848345 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Incandescence_Candy:MESH_Candy_LeftEye.ptx\" \"sourceImages\"\n9\n\"file4\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Specular_Candy:MESH_Candy_LeftEye.ptx\" 1941033164 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Specular_Candy:MESH_Candy_LeftEye.ptx\" \"sourceImages\"\n10\n\"file5\" \"fileTextureName\" \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx\" 4234037278 \"/Users/ryandavis/Documents/Nightmare/assets/Candy Textures/Candy_Eye_Base_Try2_Candy:MESH_Candy_LeftEye.ptx\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
->>>>>>> Stashed changes
 		-scn;
 // End of Candy_Crossfade.ma
+
