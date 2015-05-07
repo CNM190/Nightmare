@@ -74,10 +74,10 @@
   file       : "crossfade part1.ma"
   camera     : 'bedroom2:camera1'
   startFrame : 0
-  endFrame   : 90
+  endFrame   : 110
 
 - name       : "Crossfade Part 2"
   file       : "crossfade part2.ma"
   camera     : 'bedroom2:camera1'
-  startFrame : 91
+  startFrame : 90
   endFrame   : 140
