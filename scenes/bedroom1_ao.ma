@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1_ao.ma
-//Last modified: Fri, May 08, 2015 12:26:11 PM
+//Last modified: Fri, May 08, 2015 01:32:08 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom1" -rfn "bedroom1RN" -op "v=0;" "/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma";
 file -rdi 2 -ns "anim_ready_Emily" -rfn "bedroom1:anim_ready_EmilyRN" "/home/tmp/cs198-re/Nightmare//assets/chars/Emily.ma";
@@ -16,7 +16,8 @@ file -r -ns "bedroom1" -dr 1 -rfn "bedroom1RN" -op "v=0;" "/home/tmp/cs198-re/Ni
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
 		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
-requires -nodeType "RenderMan" -nodeType "RMSGeoAreaLight" "RenderMan_for_Maya" "5.5";
+requires -nodeType "RenderMan" -nodeType "RMSGeoAreaLight" -nodeType "RMSGPSurface"
+		 "RenderMan_for_Maya" "5.5";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -27,12 +28,13 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.34094513874850385 2.5543095530621183 -2.60021781901091 ;
-	setAttr ".r" -type "double3" -1.5383527296707851 292.99999999995561 0 ;
+	setAttr ".t" -type "double3" -2.3906219173733843 2.9368118389909088 -3.1971509404496139 ;
+	setAttr ".r" -type "double3" -5.1383527296714018 278.19999999994832 2.7874381786117513e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 3.4586280268592082;
+	setAttr ".coi" 5.3075880863047296;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -88,15 +90,169 @@ createNode RMSGeoAreaLight -n "EmilyRimLight" -p "EmilyRimLightTrs";
 	setAttr ".shape" -type "string" "disk";
 	setAttr ".intensity" 2;
 	setAttr ".__group" -type "string" "EmilyRimLightSet";
-createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 143 ".lnk";
-	setAttr -s 139 ".ign";
-	setAttr -s 67 ".slnk";
-createNode displayLayerManager -n "layerManager";
-createNode displayLayer -n "defaultLayer";
-createNode renderLayerManager -n "renderLayerManager";
-createNode renderLayer -n "defaultRenderLayer";
-	setAttr ".g" yes;
+createNode transform -n "EmilyFillLightTrs";
+	setAttr ".t" -type "double3" 1.0383824512754694 2.3125158143810536 -3.7022943362788876 ;
+	setAttr ".r" -type "double3" 0 276.87655479596054 0 ;
+	setAttr ".s" -type "double3" 1.7594046560067069 1.7594046560067069 1.7594046560067069 ;
+createNode RMSGeoAreaLight -n "EmilyFillLight" -p "EmilyFillLightTrs";
+	setAttr -k off ".v";
+	setAttr ".shape" -type "string" "disk";
+	setAttr ".intensity" 1;
+	setAttr ".__group" -type "string" "EmilyFillLightSet";
+createNode mentalrayItemsList -s -n "mentalrayItemsList";
+createNode mentalrayGlobals -s -n "mentalrayGlobals";
+createNode mentalrayOptions -s -n "miDefaultOptions";
+	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
+		3;
+	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr -s 48 ".stringOptions";
+	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
+	setAttr ".stringOptions[0].value" -type "string" "1.0";
+	setAttr ".stringOptions[0].type" -type "string" "scalar";
+	setAttr ".stringOptions[1].name" -type "string" "rast transparency depth";
+	setAttr ".stringOptions[1].value" -type "string" "8";
+	setAttr ".stringOptions[1].type" -type "string" "integer";
+	setAttr ".stringOptions[2].name" -type "string" "rast useopacity";
+	setAttr ".stringOptions[2].value" -type "string" "true";
+	setAttr ".stringOptions[2].type" -type "string" "boolean";
+	setAttr ".stringOptions[3].name" -type "string" "importon";
+	setAttr ".stringOptions[3].value" -type "string" "false";
+	setAttr ".stringOptions[3].type" -type "string" "boolean";
+	setAttr ".stringOptions[4].name" -type "string" "importon density";
+	setAttr ".stringOptions[4].value" -type "string" "1.0";
+	setAttr ".stringOptions[4].type" -type "string" "scalar";
+	setAttr ".stringOptions[5].name" -type "string" "importon merge";
+	setAttr ".stringOptions[5].value" -type "string" "0.0";
+	setAttr ".stringOptions[5].type" -type "string" "scalar";
+	setAttr ".stringOptions[6].name" -type "string" "importon trace depth";
+	setAttr ".stringOptions[6].value" -type "string" "0";
+	setAttr ".stringOptions[6].type" -type "string" "integer";
+	setAttr ".stringOptions[7].name" -type "string" "importon traverse";
+	setAttr ".stringOptions[7].value" -type "string" "true";
+	setAttr ".stringOptions[7].type" -type "string" "boolean";
+	setAttr ".stringOptions[8].name" -type "string" "shadowmap pixel samples";
+	setAttr ".stringOptions[8].value" -type "string" "3";
+	setAttr ".stringOptions[8].type" -type "string" "integer";
+	setAttr ".stringOptions[9].name" -type "string" "ambient occlusion";
+	setAttr ".stringOptions[9].value" -type "string" "false";
+	setAttr ".stringOptions[9].type" -type "string" "boolean";
+	setAttr ".stringOptions[10].name" -type "string" "ambient occlusion rays";
+	setAttr ".stringOptions[10].value" -type "string" "64";
+	setAttr ".stringOptions[10].type" -type "string" "integer";
+	setAttr ".stringOptions[11].name" -type "string" "ambient occlusion cache";
+	setAttr ".stringOptions[11].value" -type "string" "false";
+	setAttr ".stringOptions[11].type" -type "string" "boolean";
+	setAttr ".stringOptions[12].name" -type "string" "ambient occlusion cache density";
+	setAttr ".stringOptions[12].value" -type "string" "1.0";
+	setAttr ".stringOptions[12].type" -type "string" "scalar";
+	setAttr ".stringOptions[13].name" -type "string" "ambient occlusion cache points";
+	setAttr ".stringOptions[13].value" -type "string" "64";
+	setAttr ".stringOptions[13].type" -type "string" "integer";
+	setAttr ".stringOptions[14].name" -type "string" "irradiance particles";
+	setAttr ".stringOptions[14].value" -type "string" "false";
+	setAttr ".stringOptions[14].type" -type "string" "boolean";
+	setAttr ".stringOptions[15].name" -type "string" "irradiance particles rays";
+	setAttr ".stringOptions[15].value" -type "string" "256";
+	setAttr ".stringOptions[15].type" -type "string" "integer";
+	setAttr ".stringOptions[16].name" -type "string" "irradiance particles interpolate";
+	setAttr ".stringOptions[16].value" -type "string" "1";
+	setAttr ".stringOptions[16].type" -type "string" "integer";
+	setAttr ".stringOptions[17].name" -type "string" "irradiance particles interppoints";
+	setAttr ".stringOptions[17].value" -type "string" "64";
+	setAttr ".stringOptions[17].type" -type "string" "integer";
+	setAttr ".stringOptions[18].name" -type "string" "irradiance particles indirect passes";
+	setAttr ".stringOptions[18].value" -type "string" "0";
+	setAttr ".stringOptions[18].type" -type "string" "integer";
+	setAttr ".stringOptions[19].name" -type "string" "irradiance particles scale";
+	setAttr ".stringOptions[19].value" -type "string" "1.0";
+	setAttr ".stringOptions[19].type" -type "string" "scalar";
+	setAttr ".stringOptions[20].name" -type "string" "irradiance particles env";
+	setAttr ".stringOptions[20].value" -type "string" "true";
+	setAttr ".stringOptions[20].type" -type "string" "boolean";
+	setAttr ".stringOptions[21].name" -type "string" "irradiance particles env rays";
+	setAttr ".stringOptions[21].value" -type "string" "256";
+	setAttr ".stringOptions[21].type" -type "string" "integer";
+	setAttr ".stringOptions[22].name" -type "string" "irradiance particles env scale";
+	setAttr ".stringOptions[22].value" -type "string" "1";
+	setAttr ".stringOptions[22].type" -type "string" "integer";
+	setAttr ".stringOptions[23].name" -type "string" "irradiance particles rebuild";
+	setAttr ".stringOptions[23].value" -type "string" "true";
+	setAttr ".stringOptions[23].type" -type "string" "boolean";
+	setAttr ".stringOptions[24].name" -type "string" "irradiance particles file";
+	setAttr ".stringOptions[24].value" -type "string" "";
+	setAttr ".stringOptions[24].type" -type "string" "string";
+	setAttr ".stringOptions[25].name" -type "string" "geom displace motion factor";
+	setAttr ".stringOptions[25].value" -type "string" "1.0";
+	setAttr ".stringOptions[25].type" -type "string" "scalar";
+	setAttr ".stringOptions[26].name" -type "string" "contrast all buffers";
+	setAttr ".stringOptions[26].value" -type "string" "true";
+	setAttr ".stringOptions[26].type" -type "string" "boolean";
+	setAttr ".stringOptions[27].name" -type "string" "finalgather normal tolerance";
+	setAttr ".stringOptions[27].value" -type "string" "25.842";
+	setAttr ".stringOptions[27].type" -type "string" "scalar";
+	setAttr ".stringOptions[28].name" -type "string" "trace camera clip";
+	setAttr ".stringOptions[28].value" -type "string" "false";
+	setAttr ".stringOptions[28].type" -type "string" "boolean";
+	setAttr ".stringOptions[29].name" -type "string" "unified sampling";
+	setAttr ".stringOptions[29].value" -type "string" "true";
+	setAttr ".stringOptions[29].type" -type "string" "boolean";
+	setAttr ".stringOptions[30].name" -type "string" "samples quality";
+	setAttr ".stringOptions[30].value" -type "string" "0.25 0.25 0.25 0.25";
+	setAttr ".stringOptions[30].type" -type "string" "color";
+	setAttr ".stringOptions[31].name" -type "string" "samples min";
+	setAttr ".stringOptions[31].value" -type "string" "1.0";
+	setAttr ".stringOptions[31].type" -type "string" "scalar";
+	setAttr ".stringOptions[32].name" -type "string" "samples max";
+	setAttr ".stringOptions[32].value" -type "string" "100.0";
+	setAttr ".stringOptions[32].type" -type "string" "scalar";
+	setAttr ".stringOptions[33].name" -type "string" "samples error cutoff";
+	setAttr ".stringOptions[33].value" -type "string" "0.0 0.0 0.0 0.0";
+	setAttr ".stringOptions[33].type" -type "string" "color";
+	setAttr ".stringOptions[34].name" -type "string" "samples per object";
+	setAttr ".stringOptions[34].value" -type "string" "false";
+	setAttr ".stringOptions[34].type" -type "string" "boolean";
+	setAttr ".stringOptions[35].name" -type "string" "progressive";
+	setAttr ".stringOptions[35].value" -type "string" "false";
+	setAttr ".stringOptions[35].type" -type "string" "boolean";
+	setAttr ".stringOptions[36].name" -type "string" "progressive max time";
+	setAttr ".stringOptions[36].value" -type "string" "0";
+	setAttr ".stringOptions[36].type" -type "string" "integer";
+	setAttr ".stringOptions[37].name" -type "string" "progressive subsampling size";
+	setAttr ".stringOptions[37].value" -type "string" "4";
+	setAttr ".stringOptions[37].type" -type "string" "integer";
+	setAttr ".stringOptions[38].name" -type "string" "iray";
+	setAttr ".stringOptions[38].value" -type "string" "false";
+	setAttr ".stringOptions[38].type" -type "string" "boolean";
+	setAttr ".stringOptions[39].name" -type "string" "light relative scale";
+	setAttr ".stringOptions[39].value" -type "string" "0.31831";
+	setAttr ".stringOptions[39].type" -type "string" "scalar";
+	setAttr ".stringOptions[40].name" -type "string" "trace camera motion vectors";
+	setAttr ".stringOptions[40].value" -type "string" "false";
+	setAttr ".stringOptions[40].type" -type "string" "boolean";
+	setAttr ".stringOptions[41].name" -type "string" "ray differentials";
+	setAttr ".stringOptions[41].value" -type "string" "true";
+	setAttr ".stringOptions[41].type" -type "string" "boolean";
+	setAttr ".stringOptions[42].name" -type "string" "environment lighting mode";
+	setAttr ".stringOptions[42].value" -type "string" "off";
+	setAttr ".stringOptions[42].type" -type "string" "string";
+	setAttr ".stringOptions[43].name" -type "string" "environment lighting quality";
+	setAttr ".stringOptions[43].value" -type "string" "0.2";
+	setAttr ".stringOptions[43].type" -type "string" "scalar";
+	setAttr ".stringOptions[44].name" -type "string" "environment lighting shadow";
+	setAttr ".stringOptions[44].value" -type "string" "transparent";
+	setAttr ".stringOptions[44].type" -type "string" "string";
+	setAttr ".stringOptions[45].name" -type "string" "environment lighting resolution";
+	setAttr ".stringOptions[45].value" -type "string" "512";
+	setAttr ".stringOptions[45].type" -type "string" "integer";
+	setAttr ".stringOptions[46].name" -type "string" "environment lighting shader samples";
+	setAttr ".stringOptions[46].value" -type "string" "2";
+	setAttr ".stringOptions[46].type" -type "string" "integer";
+	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
+	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
+	setAttr ".stringOptions[47].type" -type "string" "color";
+createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode RenderMan -s -n "renderManRISGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -650,8 +806,8 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	setAttr -k on ".rman__riopt__photon_emit" 0;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 23 ".d";
-	setAttr -s 12 ".c";
+	setAttr -s 29 ".d";
+	setAttr -s 18 ".c";
 createNode RenderMan -s -n "rmanFinalOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -992,6 +1148,15 @@ createNode RenderMan -s -n "rmanRerenderRISOutputGlobals0";
 	setAttr -k on ".rman__riopt__Display_dither" 0;
 	setAttr -k on ".rman__riopt__Display_exposure" -type "float2" 1 1 ;
 	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+createNode lightLinker -s -n "lightLinker1";
+	setAttr -s 216 ".lnk";
+	setAttr -s 121 ".ign";
+	setAttr -s 68 ".slnk";
+createNode displayLayerManager -n "layerManager";
+createNode displayLayer -n "defaultLayer";
+createNode renderLayerManager -n "renderLayerManager";
+createNode renderLayer -n "defaultRenderLayer";
+	setAttr ".g" yes;
 createNode RenderMan -s -n "renderManGlobals";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
 		-dt "string";
@@ -1402,7 +1567,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__riopt__limits_gridsize" 256;
 	setAttr -k on ".rman__riopt__trace_decimationrate" 1;
 	setAttr -k on ".rman__riopt__Camera_shutteropening" -type "float2" 0 1 ;
-	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 480 270 ;
+	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 960 540 ;
 	setAttr -k on ".rman__riopt__Format_pixelaspectratio" 1;
 	setAttr -k on ".rman__riopt__hair_minwidth" 0.5;
 	setAttr ".rman__riopt__rib_compression" -type "string" "none";
@@ -1568,8 +1733,8 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 5 ".d";
-	setAttr -s 4 ".c";
+	setAttr -s 11 ".d";
+	setAttr -s 10 ".c";
 createNode RenderMan -s -n "rmanPreviewOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -1887,53 +2052,53 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n"
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n"
-		+ "                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
-		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
-		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
-		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
-		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
-		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n"
-		+ "                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
-		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n"
-		+ "            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n"
-		+ "            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"bedroom1:Full_Bedroom_shot\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
+		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"bedroom1:Full_Bedroom_shot\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
+		+ "            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
+		+ "                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n"
+		+ "                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n"
+		+ "            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n"
+		+ "                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
 		+ "                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
-		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n"
-		+ "                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n"
-		+ "                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n"
-		+ "                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n"
-		+ "                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n"
-		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n"
-		+ "                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n"
-		+ "                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n"
-		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n"
-		+ "            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n"
-		+ "                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
-		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
-		+ "                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n"
-		+ "                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n"
-		+ "                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n"
-		+ "                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n"
-		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManControlsType\" (localizedPanelLabel(\"RenderMan Controls\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManControlsType\" -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManLightingType\" (localizedPanelLabel(\"RenderMan Lighting\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManLightingType\" -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n"
-		+ "                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n"
-		+ "                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n"
-		+ "                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n"
-		+ "                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
-		+ "                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n"
-		+ "                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n"
-		+ "\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
+		+ "\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n"
+		+ "                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n"
+		+ "                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n"
+		+ "                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n"
+		+ "                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n"
+		+ "                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n"
+		+ "                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n"
+		+ "                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n"
+		+ "                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -ignoreAssets 1\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -keyReleaseCommand \"nodeEdKeyReleaseCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                $editorName;;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Texture Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Texture Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManControlsType\" (localizedPanelLabel(\"RenderMan Controls\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManControlsType\" -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManLightingType\" (localizedPanelLabel(\"RenderMan Lighting\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManLightingType\" -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n"
+		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n"
+		+ "                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n"
+		+ "                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n"
+		+ "                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
+		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"bedroom1:Full_Bedroom_shot\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"bedroom1:Full_Bedroom_shot\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -4123,21 +4288,181 @@ createNode RenderMan -s -n "rmanSBMakePtexGlobals";
 	setAttr ".rman__param__ptxmake___channel" -type "string" "$BAKECHAN";
 	setAttr ".rman__param__ptxmake___outputfile" -type "string" "[passinfo this filename]";
 createNode reference -n "bedroom1RN";
-	setAttr -s 2 ".phl";
+	setAttr -s 162 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
+	setAttr ".phl[141]" 0;
+	setAttr ".phl[142]" 0;
+	setAttr ".phl[143]" 0;
+	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
+	setAttr ".phl[151]" 0;
+	setAttr ".phl[152]" 0;
+	setAttr ".phl[153]" 0;
+	setAttr ".phl[154]" 0;
+	setAttr ".phl[155]" 0;
+	setAttr ".phl[156]" 0;
+	setAttr ".phl[157]" 0;
+	setAttr ".phl[158]" 0;
+	setAttr ".phl[159]" 0;
+	setAttr ".phl[160]" 0;
+	setAttr ".phl[161]" 0;
+	setAttr ".phl[162]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"bedroom1RN"
 		"bedroom1:bedsheetRN" 0
 		"bedroom1:bedroom:LampRN" 0
-		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
 		"bedroom1:bedroom:deskRN" 0
+		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
 		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 0
 		"bedroom1:anim_ready_EmilyRN" 0
 		"bedroom1:bedroomRN" 0
 		"bedroom1RN" 0
 		"bedroom1:bedroom:bedRN" 0
-		"bedroom1:bedsheetRN" 14
+		"bedroom1:bedsheetRN" 178
 		2 "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape" 
 		"cacheWidth" " 171"
 		2 "|bedroom1:bedsheet:RMSEnvLight1" "visibility" " 0"
@@ -4155,26 +4480,359 @@ createNode reference -n "bedroom1RN";
 		" 1"
 		2 "|bedroom1:bedsheet:RMSEnvLight1|bedroom1:bedsheet:RMSEnvLightShape1" "mapbias2" 
 		" 1"
+		3 ":time1.outTime" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.currentTime" 
+		""
+		3 ":time1.outTime" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.currentTime" 
+		""
+		3 "bedroom1:bedsheet:textureDeformer1.handleVisibility" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.visibility" 
+		""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.visibility" 
+		"bedroom1RN.placeHolderList[2]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.translateX" 
+		"bedroom1RN.placeHolderList[3]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.translateY" 
+		"bedroom1RN.placeHolderList[4]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.translateZ" 
+		"bedroom1RN.placeHolderList[5]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.rotateX" 
+		"bedroom1RN.placeHolderList[6]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.rotateY" 
+		"bedroom1RN.placeHolderList[7]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.rotateZ" 
+		"bedroom1RN.placeHolderList[8]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.scaleX" 
+		"bedroom1RN.placeHolderList[9]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.scaleY" 
+		"bedroom1RN.placeHolderList[10]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.scaleZ" 
+		"bedroom1RN.placeHolderList[11]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh|bedroom1:bedsheet:outputCloth2.rman__torattr___subdivScheme" 
+		"bedroom1RN.placeHolderList[12]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.currentTime" 
+		"bedroom1RN.placeHolderList[13]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.startFrame" 
+		"bedroom1RN.placeHolderList[14]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.visibility" 
+		"bedroom1RN.placeHolderList[15]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateX" 
+		"bedroom1RN.placeHolderList[16]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateY" 
+		"bedroom1RN.placeHolderList[17]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateZ" 
+		"bedroom1RN.placeHolderList[18]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateX" 
+		"bedroom1RN.placeHolderList[19]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateY" 
+		"bedroom1RN.placeHolderList[20]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateZ" 
+		"bedroom1RN.placeHolderList[21]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleX" 
+		"bedroom1RN.placeHolderList[22]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleY" 
+		"bedroom1RN.placeHolderList[23]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleZ" 
+		"bedroom1RN.placeHolderList[24]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.frameJumpLimit" 
+		"bedroom1RN.placeHolderList[25]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.enable" 
+		"bedroom1RN.placeHolderList[26]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.useTransform" 
+		"bedroom1RN.placeHolderList[27]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravity" 
+		"bedroom1RN.placeHolderList[28]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionX" 
+		"bedroom1RN.placeHolderList[29]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionY" 
+		"bedroom1RN.placeHolderList[30]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionZ" 
+		"bedroom1RN.placeHolderList[31]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.airDensity" 
+		"bedroom1RN.placeHolderList[32]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windSpeed" 
+		"bedroom1RN.placeHolderList[33]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionX" 
+		"bedroom1RN.placeHolderList[34]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionY" 
+		"bedroom1RN.placeHolderList[35]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionZ" 
+		"bedroom1RN.placeHolderList[36]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windNoise" 
+		"bedroom1RN.placeHolderList[37]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.collisionLayerRange" 
+		"bedroom1RN.placeHolderList[38]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.collisionSoftness" 
+		"bedroom1RN.placeHolderList[39]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.usePlane" 
+		"bedroom1RN.placeHolderList[40]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginX" 
+		"bedroom1RN.placeHolderList[41]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginY" 
+		"bedroom1RN.placeHolderList[42]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginZ" 
+		"bedroom1RN.placeHolderList[43]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalX" 
+		"bedroom1RN.placeHolderList[44]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalY" 
+		"bedroom1RN.placeHolderList[45]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalZ" 
+		"bedroom1RN.placeHolderList[46]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeBounce" 
+		"bedroom1RN.placeHolderList[47]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeFriction" 
+		"bedroom1RN.placeHolderList[48]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeStickiness" 
+		"bedroom1RN.placeHolderList[49]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.subSteps" 
+		"bedroom1RN.placeHolderList[50]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.maxCollisionIterations" 
+		"bedroom1RN.placeHolderList[51]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.timeScale" 
+		"bedroom1RN.placeHolderList[52]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.spaceScale" 
+		"bedroom1RN.placeHolderList[53]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth.visibility" 
+		"bedroom1RN.placeHolderList[54]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.lifespan" 
+		"bedroom1RN.placeHolderList[55]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.currentTime" 
+		"bedroom1RN.placeHolderList[56]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.isDynamic" 
+		"bedroom1RN.placeHolderList[57]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.playFromCache" 
+		"bedroom1RN.placeHolderList[58]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.thickness" 
+		"bedroom1RN.placeHolderList[59]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bounce" 
+		"bedroom1RN.placeHolderList[60]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.friction" 
+		"bedroom1RN.placeHolderList[61]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.damp" 
+		"bedroom1RN.placeHolderList[62]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stickiness" 
+		"bedroom1RN.placeHolderList[63]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collideStrength" 
+		"bedroom1RN.placeHolderList[64]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collisionFlag" 
+		"bedroom1RN.placeHolderList[65]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollisionFlag" 
+		"bedroom1RN.placeHolderList[66]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.maxSelfCollisionIterations" 
+		"bedroom1RN.placeHolderList[67]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.maxIterations" 
+		"bedroom1RN.placeHolderList[68]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointMass" 
+		"bedroom1RN.placeHolderList[69]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restLengthScale" 
+		"bedroom1RN.placeHolderList[70]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceX" 
+		"bedroom1RN.placeHolderList[71]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceY" 
+		"bedroom1RN.placeHolderList[72]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceZ" 
+		"bedroom1RN.placeHolderList[73]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindX" 
+		"bedroom1RN.placeHolderList[74]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindY" 
+		"bedroom1RN.placeHolderList[75]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindZ" 
+		"bedroom1RN.placeHolderList[76]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collide" 
+		"bedroom1RN.placeHolderList[77]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollide" 
+		"bedroom1RN.placeHolderList[78]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collisionLayer" 
+		"bedroom1RN.placeHolderList[79]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windShadowDiffusion" 
+		"bedroom1RN.placeHolderList[80]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windShadowDistance" 
+		"bedroom1RN.placeHolderList[81]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airPushDistance" 
+		"bedroom1RN.placeHolderList[82]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airPushVorticity" 
+		"bedroom1RN.placeHolderList[83]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pushOut" 
+		"bedroom1RN.placeHolderList[84]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pushOutRadius" 
+		"bedroom1RN.placeHolderList[85]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.crossoverPush" 
+		"bedroom1RN.placeHolderList[86]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.trappedCheck" 
+		"bedroom1RN.placeHolderList[87]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.forceField" 
+		"bedroom1RN.placeHolderList[88]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldMagnitude" 
+		"bedroom1RN.placeHolderList[89]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldDistance" 
+		"bedroom1RN.placeHolderList[90]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_Position" 
+		"bedroom1RN.placeHolderList[91]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_FloatValue" 
+		"bedroom1RN.placeHolderList[92]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_Interp" 
+		"bedroom1RN.placeHolderList[93]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_Position" 
+		"bedroom1RN.placeHolderList[94]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_FloatValue" 
+		"bedroom1RN.placeHolderList[95]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_Interp" 
+		"bedroom1RN.placeHolderList[96]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointForceField" 
+		"bedroom1RN.placeHolderList[97]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldMagnitude" 
+		"bedroom1RN.placeHolderList[98]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfAttract" 
+		"bedroom1RN.placeHolderList[99]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDistance" 
+		"bedroom1RN.placeHolderList[100]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_Position" 
+		"bedroom1RN.placeHolderList[101]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_FloatValue" 
+		"bedroom1RN.placeHolderList[102]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_Interp" 
+		"bedroom1RN.placeHolderList[103]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_Position" 
+		"bedroom1RN.placeHolderList[104]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_FloatValue" 
+		"bedroom1RN.placeHolderList[105]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_Interp" 
+		"bedroom1RN.placeHolderList[106]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localSpaceOutput" 
+		"bedroom1RN.placeHolderList[107]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorR" 
+		"bedroom1RN.placeHolderList[108]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorG" 
+		"bedroom1RN.placeHolderList[109]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorB" 
+		"bedroom1RN.placeHolderList[110]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stretchResistance" 
+		"bedroom1RN.placeHolderList[111]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.compressionResistance" 
+		"bedroom1RN.placeHolderList[112]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendResistance" 
+		"bedroom1RN.placeHolderList[113]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendAngleDropoff" 
+		"bedroom1RN.placeHolderList[114]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restitutionTension" 
+		"bedroom1RN.placeHolderList[115]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restitutionAngle" 
+		"bedroom1RN.placeHolderList[116]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.shearResistance" 
+		"bedroom1RN.placeHolderList[117]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.rigidity" 
+		"bedroom1RN.placeHolderList[118]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.deformResistance" 
+		"bedroom1RN.placeHolderList[119]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputMeshAttract" 
+		"bedroom1RN.placeHolderList[120]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collideLastThreshold" 
+		"bedroom1RN.placeHolderList[121]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputAttractDamp" 
+		"bedroom1RN.placeHolderList[122]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputMotionDrag" 
+		"bedroom1RN.placeHolderList[123]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.wrinkleMapScale" 
+		"bedroom1RN.placeHolderList[124]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendAngleScale" 
+		"bedroom1RN.placeHolderList[125]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.sortLinks" 
+		"bedroom1RN.placeHolderList[126]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.addCrossLinks" 
+		"bedroom1RN.placeHolderList[127]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stretchDamp" 
+		"bedroom1RN.placeHolderList[128]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalStretch" 
+		"bedroom1RN.placeHolderList[129]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalBend" 
+		"bedroom1RN.placeHolderList[130]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalShear" 
+		"bedroom1RN.placeHolderList[131]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollideWidthScale" 
+		"bedroom1RN.placeHolderList[132]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollisionSoftness" 
+		"bedroom1RN.placeHolderList[133]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCrossoverPush" 
+		"bedroom1RN.placeHolderList[134]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfTrappedCheck" 
+		"bedroom1RN.placeHolderList[135]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pressure" 
+		"bedroom1RN.placeHolderList[136]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.startPressure" 
+		"bedroom1RN.placeHolderList[137]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.incompressibility" 
+		"bedroom1RN.placeHolderList[138]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pressureDamping" 
+		"bedroom1RN.placeHolderList[139]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pumpRate" 
+		"bedroom1RN.placeHolderList[140]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airTightness" 
+		"bedroom1RN.placeHolderList[141]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.sealHoles" 
+		"bedroom1RN.placeHolderList[142]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.ignoreSolverGravity" 
+		"bedroom1RN.placeHolderList[143]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.ignoreSolverWind" 
+		"bedroom1RN.placeHolderList[144]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windSelfShadow" 
+		"bedroom1RN.placeHolderList[145]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.lift" 
+		"bedroom1RN.placeHolderList[146]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.drag" 
+		"bedroom1RN.placeHolderList[147]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.tangentialDrag" 
+		"bedroom1RN.placeHolderList[148]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.visibility" 
+		"bedroom1RN.placeHolderList[149]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateX" 
+		"bedroom1RN.placeHolderList[150]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateY" 
+		"bedroom1RN.placeHolderList[151]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateZ" 
+		"bedroom1RN.placeHolderList[152]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateX" 
+		"bedroom1RN.placeHolderList[153]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateY" 
+		"bedroom1RN.placeHolderList[154]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateZ" 
+		"bedroom1RN.placeHolderList[155]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleX" 
+		"bedroom1RN.placeHolderList[156]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleY" 
+		"bedroom1RN.placeHolderList[157]" ""
+		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleZ" 
+		"bedroom1RN.placeHolderList[158]" ""
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" "|bedroom1:bedsheet:RMSEnvLight1|bedroom1:bedsheet:RMSEnvLightShape1.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrLMDiffuse1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrLMDiffuse1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:cubeFogSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:cubeFogSG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrConstant1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrConstant1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:bedroom:LampRN" 2
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		"bedroom1:bedroom:LampRN" 4
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSMatte1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
-		"bedroom1:bedroom:deskRN" 1
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSMatte1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		"bedroom1:bedroom:deskRN" 2
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:desk:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:anim_ready_EmilyRN" 324
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:desk:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		"bedroom1:anim_ready_EmilyRN" 417
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"translate" " -type \"double3\" 1.909789 2.18835627348448325 -1.193383"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
@@ -4182,9 +4840,15 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
+		"translateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"rotate" " -type \"double3\" -90 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"translate" " -type \"double3\" -0.00080305700000000003 0.011604400000000001 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
@@ -4202,7 +4866,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
-		"translate" " -type \"double3\" -0.0047105999999999997 0.0029983803382978083 0"
+		"translate" " -type \"double3\" -0.0047105999999999997 0.0028697163217809296 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"translateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
@@ -4272,7 +4936,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups[10].objectGrpColor" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.02800953253557752 0.085782329314140149 -0.0051353904264474521"
+		"translate" " -type \"double3\" 0.0281771186522125 0.086009928363173185 -0.0049038454530908127"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
 		"translateX" " -av"
@@ -4284,6 +4948,10 @@ createNode reference -n "bedroom1RN";
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
 		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
 		"translate" " -type \"double3\" 0.013049650722518642 0.0044726085405935086 0.00360162576877142"
 		
@@ -4294,7 +4962,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.029873935001745382 0.076030501497392794 -0.015893352705559839"
+		"translate" " -type \"double3\" -0.029759204540104688 0.075384230811922456 -0.015661807732203201"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
 		"translateX" " -av"
@@ -4312,7 +4980,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
-		"translate" " -type \"double3\" 0.0072300735121304128 0.0050015819945258286 0.0057296062069526078"
+		"translate" " -type \"double3\" 0.0072312997775250904 0.004894359092892514 0.0057308687450561193"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
 		"translateX" " -av"
@@ -4324,8 +4992,12 @@ createNode reference -n "bedroom1RN";
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
 		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
-		"translate" " -type \"double3\" -0.0041720188812988373 -0.017400610825374332 0.0021264535177330638"
+		"translate" " -type \"double3\" -0.0040457936634251601 -0.017490723038090118 0.0021557205531429944"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
 		"translateX" " -av"
@@ -4337,6 +5009,10 @@ createNode reference -n "bedroom1RN";
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
 		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"translate" " -type \"double3\" -0.003252940462469362 -0.0046021950744288588 -0.011957374955484212"
 		
@@ -4347,9 +5023,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
-		"rotate" " -type \"double3\" 0.19785617378779857 0 0"
+		"rotate" " -type \"double3\" 0.58625155214929581 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"translate" " -type \"double3\" 0.011640788709111024 0.0034780146115673243 0.0076652277043919286"
 		
@@ -4360,9 +5040,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
-		"rotate" " -type \"double3\" 0.039996237799659294 0 0"
+		"rotate" " -type \"double3\" 0.15133753426710203 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"translate" " -type \"double3\" -0.0032034900407783952 0.0069084481475309226 -0.0015897617964204692"
 		
@@ -4373,11 +5057,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
-		"rotate" " -type \"double3\" 0.061512765445234437 0 0"
+		"rotate" " -type \"double3\" 0.23275164766901343 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"translate" " -type \"double3\" -0.0028681401849247976 0.02347092920322677 -0.0043971843519363275"
 		
@@ -4388,9 +5074,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
-		"rotate" " -type \"double3\" 3.27361791099065558 0 0"
+		"rotate" " -type \"double3\" 3.11696074064054018 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R" 
 		"translate" " -type \"double3\" 0.0024087362574980076 0.010852225604288977 -0.0012173882065777634"
 		
@@ -4410,7 +5100,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R" 
-		"translate" " -type \"double3\" 0.00021421126585269862 0.0032873368854448022 -0.00024435959813183674"
+		"translate" " -type \"double3\" 0.00013092903924734014 0.0037728017520634906 -0.00027856582190402085"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R" 
 		"translateX" " -av"
@@ -4429,9 +5119,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
-		"translate" " -type \"double3\" -0.0021964315269677095 0.011150122086412325 -0.0015197079462027396"
+		"translate" " -type \"double3\" -0.0022797137535730677 0.011635586953031015 -0.0015539141699749237"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"translateX" " -av"
@@ -4446,11 +5140,17 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
+		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"scale" " -type \"double3\" 1 1 1"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
+		"scaleX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
+		"scaleY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"scaleZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.0021964315269677095 0.011150122086412325 -0.0015197079462027396"
+		"translate" " -type \"double3\" -0.0022797137535730677 0.011635586953031015 -0.0015539141699749237"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
 		"translateX" " -av"
@@ -4459,7 +5159,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L" 
-		"translate" " -type \"double3\" -0.00278270608030888 0.0051752015502952884 -0.0011003141235533202"
+		"translate" " -type \"double3\" -0.0028675561328568031 0.0056698055146917276 -0.0011351642951065292"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L" 
 		"translateX" " -av"
@@ -4476,7 +5176,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_L|bedroom1:anim_ready_Emily:LidCorner2Offset_L|bedroom1:anim_ready_Emily:LidCorner2Subtract_L|bedroom1:anim_ready_Emily:LidCorner2_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
-		"translate" " -type \"double3\" -0.0037766168669515895 -0.0062278305289904575 -0.00027171001532151802"
+		"translate" " -type \"double3\" -0.0038452941818390091 -0.0057332265645940184 -0.00030245881520140846"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
 		"translateX" " -av"
@@ -4485,7 +5185,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" -0.0037766168669515895 -0.0062278305289904575 -0.00027171001532151802"
+		"translate" " -type \"double3\" -0.0038452941818390091 -0.0057332265645940184 -0.00030245881520140846"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
 		"translateX" " -av"
@@ -4494,7 +5194,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R" 
-		"translate" " -type \"double3\" 0.00021421126585269862 0.0032873368854448022 -0.00024435959813183674"
+		"translate" " -type \"double3\" 0.00013092903924734014 0.0037728017520634906 -0.00027856582190402085"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R" 
 		"translateX" " -av"
@@ -4511,7 +5211,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_R|bedroom1:anim_ready_Emily:upperLid3Offset_R|bedroom1:anim_ready_Emily:upperLid3Subtract_R|bedroom1:anim_ready_Emily:upperLid3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R" 
-		"translate" " -type \"double3\" 0.00021421126585269862 0.0032873368854448022 -0.00024435959813183674"
+		"translate" " -type \"double3\" 0.00013092903924734014 0.0037728017520634906 -0.00027856582190402085"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R" 
 		"translateX" " -av"
@@ -4528,7 +5228,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_R|bedroom1:anim_ready_Emily:lowerLid3Offset_R|bedroom1:anim_ready_Emily:lowerLid3Subtract_R|bedroom1:anim_ready_Emily:lowerLid3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
-		"translate" " -type \"double3\" -0.00278270608030888 0.0051752015502952884 -0.0011003141235533202"
+		"translate" " -type \"double3\" -0.0028675561328568031 0.0056698055146917276 -0.0011351642951065292"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
 		"translateX" " -av"
@@ -4538,6 +5238,10 @@ createNode reference -n "bedroom1RN";
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
 		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L" 
@@ -4549,7 +5253,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
-		"translate" " -type \"double3\" -0.00278270608030888 0.0051752015502952884 -0.0011003141235533202"
+		"translate" " -type \"double3\" -0.0028675561328568031 0.0056698055146917276 -0.0011351642951065292"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
 		"translateX" " -av"
@@ -4559,10 +5263,14 @@ createNode reference -n "bedroom1RN";
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
 		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
-		"translate" " -type \"double3\" -1.6429184778274502e-06 7.3872635058412321e-06 -2.9183533212736157e-07"
+		"translate" " -type \"double3\" -6.4810485075092609e-06 2.914156348306549e-05 -1.1512433326720141e-06"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
 		"translateX" " -av"
@@ -4571,7 +5279,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
-		"translate" " -type \"double3\" 0.032250602279008923 -0.057349118271827773 0.010508631188932424"
+		"translate" " -type \"double3\" 0.032282231749503093 -0.057438037530814216 0.010552331974235572"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"translateX" " -av"
@@ -4581,10 +5289,14 @@ createNode reference -n "bedroom1RN";
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
-		"translate" " -type \"double3\" -0.007090911068945641 -0.075552487042009078 0.0031386335317107601"
+		"translate" " -type \"double3\" -0.0070592815984514687 -0.075807505053780921 0.0031823343170139084"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
 		"translateX" " -av"
@@ -4610,7 +5322,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
-		"rotate" " -type \"double3\" -68.71415977534111619 85.59455875809101144 2.5044785003205955e-06"
+		"rotate" " -type \"double3\" -68.71431290426919247 85.59903335606972519 2.5044787633378612e-06"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
@@ -4627,25 +5339,25 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxBrow_L|bedroom1:anim_ready_Emily:ctrlBrow_L" 
 		"translateY" " -av 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_R|bedroom1:anim_ready_Emily:ctrlCheek_R" 
-		"translateX" " -av 0.12676765189051811"
+		"translateX" " -av 0.11715626986595606"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_R|bedroom1:anim_ready_Emily:ctrlCheek_R" 
-		"translateY" " -av 0.99074899316907905"
+		"translateY" " -av 0.99068418729364438"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_L|bedroom1:anim_ready_Emily:ctrlCheek_L" 
-		"translateX" " -av 0.12676765189051811"
+		"translateX" " -av 0.11715626986595606"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_L|bedroom1:anim_ready_Emily:ctrlCheek_L" 
-		"translateY" " -av 0.99074899316907905"
+		"translateY" " -av 0.99068418729364438"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_R|bedroom1:anim_ready_Emily:ctrlNose_R" 
-		"translateX" " -av 0.95578088798916894"
+		"translateX" " -av 0.95720026922562007"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_R|bedroom1:anim_ready_Emily:ctrlNose_R" 
-		"translateY" " -av 0.46786281799754725"
+		"translateY" " -av 0.46395679351034891"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_L|bedroom1:anim_ready_Emily:ctrlNose_L" 
-		"translateX" " -av 0.95578088798916894"
+		"translateX" " -av 0.95720026922562007"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_L|bedroom1:anim_ready_Emily:ctrlNose_L" 
-		"translateY" " -av 0.46786281799754725"
+		"translateY" " -av 0.46395679351034891"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouth_M|bedroom1:anim_ready_Emily:ctrlMouth_M" 
-		"translateX" " -av 0.053066203357699168"
+		"translateX" " -av 0.051006490728633315"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouth_M|bedroom1:anim_ready_Emily:ctrlMouth_M" 
-		"translateY" " -av -0.24508944440801014"
+		"translateY" " -av -0.22769686240570194"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_R|bedroom1:anim_ready_Emily:ctrlMouthCorner_R" 
 		"translateX" " -av -0.0260851"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_R|bedroom1:anim_ready_Emily:ctrlMouthCorner_R" 
@@ -4655,14 +5367,18 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_L|bedroom1:anim_ready_Emily:ctrlMouthCorner_L" 
 		"translateY" " -av -0.0770232"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
-		"rotate" " -type \"double3\" 0 0 -0.95095097407833318"
+		"rotate" " -type \"double3\" 0 0 -0.9974611490908144"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
 		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
+		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 2.01610132105117135 2.41531549622959352 -4.32675277577850359"
+		"translate" " -type \"double3\" 2.01610132105117135 2.41519514330782803 -4.32679826867211048"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 53.59690220437837382 80.55393494158505518 47.65306539038435574"
+		"rotate" " -type \"double3\" 53.59690220437838093 80.55393494158504097 47.65306539038438416"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2" 
 		"visibility" " 1"
@@ -4677,107 +5393,217 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEyedup|bedroom1:anim_ready_Emily:RightEyedupShapeDeformed" 
 		"instObjGroups.objectGroups[3].objectGroupId" " -av"
 		2 "bedroom1:anim_ready_Emily:Meshes" "visibility" " -av 1"
+		3 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.instObjGroups" 
+		"bedroom1:anim_ready_Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" 
+		"-na"
+		5 3 "bedroom1RN" "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.instObjGroups" 
+		"bedroom1RN.placeHolderList[1]" "bedroom1:anim_ready_Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dsm"
+		
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBall|bedroom1:anim_ready_Emily:FitEyeBall|bedroom1:anim_ready_Emily:FitEyeSphere|bedroom1:anim_ready_Emily:FitEyeSphereShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBall|bedroom1:anim_ready_Emily:FitEyeBall|bedroom1:anim_ready_Emily:FitEyeSphere|bedroom1:anim_ready_Emily:FitEyeSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderMain|bedroom1:anim_ready_Emily:upperEyeLidCylinderMainShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderMain|bedroom1:anim_ready_Emily:upperEyeLidCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMain|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMainShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMain|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuter|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuterShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuter|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuter|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuterShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuter|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowMain|bedroom1:anim_ready_Emily:FaceFitEyeBrowMainGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderMain|bedroom1:anim_ready_Emily:EyeBrowCylinderMainShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowMain|bedroom1:anim_ready_Emily:FaceFitEyeBrowMainGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderMain|bedroom1:anim_ready_Emily:EyeBrowCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuter|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuterGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderOuter|bedroom1:anim_ready_Emily:EyeBrowCylinderOuterShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuter|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuterGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderOuter|bedroom1:anim_ready_Emily:EyeBrowCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitnoseCorner|bedroom1:anim_ready_Emily:FaceFitnoseCornerGeo|bedroom1:anim_ready_Emily:noseCornerSphere|bedroom1:anim_ready_Emily:noseCornerSphereShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitnoseCorner|bedroom1:anim_ready_Emily:FaceFitnoseCornerGeo|bedroom1:anim_ready_Emily:noseCornerSphere|bedroom1:anim_ready_Emily:noseCornerSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitcheek|bedroom1:anim_ready_Emily:FaceFitcheekGeo|bedroom1:anim_ready_Emily:cheekSphere|bedroom1:anim_ready_Emily:cheekSphereShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitcheek|bedroom1:anim_ready_Emily:FaceFitcheekGeo|bedroom1:anim_ready_Emily:cheekSphere|bedroom1:anim_ready_Emily:cheekSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawMain|bedroom1:anim_ready_Emily:FaceFitJawMainGeo|bedroom1:anim_ready_Emily:JawCylinderMain|bedroom1:anim_ready_Emily:JawCylinderMainShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawMain|bedroom1:anim_ready_Emily:FaceFitJawMainGeo|bedroom1:anim_ready_Emily:JawCylinderMain|bedroom1:anim_ready_Emily:JawCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawOuter|bedroom1:anim_ready_Emily:FaceFitJawOuterGeo|bedroom1:anim_ready_Emily:JawCylinderOuter|bedroom1:anim_ready_Emily:JawCylinderOuterShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawOuter|bedroom1:anim_ready_Emily:FaceFitJawOuterGeo|bedroom1:anim_ready_Emily:JawCylinderOuter|bedroom1:anim_ready_Emily:JawCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitNose|bedroom1:anim_ready_Emily:FaceFitNoseGeo|bedroom1:anim_ready_Emily:NoseCylinder|bedroom1:anim_ready_Emily:NoseCylinderShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitNose|bedroom1:anim_ready_Emily:FaceFitNoseGeo|bedroom1:anim_ready_Emily:NoseCylinder|bedroom1:anim_ready_Emily:NoseCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitTongue|bedroom1:anim_ready_Emily:FaceFitTongueGeo|bedroom1:anim_ready_Emily:TongueCylinder|bedroom1:anim_ready_Emily:TongueCylinderShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitTongue|bedroom1:anim_ready_Emily:FaceFitTongueGeo|bedroom1:anim_ready_Emily:TongueCylinder|bedroom1:anim_ready_Emily:TongueCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:upperLipCylinder|bedroom1:anim_ready_Emily:upperLipCylinderShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:upperLipCylinder|bedroom1:anim_ready_Emily:upperLipCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R|bedroom1:anim_ready_Emily:browInner_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R|bedroom1:anim_ready_Emily:browInner_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R|bedroom1:anim_ready_Emily:browOuter_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R|bedroom1:anim_ready_Emily:browOuter_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L|bedroom1:anim_ready_Emily:browInner_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L|bedroom1:anim_ready_Emily:browInner_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L|bedroom1:anim_ready_Emily:browOuter_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L|bedroom1:anim_ready_Emily:browOuter_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_R|bedroom1:anim_ready_Emily:cheekOffset_R|bedroom1:anim_ready_Emily:cheekSubtract_R|bedroom1:anim_ready_Emily:cheek_R|bedroom1:anim_ready_Emily:cheek_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_R|bedroom1:anim_ready_Emily:cheekOffset_R|bedroom1:anim_ready_Emily:cheekSubtract_R|bedroom1:anim_ready_Emily:cheek_R|bedroom1:anim_ready_Emily:cheek_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_R|bedroom1:anim_ready_Emily:noseCornerOffset_R|bedroom1:anim_ready_Emily:noseCornerSubtract_R|bedroom1:anim_ready_Emily:noseCorner_R|bedroom1:anim_ready_Emily:noseCorner_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_R|bedroom1:anim_ready_Emily:noseCornerOffset_R|bedroom1:anim_ready_Emily:noseCornerSubtract_R|bedroom1:anim_ready_Emily:noseCorner_R|bedroom1:anim_ready_Emily:noseCorner_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_L|bedroom1:anim_ready_Emily:cheekOffset_L|bedroom1:anim_ready_Emily:cheekSubtract_L|bedroom1:anim_ready_Emily:cheek_L|bedroom1:anim_ready_Emily:cheek_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_L|bedroom1:anim_ready_Emily:cheekOffset_L|bedroom1:anim_ready_Emily:cheekSubtract_L|bedroom1:anim_ready_Emily:cheek_L|bedroom1:anim_ready_Emily:cheek_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_L|bedroom1:anim_ready_Emily:noseCornerOffset_L|bedroom1:anim_ready_Emily:noseCornerSubtract_L|bedroom1:anim_ready_Emily:noseCorner_L|bedroom1:anim_ready_Emily:noseCorner_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_L|bedroom1:anim_ready_Emily:noseCornerOffset_L|bedroom1:anim_ready_Emily:noseCornerSubtract_L|bedroom1:anim_ready_Emily:noseCorner_L|bedroom1:anim_ready_Emily:noseCorner_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R|bedroom1:anim_ready_Emily:Lip6_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R|bedroom1:anim_ready_Emily:Lip6_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L|bedroom1:anim_ready_Emily:Lip6_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L|bedroom1:anim_ready_Emily:Lip6_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M|bedroom1:anim_ready_Emily:upperLip0_MShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M|bedroom1:anim_ready_Emily:upperLip0_MShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R|bedroom1:anim_ready_Emily:upperLip3_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R|bedroom1:anim_ready_Emily:upperLip3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L|bedroom1:anim_ready_Emily:upperLip3_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L|bedroom1:anim_ready_Emily:upperLip3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M|bedroom1:anim_ready_Emily:lowerLip0_MShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M|bedroom1:anim_ready_Emily:lowerLip0_MShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R|bedroom1:anim_ready_Emily:lowerLip3_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R|bedroom1:anim_ready_Emily:lowerLip3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L|bedroom1:anim_ready_Emily:lowerLip3_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L|bedroom1:anim_ready_Emily:lowerLip3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R|bedroom1:anim_ready_Emily:LidCorner1_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R|bedroom1:anim_ready_Emily:LidCorner1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R|bedroom1:anim_ready_Emily:LidCorner2_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R|bedroom1:anim_ready_Emily:LidCorner2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R|bedroom1:anim_ready_Emily:upperLid1_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R|bedroom1:anim_ready_Emily:upperLid1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R|bedroom1:anim_ready_Emily:lowerLid1_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R|bedroom1:anim_ready_Emily:lowerLid1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L|bedroom1:anim_ready_Emily:LidCorner1_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L|bedroom1:anim_ready_Emily:LidCorner1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_L|bedroom1:anim_ready_Emily:LidCorner2Offset_L|bedroom1:anim_ready_Emily:LidCorner2Subtract_L|bedroom1:anim_ready_Emily:LidCorner2_L|bedroom1:anim_ready_Emily:LidCorner2_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_L|bedroom1:anim_ready_Emily:LidCorner2Offset_L|bedroom1:anim_ready_Emily:LidCorner2Subtract_L|bedroom1:anim_ready_Emily:LidCorner2_L|bedroom1:anim_ready_Emily:LidCorner2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L|bedroom1:anim_ready_Emily:upperLid1_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L|bedroom1:anim_ready_Emily:upperLid1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L|bedroom1:anim_ready_Emily:lowerLid1_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L|bedroom1:anim_ready_Emily:lowerLid1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R|bedroom1:anim_ready_Emily:upperLid2_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R|bedroom1:anim_ready_Emily:upperLid2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_R|bedroom1:anim_ready_Emily:upperLid3Offset_R|bedroom1:anim_ready_Emily:upperLid3Subtract_R|bedroom1:anim_ready_Emily:upperLid3_R|bedroom1:anim_ready_Emily:upperLid3_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_R|bedroom1:anim_ready_Emily:upperLid3Offset_R|bedroom1:anim_ready_Emily:upperLid3Subtract_R|bedroom1:anim_ready_Emily:upperLid3_R|bedroom1:anim_ready_Emily:upperLid3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R|bedroom1:anim_ready_Emily:lowerLid2_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R|bedroom1:anim_ready_Emily:lowerLid2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_R|bedroom1:anim_ready_Emily:lowerLid3Offset_R|bedroom1:anim_ready_Emily:lowerLid3Subtract_R|bedroom1:anim_ready_Emily:lowerLid3_R|bedroom1:anim_ready_Emily:lowerLid3_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_R|bedroom1:anim_ready_Emily:lowerLid3Offset_R|bedroom1:anim_ready_Emily:lowerLid3Subtract_R|bedroom1:anim_ready_Emily:lowerLid3_R|bedroom1:anim_ready_Emily:lowerLid3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L|bedroom1:anim_ready_Emily:upperLid2_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L|bedroom1:anim_ready_Emily:upperLid2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L|bedroom1:anim_ready_Emily:upperLid3_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L|bedroom1:anim_ready_Emily:upperLid3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L|bedroom1:anim_ready_Emily:lowerLid2_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L|bedroom1:anim_ready_Emily:lowerLid2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L|bedroom1:anim_ready_Emily:lowerLid3_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L|bedroom1:anim_ready_Emily:lowerLid3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R|bedroom1:anim_ready_Emily:browHalf_RShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R|bedroom1:anim_ready_Emily:browHalf_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L|bedroom1:anim_ready_Emily:browHalf_LShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L|bedroom1:anim_ready_Emily:browHalf_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
@@ -4789,17 +5615,31 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:LeftBrow|bedroom1:anim_ready_Emily:LeftBrowShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEyedup|bedroom1:anim_ready_Emily:RightEyedupShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEyedup|bedroom1:anim_ready_Emily:RightEyedupShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2Base|bedroom1:anim_ready_Emily:Body2BaseShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2Base|bedroom1:anim_ready_Emily:Body2BaseShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:softer_features_blendshape|bedroom1:anim_ready_Emily:softer_features_blendshapeShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:softer_features_blendshape|bedroom1:anim_ready_Emily:softer_features_blendshapeShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
@@ -4829,7 +5669,13 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asBlue2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:AllSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:woodSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:FaceAllSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:FaceControlSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asFaceBlueSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
@@ -4855,9 +5701,9 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:lambert3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 6
+		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 8
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
-		"translate" " -type \"double3\" 1.94260930045909963 -0.3841546358844834 -3.66970427303366931"
+		"translate" " -type \"double3\" 1.94260930045909963 -0.38427498880630662 -3.66974976592712343"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translateX" " -av"
@@ -4865,26 +5711,42 @@ createNode reference -n "bedroom1RN";
 		"translateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translateZ" " -av"
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair|bedroom1:anim_ready_Emily:Hair_Emily:HairShape.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair|bedroom1:anim_ready_Emily:Hair_Emily:HairShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:bedroomRN" 4
+		"bedroom1:bedroomRN" 8
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface2SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface3SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSMatte1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1RN" 70
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSMatte1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		"bedroom1RN" 78
 		2 "|bedroom1:Full_Bedroom_shot|bedroom1:Full_Bedroom_shotShape" "renderable" 
 		" 1"
 		2 "|bedroom1:Face_Close_Up|bedroom1:Face_Close_UpShape" "renderable" " 0"
 		
 		2 "|bedroom1:LightRig|bedroom1:RMSEnvLight1|bedroom1:RMSEnvLightShape1" "exposure" 
 		" 10"
+		2 "|bedroom1:LightRig|bedroom1:RMSEnvLight1|bedroom1:RMSEnvLightShape1" "__group" 
+		" -type \"string\" \"BlueLightSet\""
+		2 "|bedroom1:LightRig|bedroom1:MoonLight|bedroom1:MoonLightShape" "__group" 
+		" -type \"string\" \"MoonLightSet\""
 		2 "|bedroom1:ForestImage" "visibility" " 0"
 		2 "|bedroom1:ForestImage" "translate" " -type \"double3\" 36.23584778069443502 3.39271767758366272 8.62070966678188988"
 		
@@ -4979,8 +5841,12 @@ createNode reference -n "bedroom1RN";
 		2 "bedroom1:rmanFinalOutput10" "rman__riopt__Display_dither" " -k 1 0"
 		3 "|bedroom1:ForestImage|bedroom1:ForestImageShape.instObjGroups" "bedroom1:RMSGPSurface1SG.dagSetMembers" 
 		"-na"
+		5 3 "bedroom1RN" "|bedroom1:LightRig|bedroom1:RMSEnvLight1.instObjGroups" 
+		"bedroom1RN.placeHolderList[159]" ""
+		5 3 "bedroom1RN" "|bedroom1:LightRig|bedroom1:MoonLight.instObjGroups" 
+		"bedroom1RN.placeHolderList[160]" ""
 		5 0 "bedroom1RN" "|bedroom1:ForestImage|bedroom1:ForestImageShape.instObjGroups" 
-		"bedroom1:RMSGPSurface1SG.dagSetMembers" "bedroom1RN.placeHolderList[1]" "bedroom1RN.placeHolderList[2]" 
+		"bedroom1:RMSGPSurface1SG.dagSetMembers" "bedroom1RN.placeHolderList[161]" "bedroom1RN.placeHolderList[162]" 
 		"bedroom1:RMSGPSurface1SG.dsm"
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" "|bedroom1:LightRig|bedroom1:RMSEnvLight1|bedroom1:RMSEnvLightShape1.message" 
 		0
@@ -4990,11 +5856,19 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrLMDiffuse1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrLMDiffuse1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:cubeFogSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:cubeFogSG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrConstant1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
-		"bedroom1:bedroom:bedRN" 22
+		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrConstant1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
+		"bedroom1:bedroom:bedRN" 31
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "diffuseGain" " 1"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "sheen" " 0"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "sheenTint" " 0.5"
@@ -5011,178 +5885,42 @@ createNode reference -n "bedroom1RN";
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "mediaIor" " 1"
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:bed:initialShadingGroup.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:bed:initialShadingGroup.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface2SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface3SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface4SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface4SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface5SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface5SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface6SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface6SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface7SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
 		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface7SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
+		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface8SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface8SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0;
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
-createNode mentalrayItemsList -s -n "mentalrayItemsList";
-createNode mentalrayGlobals -s -n "mentalrayGlobals";
-createNode mentalrayOptions -s -n "miDefaultOptions";
-	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
-		3;
-	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
-	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
-	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
-	setAttr -s 48 ".stringOptions";
-	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
-	setAttr ".stringOptions[0].value" -type "string" "1.0";
-	setAttr ".stringOptions[0].type" -type "string" "scalar";
-	setAttr ".stringOptions[1].name" -type "string" "rast transparency depth";
-	setAttr ".stringOptions[1].value" -type "string" "8";
-	setAttr ".stringOptions[1].type" -type "string" "integer";
-	setAttr ".stringOptions[2].name" -type "string" "rast useopacity";
-	setAttr ".stringOptions[2].value" -type "string" "true";
-	setAttr ".stringOptions[2].type" -type "string" "boolean";
-	setAttr ".stringOptions[3].name" -type "string" "importon";
-	setAttr ".stringOptions[3].value" -type "string" "false";
-	setAttr ".stringOptions[3].type" -type "string" "boolean";
-	setAttr ".stringOptions[4].name" -type "string" "importon density";
-	setAttr ".stringOptions[4].value" -type "string" "1.0";
-	setAttr ".stringOptions[4].type" -type "string" "scalar";
-	setAttr ".stringOptions[5].name" -type "string" "importon merge";
-	setAttr ".stringOptions[5].value" -type "string" "0.0";
-	setAttr ".stringOptions[5].type" -type "string" "scalar";
-	setAttr ".stringOptions[6].name" -type "string" "importon trace depth";
-	setAttr ".stringOptions[6].value" -type "string" "0";
-	setAttr ".stringOptions[6].type" -type "string" "integer";
-	setAttr ".stringOptions[7].name" -type "string" "importon traverse";
-	setAttr ".stringOptions[7].value" -type "string" "true";
-	setAttr ".stringOptions[7].type" -type "string" "boolean";
-	setAttr ".stringOptions[8].name" -type "string" "shadowmap pixel samples";
-	setAttr ".stringOptions[8].value" -type "string" "3";
-	setAttr ".stringOptions[8].type" -type "string" "integer";
-	setAttr ".stringOptions[9].name" -type "string" "ambient occlusion";
-	setAttr ".stringOptions[9].value" -type "string" "false";
-	setAttr ".stringOptions[9].type" -type "string" "boolean";
-	setAttr ".stringOptions[10].name" -type "string" "ambient occlusion rays";
-	setAttr ".stringOptions[10].value" -type "string" "64";
-	setAttr ".stringOptions[10].type" -type "string" "integer";
-	setAttr ".stringOptions[11].name" -type "string" "ambient occlusion cache";
-	setAttr ".stringOptions[11].value" -type "string" "false";
-	setAttr ".stringOptions[11].type" -type "string" "boolean";
-	setAttr ".stringOptions[12].name" -type "string" "ambient occlusion cache density";
-	setAttr ".stringOptions[12].value" -type "string" "1.0";
-	setAttr ".stringOptions[12].type" -type "string" "scalar";
-	setAttr ".stringOptions[13].name" -type "string" "ambient occlusion cache points";
-	setAttr ".stringOptions[13].value" -type "string" "64";
-	setAttr ".stringOptions[13].type" -type "string" "integer";
-	setAttr ".stringOptions[14].name" -type "string" "irradiance particles";
-	setAttr ".stringOptions[14].value" -type "string" "false";
-	setAttr ".stringOptions[14].type" -type "string" "boolean";
-	setAttr ".stringOptions[15].name" -type "string" "irradiance particles rays";
-	setAttr ".stringOptions[15].value" -type "string" "256";
-	setAttr ".stringOptions[15].type" -type "string" "integer";
-	setAttr ".stringOptions[16].name" -type "string" "irradiance particles interpolate";
-	setAttr ".stringOptions[16].value" -type "string" "1";
-	setAttr ".stringOptions[16].type" -type "string" "integer";
-	setAttr ".stringOptions[17].name" -type "string" "irradiance particles interppoints";
-	setAttr ".stringOptions[17].value" -type "string" "64";
-	setAttr ".stringOptions[17].type" -type "string" "integer";
-	setAttr ".stringOptions[18].name" -type "string" "irradiance particles indirect passes";
-	setAttr ".stringOptions[18].value" -type "string" "0";
-	setAttr ".stringOptions[18].type" -type "string" "integer";
-	setAttr ".stringOptions[19].name" -type "string" "irradiance particles scale";
-	setAttr ".stringOptions[19].value" -type "string" "1.0";
-	setAttr ".stringOptions[19].type" -type "string" "scalar";
-	setAttr ".stringOptions[20].name" -type "string" "irradiance particles env";
-	setAttr ".stringOptions[20].value" -type "string" "true";
-	setAttr ".stringOptions[20].type" -type "string" "boolean";
-	setAttr ".stringOptions[21].name" -type "string" "irradiance particles env rays";
-	setAttr ".stringOptions[21].value" -type "string" "256";
-	setAttr ".stringOptions[21].type" -type "string" "integer";
-	setAttr ".stringOptions[22].name" -type "string" "irradiance particles env scale";
-	setAttr ".stringOptions[22].value" -type "string" "1";
-	setAttr ".stringOptions[22].type" -type "string" "integer";
-	setAttr ".stringOptions[23].name" -type "string" "irradiance particles rebuild";
-	setAttr ".stringOptions[23].value" -type "string" "true";
-	setAttr ".stringOptions[23].type" -type "string" "boolean";
-	setAttr ".stringOptions[24].name" -type "string" "irradiance particles file";
-	setAttr ".stringOptions[24].value" -type "string" "";
-	setAttr ".stringOptions[24].type" -type "string" "string";
-	setAttr ".stringOptions[25].name" -type "string" "geom displace motion factor";
-	setAttr ".stringOptions[25].value" -type "string" "1.0";
-	setAttr ".stringOptions[25].type" -type "string" "scalar";
-	setAttr ".stringOptions[26].name" -type "string" "contrast all buffers";
-	setAttr ".stringOptions[26].value" -type "string" "true";
-	setAttr ".stringOptions[26].type" -type "string" "boolean";
-	setAttr ".stringOptions[27].name" -type "string" "finalgather normal tolerance";
-	setAttr ".stringOptions[27].value" -type "string" "25.842";
-	setAttr ".stringOptions[27].type" -type "string" "scalar";
-	setAttr ".stringOptions[28].name" -type "string" "trace camera clip";
-	setAttr ".stringOptions[28].value" -type "string" "false";
-	setAttr ".stringOptions[28].type" -type "string" "boolean";
-	setAttr ".stringOptions[29].name" -type "string" "unified sampling";
-	setAttr ".stringOptions[29].value" -type "string" "true";
-	setAttr ".stringOptions[29].type" -type "string" "boolean";
-	setAttr ".stringOptions[30].name" -type "string" "samples quality";
-	setAttr ".stringOptions[30].value" -type "string" "0.25 0.25 0.25 0.25";
-	setAttr ".stringOptions[30].type" -type "string" "color";
-	setAttr ".stringOptions[31].name" -type "string" "samples min";
-	setAttr ".stringOptions[31].value" -type "string" "1.0";
-	setAttr ".stringOptions[31].type" -type "string" "scalar";
-	setAttr ".stringOptions[32].name" -type "string" "samples max";
-	setAttr ".stringOptions[32].value" -type "string" "100.0";
-	setAttr ".stringOptions[32].type" -type "string" "scalar";
-	setAttr ".stringOptions[33].name" -type "string" "samples error cutoff";
-	setAttr ".stringOptions[33].value" -type "string" "0.0 0.0 0.0 0.0";
-	setAttr ".stringOptions[33].type" -type "string" "color";
-	setAttr ".stringOptions[34].name" -type "string" "samples per object";
-	setAttr ".stringOptions[34].value" -type "string" "false";
-	setAttr ".stringOptions[34].type" -type "string" "boolean";
-	setAttr ".stringOptions[35].name" -type "string" "progressive";
-	setAttr ".stringOptions[35].value" -type "string" "false";
-	setAttr ".stringOptions[35].type" -type "string" "boolean";
-	setAttr ".stringOptions[36].name" -type "string" "progressive max time";
-	setAttr ".stringOptions[36].value" -type "string" "0";
-	setAttr ".stringOptions[36].type" -type "string" "integer";
-	setAttr ".stringOptions[37].name" -type "string" "progressive subsampling size";
-	setAttr ".stringOptions[37].value" -type "string" "4";
-	setAttr ".stringOptions[37].type" -type "string" "integer";
-	setAttr ".stringOptions[38].name" -type "string" "iray";
-	setAttr ".stringOptions[38].value" -type "string" "false";
-	setAttr ".stringOptions[38].type" -type "string" "boolean";
-	setAttr ".stringOptions[39].name" -type "string" "light relative scale";
-	setAttr ".stringOptions[39].value" -type "string" "0.31831";
-	setAttr ".stringOptions[39].type" -type "string" "scalar";
-	setAttr ".stringOptions[40].name" -type "string" "trace camera motion vectors";
-	setAttr ".stringOptions[40].value" -type "string" "false";
-	setAttr ".stringOptions[40].type" -type "string" "boolean";
-	setAttr ".stringOptions[41].name" -type "string" "ray differentials";
-	setAttr ".stringOptions[41].value" -type "string" "true";
-	setAttr ".stringOptions[41].type" -type "string" "boolean";
-	setAttr ".stringOptions[42].name" -type "string" "environment lighting mode";
-	setAttr ".stringOptions[42].value" -type "string" "off";
-	setAttr ".stringOptions[42].type" -type "string" "string";
-	setAttr ".stringOptions[43].name" -type "string" "environment lighting quality";
-	setAttr ".stringOptions[43].value" -type "string" "0.2";
-	setAttr ".stringOptions[43].type" -type "string" "scalar";
-	setAttr ".stringOptions[44].name" -type "string" "environment lighting shadow";
-	setAttr ".stringOptions[44].value" -type "string" "transparent";
-	setAttr ".stringOptions[44].type" -type "string" "string";
-	setAttr ".stringOptions[45].name" -type "string" "environment lighting resolution";
-	setAttr ".stringOptions[45].value" -type "string" "512";
-	setAttr ".stringOptions[45].type" -type "string" "integer";
-	setAttr ".stringOptions[46].name" -type "string" "environment lighting shader samples";
-	setAttr ".stringOptions[46].value" -type "string" "2";
-	setAttr ".stringOptions[46].type" -type "string" "integer";
-	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
-	setAttr ".stringOptions[47].value" -type "string" "1.0 1.0 1.0";
-	setAttr ".stringOptions[47].type" -type "string" "color";
-createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode mentalrayOptions -s -n "miContourPreset";
 	setAttr ".splck" yes;
 	setAttr ".fil" 0;
@@ -8594,6 +9332,7 @@ createNode RenderMan -n "rmanFinalOutput20";
 	setAttr -k on ".rman__riopt__Display_asrgba" 1;
 createNode objectSet -n "EmilyRimLightSet";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".an" -type "string" "lightset";
 createNode RenderMan -n "rmanFinalOutput21";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -8899,14 +9638,3880 @@ createNode RenderMan -n "rmanPreviewChannel3";
 	setAttr ".rman__torattr___class" -type "string" "Cs";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_EmilyRimLightSet";
+createNode RMSGPSurface -n "EmilySkinStandin";
+	setAttr ".surfaceColor" -type "float3" 0.52808422 0.41594568 0.31062791 ;
+	setAttr ".roughness" 0;
+	setAttr ".specularGain" 0;
+createNode shadingEngine -n "RMSGPSurface1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
+createNode animCurveTU -n "BedsheetMesh_visibility";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTL -n "BedsheetMesh_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1.8758152765257117 -49 1.8758152765257117
+		 -48 1.8758152765257117 -47 1.8758152765257117 -46 1.8758152765257117 -45 1.8758152765257117
+		 -44 1.8758152765257117 -43 1.8758152765257117 -42 1.8758152765257117 -41 1.8758152765257117
+		 -40 1.8758152765257117 -39 1.8758152765257117 -38 1.8758152765257117 -37 1.8758152765257117
+		 -36 1.8758152765257117 -35 1.8758152765257117 -34 1.8758152765257117 -33 1.8758152765257117
+		 -32 1.8758152765257117 -31 1.8758152765257117 -30 1.8758152765257117 -29 1.8758152765257117
+		 -28 1.8758152765257117 -27 1.8758152765257117 -26 1.8758152765257117 -25 1.8758152765257117
+		 -24 1.8758152765257117 -23 1.8758152765257117 -22 1.8758152765257117 -21 1.8758152765257117
+		 -20 1.8758152765257117 -19 1.8758152765257117 -18 1.8758152765257117 -17 1.8758152765257117
+		 -16 1.8758152765257117 -15 1.8758152765257117 -14 1.8758152765257117 -13 1.8758152765257117
+		 -12 1.8758152765257117 -11 1.8758152765257117 -10 1.8758152765257117 -9 1.8758152765257117
+		 -8 1.8758152765257117 -7 1.8758152765257117 -6 1.8758152765257117 -5 1.8758152765257117
+		 -4 1.8758152765257117 -3 1.8758152765257117 -2 1.8758152765257117 -1 1.8758152765257117
+		 0 1.8758152765257117 1 1.8758152765257117 2 1.8758152765257117 3 1.8758152765257117
+		 4 1.8758152765257117 5 1.8758152765257117 6 1.8758152765257117 7 1.8758152765257117
+		 8 1.8758152765257117 9 1.8758152765257117 10 1.8758152765257117 11 1.8758152765257117
+		 12 1.8758152765257117 13 1.8758152765257117 14 1.8758152765257117 15 1.8758152765257117
+		 16 1.8758152765257117 17 1.8758152765257117 18 1.8758152765257117 19 1.8758152765257117
+		 20 1.8758152765257117 21 1.8758152765257117 22 1.8758152765257117 23 1.8758152765257117
+		 24 1.8758152765257117 25 1.8758152765257117 26 1.8758152765257117 27 1.8758152765257117
+		 28 1.8758152765257117 29 1.8758152765257117 30 1.8758152765257117 31 1.8758152765257117
+		 32 1.8758152765257117 33 1.8758152765257117 34 1.8758152765257117 35 1.8758152765257117
+		 36 1.8758152765257117 37 1.8758152765257117 38 1.8758152765257117 39 1.8758152765257117
+		 40 1.8758152765257117 41 1.8758152765257117 42 1.8758152765257117 43 1.8758152765257117
+		 44 1.8758152765257117 45 1.8758152765257117 46 1.8758152765257117 47 1.8758152765257117
+		 48 1.8758152765257117 49 1.8758152765257117 50 1.8758152765257117 51 1.8758152765257117
+		 52 1.8758152765257117 53 1.8758152765257117 54 1.8758152765257117 55 1.8758152765257117
+		 56 1.8758152765257117 57 1.8758152765257117 58 1.8758152765257117 59 1.8758152765257117
+		 60 1.8758152765257117 61 1.8758152765257117 62 1.8758152765257117 63 1.8758152765257117
+		 64 1.8758152765257117 65 1.8758152765257117 66 1.8758152765257117 67 1.8758152765257117
+		 68 1.8758152765257117 69 1.8758152765257117 70 1.8758152765257117 71 1.8758152765257117
+		 72 1.8758152765257117 73 1.8758152765257117 74 1.8758152765257117 75 1.8758152765257117
+		 76 1.8758152765257117 77 1.8758152765257117 78 1.8758152765257117 79 1.8758152765257117
+		 80 1.8758152765257117 81 1.8758152765257117 82 1.8758152765257117 83 1.8758152765257117
+		 84 1.8758152765257117 85 1.8758152765257117 86 1.8758152765257117 87 1.8758152765257117
+		 88 1.8758152765257117 89 1.8758152765257117 90 1.8758152765257117 91 1.8758152765257117
+		 92 1.8758152765257117 93 1.8758152765257117 94 1.8758152765257117 95 1.8758152765257117
+		 96 1.8758152765257117 97 1.8758152765257117 98 1.8758152765257117 99 1.8758152765257117
+		 100 1.8758152765257117 101 1.8758152765257117 102 1.8758152765257117 103 1.8758152765257117
+		 104 1.8758152765257117 105 1.8758152765257117 106 1.8758152765257117 107 1.8758152765257117
+		 108 1.8758152765257117 109 1.8758152765257117 110 1.8758152765257117 111 1.8758152765257117
+		 112 1.8758152765257117 113 1.8758152765257117 114 1.8758152765257117 115 1.8758152765257117
+		 116 1.8758152765257117 117 1.8758152765257117 118 1.8758152765257117 119 1.8758152765257117
+		 120 1.8758152765257117;
+createNode animCurveTL -n "BedsheetMesh_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 3.1515653820135858 -49 3.1515653820135858
+		 -48 3.1515653820135858 -47 3.1515653820135858 -46 3.1515653820135858 -45 3.1515653820135858
+		 -44 3.1515653820135858 -43 3.1515653820135858 -42 3.1515653820135858 -41 3.1515653820135858
+		 -40 3.1515653820135858 -39 3.1515653820135858 -38 3.1515653820135858 -37 3.1515653820135858
+		 -36 3.1515653820135858 -35 3.1515653820135858 -34 3.1515653820135858 -33 3.1515653820135858
+		 -32 3.1515653820135858 -31 3.1515653820135858 -30 3.1515653820135858 -29 3.1515653820135858
+		 -28 3.1515653820135858 -27 3.1515653820135858 -26 3.1515653820135858 -25 3.1515653820135858
+		 -24 3.1515653820135858 -23 3.1515653820135858 -22 3.1515653820135858 -21 3.1515653820135858
+		 -20 3.1515653820135858 -19 3.1515653820135858 -18 3.1515653820135858 -17 3.1515653820135858
+		 -16 3.1515653820135858 -15 3.1515653820135858 -14 3.1515653820135858 -13 3.1515653820135858
+		 -12 3.1515653820135858 -11 3.1515653820135858 -10 3.1515653820135858 -9 3.1515653820135858
+		 -8 3.1515653820135858 -7 3.1515653820135858 -6 3.1515653820135858 -5 3.1515653820135858
+		 -4 3.1515653820135858 -3 3.1515653820135858 -2 3.1515653820135858 -1 3.1515653820135858
+		 0 3.1515653820135858 1 3.1515653820135858 2 3.1515653820135858 3 3.1515653820135858
+		 4 3.1515653820135858 5 3.1515653820135858 6 3.1515653820135858 7 3.1515653820135858
+		 8 3.1515653820135858 9 3.1515653820135858 10 3.1515653820135858 11 3.1515653820135858
+		 12 3.1515653820135858 13 3.1515653820135858 14 3.1515653820135858 15 3.1515653820135858
+		 16 3.1515653820135858 17 3.1515653820135858 18 3.1515653820135858 19 3.1515653820135858
+		 20 3.1515653820135858 21 3.1515653820135858 22 3.1515653820135858 23 3.1515653820135858
+		 24 3.1515653820135858 25 3.1515653820135858 26 3.1515653820135858 27 3.1515653820135858
+		 28 3.1515653820135858 29 3.1515653820135858 30 3.1515653820135858 31 3.1515653820135858
+		 32 3.1515653820135858 33 3.1515653820135858 34 3.1515653820135858 35 3.1515653820135858
+		 36 3.1515653820135858 37 3.1515653820135858 38 3.1515653820135858 39 3.1515653820135858
+		 40 3.1515653820135858 41 3.1515653820135858 42 3.1515653820135858 43 3.1515653820135858
+		 44 3.1515653820135858 45 3.1515653820135858 46 3.1515653820135858 47 3.1515653820135858
+		 48 3.1515653820135858 49 3.1515653820135858 50 3.1515653820135858 51 3.1515653820135858
+		 52 3.1515653820135858 53 3.1515653820135858 54 3.1515653820135858 55 3.1515653820135858
+		 56 3.1515653820135858 57 3.1515653820135858 58 3.1515653820135858 59 3.1515653820135858
+		 60 3.1515653820135858 61 3.1515653820135858 62 3.1515653820135858 63 3.1515653820135858
+		 64 3.1515653820135858 65 3.1515653820135858 66 3.1515653820135858 67 3.1515653820135858
+		 68 3.1515653820135858 69 3.1515653820135858 70 3.1515653820135858 71 3.1515653820135858
+		 72 3.1515653820135858 73 3.1515653820135858 74 3.1515653820135858 75 3.1515653820135858
+		 76 3.1515653820135858 77 3.1515653820135858 78 3.1515653820135858 79 3.1515653820135858
+		 80 3.1515653820135858 81 3.1515653820135858 82 3.1515653820135858 83 3.1515653820135858
+		 84 3.1515653820135858 85 3.1515653820135858 86 3.1515653820135858 87 3.1515653820135858
+		 88 3.1515653820135858 89 3.1515653820135858 90 3.1515653820135858 91 3.1515653820135858
+		 92 3.1515653820135858 93 3.1515653820135858 94 3.1515653820135858 95 3.1515653820135858
+		 96 3.1515653820135858 97 3.1515653820135858 98 3.1515653820135858 99 3.1515653820135858
+		 100 3.1515653820135858 101 3.1515653820135858 102 3.1515653820135858 103 3.1515653820135858
+		 104 3.1515653820135858 105 3.1515653820135858 106 3.1515653820135858 107 3.1515653820135858
+		 108 3.1515653820135858 109 3.1515653820135858 110 3.1515653820135858 111 3.1515653820135858
+		 112 3.1515653820135858 113 3.1515653820135858 114 3.1515653820135858 115 3.1515653820135858
+		 116 3.1515653820135858 117 3.1515653820135858 118 3.1515653820135858 119 3.1515653820135858
+		 120 3.1515653820135858;
+createNode animCurveTL -n "BedsheetMesh_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 -1.3516670874362338 -49 -1.3516670874362338
+		 -48 -1.3516670874362338 -47 -1.3516670874362338 -46 -1.3516670874362338 -45 -1.3516670874362338
+		 -44 -1.3516670874362338 -43 -1.3516670874362338 -42 -1.3516670874362338 -41 -1.3516670874362338
+		 -40 -1.3516670874362338 -39 -1.3516670874362338 -38 -1.3516670874362338 -37 -1.3516670874362338
+		 -36 -1.3516670874362338 -35 -1.3516670874362338 -34 -1.3516670874362338 -33 -1.3516670874362338
+		 -32 -1.3516670874362338 -31 -1.3516670874362338 -30 -1.3516670874362338 -29 -1.3516670874362338
+		 -28 -1.3516670874362338 -27 -1.3516670874362338 -26 -1.3516670874362338 -25 -1.3516670874362338
+		 -24 -1.3516670874362338 -23 -1.3516670874362338 -22 -1.3516670874362338 -21 -1.3516670874362338
+		 -20 -1.3516670874362338 -19 -1.3516670874362338 -18 -1.3516670874362338 -17 -1.3516670874362338
+		 -16 -1.3516670874362338 -15 -1.3516670874362338 -14 -1.3516670874362338 -13 -1.3516670874362338
+		 -12 -1.3516670874362338 -11 -1.3516670874362338 -10 -1.3516670874362338 -9 -1.3516670874362338
+		 -8 -1.3516670874362338 -7 -1.3516670874362338 -6 -1.3516670874362338 -5 -1.3516670874362338
+		 -4 -1.3516670874362338 -3 -1.3516670874362338 -2 -1.3516670874362338 -1 -1.3516670874362338
+		 0 -1.3516670874362338 1 -1.3516670874362338 2 -1.3516670874362338 3 -1.3516670874362338
+		 4 -1.3516670874362338 5 -1.3516670874362338 6 -1.3516670874362338 7 -1.3516670874362338
+		 8 -1.3516670874362338 9 -1.3516670874362338 10 -1.3516670874362338 11 -1.3516670874362338
+		 12 -1.3516670874362338 13 -1.3516670874362338 14 -1.3516670874362338 15 -1.3516670874362338
+		 16 -1.3516670874362338 17 -1.3516670874362338 18 -1.3516670874362338 19 -1.3516670874362338
+		 20 -1.3516670874362338 21 -1.3516670874362338 22 -1.3516670874362338 23 -1.3516670874362338
+		 24 -1.3516670874362338 25 -1.3516670874362338 26 -1.3516670874362338 27 -1.3516670874362338
+		 28 -1.3516670874362338 29 -1.3516670874362338 30 -1.3516670874362338 31 -1.3516670874362338
+		 32 -1.3516670874362338 33 -1.3516670874362338 34 -1.3516670874362338 35 -1.3516670874362338
+		 36 -1.3516670874362338 37 -1.3516670874362338 38 -1.3516670874362338 39 -1.3516670874362338
+		 40 -1.3516670874362338 41 -1.3516670874362338 42 -1.3516670874362338 43 -1.3516670874362338
+		 44 -1.3516670874362338 45 -1.3516670874362338 46 -1.3516670874362338 47 -1.3516670874362338
+		 48 -1.3516670874362338 49 -1.3516670874362338 50 -1.3516670874362338 51 -1.3516670874362338
+		 52 -1.3516670874362338 53 -1.3516670874362338 54 -1.3516670874362338 55 -1.3516670874362338
+		 56 -1.3516670874362338 57 -1.3516670874362338 58 -1.3516670874362338 59 -1.3516670874362338
+		 60 -1.3516670874362338 61 -1.3516670874362338 62 -1.3516670874362338 63 -1.3516670874362338
+		 64 -1.3516670874362338 65 -1.3516670874362338 66 -1.3516670874362338 67 -1.3516670874362338
+		 68 -1.3516670874362338 69 -1.3516670874362338 70 -1.3516670874362338 71 -1.3516670874362338
+		 72 -1.3516670874362338 73 -1.3516670874362338 74 -1.3516670874362338 75 -1.3516670874362338
+		 76 -1.3516670874362338 77 -1.3516670874362338 78 -1.3516670874362338 79 -1.3516670874362338
+		 80 -1.3516670874362338 81 -1.3516670874362338 82 -1.3516670874362338 83 -1.3516670874362338
+		 84 -1.3516670874362338 85 -1.3516670874362338 86 -1.3516670874362338 87 -1.3516670874362338
+		 88 -1.3516670874362338 89 -1.3516670874362338 90 -1.3516670874362338 91 -1.3516670874362338
+		 92 -1.3516670874362338 93 -1.3516670874362338 94 -1.3516670874362338 95 -1.3516670874362338
+		 96 -1.3516670874362338 97 -1.3516670874362338 98 -1.3516670874362338 99 -1.3516670874362338
+		 100 -1.3516670874362338 101 -1.3516670874362338 102 -1.3516670874362338 103 -1.3516670874362338
+		 104 -1.3516670874362338 105 -1.3516670874362338 106 -1.3516670874362338 107 -1.3516670874362338
+		 108 -1.3516670874362338 109 -1.3516670874362338 110 -1.3516670874362338 111 -1.3516670874362338
+		 112 -1.3516670874362338 113 -1.3516670874362338 114 -1.3516670874362338 115 -1.3516670874362338
+		 116 -1.3516670874362338 117 -1.3516670874362338 118 -1.3516670874362338 119 -1.3516670874362338
+		 120 -1.3516670874362338;
+createNode animCurveTA -n "BedsheetMesh_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "BedsheetMesh_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "BedsheetMesh_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "BedsheetMesh_scaleX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1.6759913433072116 -49 1.6759913433072116
+		 -48 1.6759913433072116 -47 1.6759913433072116 -46 1.6759913433072116 -45 1.6759913433072116
+		 -44 1.6759913433072116 -43 1.6759913433072116 -42 1.6759913433072116 -41 1.6759913433072116
+		 -40 1.6759913433072116 -39 1.6759913433072116 -38 1.6759913433072116 -37 1.6759913433072116
+		 -36 1.6759913433072116 -35 1.6759913433072116 -34 1.6759913433072116 -33 1.6759913433072116
+		 -32 1.6759913433072116 -31 1.6759913433072116 -30 1.6759913433072116 -29 1.6759913433072116
+		 -28 1.6759913433072116 -27 1.6759913433072116 -26 1.6759913433072116 -25 1.6759913433072116
+		 -24 1.6759913433072116 -23 1.6759913433072116 -22 1.6759913433072116 -21 1.6759913433072116
+		 -20 1.6759913433072116 -19 1.6759913433072116 -18 1.6759913433072116 -17 1.6759913433072116
+		 -16 1.6759913433072116 -15 1.6759913433072116 -14 1.6759913433072116 -13 1.6759913433072116
+		 -12 1.6759913433072116 -11 1.6759913433072116 -10 1.6759913433072116 -9 1.6759913433072116
+		 -8 1.6759913433072116 -7 1.6759913433072116 -6 1.6759913433072116 -5 1.6759913433072116
+		 -4 1.6759913433072116 -3 1.6759913433072116 -2 1.6759913433072116 -1 1.6759913433072116
+		 0 1.6759913433072116 1 1.6759913433072116 2 1.6759913433072116 3 1.6759913433072116
+		 4 1.6759913433072116 5 1.6759913433072116 6 1.6759913433072116 7 1.6759913433072116
+		 8 1.6759913433072116 9 1.6759913433072116 10 1.6759913433072116 11 1.6759913433072116
+		 12 1.6759913433072116 13 1.6759913433072116 14 1.6759913433072116 15 1.6759913433072116
+		 16 1.6759913433072116 17 1.6759913433072116 18 1.6759913433072116 19 1.6759913433072116
+		 20 1.6759913433072116 21 1.6759913433072116 22 1.6759913433072116 23 1.6759913433072116
+		 24 1.6759913433072116 25 1.6759913433072116 26 1.6759913433072116 27 1.6759913433072116
+		 28 1.6759913433072116 29 1.6759913433072116 30 1.6759913433072116 31 1.6759913433072116
+		 32 1.6759913433072116 33 1.6759913433072116 34 1.6759913433072116 35 1.6759913433072116
+		 36 1.6759913433072116 37 1.6759913433072116 38 1.6759913433072116 39 1.6759913433072116
+		 40 1.6759913433072116 41 1.6759913433072116 42 1.6759913433072116 43 1.6759913433072116
+		 44 1.6759913433072116 45 1.6759913433072116 46 1.6759913433072116 47 1.6759913433072116
+		 48 1.6759913433072116 49 1.6759913433072116 50 1.6759913433072116 51 1.6759913433072116
+		 52 1.6759913433072116 53 1.6759913433072116 54 1.6759913433072116 55 1.6759913433072116
+		 56 1.6759913433072116 57 1.6759913433072116 58 1.6759913433072116 59 1.6759913433072116
+		 60 1.6759913433072116 61 1.6759913433072116 62 1.6759913433072116 63 1.6759913433072116
+		 64 1.6759913433072116 65 1.6759913433072116 66 1.6759913433072116 67 1.6759913433072116
+		 68 1.6759913433072116 69 1.6759913433072116 70 1.6759913433072116 71 1.6759913433072116
+		 72 1.6759913433072116 73 1.6759913433072116 74 1.6759913433072116 75 1.6759913433072116
+		 76 1.6759913433072116 77 1.6759913433072116 78 1.6759913433072116 79 1.6759913433072116
+		 80 1.6759913433072116 81 1.6759913433072116 82 1.6759913433072116 83 1.6759913433072116
+		 84 1.6759913433072116 85 1.6759913433072116 86 1.6759913433072116 87 1.6759913433072116
+		 88 1.6759913433072116 89 1.6759913433072116 90 1.6759913433072116 91 1.6759913433072116
+		 92 1.6759913433072116 93 1.6759913433072116 94 1.6759913433072116 95 1.6759913433072116
+		 96 1.6759913433072116 97 1.6759913433072116 98 1.6759913433072116 99 1.6759913433072116
+		 100 1.6759913433072116 101 1.6759913433072116 102 1.6759913433072116 103 1.6759913433072116
+		 104 1.6759913433072116 105 1.6759913433072116 106 1.6759913433072116 107 1.6759913433072116
+		 108 1.6759913433072116 109 1.6759913433072116 110 1.6759913433072116 111 1.6759913433072116
+		 112 1.6759913433072116 113 1.6759913433072116 114 1.6759913433072116 115 1.6759913433072116
+		 116 1.6759913433072116 117 1.6759913433072116 118 1.6759913433072116 119 1.6759913433072116
+		 120 1.6759913433072116;
+createNode animCurveTU -n "BedsheetMesh_scaleY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "BedsheetMesh_scaleZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.78032210335817942 -49 0.78032210335817942
+		 -48 0.78032210335817942 -47 0.78032210335817942 -46 0.78032210335817942 -45 0.78032210335817942
+		 -44 0.78032210335817942 -43 0.78032210335817942 -42 0.78032210335817942 -41 0.78032210335817942
+		 -40 0.78032210335817942 -39 0.78032210335817942 -38 0.78032210335817942 -37 0.78032210335817942
+		 -36 0.78032210335817942 -35 0.78032210335817942 -34 0.78032210335817942 -33 0.78032210335817942
+		 -32 0.78032210335817942 -31 0.78032210335817942 -30 0.78032210335817942 -29 0.78032210335817942
+		 -28 0.78032210335817942 -27 0.78032210335817942 -26 0.78032210335817942 -25 0.78032210335817942
+		 -24 0.78032210335817942 -23 0.78032210335817942 -22 0.78032210335817942 -21 0.78032210335817942
+		 -20 0.78032210335817942 -19 0.78032210335817942 -18 0.78032210335817942 -17 0.78032210335817942
+		 -16 0.78032210335817942 -15 0.78032210335817942 -14 0.78032210335817942 -13 0.78032210335817942
+		 -12 0.78032210335817942 -11 0.78032210335817942 -10 0.78032210335817942 -9 0.78032210335817942
+		 -8 0.78032210335817942 -7 0.78032210335817942 -6 0.78032210335817942 -5 0.78032210335817942
+		 -4 0.78032210335817942 -3 0.78032210335817942 -2 0.78032210335817942 -1 0.78032210335817942
+		 0 0.78032210335817942 1 0.78032210335817942 2 0.78032210335817942 3 0.78032210335817942
+		 4 0.78032210335817942 5 0.78032210335817942 6 0.78032210335817942 7 0.78032210335817942
+		 8 0.78032210335817942 9 0.78032210335817942 10 0.78032210335817942 11 0.78032210335817942
+		 12 0.78032210335817942 13 0.78032210335817942 14 0.78032210335817942 15 0.78032210335817942
+		 16 0.78032210335817942 17 0.78032210335817942 18 0.78032210335817942 19 0.78032210335817942
+		 20 0.78032210335817942 21 0.78032210335817942 22 0.78032210335817942 23 0.78032210335817942
+		 24 0.78032210335817942 25 0.78032210335817942 26 0.78032210335817942 27 0.78032210335817942
+		 28 0.78032210335817942 29 0.78032210335817942 30 0.78032210335817942 31 0.78032210335817942
+		 32 0.78032210335817942 33 0.78032210335817942 34 0.78032210335817942 35 0.78032210335817942
+		 36 0.78032210335817942 37 0.78032210335817942 38 0.78032210335817942 39 0.78032210335817942
+		 40 0.78032210335817942 41 0.78032210335817942 42 0.78032210335817942 43 0.78032210335817942
+		 44 0.78032210335817942 45 0.78032210335817942 46 0.78032210335817942 47 0.78032210335817942
+		 48 0.78032210335817942 49 0.78032210335817942 50 0.78032210335817942 51 0.78032210335817942
+		 52 0.78032210335817942 53 0.78032210335817942 54 0.78032210335817942 55 0.78032210335817942
+		 56 0.78032210335817942 57 0.78032210335817942 58 0.78032210335817942 59 0.78032210335817942
+		 60 0.78032210335817942 61 0.78032210335817942 62 0.78032210335817942 63 0.78032210335817942
+		 64 0.78032210335817942 65 0.78032210335817942 66 0.78032210335817942 67 0.78032210335817942
+		 68 0.78032210335817942 69 0.78032210335817942 70 0.78032210335817942 71 0.78032210335817942
+		 72 0.78032210335817942 73 0.78032210335817942 74 0.78032210335817942 75 0.78032210335817942
+		 76 0.78032210335817942 77 0.78032210335817942 78 0.78032210335817942 79 0.78032210335817942
+		 80 0.78032210335817942 81 0.78032210335817942 82 0.78032210335817942 83 0.78032210335817942
+		 84 0.78032210335817942 85 0.78032210335817942 86 0.78032210335817942 87 0.78032210335817942
+		 88 0.78032210335817942 89 0.78032210335817942 90 0.78032210335817942 91 0.78032210335817942
+		 92 0.78032210335817942 93 0.78032210335817942 94 0.78032210335817942 95 0.78032210335817942
+		 96 0.78032210335817942 97 0.78032210335817942 98 0.78032210335817942 99 0.78032210335817942
+		 100 0.78032210335817942 101 0.78032210335817942 102 0.78032210335817942 103 0.78032210335817942
+		 104 0.78032210335817942 105 0.78032210335817942 106 0.78032210335817942 107 0.78032210335817942
+		 108 0.78032210335817942 109 0.78032210335817942 110 0.78032210335817942 111 0.78032210335817942
+		 112 0.78032210335817942 113 0.78032210335817942 114 0.78032210335817942 115 0.78032210335817942
+		 116 0.78032210335817942 117 0.78032210335817942 118 0.78032210335817942 119 0.78032210335817942
+		 120 0.78032210335817942;
+createNode animCurveTU -n "outputCloth2_rman__torattr___subdivScheme";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_visibility";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTL -n "Bedsheet_nucleus1_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTL -n "Bedsheet_nucleus1_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTL -n "Bedsheet_nucleus1_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "Bedsheet_nucleus1_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "Bedsheet_nucleus1_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "Bedsheet_nucleus1_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_scaleX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_scaleY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_scaleZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTT -n "Bedsheet_nucleus1_currentTime";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 -50 -49 -49 -48 -48 -47 -47 -46 -46 
+		-45 -45 -44 -44 -43 -43 -42 -42 -41 -41 -40 -40 -39 -39 -38 -38 -37 -37 -36 -36 -35 
+		-35 -34 -34 -33 -33 -32 -32 -31 -31 -30 -30 -29 -29 -28 -28 -27 -27 -26 -26 -25 -25 
+		-24 -24 -23 -23 -22 -22 -21 -21 -20 -20 -19 -19 -18 -18 -17 -17 -16 -16 -15 -15 -14 
+		-14 -13 -13 -12 -12 -11 -11 -10 -10 -9 -9 -8 -8 -7 -7 -6 -6 -5 -5 -4 -4 -3 -3 -2 
+		-2 -1 -1 0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 
+		15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 26 27 27 28 28 
+		29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 
+		42 43 43 44 44 45 45 46 46 47 47 48 48 49 49 50 50 51 51 52 52 53 53 54 54 55 55 
+		56 56 57 57 58 58 59 59 60 60 61 61 62 62 63 63 64 64 65 65 66 66 67 67 68 68 69 
+		69 70 70 71 71 72 72 73 73 74 74 75 75 76 76 77 77 78 78 79 79 80 80 81 81 82 82 
+		83 83 84 84 85 85 86 86 87 87 88 88 89 89 90 90 91 91 92 92 93 93 94 94 95 95 96 
+		96 97 97 98 98 99 99 100 100 101 101 102 102 103 103 104 104 105 105 106 106 107 
+		107 108 108 109 109 110 110 111 111 112 112 113 113 114 114 115 115 116 116 117 117 
+		118 118 119 119 120 120;
+createNode animCurveTU -n "Bedsheet_nucleus1_startFrame";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 -50 -49 -50 -48 -50 -47 -50 -46 -50
+		 -45 -50 -44 -50 -43 -50 -42 -50 -41 -50 -40 -50 -39 -50 -38 -50 -37 -50 -36 -50 -35 -50
+		 -34 -50 -33 -50 -32 -50 -31 -50 -30 -50 -29 -50 -28 -50 -27 -50 -26 -50 -25 -50 -24 -50
+		 -23 -50 -22 -50 -21 -50 -20 -50 -19 -50 -18 -50 -17 -50 -16 -50 -15 -50 -14 -50 -13 -50
+		 -12 -50 -11 -50 -10 -50 -9 -50 -8 -50 -7 -50 -6 -50 -5 -50 -4 -50 -3 -50 -2 -50 -1 -50
+		 0 -50 1 -50 2 -50 3 -50 4 -50 5 -50 6 -50 7 -50 8 -50 9 -50 10 -50 11 -50 12 -50
+		 13 -50 14 -50 15 -50 16 -50 17 -50 18 -50 19 -50 20 -50 21 -50 22 -50 23 -50 24 -50
+		 25 -50 26 -50 27 -50 28 -50 29 -50 30 -50 31 -50 32 -50 33 -50 34 -50 35 -50 36 -50
+		 37 -50 38 -50 39 -50 40 -50 41 -50 42 -50 43 -50 44 -50 45 -50 46 -50 47 -50 48 -50
+		 49 -50 50 -50 51 -50 52 -50 53 -50 54 -50 55 -50 56 -50 57 -50 58 -50 59 -50 60 -50
+		 61 -50 62 -50 63 -50 64 -50 65 -50 66 -50 67 -50 68 -50 69 -50 70 -50 71 -50 72 -50
+		 73 -50 74 -50 75 -50 76 -50 77 -50 78 -50 79 -50 80 -50 81 -50 82 -50 83 -50 84 -50
+		 85 -50 86 -50 87 -50 88 -50 89 -50 90 -50 91 -50 92 -50 93 -50 94 -50 95 -50 96 -50
+		 97 -50 98 -50 99 -50 100 -50 101 -50 102 -50 103 -50 104 -50 105 -50 106 -50 107 -50
+		 108 -50 109 -50 110 -50 111 -50 112 -50 113 -50 114 -50 115 -50 116 -50 117 -50 118 -50
+		 119 -50 120 -50;
+createNode animCurveTU -n "Bedsheet_nucleus1_frameJumpLimit";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_enable";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_useTransform";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_gravity";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 9.8000001907348633 -49 9.8000001907348633
+		 -48 9.8000001907348633 -47 9.8000001907348633 -46 9.8000001907348633 -45 9.8000001907348633
+		 -44 9.8000001907348633 -43 9.8000001907348633 -42 9.8000001907348633 -41 9.8000001907348633
+		 -40 9.8000001907348633 -39 9.8000001907348633 -38 9.8000001907348633 -37 9.8000001907348633
+		 -36 9.8000001907348633 -35 9.8000001907348633 -34 9.8000001907348633 -33 9.8000001907348633
+		 -32 9.8000001907348633 -31 9.8000001907348633 -30 9.8000001907348633 -29 9.8000001907348633
+		 -28 9.8000001907348633 -27 9.8000001907348633 -26 9.8000001907348633 -25 9.8000001907348633
+		 -24 9.8000001907348633 -23 9.8000001907348633 -22 9.8000001907348633 -21 9.8000001907348633
+		 -20 9.8000001907348633 -19 9.8000001907348633 -18 9.8000001907348633 -17 9.8000001907348633
+		 -16 9.8000001907348633 -15 9.8000001907348633 -14 9.8000001907348633 -13 9.8000001907348633
+		 -12 9.8000001907348633 -11 9.8000001907348633 -10 9.8000001907348633 -9 9.8000001907348633
+		 -8 9.8000001907348633 -7 9.8000001907348633 -6 9.8000001907348633 -5 9.8000001907348633
+		 -4 9.8000001907348633 -3 9.8000001907348633 -2 9.8000001907348633 -1 9.8000001907348633
+		 0 9.8000001907348633 1 9.8000001907348633 2 9.8000001907348633 3 9.8000001907348633
+		 4 9.8000001907348633 5 9.8000001907348633 6 9.8000001907348633 7 9.8000001907348633
+		 8 9.8000001907348633 9 9.8000001907348633 10 9.8000001907348633 11 9.8000001907348633
+		 12 9.8000001907348633 13 9.8000001907348633 14 9.8000001907348633 15 9.8000001907348633
+		 16 9.8000001907348633 17 9.8000001907348633 18 9.8000001907348633 19 9.8000001907348633
+		 20 9.8000001907348633 21 9.8000001907348633 22 9.8000001907348633 23 9.8000001907348633
+		 24 9.8000001907348633 25 9.8000001907348633 26 9.8000001907348633 27 9.8000001907348633
+		 28 9.8000001907348633 29 9.8000001907348633 30 9.8000001907348633 31 9.8000001907348633
+		 32 9.8000001907348633 33 9.8000001907348633 34 9.8000001907348633 35 9.8000001907348633
+		 36 9.8000001907348633 37 9.8000001907348633 38 9.8000001907348633 39 9.8000001907348633
+		 40 9.8000001907348633 41 9.8000001907348633 42 9.8000001907348633 43 9.8000001907348633
+		 44 9.8000001907348633 45 9.8000001907348633 46 9.8000001907348633 47 9.8000001907348633
+		 48 9.8000001907348633 49 9.8000001907348633 50 9.8000001907348633 51 9.8000001907348633
+		 52 9.8000001907348633 53 9.8000001907348633 54 9.8000001907348633 55 9.8000001907348633
+		 56 9.8000001907348633 57 9.8000001907348633 58 9.8000001907348633 59 9.8000001907348633
+		 60 9.8000001907348633 61 9.8000001907348633 62 9.8000001907348633 63 9.8000001907348633
+		 64 9.8000001907348633 65 9.8000001907348633 66 9.8000001907348633 67 9.8000001907348633
+		 68 9.8000001907348633 69 9.8000001907348633 70 9.8000001907348633 71 9.8000001907348633
+		 72 9.8000001907348633 73 9.8000001907348633 74 9.8000001907348633 75 9.8000001907348633
+		 76 9.8000001907348633 77 9.8000001907348633 78 9.8000001907348633 79 9.8000001907348633
+		 80 9.8000001907348633 81 9.8000001907348633 82 9.8000001907348633 83 9.8000001907348633
+		 84 9.8000001907348633 85 9.8000001907348633 86 9.8000001907348633 87 9.8000001907348633
+		 88 9.8000001907348633 89 9.8000001907348633 90 9.8000001907348633 91 9.8000001907348633
+		 92 9.8000001907348633 93 9.8000001907348633 94 9.8000001907348633 95 9.8000001907348633
+		 96 9.8000001907348633 97 9.8000001907348633 98 9.8000001907348633 99 9.8000001907348633
+		 100 9.8000001907348633 101 9.8000001907348633 102 9.8000001907348633 103 9.8000001907348633
+		 104 9.8000001907348633 105 9.8000001907348633 106 9.8000001907348633 107 9.8000001907348633
+		 108 9.8000001907348633 109 9.8000001907348633 110 9.8000001907348633 111 9.8000001907348633
+		 112 9.8000001907348633 113 9.8000001907348633 114 9.8000001907348633 115 9.8000001907348633
+		 116 9.8000001907348633 117 9.8000001907348633 118 9.8000001907348633 119 9.8000001907348633
+		 120 9.8000001907348633;
+createNode animCurveTU -n "Bedsheet_nucleus1_gravityDirectionX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_gravityDirectionY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 -1 -49 -1 -48 -1 -47 -1 -46 -1 -45 -1
+		 -44 -1 -43 -1 -42 -1 -41 -1 -40 -1 -39 -1 -38 -1 -37 -1 -36 -1 -35 -1 -34 -1 -33 -1
+		 -32 -1 -31 -1 -30 -1 -29 -1 -28 -1 -27 -1 -26 -1 -25 -1 -24 -1 -23 -1 -22 -1 -21 -1
+		 -20 -1 -19 -1 -18 -1 -17 -1 -16 -1 -15 -1 -14 -1 -13 -1 -12 -1 -11 -1 -10 -1 -9 -1
+		 -8 -1 -7 -1 -6 -1 -5 -1 -4 -1 -3 -1 -2 -1 -1 -1 0 -1 1 -1 2 -1 3 -1 4 -1 5 -1 6 -1
+		 7 -1 8 -1 9 -1 10 -1 11 -1 12 -1 13 -1 14 -1 15 -1 16 -1 17 -1 18 -1 19 -1 20 -1
+		 21 -1 22 -1 23 -1 24 -1 25 -1 26 -1 27 -1 28 -1 29 -1 30 -1 31 -1 32 -1 33 -1 34 -1
+		 35 -1 36 -1 37 -1 38 -1 39 -1 40 -1 41 -1 42 -1 43 -1 44 -1 45 -1 46 -1 47 -1 48 -1
+		 49 -1 50 -1 51 -1 52 -1 53 -1 54 -1 55 -1 56 -1 57 -1 58 -1 59 -1 60 -1 61 -1 62 -1
+		 63 -1 64 -1 65 -1 66 -1 67 -1 68 -1 69 -1 70 -1 71 -1 72 -1 73 -1 74 -1 75 -1 76 -1
+		 77 -1 78 -1 79 -1 80 -1 81 -1 82 -1 83 -1 84 -1 85 -1 86 -1 87 -1 88 -1 89 -1 90 -1
+		 91 -1 92 -1 93 -1 94 -1 95 -1 96 -1 97 -1 98 -1 99 -1 100 -1 101 -1 102 -1 103 -1
+		 104 -1 105 -1 106 -1 107 -1 108 -1 109 -1 110 -1 111 -1 112 -1 113 -1 114 -1 115 -1
+		 116 -1 117 -1 118 -1 119 -1 120 -1;
+createNode animCurveTU -n "Bedsheet_nucleus1_gravityDirectionZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_airDensity";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_windSpeed";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_windDirectionX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_windDirectionY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_windDirectionZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_windNoise";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_collisionLayerRange";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 4 -49 4 -48 4 -47 4 -46 4 -45 4 -44 4
+		 -43 4 -42 4 -41 4 -40 4 -39 4 -38 4 -37 4 -36 4 -35 4 -34 4 -33 4 -32 4 -31 4 -30 4
+		 -29 4 -28 4 -27 4 -26 4 -25 4 -24 4 -23 4 -22 4 -21 4 -20 4 -19 4 -18 4 -17 4 -16 4
+		 -15 4 -14 4 -13 4 -12 4 -11 4 -10 4 -9 4 -8 4 -7 4 -6 4 -5 4 -4 4 -3 4 -2 4 -1 4
+		 0 4 1 4 2 4 3 4 4 4 5 4 6 4 7 4 8 4 9 4 10 4 11 4 12 4 13 4 14 4 15 4 16 4 17 4 18 4
+		 19 4 20 4 21 4 22 4 23 4 24 4 25 4 26 4 27 4 28 4 29 4 30 4 31 4 32 4 33 4 34 4 35 4
+		 36 4 37 4 38 4 39 4 40 4 41 4 42 4 43 4 44 4 45 4 46 4 47 4 48 4 49 4 50 4 51 4 52 4
+		 53 4 54 4 55 4 56 4 57 4 58 4 59 4 60 4 61 4 62 4 63 4 64 4 65 4 66 4 67 4 68 4 69 4
+		 70 4 71 4 72 4 73 4 74 4 75 4 76 4 77 4 78 4 79 4 80 4 81 4 82 4 83 4 84 4 85 4 86 4
+		 87 4 88 4 89 4 90 4 91 4 92 4 93 4 94 4 95 4 96 4 97 4 98 4 99 4 100 4 101 4 102 4
+		 103 4 104 4 105 4 106 4 107 4 108 4 109 4 110 4 111 4 112 4 113 4 114 4 115 4 116 4
+		 117 4 118 4 119 4 120 4;
+createNode animCurveTU -n "Bedsheet_nucleus1_collisionSoftness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_usePlane";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeOriginX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeOriginY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeOriginZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeNormalX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeNormalY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeNormalZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeBounce";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeFriction";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.10000000149011612 -49 0.10000000149011612
+		 -48 0.10000000149011612 -47 0.10000000149011612 -46 0.10000000149011612 -45 0.10000000149011612
+		 -44 0.10000000149011612 -43 0.10000000149011612 -42 0.10000000149011612 -41 0.10000000149011612
+		 -40 0.10000000149011612 -39 0.10000000149011612 -38 0.10000000149011612 -37 0.10000000149011612
+		 -36 0.10000000149011612 -35 0.10000000149011612 -34 0.10000000149011612 -33 0.10000000149011612
+		 -32 0.10000000149011612 -31 0.10000000149011612 -30 0.10000000149011612 -29 0.10000000149011612
+		 -28 0.10000000149011612 -27 0.10000000149011612 -26 0.10000000149011612 -25 0.10000000149011612
+		 -24 0.10000000149011612 -23 0.10000000149011612 -22 0.10000000149011612 -21 0.10000000149011612
+		 -20 0.10000000149011612 -19 0.10000000149011612 -18 0.10000000149011612 -17 0.10000000149011612
+		 -16 0.10000000149011612 -15 0.10000000149011612 -14 0.10000000149011612 -13 0.10000000149011612
+		 -12 0.10000000149011612 -11 0.10000000149011612 -10 0.10000000149011612 -9 0.10000000149011612
+		 -8 0.10000000149011612 -7 0.10000000149011612 -6 0.10000000149011612 -5 0.10000000149011612
+		 -4 0.10000000149011612 -3 0.10000000149011612 -2 0.10000000149011612 -1 0.10000000149011612
+		 0 0.10000000149011612 1 0.10000000149011612 2 0.10000000149011612 3 0.10000000149011612
+		 4 0.10000000149011612 5 0.10000000149011612 6 0.10000000149011612 7 0.10000000149011612
+		 8 0.10000000149011612 9 0.10000000149011612 10 0.10000000149011612 11 0.10000000149011612
+		 12 0.10000000149011612 13 0.10000000149011612 14 0.10000000149011612 15 0.10000000149011612
+		 16 0.10000000149011612 17 0.10000000149011612 18 0.10000000149011612 19 0.10000000149011612
+		 20 0.10000000149011612 21 0.10000000149011612 22 0.10000000149011612 23 0.10000000149011612
+		 24 0.10000000149011612 25 0.10000000149011612 26 0.10000000149011612 27 0.10000000149011612
+		 28 0.10000000149011612 29 0.10000000149011612 30 0.10000000149011612 31 0.10000000149011612
+		 32 0.10000000149011612 33 0.10000000149011612 34 0.10000000149011612 35 0.10000000149011612
+		 36 0.10000000149011612 37 0.10000000149011612 38 0.10000000149011612 39 0.10000000149011612
+		 40 0.10000000149011612 41 0.10000000149011612 42 0.10000000149011612 43 0.10000000149011612
+		 44 0.10000000149011612 45 0.10000000149011612 46 0.10000000149011612 47 0.10000000149011612
+		 48 0.10000000149011612 49 0.10000000149011612 50 0.10000000149011612 51 0.10000000149011612
+		 52 0.10000000149011612 53 0.10000000149011612 54 0.10000000149011612 55 0.10000000149011612
+		 56 0.10000000149011612 57 0.10000000149011612 58 0.10000000149011612 59 0.10000000149011612
+		 60 0.10000000149011612 61 0.10000000149011612 62 0.10000000149011612 63 0.10000000149011612
+		 64 0.10000000149011612 65 0.10000000149011612 66 0.10000000149011612 67 0.10000000149011612
+		 68 0.10000000149011612 69 0.10000000149011612 70 0.10000000149011612 71 0.10000000149011612
+		 72 0.10000000149011612 73 0.10000000149011612 74 0.10000000149011612 75 0.10000000149011612
+		 76 0.10000000149011612 77 0.10000000149011612 78 0.10000000149011612 79 0.10000000149011612
+		 80 0.10000000149011612 81 0.10000000149011612 82 0.10000000149011612 83 0.10000000149011612
+		 84 0.10000000149011612 85 0.10000000149011612 86 0.10000000149011612 87 0.10000000149011612
+		 88 0.10000000149011612 89 0.10000000149011612 90 0.10000000149011612 91 0.10000000149011612
+		 92 0.10000000149011612 93 0.10000000149011612 94 0.10000000149011612 95 0.10000000149011612
+		 96 0.10000000149011612 97 0.10000000149011612 98 0.10000000149011612 99 0.10000000149011612
+		 100 0.10000000149011612 101 0.10000000149011612 102 0.10000000149011612 103 0.10000000149011612
+		 104 0.10000000149011612 105 0.10000000149011612 106 0.10000000149011612 107 0.10000000149011612
+		 108 0.10000000149011612 109 0.10000000149011612 110 0.10000000149011612 111 0.10000000149011612
+		 112 0.10000000149011612 113 0.10000000149011612 114 0.10000000149011612 115 0.10000000149011612
+		 116 0.10000000149011612 117 0.10000000149011612 118 0.10000000149011612 119 0.10000000149011612
+		 120 0.10000000149011612;
+createNode animCurveTU -n "Bedsheet_nucleus1_planeStickiness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nucleus1_subSteps";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 3 -49 3 -48 3 -47 3 -46 3 -45 3 -44 3
+		 -43 3 -42 3 -41 3 -40 3 -39 3 -38 3 -37 3 -36 3 -35 3 -34 3 -33 3 -32 3 -31 3 -30 3
+		 -29 3 -28 3 -27 3 -26 3 -25 3 -24 3 -23 3 -22 3 -21 3 -20 3 -19 3 -18 3 -17 3 -16 3
+		 -15 3 -14 3 -13 3 -12 3 -11 3 -10 3 -9 3 -8 3 -7 3 -6 3 -5 3 -4 3 -3 3 -2 3 -1 3
+		 0 3 1 3 2 3 3 3 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 12 3 13 3 14 3 15 3 16 3 17 3 18 3
+		 19 3 20 3 21 3 22 3 23 3 24 3 25 3 26 3 27 3 28 3 29 3 30 3 31 3 32 3 33 3 34 3 35 3
+		 36 3 37 3 38 3 39 3 40 3 41 3 42 3 43 3 44 3 45 3 46 3 47 3 48 3 49 3 50 3 51 3 52 3
+		 53 3 54 3 55 3 56 3 57 3 58 3 59 3 60 3 61 3 62 3 63 3 64 3 65 3 66 3 67 3 68 3 69 3
+		 70 3 71 3 72 3 73 3 74 3 75 3 76 3 77 3 78 3 79 3 80 3 81 3 82 3 83 3 84 3 85 3 86 3
+		 87 3 88 3 89 3 90 3 91 3 92 3 93 3 94 3 95 3 96 3 97 3 98 3 99 3 100 3 101 3 102 3
+		 103 3 104 3 105 3 106 3 107 3 108 3 109 3 110 3 111 3 112 3 113 3 114 3 115 3 116 3
+		 117 3 118 3 119 3 120 3;
+createNode animCurveTU -n "Bedsheet_nucleus1_maxCollisionIterations";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 4 -49 4 -48 4 -47 4 -46 4 -45 4 -44 4
+		 -43 4 -42 4 -41 4 -40 4 -39 4 -38 4 -37 4 -36 4 -35 4 -34 4 -33 4 -32 4 -31 4 -30 4
+		 -29 4 -28 4 -27 4 -26 4 -25 4 -24 4 -23 4 -22 4 -21 4 -20 4 -19 4 -18 4 -17 4 -16 4
+		 -15 4 -14 4 -13 4 -12 4 -11 4 -10 4 -9 4 -8 4 -7 4 -6 4 -5 4 -4 4 -3 4 -2 4 -1 4
+		 0 4 1 4 2 4 3 4 4 4 5 4 6 4 7 4 8 4 9 4 10 4 11 4 12 4 13 4 14 4 15 4 16 4 17 4 18 4
+		 19 4 20 4 21 4 22 4 23 4 24 4 25 4 26 4 27 4 28 4 29 4 30 4 31 4 32 4 33 4 34 4 35 4
+		 36 4 37 4 38 4 39 4 40 4 41 4 42 4 43 4 44 4 45 4 46 4 47 4 48 4 49 4 50 4 51 4 52 4
+		 53 4 54 4 55 4 56 4 57 4 58 4 59 4 60 4 61 4 62 4 63 4 64 4 65 4 66 4 67 4 68 4 69 4
+		 70 4 71 4 72 4 73 4 74 4 75 4 76 4 77 4 78 4 79 4 80 4 81 4 82 4 83 4 84 4 85 4 86 4
+		 87 4 88 4 89 4 90 4 91 4 92 4 93 4 94 4 95 4 96 4 97 4 98 4 99 4 100 4 101 4 102 4
+		 103 4 104 4 105 4 106 4 107 4 108 4 109 4 110 4 111 4 112 4 113 4 114 4 115 4 116 4
+		 117 4 118 4 119 4 120 4;
+createNode animCurveTU -n "Bedsheet_nucleus1_timeScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nucleus1_spaceScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nCloth_visibility";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_isDynamic";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTT -n "Bedsheet_nClothShape_currentTime";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 -50 -49 -49 -48 -48 -47 -47 -46 -46 
+		-45 -45 -44 -44 -43 -43 -42 -42 -41 -41 -40 -40 -39 -39 -38 -38 -37 -37 -36 -36 -35 
+		-35 -34 -34 -33 -33 -32 -32 -31 -31 -30 -30 -29 -29 -28 -28 -27 -27 -26 -26 -25 -25 
+		-24 -24 -23 -23 -22 -22 -21 -21 -20 -20 -19 -19 -18 -18 -17 -17 -16 -16 -15 -15 -14 
+		-14 -13 -13 -12 -12 -11 -11 -10 -10 -9 -9 -8 -8 -7 -7 -6 -6 -5 -5 -4 -4 -3 -3 -2 
+		-2 -1 -1 0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 
+		15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 26 27 27 28 28 
+		29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 
+		42 43 43 44 44 45 45 46 46 47 47 48 48 49 49 50 50 51 51 52 52 53 53 54 54 55 55 
+		56 56 57 57 58 58 59 59 60 60 61 61 62 62 63 63 64 64 65 65 66 66 67 67 68 68 69 
+		69 70 70 71 71 72 72 73 73 74 74 75 75 76 76 77 77 78 78 79 79 80 80 81 81 82 82 
+		83 83 84 84 85 85 86 86 87 87 88 88 89 89 90 90 91 91 92 92 93 93 94 94 95 95 96 
+		96 97 97 98 98 99 99 100 100 101 101 102 102 103 103 104 104 105 105 106 106 107 
+		107 108 108 109 109 110 110 111 111 112 112 113 113 114 114 115 115 116 116 117 117 
+		118 118 119 119 120 120;
+createNode animCurveTU -n "Bedsheet_nClothShape_playFromCache";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_thickness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.017375806346535683 -49 0.017375806346535683
+		 -48 0.017375806346535683 -47 0.017375806346535683 -46 0.017375806346535683 -45 0.017375806346535683
+		 -44 0.017375806346535683 -43 0.017375806346535683 -42 0.017375806346535683 -41 0.017375806346535683
+		 -40 0.017375806346535683 -39 0.017375806346535683 -38 0.017375806346535683 -37 0.017375806346535683
+		 -36 0.017375806346535683 -35 0.017375806346535683 -34 0.017375806346535683 -33 0.017375806346535683
+		 -32 0.017375806346535683 -31 0.017375806346535683 -30 0.017375806346535683 -29 0.017375806346535683
+		 -28 0.017375806346535683 -27 0.017375806346535683 -26 0.017375806346535683 -25 0.017375806346535683
+		 -24 0.017375806346535683 -23 0.017375806346535683 -22 0.017375806346535683 -21 0.017375806346535683
+		 -20 0.017375806346535683 -19 0.017375806346535683 -18 0.017375806346535683 -17 0.017375806346535683
+		 -16 0.017375806346535683 -15 0.017375806346535683 -14 0.017375806346535683 -13 0.017375806346535683
+		 -12 0.017375806346535683 -11 0.017375806346535683 -10 0.017375806346535683 -9 0.017375806346535683
+		 -8 0.017375806346535683 -7 0.017375806346535683 -6 0.017375806346535683 -5 0.017375806346535683
+		 -4 0.017375806346535683 -3 0.017375806346535683 -2 0.017375806346535683 -1 0.017375806346535683
+		 0 0.017375806346535683 1 0.017375806346535683 2 0.017375806346535683 3 0.017375806346535683
+		 4 0.017375806346535683 5 0.017375806346535683 6 0.017375806346535683 7 0.017375806346535683
+		 8 0.017375806346535683 9 0.017375806346535683 10 0.017375806346535683 11 0.017375806346535683
+		 12 0.017375806346535683 13 0.017375806346535683 14 0.017375806346535683 15 0.017375806346535683
+		 16 0.017375806346535683 17 0.017375806346535683 18 0.017375806346535683 19 0.017375806346535683
+		 20 0.017375806346535683 21 0.017375806346535683 22 0.017375806346535683 23 0.017375806346535683
+		 24 0.017375806346535683 25 0.017375806346535683 26 0.017375806346535683 27 0.017375806346535683
+		 28 0.017375806346535683 29 0.017375806346535683 30 0.017375806346535683 31 0.017375806346535683
+		 32 0.017375806346535683 33 0.017375806346535683 34 0.017375806346535683 35 0.017375806346535683
+		 36 0.017375806346535683 37 0.017375806346535683 38 0.017375806346535683 39 0.017375806346535683
+		 40 0.017375806346535683 41 0.017375806346535683 42 0.017375806346535683 43 0.017375806346535683
+		 44 0.017375806346535683 45 0.017375806346535683 46 0.017375806346535683 47 0.017375806346535683
+		 48 0.017375806346535683 49 0.017375806346535683 50 0.017375806346535683 51 0.017375806346535683
+		 52 0.017375806346535683 53 0.017375806346535683 54 0.017375806346535683 55 0.017375806346535683
+		 56 0.017375806346535683 57 0.017375806346535683 58 0.017375806346535683 59 0.017375806346535683
+		 60 0.017375806346535683 61 0.017375806346535683 62 0.017375806346535683 63 0.017375806346535683
+		 64 0.017375806346535683 65 0.017375806346535683 66 0.017375806346535683 67 0.017375806346535683
+		 68 0.017375806346535683 69 0.017375806346535683 70 0.017375806346535683 71 0.017375806346535683
+		 72 0.017375806346535683 73 0.017375806346535683 74 0.017375806346535683 75 0.017375806346535683
+		 76 0.017375806346535683 77 0.017375806346535683 78 0.017375806346535683 79 0.017375806346535683
+		 80 0.017375806346535683 81 0.017375806346535683 82 0.017375806346535683 83 0.017375806346535683
+		 84 0.017375806346535683 85 0.017375806346535683 86 0.017375806346535683 87 0.017375806346535683
+		 88 0.017375806346535683 89 0.017375806346535683 90 0.017375806346535683 91 0.017375806346535683
+		 92 0.017375806346535683 93 0.017375806346535683 94 0.017375806346535683 95 0.017375806346535683
+		 96 0.017375806346535683 97 0.017375806346535683 98 0.017375806346535683 99 0.017375806346535683
+		 100 0.017375806346535683 101 0.017375806346535683 102 0.017375806346535683 103 0.017375806346535683
+		 104 0.017375806346535683 105 0.017375806346535683 106 0.017375806346535683 107 0.017375806346535683
+		 108 0.017375806346535683 109 0.017375806346535683 110 0.017375806346535683 111 0.017375806346535683
+		 112 0.017375806346535683 113 0.017375806346535683 114 0.017375806346535683 115 0.017375806346535683
+		 116 0.017375806346535683 117 0.017375806346535683 118 0.017375806346535683 119 0.017375806346535683
+		 120 0.017375806346535683;
+createNode animCurveTU -n "Bedsheet_nClothShape_bounce";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_friction";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.60000002384185791 -49 0.60000002384185791
+		 -48 0.60000002384185791 -47 0.60000002384185791 -46 0.60000002384185791 -45 0.60000002384185791
+		 -44 0.60000002384185791 -43 0.60000002384185791 -42 0.60000002384185791 -41 0.60000002384185791
+		 -40 0.60000002384185791 -39 0.60000002384185791 -38 0.60000002384185791 -37 0.60000002384185791
+		 -36 0.60000002384185791 -35 0.60000002384185791 -34 0.60000002384185791 -33 0.60000002384185791
+		 -32 0.60000002384185791 -31 0.60000002384185791 -30 0.60000002384185791 -29 0.60000002384185791
+		 -28 0.60000002384185791 -27 0.60000002384185791 -26 0.60000002384185791 -25 0.60000002384185791
+		 -24 0.60000002384185791 -23 0.60000002384185791 -22 0.60000002384185791 -21 0.60000002384185791
+		 -20 0.60000002384185791 -19 0.60000002384185791 -18 0.60000002384185791 -17 0.60000002384185791
+		 -16 0.60000002384185791 -15 0.60000002384185791 -14 0.60000002384185791 -13 0.60000002384185791
+		 -12 0.60000002384185791 -11 0.60000002384185791 -10 0.60000002384185791 -9 0.60000002384185791
+		 -8 0.60000002384185791 -7 0.60000002384185791 -6 0.60000002384185791 -5 0.60000002384185791
+		 -4 0.60000002384185791 -3 0.60000002384185791 -2 0.60000002384185791 -1 0.60000002384185791
+		 0 0.60000002384185791 1 0.60000002384185791 2 0.60000002384185791 3 0.60000002384185791
+		 4 0.60000002384185791 5 0.60000002384185791 6 0.60000002384185791 7 0.60000002384185791
+		 8 0.60000002384185791 9 0.60000002384185791 10 0.60000002384185791 11 0.60000002384185791
+		 12 0.60000002384185791 13 0.60000002384185791 14 0.60000002384185791 15 0.60000002384185791
+		 16 0.60000002384185791 17 0.60000002384185791 18 0.60000002384185791 19 0.60000002384185791
+		 20 0.60000002384185791 21 0.60000002384185791 22 0.60000002384185791 23 0.60000002384185791
+		 24 0.60000002384185791 25 0.60000002384185791 26 0.60000002384185791 27 0.60000002384185791
+		 28 0.60000002384185791 29 0.60000002384185791 30 0.60000002384185791 31 0.60000002384185791
+		 32 0.60000002384185791 33 0.60000002384185791 34 0.60000002384185791 35 0.60000002384185791
+		 36 0.60000002384185791 37 0.60000002384185791 38 0.60000002384185791 39 0.60000002384185791
+		 40 0.60000002384185791 41 0.60000002384185791 42 0.60000002384185791 43 0.60000002384185791
+		 44 0.60000002384185791 45 0.60000002384185791 46 0.60000002384185791 47 0.60000002384185791
+		 48 0.60000002384185791 49 0.60000002384185791 50 0.60000002384185791 51 0.60000002384185791
+		 52 0.60000002384185791 53 0.60000002384185791 54 0.60000002384185791 55 0.60000002384185791
+		 56 0.60000002384185791 57 0.60000002384185791 58 0.60000002384185791 59 0.60000002384185791
+		 60 0.60000002384185791 61 0.60000002384185791 62 0.60000002384185791 63 0.60000002384185791
+		 64 0.60000002384185791 65 0.60000002384185791 66 0.60000002384185791 67 0.60000002384185791
+		 68 0.60000002384185791 69 0.60000002384185791 70 0.60000002384185791 71 0.60000002384185791
+		 72 0.60000002384185791 73 0.60000002384185791 74 0.60000002384185791 75 0.60000002384185791
+		 76 0.60000002384185791 77 0.60000002384185791 78 0.60000002384185791 79 0.60000002384185791
+		 80 0.60000002384185791 81 0.60000002384185791 82 0.60000002384185791 83 0.60000002384185791
+		 84 0.60000002384185791 85 0.60000002384185791 86 0.60000002384185791 87 0.60000002384185791
+		 88 0.60000002384185791 89 0.60000002384185791 90 0.60000002384185791 91 0.60000002384185791
+		 92 0.60000002384185791 93 0.60000002384185791 94 0.60000002384185791 95 0.60000002384185791
+		 96 0.60000002384185791 97 0.60000002384185791 98 0.60000002384185791 99 0.60000002384185791
+		 100 0.60000002384185791 101 0.60000002384185791 102 0.60000002384185791 103 0.60000002384185791
+		 104 0.60000002384185791 105 0.60000002384185791 106 0.60000002384185791 107 0.60000002384185791
+		 108 0.60000002384185791 109 0.60000002384185791 110 0.60000002384185791 111 0.60000002384185791
+		 112 0.60000002384185791 113 0.60000002384185791 114 0.60000002384185791 115 0.60000002384185791
+		 116 0.60000002384185791 117 0.60000002384185791 118 0.60000002384185791 119 0.60000002384185791
+		 120 0.60000002384185791;
+createNode animCurveTU -n "Bedsheet_nClothShape_damp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 8 -49 8 -48 8 -47 8 -46 8 -45 8 -44 8
+		 -43 8 -42 8 -41 8 -40 8 -39 8 -38 8 -37 8 -36 8 -35 8 -34 8 -33 8 -32 8 -31 8 -30 8
+		 -29 8 -28 8 -27 8 -26 8 -25 8 -24 8 -23 8 -22 8 -21 8 -20 8 -19 8 -18 8 -17 8 -16 8
+		 -15 8 -14 8 -13 8 -12 8 -11 8 -10 8 -9 8 -8 8 -7 8 -6 8 -5 8 -4 8 -3 8 -2 8 -1 8
+		 0 8 1 8 2 8 3 8 4 8 5 8 6 8 7 8 8 8 9 8 10 8 11 8 12 8 13 8 14 8 15 8 16 8 17 8 18 8
+		 19 8 20 8 21 8 22 8 23 8 24 8 25 8 26 8 27 8 28 8 29 8 30 8 31 8 32 8 33 8 34 8 35 8
+		 36 8 37 8 38 8 39 8 40 8 41 8 42 8 43 8 44 8 45 8 46 8 47 8 48 8 49 8 50 8 51 8 52 8
+		 53 8 54 8 55 8 56 8 57 8 58 8 59 8 60 8 61 8 62 8 63 8 64 8 65 8 66 8 67 8 68 8 69 8
+		 70 8 71 8 72 8 73 8 74 8 75 8 76 8 77 8 78 8 79 8 80 8 81 8 82 8 83 8 84 8 85 8 86 8
+		 87 8 88 8 89 8 90 8 91 8 92 8 93 8 94 8 95 8 96 8 97 8 98 8 99 8 100 8 101 8 102 8
+		 103 8 104 8 105 8 106 8 107 8 108 8 109 8 110 8 111 8 112 8 113 8 114 8 115 8 116 8
+		 117 8 118 8 119 8 120 8;
+createNode animCurveTU -n "Bedsheet_nClothShape_stickiness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_collideStrength";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_collisionFlag";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 3 -49 3 -48 3 -47 3 -46 3 -45 3 -44 3
+		 -43 3 -42 3 -41 3 -40 3 -39 3 -38 3 -37 3 -36 3 -35 3 -34 3 -33 3 -32 3 -31 3 -30 3
+		 -29 3 -28 3 -27 3 -26 3 -25 3 -24 3 -23 3 -22 3 -21 3 -20 3 -19 3 -18 3 -17 3 -16 3
+		 -15 3 -14 3 -13 3 -12 3 -11 3 -10 3 -9 3 -8 3 -7 3 -6 3 -5 3 -4 3 -3 3 -2 3 -1 3
+		 0 3 1 3 2 3 3 3 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 12 3 13 3 14 3 15 3 16 3 17 3 18 3
+		 19 3 20 3 21 3 22 3 23 3 24 3 25 3 26 3 27 3 28 3 29 3 30 3 31 3 32 3 33 3 34 3 35 3
+		 36 3 37 3 38 3 39 3 40 3 41 3 42 3 43 3 44 3 45 3 46 3 47 3 48 3 49 3 50 3 51 3 52 3
+		 53 3 54 3 55 3 56 3 57 3 58 3 59 3 60 3 61 3 62 3 63 3 64 3 65 3 66 3 67 3 68 3 69 3
+		 70 3 71 3 72 3 73 3 74 3 75 3 76 3 77 3 78 3 79 3 80 3 81 3 82 3 83 3 84 3 85 3 86 3
+		 87 3 88 3 89 3 90 3 91 3 92 3 93 3 94 3 95 3 96 3 97 3 98 3 99 3 100 3 101 3 102 3
+		 103 3 104 3 105 3 106 3 107 3 108 3 109 3 110 3 111 3 112 3 113 3 114 3 115 3 116 3
+		 117 3 118 3 119 3 120 3;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfCollisionFlag";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_maxSelfCollisionIterations";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 4 -49 4 -48 4 -47 4 -46 4 -45 4 -44 4
+		 -43 4 -42 4 -41 4 -40 4 -39 4 -38 4 -37 4 -36 4 -35 4 -34 4 -33 4 -32 4 -31 4 -30 4
+		 -29 4 -28 4 -27 4 -26 4 -25 4 -24 4 -23 4 -22 4 -21 4 -20 4 -19 4 -18 4 -17 4 -16 4
+		 -15 4 -14 4 -13 4 -12 4 -11 4 -10 4 -9 4 -8 4 -7 4 -6 4 -5 4 -4 4 -3 4 -2 4 -1 4
+		 0 4 1 4 2 4 3 4 4 4 5 4 6 4 7 4 8 4 9 4 10 4 11 4 12 4 13 4 14 4 15 4 16 4 17 4 18 4
+		 19 4 20 4 21 4 22 4 23 4 24 4 25 4 26 4 27 4 28 4 29 4 30 4 31 4 32 4 33 4 34 4 35 4
+		 36 4 37 4 38 4 39 4 40 4 41 4 42 4 43 4 44 4 45 4 46 4 47 4 48 4 49 4 50 4 51 4 52 4
+		 53 4 54 4 55 4 56 4 57 4 58 4 59 4 60 4 61 4 62 4 63 4 64 4 65 4 66 4 67 4 68 4 69 4
+		 70 4 71 4 72 4 73 4 74 4 75 4 76 4 77 4 78 4 79 4 80 4 81 4 82 4 83 4 84 4 85 4 86 4
+		 87 4 88 4 89 4 90 4 91 4 92 4 93 4 94 4 95 4 96 4 97 4 98 4 99 4 100 4 101 4 102 4
+		 103 4 104 4 105 4 106 4 107 4 108 4 109 4 110 4 111 4 112 4 113 4 114 4 115 4 116 4
+		 117 4 118 4 119 4 120 4;
+createNode animCurveTU -n "Bedsheet_nClothShape_maxIterations";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 10000 -49 10000 -48 10000 -47 10000
+		 -46 10000 -45 10000 -44 10000 -43 10000 -42 10000 -41 10000 -40 10000 -39 10000 -38 10000
+		 -37 10000 -36 10000 -35 10000 -34 10000 -33 10000 -32 10000 -31 10000 -30 10000 -29 10000
+		 -28 10000 -27 10000 -26 10000 -25 10000 -24 10000 -23 10000 -22 10000 -21 10000 -20 10000
+		 -19 10000 -18 10000 -17 10000 -16 10000 -15 10000 -14 10000 -13 10000 -12 10000 -11 10000
+		 -10 10000 -9 10000 -8 10000 -7 10000 -6 10000 -5 10000 -4 10000 -3 10000 -2 10000
+		 -1 10000 0 10000 1 10000 2 10000 3 10000 4 10000 5 10000 6 10000 7 10000 8 10000
+		 9 10000 10 10000 11 10000 12 10000 13 10000 14 10000 15 10000 16 10000 17 10000 18 10000
+		 19 10000 20 10000 21 10000 22 10000 23 10000 24 10000 25 10000 26 10000 27 10000
+		 28 10000 29 10000 30 10000 31 10000 32 10000 33 10000 34 10000 35 10000 36 10000
+		 37 10000 38 10000 39 10000 40 10000 41 10000 42 10000 43 10000 44 10000 45 10000
+		 46 10000 47 10000 48 10000 49 10000 50 10000 51 10000 52 10000 53 10000 54 10000
+		 55 10000 56 10000 57 10000 58 10000 59 10000 60 10000 61 10000 62 10000 63 10000
+		 64 10000 65 10000 66 10000 67 10000 68 10000 69 10000 70 10000 71 10000 72 10000
+		 73 10000 74 10000 75 10000 76 10000 77 10000 78 10000 79 10000 80 10000 81 10000
+		 82 10000 83 10000 84 10000 85 10000 86 10000 87 10000 88 10000 89 10000 90 10000
+		 91 10000 92 10000 93 10000 94 10000 95 10000 96 10000 97 10000 98 10000 99 10000
+		 100 10000 101 10000 102 10000 103 10000 104 10000 105 10000 106 10000 107 10000 108 10000
+		 109 10000 110 10000 111 10000 112 10000 113 10000 114 10000 115 10000 116 10000 117 10000
+		 118 10000 119 10000 120 10000;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointMass";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 3 -49 3 -48 3 -47 3 -46 3 -45 3 -44 3
+		 -43 3 -42 3 -41 3 -40 3 -39 3 -38 3 -37 3 -36 3 -35 3 -34 3 -33 3 -32 3 -31 3 -30 3
+		 -29 3 -28 3 -27 3 -26 3 -25 3 -24 3 -23 3 -22 3 -21 3 -20 3 -19 3 -18 3 -17 3 -16 3
+		 -15 3 -14 3 -13 3 -12 3 -11 3 -10 3 -9 3 -8 3 -7 3 -6 3 -5 3 -4 3 -3 3 -2 3 -1 3
+		 0 3 1 3 2 3 3 3 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 12 3 13 3 14 3 15 3 16 3 17 3 18 3
+		 19 3 20 3 21 3 22 3 23 3 24 3 25 3 26 3 27 3 28 3 29 3 30 3 31 3 32 3 33 3 34 3 35 3
+		 36 3 37 3 38 3 39 3 40 3 41 3 42 3 43 3 44 3 45 3 46 3 47 3 48 3 49 3 50 3 51 3 52 3
+		 53 3 54 3 55 3 56 3 57 3 58 3 59 3 60 3 61 3 62 3 63 3 64 3 65 3 66 3 67 3 68 3 69 3
+		 70 3 71 3 72 3 73 3 74 3 75 3 76 3 77 3 78 3 79 3 80 3 81 3 82 3 83 3 84 3 85 3 86 3
+		 87 3 88 3 89 3 90 3 91 3 92 3 93 3 94 3 95 3 96 3 97 3 98 3 99 3 100 3 101 3 102 3
+		 103 3 104 3 105 3 106 3 107 3 108 3 109 3 110 3 111 3 112 3 113 3 114 3 115 3 116 3
+		 117 3 118 3 119 3 120 3;
+createNode animCurveTU -n "Bedsheet_nClothShape_restLengthScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_localForceX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_localForceY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_localForceZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_localWindX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_localWindY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_localWindZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_collide";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfCollide";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_collisionLayer";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_windShadowDiffusion";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_windShadowDistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_airPushDistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_airPushVorticity";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pushOut";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pushOutRadius";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 10 -49 10 -48 10 -47 10 -46 10 -45 10
+		 -44 10 -43 10 -42 10 -41 10 -40 10 -39 10 -38 10 -37 10 -36 10 -35 10 -34 10 -33 10
+		 -32 10 -31 10 -30 10 -29 10 -28 10 -27 10 -26 10 -25 10 -24 10 -23 10 -22 10 -21 10
+		 -20 10 -19 10 -18 10 -17 10 -16 10 -15 10 -14 10 -13 10 -12 10 -11 10 -10 10 -9 10
+		 -8 10 -7 10 -6 10 -5 10 -4 10 -3 10 -2 10 -1 10 0 10 1 10 2 10 3 10 4 10 5 10 6 10
+		 7 10 8 10 9 10 10 10 11 10 12 10 13 10 14 10 15 10 16 10 17 10 18 10 19 10 20 10
+		 21 10 22 10 23 10 24 10 25 10 26 10 27 10 28 10 29 10 30 10 31 10 32 10 33 10 34 10
+		 35 10 36 10 37 10 38 10 39 10 40 10 41 10 42 10 43 10 44 10 45 10 46 10 47 10 48 10
+		 49 10 50 10 51 10 52 10 53 10 54 10 55 10 56 10 57 10 58 10 59 10 60 10 61 10 62 10
+		 63 10 64 10 65 10 66 10 67 10 68 10 69 10 70 10 71 10 72 10 73 10 74 10 75 10 76 10
+		 77 10 78 10 79 10 80 10 81 10 82 10 83 10 84 10 85 10 86 10 87 10 88 10 89 10 90 10
+		 91 10 92 10 93 10 94 10 95 10 96 10 97 10 98 10 99 10 100 10 101 10 102 10 103 10
+		 104 10 105 10 106 10 107 10 108 10 109 10 110 10 111 10 112 10 113 10 114 10 115 10
+		 116 10 117 10 118 10 119 10 120 10;
+createNode animCurveTU -n "Bedsheet_nClothShape_crossoverPush";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_trappedCheck";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_forceField";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldMagnitude";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldDistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_0__fieldScale_Position";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_0__fieldScale_FloatValue";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_0__fieldScale_Interp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_1__fieldScale_Position";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_1__fieldScale_FloatValue";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_fieldScale_1__fieldScale_Interp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointForceField";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldMagnitude";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfAttract";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 2 -49 2 -48 2 -47 2 -46 2 -45 2 -44 2
+		 -43 2 -42 2 -41 2 -40 2 -39 2 -38 2 -37 2 -36 2 -35 2 -34 2 -33 2 -32 2 -31 2 -30 2
+		 -29 2 -28 2 -27 2 -26 2 -25 2 -24 2 -23 2 -22 2 -21 2 -20 2 -19 2 -18 2 -17 2 -16 2
+		 -15 2 -14 2 -13 2 -12 2 -11 2 -10 2 -9 2 -8 2 -7 2 -6 2 -5 2 -4 2 -3 2 -2 2 -1 2
+		 0 2 1 2 2 2 3 2 4 2 5 2 6 2 7 2 8 2 9 2 10 2 11 2 12 2 13 2 14 2 15 2 16 2 17 2 18 2
+		 19 2 20 2 21 2 22 2 23 2 24 2 25 2 26 2 27 2 28 2 29 2 30 2 31 2 32 2 33 2 34 2 35 2
+		 36 2 37 2 38 2 39 2 40 2 41 2 42 2 43 2 44 2 45 2 46 2 47 2 48 2 49 2 50 2 51 2 52 2
+		 53 2 54 2 55 2 56 2 57 2 58 2 59 2 60 2 61 2 62 2 63 2 64 2 65 2 66 2 67 2 68 2 69 2
+		 70 2 71 2 72 2 73 2 74 2 75 2 76 2 77 2 78 2 79 2 80 2 81 2 82 2 83 2 84 2 85 2 86 2
+		 87 2 88 2 89 2 90 2 91 2 92 2 93 2 94 2 95 2 96 2 97 2 98 2 99 2 100 2 101 2 102 2
+		 103 2 104 2 105 2 106 2 107 2 108 2 109 2 110 2 111 2 112 2 113 2 114 2 115 2 116 2
+		 117 2 118 2 119 2 120 2;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Position";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_FloatValue";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Interp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Position";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_FloatValue";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Interp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_localSpaceOutput";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_displayColorR";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_displayColorG";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.80000001192092896 -49 0.80000001192092896
+		 -48 0.80000001192092896 -47 0.80000001192092896 -46 0.80000001192092896 -45 0.80000001192092896
+		 -44 0.80000001192092896 -43 0.80000001192092896 -42 0.80000001192092896 -41 0.80000001192092896
+		 -40 0.80000001192092896 -39 0.80000001192092896 -38 0.80000001192092896 -37 0.80000001192092896
+		 -36 0.80000001192092896 -35 0.80000001192092896 -34 0.80000001192092896 -33 0.80000001192092896
+		 -32 0.80000001192092896 -31 0.80000001192092896 -30 0.80000001192092896 -29 0.80000001192092896
+		 -28 0.80000001192092896 -27 0.80000001192092896 -26 0.80000001192092896 -25 0.80000001192092896
+		 -24 0.80000001192092896 -23 0.80000001192092896 -22 0.80000001192092896 -21 0.80000001192092896
+		 -20 0.80000001192092896 -19 0.80000001192092896 -18 0.80000001192092896 -17 0.80000001192092896
+		 -16 0.80000001192092896 -15 0.80000001192092896 -14 0.80000001192092896 -13 0.80000001192092896
+		 -12 0.80000001192092896 -11 0.80000001192092896 -10 0.80000001192092896 -9 0.80000001192092896
+		 -8 0.80000001192092896 -7 0.80000001192092896 -6 0.80000001192092896 -5 0.80000001192092896
+		 -4 0.80000001192092896 -3 0.80000001192092896 -2 0.80000001192092896 -1 0.80000001192092896
+		 0 0.80000001192092896 1 0.80000001192092896 2 0.80000001192092896 3 0.80000001192092896
+		 4 0.80000001192092896 5 0.80000001192092896 6 0.80000001192092896 7 0.80000001192092896
+		 8 0.80000001192092896 9 0.80000001192092896 10 0.80000001192092896 11 0.80000001192092896
+		 12 0.80000001192092896 13 0.80000001192092896 14 0.80000001192092896 15 0.80000001192092896
+		 16 0.80000001192092896 17 0.80000001192092896 18 0.80000001192092896 19 0.80000001192092896
+		 20 0.80000001192092896 21 0.80000001192092896 22 0.80000001192092896 23 0.80000001192092896
+		 24 0.80000001192092896 25 0.80000001192092896 26 0.80000001192092896 27 0.80000001192092896
+		 28 0.80000001192092896 29 0.80000001192092896 30 0.80000001192092896 31 0.80000001192092896
+		 32 0.80000001192092896 33 0.80000001192092896 34 0.80000001192092896 35 0.80000001192092896
+		 36 0.80000001192092896 37 0.80000001192092896 38 0.80000001192092896 39 0.80000001192092896
+		 40 0.80000001192092896 41 0.80000001192092896 42 0.80000001192092896 43 0.80000001192092896
+		 44 0.80000001192092896 45 0.80000001192092896 46 0.80000001192092896 47 0.80000001192092896
+		 48 0.80000001192092896 49 0.80000001192092896 50 0.80000001192092896 51 0.80000001192092896
+		 52 0.80000001192092896 53 0.80000001192092896 54 0.80000001192092896 55 0.80000001192092896
+		 56 0.80000001192092896 57 0.80000001192092896 58 0.80000001192092896 59 0.80000001192092896
+		 60 0.80000001192092896 61 0.80000001192092896 62 0.80000001192092896 63 0.80000001192092896
+		 64 0.80000001192092896 65 0.80000001192092896 66 0.80000001192092896 67 0.80000001192092896
+		 68 0.80000001192092896 69 0.80000001192092896 70 0.80000001192092896 71 0.80000001192092896
+		 72 0.80000001192092896 73 0.80000001192092896 74 0.80000001192092896 75 0.80000001192092896
+		 76 0.80000001192092896 77 0.80000001192092896 78 0.80000001192092896 79 0.80000001192092896
+		 80 0.80000001192092896 81 0.80000001192092896 82 0.80000001192092896 83 0.80000001192092896
+		 84 0.80000001192092896 85 0.80000001192092896 86 0.80000001192092896 87 0.80000001192092896
+		 88 0.80000001192092896 89 0.80000001192092896 90 0.80000001192092896 91 0.80000001192092896
+		 92 0.80000001192092896 93 0.80000001192092896 94 0.80000001192092896 95 0.80000001192092896
+		 96 0.80000001192092896 97 0.80000001192092896 98 0.80000001192092896 99 0.80000001192092896
+		 100 0.80000001192092896 101 0.80000001192092896 102 0.80000001192092896 103 0.80000001192092896
+		 104 0.80000001192092896 105 0.80000001192092896 106 0.80000001192092896 107 0.80000001192092896
+		 108 0.80000001192092896 109 0.80000001192092896 110 0.80000001192092896 111 0.80000001192092896
+		 112 0.80000001192092896 113 0.80000001192092896 114 0.80000001192092896 115 0.80000001192092896
+		 116 0.80000001192092896 117 0.80000001192092896 118 0.80000001192092896 119 0.80000001192092896
+		 120 0.80000001192092896;
+createNode animCurveTU -n "Bedsheet_nClothShape_displayColorB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_stretchResistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 50 -49 50 -48 50 -47 50 -46 50 -45 50
+		 -44 50 -43 50 -42 50 -41 50 -40 50 -39 50 -38 50 -37 50 -36 50 -35 50 -34 50 -33 50
+		 -32 50 -31 50 -30 50 -29 50 -28 50 -27 50 -26 50 -25 50 -24 50 -23 50 -22 50 -21 50
+		 -20 50 -19 50 -18 50 -17 50 -16 50 -15 50 -14 50 -13 50 -12 50 -11 50 -10 50 -9 50
+		 -8 50 -7 50 -6 50 -5 50 -4 50 -3 50 -2 50 -1 50 0 50 1 50 2 50 3 50 4 50 5 50 6 50
+		 7 50 8 50 9 50 10 50 11 50 12 50 13 50 14 50 15 50 16 50 17 50 18 50 19 50 20 50
+		 21 50 22 50 23 50 24 50 25 50 26 50 27 50 28 50 29 50 30 50 31 50 32 50 33 50 34 50
+		 35 50 36 50 37 50 38 50 39 50 40 50 41 50 42 50 43 50 44 50 45 50 46 50 47 50 48 50
+		 49 50 50 50 51 50 52 50 53 50 54 50 55 50 56 50 57 50 58 50 59 50 60 50 61 50 62 50
+		 63 50 64 50 65 50 66 50 67 50 68 50 69 50 70 50 71 50 72 50 73 50 74 50 75 50 76 50
+		 77 50 78 50 79 50 80 50 81 50 82 50 83 50 84 50 85 50 86 50 87 50 88 50 89 50 90 50
+		 91 50 92 50 93 50 94 50 95 50 96 50 97 50 98 50 99 50 100 50 101 50 102 50 103 50
+		 104 50 105 50 106 50 107 50 108 50 109 50 110 50 111 50 112 50 113 50 114 50 115 50
+		 116 50 117 50 118 50 119 50 120 50;
+createNode animCurveTU -n "Bedsheet_nClothShape_compressionResistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 50 -49 50 -48 50 -47 50 -46 50 -45 50
+		 -44 50 -43 50 -42 50 -41 50 -40 50 -39 50 -38 50 -37 50 -36 50 -35 50 -34 50 -33 50
+		 -32 50 -31 50 -30 50 -29 50 -28 50 -27 50 -26 50 -25 50 -24 50 -23 50 -22 50 -21 50
+		 -20 50 -19 50 -18 50 -17 50 -16 50 -15 50 -14 50 -13 50 -12 50 -11 50 -10 50 -9 50
+		 -8 50 -7 50 -6 50 -5 50 -4 50 -3 50 -2 50 -1 50 0 50 1 50 2 50 3 50 4 50 5 50 6 50
+		 7 50 8 50 9 50 10 50 11 50 12 50 13 50 14 50 15 50 16 50 17 50 18 50 19 50 20 50
+		 21 50 22 50 23 50 24 50 25 50 26 50 27 50 28 50 29 50 30 50 31 50 32 50 33 50 34 50
+		 35 50 36 50 37 50 38 50 39 50 40 50 41 50 42 50 43 50 44 50 45 50 46 50 47 50 48 50
+		 49 50 50 50 51 50 52 50 53 50 54 50 55 50 56 50 57 50 58 50 59 50 60 50 61 50 62 50
+		 63 50 64 50 65 50 66 50 67 50 68 50 69 50 70 50 71 50 72 50 73 50 74 50 75 50 76 50
+		 77 50 78 50 79 50 80 50 81 50 82 50 83 50 84 50 85 50 86 50 87 50 88 50 89 50 90 50
+		 91 50 92 50 93 50 94 50 95 50 96 50 97 50 98 50 99 50 100 50 101 50 102 50 103 50
+		 104 50 105 50 106 50 107 50 108 50 109 50 110 50 111 50 112 50 113 50 114 50 115 50
+		 116 50 117 50 118 50 119 50 120 50;
+createNode animCurveTU -n "Bedsheet_nClothShape_bendResistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 10 -49 10 -48 10 -47 10 -46 10 -45 10
+		 -44 10 -43 10 -42 10 -41 10 -40 10 -39 10 -38 10 -37 10 -36 10 -35 10 -34 10 -33 10
+		 -32 10 -31 10 -30 10 -29 10 -28 10 -27 10 -26 10 -25 10 -24 10 -23 10 -22 10 -21 10
+		 -20 10 -19 10 -18 10 -17 10 -16 10 -15 10 -14 10 -13 10 -12 10 -11 10 -10 10 -9 10
+		 -8 10 -7 10 -6 10 -5 10 -4 10 -3 10 -2 10 -1 10 0 10 1 10 2 10 3 10 4 10 5 10 6 10
+		 7 10 8 10 9 10 10 10 11 10 12 10 13 10 14 10 15 10 16 10 17 10 18 10 19 10 20 10
+		 21 10 22 10 23 10 24 10 25 10 26 10 27 10 28 10 29 10 30 10 31 10 32 10 33 10 34 10
+		 35 10 36 10 37 10 38 10 39 10 40 10 41 10 42 10 43 10 44 10 45 10 46 10 47 10 48 10
+		 49 10 50 10 51 10 52 10 53 10 54 10 55 10 56 10 57 10 58 10 59 10 60 10 61 10 62 10
+		 63 10 64 10 65 10 66 10 67 10 68 10 69 10 70 10 71 10 72 10 73 10 74 10 75 10 76 10
+		 77 10 78 10 79 10 80 10 81 10 82 10 83 10 84 10 85 10 86 10 87 10 88 10 89 10 90 10
+		 91 10 92 10 93 10 94 10 95 10 96 10 97 10 98 10 99 10 100 10 101 10 102 10 103 10
+		 104 10 105 10 106 10 107 10 108 10 109 10 110 10 111 10 112 10 113 10 114 10 115 10
+		 116 10 117 10 118 10 119 10 120 10;
+createNode animCurveTU -n "Bedsheet_nClothShape_bendAngleDropoff";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.72728002071380615 -49 0.72728002071380615
+		 -48 0.72728002071380615 -47 0.72728002071380615 -46 0.72728002071380615 -45 0.72728002071380615
+		 -44 0.72728002071380615 -43 0.72728002071380615 -42 0.72728002071380615 -41 0.72728002071380615
+		 -40 0.72728002071380615 -39 0.72728002071380615 -38 0.72728002071380615 -37 0.72728002071380615
+		 -36 0.72728002071380615 -35 0.72728002071380615 -34 0.72728002071380615 -33 0.72728002071380615
+		 -32 0.72728002071380615 -31 0.72728002071380615 -30 0.72728002071380615 -29 0.72728002071380615
+		 -28 0.72728002071380615 -27 0.72728002071380615 -26 0.72728002071380615 -25 0.72728002071380615
+		 -24 0.72728002071380615 -23 0.72728002071380615 -22 0.72728002071380615 -21 0.72728002071380615
+		 -20 0.72728002071380615 -19 0.72728002071380615 -18 0.72728002071380615 -17 0.72728002071380615
+		 -16 0.72728002071380615 -15 0.72728002071380615 -14 0.72728002071380615 -13 0.72728002071380615
+		 -12 0.72728002071380615 -11 0.72728002071380615 -10 0.72728002071380615 -9 0.72728002071380615
+		 -8 0.72728002071380615 -7 0.72728002071380615 -6 0.72728002071380615 -5 0.72728002071380615
+		 -4 0.72728002071380615 -3 0.72728002071380615 -2 0.72728002071380615 -1 0.72728002071380615
+		 0 0.72728002071380615 1 0.72728002071380615 2 0.72728002071380615 3 0.72728002071380615
+		 4 0.72728002071380615 5 0.72728002071380615 6 0.72728002071380615 7 0.72728002071380615
+		 8 0.72728002071380615 9 0.72728002071380615 10 0.72728002071380615 11 0.72728002071380615
+		 12 0.72728002071380615 13 0.72728002071380615 14 0.72728002071380615 15 0.72728002071380615
+		 16 0.72728002071380615 17 0.72728002071380615 18 0.72728002071380615 19 0.72728002071380615
+		 20 0.72728002071380615 21 0.72728002071380615 22 0.72728002071380615 23 0.72728002071380615
+		 24 0.72728002071380615 25 0.72728002071380615 26 0.72728002071380615 27 0.72728002071380615
+		 28 0.72728002071380615 29 0.72728002071380615 30 0.72728002071380615 31 0.72728002071380615
+		 32 0.72728002071380615 33 0.72728002071380615 34 0.72728002071380615 35 0.72728002071380615
+		 36 0.72728002071380615 37 0.72728002071380615 38 0.72728002071380615 39 0.72728002071380615
+		 40 0.72728002071380615 41 0.72728002071380615 42 0.72728002071380615 43 0.72728002071380615
+		 44 0.72728002071380615 45 0.72728002071380615 46 0.72728002071380615 47 0.72728002071380615
+		 48 0.72728002071380615 49 0.72728002071380615 50 0.72728002071380615 51 0.72728002071380615
+		 52 0.72728002071380615 53 0.72728002071380615 54 0.72728002071380615 55 0.72728002071380615
+		 56 0.72728002071380615 57 0.72728002071380615 58 0.72728002071380615 59 0.72728002071380615
+		 60 0.72728002071380615 61 0.72728002071380615 62 0.72728002071380615 63 0.72728002071380615
+		 64 0.72728002071380615 65 0.72728002071380615 66 0.72728002071380615 67 0.72728002071380615
+		 68 0.72728002071380615 69 0.72728002071380615 70 0.72728002071380615 71 0.72728002071380615
+		 72 0.72728002071380615 73 0.72728002071380615 74 0.72728002071380615 75 0.72728002071380615
+		 76 0.72728002071380615 77 0.72728002071380615 78 0.72728002071380615 79 0.72728002071380615
+		 80 0.72728002071380615 81 0.72728002071380615 82 0.72728002071380615 83 0.72728002071380615
+		 84 0.72728002071380615 85 0.72728002071380615 86 0.72728002071380615 87 0.72728002071380615
+		 88 0.72728002071380615 89 0.72728002071380615 90 0.72728002071380615 91 0.72728002071380615
+		 92 0.72728002071380615 93 0.72728002071380615 94 0.72728002071380615 95 0.72728002071380615
+		 96 0.72728002071380615 97 0.72728002071380615 98 0.72728002071380615 99 0.72728002071380615
+		 100 0.72728002071380615 101 0.72728002071380615 102 0.72728002071380615 103 0.72728002071380615
+		 104 0.72728002071380615 105 0.72728002071380615 106 0.72728002071380615 107 0.72728002071380615
+		 108 0.72728002071380615 109 0.72728002071380615 110 0.72728002071380615 111 0.72728002071380615
+		 112 0.72728002071380615 113 0.72728002071380615 114 0.72728002071380615 115 0.72728002071380615
+		 116 0.72728002071380615 117 0.72728002071380615 118 0.72728002071380615 119 0.72728002071380615
+		 120 0.72728002071380615;
+createNode animCurveTU -n "Bedsheet_nClothShape_restitutionTension";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1000 -49 1000 -48 1000 -47 1000 -46 1000
+		 -45 1000 -44 1000 -43 1000 -42 1000 -41 1000 -40 1000 -39 1000 -38 1000 -37 1000
+		 -36 1000 -35 1000 -34 1000 -33 1000 -32 1000 -31 1000 -30 1000 -29 1000 -28 1000
+		 -27 1000 -26 1000 -25 1000 -24 1000 -23 1000 -22 1000 -21 1000 -20 1000 -19 1000
+		 -18 1000 -17 1000 -16 1000 -15 1000 -14 1000 -13 1000 -12 1000 -11 1000 -10 1000
+		 -9 1000 -8 1000 -7 1000 -6 1000 -5 1000 -4 1000 -3 1000 -2 1000 -1 1000 0 1000 1 1000
+		 2 1000 3 1000 4 1000 5 1000 6 1000 7 1000 8 1000 9 1000 10 1000 11 1000 12 1000 13 1000
+		 14 1000 15 1000 16 1000 17 1000 18 1000 19 1000 20 1000 21 1000 22 1000 23 1000 24 1000
+		 25 1000 26 1000 27 1000 28 1000 29 1000 30 1000 31 1000 32 1000 33 1000 34 1000 35 1000
+		 36 1000 37 1000 38 1000 39 1000 40 1000 41 1000 42 1000 43 1000 44 1000 45 1000 46 1000
+		 47 1000 48 1000 49 1000 50 1000 51 1000 52 1000 53 1000 54 1000 55 1000 56 1000 57 1000
+		 58 1000 59 1000 60 1000 61 1000 62 1000 63 1000 64 1000 65 1000 66 1000 67 1000 68 1000
+		 69 1000 70 1000 71 1000 72 1000 73 1000 74 1000 75 1000 76 1000 77 1000 78 1000 79 1000
+		 80 1000 81 1000 82 1000 83 1000 84 1000 85 1000 86 1000 87 1000 88 1000 89 1000 90 1000
+		 91 1000 92 1000 93 1000 94 1000 95 1000 96 1000 97 1000 98 1000 99 1000 100 1000
+		 101 1000 102 1000 103 1000 104 1000 105 1000 106 1000 107 1000 108 1000 109 1000
+		 110 1000 111 1000 112 1000 113 1000 114 1000 115 1000 116 1000 117 1000 118 1000
+		 119 1000 120 1000;
+createNode animCurveTA -n "Bedsheet_nClothShape_restitutionAngle";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 360.00001001791264 -49 360.00001001791264
+		 -48 360.00001001791264 -47 360.00001001791264 -46 360.00001001791264 -45 360.00001001791264
+		 -44 360.00001001791264 -43 360.00001001791264 -42 360.00001001791264 -41 360.00001001791264
+		 -40 360.00001001791264 -39 360.00001001791264 -38 360.00001001791264 -37 360.00001001791264
+		 -36 360.00001001791264 -35 360.00001001791264 -34 360.00001001791264 -33 360.00001001791264
+		 -32 360.00001001791264 -31 360.00001001791264 -30 360.00001001791264 -29 360.00001001791264
+		 -28 360.00001001791264 -27 360.00001001791264 -26 360.00001001791264 -25 360.00001001791264
+		 -24 360.00001001791264 -23 360.00001001791264 -22 360.00001001791264 -21 360.00001001791264
+		 -20 360.00001001791264 -19 360.00001001791264 -18 360.00001001791264 -17 360.00001001791264
+		 -16 360.00001001791264 -15 360.00001001791264 -14 360.00001001791264 -13 360.00001001791264
+		 -12 360.00001001791264 -11 360.00001001791264 -10 360.00001001791264 -9 360.00001001791264
+		 -8 360.00001001791264 -7 360.00001001791264 -6 360.00001001791264 -5 360.00001001791264
+		 -4 360.00001001791264 -3 360.00001001791264 -2 360.00001001791264 -1 360.00001001791264
+		 0 360.00001001791264 1 360.00001001791264 2 360.00001001791264 3 360.00001001791264
+		 4 360.00001001791264 5 360.00001001791264 6 360.00001001791264 7 360.00001001791264
+		 8 360.00001001791264 9 360.00001001791264 10 360.00001001791264 11 360.00001001791264
+		 12 360.00001001791264 13 360.00001001791264 14 360.00001001791264 15 360.00001001791264
+		 16 360.00001001791264 17 360.00001001791264 18 360.00001001791264 19 360.00001001791264
+		 20 360.00001001791264 21 360.00001001791264 22 360.00001001791264 23 360.00001001791264
+		 24 360.00001001791264 25 360.00001001791264 26 360.00001001791264 27 360.00001001791264
+		 28 360.00001001791264 29 360.00001001791264 30 360.00001001791264 31 360.00001001791264
+		 32 360.00001001791264 33 360.00001001791264 34 360.00001001791264 35 360.00001001791264
+		 36 360.00001001791264 37 360.00001001791264 38 360.00001001791264 39 360.00001001791264
+		 40 360.00001001791264 41 360.00001001791264 42 360.00001001791264 43 360.00001001791264
+		 44 360.00001001791264 45 360.00001001791264 46 360.00001001791264 47 360.00001001791264
+		 48 360.00001001791264 49 360.00001001791264 50 360.00001001791264 51 360.00001001791264
+		 52 360.00001001791264 53 360.00001001791264 54 360.00001001791264 55 360.00001001791264
+		 56 360.00001001791264 57 360.00001001791264 58 360.00001001791264 59 360.00001001791264
+		 60 360.00001001791264 61 360.00001001791264 62 360.00001001791264 63 360.00001001791264
+		 64 360.00001001791264 65 360.00001001791264 66 360.00001001791264 67 360.00001001791264
+		 68 360.00001001791264 69 360.00001001791264 70 360.00001001791264 71 360.00001001791264
+		 72 360.00001001791264 73 360.00001001791264 74 360.00001001791264 75 360.00001001791264
+		 76 360.00001001791264 77 360.00001001791264 78 360.00001001791264 79 360.00001001791264
+		 80 360.00001001791264 81 360.00001001791264 82 360.00001001791264 83 360.00001001791264
+		 84 360.00001001791264 85 360.00001001791264 86 360.00001001791264 87 360.00001001791264
+		 88 360.00001001791264 89 360.00001001791264 90 360.00001001791264 91 360.00001001791264
+		 92 360.00001001791264 93 360.00001001791264 94 360.00001001791264 95 360.00001001791264
+		 96 360.00001001791264 97 360.00001001791264 98 360.00001001791264 99 360.00001001791264
+		 100 360.00001001791264 101 360.00001001791264 102 360.00001001791264 103 360.00001001791264
+		 104 360.00001001791264 105 360.00001001791264 106 360.00001001791264 107 360.00001001791264
+		 108 360.00001001791264 109 360.00001001791264 110 360.00001001791264 111 360.00001001791264
+		 112 360.00001001791264 113 360.00001001791264 114 360.00001001791264 115 360.00001001791264
+		 116 360.00001001791264 117 360.00001001791264 118 360.00001001791264 119 360.00001001791264
+		 120 360.00001001791264;
+createNode animCurveTU -n "Bedsheet_nClothShape_shearResistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_rigidity";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_deformResistance";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_inputMeshAttract";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_collideLastThreshold";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.20000000298023224 -49 0.20000000298023224
+		 -48 0.20000000298023224 -47 0.20000000298023224 -46 0.20000000298023224 -45 0.20000000298023224
+		 -44 0.20000000298023224 -43 0.20000000298023224 -42 0.20000000298023224 -41 0.20000000298023224
+		 -40 0.20000000298023224 -39 0.20000000298023224 -38 0.20000000298023224 -37 0.20000000298023224
+		 -36 0.20000000298023224 -35 0.20000000298023224 -34 0.20000000298023224 -33 0.20000000298023224
+		 -32 0.20000000298023224 -31 0.20000000298023224 -30 0.20000000298023224 -29 0.20000000298023224
+		 -28 0.20000000298023224 -27 0.20000000298023224 -26 0.20000000298023224 -25 0.20000000298023224
+		 -24 0.20000000298023224 -23 0.20000000298023224 -22 0.20000000298023224 -21 0.20000000298023224
+		 -20 0.20000000298023224 -19 0.20000000298023224 -18 0.20000000298023224 -17 0.20000000298023224
+		 -16 0.20000000298023224 -15 0.20000000298023224 -14 0.20000000298023224 -13 0.20000000298023224
+		 -12 0.20000000298023224 -11 0.20000000298023224 -10 0.20000000298023224 -9 0.20000000298023224
+		 -8 0.20000000298023224 -7 0.20000000298023224 -6 0.20000000298023224 -5 0.20000000298023224
+		 -4 0.20000000298023224 -3 0.20000000298023224 -2 0.20000000298023224 -1 0.20000000298023224
+		 0 0.20000000298023224 1 0.20000000298023224 2 0.20000000298023224 3 0.20000000298023224
+		 4 0.20000000298023224 5 0.20000000298023224 6 0.20000000298023224 7 0.20000000298023224
+		 8 0.20000000298023224 9 0.20000000298023224 10 0.20000000298023224 11 0.20000000298023224
+		 12 0.20000000298023224 13 0.20000000298023224 14 0.20000000298023224 15 0.20000000298023224
+		 16 0.20000000298023224 17 0.20000000298023224 18 0.20000000298023224 19 0.20000000298023224
+		 20 0.20000000298023224 21 0.20000000298023224 22 0.20000000298023224 23 0.20000000298023224
+		 24 0.20000000298023224 25 0.20000000298023224 26 0.20000000298023224 27 0.20000000298023224
+		 28 0.20000000298023224 29 0.20000000298023224 30 0.20000000298023224 31 0.20000000298023224
+		 32 0.20000000298023224 33 0.20000000298023224 34 0.20000000298023224 35 0.20000000298023224
+		 36 0.20000000298023224 37 0.20000000298023224 38 0.20000000298023224 39 0.20000000298023224
+		 40 0.20000000298023224 41 0.20000000298023224 42 0.20000000298023224 43 0.20000000298023224
+		 44 0.20000000298023224 45 0.20000000298023224 46 0.20000000298023224 47 0.20000000298023224
+		 48 0.20000000298023224 49 0.20000000298023224 50 0.20000000298023224 51 0.20000000298023224
+		 52 0.20000000298023224 53 0.20000000298023224 54 0.20000000298023224 55 0.20000000298023224
+		 56 0.20000000298023224 57 0.20000000298023224 58 0.20000000298023224 59 0.20000000298023224
+		 60 0.20000000298023224 61 0.20000000298023224 62 0.20000000298023224 63 0.20000000298023224
+		 64 0.20000000298023224 65 0.20000000298023224 66 0.20000000298023224 67 0.20000000298023224
+		 68 0.20000000298023224 69 0.20000000298023224 70 0.20000000298023224 71 0.20000000298023224
+		 72 0.20000000298023224 73 0.20000000298023224 74 0.20000000298023224 75 0.20000000298023224
+		 76 0.20000000298023224 77 0.20000000298023224 78 0.20000000298023224 79 0.20000000298023224
+		 80 0.20000000298023224 81 0.20000000298023224 82 0.20000000298023224 83 0.20000000298023224
+		 84 0.20000000298023224 85 0.20000000298023224 86 0.20000000298023224 87 0.20000000298023224
+		 88 0.20000000298023224 89 0.20000000298023224 90 0.20000000298023224 91 0.20000000298023224
+		 92 0.20000000298023224 93 0.20000000298023224 94 0.20000000298023224 95 0.20000000298023224
+		 96 0.20000000298023224 97 0.20000000298023224 98 0.20000000298023224 99 0.20000000298023224
+		 100 0.20000000298023224 101 0.20000000298023224 102 0.20000000298023224 103 0.20000000298023224
+		 104 0.20000000298023224 105 0.20000000298023224 106 0.20000000298023224 107 0.20000000298023224
+		 108 0.20000000298023224 109 0.20000000298023224 110 0.20000000298023224 111 0.20000000298023224
+		 112 0.20000000298023224 113 0.20000000298023224 114 0.20000000298023224 115 0.20000000298023224
+		 116 0.20000000298023224 117 0.20000000298023224 118 0.20000000298023224 119 0.20000000298023224
+		 120 0.20000000298023224;
+createNode animCurveTU -n "Bedsheet_nClothShape_inputAttractDamp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.5 -49 0.5 -48 0.5 -47 0.5 -46 0.5
+		 -45 0.5 -44 0.5 -43 0.5 -42 0.5 -41 0.5 -40 0.5 -39 0.5 -38 0.5 -37 0.5 -36 0.5 -35 0.5
+		 -34 0.5 -33 0.5 -32 0.5 -31 0.5 -30 0.5 -29 0.5 -28 0.5 -27 0.5 -26 0.5 -25 0.5 -24 0.5
+		 -23 0.5 -22 0.5 -21 0.5 -20 0.5 -19 0.5 -18 0.5 -17 0.5 -16 0.5 -15 0.5 -14 0.5 -13 0.5
+		 -12 0.5 -11 0.5 -10 0.5 -9 0.5 -8 0.5 -7 0.5 -6 0.5 -5 0.5 -4 0.5 -3 0.5 -2 0.5 -1 0.5
+		 0 0.5 1 0.5 2 0.5 3 0.5 4 0.5 5 0.5 6 0.5 7 0.5 8 0.5 9 0.5 10 0.5 11 0.5 12 0.5
+		 13 0.5 14 0.5 15 0.5 16 0.5 17 0.5 18 0.5 19 0.5 20 0.5 21 0.5 22 0.5 23 0.5 24 0.5
+		 25 0.5 26 0.5 27 0.5 28 0.5 29 0.5 30 0.5 31 0.5 32 0.5 33 0.5 34 0.5 35 0.5 36 0.5
+		 37 0.5 38 0.5 39 0.5 40 0.5 41 0.5 42 0.5 43 0.5 44 0.5 45 0.5 46 0.5 47 0.5 48 0.5
+		 49 0.5 50 0.5 51 0.5 52 0.5 53 0.5 54 0.5 55 0.5 56 0.5 57 0.5 58 0.5 59 0.5 60 0.5
+		 61 0.5 62 0.5 63 0.5 64 0.5 65 0.5 66 0.5 67 0.5 68 0.5 69 0.5 70 0.5 71 0.5 72 0.5
+		 73 0.5 74 0.5 75 0.5 76 0.5 77 0.5 78 0.5 79 0.5 80 0.5 81 0.5 82 0.5 83 0.5 84 0.5
+		 85 0.5 86 0.5 87 0.5 88 0.5 89 0.5 90 0.5 91 0.5 92 0.5 93 0.5 94 0.5 95 0.5 96 0.5
+		 97 0.5 98 0.5 99 0.5 100 0.5 101 0.5 102 0.5 103 0.5 104 0.5 105 0.5 106 0.5 107 0.5
+		 108 0.5 109 0.5 110 0.5 111 0.5 112 0.5 113 0.5 114 0.5 115 0.5 116 0.5 117 0.5 118 0.5
+		 119 0.5 120 0.5;
+createNode animCurveTU -n "Bedsheet_nClothShape_inputMotionDrag";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_wrinkleMapScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_bendAngleScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_sortLinks";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_addCrossLinks";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_stretchDamp";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.10000000149011612 -49 0.10000000149011612
+		 -48 0.10000000149011612 -47 0.10000000149011612 -46 0.10000000149011612 -45 0.10000000149011612
+		 -44 0.10000000149011612 -43 0.10000000149011612 -42 0.10000000149011612 -41 0.10000000149011612
+		 -40 0.10000000149011612 -39 0.10000000149011612 -38 0.10000000149011612 -37 0.10000000149011612
+		 -36 0.10000000149011612 -35 0.10000000149011612 -34 0.10000000149011612 -33 0.10000000149011612
+		 -32 0.10000000149011612 -31 0.10000000149011612 -30 0.10000000149011612 -29 0.10000000149011612
+		 -28 0.10000000149011612 -27 0.10000000149011612 -26 0.10000000149011612 -25 0.10000000149011612
+		 -24 0.10000000149011612 -23 0.10000000149011612 -22 0.10000000149011612 -21 0.10000000149011612
+		 -20 0.10000000149011612 -19 0.10000000149011612 -18 0.10000000149011612 -17 0.10000000149011612
+		 -16 0.10000000149011612 -15 0.10000000149011612 -14 0.10000000149011612 -13 0.10000000149011612
+		 -12 0.10000000149011612 -11 0.10000000149011612 -10 0.10000000149011612 -9 0.10000000149011612
+		 -8 0.10000000149011612 -7 0.10000000149011612 -6 0.10000000149011612 -5 0.10000000149011612
+		 -4 0.10000000149011612 -3 0.10000000149011612 -2 0.10000000149011612 -1 0.10000000149011612
+		 0 0.10000000149011612 1 0.10000000149011612 2 0.10000000149011612 3 0.10000000149011612
+		 4 0.10000000149011612 5 0.10000000149011612 6 0.10000000149011612 7 0.10000000149011612
+		 8 0.10000000149011612 9 0.10000000149011612 10 0.10000000149011612 11 0.10000000149011612
+		 12 0.10000000149011612 13 0.10000000149011612 14 0.10000000149011612 15 0.10000000149011612
+		 16 0.10000000149011612 17 0.10000000149011612 18 0.10000000149011612 19 0.10000000149011612
+		 20 0.10000000149011612 21 0.10000000149011612 22 0.10000000149011612 23 0.10000000149011612
+		 24 0.10000000149011612 25 0.10000000149011612 26 0.10000000149011612 27 0.10000000149011612
+		 28 0.10000000149011612 29 0.10000000149011612 30 0.10000000149011612 31 0.10000000149011612
+		 32 0.10000000149011612 33 0.10000000149011612 34 0.10000000149011612 35 0.10000000149011612
+		 36 0.10000000149011612 37 0.10000000149011612 38 0.10000000149011612 39 0.10000000149011612
+		 40 0.10000000149011612 41 0.10000000149011612 42 0.10000000149011612 43 0.10000000149011612
+		 44 0.10000000149011612 45 0.10000000149011612 46 0.10000000149011612 47 0.10000000149011612
+		 48 0.10000000149011612 49 0.10000000149011612 50 0.10000000149011612 51 0.10000000149011612
+		 52 0.10000000149011612 53 0.10000000149011612 54 0.10000000149011612 55 0.10000000149011612
+		 56 0.10000000149011612 57 0.10000000149011612 58 0.10000000149011612 59 0.10000000149011612
+		 60 0.10000000149011612 61 0.10000000149011612 62 0.10000000149011612 63 0.10000000149011612
+		 64 0.10000000149011612 65 0.10000000149011612 66 0.10000000149011612 67 0.10000000149011612
+		 68 0.10000000149011612 69 0.10000000149011612 70 0.10000000149011612 71 0.10000000149011612
+		 72 0.10000000149011612 73 0.10000000149011612 74 0.10000000149011612 75 0.10000000149011612
+		 76 0.10000000149011612 77 0.10000000149011612 78 0.10000000149011612 79 0.10000000149011612
+		 80 0.10000000149011612 81 0.10000000149011612 82 0.10000000149011612 83 0.10000000149011612
+		 84 0.10000000149011612 85 0.10000000149011612 86 0.10000000149011612 87 0.10000000149011612
+		 88 0.10000000149011612 89 0.10000000149011612 90 0.10000000149011612 91 0.10000000149011612
+		 92 0.10000000149011612 93 0.10000000149011612 94 0.10000000149011612 95 0.10000000149011612
+		 96 0.10000000149011612 97 0.10000000149011612 98 0.10000000149011612 99 0.10000000149011612
+		 100 0.10000000149011612 101 0.10000000149011612 102 0.10000000149011612 103 0.10000000149011612
+		 104 0.10000000149011612 105 0.10000000149011612 106 0.10000000149011612 107 0.10000000149011612
+		 108 0.10000000149011612 109 0.10000000149011612 110 0.10000000149011612 111 0.10000000149011612
+		 112 0.10000000149011612 113 0.10000000149011612 114 0.10000000149011612 115 0.10000000149011612
+		 116 0.10000000149011612 117 0.10000000149011612 118 0.10000000149011612 119 0.10000000149011612
+		 120 0.10000000149011612;
+createNode animCurveTU -n "Bedsheet_nClothShape_minimalStretch";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_minimalBend";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_minimalShear";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfCollideWidthScale";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 3 -49 3 -48 3 -47 3 -46 3 -45 3 -44 3
+		 -43 3 -42 3 -41 3 -40 3 -39 3 -38 3 -37 3 -36 3 -35 3 -34 3 -33 3 -32 3 -31 3 -30 3
+		 -29 3 -28 3 -27 3 -26 3 -25 3 -24 3 -23 3 -22 3 -21 3 -20 3 -19 3 -18 3 -17 3 -16 3
+		 -15 3 -14 3 -13 3 -12 3 -11 3 -10 3 -9 3 -8 3 -7 3 -6 3 -5 3 -4 3 -3 3 -2 3 -1 3
+		 0 3 1 3 2 3 3 3 4 3 5 3 6 3 7 3 8 3 9 3 10 3 11 3 12 3 13 3 14 3 15 3 16 3 17 3 18 3
+		 19 3 20 3 21 3 22 3 23 3 24 3 25 3 26 3 27 3 28 3 29 3 30 3 31 3 32 3 33 3 34 3 35 3
+		 36 3 37 3 38 3 39 3 40 3 41 3 42 3 43 3 44 3 45 3 46 3 47 3 48 3 49 3 50 3 51 3 52 3
+		 53 3 54 3 55 3 56 3 57 3 58 3 59 3 60 3 61 3 62 3 63 3 64 3 65 3 66 3 67 3 68 3 69 3
+		 70 3 71 3 72 3 73 3 74 3 75 3 76 3 77 3 78 3 79 3 80 3 81 3 82 3 83 3 84 3 85 3 86 3
+		 87 3 88 3 89 3 90 3 91 3 92 3 93 3 94 3 95 3 96 3 97 3 98 3 99 3 100 3 101 3 102 3
+		 103 3 104 3 105 3 106 3 107 3 108 3 109 3 110 3 111 3 112 3 113 3 114 3 115 3 116 3
+		 117 3 118 3 119 3 120 3;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfCollisionSoftness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfCrossoverPush";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_selfTrappedCheck";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pressure";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_startPressure";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_incompressibility";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 5 -49 5 -48 5 -47 5 -46 5 -45 5 -44 5
+		 -43 5 -42 5 -41 5 -40 5 -39 5 -38 5 -37 5 -36 5 -35 5 -34 5 -33 5 -32 5 -31 5 -30 5
+		 -29 5 -28 5 -27 5 -26 5 -25 5 -24 5 -23 5 -22 5 -21 5 -20 5 -19 5 -18 5 -17 5 -16 5
+		 -15 5 -14 5 -13 5 -12 5 -11 5 -10 5 -9 5 -8 5 -7 5 -6 5 -5 5 -4 5 -3 5 -2 5 -1 5
+		 0 5 1 5 2 5 3 5 4 5 5 5 6 5 7 5 8 5 9 5 10 5 11 5 12 5 13 5 14 5 15 5 16 5 17 5 18 5
+		 19 5 20 5 21 5 22 5 23 5 24 5 25 5 26 5 27 5 28 5 29 5 30 5 31 5 32 5 33 5 34 5 35 5
+		 36 5 37 5 38 5 39 5 40 5 41 5 42 5 43 5 44 5 45 5 46 5 47 5 48 5 49 5 50 5 51 5 52 5
+		 53 5 54 5 55 5 56 5 57 5 58 5 59 5 60 5 61 5 62 5 63 5 64 5 65 5 66 5 67 5 68 5 69 5
+		 70 5 71 5 72 5 73 5 74 5 75 5 76 5 77 5 78 5 79 5 80 5 81 5 82 5 83 5 84 5 85 5 86 5
+		 87 5 88 5 89 5 90 5 91 5 92 5 93 5 94 5 95 5 96 5 97 5 98 5 99 5 100 5 101 5 102 5
+		 103 5 104 5 105 5 106 5 107 5 108 5 109 5 110 5 111 5 112 5 113 5 114 5 115 5 116 5
+		 117 5 118 5 119 5 120 5;
+createNode animCurveTU -n "Bedsheet_nClothShape_pressureDamping";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_pumpRate";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_airTightness";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_sealHoles";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "Bedsheet_nClothShape_ignoreSolverGravity";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_ignoreSolverWind";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_windSelfShadow";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "Bedsheet_nClothShape_lift";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.05000000074505806 -49 0.05000000074505806
+		 -48 0.05000000074505806 -47 0.05000000074505806 -46 0.05000000074505806 -45 0.05000000074505806
+		 -44 0.05000000074505806 -43 0.05000000074505806 -42 0.05000000074505806 -41 0.05000000074505806
+		 -40 0.05000000074505806 -39 0.05000000074505806 -38 0.05000000074505806 -37 0.05000000074505806
+		 -36 0.05000000074505806 -35 0.05000000074505806 -34 0.05000000074505806 -33 0.05000000074505806
+		 -32 0.05000000074505806 -31 0.05000000074505806 -30 0.05000000074505806 -29 0.05000000074505806
+		 -28 0.05000000074505806 -27 0.05000000074505806 -26 0.05000000074505806 -25 0.05000000074505806
+		 -24 0.05000000074505806 -23 0.05000000074505806 -22 0.05000000074505806 -21 0.05000000074505806
+		 -20 0.05000000074505806 -19 0.05000000074505806 -18 0.05000000074505806 -17 0.05000000074505806
+		 -16 0.05000000074505806 -15 0.05000000074505806 -14 0.05000000074505806 -13 0.05000000074505806
+		 -12 0.05000000074505806 -11 0.05000000074505806 -10 0.05000000074505806 -9 0.05000000074505806
+		 -8 0.05000000074505806 -7 0.05000000074505806 -6 0.05000000074505806 -5 0.05000000074505806
+		 -4 0.05000000074505806 -3 0.05000000074505806 -2 0.05000000074505806 -1 0.05000000074505806
+		 0 0.05000000074505806 1 0.05000000074505806 2 0.05000000074505806 3 0.05000000074505806
+		 4 0.05000000074505806 5 0.05000000074505806 6 0.05000000074505806 7 0.05000000074505806
+		 8 0.05000000074505806 9 0.05000000074505806 10 0.05000000074505806 11 0.05000000074505806
+		 12 0.05000000074505806 13 0.05000000074505806 14 0.05000000074505806 15 0.05000000074505806
+		 16 0.05000000074505806 17 0.05000000074505806 18 0.05000000074505806 19 0.05000000074505806
+		 20 0.05000000074505806 21 0.05000000074505806 22 0.05000000074505806 23 0.05000000074505806
+		 24 0.05000000074505806 25 0.05000000074505806 26 0.05000000074505806 27 0.05000000074505806
+		 28 0.05000000074505806 29 0.05000000074505806 30 0.05000000074505806 31 0.05000000074505806
+		 32 0.05000000074505806 33 0.05000000074505806 34 0.05000000074505806 35 0.05000000074505806
+		 36 0.05000000074505806 37 0.05000000074505806 38 0.05000000074505806 39 0.05000000074505806
+		 40 0.05000000074505806 41 0.05000000074505806 42 0.05000000074505806 43 0.05000000074505806
+		 44 0.05000000074505806 45 0.05000000074505806 46 0.05000000074505806 47 0.05000000074505806
+		 48 0.05000000074505806 49 0.05000000074505806 50 0.05000000074505806 51 0.05000000074505806
+		 52 0.05000000074505806 53 0.05000000074505806 54 0.05000000074505806 55 0.05000000074505806
+		 56 0.05000000074505806 57 0.05000000074505806 58 0.05000000074505806 59 0.05000000074505806
+		 60 0.05000000074505806 61 0.05000000074505806 62 0.05000000074505806 63 0.05000000074505806
+		 64 0.05000000074505806 65 0.05000000074505806 66 0.05000000074505806 67 0.05000000074505806
+		 68 0.05000000074505806 69 0.05000000074505806 70 0.05000000074505806 71 0.05000000074505806
+		 72 0.05000000074505806 73 0.05000000074505806 74 0.05000000074505806 75 0.05000000074505806
+		 76 0.05000000074505806 77 0.05000000074505806 78 0.05000000074505806 79 0.05000000074505806
+		 80 0.05000000074505806 81 0.05000000074505806 82 0.05000000074505806 83 0.05000000074505806
+		 84 0.05000000074505806 85 0.05000000074505806 86 0.05000000074505806 87 0.05000000074505806
+		 88 0.05000000074505806 89 0.05000000074505806 90 0.05000000074505806 91 0.05000000074505806
+		 92 0.05000000074505806 93 0.05000000074505806 94 0.05000000074505806 95 0.05000000074505806
+		 96 0.05000000074505806 97 0.05000000074505806 98 0.05000000074505806 99 0.05000000074505806
+		 100 0.05000000074505806 101 0.05000000074505806 102 0.05000000074505806 103 0.05000000074505806
+		 104 0.05000000074505806 105 0.05000000074505806 106 0.05000000074505806 107 0.05000000074505806
+		 108 0.05000000074505806 109 0.05000000074505806 110 0.05000000074505806 111 0.05000000074505806
+		 112 0.05000000074505806 113 0.05000000074505806 114 0.05000000074505806 115 0.05000000074505806
+		 116 0.05000000074505806 117 0.05000000074505806 118 0.05000000074505806 119 0.05000000074505806
+		 120 0.05000000074505806;
+createNode animCurveTU -n "Bedsheet_nClothShape_drag";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.05000000074505806 -49 0.05000000074505806
+		 -48 0.05000000074505806 -47 0.05000000074505806 -46 0.05000000074505806 -45 0.05000000074505806
+		 -44 0.05000000074505806 -43 0.05000000074505806 -42 0.05000000074505806 -41 0.05000000074505806
+		 -40 0.05000000074505806 -39 0.05000000074505806 -38 0.05000000074505806 -37 0.05000000074505806
+		 -36 0.05000000074505806 -35 0.05000000074505806 -34 0.05000000074505806 -33 0.05000000074505806
+		 -32 0.05000000074505806 -31 0.05000000074505806 -30 0.05000000074505806 -29 0.05000000074505806
+		 -28 0.05000000074505806 -27 0.05000000074505806 -26 0.05000000074505806 -25 0.05000000074505806
+		 -24 0.05000000074505806 -23 0.05000000074505806 -22 0.05000000074505806 -21 0.05000000074505806
+		 -20 0.05000000074505806 -19 0.05000000074505806 -18 0.05000000074505806 -17 0.05000000074505806
+		 -16 0.05000000074505806 -15 0.05000000074505806 -14 0.05000000074505806 -13 0.05000000074505806
+		 -12 0.05000000074505806 -11 0.05000000074505806 -10 0.05000000074505806 -9 0.05000000074505806
+		 -8 0.05000000074505806 -7 0.05000000074505806 -6 0.05000000074505806 -5 0.05000000074505806
+		 -4 0.05000000074505806 -3 0.05000000074505806 -2 0.05000000074505806 -1 0.05000000074505806
+		 0 0.05000000074505806 1 0.05000000074505806 2 0.05000000074505806 3 0.05000000074505806
+		 4 0.05000000074505806 5 0.05000000074505806 6 0.05000000074505806 7 0.05000000074505806
+		 8 0.05000000074505806 9 0.05000000074505806 10 0.05000000074505806 11 0.05000000074505806
+		 12 0.05000000074505806 13 0.05000000074505806 14 0.05000000074505806 15 0.05000000074505806
+		 16 0.05000000074505806 17 0.05000000074505806 18 0.05000000074505806 19 0.05000000074505806
+		 20 0.05000000074505806 21 0.05000000074505806 22 0.05000000074505806 23 0.05000000074505806
+		 24 0.05000000074505806 25 0.05000000074505806 26 0.05000000074505806 27 0.05000000074505806
+		 28 0.05000000074505806 29 0.05000000074505806 30 0.05000000074505806 31 0.05000000074505806
+		 32 0.05000000074505806 33 0.05000000074505806 34 0.05000000074505806 35 0.05000000074505806
+		 36 0.05000000074505806 37 0.05000000074505806 38 0.05000000074505806 39 0.05000000074505806
+		 40 0.05000000074505806 41 0.05000000074505806 42 0.05000000074505806 43 0.05000000074505806
+		 44 0.05000000074505806 45 0.05000000074505806 46 0.05000000074505806 47 0.05000000074505806
+		 48 0.05000000074505806 49 0.05000000074505806 50 0.05000000074505806 51 0.05000000074505806
+		 52 0.05000000074505806 53 0.05000000074505806 54 0.05000000074505806 55 0.05000000074505806
+		 56 0.05000000074505806 57 0.05000000074505806 58 0.05000000074505806 59 0.05000000074505806
+		 60 0.05000000074505806 61 0.05000000074505806 62 0.05000000074505806 63 0.05000000074505806
+		 64 0.05000000074505806 65 0.05000000074505806 66 0.05000000074505806 67 0.05000000074505806
+		 68 0.05000000074505806 69 0.05000000074505806 70 0.05000000074505806 71 0.05000000074505806
+		 72 0.05000000074505806 73 0.05000000074505806 74 0.05000000074505806 75 0.05000000074505806
+		 76 0.05000000074505806 77 0.05000000074505806 78 0.05000000074505806 79 0.05000000074505806
+		 80 0.05000000074505806 81 0.05000000074505806 82 0.05000000074505806 83 0.05000000074505806
+		 84 0.05000000074505806 85 0.05000000074505806 86 0.05000000074505806 87 0.05000000074505806
+		 88 0.05000000074505806 89 0.05000000074505806 90 0.05000000074505806 91 0.05000000074505806
+		 92 0.05000000074505806 93 0.05000000074505806 94 0.05000000074505806 95 0.05000000074505806
+		 96 0.05000000074505806 97 0.05000000074505806 98 0.05000000074505806 99 0.05000000074505806
+		 100 0.05000000074505806 101 0.05000000074505806 102 0.05000000074505806 103 0.05000000074505806
+		 104 0.05000000074505806 105 0.05000000074505806 106 0.05000000074505806 107 0.05000000074505806
+		 108 0.05000000074505806 109 0.05000000074505806 110 0.05000000074505806 111 0.05000000074505806
+		 112 0.05000000074505806 113 0.05000000074505806 114 0.05000000074505806 115 0.05000000074505806
+		 116 0.05000000074505806 117 0.05000000074505806 118 0.05000000074505806 119 0.05000000074505806
+		 120 0.05000000074505806;
+createNode animCurveTU -n "Bedsheet_nClothShape_tangentialDrag";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0.20000000298023224 -49 0.20000000298023224
+		 -48 0.20000000298023224 -47 0.20000000298023224 -46 0.20000000298023224 -45 0.20000000298023224
+		 -44 0.20000000298023224 -43 0.20000000298023224 -42 0.20000000298023224 -41 0.20000000298023224
+		 -40 0.20000000298023224 -39 0.20000000298023224 -38 0.20000000298023224 -37 0.20000000298023224
+		 -36 0.20000000298023224 -35 0.20000000298023224 -34 0.20000000298023224 -33 0.20000000298023224
+		 -32 0.20000000298023224 -31 0.20000000298023224 -30 0.20000000298023224 -29 0.20000000298023224
+		 -28 0.20000000298023224 -27 0.20000000298023224 -26 0.20000000298023224 -25 0.20000000298023224
+		 -24 0.20000000298023224 -23 0.20000000298023224 -22 0.20000000298023224 -21 0.20000000298023224
+		 -20 0.20000000298023224 -19 0.20000000298023224 -18 0.20000000298023224 -17 0.20000000298023224
+		 -16 0.20000000298023224 -15 0.20000000298023224 -14 0.20000000298023224 -13 0.20000000298023224
+		 -12 0.20000000298023224 -11 0.20000000298023224 -10 0.20000000298023224 -9 0.20000000298023224
+		 -8 0.20000000298023224 -7 0.20000000298023224 -6 0.20000000298023224 -5 0.20000000298023224
+		 -4 0.20000000298023224 -3 0.20000000298023224 -2 0.20000000298023224 -1 0.20000000298023224
+		 0 0.20000000298023224 1 0.20000000298023224 2 0.20000000298023224 3 0.20000000298023224
+		 4 0.20000000298023224 5 0.20000000298023224 6 0.20000000298023224 7 0.20000000298023224
+		 8 0.20000000298023224 9 0.20000000298023224 10 0.20000000298023224 11 0.20000000298023224
+		 12 0.20000000298023224 13 0.20000000298023224 14 0.20000000298023224 15 0.20000000298023224
+		 16 0.20000000298023224 17 0.20000000298023224 18 0.20000000298023224 19 0.20000000298023224
+		 20 0.20000000298023224 21 0.20000000298023224 22 0.20000000298023224 23 0.20000000298023224
+		 24 0.20000000298023224 25 0.20000000298023224 26 0.20000000298023224 27 0.20000000298023224
+		 28 0.20000000298023224 29 0.20000000298023224 30 0.20000000298023224 31 0.20000000298023224
+		 32 0.20000000298023224 33 0.20000000298023224 34 0.20000000298023224 35 0.20000000298023224
+		 36 0.20000000298023224 37 0.20000000298023224 38 0.20000000298023224 39 0.20000000298023224
+		 40 0.20000000298023224 41 0.20000000298023224 42 0.20000000298023224 43 0.20000000298023224
+		 44 0.20000000298023224 45 0.20000000298023224 46 0.20000000298023224 47 0.20000000298023224
+		 48 0.20000000298023224 49 0.20000000298023224 50 0.20000000298023224 51 0.20000000298023224
+		 52 0.20000000298023224 53 0.20000000298023224 54 0.20000000298023224 55 0.20000000298023224
+		 56 0.20000000298023224 57 0.20000000298023224 58 0.20000000298023224 59 0.20000000298023224
+		 60 0.20000000298023224 61 0.20000000298023224 62 0.20000000298023224 63 0.20000000298023224
+		 64 0.20000000298023224 65 0.20000000298023224 66 0.20000000298023224 67 0.20000000298023224
+		 68 0.20000000298023224 69 0.20000000298023224 70 0.20000000298023224 71 0.20000000298023224
+		 72 0.20000000298023224 73 0.20000000298023224 74 0.20000000298023224 75 0.20000000298023224
+		 76 0.20000000298023224 77 0.20000000298023224 78 0.20000000298023224 79 0.20000000298023224
+		 80 0.20000000298023224 81 0.20000000298023224 82 0.20000000298023224 83 0.20000000298023224
+		 84 0.20000000298023224 85 0.20000000298023224 86 0.20000000298023224 87 0.20000000298023224
+		 88 0.20000000298023224 89 0.20000000298023224 90 0.20000000298023224 91 0.20000000298023224
+		 92 0.20000000298023224 93 0.20000000298023224 94 0.20000000298023224 95 0.20000000298023224
+		 96 0.20000000298023224 97 0.20000000298023224 98 0.20000000298023224 99 0.20000000298023224
+		 100 0.20000000298023224 101 0.20000000298023224 102 0.20000000298023224 103 0.20000000298023224
+		 104 0.20000000298023224 105 0.20000000298023224 106 0.20000000298023224 107 0.20000000298023224
+		 108 0.20000000298023224 109 0.20000000298023224 110 0.20000000298023224 111 0.20000000298023224
+		 112 0.20000000298023224 113 0.20000000298023224 114 0.20000000298023224 115 0.20000000298023224
+		 116 0.20000000298023224 117 0.20000000298023224 118 0.20000000298023224 119 0.20000000298023224
+		 120 0.20000000298023224;
+createNode animCurveTU -n "Bedsheet_nClothShape_lifespan";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "textureDeformerHandle1_visibility";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTL -n "textureDeformerHandle1_translateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTL -n "textureDeformerHandle1_translateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTL -n "textureDeformerHandle1_translateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "textureDeformerHandle1_rotateX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "textureDeformerHandle1_rotateY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTA -n "textureDeformerHandle1_rotateZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 0 -49 0 -48 0 -47 0 -46 0 -45 0 -44 0
+		 -43 0 -42 0 -41 0 -40 0 -39 0 -38 0 -37 0 -36 0 -35 0 -34 0 -33 0 -32 0 -31 0 -30 0
+		 -29 0 -28 0 -27 0 -26 0 -25 0 -24 0 -23 0 -22 0 -21 0 -20 0 -19 0 -18 0 -17 0 -16 0
+		 -15 0 -14 0 -13 0 -12 0 -11 0 -10 0 -9 0 -8 0 -7 0 -6 0 -5 0 -4 0 -3 0 -2 0 -1 0
+		 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0
+		 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0
+		 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0
+		 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0
+		 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0
+		 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0 96 0 97 0 98 0 99 0 100 0 101 0 102 0
+		 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0 111 0 112 0 113 0 114 0 115 0 116 0
+		 117 0 118 0 119 0 120 0;
+createNode animCurveTU -n "textureDeformerHandle1_scaleX";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "textureDeformerHandle1_scaleY";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode animCurveTU -n "textureDeformerHandle1_scaleZ";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 171 ".ktv[0:170]"  -50 1 -49 1 -48 1 -47 1 -46 1 -45 1 -44 1
+		 -43 1 -42 1 -41 1 -40 1 -39 1 -38 1 -37 1 -36 1 -35 1 -34 1 -33 1 -32 1 -31 1 -30 1
+		 -29 1 -28 1 -27 1 -26 1 -25 1 -24 1 -23 1 -22 1 -21 1 -20 1 -19 1 -18 1 -17 1 -16 1
+		 -15 1 -14 1 -13 1 -12 1 -11 1 -10 1 -9 1 -8 1 -7 1 -6 1 -5 1 -4 1 -3 1 -2 1 -1 1
+		 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1
+		 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1
+		 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1
+		 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1
+		 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1
+		 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1 96 1 97 1 98 1 99 1 100 1 101 1 102 1
+		 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1 111 1 112 1 113 1 114 1 115 1 116 1
+		 117 1 118 1 119 1 120 1;
+createNode objectSet -n "EmilyFillLightSet";
+	setAttr ".ihi" 0;
+	setAttr ".an" -type "string" "lightset";
+createNode RenderMan -n "rmanFinalOutput23";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_EmilyFillLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel12";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_EmilyFillLightSet";
+createNode RenderMan -n "rmanFinalOutput24";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_EmilyFillLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel13";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_EmilyFillLightSet";
+createNode RenderMan -n "rmanPreviewOutput5";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_EmilyFillLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel4";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_EmilyFillLightSet";
+createNode RenderMan -n "rmanPreviewOutput6";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_EmilyFillLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel5";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_EmilyFillLightSet";
+createNode objectSet -n "MoonLightSet";
+	setAttr ".ihi" 0;
+	setAttr ".an" -type "string" "lightset";
+createNode RenderMan -n "rmanFinalOutput25";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_MoonLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel14";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_MoonLightSet";
+createNode RenderMan -n "rmanFinalOutput26";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_MoonLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel15";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_MoonLightSet";
+createNode RenderMan -n "rmanPreviewOutput7";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_MoonLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel6";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_MoonLightSet";
+createNode RenderMan -n "rmanPreviewOutput8";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_MoonLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel7";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_MoonLightSet";
+createNode objectSet -n "BlueLightSet";
+	setAttr ".ihi" 0;
+	setAttr ".an" -type "string" "lightset";
+createNode RenderMan -n "rmanFinalOutput27";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_BlueLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel16";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_BlueLightSet";
+createNode RenderMan -n "rmanFinalOutput28";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_BlueLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel17";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_BlueLightSet";
+createNode RenderMan -n "rmanPreviewOutput9";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_BlueLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel8";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_BlueLightSet";
+createNode RenderMan -n "rmanPreviewOutput10";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_BlueLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel9";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_BlueLightSet";
 select -ne :time1;
-	setAttr ".o" 45;
-	setAttr ".unw" 45;
+	setAttr ".o" 47;
+	setAttr ".unw" 47;
 select -ne :renderPartition;
-	setAttr -s 67 ".st";
+	setAttr -s 68 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 43 ".s";
+	setAttr -s 44 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
@@ -8914,7 +13519,7 @@ select -ne :defaultRenderUtilityList1;
 select -ne :defaultRenderingList1;
 	setAttr -s 11 ".r";
 select -ne :lightList1;
-	setAttr -s 4 ".l";
+	setAttr -s 5 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 45 ".tx";
 select -ne :initialShadingGroup;
@@ -8926,16 +13531,14 @@ select -ne :initialParticleSE;
 select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "renderMan";
 	setAttr ".an" yes;
+	setAttr ".fs" -50;
 	setAttr ".ef" 47;
-	setAttr ".bfs" 5;
 	setAttr ".pff" yes;
 select -ne :defaultResolution;
-	setAttr ".w" 480;
-	setAttr ".h" 270;
 	setAttr ".pa" 1;
-	setAttr ".dar" 1.7777777910232544;
+	setAttr ".dar" 1.7769999504089355;
 select -ne :defaultLightSet;
-	setAttr -s 4 ".dsm";
+	setAttr -s 5 ".dsm";
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
@@ -8947,16 +13550,189 @@ select -ne :hardwareRenderingGlobals;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
 select -ne :ikSystem;
-	setAttr -s 3 ".sol";
-connectAttr "bedroom1RN.phl[1]" "bedroom1RN.phl[2]";
-relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
-relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
-relationship "ignore" ":lightLinker1" ":initialShadingGroup.message" "EmilyRimLight.message";
-relationship "ignore" ":lightLinker1" ":initialParticleSE.message" "EmilyRimLight.message";
-connectAttr "layerManager.dli[0]" "defaultLayer.id";
-connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+	setAttr -s 4 ".sol";
+connectAttr "BedsheetMesh_visibility.o" "bedroom1RN.phl[2]";
+connectAttr "BedsheetMesh_translateX.o" "bedroom1RN.phl[3]";
+connectAttr "BedsheetMesh_translateY.o" "bedroom1RN.phl[4]";
+connectAttr "BedsheetMesh_translateZ.o" "bedroom1RN.phl[5]";
+connectAttr "BedsheetMesh_rotateX.o" "bedroom1RN.phl[6]";
+connectAttr "BedsheetMesh_rotateY.o" "bedroom1RN.phl[7]";
+connectAttr "BedsheetMesh_rotateZ.o" "bedroom1RN.phl[8]";
+connectAttr "BedsheetMesh_scaleX.o" "bedroom1RN.phl[9]";
+connectAttr "BedsheetMesh_scaleY.o" "bedroom1RN.phl[10]";
+connectAttr "BedsheetMesh_scaleZ.o" "bedroom1RN.phl[11]";
+connectAttr "outputCloth2_rman__torattr___subdivScheme.o" "bedroom1RN.phl[12]";
+connectAttr "Bedsheet_nucleus1_currentTime.o" "bedroom1RN.phl[13]";
+connectAttr "Bedsheet_nucleus1_startFrame.o" "bedroom1RN.phl[14]";
+connectAttr "Bedsheet_nucleus1_visibility.o" "bedroom1RN.phl[15]";
+connectAttr "Bedsheet_nucleus1_translateX.o" "bedroom1RN.phl[16]";
+connectAttr "Bedsheet_nucleus1_translateY.o" "bedroom1RN.phl[17]";
+connectAttr "Bedsheet_nucleus1_translateZ.o" "bedroom1RN.phl[18]";
+connectAttr "Bedsheet_nucleus1_rotateX.o" "bedroom1RN.phl[19]";
+connectAttr "Bedsheet_nucleus1_rotateY.o" "bedroom1RN.phl[20]";
+connectAttr "Bedsheet_nucleus1_rotateZ.o" "bedroom1RN.phl[21]";
+connectAttr "Bedsheet_nucleus1_scaleX.o" "bedroom1RN.phl[22]";
+connectAttr "Bedsheet_nucleus1_scaleY.o" "bedroom1RN.phl[23]";
+connectAttr "Bedsheet_nucleus1_scaleZ.o" "bedroom1RN.phl[24]";
+connectAttr "Bedsheet_nucleus1_frameJumpLimit.o" "bedroom1RN.phl[25]";
+connectAttr "Bedsheet_nucleus1_enable.o" "bedroom1RN.phl[26]";
+connectAttr "Bedsheet_nucleus1_useTransform.o" "bedroom1RN.phl[27]";
+connectAttr "Bedsheet_nucleus1_gravity.o" "bedroom1RN.phl[28]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionX.o" "bedroom1RN.phl[29]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionY.o" "bedroom1RN.phl[30]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionZ.o" "bedroom1RN.phl[31]";
+connectAttr "Bedsheet_nucleus1_airDensity.o" "bedroom1RN.phl[32]";
+connectAttr "Bedsheet_nucleus1_windSpeed.o" "bedroom1RN.phl[33]";
+connectAttr "Bedsheet_nucleus1_windDirectionX.o" "bedroom1RN.phl[34]";
+connectAttr "Bedsheet_nucleus1_windDirectionY.o" "bedroom1RN.phl[35]";
+connectAttr "Bedsheet_nucleus1_windDirectionZ.o" "bedroom1RN.phl[36]";
+connectAttr "Bedsheet_nucleus1_windNoise.o" "bedroom1RN.phl[37]";
+connectAttr "Bedsheet_nucleus1_collisionLayerRange.o" "bedroom1RN.phl[38]";
+connectAttr "Bedsheet_nucleus1_collisionSoftness.o" "bedroom1RN.phl[39]";
+connectAttr "Bedsheet_nucleus1_usePlane.o" "bedroom1RN.phl[40]";
+connectAttr "Bedsheet_nucleus1_planeOriginX.o" "bedroom1RN.phl[41]";
+connectAttr "Bedsheet_nucleus1_planeOriginY.o" "bedroom1RN.phl[42]";
+connectAttr "Bedsheet_nucleus1_planeOriginZ.o" "bedroom1RN.phl[43]";
+connectAttr "Bedsheet_nucleus1_planeNormalX.o" "bedroom1RN.phl[44]";
+connectAttr "Bedsheet_nucleus1_planeNormalY.o" "bedroom1RN.phl[45]";
+connectAttr "Bedsheet_nucleus1_planeNormalZ.o" "bedroom1RN.phl[46]";
+connectAttr "Bedsheet_nucleus1_planeBounce.o" "bedroom1RN.phl[47]";
+connectAttr "Bedsheet_nucleus1_planeFriction.o" "bedroom1RN.phl[48]";
+connectAttr "Bedsheet_nucleus1_planeStickiness.o" "bedroom1RN.phl[49]";
+connectAttr "Bedsheet_nucleus1_subSteps.o" "bedroom1RN.phl[50]";
+connectAttr "Bedsheet_nucleus1_maxCollisionIterations.o" "bedroom1RN.phl[51]";
+connectAttr "Bedsheet_nucleus1_timeScale.o" "bedroom1RN.phl[52]";
+connectAttr "Bedsheet_nucleus1_spaceScale.o" "bedroom1RN.phl[53]";
+connectAttr "Bedsheet_nCloth_visibility.o" "bedroom1RN.phl[54]";
+connectAttr "Bedsheet_nClothShape_lifespan.o" "bedroom1RN.phl[55]";
+connectAttr "Bedsheet_nClothShape_currentTime.o" "bedroom1RN.phl[56]";
+connectAttr "Bedsheet_nClothShape_isDynamic.o" "bedroom1RN.phl[57]";
+connectAttr "Bedsheet_nClothShape_playFromCache.o" "bedroom1RN.phl[58]";
+connectAttr "Bedsheet_nClothShape_thickness.o" "bedroom1RN.phl[59]";
+connectAttr "Bedsheet_nClothShape_bounce.o" "bedroom1RN.phl[60]";
+connectAttr "Bedsheet_nClothShape_friction.o" "bedroom1RN.phl[61]";
+connectAttr "Bedsheet_nClothShape_damp.o" "bedroom1RN.phl[62]";
+connectAttr "Bedsheet_nClothShape_stickiness.o" "bedroom1RN.phl[63]";
+connectAttr "Bedsheet_nClothShape_collideStrength.o" "bedroom1RN.phl[64]";
+connectAttr "Bedsheet_nClothShape_collisionFlag.o" "bedroom1RN.phl[65]";
+connectAttr "Bedsheet_nClothShape_selfCollisionFlag.o" "bedroom1RN.phl[66]";
+connectAttr "Bedsheet_nClothShape_maxSelfCollisionIterations.o" "bedroom1RN.phl[67]"
+		;
+connectAttr "Bedsheet_nClothShape_maxIterations.o" "bedroom1RN.phl[68]";
+connectAttr "Bedsheet_nClothShape_pointMass.o" "bedroom1RN.phl[69]";
+connectAttr "Bedsheet_nClothShape_restLengthScale.o" "bedroom1RN.phl[70]";
+connectAttr "Bedsheet_nClothShape_localForceX.o" "bedroom1RN.phl[71]";
+connectAttr "Bedsheet_nClothShape_localForceY.o" "bedroom1RN.phl[72]";
+connectAttr "Bedsheet_nClothShape_localForceZ.o" "bedroom1RN.phl[73]";
+connectAttr "Bedsheet_nClothShape_localWindX.o" "bedroom1RN.phl[74]";
+connectAttr "Bedsheet_nClothShape_localWindY.o" "bedroom1RN.phl[75]";
+connectAttr "Bedsheet_nClothShape_localWindZ.o" "bedroom1RN.phl[76]";
+connectAttr "Bedsheet_nClothShape_collide.o" "bedroom1RN.phl[77]";
+connectAttr "Bedsheet_nClothShape_selfCollide.o" "bedroom1RN.phl[78]";
+connectAttr "Bedsheet_nClothShape_collisionLayer.o" "bedroom1RN.phl[79]";
+connectAttr "Bedsheet_nClothShape_windShadowDiffusion.o" "bedroom1RN.phl[80]";
+connectAttr "Bedsheet_nClothShape_windShadowDistance.o" "bedroom1RN.phl[81]";
+connectAttr "Bedsheet_nClothShape_airPushDistance.o" "bedroom1RN.phl[82]";
+connectAttr "Bedsheet_nClothShape_airPushVorticity.o" "bedroom1RN.phl[83]";
+connectAttr "Bedsheet_nClothShape_pushOut.o" "bedroom1RN.phl[84]";
+connectAttr "Bedsheet_nClothShape_pushOutRadius.o" "bedroom1RN.phl[85]";
+connectAttr "Bedsheet_nClothShape_crossoverPush.o" "bedroom1RN.phl[86]";
+connectAttr "Bedsheet_nClothShape_trappedCheck.o" "bedroom1RN.phl[87]";
+connectAttr "Bedsheet_nClothShape_forceField.o" "bedroom1RN.phl[88]";
+connectAttr "Bedsheet_nClothShape_fieldMagnitude.o" "bedroom1RN.phl[89]";
+connectAttr "Bedsheet_nClothShape_fieldDistance.o" "bedroom1RN.phl[90]";
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Position.o" "bedroom1RN.phl[91]"
+		;
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_FloatValue.o" "bedroom1RN.phl[92]"
+		;
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Interp.o" "bedroom1RN.phl[93]"
+		;
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Position.o" "bedroom1RN.phl[94]"
+		;
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_FloatValue.o" "bedroom1RN.phl[95]"
+		;
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Interp.o" "bedroom1RN.phl[96]"
+		;
+connectAttr "Bedsheet_nClothShape_pointForceField.o" "bedroom1RN.phl[97]";
+connectAttr "Bedsheet_nClothShape_pointFieldMagnitude.o" "bedroom1RN.phl[98]";
+connectAttr "Bedsheet_nClothShape_selfAttract.o" "bedroom1RN.phl[99]";
+connectAttr "Bedsheet_nClothShape_pointFieldDistance.o" "bedroom1RN.phl[100]";
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Position.o" "bedroom1RN.phl[101]"
+		;
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[102]"
+		;
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Interp.o" "bedroom1RN.phl[103]"
+		;
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Position.o" "bedroom1RN.phl[104]"
+		;
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[105]"
+		;
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Interp.o" "bedroom1RN.phl[106]"
+		;
+connectAttr "Bedsheet_nClothShape_localSpaceOutput.o" "bedroom1RN.phl[107]";
+connectAttr "Bedsheet_nClothShape_displayColorR.o" "bedroom1RN.phl[108]";
+connectAttr "Bedsheet_nClothShape_displayColorG.o" "bedroom1RN.phl[109]";
+connectAttr "Bedsheet_nClothShape_displayColorB.o" "bedroom1RN.phl[110]";
+connectAttr "Bedsheet_nClothShape_stretchResistance.o" "bedroom1RN.phl[111]";
+connectAttr "Bedsheet_nClothShape_compressionResistance.o" "bedroom1RN.phl[112]"
+		;
+connectAttr "Bedsheet_nClothShape_bendResistance.o" "bedroom1RN.phl[113]";
+connectAttr "Bedsheet_nClothShape_bendAngleDropoff.o" "bedroom1RN.phl[114]";
+connectAttr "Bedsheet_nClothShape_restitutionTension.o" "bedroom1RN.phl[115]";
+connectAttr "Bedsheet_nClothShape_restitutionAngle.o" "bedroom1RN.phl[116]";
+connectAttr "Bedsheet_nClothShape_shearResistance.o" "bedroom1RN.phl[117]";
+connectAttr "Bedsheet_nClothShape_rigidity.o" "bedroom1RN.phl[118]";
+connectAttr "Bedsheet_nClothShape_deformResistance.o" "bedroom1RN.phl[119]";
+connectAttr "Bedsheet_nClothShape_inputMeshAttract.o" "bedroom1RN.phl[120]";
+connectAttr "Bedsheet_nClothShape_collideLastThreshold.o" "bedroom1RN.phl[121]";
+connectAttr "Bedsheet_nClothShape_inputAttractDamp.o" "bedroom1RN.phl[122]";
+connectAttr "Bedsheet_nClothShape_inputMotionDrag.o" "bedroom1RN.phl[123]";
+connectAttr "Bedsheet_nClothShape_wrinkleMapScale.o" "bedroom1RN.phl[124]";
+connectAttr "Bedsheet_nClothShape_bendAngleScale.o" "bedroom1RN.phl[125]";
+connectAttr "Bedsheet_nClothShape_sortLinks.o" "bedroom1RN.phl[126]";
+connectAttr "Bedsheet_nClothShape_addCrossLinks.o" "bedroom1RN.phl[127]";
+connectAttr "Bedsheet_nClothShape_stretchDamp.o" "bedroom1RN.phl[128]";
+connectAttr "Bedsheet_nClothShape_minimalStretch.o" "bedroom1RN.phl[129]";
+connectAttr "Bedsheet_nClothShape_minimalBend.o" "bedroom1RN.phl[130]";
+connectAttr "Bedsheet_nClothShape_minimalShear.o" "bedroom1RN.phl[131]";
+connectAttr "Bedsheet_nClothShape_selfCollideWidthScale.o" "bedroom1RN.phl[132]"
+		;
+connectAttr "Bedsheet_nClothShape_selfCollisionSoftness.o" "bedroom1RN.phl[133]"
+		;
+connectAttr "Bedsheet_nClothShape_selfCrossoverPush.o" "bedroom1RN.phl[134]";
+connectAttr "Bedsheet_nClothShape_selfTrappedCheck.o" "bedroom1RN.phl[135]";
+connectAttr "Bedsheet_nClothShape_pressure.o" "bedroom1RN.phl[136]";
+connectAttr "Bedsheet_nClothShape_startPressure.o" "bedroom1RN.phl[137]";
+connectAttr "Bedsheet_nClothShape_incompressibility.o" "bedroom1RN.phl[138]";
+connectAttr "Bedsheet_nClothShape_pressureDamping.o" "bedroom1RN.phl[139]";
+connectAttr "Bedsheet_nClothShape_pumpRate.o" "bedroom1RN.phl[140]";
+connectAttr "Bedsheet_nClothShape_airTightness.o" "bedroom1RN.phl[141]";
+connectAttr "Bedsheet_nClothShape_sealHoles.o" "bedroom1RN.phl[142]";
+connectAttr "Bedsheet_nClothShape_ignoreSolverGravity.o" "bedroom1RN.phl[143]";
+connectAttr "Bedsheet_nClothShape_ignoreSolverWind.o" "bedroom1RN.phl[144]";
+connectAttr "Bedsheet_nClothShape_windSelfShadow.o" "bedroom1RN.phl[145]";
+connectAttr "Bedsheet_nClothShape_lift.o" "bedroom1RN.phl[146]";
+connectAttr "Bedsheet_nClothShape_drag.o" "bedroom1RN.phl[147]";
+connectAttr "Bedsheet_nClothShape_tangentialDrag.o" "bedroom1RN.phl[148]";
+connectAttr "textureDeformerHandle1_visibility.o" "bedroom1RN.phl[149]";
+connectAttr "textureDeformerHandle1_translateX.o" "bedroom1RN.phl[150]";
+connectAttr "textureDeformerHandle1_translateY.o" "bedroom1RN.phl[151]";
+connectAttr "textureDeformerHandle1_translateZ.o" "bedroom1RN.phl[152]";
+connectAttr "textureDeformerHandle1_rotateX.o" "bedroom1RN.phl[153]";
+connectAttr "textureDeformerHandle1_rotateY.o" "bedroom1RN.phl[154]";
+connectAttr "textureDeformerHandle1_rotateZ.o" "bedroom1RN.phl[155]";
+connectAttr "textureDeformerHandle1_scaleX.o" "bedroom1RN.phl[156]";
+connectAttr "textureDeformerHandle1_scaleY.o" "bedroom1RN.phl[157]";
+connectAttr "textureDeformerHandle1_scaleZ.o" "bedroom1RN.phl[158]";
+connectAttr "bedroom1RN.phl[1]" "RMSGPSurface1SG.dsm" -na;
+connectAttr "bedroom1RN.phl[159]" "BlueLightSet.dsm" -na;
+connectAttr "bedroom1RN.phl[160]" "MoonLightSet.dsm" -na;
+connectAttr "bedroom1RN.phl[161]" "bedroom1RN.phl[162]";
+connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
+connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
+connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanRerenderRISGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanFinalOutputGlobals0.msg" ":rmanFinalGlobals.d" -na;
@@ -8972,10 +13748,34 @@ connectAttr "rmanFinalOutput19.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput20.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput21.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput22.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput23.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput24.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput25.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput26.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput27.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput28.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalChannel10.msg" ":rmanFinalGlobals.c" -na;
 connectAttr "rmanFinalChannel11.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel12.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel13.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel14.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel15.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel16.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel17.msg" ":rmanFinalGlobals.c" -na;
 connectAttr ":rmanRerenderRISOutputGlobals0.msg" ":rmanRerenderRISGlobals.d" -na
 		;
+relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "RMSGPSurface1SG.message" ":defaultLightSet.message";
+relationship "ignore" ":lightLinker1" ":initialShadingGroup.message" "EmilyRimLight.message";
+relationship "ignore" ":lightLinker1" ":initialParticleSE.message" "EmilyRimLight.message";
+relationship "ignore" ":lightLinker1" ":initialShadingGroup.message" "EmilyFillLight.message";
+relationship "ignore" ":lightLinker1" ":initialParticleSE.message" "EmilyFillLight.message";
+connectAttr "layerManager.dli[0]" "defaultLayer.id";
+connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":rmanFinalGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":rmanPreviewGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":rmanRerenderGlobals.msg" ":renderManGlobals.p" -na;
@@ -9000,10 +13800,22 @@ connectAttr "rmanPreviewOutput1.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput2.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput3.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput4.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput5.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput6.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput7.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput8.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput9.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput10.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewChannel0.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel1.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel2.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel3.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel4.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel5.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel6.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel7.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel8.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel9.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr ":rmanRerenderOutputGlobals0.msg" ":rmanRerenderGlobals.d" -na;
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr ":rmanReyesRerenderOutputGlobals0.msg" ":rmanReyesRerenderGlobals.d"
@@ -9089,10 +13901,20 @@ connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtCloudGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBPtRenderGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtexGlobals.p" -na;
 connectAttr "EmilyRimLightTrs.iog" "EmilyRimLightSet.dsm" -na;
+connectAttr "EmilyFillLightTrs.iog" "EmilyRimLightSet.dsm" -na;
+connectAttr "EmilySkinStandin.oc" "RMSGPSurface1SG.ss";
+connectAttr "RMSGPSurface1SG.msg" "materialInfo1.sg";
+connectAttr "EmilySkinStandin.msg" "materialInfo1.m";
+connectAttr "EmilySkinStandin.msg" "materialInfo1.t" -na;
+connectAttr "EmilyFillLightTrs.iog" "EmilyFillLightSet.dsm" -na;
+connectAttr "RMSGPSurface1SG.pa" ":renderPartition.st" -na;
+connectAttr "EmilySkinStandin.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "EmilyRimLight.ltd" ":lightList1.l" -na;
+connectAttr "EmilyFillLight.ltd" ":lightList1.l" -na;
 connectAttr "EmilyRimLightTrs.iog" ":defaultLightSet.dsm" -na;
+connectAttr "EmilyFillLightTrs.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"bedroom1RN\" \"\" \"/home/tmp/cs198-re/Nightmare/scenes/bedroom1.ma\" 3738774503 \"/home/tmp/cs198-re/Nightmare/scenes/bedroom1.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"bedroom1RN\" \"\" \"/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma\" 1578444746 \"/home/tmp/cs198-re/Nightmare/scenes/bedroom1.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of bedroom1_ao.ma
