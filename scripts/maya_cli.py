@@ -19,7 +19,7 @@ def render(shots, frame=None, tractor=True):
     for shot in shots:
         name = shot['name']
         camera = shot['camera']
-        scene = os.path.join(os.getcwd(), "scenes [RENDER]", shot['file'])
+        scene = os.path.join(os.getcwd(), "scenes", shot['file'])
         if frame is None:
             frame0, frameN = shot['startFrame'], shot['endFrame']
         else:
