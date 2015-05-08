@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: CandySkinMaterial.ma
-//Last modified: Wed, May 06, 2015 12:26:34 PM
+//Last modified: Fri, May 08, 2015 02:48:21 PM
 //Codeset: 1252
 requires maya "2015";
 requires -dataType "byteArray" "Mayatomr" "2015.0 - 3.12.1.16 ";
@@ -25,10 +25,11 @@ createNode RMSGPSurface -n "CandyBodyShader";
 	setAttr ".bumpAmount" 0.019999999552965164;
 	setAttr ".sssMix" -type "float3" 0.60000002 0.60000002 0.60000002 ;
 	setAttr ".sssDmfpScale" 0.10000000149011612;
-	setAttr ".sssDmfp" -type "float3" 0.115 0.064999998 0.023 ;
-	setAttr ".sssSamples" 128;
+	setAttr ".sssDmfp" -type "float3" 0.115 0.048999999 0.027000001 ;
+	setAttr ".sssSamples" 200;
+	setAttr ".sssSmooth" yes;
 createNode file -n "Color";
-	setAttr ".ftn" -type "string" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx";
+	setAttr ".ftn" -type "string" "C:/Users/Sara/Documents/GitHub/Nightmare//assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_MESH_Candy_Body.ptx";
 createNode place2dTexture -n "place2dTexture1";
 createNode remapValue -n "remapValue1";
 	setAttr ".imn" -1;
@@ -72,7 +73,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 30 ".st";
+	setAttr -s 32 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -97,17 +98,15 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 19 ".u";
+	setAttr -s 22 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 2 ".r";
-select -ne :lightList1;
-	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 17 ".tx";
+	setAttr -s 20 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -273,7 +272,6 @@ select -ne :defaultLightSet;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
-	setAttr -s 3 ".dsm";
 	setAttr -k on ".mwc";
 	setAttr -k on ".an";
 	setAttr -k on ".il";
@@ -475,6 +473,6 @@ connectAttr "Bump_Map.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Anistropy_Map.msg" ":defaultTextureList1.tx" -na;
 connectAttr "SSS_Tint.msg" ":defaultTextureList1.tx" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
-applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Color\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" 3736093008 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body.ptx\" \"sourceImages\"\n1\n\"Bump_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" 2226774275 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" \"sourceImages\"\n2\n\"SSS_Tint\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" 4134397310 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" \"sourceImages\"\n3\n\"Anistropy_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" 3328013752 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
+applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"Color\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_MESH_Candy_Body.ptx\" 486504751 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_MESH_Candy_Body.ptx\" \"sourceImages\"\n1\n\"Bump_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" 2226774275 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_BumpMap_MESH_Candy_Body.ptx\" \"sourceImages\"\n2\n\"SSS_Tint\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" 4134397310 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_SSS_Map_Texture.ptx\" \"sourceImages\"\n3\n\"Anistropy_Map\" \"fileTextureName\" \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" 3328013752 \"C:/Users/Sara/Documents/GitHub/Nightmare/assets/Candy Textures/Candy_Anistropy_Map_Texture.ptx\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
 // End of CandySkinMaterial.ma
