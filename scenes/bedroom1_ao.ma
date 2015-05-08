@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1_ao.ma
-//Last modified: Fri, May 08, 2015 12:18:21 PM
+//Last modified: Fri, May 08, 2015 12:26:11 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom1" -rfn "bedroom1RN" -op "v=0;" "/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma";
 file -rdi 2 -ns "anim_ready_Emily" -rfn "bedroom1:anim_ready_EmilyRN" "/home/tmp/cs198-re/Nightmare//assets/chars/Emily.ma";
@@ -79,16 +79,17 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".man" -type "string" "side_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
-createNode transform -n "EmilyRimLight";
+createNode transform -n "EmilyRimLightTrs";
 	setAttr ".t" -type "double3" 2.4272458534379253 2.3125158143810536 -4.1565079800738394 ;
 	setAttr ".r" -type "double3" 0 129.56020292408448 0 ;
 	setAttr ".s" -type "double3" 1.7594046560067069 1.7594046560067069 1.7594046560067069 ;
-createNode RMSGeoAreaLight -n "EmilyRimLight" -p "|EmilyRimLight";
+createNode RMSGeoAreaLight -n "EmilyRimLight" -p "EmilyRimLightTrs";
 	setAttr -k off ".v";
 	setAttr ".shape" -type "string" "disk";
 	setAttr ".intensity" 2;
+	setAttr ".__group" -type "string" "EmilyRimLightSet";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 87 ".lnk";
+	setAttr -s 143 ".lnk";
 	setAttr -s 139 ".ign";
 	setAttr -s 67 ".slnk";
 createNode displayLayerManager -n "layerManager";
@@ -649,8 +650,8 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	setAttr -k on ".rman__riopt__photon_emit" 0;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 21 ".d";
-	setAttr -s 10 ".c";
+	setAttr -s 23 ".d";
+	setAttr -s 12 ".c";
 createNode RenderMan -s -n "rmanFinalOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -1567,8 +1568,8 @@ createNode RenderMan -s -n "rmanPreviewGlobals";
 	setAttr -k on ".rman__riattr__trace_maxdiffusedepth" 1;
 	setAttr ".rman__riattr__photon_causticmap" -type "string" "";
 	setAttr ".rman__riattr__photon_globalmap" -type "string" "";
-	setAttr -s 3 ".d";
-	setAttr -s 2 ".c";
+	setAttr -s 5 ".d";
+	setAttr -s 4 ".c";
 createNode RenderMan -s -n "rmanPreviewOutputGlobals0";
 	addAttr -ci true -h true -sn "t" -ln "isTemplate" -at "long";
 	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
@@ -4136,7 +4137,7 @@ createNode reference -n "bedroom1RN";
 		"bedroom1:bedroomRN" 0
 		"bedroom1RN" 0
 		"bedroom1:bedroom:bedRN" 0
-		"bedroom1:bedsheetRN" 10
+		"bedroom1:bedsheetRN" 14
 		2 "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape" 
 		"cacheWidth" " 171"
 		2 "|bedroom1:bedsheet:RMSEnvLight1" "visibility" " 0"
@@ -4156,10 +4157,24 @@ createNode reference -n "bedroom1RN";
 		" 1"
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" "|bedroom1:bedsheet:RMSEnvLight1|bedroom1:bedsheet:RMSEnvLightShape1.message" 
 		0
-		"bedroom1:bedroom:LampRN" 0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrLMDiffuse1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:cubeFogSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrConstant1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1:bedroom:LampRN" 2
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:Lamp:RMSMatte1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
 		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
-		"bedroom1:bedroom:deskRN" 0
-		"bedroom1:anim_ready_EmilyRN" 235
+		"bedroom1:bedroom:deskRN" 1
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:desk:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1:anim_ready_EmilyRN" 324
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"translate" " -type \"double3\" 1.909789 2.18835627348448325 -1.193383"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
@@ -4662,7 +4677,185 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEyedup|bedroom1:anim_ready_Emily:RightEyedupShapeDeformed" 
 		"instObjGroups.objectGroups[3].objectGroupId" " -av"
 		2 "bedroom1:anim_ready_Emily:Meshes" "visibility" " -av 1"
-		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 4
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBall|bedroom1:anim_ready_Emily:FitEyeBall|bedroom1:anim_ready_Emily:FitEyeSphere|bedroom1:anim_ready_Emily:FitEyeSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderMain|bedroom1:anim_ready_Emily:upperEyeLidCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidMain|bedroom1:anim_ready_Emily:FaceFitEyeLidMainGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMain|bedroom1:anim_ready_Emily:lowerEyeLidCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuter|bedroom1:anim_ready_Emily:upperEyeLidCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeLidOuter|bedroom1:anim_ready_Emily:FaceFitEyeLidOuterGeo|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuter|bedroom1:anim_ready_Emily:lowerEyeLidCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowMain|bedroom1:anim_ready_Emily:FaceFitEyeBrowMainGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderMain|bedroom1:anim_ready_Emily:EyeBrowCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuter|bedroom1:anim_ready_Emily:FaceFitEyeBrowOuterGeo|bedroom1:anim_ready_Emily:EyeBrowCylinderOuter|bedroom1:anim_ready_Emily:EyeBrowCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitnoseCorner|bedroom1:anim_ready_Emily:FaceFitnoseCornerGeo|bedroom1:anim_ready_Emily:noseCornerSphere|bedroom1:anim_ready_Emily:noseCornerSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitcheek|bedroom1:anim_ready_Emily:FaceFitcheekGeo|bedroom1:anim_ready_Emily:cheekSphere|bedroom1:anim_ready_Emily:cheekSphereShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawMain|bedroom1:anim_ready_Emily:FaceFitJawMainGeo|bedroom1:anim_ready_Emily:JawCylinderMain|bedroom1:anim_ready_Emily:JawCylinderMainShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitJawOuter|bedroom1:anim_ready_Emily:FaceFitJawOuterGeo|bedroom1:anim_ready_Emily:JawCylinderOuter|bedroom1:anim_ready_Emily:JawCylinderOuterShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitNose|bedroom1:anim_ready_Emily:FaceFitNoseGeo|bedroom1:anim_ready_Emily:NoseCylinder|bedroom1:anim_ready_Emily:NoseCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitTongue|bedroom1:anim_ready_Emily:FaceFitTongueGeo|bedroom1:anim_ready_Emily:TongueCylinder|bedroom1:anim_ready_Emily:TongueCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:upperLipCylinder|bedroom1:anim_ready_Emily:upperLipCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R|bedroom1:anim_ready_Emily:browInner_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R|bedroom1:anim_ready_Emily:browOuter_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L|bedroom1:anim_ready_Emily:browInner_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L|bedroom1:anim_ready_Emily:browOuter_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_R|bedroom1:anim_ready_Emily:cheekOffset_R|bedroom1:anim_ready_Emily:cheekSubtract_R|bedroom1:anim_ready_Emily:cheek_R|bedroom1:anim_ready_Emily:cheek_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_R|bedroom1:anim_ready_Emily:noseCornerOffset_R|bedroom1:anim_ready_Emily:noseCornerSubtract_R|bedroom1:anim_ready_Emily:noseCorner_R|bedroom1:anim_ready_Emily:noseCorner_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:cheekAttach_L|bedroom1:anim_ready_Emily:cheekOffset_L|bedroom1:anim_ready_Emily:cheekSubtract_L|bedroom1:anim_ready_Emily:cheek_L|bedroom1:anim_ready_Emily:cheek_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:noseCornerAttach_L|bedroom1:anim_ready_Emily:noseCornerOffset_L|bedroom1:anim_ready_Emily:noseCornerSubtract_L|bedroom1:anim_ready_Emily:noseCorner_L|bedroom1:anim_ready_Emily:noseCorner_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R|bedroom1:anim_ready_Emily:Lip6_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L|bedroom1:anim_ready_Emily:Lip6_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M|bedroom1:anim_ready_Emily:upperLip0_MShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R|bedroom1:anim_ready_Emily:upperLip3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L|bedroom1:anim_ready_Emily:upperLip3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M|bedroom1:anim_ready_Emily:lowerLip0_MShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R|bedroom1:anim_ready_Emily:lowerLip3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L|bedroom1:anim_ready_Emily:lowerLip3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R|bedroom1:anim_ready_Emily:LidCorner1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R|bedroom1:anim_ready_Emily:LidCorner2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R|bedroom1:anim_ready_Emily:upperLid1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R|bedroom1:anim_ready_Emily:lowerLid1_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L|bedroom1:anim_ready_Emily:LidCorner1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_L|bedroom1:anim_ready_Emily:LidCorner2Offset_L|bedroom1:anim_ready_Emily:LidCorner2Subtract_L|bedroom1:anim_ready_Emily:LidCorner2_L|bedroom1:anim_ready_Emily:LidCorner2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L|bedroom1:anim_ready_Emily:upperLid1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L|bedroom1:anim_ready_Emily:lowerLid1_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R|bedroom1:anim_ready_Emily:upperLid2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_R|bedroom1:anim_ready_Emily:upperLid3Offset_R|bedroom1:anim_ready_Emily:upperLid3Subtract_R|bedroom1:anim_ready_Emily:upperLid3_R|bedroom1:anim_ready_Emily:upperLid3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R|bedroom1:anim_ready_Emily:lowerLid2_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_R|bedroom1:anim_ready_Emily:lowerLid3Offset_R|bedroom1:anim_ready_Emily:lowerLid3Subtract_R|bedroom1:anim_ready_Emily:lowerLid3_R|bedroom1:anim_ready_Emily:lowerLid3_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L|bedroom1:anim_ready_Emily:upperLid2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L|bedroom1:anim_ready_Emily:upperLid3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L|bedroom1:anim_ready_Emily:lowerLid2_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L|bedroom1:anim_ready_Emily:lowerLid3_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R|bedroom1:anim_ready_Emily:browHalf_RShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L|bedroom1:anim_ready_Emily:browHalf_LShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEye|bedroom1:anim_ready_Emily:RightEyeShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:LeftEye|bedroom1:anim_ready_Emily:LeftEyeShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightBrow|bedroom1:anim_ready_Emily:RightBrowShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:LeftBrow|bedroom1:anim_ready_Emily:LeftBrowShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEyedup|bedroom1:anim_ready_Emily:RightEyedupShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2Base|bedroom1:anim_ready_Emily:Body2BaseShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:softer_features_blendshape|bedroom1:anim_ready_Emily:softer_features_blendshapeShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Dress_EmilyRNfosterParent1|bedroom1:anim_ready_Emily:Dress_Emily:SkirtShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Dress_EmilyRNfosterParent1|bedroom1:anim_ready_Emily:Dress_Emily:ShouldersShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Dress_EmilyRNfosterParent1|bedroom1:anim_ready_Emily:Dress_Emily:BandShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asWhiteSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asBlackSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:AdvancedSkeleton_asWhiteSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:AdvancedSkeleton_asBlackSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asRedSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asRed2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asGreenSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asGreen2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asBlueSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asBlue2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:woodSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asFaceBlueSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asFaceBrownSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asFaceGreenSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:asFaceCyanSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:lambert2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:blinn3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:blinn2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:blinn1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:blinn4SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:hairTubeShader1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:blinn5SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:lambert3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 6
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translate" " -type \"double3\" 1.94260930045909963 -0.3841546358844834 -3.66970427303366931"
 		
@@ -4672,8 +4865,20 @@ createNode reference -n "bedroom1RN";
 		"translateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translateZ" " -av"
-		"bedroom1:bedroomRN" 0
-		"bedroom1RN" 67
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair|bedroom1:anim_ready_Emily:Hair_Emily:HairShape.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1:bedroomRN" 4
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSGPSurface3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSMatte1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1RN" 70
 		2 "|bedroom1:Full_Bedroom_shot|bedroom1:Full_Bedroom_shotShape" "renderable" 
 		" 1"
 		2 "|bedroom1:Face_Close_Up|bedroom1:Face_Close_UpShape" "renderable" " 0"
@@ -4783,7 +4988,13 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" ":defaultLightSet.message" 
 		0
-		"bedroom1:bedroom:bedRN" 13
+		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrLMDiffuse1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:cubeFogSG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:PxrConstant1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		"bedroom1:bedroom:bedRN" 22
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "diffuseGain" " 1"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "sheen" " 0"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "sheenTint" " 0.5"
@@ -4797,7 +5008,25 @@ createNode reference -n "bedroom1RN";
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "flakeAmount" " 0"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "flakeScale" " 10"
 		2 "bedroom1:bedroom:bed:RMSGPSurface4" "ior" " 1.5"
-		2 "bedroom1:bedroom:bed:RMSGPSurface4" "mediaIor" " 1";
+		2 "bedroom1:bedroom:bed:RMSGPSurface4" "mediaIor" " 1"
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:bed:initialShadingGroup.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface2SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface3SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface4SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface5SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface6SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface7SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:bed:RMSGPSurface8SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0;
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode mentalrayItemsList -s -n "mentalrayItemsList";
@@ -8363,9 +8592,316 @@ createNode RenderMan -n "rmanFinalOutput20";
 	setAttr -k on ".rman__riopt__Display_dither" 0;
 	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
 	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode objectSet -n "EmilyRimLightSet";
+	setAttr ".ihi" 0;
+	setAttr ".an" -type "string" "lightset";
+createNode RenderMan -n "rmanFinalOutput21";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_EmilyRimLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel10";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_EmilyRimLightSet";
+createNode RenderMan -n "rmanFinalOutput22";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_EmilyRimLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanFinalChannel11";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_EmilyRimLightSet";
+createNode RenderMan -n "rmanPreviewOutput3";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedDiffuse_EmilyRimLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel2";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedDiffuse_EmilyRimLightSet";
+createNode RenderMan -n "rmanPreviewOutput4";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___computeBehavior" -ln "rman__torattr___computeBehavior" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__torattr___dspyID" -ln "rman__torattr___dspyID" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__torattr___primaryDisplay" -ln "rman__torattr___primaryDisplay" 
+		-dv -1 -at "long";
+	addAttr -ci true -h true -sn "rman__riopt__Display_name" -ln "rman__riopt__Display_name" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_mode" -ln "rman__riopt__Display_mode" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__Display_type" -ln "rman__riopt__Display_type" 
+		-dt "string";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantize" -ln "rman__riopt__Display_quantize" 
+		-at "compound" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX" -ln "rman__riopt__Display_quantizeX" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX0" -ln "rman__riopt__Display_quantizeX0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeX1" -ln "rman__riopt__Display_quantizeX1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeX";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY" -ln "rman__riopt__Display_quantizeY" 
+		-at "long2" -p "rman__riopt__Display_quantize" -nc 2;
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY0" -ln "rman__riopt__Display_quantizeY0" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_quantizeY1" -ln "rman__riopt__Display_quantizeY1" 
+		-dv -1 -at "long" -p "rman__riopt__Display_quantizeY";
+	addAttr -ci true -k true -sn "rman__riopt__Display_dither" -ln "rman__riopt__Display_dither" 
+		-dv -1 -at "float";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap" -ln "rman__riopt__Display_remap" 
+		-at "float3" -nc 3;
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap0" -ln "rman__riopt__Display_remap0" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap1" -ln "rman__riopt__Display_remap1" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_remap2" -ln "rman__riopt__Display_remap2" 
+		-dv -1 -at "float" -p "rman__riopt__Display_remap";
+	addAttr -ci true -k true -sn "rman__riopt__Display_asrgba" -ln "rman__riopt__Display_asrgba" 
+		-dv -1 -at "long";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:display";
+	setAttr ".rman__torattr___class" -type "string" "Secondary";
+	setAttr ".rman__torattr___task" -type "string" "display";
+	setAttr -k on ".rman__torattr___computeBehavior" 1;
+	setAttr ".rman__torattr___dspyID" -type "string" "${DSPYCHAN}";
+	setAttr -k on ".rman__torattr___primaryDisplay" 0;
+	setAttr ".rman__riopt__Display_name" -type "string" "+[passinfo this filename -channel $DSPYCHAN]";
+	setAttr ".rman__riopt__Display_mode" -type "string" "GroupedSpecular_EmilyRimLightSet";
+	setAttr ".rman__riopt__Display_type" -type "string" "openexr";
+	setAttr -k on ".rman__riopt__Display_quantizeX" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_quantizeY" -type "long2" 0 0 ;
+	setAttr -k on ".rman__riopt__Display_dither" 0;
+	setAttr -k on ".rman__riopt__Display_remap" -type "float3" 0 0 0 ;
+	setAttr -k on ".rman__riopt__Display_asrgba" 1;
+createNode RenderMan -n "rmanPreviewChannel3";
+	addAttr -ci true -h true -sn "rman__torattr___class" -ln "rman__torattr___class" 
+		-dt "string";
+	addAttr -ci true -h true -sn "rman__torattr___task" -ln "rman__torattr___task" -dt "string";
+	addAttr -ci true -h true -sn "rman__riopt__DisplayChannel_name" -ln "rman__riopt__DisplayChannel_name" 
+		-dt "string";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "d" -ln "display" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "c" -ln "channel" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "rif" -ln "rif" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "p" -ln "passes" -at "message";
+	addAttr -r false -s false -ci true -h true -m -im false -sn "sh" -ln "shared" -at "message";
+	setAttr ".nt" -type "string" "settings:displaychannel";
+	setAttr ".rman__torattr___class" -type "string" "Cs";
+	setAttr ".rman__torattr___task" -type "string" "displaychannel";
+	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_EmilyRimLightSet";
 select -ne :time1;
-	setAttr ".o" 46;
-	setAttr ".unw" 46;
+	setAttr ".o" 45;
+	setAttr ".unw" 45;
 select -ne :renderPartition;
 	setAttr -s 67 ".st";
 select -ne :renderGlobalsList1;
@@ -8417,6 +8953,8 @@ relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLigh
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "ignore" ":lightLinker1" ":initialShadingGroup.message" "EmilyRimLight.message";
+relationship "ignore" ":lightLinker1" ":initialParticleSE.message" "EmilyRimLight.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -8432,6 +8970,10 @@ connectAttr "rmanFinalOutput17.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput18.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput19.msg" ":rmanFinalGlobals.d" -na;
 connectAttr "rmanFinalOutput20.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput21.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalOutput22.msg" ":rmanFinalGlobals.d" -na;
+connectAttr "rmanFinalChannel10.msg" ":rmanFinalGlobals.c" -na;
+connectAttr "rmanFinalChannel11.msg" ":rmanFinalGlobals.c" -na;
 connectAttr ":rmanRerenderRISOutputGlobals0.msg" ":rmanRerenderRISGlobals.d" -na
 		;
 connectAttr ":rmanFinalGlobals.msg" ":renderManGlobals.p" -na;
@@ -8456,8 +8998,12 @@ connectAttr ":rmanSBMakePtexGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":rmanPreviewOutputGlobals0.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput1.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewOutput2.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput3.msg" ":rmanPreviewGlobals.d" -na;
+connectAttr "rmanPreviewOutput4.msg" ":rmanPreviewGlobals.d" -na;
 connectAttr "rmanPreviewChannel0.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr "rmanPreviewChannel1.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel2.msg" ":rmanPreviewGlobals.c" -na;
+connectAttr "rmanPreviewChannel3.msg" ":rmanPreviewGlobals.c" -na;
 connectAttr ":rmanRerenderOutputGlobals0.msg" ":rmanRerenderGlobals.d" -na;
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
 connectAttr ":rmanReyesRerenderOutputGlobals0.msg" ":rmanReyesRerenderGlobals.d"
@@ -8542,9 +9088,10 @@ connectAttr ":rmanSBRenderChannelGlobals5.msg" ":rmanSBRenderGlobals.c" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtCloudGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBPtRenderGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":rmanSBMakePtexGlobals.p" -na;
+connectAttr "EmilyRimLightTrs.iog" "EmilyRimLightSet.dsm" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "|EmilyRimLight|EmilyRimLight.ltd" ":lightList1.l" -na;
-connectAttr "|EmilyRimLight.iog" ":defaultLightSet.dsm" -na;
+connectAttr "EmilyRimLight.ltd" ":lightList1.l" -na;
+connectAttr "EmilyRimLightTrs.iog" ":defaultLightSet.dsm" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"bedroom1RN\" \"\" \"/home/tmp/cs198-re/Nightmare/scenes/bedroom1.ma\" 3738774503 \"/home/tmp/cs198-re/Nightmare/scenes/bedroom1.ma\" \"FileRef\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
