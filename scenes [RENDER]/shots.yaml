@@ -4,14 +4,14 @@
 # names must be unique, and alphanumeric with spaces.
 
 - name       : "Bedroom Establishing"
-  file       : "bedroom1.ma"
-  camera     : 'Full_Bedroom_shot'
+  file       : "bedroom1_ao.mb"
+  camera     : 'bedroom1:Full_Bedroom_shot'
   startFrame : 1
   endFrame   : 47
 
 - name       : "Bedroom Closeup"
-  file       : "bedroom1.ma"
-  camera     : 'Face_Close_Up'
+  file       : "bedroom1_ao.mb"
+  camera     : 'bedroom1:Face_Close_Up'
   startFrame : 48
   endFrame   : 125
 
