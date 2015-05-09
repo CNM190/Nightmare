@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: Enter_Unicorn_Part1.ma
-//Last modified: Fri, May 08, 2015 08:04:59 PM
+//Last modified: Fri, May 08, 2015 08:41:48 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "Emily" -rfn "EmilyRN" "C:/Users/Mark/Documents/GitHub/Nightmare//assets/chars/Emily.ma";
 file -rdi 2 -ns "Hair_Emily" -rfn "Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
@@ -65,14 +65,14 @@ fileInfo "cutIdentifier" "201405190330-916664";
 fileInfo "osv" "Mac OS X 10.9.3";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
-	setAttr ".t" -type "double3" 0.4335024645803871 5.0570367016166458 10.596381035268688 ;
-	setAttr ".r" -type "double3" -12.938352733510595 372.19999999969679 -2.0337777270998298e-16 ;
+	setAttr ".t" -type "double3" -0.0061905209525272564 13.393363532606466 7.8065627627628764 ;
+	setAttr ".r" -type "double3" -60.938352733513447 373.79999999969016 1.637546293677967e-15 ;
 	setAttr ".rpt" -type "double3" 4.9370245048888192e-16 5.3113281256674937e-16 8.0785519839581679e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 8.7629532856718821;
+	setAttr ".coi" 11.781721839380694;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -270,7 +270,7 @@ createNode parentConstraint -n "HornLight_parentConstraint1" -p "HornLight";
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 1.4076714925087455 -1.5282389884406686 0.015268927028330381 ;
 	setAttr ".tg[0].tor" -type "double3" -2.884104007800826 8.2992113711946498 -29.195712380985473 ;
-	setAttr ".lr" -type "double3" 6.3362612794780958e-15 -9.5416640443905503e-15 3.1477862714152346e-14 ;
+	setAttr ".lr" -type "double3" 0.01569981734907637 -0.018331710074651585 0.3787177803116426 ;
 	setAttr ".rst" -type "double3" 0.57935641598684207 2.062587378933681 4.1970451172379226 ;
 	setAttr ".rsrr" -type "double3" 6.6095901974163663e-15 -9.9392333795734903e-15 3.146543867242788e-14 ;
 	setAttr -k on ".w0";
@@ -5182,7 +5182,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main" "Resolution" " -k 1 1"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
-		"rotate" " -type \"double3\" -14.97412471897951569 -11.84575010999101075 0"
+		"rotate" " -type \"double3\" -0.45592097721662006 -0.24100000000000002 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M" 
@@ -5198,7 +5198,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKRoot_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
-		"translate" " -type \"double3\" 0.01822462098682039 0 0.011739103792656181"
+		"translate" " -type \"double3\" -0.0060094215526402834 0 -0.0075703120024908262"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
@@ -5206,8 +5206,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
-		"rotate" " -type \"double3\" -6.75428150080669099 -14.06378452518926991 2.0056388849078961"
-		
+		"rotate" " -type \"double3\" -0.037421296071074979 0 1.30011260432017695"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M" 
@@ -5223,11 +5222,11 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKSpine1_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"translate" " -type \"double3\" 0.02328466916890206 0 0"
+		"translate" " -type \"double3\" -0.0031555792346612591 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
-		"rotate" " -type \"double3\" -28.05854467507158034 12.97605496497728694 -28.56359752248847883"
+		"rotate" " -type \"double3\" -5.26757169947952519 -4.05782517664493358 -27.92768907211397433"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:FKXOffsetRoot_M|Emily:HipSwingerGroupOffsetRoot_M|Emily:HipSwingerGroupRoot_M|Emily:FKXRoot_M|Emily:HipSwingerStabalizeRoot_M|Emily:FKOffsetSpine1_M|Emily:FKExtraSpine1_M|Emily:FKSpine1_M|Emily:FKXOffsetSpine1_M|Emily:FKXSpine1_M|Emily:FKOffsetChest_M|Emily:FKExtraChest_M|Emily:FKChest_M" 
 		"rotateX" " -av"
@@ -5254,7 +5253,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKOffsetRoot_M|Emily:FKExtraRoot_M|Emily:FKRoot_M|Emily:HipSwingerOffset_M|Emily:HipSwinger_M|Emily:HipSwinger_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
-		"translate" " -type \"double3\" -0.069722296241572987 -0.080601196319647503 0.039703200000000001"
+		"translate" " -type \"double3\" -0.079718978027621706 -0.096484244624451071 0.039703200000000001"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"translateX" " -av"
@@ -5263,7 +5262,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
-		"rotate" " -type \"double3\" 0 4.42411420032032243 -5.65100458584769516"
+		"rotate" " -type \"double3\" 0 4.34581959157889397 5.59917559954581723"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
@@ -5275,7 +5274,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"translate" " -type \"double3\" 0 0 -0.018303143844529954"
+		"translate" " -type \"double3\" 0 -0.046893127399438336 -0.018301152123666332"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
@@ -5283,7 +5282,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
-		"rotate" " -type \"double3\" -62.87199935833052677 -1.82057377831640332 18.71724973152365834"
+		"rotate" " -type \"double3\" -27.08878168008834919 8.20745547212661997 34.9909493622425245"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M" 
 		"rotateX" " -av"
@@ -5300,7 +5299,8 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetNeck_M|Emily:FKGlobalStaticNeck_M|Emily:FKGlobalNeck_M|Emily:FKExtraNeck_M|Emily:FKNeck_M|Emily:FKXOffsetNeck_M|Emily:FKXNeck_M|Emily:FKOffsetHead_M|Emily:FKGlobalStaticHead_M|Emily:FKGlobalHead_M|Emily:FKExtraHead_M|Emily:FKHead_M|Emily:FKHead_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
-		"translate" " -type \"double3\" 0 0 0.20046658057176142"
+		"translate" " -type \"double3\" -0.019199752920588075 0.081 0.0059933741111487561"
+		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
@@ -5316,7 +5316,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R" 
 		"Global" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 -0.0031631195889190462 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
@@ -5324,7 +5324,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
-		"rotate" " -type \"double3\" 60.10453488320892035 -11.80174903249157836 19.7351570152210698"
+		"rotate" " -type \"double3\" 11.23690395505292017 31.93530305875754749 74.89937147690588404"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R" 
 		"rotateX" " -av"
@@ -5347,13 +5347,13 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKShoulder_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0.029426559223046024 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
-		"rotate" " -type \"double3\" 0.69955886339777618 0.26272748971057752 33.87743059293087811"
+		"rotate" " -type \"double3\" 35.32113174848578296 -0.14062142502413871 84.77649198249528695"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R" 
 		"rotateX" " -av"
@@ -5378,7 +5378,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKElbow_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R" 
-		"rotate" " -type \"double3\" -49.52973412373744821 -18.07290896659651125 15.8711071319565562"
+		"rotate" " -type \"double3\" -30.60651005426847604 24.16715790840611433 0.029831674976090294"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R" 
 		"rotateX" " -av"
@@ -5393,7 +5393,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R|Emily:FKXOffsetShoulder_R|Emily:FKXShoulder_R|Emily:FKOffsetElbow_R|Emily:FKExtraElbow_R|Emily:FKElbow_R|Emily:FKXOffsetElbow_R|Emily:FKXElbow_R|Emily:FKOffsetWrist_R|Emily:FKExtraWrist_R|Emily:FKWrist_R|Emily:FKWrist_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
-		"translate" " -type \"double3\" 0 0.063770161301999181 0.14703058483495315"
+		"translate" " -type \"double3\" 0 -0.073833700000000002 -0.047929462240183518"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L" 
@@ -5413,7 +5413,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
-		"rotate" " -type \"double3\" 191.44693981759309054 231.43780658600206834 187.0792763905453171"
+		"rotate" " -type \"double3\" 183.46671945406478699 188.40980228431186561 112.23997316647619016"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L" 
 		"rotateX" " -av"
@@ -5436,7 +5436,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
-		"rotate" " -type \"double3\" 0 0 22.44970527547867079"
+		"rotate" " -type \"double3\" 0 0 117.24339690149832904"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L" 
@@ -5448,7 +5448,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
-		"rotate" " -type \"double3\" 15.76859675166497965 15.35706354867483014 -10.84036464490699458"
+		"rotate" " -type \"double3\" -27.61139616176635059 25.51413364611842027 5.34958416591977048"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"rotateX" " -av"
@@ -5457,7 +5457,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_L|Emily:FKGlobalStaticScapula_L|Emily:FKGlobalScapula_L|Emily:FKExtraScapula_L|Emily:FKScapula_L|Emily:FKXOffsetScapula_L|Emily:FKXScapula_L|Emily:FKOffsetShoulder_L|Emily:FKGlobalStaticShoulder_L|Emily:FKGlobalShoulder_L|Emily:FKExtraShoulder_L|Emily:FKShoulder_L|Emily:FKXOffsetShoulder_L|Emily:FKXShoulder_L|Emily:FKOffsetElbow_L|Emily:FKExtraElbow_L|Emily:FKElbow_L|Emily:FKXOffsetElbow_L|Emily:FKXElbow_L|Emily:FKOffsetWrist_L|Emily:FKExtraWrist_L|Emily:FKWrist_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R" 
-		"rotate" " -type \"double3\" -7.41596102455094552 12.82784697209806168 2.68184101425740895"
+		"rotate" " -type \"double3\" -7.59969438761422733 15.39568484290922612 4.2367048584077649"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R" 
 		"rotateX" " -av"
@@ -5466,7 +5466,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R|Emily:FKXOffsetIndexFinger1_R|Emily:FKXIndexFinger1_R|Emily:FKOffsetIndexFinger2_R|Emily:SDK1FKIndexFinger2_R|Emily:FKExtraIndexFinger2_R|Emily:FKIndexFinger2_R" 
-		"rotate" " -type \"double3\" 0 35.18421415222268678 0"
+		"rotate" " -type \"double3\" 0 24.095485 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R|Emily:FKXOffsetIndexFinger1_R|Emily:FKXIndexFinger1_R|Emily:FKOffsetIndexFinger2_R|Emily:SDK1FKIndexFinger2_R|Emily:FKExtraIndexFinger2_R|Emily:FKIndexFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R|Emily:FKXOffsetIndexFinger1_R|Emily:FKXIndexFinger1_R|Emily:FKOffsetIndexFinger2_R|Emily:SDK1FKIndexFinger2_R|Emily:FKExtraIndexFinger2_R|Emily:FKIndexFinger2_R" 
@@ -5478,7 +5478,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetIndexFinger1_R|Emily:SDK1FKIndexFinger1_R|Emily:SDK2FKIndexFinger1_R|Emily:FKExtraIndexFinger1_R|Emily:FKIndexFinger1_R|Emily:FKXOffsetIndexFinger1_R|Emily:FKXIndexFinger1_R|Emily:FKOffsetIndexFinger2_R|Emily:SDK1FKIndexFinger2_R|Emily:FKExtraIndexFinger2_R|Emily:FKIndexFinger2_R|Emily:FKXOffsetIndexFinger2_R|Emily:FKXIndexFinger2_R|Emily:FKOffsetIndexFinger3_R|Emily:SDK1FKIndexFinger3_R|Emily:FKExtraIndexFinger3_R|Emily:FKIndexFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
-		"rotate" " -type \"double3\" 0 44.36956790271295858 -0.70716047846541641"
+		"rotate" " -type \"double3\" 0 37.8962317528995527 -4.55637491324548627"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R" 
@@ -5494,8 +5494,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetMiddleFinger1_R|Emily:SDK1FKMiddleFinger1_R|Emily:FKExtraMiddleFinger1_R|Emily:FKMiddleFinger1_R|Emily:FKXOffsetMiddleFinger1_R|Emily:FKXMiddleFinger1_R|Emily:FKOffsetMiddleFinger2_R|Emily:SDK1FKMiddleFinger2_R|Emily:FKExtraMiddleFinger2_R|Emily:FKMiddleFinger2_R|Emily:FKXOffsetMiddleFinger2_R|Emily:FKXMiddleFinger2_R|Emily:FKOffsetMiddleFinger3_R|Emily:SDK1FKMiddleFinger3_R|Emily:FKExtraMiddleFinger3_R|Emily:FKMiddleFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
-		"rotate" " -type \"double3\" 1.23035117164527175 55.09805876830009197 2.57684872611482785"
-		
+		"rotate" " -type \"double3\" 0 34.75519989137311683 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
@@ -5503,17 +5502,17 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R" 
-		"rotate" " -type \"double3\" 0 16.77628908192427559 0"
+		"rotate" " -type \"double3\" 0 11.05735367026408511 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
-		"rotate" " -type \"double3\" 0 34.12559021935141601 0"
+		"rotate" " -type \"double3\" 0 24.95662216987895832 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetRingFinger1_R|Emily:SDK1FKRingFinger1_R|Emily:SDK2FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset1|Emily:SDK3FKRingFinger1_R|Emily:SDK3FKRingFinger1_RAltPivotOffset2|Emily:FKExtraRingFinger1_R|Emily:FKRingFinger1_R|Emily:FKXOffsetRingFinger1_R|Emily:FKXRingFinger1_R|Emily:FKOffsetRingFinger2_R|Emily:SDK1FKRingFinger2_R|Emily:FKExtraRingFinger2_R|Emily:FKRingFinger2_R|Emily:FKXOffsetRingFinger2_R|Emily:FKXRingFinger2_R|Emily:FKOffsetRingFinger3_R|Emily:SDK1FKRingFinger3_R|Emily:FKExtraRingFinger3_R|Emily:FKRingFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
-		"rotate" " -type \"double3\" -4.82212308827111613 69.33192708470193111 8.15530614533429521"
+		"rotate" " -type \"double3\" -8.77423086481634407 28.68456831935926488 -0.5958583976329318"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateX" " -av"
@@ -5522,7 +5521,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
-		"rotate" " -type \"double3\" 0 34.9431387413913086 0"
+		"rotate" " -type \"double3\" 0 24.45548493146485924 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
@@ -5530,7 +5529,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R|Emily:FKXOffsetPinkyFinger2_R|Emily:FKXPinkyFinger2_R|Emily:FKOffsetPinkyFinger3_R|Emily:SDK1FKPinkyFinger3_R|Emily:FKExtraPinkyFinger3_R|Emily:FKPinkyFinger3_R" 
-		"rotate" " -type \"double3\" 0 37.29434936449755611 0"
+		"rotate" " -type \"double3\" 0 20.87947112578709508 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetPinkyFinger1_R|Emily:SDK1FKPinkyFinger1_R|Emily:SDK2FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset1|Emily:SDK3FKPinkyFinger1_R|Emily:SDK3FKPinkyFinger1_RAltPivotOffset2|Emily:FKExtraPinkyFinger1_R|Emily:FKPinkyFinger1_R|Emily:FKXOffsetPinkyFinger1_R|Emily:FKXPinkyFinger1_R|Emily:FKOffsetPinkyFinger2_R|Emily:SDK1FKPinkyFinger2_R|Emily:FKExtraPinkyFinger2_R|Emily:FKPinkyFinger2_R|Emily:FKXOffsetPinkyFinger2_R|Emily:FKXPinkyFinger2_R|Emily:FKOffsetPinkyFinger3_R|Emily:SDK1FKPinkyFinger3_R|Emily:FKExtraPinkyFinger3_R|Emily:FKPinkyFinger3_R" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R|Emily:FKXOffsetThumbFinger1_R|Emily:FKXThumbFinger1_R|Emily:FKOffsetThumbFinger2_R|Emily:SDK1FKThumbFinger2_R|Emily:FKExtraThumbFinger2_R|Emily:FKThumbFinger2_R" 
@@ -5550,7 +5549,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_R|Emily:FKOffsetThumbFinger1_R|Emily:FKExtraThumbFinger1_R|Emily:FKThumbFinger1_R|Emily:FKXOffsetThumbFinger1_R|Emily:FKXThumbFinger1_R|Emily:FKOffsetThumbFinger2_R|Emily:SDK1FKThumbFinger2_R|Emily:FKExtraThumbFinger2_R|Emily:FKThumbFinger2_R|Emily:FKXOffsetThumbFinger2_R|Emily:FKXThumbFinger2_R|Emily:FKOffsetThumbFinger3_R|Emily:SDK1FKThumbFinger3_R|Emily:FKExtraThumbFinger3_R|Emily:FKThumbFinger3_R" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
-		"rotate" " -type \"double3\" -1.37939467994647558 31.44253090264606953 -0.72555832307468249"
+		"rotate" " -type \"double3\" 10.73335508716609432 -37.1515646989092474 -5.84682396100960045"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
 		"rotateX" " -av"
@@ -5559,7 +5558,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
-		"rotate" " -type \"double3\" 0.46154283349309888 68.52378617014599627 -0.068090418540137657"
+		"rotate" " -type \"double3\" 2.89345154755651457 -18.464955064333612 -0.55743730384336343"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
 		"rotateX" " -av"
@@ -5568,7 +5567,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
-		"rotate" " -type \"double3\" 0 30.57029598781024404 0"
+		"rotate" " -type \"double3\" 0 13.95204943721364366 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
@@ -5576,7 +5575,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetIndexFinger1_L|Emily:SDK1FKIndexFinger1_L|Emily:SDK2FKIndexFinger1_L|Emily:FKExtraIndexFinger1_L|Emily:FKIndexFinger1_L|Emily:FKXOffsetIndexFinger1_L|Emily:FKXIndexFinger1_L|Emily:FKOffsetIndexFinger2_L|Emily:SDK1FKIndexFinger2_L|Emily:FKExtraIndexFinger2_L|Emily:FKIndexFinger2_L|Emily:FKXOffsetIndexFinger2_L|Emily:FKXIndexFinger2_L|Emily:FKOffsetIndexFinger3_L|Emily:SDK1FKIndexFinger3_L|Emily:FKExtraIndexFinger3_L|Emily:FKIndexFinger3_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
-		"rotate" " -type \"double3\" 3.11352201074715529 31.73636587079648308 -1.96293203531039384"
+		"rotate" " -type \"double3\" 8.6780933597647536 60.43129891537424925 -17.47013254647108482"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
 		"rotateX" " -av"
@@ -5585,7 +5584,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
-		"rotate" " -type \"double3\" 0.14715014359158363 66.41530933870949127 -0.17770101726584106"
+		"rotate" " -type \"double3\" 0.91018525462766275 -25.07987105940895134 -1.09915515008610232"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
 		"rotateX" " -av"
@@ -5594,11 +5593,11 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L|Emily:FKXOffsetMiddleFinger2_L|Emily:FKXMiddleFinger2_L|Emily:FKOffsetMiddleFinger3_L|Emily:SDK1FKMiddleFinger3_L|Emily:FKExtraMiddleFinger3_L|Emily:FKMiddleFinger3_L" 
-		"rotate" " -type \"double3\" 0 31.13459981775124419 0"
+		"rotate" " -type \"double3\" 0 17.6443424180511812 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetMiddleFinger1_L|Emily:SDK1FKMiddleFinger1_L|Emily:FKExtraMiddleFinger1_L|Emily:FKMiddleFinger1_L|Emily:FKXOffsetMiddleFinger1_L|Emily:FKXMiddleFinger1_L|Emily:FKOffsetMiddleFinger2_L|Emily:SDK1FKMiddleFinger2_L|Emily:FKExtraMiddleFinger2_L|Emily:FKMiddleFinger2_L|Emily:FKXOffsetMiddleFinger2_L|Emily:FKXMiddleFinger2_L|Emily:FKOffsetMiddleFinger3_L|Emily:SDK1FKMiddleFinger3_L|Emily:FKExtraMiddleFinger3_L|Emily:FKMiddleFinger3_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
-		"rotate" " -type \"double3\" 7.43774773133404477 35.17967429105235766 -2.94764248830564979"
+		"rotate" " -type \"double3\" -9.48540842387600414 -9.79007177884948199 -2.49124296898228703"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
 		"rotateX" " -av"
@@ -5607,7 +5606,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
-		"rotate" " -type \"double3\" -1.09596290479564651 75.9476673824201356 1.2944471411047358"
+		"rotate" " -type \"double3\" -6.00111895922531779 96.83373294058633007 7.08795103646546476"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
 		"rotateX" " -av"
@@ -5616,7 +5615,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
-		"rotate" " -type \"double3\" 0.46842737111452309 32.9689391785941126 -0.12396498270333117"
+		"rotate" " -type \"double3\" 2.64959660405830322 -34.33307685229474515 -0.7011912990604835"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
 		"rotateX" " -av"
@@ -5625,7 +5624,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetRingFinger1_L|Emily:SDK1FKRingFinger1_L|Emily:SDK2FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset1|Emily:SDK3FKRingFinger1_L|Emily:SDK3FKRingFinger1_LAltPivotOffset2|Emily:FKExtraRingFinger1_L|Emily:FKRingFinger1_L|Emily:FKXOffsetRingFinger1_L|Emily:FKXRingFinger1_L|Emily:FKOffsetRingFinger2_L|Emily:SDK1FKRingFinger2_L|Emily:FKExtraRingFinger2_L|Emily:FKRingFinger2_L|Emily:FKXOffsetRingFinger2_L|Emily:FKXRingFinger2_L|Emily:FKOffsetRingFinger3_L|Emily:SDK1FKRingFinger3_L|Emily:FKExtraRingFinger3_L|Emily:FKRingFinger3_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
-		"rotate" " -type \"double3\" 8.12141662194396474 39.50866592783940234 14.14268316416704252"
+		"rotate" " -type \"double3\" 10.64376809573388627 34.70358799218233514 17.98716911386435768"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
 		"rotateX" " -av"
@@ -5634,33 +5633,32 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
-		"rotate" " -type \"double3\" 13.16481291853288127 66.44425302570517999 0"
+		"rotate" " -type \"double3\" 24.84000090893789903 18.3203366100813021 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L|Emily:FKXOffsetPinkyFinger2_L|Emily:FKXPinkyFinger2_L|Emily:FKOffsetPinkyFinger3_L|Emily:SDK1FKPinkyFinger3_L|Emily:FKExtraPinkyFinger3_L|Emily:FKPinkyFinger3_L" 
-		"rotate" " -type \"double3\" 0 30.26764808932165352 0"
+		"rotate" " -type \"double3\" 0 33.839999 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetPinkyFinger1_L|Emily:SDK1FKPinkyFinger1_L|Emily:SDK2FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset1|Emily:SDK3FKPinkyFinger1_L|Emily:SDK3FKPinkyFinger1_LAltPivotOffset2|Emily:FKExtraPinkyFinger1_L|Emily:FKPinkyFinger1_L|Emily:FKXOffsetPinkyFinger1_L|Emily:FKXPinkyFinger1_L|Emily:FKOffsetPinkyFinger2_L|Emily:SDK1FKPinkyFinger2_L|Emily:FKExtraPinkyFinger2_L|Emily:FKPinkyFinger2_L|Emily:FKXOffsetPinkyFinger2_L|Emily:FKXPinkyFinger2_L|Emily:FKOffsetPinkyFinger3_L|Emily:SDK1FKPinkyFinger3_L|Emily:FKExtraPinkyFinger3_L|Emily:FKPinkyFinger3_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L" 
-		"rotate" " -type \"double3\" -17.14172047762559714 0 -8.77993059217211069"
+		"rotate" " -type \"double3\" -32.34382097793088207 0 -16.56639446679442429"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L" 
 		"rotateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L|Emily:FKXOffsetThumbFinger2_L|Emily:FKXThumbFinger2_L|Emily:FKOffsetThumbFinger3_L|Emily:SDK1FKThumbFinger3_L|Emily:FKExtraThumbFinger3_L|Emily:FKThumbFinger3_L" 
-		"rotate" " -type \"double3\" 0 16.72680701032491157 0"
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToWrist_L|Emily:FKOffsetThumbFinger1_L|Emily:FKExtraThumbFinger1_L|Emily:FKThumbFinger1_L|Emily:FKXOffsetThumbFinger1_L|Emily:FKXThumbFinger1_L|Emily:FKOffsetThumbFinger2_L|Emily:SDK1FKThumbFinger2_L|Emily:FKExtraThumbFinger2_L|Emily:FKThumbFinger2_L|Emily:FKXOffsetThumbFinger2_L|Emily:FKXThumbFinger2_L|Emily:FKOffsetThumbFinger3_L|Emily:SDK1FKThumbFinger3_L|Emily:FKExtraThumbFinger3_L|Emily:FKThumbFinger3_L" 
 		"rotateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
-		"translate" " -type \"double3\" -0.072175347372926524 1.49899130671900949 -0.001089572679527695"
-		
+		"translate" " -type \"double3\" 0 1.32525464306155105 -0.0010895726795272509"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKSpineHandle_M" 
 		"rotate" " -type \"double3\" -89.99999999999997158 3.04691861469472247 89.99999999999997158"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"translate" " -type \"double3\" -0.17562144462546891 0.45325248398773998 0.78628632258370657"
+		"translate" " -type \"double3\" -0.10793431784885645 0.51623330868147821 0.786417"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateX" " -av"
@@ -5669,8 +5667,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
-		"rotate" " -type \"double3\" -2.42638730043025896 -4.8239072506920273 105.41267486597971015"
-		
+		"rotate" " -type \"double3\" 0 -4.82366000000002071 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R" 
@@ -5710,7 +5707,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_R|Emily:IKExtraLeg_R|Emily:IKLeg_R|Emily:IKLegFootRockInnerPivot_R|Emily:IKLegFootRockOuterPivot_R|Emily:RollOffsetHeelLeg_R|Emily:RollExtraHeelLeg_R|Emily:RollHeelLeg_R|Emily:RollOffsetToesEnd_R|Emily:RollExtraToesEnd_R|Emily:RollToesEnd_R|Emily:RollOffsetToes_R|Emily:RollExtraToes_R|Emily:RollToes_R|Emily:RollToes_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
-		"translate" " -type \"double3\" 0.58653840388410594 0 0"
+		"translate" " -type \"double3\" -0.1081769089167493 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R" 
@@ -5724,8 +5721,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_R|Emily:PoleExtraLeg_R|Emily:PoleLeg_R|Emily:PoleLeg_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"translate" " -type \"double3\" 0.093476035556897707 0.54623327985848491 0.37839485883771617"
-		
+		"translate" " -type \"double3\" 0.018896099999999999 0.527182 0.610231"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
@@ -5733,8 +5729,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
-		"rotate" " -type \"double3\" 2.2893958526103928 8.6370247171566561 11.84873434978000617"
-		
+		"rotate" " -type \"double3\" 0 15.6405200000000022 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"rotateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
@@ -5760,7 +5755,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:IKOffsetLeg_L|Emily:IKExtraLeg_L|Emily:IKLeg_L" 
 		"volume" " -k 1 10"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
-		"translate" " -type \"double3\" -1.18294253935866145 0 0"
+		"translate" " -type \"double3\" 0.51080585343867468 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:IKSystem|Emily:IKHandle|Emily:PoleOffsetLeg_L|Emily:PoleExtraLeg_L|Emily:PoleLeg_L" 
@@ -5804,7 +5799,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:BendSystem|Emily:BendParentConstraintOffsetShoulder_L|Emily:BendParentConstraintShoulder_L|Emily:BendOffsetShoulder2_L|Emily:BendExtraShoulder2_L|Emily:BendShoulder2_L" 
 		"translateZ" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
-		"translate" " -type \"double3\" -0.072175347372926996 -0.57626379133396644 0"
+		"translate" " -type \"double3\" 0 -0.75000045499142487 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:RootSystem|Emily:RootCenterBtwLegsBlended_M|Emily:RootOffsetX_M|Emily:RootExtraX_M|Emily:RootX_M" 
@@ -5834,21 +5829,21 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups" " -s 18"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
-		"translate" " -type \"double3\" 0 0.076308833210254945 0"
+		"translate" " -type \"double3\" 0 0.047282717757947929 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
-		"translate" " -type \"double3\" 0 -0.059478190764465345 0"
+		"translate" " -type \"double3\" 0 -0.045783298087898307 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_R|Emily:browOuterOffset_R|Emily:browOuterSubtract_R|Emily:browOuter_R" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
-		"translate" " -type \"double3\" 0 0.064460987205454512 0"
+		"translate" " -type \"double3\" 0 0.04966966911892999 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
-		"translate" " -type \"double3\" 0 -0.074569815940458542 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_R|Emily:cheekOffset_R|Emily:cheekSubtract_R|Emily:cheek_R" 
@@ -5856,7 +5851,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.048308995996446322 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R" 
@@ -5868,7 +5863,7 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L" 
-		"translate" " -type \"double3\" -0.059475216684581729 0 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L" 
 		"translateX" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L" 
@@ -5890,19 +5885,19 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid3Attach_R|Emily:lowerLid3Offset_R|Emily:lowerLid3Subtract_R|Emily:lowerLid3_R" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid2Attach_L|Emily:upperLid2Offset_L|Emily:upperLid2Subtract_L|Emily:upperLid2_L" 
-		"translate" " -type \"double3\" 0 0.031352244286669342 0"
+		"translate" " -type \"double3\" 0 0 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:upperLid2Attach_L|Emily:upperLid2Offset_L|Emily:upperLid2Subtract_L|Emily:upperLid2_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid2Attach_L|Emily:lowerLid2Offset_L|Emily:lowerLid2Subtract_L|Emily:lowerLid2_L" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0.033803402653598755 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:lowerLid2Attach_L|Emily:lowerLid2Offset_L|Emily:lowerLid2Subtract_L|Emily:lowerLid2_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R" 
-		"translate" " -type \"double3\" 0 -0.069386448275912865 0"
+		"translate" " -type \"double3\" 0 -0.015265001860554808 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L" 
-		"translate" " -type \"double3\" 0 -0.036904211435929382 0"
+		"translate" " -type \"double3\" 0 0.017217234979428675 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L" 
 		"translateY" " -av"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M" 
@@ -5918,34 +5913,34 @@ createNode reference -n "EmilyRN";
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox" 
 		"RenderSpheres" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateX" " -av -0.29026403422982366"
+		"translateX" " -av -0.578"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"translateY" " -av -0.060249767934550329"
+		"translateY" " -av 0.402"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"blink" " -av -k 1 0"
+		"blink" " -av -k 1 10"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
-		"blinkCenter" " -av -k 1 -0.7"
+		"blinkCenter" " -av -k 1 0.2"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R" 
 		"squint" " -av -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_R|Emily:ctrlEye_R|Emily:ctrlEye_RShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateX" " -av -0.29026403422982366"
+		"translateX" " -av -0.578"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"translateY" " -av 0.022550123631919324"
+		"translateY" " -av 0.402"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"blink" " -av -k 1 0"
+		"blink" " -av -k 1 10"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
-		"blinkCenter" " -av -k 1 -0.7"
+		"blinkCenter" " -av -k 1 0.2"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L" 
 		"squint" " -av -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ctrlBoxOffset|Emily:ctrlBox|Emily:ctrlBoxEye_L|Emily:ctrlEye_L|Emily:ctrlEye_LShape" 
 		"lockLength" " -k 1 0"
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"translate" " -type \"double3\" -0.029621061858833977 2.45931866080161443 3.64785978821343448"
+		"translate" " -type \"double3\" 0.20545780334331254 2.16227675908984551 3.74240502651319007"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:SquashSetup|Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 43.48668681758507404 -17.55280999891836302 83.15105370887793867"
+		"rotate" " -type \"double3\" 75.52576223893767349 -35.81587701795518797 89.36369063008388025"
 		
 		2 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed" 
 		"uvPivot" " -type \"double2\" 0.46817991137504578 0.59683001041412354"
@@ -5997,7 +5992,7 @@ createNode reference -n "EmilyRN";
 		"dispResolution" " 3"
 		2 "|Emily:Dress_EmilyRNfosterParent1|Emily:Dress_Emily:BandShapeDeformed" 
 		"displaySmoothMesh" " 2"
-		2 "Emily:Meshes" "displayType" " 0"
+		2 "Emily:Meshes" "displayType" " 2"
 		2 "Emily:Meshes" "visibility" " -av 1"
 		2 "Emily:groupParts87" "inputRemoveComponent" " -type \"componentList\" 20 \"sf[0:3][0]\" \"sf[0:3][2]\" \"sf[0:3][4]\" \"sf[0:3][6]\" \"sf[0][1]\" \"sf[0][3]\" \"sf[0][5]\" \"sf[0][7]\" \"sf[1][1]\" \"sf[1][3]\" \"sf[1][5]\" \"sf[1][7]\" \"sf[2][1]\" \"sf[2][3]\" \"sf[2][5]\" \"sf[2][7]\" \"sf[3][1]\" \"sf[3][3]\" \"sf[3][5]\" \"sf[3][7]\""
 		
@@ -6049,46 +6044,91 @@ createNode reference -n "EmilyRN";
 		2 "Emily:remapHsv3" "saturation" " -s 2"
 		2 "Emily:remapHsv3" "saturation[1].saturation_FloatValue" " 0.69999998807907104"
 		
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed.instObjGroups" 
-		"Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitcheek|Emily:FaceFitcheekGeo|Emily:cheekSphere|Emily:cheekSphereShape.instObjGroups" 
-		"Emily:asBlue2SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitnoseCorner|Emily:FaceFitnoseCornerGeo|Emily:noseCornerSphere|Emily:noseCornerSphereShape.instObjGroups" 
-		"Emily:asBlue2SG.dagSetMembers" "-na"
-		3 "Emily:groupId207.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:softer_features_blendshape|Emily:softer_features_blendshapeShapeDeformedDeformed.instObjGroups" 
+		"Emily:blinn4SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2Base|Emily:Body2BaseShapeDeformedDeformed.instObjGroups" 
+		"Emily:blinn4SG.dagSetMembers" "-na"
+		3 "Emily:groupId94.groupId" "Emily:groupParts88.groupId" ""
+		3 "Emily:groupId198.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateX" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateX" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateY" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateY" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateZ" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateZ" 
+		""
 		3 "Emily:groupId201.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
 		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase1|Emily:BodyBase1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId44.message" "Emily:lambert2SG.groupNodes" "-na"
-		3 "Emily:groupId41.message" "Emily:lambert2SG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9]" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "Emily:groupId92.message" "Emily:asRedSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitTongue|Emily:FaceFitTongueGeo|Emily:TongueCylinder|Emily:TongueCylinderShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawMain|Emily:FaceFitJawMainGeo|Emily:JawCylinderMain|Emily:JawCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowMain|Emily:FaceFitEyeBrowMainGeo|Emily:EyeBrowCylinderMain|Emily:EyeBrowCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:lowerEyeLidCylinderMain|Emily:lowerEyeLidCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:upperEyeLidCylinderMain|Emily:upperEyeLidCylinderMainShape.instObjGroups" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asRedSG.dagSetMembers" "-na"
-		3 "Emily:groupId93.message" "Emily:asRedSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2]" 
-		"Emily:blinn1SG.dagSetMembers" "-na"
-		3 "Emily:groupId208.message" "Emily:blinn1SG.groupNodes" "-na"
+		3 "Emily:groupId207.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "Emily:groupId99.groupId" "Emily:groupParts92.groupId" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10]" 
+		"Emily:asGreen2SG.dagSetMembers" "-na"
+		3 "Emily:groupId99.message" "Emily:asGreen2SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10]" 
+		"Emily:asGreen2SG.dagSetMembers" "-na"
+		3 "Emily:groupId94.message" "Emily:asGreen2SG.groupNodes" "-na"
+		3 "Emily:groupId209.groupId" "Emily:groupParts131.groupId" ""
+		3 "Emily:groupId92.groupId" "Emily:groupParts87.groupId" ""
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[1]" 
 		"Emily:asBlackSG.dagSetMembers" "-na"
 		3 "Emily:groupId59.message" "Emily:asBlackSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3]" 
-		"Emily:blinn2SG.dagSetMembers" "-na"
-		3 "Emily:groupId209.message" "Emily:blinn2SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleX" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleX" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleY" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleY" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleZ" 
+		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleZ" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftEye|Emily:LeftEyeShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEye|Emily:RightEyeShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L|Emily:lowerLid1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L|Emily:upperLid1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L|Emily:LidCorner2_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L|Emily:LidCorner1_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R|Emily:lowerLid1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R|Emily:upperLid1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_R|Emily:LidCorner2Offset_R|Emily:LidCorner2Subtract_R|Emily:LidCorner2_R|Emily:LidCorner2_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_R|Emily:LidCorner1Offset_R|Emily:LidCorner1Subtract_R|Emily:LidCorner1_R|Emily:LidCorner1_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:lowerLip0Attach_M|Emily:lowerLip0Offset_M|Emily:lowerLip0Subtract_M|Emily:lowerLip0_M|Emily:lowerLip0_MShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip0Attach_M|Emily:upperLip0Offset_M|Emily:upperLip0Subtract_M|Emily:upperLip0_M|Emily:upperLip0_MShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_L|Emily:Lip6Offset_L|Emily:Lip6Subtract_L|Emily:Lip6_L|Emily:Lip6_LShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_R|Emily:Lip6Offset_R|Emily:Lip6Subtract_R|Emily:Lip6_R|Emily:Lip6_RShape.instObjGroups" 
+		"Emily:asFaceGreenSG.dagSetMembers" "-na"
+		3 "Emily:groupId44.message" "Emily:lambert2SG.groupNodes" "-na"
+		3 "Emily:groupId41.message" "Emily:lambert2SG.groupNodes" "-na"
+		3 "Emily:groupId201.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "Emily:groupId208.groupId" "Emily:groupParts130.groupId" ""
+		3 "Emily:groupId97.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
+		""
+		3 "Emily:asBlueSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
+		""
+		3 "Emily:groupId99.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
+		""
+		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
+		""
+		3 "Emily:groupId98.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitNose|Emily:FaceFitNoseGeo|Emily:NoseCylinder|Emily:NoseCylinderShape.instObjGroups" 
 		"Emily:asGreenSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawOuter|Emily:FaceFitJawOuterGeo|Emily:JawCylinderOuter|Emily:JawCylinderOuterShape.instObjGroups" 
@@ -6099,25 +6139,15 @@ createNode reference -n "EmilyRN";
 		"Emily:asGreenSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidOuter|Emily:FaceFitEyeLidOuterGeo|Emily:upperEyeLidCylinderOuter|Emily:upperEyeLidCylinderOuterShape.instObjGroups" 
 		"Emily:asGreenSG.dagSetMembers" "-na"
-		3 "Emily:groupId97.groupId" "Emily:groupParts91.groupId" ""
-		3 "Emily:groupId92.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
-		""
-		3 "Emily:asRedSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
-		""
-		3 "Emily:groupId94.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
-		""
-		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
-		""
-		3 "Emily:groupId93.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
-		""
-		3 "Emily:groupId44.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Hip_L.message" 
-		"Emily:skinCluster18.paintTrans" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2]" 
+		"Emily:blinn1SG.dagSetMembers" "-na"
+		3 "Emily:groupId208.message" "Emily:blinn1SG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9]" 
+		"Emily:asBlueSG.dagSetMembers" "-na"
+		3 "Emily:groupId97.message" "Emily:asBlueSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asBlueSG.dagSetMembers" "-na"
+		3 "Emily:groupId98.message" "Emily:asBlueSG.groupNodes" "-na"
 		3 "Emily:groupId57.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGroupId" 
 		""
 		3 "Emily:asWhiteSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0].objectGrpColor" 
@@ -6128,26 +6158,16 @@ createNode reference -n "EmilyRN";
 		""
 		3 "Emily:groupId58.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
 		""
-		3 "Emily:groupId198.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId206.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
-		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_L|Emily:noseCornerOffset_L|Emily:noseCornerSubtract_L|Emily:noseCorner_L|Emily:noseCorner_LShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L|Emily:cheek_LShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_R|Emily:noseCornerOffset_R|Emily:noseCornerSubtract_R|Emily:noseCorner_R|Emily:noseCorner_RShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_R|Emily:cheekOffset_R|Emily:cheekSubtract_R|Emily:cheek_R|Emily:cheek_RShape.instObjGroups" 
-		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "Emily:groupId206.message" ":initialShadingGroup.groupNodes" "-na"
+		3 "Emily:groupId97.groupId" "Emily:groupParts91.groupId" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitcheek|Emily:FaceFitcheekGeo|Emily:cheekSphere|Emily:cheekSphereShape.instObjGroups" 
+		"Emily:asBlue2SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitnoseCorner|Emily:FaceFitnoseCornerGeo|Emily:noseCornerSphere|Emily:noseCornerSphereShape.instObjGroups" 
+		"Emily:asBlue2SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftBrow|Emily:LeftBrowShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightBrow|Emily:RightBrowShapeDeformed.instObjGroups" 
+		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_L|Emily:browHalfOffset_L|Emily:browHalfSubtract_L|Emily:browHalf_L|Emily:browHalf_LShape.instObjGroups" 
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Ccontrols|Emily:browHalfAttach_R|Emily:browHalfOffset_R|Emily:browHalfSubtract_R|Emily:browHalf_R|Emily:browHalf_RShape.instObjGroups" 
@@ -6176,41 +6196,82 @@ createNode reference -n "EmilyRN";
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip3Attach_R|Emily:upperLip3Offset_R|Emily:upperLip3Subtract_R|Emily:upperLip3_R|Emily:upperLip3_RShape.instObjGroups" 
 		"Emily:asFaceBrownSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftBrow|Emily:LeftBrowShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightBrow|Emily:RightBrowShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10]" 
-		"Emily:asGreen2SG.dagSetMembers" "-na"
-		3 "Emily:groupId99.message" "Emily:asGreen2SG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10]" 
-		"Emily:asGreen2SG.dagSetMembers" "-na"
-		3 "Emily:groupId94.message" "Emily:asGreen2SG.groupNodes" "-na"
-		3 "Emily:blinn1SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2|Emily:BodyShapeDeformedDeformed.instObjGroups" 
+		"Emily:Emily_Skin_Shader:Emily2015:RMSGPSurface2SG.dagSetMembers" "-na"
+		3 "Emily:groupId44.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "Emily:groupId208.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "Emily:blinn2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BottomTeeth|Emily:BottomTeethShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_L|Emily:noseCornerOffset_L|Emily:noseCornerSubtract_L|Emily:noseCorner_L|Emily:noseCorner_LShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_L|Emily:cheekOffset_L|Emily:cheekSubtract_L|Emily:cheek_L|Emily:cheek_LShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:noseCornerAttach_R|Emily:noseCornerOffset_R|Emily:noseCornerSubtract_R|Emily:noseCorner_R|Emily:noseCorner_RShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:cheekAttach_R|Emily:cheekOffset_R|Emily:cheekSubtract_R|Emily:cheek_R|Emily:cheek_RShape.instObjGroups" 
+		"Emily:asFaceCyanSG.dagSetMembers" "-na"
+		3 "Emily:groupId92.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
 		""
-		3 "Emily:groupId209.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
+		3 "Emily:asRedSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
 		""
+		3 "Emily:groupId94.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
+		""
+		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
+		""
+		3 "Emily:groupId93.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		""
+		3 "Emily:groupId198.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:BodyBase|Emily:BodyBaseShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "Emily:groupId44.groupId" "Emily:groupParts44.groupId" ""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0]" 
+		"Emily:asWhiteSG.dagSetMembers" "-na"
+		3 "Emily:groupId57.message" "Emily:asWhiteSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asWhiteSG.dagSetMembers" "-na"
+		3 "Emily:groupId58.message" "Emily:asWhiteSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.instObjGroups.objectGroups[9]" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "Emily:groupId92.message" "Emily:asRedSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitTongue|Emily:FaceFitTongueGeo|Emily:TongueCylinder|Emily:TongueCylinderShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitJawMain|Emily:FaceFitJawMainGeo|Emily:JawCylinderMain|Emily:JawCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBrowMain|Emily:FaceFitEyeBrowMainGeo|Emily:EyeBrowCylinderMain|Emily:EyeBrowCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:lowerEyeLidCylinderMain|Emily:lowerEyeLidCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeLidMain|Emily:FaceFitEyeLidMainGeo|Emily:upperEyeLidCylinderMain|Emily:upperEyeLidCylinderMainShape.instObjGroups" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:upperLipCylinder|Emily:upperLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
+		"Emily:asRedSG.dagSetMembers" "-na"
+		3 "Emily:groupId93.message" "Emily:asRedSG.groupNodes" "-na"
 		3 "Emily:groupId41.groupId" "Emily:groupParts41.groupId" ""
-		3 "Emily:groupId208.groupId" "Emily:groupParts130.groupId" ""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:softer_features_blendshape|Emily:softer_features_blendshapeShapeDeformedDeformed.instObjGroups" 
-		"Emily:blinn4SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body2Base|Emily:Body2BaseShapeDeformedDeformed.instObjGroups" 
-		"Emily:blinn4SG.dagSetMembers" "-na"
-		3 "Emily:groupId99.groupId" "Emily:groupParts92.groupId" ""
-		3 "Emily:groupId97.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGroupId" 
+		3 "Emily:groupId207.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "Emily:asBlueSG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9].objectGrpColor" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "Emily:groupId99.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10].objectGroupId" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Hip_L.message" 
+		"Emily:skinCluster18.paintTrans" ""
+		3 "Emily:groupId41.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "Emily:asGreen2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[10].objectGrpColor" 
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 "Emily:groupId98.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0].compObjectGroupId" 
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "Emily:groupId206.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
+		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		""
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body|Emily:BodyShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browOuterAttach_L|Emily:browOuterOffset_L|Emily:browOuterSubtract_L|Emily:browOuter_L|Emily:browOuter_LShape.instObjGroups" 
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_L|Emily:browInnerOffset_L|Emily:browInnerSubtract_L|Emily:browInner_L|Emily:browInner_LShape.instObjGroups" 
@@ -6219,83 +6280,17 @@ createNode reference -n "EmilyRN";
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
 		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:browInnerAttach_R|Emily:browInnerOffset_R|Emily:browInnerSubtract_R|Emily:browInner_R|Emily:browInner_RShape.instObjGroups" 
 		"Emily:asFaceBlueSG.dagSetMembers" "-na"
-		3 "Emily:groupId94.groupId" "Emily:groupParts88.groupId" ""
-		3 "Emily:groupId41.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		3 "Emily:blinn1SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		3 "Emily:groupId208.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:TopTeeth|Emily:TopTeethShapeDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Emily:groupId92.groupId" "Emily:groupParts87.groupId" ""
-		3 "Emily:groupId207.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGroupId" 
+		3 "Emily:blinn2SG.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGrpColor" 
 		""
-		3 ":initialShadingGroup.memberWireframeColor" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
+		3 "Emily:groupId209.groupId" "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3].objectGroupId" 
 		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:Body1|Emily:Body1ShapeDeformedDeformed.instObjGroups.objectGroups[2]" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_L|Emily:lowerLid1Offset_L|Emily:lowerLid1Subtract_L|Emily:lowerLid1_L|Emily:lowerLid1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_L|Emily:upperLid1Offset_L|Emily:upperLid1Subtract_L|Emily:upperLid1_L|Emily:upperLid1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_L|Emily:LidCorner2Offset_L|Emily:LidCorner2Subtract_L|Emily:LidCorner2_L|Emily:LidCorner2_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_L|Emily:LidCorner1Offset_L|Emily:LidCorner1Subtract_L|Emily:LidCorner1_L|Emily:LidCorner1_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:lowerLid1Attach_R|Emily:lowerLid1Offset_R|Emily:lowerLid1Subtract_R|Emily:lowerLid1_R|Emily:lowerLid1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:upperLid1Attach_R|Emily:upperLid1Offset_R|Emily:upperLid1Subtract_R|Emily:upperLid1_R|Emily:upperLid1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner2Attach_R|Emily:LidCorner2Offset_R|Emily:LidCorner2Subtract_R|Emily:LidCorner2_R|Emily:LidCorner2_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Bcontrols|Emily:LidCorner1Attach_R|Emily:LidCorner1Offset_R|Emily:LidCorner1Subtract_R|Emily:LidCorner1_R|Emily:LidCorner1_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:lowerLip0Attach_M|Emily:lowerLip0Offset_M|Emily:lowerLip0Subtract_M|Emily:lowerLip0_M|Emily:lowerLip0_MShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:upperLip0Attach_M|Emily:upperLip0Offset_M|Emily:upperLip0Subtract_M|Emily:upperLip0_M|Emily:upperLip0_MShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_L|Emily:Lip6Offset_L|Emily:Lip6Subtract_L|Emily:Lip6_L|Emily:Lip6_LShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Acontrols|Emily:Lip6Attach_R|Emily:Lip6Offset_R|Emily:Lip6Subtract_R|Emily:Lip6_R|Emily:Lip6_RShape.instObjGroups" 
-		"Emily:asFaceGreenSG.dagSetMembers" "-na"
-		3 "Emily:groupId201.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.instObjGroups.objectGroups[0]" 
-		"Emily:asWhiteSG.dagSetMembers" "-na"
-		3 "Emily:groupId57.message" "Emily:asWhiteSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitEyeBall|Emily:FitEyeBall|Emily:FitEyeSphere|Emily:FitEyeSphereShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asWhiteSG.dagSetMembers" "-na"
-		3 "Emily:groupId58.message" "Emily:asWhiteSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleX" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleX" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleY" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleY" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:DeformationSystem|Emily:Root_M|Emily:Spine1_M|Emily:Chest_M|Emily:Scapula_R|Emily:Shoulder_R.angleZ" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main|Emily:MotionSystem|Emily:FKSystem|Emily:FKParentConstraintToChest_M|Emily:FKOffsetScapula_R|Emily:FKGlobalStaticScapula_R|Emily:FKGlobalScapula_R|Emily:FKExtraScapula_R|Emily:FKScapula_R|Emily:FKXOffsetScapula_R|Emily:FKXScapula_R|Emily:FKOffsetShoulder_R|Emily:FKGlobalStaticShoulder_R|Emily:FKGlobalShoulder_R|Emily:FKExtraShoulder_R|Emily:FKShoulder_R.angleZ" 
-		""
-		3 "Emily:groupId206.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "Emily:groupId209.groupId" "Emily:groupParts131.groupId" ""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateX" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateX" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateY" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateY" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M|Emily:AimEye_M_aimConstraint1.constraintRotateZ" 
-		"|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceMotionSystem|Emily:ControlsSetup|Emily:Aimcontrols|Emily:AimEyeOffset_M|Emily:AimEyeFollow_M|Emily:AimEye_M.rotateZ" 
-		""
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:LeftEye|Emily:LeftEyeShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEye|Emily:RightEyeShapeDeformed.instObjGroups" 
-		"Emily:RMSGPSurface1SG.dagSetMembers" "-na"
-		3 "Emily:groupId44.groupId" "Emily:groupParts44.groupId" ""
-		3 "Emily:groupId198.message" ":initialShadingGroup.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.instObjGroups.objectGroups[9]" 
-		"Emily:asBlueSG.dagSetMembers" "-na"
-		3 "Emily:groupId97.message" "Emily:asBlueSG.groupNodes" "-na"
-		3 "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:FaceGroup|Emily:FaceFitSkeleton|Emily:FaceFitLip|Emily:FaceFitLipGeo|Emily:lowerLipCylinder|Emily:lowerLipCylinderShape.compInstObjGroups.compObjectGroups[0]" 
-		"Emily:asBlueSG.dagSetMembers" "-na"
-		3 "Emily:groupId98.message" "Emily:asBlueSG.groupNodes" "-na"
+		3 "|Emily:Emily|Emily:Emily_Main|Emily:geo_Emily|Emily:RightEyedup|Emily:RightEyedupShapeDeformed.instObjGroups.objectGroups[3]" 
+		"Emily:blinn2SG.dagSetMembers" "-na"
+		3 "Emily:groupId209.message" "Emily:blinn2SG.groupNodes" "-na"
 		5 3 "EmilyRN" "|Emily:Emily.instObjGroups" "EmilyRN.placeHolderList[10]" 
 		""
 		5 4 "EmilyRN" "|Emily:Emily|Emily:Emily_Main|Emily:Rig|Emily:Main.translateX" 
@@ -8466,9 +8461,9 @@ createNode reference -n "EmilyRN";
 		"Emily:RMSGPSurface4SG.dagSetMembers" "EmilyRN.placeHolderList[1095]" "EmilyRN.placeHolderList[1096]" 
 		"Emily:RMSGPSurface4SG.dsm"
 		"Emily:Dress_EmilyRN" 8
-		3 "Emily:Meshes.drawInfo" "|Emily:Emily|Emily:Dress_Emily:Dress|Emily:Dress_Emily:Band.drawOverride" 
-		""
 		3 "Emily:Meshes.drawInfo" "|Emily:Emily|Emily:Dress_Emily:Dress|Emily:Dress_Emily:Skirt.drawOverride" 
+		""
+		3 "Emily:Meshes.drawInfo" "|Emily:Emily|Emily:Dress_Emily:Dress|Emily:Dress_Emily:Band.drawOverride" 
 		""
 		3 "Emily:Meshes.drawInfo" "|Emily:Emily|Emily:Dress_Emily:Dress|Emily:Dress_Emily:Shoulders.drawOverride" 
 		""
@@ -8709,6 +8704,7 @@ createNode mentalrayOptions -s -n "PreviewImrRayTracyOn";
 	setAttr ".maxr" 3;
 	setAttr ".shrd" 1;
 createNode displayLayer -n "Dress";
+	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode polyPlane -n "polyPlane1";
 	setAttr ".sw" 1;
@@ -8738,28 +8734,28 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n"
 		+ "            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n"
-		+ "            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n"
+		+ "            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n"
-		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 0\n"
-		+ "                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 0\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n"
-		+ "            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
-		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
-		+ "            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 0 \n"
-		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 1\n"
+		+ "                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n"
+		+ "                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n"
+		+ "            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
+		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 1\n"
 		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n"
 		+ "                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n"
-		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
+		+ "                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
 		+ "            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
-		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
-		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
-		+ "                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n"
-		+ "            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n"
-		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n"
-		+ "            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n"
-		+ "            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 0\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
-		+ "                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n"
+		+ "                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n"
+		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
+		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n"
+		+ "            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n"
+		+ "                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 0\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n"
+		+ "                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 0\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n"
 		+ "            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n"
@@ -8893,10 +8889,22 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -hulls 1\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 1\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel17\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
 		+ "            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n"
-		+ "            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
-		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Model Panel6\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Model Panel6\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Model Panel6\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel18\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel18\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"Rendering_Camera\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
+		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n"
+		+ "                -nurbsCurves 0\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 0\n                -shadows 0\n"
+		+ "                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel18\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"Rendering_Camera\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
+		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -nurbsCurves 0\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel19\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel19\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n"
+		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n"
+		+ "                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 0\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 1\n                -pluginShapes 0\n                -dimensions 0\n"
+		+ "                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 0\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel19\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n"
+		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n"
+		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 0\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 1\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n"
+		+ "            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"Rendering_Camera\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -16247,7 +16255,7 @@ createNode reference -n "Candy_No_UVRN";
 		"Candy_No_UV:lambert4SG.dagSetMembers" "-na"
 		3 "Candy_No_UV:groupId119.message" "Candy_No_UV:lambert4SG.groupNodes" "-na"
 		
-		"Candy_No_UVRN" 240
+		"Candy_No_UVRN" 241
 		1 |Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M|Candy_No_UV:FKChest_MShape 
 		"lockLength" "ll" " -ci 1 -k 1 -min 0 -max 1 -at \"bool\""
 		1 |Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKHead_MShape 
@@ -16291,14 +16299,14 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main" "rotate" " -type \"double3\" -49.06154101487945951 93.64652547714592856 -49.23291644506109321"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
-		"translate" " -type \"double3\" 0.049506865583918702 0.084495775525970165 -0.012321734770622837"
+		"translate" " -type \"double3\" -0.06874352738088027 0.064516277313368467 -0.086365639419801674"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"translateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"translateY" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
-		"rotate" " -type \"double3\" -4.54625445037775755 0 0"
+		"rotate" " -type \"double3\" -7.8856320883130957 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
 		"rotateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M" 
@@ -16310,7 +16318,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
 		"translate" " -type \"double3\" 0 0.47413855284845324 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
-		"rotate" " -type \"double3\" 0 11.26838373195098519 68.95549290443486257"
+		"rotate" " -type \"double3\" 0 11.26838373195098519 82.83740142386928085"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
 		"rotateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M" 
@@ -16318,7 +16326,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
-		"rotate" " -type \"double3\" -5.14945999455264491 -9.36933428987837402 -59.78000386930133914"
+		"rotate" " -type \"double3\" -5.14945999455264491 -9.36933428987837402 -52.91747537748488384"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M" 
 		"rotateZ" " -av"
@@ -16327,7 +16335,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKHead_MShape" 
 		"lockLength" " -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R" 
-		"rotate" " -type \"double3\" 96.32594024169966929 89.99999999997997691 0"
+		"rotate" " -type \"double3\" 95.26756718747466834 89.99999999997997691 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R" 
 		"rotateX" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKParentConstraintToChest_M|Candy_No_UV:FKOffsetNeck_M|Candy_No_UV:FKGlobalStaticNeck_M|Candy_No_UV:FKGlobalNeck_M|Candy_No_UV:FKExtraNeck_M|Candy_No_UV:FKNeck_M|Candy_No_UV:FKXOffsetNeck_M|Candy_No_UV:FKXNeck_M|Candy_No_UV:FKOffsetHead_M|Candy_No_UV:FKGlobalStaticHead_M|Candy_No_UV:FKGlobalHead_M|Candy_No_UV:FKExtraHead_M|Candy_No_UV:FKHead_M|Candy_No_UV:FKEarA_R|Candy_No_UV:FKEarA_RShape" 
@@ -16506,7 +16514,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
-		"rotate" " -type \"double3\" 25.4930274925739333 -33.38355380919868054 2.5044694463326093e-06"
+		"rotate" " -type \"double3\" 31.19951305014306797 -37.63452688094798049 2.5044694069624993e-06"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:Aimcontrols|Candy_No_UV:AimEyeOffset_M|Candy_No_UV:AimEyeFollow_M|Candy_No_UV:AimEye_M" 
 		"rotateX" " -av -k 0"
@@ -16519,32 +16527,32 @@ createNode reference -n "Candy_No_UVRN";
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashTopOffset|Candy_No_UV:squashTop_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashMiddleOffset|Candy_No_UV:squashMiddle_M" 
-		"translate" " -type \"double3\" 0 0 0.023694732677918363"
+		"translate" " -type \"double3\" 0 0 0.018283582582801355"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ControlsSetup|Candy_No_UV:SquashControls|Candy_No_UV:squashBase_M|Candy_No_UV:squashMiddleOffset|Candy_No_UV:squashMiddle_M" 
 		"translateZ" " -av"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
 		"translateX" " -av 0.076896365399362121"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
-		"translateY" " -av 0.39964126879454565"
+		"translateY" " -av 0.39250992013892194"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
-		"blink" " -av -k 1 2.62240684857375772"
+		"blink" " -av -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_R|Candy_No_UV:ctrlEye_R" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
 		"translateX" " -av 0.076896365399362121"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
-		"translateY" " -av 0.39964126879454565"
+		"translateY" " -av 0.39250992013892194"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
-		"blink" " -av -k 1 2.62240684857375772"
+		"blink" " -av -k 1 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:ctrlBoxOffset|Candy_No_UV:ctrlBox|Candy_No_UV:ctrlBoxEye_L|Candy_No_UV:ctrlEye_L" 
 		"blinkCenter" " -av -k 1 0.2"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:JawSetup|Candy_No_UV:JawSetupFollowHead|Candy_No_UV:FKOffsetJaw_M|Candy_No_UV:FKSDK1Jaw_M|Candy_No_UV:FKSDK2Jaw_M|Candy_No_UV:FKJaw_M" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:SquashSetup|Candy_No_UV:squashIKHandle" 
-		"translate" " -type \"double3\" -0.69480365271285816 2.38119446000738888 4.01712677374015836"
+		"translate" " -type \"double3\" -0.9140139794848301 2.2636572763877596 4.07070537355399598"
 		
 		2 "|Candy_No_UV:Candy_Rig|Candy_No_UV:FaceGroup|Candy_No_UV:FaceMotionSystem|Candy_No_UV:SquashSetup|Candy_No_UV:squashIKHandle" 
-		"rotate" " -type \"double3\" 178.26043535734984857 -8.63299514408155488 30.90528017235473257"
+		"rotate" " -type \"double3\" 178.36131167106981366 -9.07579060561379336 37.42062042814372091"
 		
 		2 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed" 
 		"instObjGroups.objectGroups" " -s 6"
@@ -16561,6 +16569,7 @@ createNode reference -n "Candy_No_UVRN";
 		2 "Candy_No_UV:groupParts39" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:295]\""
 		
 		2 "Candy_No_UV:groupParts39" "groupId" " 221"
+		2 "Candy_No_UV:Candy_Meshes" "displayType" " 2"
 		2 "Candy_No_UV:Candy_Meshes" "visibility" " 1"
 		2 "Candy_No_UV:Candy_Armature" "visibility" " 0"
 		2 "Candy_No_UV:Color" "fileTextureName" " -type \"string\" \"/Users/oliver/Documents/maya/projects/Nightmare//assets/Candy Textures/Candy_Texture_Body_Main_MESH_Candy_Body_MESH_Candy_Body.ptx\""
@@ -16592,21 +16601,21 @@ createNode reference -n "Candy_No_UVRN";
 		
 		2 "Candy_No_UV:ramp5" "colorEntryList[1].color" " -type \"float3\" 0.92000002000000003 0.94639998999999997 1"
 		
+		3 "Candy_No_UV:groupId39.groupId" "Candy_No_UV:groupParts39.groupId" ""
 		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Horn|Candy_No_UV:MESH_Candy_HornShapeDeformed.instObjGroups" 
 		"Candy_No_UV:HornMaterial1:HornMaterialSG.dagSetMembers" "-na"
 		3 "Candy_No_UV:ramp3.outAlpha" "Candy_No_UV:Pearl.mask" ""
 		3 "Candy_No_UV:Film.message" "Candy_No_UV:Pearl.boundLayers[0]" ""
-		3 "Candy_No_UV:groupId39.groupId" "Candy_No_UV:groupParts39.groupId" ""
+		3 "Candy_No_UV:groupId39.message" ":initialShadingGroup.groupNodes" "-na"
+		
+		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Body|Candy_No_UV:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
+		"Candy_No_UV:RMSGPSurface1SG.dagSetMembers" "-na"
 		3 "Candy_No_UV:groupId39.groupId" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2].objectGroupId" 
 		""
 		3 ":initialShadingGroup.memberWireframeColor" "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2].objectGrpColor" 
 		""
 		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Tongue|Candy_No_UV:MESH_Candy_TongueShapeDeformed.instObjGroups.objectGroups[2]" 
 		":initialShadingGroup.dagSetMembers" "-na"
-		3 "Candy_No_UV:groupId39.message" ":initialShadingGroup.groupNodes" "-na"
-		
-		3 "|Candy_No_UV:model:GRP_MESH_Candy_MAIN|Candy_No_UV:model:MESH_Candy_Body|Candy_No_UV:model:MESH_Candy_BodyShapeDeformed.instObjGroups" 
-		"Candy_No_UV:RMSGPSurface1SG.dagSetMembers" "-na"
 		5 4 "Candy_No_UVRN" "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M.translateX" 
 		"Candy_No_UVRN.placeHolderList[1]" ""
 		5 4 "Candy_No_UVRN" "|Candy_No_UV:Candy_Rig|Candy_No_UV:Main|Candy_No_UV:MotionSystem|Candy_No_UV:FKSystem|Candy_No_UV:FKOffsetRoot_M|Candy_No_UV:FKExtraRoot_M|Candy_No_UV:FKRoot_M|Candy_No_UV:FKXOffsetRoot_M|Candy_No_UV:HipSwingerGroupOffsetRoot_M|Candy_No_UV:HipSwingerGroupRoot_M|Candy_No_UV:FKXRoot_M|Candy_No_UV:HipSwingerStabalizeRoot_M|Candy_No_UV:FKOffsetSpine1_M|Candy_No_UV:FKExtraSpine1_M|Candy_No_UV:FKSpine1_M|Candy_No_UV:FKXOffsetSpine1_M|Candy_No_UV:FKXSpine1_M|Candy_No_UV:FKOffsetChest_M|Candy_No_UV:FKExtraChest_M|Candy_No_UV:FKChest_M.translateY" 
@@ -20407,7 +20416,7 @@ createNode reference -n "nightmare_eyes_onlyRN";
 		2 "|nightmare_eyes_only:LeftEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only:LeftEye|nightmare_eyes_only:LeftEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only:nurbsCircle1" "translate" " -type \"double3\" -0.076778557647920576 1.54827530684236425 1.20417170026666631"
+		2 "|nightmare_eyes_only:nurbsCircle1" "translate" " -type \"double3\" 0.11869796277916508 1.55267652805890943 -0.055740378412839187"
 		
 		2 "|nightmare_eyes_only:nurbsCircle1" "scale" " -type \"double3\" 1.17063205277664095 1.17063205277664095 1.17063205277664095"
 		
@@ -20434,7 +20443,7 @@ createNode reference -n "nightmare_eyes_onlyRN1";
 		2 "|nightmare_eyes_only1:LeftEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only1:LeftEye|nightmare_eyes_only1:LeftEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only1:nurbsCircle1" "translate" " -type \"double3\" 1.12115324430191032 1.81287460506668996 2.17348473893665162"
+		2 "|nightmare_eyes_only1:nurbsCircle1" "translate" " -type \"double3\" 1.58407955756697816 1.81249021562434476 0.91357266025714612"
 		
 		2 "|nightmare_eyes_only1:nurbsCircle1" "rotate" " -type \"double3\" 11.38712923976243196 -37.45173634194475198 0"
 		
@@ -20459,7 +20468,7 @@ createNode reference -n "nightmare_eyes_onlyRN2";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"nightmare_eyes_onlyRN2"
 		"nightmare_eyes_onlyRN2" 0
-		"nightmare_eyes_onlyRN2" 16
+		"nightmare_eyes_onlyRN2" 17
 		2 "|nightmare_eyes_only2:RightEye" "scale" " -type \"double3\" 0.71694528141741287 0.71694528141741287 0.71694528141741287"
 		
 		2 "|nightmare_eyes_only2:RightEye" "scaleX" " -av"
@@ -20467,9 +20476,10 @@ createNode reference -n "nightmare_eyes_onlyRN2";
 		2 "|nightmare_eyes_only2:RightEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only2:RightEye|nightmare_eyes_only2:RightEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only2:nurbsCircle1" "translate" " -type \"double3\" -1.60943285488134102 1.38191591154405491 1.33934499092897408"
+		2 "|nightmare_eyes_only2:nurbsCircle1" "translate" " -type \"double3\" -1.61455502320037469 1.37978421028751397 0.079432912249468579"
 		
 		2 "|nightmare_eyes_only2:nurbsCircle1" "translateX" " -av"
+		2 "|nightmare_eyes_only2:nurbsCircle1" "translateZ" " -av"
 		2 "|nightmare_eyes_only2:nurbsCircle1" "scale" " -type \"double3\" 1.26610170215899775 1.26610170215899775 1.26610170215899775"
 		
 		2 "nightmare_eyes_only2:Meshes" "displayType" " 2"
@@ -20503,7 +20513,7 @@ createNode reference -n "nightmare_eyes_onlyRN3";
 		2 "|nightmare_eyes_only3:RightEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only3:RightEye|nightmare_eyes_only3:RightEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only3:nurbsCircle1" "translate" " -type \"double3\" -2.48017173254984513 1.8155781534049098 1.95461730870333117"
+		2 "|nightmare_eyes_only3:nurbsCircle1" "translate" " -type \"double3\" -2.65273583145984926 1.81133137516348341 0.69470523002382567"
 		
 		2 "|nightmare_eyes_only3:nurbsCircle1" "rotate" " -type \"double3\" 22.06049911280074127 53.89160601111478144 0"
 		
@@ -20532,7 +20542,7 @@ createNode reference -n "nightmare_eyes_onlyRN4";
 		2 "|nightmare_eyes_only4:LeftEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only4:LeftEye|nightmare_eyes_only4:LeftEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only4:nurbsCircle1" "translate" " -type \"double3\" -0.95157294608971199 2.022081352431913 0.56600669876378351"
+		2 "|nightmare_eyes_only4:nurbsCircle1" "translate" " -type \"double3\" -0.7867144523133599 2.04078657914622186 -0.69390537991572199"
 		
 		2 "|nightmare_eyes_only4:nurbsCircle1" "rotate" " -type \"double3\" 12.5714150003434284 21.64980479437114624 -4.05304898459794227"
 		
@@ -20554,7 +20564,7 @@ createNode reference -n "nightmare_eyes_onlyRN5";
 		"nightmare_eyes_onlyRN5"
 		"nightmare_eyes_onlyRN5" 0
 		"nightmare_eyes_onlyRN5" 6
-		2 "|nightmare_eyes_only5:nurbsCircle1" "translate" " -type \"double3\" -0.60044285252533447 1.32114775976523124 0.94042150534336466"
+		2 "|nightmare_eyes_only5:nurbsCircle1" "translate" " -type \"double3\" -0.59724890282620269 1.33461073241100259 -0.31949057333614084"
 		
 		2 "|nightmare_eyes_only5:nurbsCircle1" "rotate" " -type \"double3\" 4.41761216559603742 9.26248498666096509 0"
 		
@@ -20581,7 +20591,7 @@ createNode reference -n "nightmare_eyes_onlyRN6";
 		2 "|nightmare_eyes_only6:LeftEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only6:LeftEye|nightmare_eyes_only6:LeftEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only6:nurbsCircle1" "translate" " -type \"double3\" 0.59540206217436964 2.15926058285275602 1.23329079540717346"
+		2 "|nightmare_eyes_only6:nurbsCircle1" "translate" " -type \"double3\" 0.94717766608596632 2.16895205660996915 -0.026621283272332041"
 		
 		2 "|nightmare_eyes_only6:nurbsCircle1" "rotate" " -type \"double3\" 12.12514679241759197 -16.33622691567870078 1.79130978057720069"
 		
@@ -20610,7 +20620,7 @@ createNode reference -n "nightmare_eyes_onlyRN7";
 		2 "|nightmare_eyes_only7:RightEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only7:RightEye|nightmare_eyes_only7:RightEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only7:nurbsCircle1" "translate" " -type \"double3\" -3.29136622064927975 1.43521054474422072 1.98941780443130245"
+		2 "|nightmare_eyes_only7:nurbsCircle1" "translate" " -type \"double3\" -3.40891839737381419 1.44111785978282669 0.72950572575179695"
 		
 		2 "|nightmare_eyes_only7:nurbsCircle1" "rotate" " -type \"double3\" 28.62651182848816944 70.25815566801030343 16.2670059002213776"
 		
@@ -20639,7 +20649,7 @@ createNode reference -n "nightmare_eyes_onlyRN8";
 		2 "|nightmare_eyes_only8:RightEye" "scaleZ" " -av"
 		2 "|nightmare_eyes_only8:RightEye|nightmare_eyes_only8:RightEye_scaleConstraint1" 
 		"nurbsCircle1W0" " -k 1 0"
-		2 "|nightmare_eyes_only8:nurbsCircle1" "translate" " -type \"double3\" -3.91036681903415362 2.13738273978672222 0.88977807803626785"
+		2 "|nightmare_eyes_only8:nurbsCircle1" "translate" " -type \"double3\" -4.45366697483146901 2.13034133488650035 -0.37013400064323765"
 		
 		2 "|nightmare_eyes_only8:nurbsCircle1" "rotate" " -type \"double3\" 10.32363048932837302 48.83444095295711662 0"
 		
@@ -20661,7 +20671,7 @@ createNode reference -n "nightmare_eyes_onlyRN9";
 		"nightmare_eyes_onlyRN9"
 		"nightmare_eyes_onlyRN9" 0
 		"nightmare_eyes_onlyRN9" 7
-		2 "|nightmare_eyes_only9:nurbsCircle1" "translate" " -type \"double3\" -1.93387858819493408 2.26116148561803199 0.71048962457618048"
+		2 "|nightmare_eyes_only9:nurbsCircle1" "translate" " -type \"double3\" -1.97919760912847154 2.26743555846644451 -0.54942245410332502"
 		
 		2 "|nightmare_eyes_only9:nurbsCircle1" "rotate" " -type \"double3\" 15.92796595684800565 9.76848192084973732 0"
 		
@@ -20683,7 +20693,7 @@ createNode reference -n "nightmare_eyes_onlyRN10";
 		"nightmare_eyes_onlyRN10"
 		"nightmare_eyes_onlyRN10" 0
 		"nightmare_eyes_onlyRN10" 8
-		2 "|nightmare_eyes_only10:nurbsCircle1" "translate" " -type \"double3\" -2.83432660530392999 1.07815378702776643 0.98598015736599054"
+		2 "|nightmare_eyes_only10:nurbsCircle1" "translate" " -type \"double3\" -2.83693049868565872 1.08643696516366606 -0.27393192131351496"
 		
 		2 "|nightmare_eyes_only10:nurbsCircle1" "rotate" " -type \"double3\" 13.28435124659474553 43.60490618380457306 -0.29764347148230585"
 		
@@ -20728,7 +20738,7 @@ createNode animCurveTL -n "nurbsCircle1_translateY";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateZ";
 	setAttr ".tan" 1;
-	setAttr ".ktv[0]"  1 1.3393449909289741;
+	setAttr ".ktv[0]"  1 0.079432912249468579;
 	setAttr ".kot[0]"  18;
 	setAttr ".kix[0]"  0;
 	setAttr ".kiy[0]"  0;
@@ -20756,8 +20766,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY1";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX1";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 -3.2899558564794242 18 -3.2947189166195989
-		 35 -3.3009088568382574 54 -3.2887556649602834 70 -3.2961828208111399 97 -3.2913662206492798;
+	setAttr -s 6 ".ktv[0:5]"  1 -3.4030558599356642 18 -3.4078189200758389
+		 35 -3.4140088602944973 54 -3.4018556684165233 70 -3.4092828242673798 97 -3.4044662241055197;
 	setAttr -s 6 ".kit[0:5]"  18 1 1 1 18 18;
 	setAttr -s 6 ".kot[0:5]"  18 1 1 1 18 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -20798,8 +20808,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY2";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX3";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 -3.9209740493249181 20 -3.9066212019060891
-		 39 -3.8991722641412943 60 -3.9066671428519064 76 -3.9140942983879587 107 -3.9092776984302531;
+	setAttr -s 6 ".ktv[0:5]"  1 -4.4626596786693025 20 -4.4483068312504743
+		 39 -4.4408578934856795 60 -4.4483527721962917 76 -4.4557799277323431 107 -4.4509633277746383;
 	setAttr -s 6 ".kot[0:5]"  18 1 1 1 1 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
 	setAttr -s 6 ".kwl[4:5]" no no;
@@ -20826,8 +20836,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY3";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX4";
 	setAttr ".tan" 18;
-	setAttr -s 6 ".ktv[0:5]"  1 -2.4735768886943652 17 -2.4761228115208112
-		 35 -2.4820889358986045 54 -2.4761928327912783 70 -2.4875129929956246 97 -2.4801717325498451;
+	setAttr -s 6 ".ktv[0:5]"  1 -2.6393500006917296 17 -2.6418959235181756
+		 35 -2.6478620478959689 54 -2.6419659447886428 70 -2.653286104992989 97 -2.6459448445472096;
 	setAttr -s 6 ".kit[2:5]"  1 1 18 1;
 	setAttr -s 6 ".kot[2:5]"  1 1 18 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -20853,8 +20863,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY4";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX5";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 -1.933553628249393 18 -1.9148994409307671
-		 40 -1.9319211849592699 62 -1.926420548881443 81 -1.9412647265928822 102 -1.9333909911829359;
+	setAttr -s 6 ".ktv[0:5]"  1 -1.9836163390716783 18 -1.9649621517530524
+		 40 -1.9819838957815552 62 -1.9764832597037283 81 -1.9913274374151675 102 -1.9834537020052212;
 	setAttr -s 6 ".kot[5]"  18;
 	setAttr -s 6 ".ktl[0:5]" no yes yes yes no no;
 	setAttr -s 6 ".kwl[0:5]" no no no no no no;
@@ -20879,8 +20889,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY5";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX6";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 -0.95983143652824232 22 -0.94820562974941636
-		 43 -0.94217198996812823 62 -0.94729128702304011 82 -0.95425883809215728 108 -0.95035739200239189;
+	setAttr -s 6 ".ktv[0:5]"  1 -0.79652436102210122 22 -0.78489855424327526
+		 43 -0.77886491446198713 62 -0.78398421151689901 82 -0.79095176258601618 108 -0.78705031649625079;
 	setAttr -s 6 ".kit[1:5]"  18 1 1 1 1;
 	setAttr -s 6 ".kot[0:5]"  18 18 1 1 1 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -20907,8 +20917,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY6";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX7";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 -0.087884719913696063 22 -0.073531871278161104
-		 39 -0.06608293288191204 61 -0.073577812227872907 77 -0.081004968393533022 104 -0.076188368027519104;
+	setAttr -s 6 ".ktv[0:5]"  1 0.10867795773273715 22 0.1230308063682721
+		 39 0.1304797447645212 61 0.1229848654185603 77 0.11555770925290018 104 0.1203743096189141;
 	setAttr -s 6 ".kit[1:5]"  18 1 1 1 1;
 	setAttr -s 6 ".kot[0:5]"  18 18 1 1 1 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -20962,8 +20972,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY8";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX9";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 0.57663044319491386 17 0.60093712212396411
-		 34 0.61355196664421019 57 0.60049336491615668 73 0.58773243090328886 102 0.59588938717024131;
+	setAttr -s 6 ".ktv[0:5]"  1 0.93411210783820664 17 0.95841878676725689
+		 34 0.97103363128750297 57 0.95797502955944935 73 0.94521409554658153 102 0.9533710518135341;
 	setAttr -s 6 ".kit[1:5]"  18 1 1 1 1;
 	setAttr -s 6 ".kot[0:5]"  18 18 1 1 1 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -20990,8 +21000,8 @@ createNode animCurveTL -n "nurbsCircle1_translateY9";
 	setAttr -s 6 ".koy[0:5]"  0 0 0 0 0 0;
 createNode animCurveTL -n "nurbsCircle1_translateX10";
 	setAttr ".tan" 1;
-	setAttr -s 6 ".ktv[0:5]"  1 1.1033261552521205 18 1.1252021652451361
-		 35 1.1365555247719874 54 1.125132143976153 70 1.1138119840117118 97 1.1211532443019103;
+	setAttr -s 6 ".ktv[0:5]"  1 1.5732787626266367 18 1.5951547726196522
+		 35 1.6065081321465038 54 1.5950847513506692 70 1.5837645913862279 97 1.5911058516764265;
 	setAttr -s 6 ".kit[1:5]"  18 1 1 1 1;
 	setAttr -s 6 ".kot[0:5]"  18 18 1 1 1 18;
 	setAttr -s 6 ".ktl[4:5]" no no;
@@ -21030,8 +21040,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 97;
-	setAttr -av ".unw" 97;
+	setAttr -k on ".o" 68;
+	setAttr -av ".unw" 68;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -21354,8 +21364,8 @@ select -ne :ikSystem;
 	setAttr -av -k on ".gsn";
 	setAttr -k on ".gsv";
 	setAttr -s 6 ".sol";
-connectAttr "EmilyRN.phl[1]" "set4.dsm" -na;
-connectAttr "EmilyRN.phl[2]" "set2.dsm" -na;
+connectAttr "EmilyRN.phl[1]" "set2.dsm" -na;
+connectAttr "EmilyRN.phl[2]" "set4.dsm" -na;
 connectAttr "EmilyRN.phl[3]" "EmilyRN.phl[4]";
 connectAttr "EmilyRN.phl[10]" "set3.dsm" -na;
 connectAttr "Emily:Main_translateX.o" "EmilyRN.phl[11]";
@@ -22435,8 +22445,8 @@ connectAttr "EmilyRN.phl[1089]" "EmilyRN.phl[1090]";
 connectAttr "EmilyRN.phl[1091]" "EmilyRN.phl[1092]";
 connectAttr "EmilyRN.phl[1093]" "EmilyRN.phl[1094]";
 connectAttr "EmilyRN.phl[1095]" "EmilyRN.phl[1096]";
-connectAttr "EmilyRN.phl[5]" "set3.dsm" -na;
-connectAttr "EmilyRN.phl[6]" "set2.dsm" -na;
+connectAttr "EmilyRN.phl[5]" "set2.dsm" -na;
+connectAttr "EmilyRN.phl[6]" "set3.dsm" -na;
 connectAttr "Dress.di" "EmilyRN.phl[7]";
 connectAttr "Dress.di" "EmilyRN.phl[8]";
 connectAttr "Dress.di" "EmilyRN.phl[9]";
@@ -22480,8 +22490,8 @@ connectAttr "ctrlEye_L_blink.o" "Candy_No_UVRN.phl[37]";
 connectAttr "Candy_No_UVRN.phl[38]" "set2.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[39]" "RMSGPSurface1SG.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[40]" "set2.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[41]" "set2.dsm" -na;
-connectAttr "Candy_No_UVRN.phl[42]" "set3.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[41]" "set3.dsm" -na;
+connectAttr "Candy_No_UVRN.phl[42]" "set2.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[43]" "set5.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[44]" "RMSGPSurface2SG.dsm" -na;
 connectAttr "Candy_No_UVRN.phl[45]" "set2.dsm" -na;
