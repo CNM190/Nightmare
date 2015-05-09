@@ -1,9 +1,9 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1_ao.ma
-//Last modified: Fri, May 08, 2015 02:29:29 PM
+//Last modified: Fri, May 08, 2015 05:28:14 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom1" -rfn "bedroom1RN" -op "v=0;" "/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma";
-file -rdi 2 -ns "anim_ready_Emily" -rfn "bedroom1:anim_ready_EmilyRN" "/home/tmp/cs198-re/Nightmare//assets/chars/Emily.ma";
+file -rdi 2 -ns "anim_ready_Emily" -rfn "bedroom1:anim_ready_EmilyRN" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
 file -rdi 3 -ns "Hair_Emily" -rfn "bedroom1:anim_ready_Emily:Hair_EmilyRN" "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Hair_Emily.ma";
 file -rdi 3 -ns "Dress_Emily" -rfn "bedroom1:anim_ready_Emily:Dress_EmilyRN"
 		 "C:/Users/Mark/Documents/Nightmare//assets/chars/costumes/Dress_Emily.ma";
@@ -27,13 +27,13 @@ fileInfo "osv" "Mac OS X 10.9.5";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.3906219173733843 2.9368118389909088 -3.1971509404496139 ;
-	setAttr ".r" -type "double3" -5.1383527296714018 278.19999999994832 2.7874381786117513e-15 ;
+	setAttr ".t" -type "double3" -2.1739149602955328 3.137155292874394 -0.15333322509573266 ;
+	setAttr ".r" -type "double3" -10.538352729735632 307.39999999992921 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 5.3075880863047296;
+	setAttr ".coi" 5.1951434372126908;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -622,7 +622,7 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
-		-dv -1 -at "long";
+		-dv -1 -smn 0 -smx 100 -at "long";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -3731,9 +3731,9 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 	setAttr ".stringOptions[47].type" -type "string" "color";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 209 ".lnk";
-	setAttr -s 79 ".ign";
-	setAttr -s 68 ".slnk";
+	setAttr -s 621 ".lnk";
+	setAttr -s 229 ".ign";
+	setAttr -s 198 ".slnk";
 createNode displayLayerManager -n "layerManager";
 createNode displayLayer -n "defaultLayer";
 createNode renderLayerManager -n "renderLayerManager";
@@ -4149,7 +4149,7 @@ createNode RenderMan -s -n "renderManGlobals";
 	setAttr -k on ".rman__riopt__limits_gridsize" 256;
 	setAttr -k on ".rman__riopt__trace_decimationrate" 1;
 	setAttr -k on ".rman__riopt__Camera_shutteropening" -type "float2" 0 1 ;
-	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 960 540 ;
+	setAttr -k on ".rman__riopt__Format_resolution" -type "long2" 1920 1080 ;
 	setAttr -k on ".rman__riopt__Format_pixelaspectratio" 1;
 	setAttr -k on ".rman__riopt__hair_minwidth" 0.5;
 	setAttr ".rman__riopt__rib_compression" -type "string" "none";
@@ -4237,11 +4237,11 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n"
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 1\n"
 		+ "                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n"
 		+ "                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
 		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
-		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
+		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 1\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n"
 		+ "            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n"
 		+ "                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n"
@@ -4274,35 +4274,36 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManControlsType\" (localizedPanelLabel(\"RenderMan Controls\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManControlsType\" -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Controls\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderManLightingType\" (localizedPanelLabel(\"RenderMan Lighting\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderManLightingType\" -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"RenderMan Lighting\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n"
-		+ "                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
-		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
-		+ "                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"bedroom1:Face_Close_Up\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
-		+ "                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n"
-		+ "                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n"
-		+ "                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"\")) `;\n"
-		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n"
+		+ "                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n"
+		+ "                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n"
+		+ "                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n"
+		+ "                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
+		+ "                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n"
+		+ "                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n"
+		+ "            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n"
+		+ "                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n"
+		+ "                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n"
+		+ "\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n"
+		+ "            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
 		+ "                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n"
-		+ "                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n"
-		+ "                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
+		+ "                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n"
+		+ "                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
-		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
-		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel6\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n"
-		+ "                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 8192\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n"
-		+ "                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 0\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n"
-		+ "                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel6\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 8192\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -maxConstantTransparency 1\n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
-		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n"
-		+ "            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 0\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 8192\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min -50 -max 125 -ast -50 -aet 200 ";
 	setAttr ".st" 6;
 createNode reference -n "bedroom1RN";
-	setAttr -s 162 ".phl";
+	setAttr ".fn[0]" -type "string" "/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma";
+	setAttr -s 161 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -4464,7 +4465,6 @@ createNode reference -n "bedroom1RN";
 	setAttr ".phl[159]" 0;
 	setAttr ".phl[160]" 0;
 	setAttr ".phl[161]" 0;
-	setAttr ".phl[162]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"bedroom1RN"
 		"bedroom1:bedsheetRN" 0
@@ -4476,7 +4476,9 @@ createNode reference -n "bedroom1RN";
 		"bedroom1:bedroomRN" 0
 		"bedroom1RN" 0
 		"bedroom1:bedroom:bedRN" 0
-		"bedroom1:bedsheetRN" 195
+		"bedroom1:bedsheetRN" 197
+		2 "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1" 
+		"startFrame" " -av 32"
 		2 "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape" 
 		"cacheWidth" " 176"
 		2 "|bedroom1:bedsheet:RMSEnvLight1" "visibility" " 0"
@@ -4510,14 +4512,18 @@ createNode reference -n "bedroom1RN";
 		2 "bedroom1:bedsheet:cloth1" "uWave" " 0.026086956262588501"
 		2 "bedroom1:bedsheet:cloth1" "vWave" " 0.039130434393882751"
 		2 "bedroom1:bedsheet:cloth1" "randomness" " 0.20869565010070801"
-		2 "bedroom1:bedsheet:place2dTexture3" "repeatUV" " -type \"float2\" 900 900"
+		2 "bedroom1:bedsheet:place2dTexture3" "repeatUV" " -type \"float2\" 500 500"
 		
-		3 "bedroom1:bedsheet:textureDeformer1.handleVisibility" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.visibility" 
+		2 "bedroom1:bedsheet:place2dTexture3" "noiseUV" " -type \"float2\" 0.001 0.001"
+		
+		3 ":time1.outTime" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.currentTime" 
 		""
 		3 ":time1.outTime" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.currentTime" 
 		""
-		3 ":time1.outTime" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.currentTime" 
+		3 "bedroom1:bedsheet:textureDeformer1.handleVisibility" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.visibility" 
 		""
+		4 "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape" 
+		"notes" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.visibility" 
 		"bedroom1RN.placeHolderList[2]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:BedsheetMesh.translateX" 
@@ -4542,296 +4548,294 @@ createNode reference -n "bedroom1RN";
 		"bedroom1RN.placeHolderList[12]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.currentTime" 
 		"bedroom1RN.placeHolderList[13]" ""
-		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.startFrame" 
-		"bedroom1RN.placeHolderList[14]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.visibility" 
-		"bedroom1RN.placeHolderList[15]" ""
+		"bedroom1RN.placeHolderList[14]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateX" 
-		"bedroom1RN.placeHolderList[16]" ""
+		"bedroom1RN.placeHolderList[15]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateY" 
-		"bedroom1RN.placeHolderList[17]" ""
+		"bedroom1RN.placeHolderList[16]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.translateZ" 
-		"bedroom1RN.placeHolderList[18]" ""
+		"bedroom1RN.placeHolderList[17]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateX" 
-		"bedroom1RN.placeHolderList[19]" ""
+		"bedroom1RN.placeHolderList[18]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateY" 
-		"bedroom1RN.placeHolderList[20]" ""
+		"bedroom1RN.placeHolderList[19]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.rotateZ" 
-		"bedroom1RN.placeHolderList[21]" ""
+		"bedroom1RN.placeHolderList[20]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleX" 
-		"bedroom1RN.placeHolderList[22]" ""
+		"bedroom1RN.placeHolderList[21]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleY" 
-		"bedroom1RN.placeHolderList[23]" ""
+		"bedroom1RN.placeHolderList[22]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.scaleZ" 
-		"bedroom1RN.placeHolderList[24]" ""
+		"bedroom1RN.placeHolderList[23]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.frameJumpLimit" 
-		"bedroom1RN.placeHolderList[25]" ""
+		"bedroom1RN.placeHolderList[24]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.enable" 
-		"bedroom1RN.placeHolderList[26]" ""
+		"bedroom1RN.placeHolderList[25]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.useTransform" 
-		"bedroom1RN.placeHolderList[27]" ""
+		"bedroom1RN.placeHolderList[26]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravity" 
-		"bedroom1RN.placeHolderList[28]" ""
+		"bedroom1RN.placeHolderList[27]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionX" 
-		"bedroom1RN.placeHolderList[29]" ""
+		"bedroom1RN.placeHolderList[28]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionY" 
-		"bedroom1RN.placeHolderList[30]" ""
+		"bedroom1RN.placeHolderList[29]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.gravityDirectionZ" 
-		"bedroom1RN.placeHolderList[31]" ""
+		"bedroom1RN.placeHolderList[30]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.airDensity" 
-		"bedroom1RN.placeHolderList[32]" ""
+		"bedroom1RN.placeHolderList[31]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windSpeed" 
-		"bedroom1RN.placeHolderList[33]" ""
+		"bedroom1RN.placeHolderList[32]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionX" 
-		"bedroom1RN.placeHolderList[34]" ""
+		"bedroom1RN.placeHolderList[33]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionY" 
-		"bedroom1RN.placeHolderList[35]" ""
+		"bedroom1RN.placeHolderList[34]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windDirectionZ" 
-		"bedroom1RN.placeHolderList[36]" ""
+		"bedroom1RN.placeHolderList[35]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.windNoise" 
-		"bedroom1RN.placeHolderList[37]" ""
+		"bedroom1RN.placeHolderList[36]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.collisionLayerRange" 
-		"bedroom1RN.placeHolderList[38]" ""
+		"bedroom1RN.placeHolderList[37]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.collisionSoftness" 
-		"bedroom1RN.placeHolderList[39]" ""
+		"bedroom1RN.placeHolderList[38]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.usePlane" 
-		"bedroom1RN.placeHolderList[40]" ""
+		"bedroom1RN.placeHolderList[39]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginX" 
-		"bedroom1RN.placeHolderList[41]" ""
+		"bedroom1RN.placeHolderList[40]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginY" 
-		"bedroom1RN.placeHolderList[42]" ""
+		"bedroom1RN.placeHolderList[41]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeOriginZ" 
-		"bedroom1RN.placeHolderList[43]" ""
+		"bedroom1RN.placeHolderList[42]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalX" 
-		"bedroom1RN.placeHolderList[44]" ""
+		"bedroom1RN.placeHolderList[43]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalY" 
-		"bedroom1RN.placeHolderList[45]" ""
+		"bedroom1RN.placeHolderList[44]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeNormalZ" 
-		"bedroom1RN.placeHolderList[46]" ""
+		"bedroom1RN.placeHolderList[45]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeBounce" 
-		"bedroom1RN.placeHolderList[47]" ""
+		"bedroom1RN.placeHolderList[46]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeFriction" 
-		"bedroom1RN.placeHolderList[48]" ""
+		"bedroom1RN.placeHolderList[47]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.planeStickiness" 
-		"bedroom1RN.placeHolderList[49]" ""
+		"bedroom1RN.placeHolderList[48]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.subSteps" 
-		"bedroom1RN.placeHolderList[50]" ""
+		"bedroom1RN.placeHolderList[49]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.maxCollisionIterations" 
-		"bedroom1RN.placeHolderList[51]" ""
+		"bedroom1RN.placeHolderList[50]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.timeScale" 
-		"bedroom1RN.placeHolderList[52]" ""
+		"bedroom1RN.placeHolderList[51]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nucleus1.spaceScale" 
-		"bedroom1RN.placeHolderList[53]" ""
+		"bedroom1RN.placeHolderList[52]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth.visibility" 
-		"bedroom1RN.placeHolderList[54]" ""
+		"bedroom1RN.placeHolderList[53]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.lifespan" 
-		"bedroom1RN.placeHolderList[55]" ""
+		"bedroom1RN.placeHolderList[54]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.currentTime" 
-		"bedroom1RN.placeHolderList[56]" ""
+		"bedroom1RN.placeHolderList[55]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.isDynamic" 
-		"bedroom1RN.placeHolderList[57]" ""
+		"bedroom1RN.placeHolderList[56]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.playFromCache" 
-		"bedroom1RN.placeHolderList[58]" ""
+		"bedroom1RN.placeHolderList[57]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.thickness" 
-		"bedroom1RN.placeHolderList[59]" ""
+		"bedroom1RN.placeHolderList[58]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bounce" 
-		"bedroom1RN.placeHolderList[60]" ""
+		"bedroom1RN.placeHolderList[59]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.friction" 
-		"bedroom1RN.placeHolderList[61]" ""
+		"bedroom1RN.placeHolderList[60]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.damp" 
-		"bedroom1RN.placeHolderList[62]" ""
+		"bedroom1RN.placeHolderList[61]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stickiness" 
-		"bedroom1RN.placeHolderList[63]" ""
+		"bedroom1RN.placeHolderList[62]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collideStrength" 
-		"bedroom1RN.placeHolderList[64]" ""
+		"bedroom1RN.placeHolderList[63]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collisionFlag" 
-		"bedroom1RN.placeHolderList[65]" ""
+		"bedroom1RN.placeHolderList[64]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollisionFlag" 
-		"bedroom1RN.placeHolderList[66]" ""
+		"bedroom1RN.placeHolderList[65]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.maxSelfCollisionIterations" 
-		"bedroom1RN.placeHolderList[67]" ""
+		"bedroom1RN.placeHolderList[66]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.maxIterations" 
-		"bedroom1RN.placeHolderList[68]" ""
+		"bedroom1RN.placeHolderList[67]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointMass" 
-		"bedroom1RN.placeHolderList[69]" ""
+		"bedroom1RN.placeHolderList[68]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restLengthScale" 
-		"bedroom1RN.placeHolderList[70]" ""
+		"bedroom1RN.placeHolderList[69]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceX" 
-		"bedroom1RN.placeHolderList[71]" ""
+		"bedroom1RN.placeHolderList[70]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceY" 
-		"bedroom1RN.placeHolderList[72]" ""
+		"bedroom1RN.placeHolderList[71]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localForceZ" 
-		"bedroom1RN.placeHolderList[73]" ""
+		"bedroom1RN.placeHolderList[72]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindX" 
-		"bedroom1RN.placeHolderList[74]" ""
+		"bedroom1RN.placeHolderList[73]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindY" 
-		"bedroom1RN.placeHolderList[75]" ""
+		"bedroom1RN.placeHolderList[74]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localWindZ" 
-		"bedroom1RN.placeHolderList[76]" ""
+		"bedroom1RN.placeHolderList[75]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collide" 
-		"bedroom1RN.placeHolderList[77]" ""
+		"bedroom1RN.placeHolderList[76]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollide" 
-		"bedroom1RN.placeHolderList[78]" ""
+		"bedroom1RN.placeHolderList[77]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collisionLayer" 
-		"bedroom1RN.placeHolderList[79]" ""
+		"bedroom1RN.placeHolderList[78]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windShadowDiffusion" 
-		"bedroom1RN.placeHolderList[80]" ""
+		"bedroom1RN.placeHolderList[79]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windShadowDistance" 
-		"bedroom1RN.placeHolderList[81]" ""
+		"bedroom1RN.placeHolderList[80]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airPushDistance" 
-		"bedroom1RN.placeHolderList[82]" ""
+		"bedroom1RN.placeHolderList[81]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airPushVorticity" 
-		"bedroom1RN.placeHolderList[83]" ""
+		"bedroom1RN.placeHolderList[82]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pushOut" 
-		"bedroom1RN.placeHolderList[84]" ""
+		"bedroom1RN.placeHolderList[83]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pushOutRadius" 
-		"bedroom1RN.placeHolderList[85]" ""
+		"bedroom1RN.placeHolderList[84]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.crossoverPush" 
-		"bedroom1RN.placeHolderList[86]" ""
+		"bedroom1RN.placeHolderList[85]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.trappedCheck" 
-		"bedroom1RN.placeHolderList[87]" ""
+		"bedroom1RN.placeHolderList[86]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.forceField" 
-		"bedroom1RN.placeHolderList[88]" ""
+		"bedroom1RN.placeHolderList[87]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldMagnitude" 
-		"bedroom1RN.placeHolderList[89]" ""
+		"bedroom1RN.placeHolderList[88]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldDistance" 
-		"bedroom1RN.placeHolderList[90]" ""
+		"bedroom1RN.placeHolderList[89]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_Position" 
-		"bedroom1RN.placeHolderList[91]" ""
+		"bedroom1RN.placeHolderList[90]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_FloatValue" 
-		"bedroom1RN.placeHolderList[92]" ""
+		"bedroom1RN.placeHolderList[91]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[0].fieldScale_Interp" 
-		"bedroom1RN.placeHolderList[93]" ""
+		"bedroom1RN.placeHolderList[92]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_Position" 
-		"bedroom1RN.placeHolderList[94]" ""
+		"bedroom1RN.placeHolderList[93]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_FloatValue" 
-		"bedroom1RN.placeHolderList[95]" ""
+		"bedroom1RN.placeHolderList[94]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.fieldScale[1].fieldScale_Interp" 
-		"bedroom1RN.placeHolderList[96]" ""
+		"bedroom1RN.placeHolderList[95]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointForceField" 
-		"bedroom1RN.placeHolderList[97]" ""
+		"bedroom1RN.placeHolderList[96]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldMagnitude" 
-		"bedroom1RN.placeHolderList[98]" ""
+		"bedroom1RN.placeHolderList[97]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfAttract" 
-		"bedroom1RN.placeHolderList[99]" ""
+		"bedroom1RN.placeHolderList[98]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDistance" 
-		"bedroom1RN.placeHolderList[100]" ""
+		"bedroom1RN.placeHolderList[99]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_Position" 
-		"bedroom1RN.placeHolderList[101]" ""
+		"bedroom1RN.placeHolderList[100]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_FloatValue" 
-		"bedroom1RN.placeHolderList[102]" ""
+		"bedroom1RN.placeHolderList[101]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[0].pointFieldDropoff_Interp" 
-		"bedroom1RN.placeHolderList[103]" ""
+		"bedroom1RN.placeHolderList[102]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_Position" 
-		"bedroom1RN.placeHolderList[104]" ""
+		"bedroom1RN.placeHolderList[103]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_FloatValue" 
-		"bedroom1RN.placeHolderList[105]" ""
+		"bedroom1RN.placeHolderList[104]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pointFieldDropoff[1].pointFieldDropoff_Interp" 
-		"bedroom1RN.placeHolderList[106]" ""
+		"bedroom1RN.placeHolderList[105]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.localSpaceOutput" 
-		"bedroom1RN.placeHolderList[107]" ""
+		"bedroom1RN.placeHolderList[106]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorR" 
-		"bedroom1RN.placeHolderList[108]" ""
+		"bedroom1RN.placeHolderList[107]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorG" 
-		"bedroom1RN.placeHolderList[109]" ""
+		"bedroom1RN.placeHolderList[108]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.displayColorB" 
-		"bedroom1RN.placeHolderList[110]" ""
+		"bedroom1RN.placeHolderList[109]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stretchResistance" 
-		"bedroom1RN.placeHolderList[111]" ""
+		"bedroom1RN.placeHolderList[110]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.compressionResistance" 
-		"bedroom1RN.placeHolderList[112]" ""
+		"bedroom1RN.placeHolderList[111]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendResistance" 
-		"bedroom1RN.placeHolderList[113]" ""
+		"bedroom1RN.placeHolderList[112]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendAngleDropoff" 
-		"bedroom1RN.placeHolderList[114]" ""
+		"bedroom1RN.placeHolderList[113]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restitutionTension" 
-		"bedroom1RN.placeHolderList[115]" ""
+		"bedroom1RN.placeHolderList[114]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.restitutionAngle" 
-		"bedroom1RN.placeHolderList[116]" ""
+		"bedroom1RN.placeHolderList[115]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.shearResistance" 
-		"bedroom1RN.placeHolderList[117]" ""
+		"bedroom1RN.placeHolderList[116]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.rigidity" 
-		"bedroom1RN.placeHolderList[118]" ""
+		"bedroom1RN.placeHolderList[117]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.deformResistance" 
-		"bedroom1RN.placeHolderList[119]" ""
+		"bedroom1RN.placeHolderList[118]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputMeshAttract" 
-		"bedroom1RN.placeHolderList[120]" ""
+		"bedroom1RN.placeHolderList[119]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.collideLastThreshold" 
-		"bedroom1RN.placeHolderList[121]" ""
+		"bedroom1RN.placeHolderList[120]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputAttractDamp" 
-		"bedroom1RN.placeHolderList[122]" ""
+		"bedroom1RN.placeHolderList[121]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.inputMotionDrag" 
-		"bedroom1RN.placeHolderList[123]" ""
+		"bedroom1RN.placeHolderList[122]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.wrinkleMapScale" 
-		"bedroom1RN.placeHolderList[124]" ""
+		"bedroom1RN.placeHolderList[123]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.bendAngleScale" 
-		"bedroom1RN.placeHolderList[125]" ""
+		"bedroom1RN.placeHolderList[124]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.sortLinks" 
-		"bedroom1RN.placeHolderList[126]" ""
+		"bedroom1RN.placeHolderList[125]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.addCrossLinks" 
-		"bedroom1RN.placeHolderList[127]" ""
+		"bedroom1RN.placeHolderList[126]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.stretchDamp" 
-		"bedroom1RN.placeHolderList[128]" ""
+		"bedroom1RN.placeHolderList[127]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalStretch" 
-		"bedroom1RN.placeHolderList[129]" ""
+		"bedroom1RN.placeHolderList[128]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalBend" 
-		"bedroom1RN.placeHolderList[130]" ""
+		"bedroom1RN.placeHolderList[129]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.minimalShear" 
-		"bedroom1RN.placeHolderList[131]" ""
+		"bedroom1RN.placeHolderList[130]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollideWidthScale" 
-		"bedroom1RN.placeHolderList[132]" ""
+		"bedroom1RN.placeHolderList[131]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCollisionSoftness" 
-		"bedroom1RN.placeHolderList[133]" ""
+		"bedroom1RN.placeHolderList[132]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfCrossoverPush" 
-		"bedroom1RN.placeHolderList[134]" ""
+		"bedroom1RN.placeHolderList[133]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.selfTrappedCheck" 
-		"bedroom1RN.placeHolderList[135]" ""
+		"bedroom1RN.placeHolderList[134]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pressure" 
-		"bedroom1RN.placeHolderList[136]" ""
+		"bedroom1RN.placeHolderList[135]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.startPressure" 
-		"bedroom1RN.placeHolderList[137]" ""
+		"bedroom1RN.placeHolderList[136]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.incompressibility" 
-		"bedroom1RN.placeHolderList[138]" ""
+		"bedroom1RN.placeHolderList[137]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pressureDamping" 
-		"bedroom1RN.placeHolderList[139]" ""
+		"bedroom1RN.placeHolderList[138]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.pumpRate" 
-		"bedroom1RN.placeHolderList[140]" ""
+		"bedroom1RN.placeHolderList[139]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.airTightness" 
-		"bedroom1RN.placeHolderList[141]" ""
+		"bedroom1RN.placeHolderList[140]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.sealHoles" 
-		"bedroom1RN.placeHolderList[142]" ""
+		"bedroom1RN.placeHolderList[141]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.ignoreSolverGravity" 
-		"bedroom1RN.placeHolderList[143]" ""
+		"bedroom1RN.placeHolderList[142]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.ignoreSolverWind" 
-		"bedroom1RN.placeHolderList[144]" ""
+		"bedroom1RN.placeHolderList[143]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.windSelfShadow" 
-		"bedroom1RN.placeHolderList[145]" ""
+		"bedroom1RN.placeHolderList[144]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.lift" 
-		"bedroom1RN.placeHolderList[146]" ""
+		"bedroom1RN.placeHolderList[145]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.drag" 
-		"bedroom1RN.placeHolderList[147]" ""
+		"bedroom1RN.placeHolderList[146]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:Bedsheet_nCloth|bedroom1:bedsheet:Bedsheet_nClothShape.tangentialDrag" 
-		"bedroom1RN.placeHolderList[148]" ""
+		"bedroom1RN.placeHolderList[147]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.visibility" 
-		"bedroom1RN.placeHolderList[149]" ""
+		"bedroom1RN.placeHolderList[148]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateX" 
-		"bedroom1RN.placeHolderList[150]" ""
+		"bedroom1RN.placeHolderList[149]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateY" 
-		"bedroom1RN.placeHolderList[151]" ""
+		"bedroom1RN.placeHolderList[150]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.translateZ" 
-		"bedroom1RN.placeHolderList[152]" ""
+		"bedroom1RN.placeHolderList[151]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateX" 
-		"bedroom1RN.placeHolderList[153]" ""
+		"bedroom1RN.placeHolderList[152]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateY" 
-		"bedroom1RN.placeHolderList[154]" ""
+		"bedroom1RN.placeHolderList[153]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.rotateZ" 
-		"bedroom1RN.placeHolderList[155]" ""
+		"bedroom1RN.placeHolderList[154]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleX" 
-		"bedroom1RN.placeHolderList[156]" ""
+		"bedroom1RN.placeHolderList[155]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleY" 
-		"bedroom1RN.placeHolderList[157]" ""
+		"bedroom1RN.placeHolderList[156]" ""
 		5 4 "bedroom1RN" "|bedroom1:BedSheet_Sim_Rig|bedroom1:bedsheet:BedSheetSimRig|bedroom1:bedsheet:textureDeformerHandle1.scaleZ" 
-		"bedroom1RN.placeHolderList[158]" ""
+		"bedroom1RN.placeHolderList[157]" ""
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" "|bedroom1:bedsheet:RMSEnvLight1|bedroom1:bedsheet:RMSEnvLightShape1.message" 
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedsheet:PxrLMDiffuse1SG.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
@@ -4864,7 +4868,7 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:desk:RMSGPSurface1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
-		"bedroom1:anim_ready_EmilyRN" 417
+		"bedroom1:anim_ready_EmilyRN" 433
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"translate" " -type \"double3\" 1.909789 2.18835627348448325 -1.193383"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
@@ -4899,6 +4903,14 @@ createNode reference -n "bedroom1RN";
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
+		"scale" " -type \"double3\" 1.03 1.03 1.03"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
+		"scaleX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
+		"scaleY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
+		"scaleZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"translate" " -type \"double3\" -0.0047105999999999997 0.0017216099999999999 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
@@ -4931,7 +4943,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
-		"translate" " -type \"double3\" -0.00010583096992363908 0.043331959418198861 0.0091864780335591291"
+		"translate" " -type \"double3\" -0.011975268498599515 0.043331959418198861 0.0091864780335591291"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"translateX" " -av"
@@ -4940,7 +4952,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
-		"rotate" " -type \"double3\" -3.709074 -28.05194086899943784 16.81275900000002821"
+		"rotate" " -type \"double3\" -3.709074 -17.37648792787805263 16.81275900000002821"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"rotateX" " -av"
@@ -4948,8 +4960,30 @@ createNode reference -n "bedroom1RN";
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"rotateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_L|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_L|bedroom1:anim_ready_Emily:FKGlobalScapula_L|bedroom1:anim_ready_Emily:FKExtraScapula_L|bedroom1:anim_ready_Emily:FKScapula_L" 
+		"translate" " -type \"double3\" 0 0 -0.05450603590650898"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_L|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_L|bedroom1:anim_ready_Emily:FKGlobalScapula_L|bedroom1:anim_ready_Emily:FKExtraScapula_L|bedroom1:anim_ready_Emily:FKScapula_L" 
+		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.0752550980529767 -0.0010895726795263627"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"translate" " -type \"double3\" 1.1089768757576739 -0.31327707736449534 0.34397289258713121"
+		
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"translateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"translateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"translateZ" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"rotate" " -type \"double3\" 71.68637210935943926 208.85283925884132827 -6.88299061099692722"
+		
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"rotateX" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"rotateY" " -av"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
+		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:PoleOffsetArm_R|bedroom1:anim_ready_Emily:PoleExtraArm_R|bedroom1:anim_ready_Emily:PoleArm_R" 
 		"translate" " -type \"double3\" 0.15806831753655887 -0.25287058632797854 1.16089280037769504"
 		
@@ -4972,7 +5006,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups[10].objectGrpColor" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.036658388303441203 0.10955298926771352 -0.0023926776972446784"
+		"translate" " -type \"double3\" 0.036658388303441203 0.10682181214810731 -0.0023926776972446784"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
 		"translateX" " -av"
@@ -4998,7 +5032,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.021161802708552092 0.098165326364830247 -0.019601276837253535"
+		"translate" " -type \"double3\" -0.021161802708552092 0.11664488736722685 -0.019601276837253535"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
 		"translateX" " -av"
@@ -5127,7 +5161,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
-		"translate" " -type \"double3\" -0.0065625307658374382 0.010848786699875514 0.001441715449958356"
+		"translate" " -type \"double3\" -0.0065625307658374382 0.02155341737908565 0.001441715449958356"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
 		"translateX" " -av"
@@ -5315,7 +5349,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
-		"translate" " -type \"double3\" 0.049246388469228929 -0.01066688838822105 0.0053649017679892339"
+		"translate" " -type \"double3\" 0.049246388469228929 -0.0080933527793232655 0.0053649017679892339"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"translateX" " -av"
@@ -5332,7 +5366,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
-		"translate" " -type \"double3\" -0.022344212303620652 -0.028101539043765049 -0.0087345412497338275"
+		"translate" " -type \"double3\" -0.022344212303620652 -0.025108319238275688 -0.0087345412497338275"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
 		"translateX" " -av"
@@ -5358,7 +5392,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
-		"rotate" " -type \"double3\" -53.6351835837770281 64.61196165637305455 2.5044780846511541e-06"
+		"rotate" " -type \"double3\" -53.63518358377697126 64.61196165637308297 2.5044781439972635e-06"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
@@ -5366,6 +5400,10 @@ createNode reference -n "bedroom1RN";
 		"rotateY" " -av -k 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"rotateZ" " -av -k 0"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:SquashControls|bedroom1:anim_ready_Emily:squashBase_M|bedroom1:anim_ready_Emily:squashTopOffset|bedroom1:anim_ready_Emily:squashTop_M" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:SquashControls|bedroom1:anim_ready_Emily:squashBase_M|bedroom1:anim_ready_Emily:squashTopOffset|bedroom1:anim_ready_Emily:squashTop_M" 
+		"translateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxBrow_R|bedroom1:anim_ready_Emily:ctrlBrow_R" 
 		"translateX" " -av 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxBrow_R|bedroom1:anim_ready_Emily:ctrlBrow_R" 
@@ -5403,7 +5441,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_L|bedroom1:anim_ready_Emily:ctrlMouthCorner_L" 
 		"translateY" " -av -0.0770232"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
-		"rotate" " -type \"double3\" 0 0 -1.08410388857621043"
+		"rotate" " -type \"double3\" 0 0 -2.24479136111633215"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
@@ -5411,10 +5449,10 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 1.97621892153016887 2.49792374546923002 -4.29302222217709772"
+		"translate" " -type \"double3\" 1.97621892153016931 2.49792374546923002 -4.29302222217709684"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 138.22662303595313915 76.48730600035170824 100.69134431509887406"
+		"rotate" " -type \"double3\" 138.22662303595308231 76.48730600035170824 100.69134431509894512"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2" 
 		"visibility" " 1"
@@ -5739,7 +5777,7 @@ createNode reference -n "bedroom1RN";
 		0
 		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 8
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
-		"translate" " -type \"double3\" 1.91555728491843813 -0.33448806949518195 -3.64833202426456138"
+		"translate" " -type \"double3\" 1.91555728491843813 -0.33448806949518151 -3.64833202426456049"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translateX" " -av"
@@ -5878,11 +5916,11 @@ createNode reference -n "bedroom1RN";
 		3 "|bedroom1:ForestImage|bedroom1:ForestImageShape.instObjGroups" "bedroom1:RMSGPSurface1SG.dagSetMembers" 
 		"-na"
 		5 3 "bedroom1RN" "|bedroom1:LightRig|bedroom1:RMSEnvLight1.instObjGroups" 
-		"bedroom1RN.placeHolderList[159]" ""
+		"bedroom1RN.placeHolderList[158]" ""
 		5 3 "bedroom1RN" "|bedroom1:LightRig|bedroom1:MoonLight.instObjGroups" 
-		"bedroom1RN.placeHolderList[160]" ""
+		"bedroom1RN.placeHolderList[159]" ""
 		5 0 "bedroom1RN" "|bedroom1:ForestImage|bedroom1:ForestImageShape.instObjGroups" 
-		"bedroom1:RMSGPSurface1SG.dagSetMembers" "bedroom1RN.placeHolderList[161]" "bedroom1RN.placeHolderList[162]" 
+		"bedroom1:RMSGPSurface1SG.dagSetMembers" "bedroom1RN.placeHolderList[160]" "bedroom1RN.placeHolderList[161]" 
 		"bedroom1:RMSGPSurface1SG.dsm"
 		7 "ignore" ":lightLinker1" 2 "|bedroom1:ForestImage|bedroom1:ForestImageShape.message" "|bedroom1:LightRig|bedroom1:RMSEnvLight1|bedroom1:RMSEnvLightShape1.message" 
 		0
@@ -13540,6 +13578,9 @@ createNode RenderMan -n "rmanPreviewChannel9";
 	setAttr ".rman__torattr___class" -type "string" "Cs";
 	setAttr ".rman__torattr___task" -type "string" "displaychannel";
 	setAttr ".rman__riopt__DisplayChannel_name" -type "string" "color GroupedSpecular_BlueLightSet";
+createNode reference -n "sharedReferenceNode";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"sharedReferenceNode";
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -13653,10 +13694,11 @@ select -ne :defaultRenderGlobals;
 	setAttr -k on ".outf";
 	setAttr -k on ".gama";
 	setAttr ".an" yes;
-	setAttr ".fs" -50;
+	setAttr ".fs" 32;
 	setAttr ".ef" 125;
 	setAttr -av -k on ".bfs";
 	setAttr -k on ".be";
+	setAttr ".ep" 3;
 	setAttr -k on ".fec";
 	setAttr -k on ".ofc";
 	setAttr ".pff" yes;
@@ -13698,6 +13740,8 @@ select -ne :defaultResolution;
 	setAttr -k on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -k on ".bnm";
+	setAttr ".w" 1920;
+	setAttr ".h" 1080;
 	setAttr -av ".pa" 1;
 	setAttr -av -k on ".al";
 	setAttr -av ".dar" 1.7769999504089355;
@@ -13818,171 +13862,170 @@ connectAttr "BedsheetMesh_scaleY.o" "bedroom1RN.phl[10]";
 connectAttr "BedsheetMesh_scaleZ.o" "bedroom1RN.phl[11]";
 connectAttr "outputCloth2_rman__torattr___subdivScheme.o" "bedroom1RN.phl[12]";
 connectAttr "Bedsheet_nucleus1_currentTime.o" "bedroom1RN.phl[13]";
-connectAttr "Bedsheet_nucleus1_startFrame.o" "bedroom1RN.phl[14]";
-connectAttr "Bedsheet_nucleus1_visibility.o" "bedroom1RN.phl[15]";
-connectAttr "Bedsheet_nucleus1_translateX.o" "bedroom1RN.phl[16]";
-connectAttr "Bedsheet_nucleus1_translateY.o" "bedroom1RN.phl[17]";
-connectAttr "Bedsheet_nucleus1_translateZ.o" "bedroom1RN.phl[18]";
-connectAttr "Bedsheet_nucleus1_rotateX.o" "bedroom1RN.phl[19]";
-connectAttr "Bedsheet_nucleus1_rotateY.o" "bedroom1RN.phl[20]";
-connectAttr "Bedsheet_nucleus1_rotateZ.o" "bedroom1RN.phl[21]";
-connectAttr "Bedsheet_nucleus1_scaleX.o" "bedroom1RN.phl[22]";
-connectAttr "Bedsheet_nucleus1_scaleY.o" "bedroom1RN.phl[23]";
-connectAttr "Bedsheet_nucleus1_scaleZ.o" "bedroom1RN.phl[24]";
-connectAttr "Bedsheet_nucleus1_frameJumpLimit.o" "bedroom1RN.phl[25]";
-connectAttr "Bedsheet_nucleus1_enable.o" "bedroom1RN.phl[26]";
-connectAttr "Bedsheet_nucleus1_useTransform.o" "bedroom1RN.phl[27]";
-connectAttr "Bedsheet_nucleus1_gravity.o" "bedroom1RN.phl[28]";
-connectAttr "Bedsheet_nucleus1_gravityDirectionX.o" "bedroom1RN.phl[29]";
-connectAttr "Bedsheet_nucleus1_gravityDirectionY.o" "bedroom1RN.phl[30]";
-connectAttr "Bedsheet_nucleus1_gravityDirectionZ.o" "bedroom1RN.phl[31]";
-connectAttr "Bedsheet_nucleus1_airDensity.o" "bedroom1RN.phl[32]";
-connectAttr "Bedsheet_nucleus1_windSpeed.o" "bedroom1RN.phl[33]";
-connectAttr "Bedsheet_nucleus1_windDirectionX.o" "bedroom1RN.phl[34]";
-connectAttr "Bedsheet_nucleus1_windDirectionY.o" "bedroom1RN.phl[35]";
-connectAttr "Bedsheet_nucleus1_windDirectionZ.o" "bedroom1RN.phl[36]";
-connectAttr "Bedsheet_nucleus1_windNoise.o" "bedroom1RN.phl[37]";
-connectAttr "Bedsheet_nucleus1_collisionLayerRange.o" "bedroom1RN.phl[38]";
-connectAttr "Bedsheet_nucleus1_collisionSoftness.o" "bedroom1RN.phl[39]";
-connectAttr "Bedsheet_nucleus1_usePlane.o" "bedroom1RN.phl[40]";
-connectAttr "Bedsheet_nucleus1_planeOriginX.o" "bedroom1RN.phl[41]";
-connectAttr "Bedsheet_nucleus1_planeOriginY.o" "bedroom1RN.phl[42]";
-connectAttr "Bedsheet_nucleus1_planeOriginZ.o" "bedroom1RN.phl[43]";
-connectAttr "Bedsheet_nucleus1_planeNormalX.o" "bedroom1RN.phl[44]";
-connectAttr "Bedsheet_nucleus1_planeNormalY.o" "bedroom1RN.phl[45]";
-connectAttr "Bedsheet_nucleus1_planeNormalZ.o" "bedroom1RN.phl[46]";
-connectAttr "Bedsheet_nucleus1_planeBounce.o" "bedroom1RN.phl[47]";
-connectAttr "Bedsheet_nucleus1_planeFriction.o" "bedroom1RN.phl[48]";
-connectAttr "Bedsheet_nucleus1_planeStickiness.o" "bedroom1RN.phl[49]";
-connectAttr "Bedsheet_nucleus1_subSteps.o" "bedroom1RN.phl[50]";
-connectAttr "Bedsheet_nucleus1_maxCollisionIterations.o" "bedroom1RN.phl[51]";
-connectAttr "Bedsheet_nucleus1_timeScale.o" "bedroom1RN.phl[52]";
-connectAttr "Bedsheet_nucleus1_spaceScale.o" "bedroom1RN.phl[53]";
-connectAttr "Bedsheet_nCloth_visibility.o" "bedroom1RN.phl[54]";
-connectAttr "Bedsheet_nClothShape_lifespan.o" "bedroom1RN.phl[55]";
-connectAttr "Bedsheet_nClothShape_currentTime.o" "bedroom1RN.phl[56]";
-connectAttr "Bedsheet_nClothShape_isDynamic.o" "bedroom1RN.phl[57]";
-connectAttr "Bedsheet_nClothShape_playFromCache.o" "bedroom1RN.phl[58]";
-connectAttr "Bedsheet_nClothShape_thickness.o" "bedroom1RN.phl[59]";
-connectAttr "Bedsheet_nClothShape_bounce.o" "bedroom1RN.phl[60]";
-connectAttr "Bedsheet_nClothShape_friction.o" "bedroom1RN.phl[61]";
-connectAttr "Bedsheet_nClothShape_damp.o" "bedroom1RN.phl[62]";
-connectAttr "Bedsheet_nClothShape_stickiness.o" "bedroom1RN.phl[63]";
-connectAttr "Bedsheet_nClothShape_collideStrength.o" "bedroom1RN.phl[64]";
-connectAttr "Bedsheet_nClothShape_collisionFlag.o" "bedroom1RN.phl[65]";
-connectAttr "Bedsheet_nClothShape_selfCollisionFlag.o" "bedroom1RN.phl[66]";
-connectAttr "Bedsheet_nClothShape_maxSelfCollisionIterations.o" "bedroom1RN.phl[67]"
+connectAttr "Bedsheet_nucleus1_visibility.o" "bedroom1RN.phl[14]";
+connectAttr "Bedsheet_nucleus1_translateX.o" "bedroom1RN.phl[15]";
+connectAttr "Bedsheet_nucleus1_translateY.o" "bedroom1RN.phl[16]";
+connectAttr "Bedsheet_nucleus1_translateZ.o" "bedroom1RN.phl[17]";
+connectAttr "Bedsheet_nucleus1_rotateX.o" "bedroom1RN.phl[18]";
+connectAttr "Bedsheet_nucleus1_rotateY.o" "bedroom1RN.phl[19]";
+connectAttr "Bedsheet_nucleus1_rotateZ.o" "bedroom1RN.phl[20]";
+connectAttr "Bedsheet_nucleus1_scaleX.o" "bedroom1RN.phl[21]";
+connectAttr "Bedsheet_nucleus1_scaleY.o" "bedroom1RN.phl[22]";
+connectAttr "Bedsheet_nucleus1_scaleZ.o" "bedroom1RN.phl[23]";
+connectAttr "Bedsheet_nucleus1_frameJumpLimit.o" "bedroom1RN.phl[24]";
+connectAttr "Bedsheet_nucleus1_enable.o" "bedroom1RN.phl[25]";
+connectAttr "Bedsheet_nucleus1_useTransform.o" "bedroom1RN.phl[26]";
+connectAttr "Bedsheet_nucleus1_gravity.o" "bedroom1RN.phl[27]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionX.o" "bedroom1RN.phl[28]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionY.o" "bedroom1RN.phl[29]";
+connectAttr "Bedsheet_nucleus1_gravityDirectionZ.o" "bedroom1RN.phl[30]";
+connectAttr "Bedsheet_nucleus1_airDensity.o" "bedroom1RN.phl[31]";
+connectAttr "Bedsheet_nucleus1_windSpeed.o" "bedroom1RN.phl[32]";
+connectAttr "Bedsheet_nucleus1_windDirectionX.o" "bedroom1RN.phl[33]";
+connectAttr "Bedsheet_nucleus1_windDirectionY.o" "bedroom1RN.phl[34]";
+connectAttr "Bedsheet_nucleus1_windDirectionZ.o" "bedroom1RN.phl[35]";
+connectAttr "Bedsheet_nucleus1_windNoise.o" "bedroom1RN.phl[36]";
+connectAttr "Bedsheet_nucleus1_collisionLayerRange.o" "bedroom1RN.phl[37]";
+connectAttr "Bedsheet_nucleus1_collisionSoftness.o" "bedroom1RN.phl[38]";
+connectAttr "Bedsheet_nucleus1_usePlane.o" "bedroom1RN.phl[39]";
+connectAttr "Bedsheet_nucleus1_planeOriginX.o" "bedroom1RN.phl[40]";
+connectAttr "Bedsheet_nucleus1_planeOriginY.o" "bedroom1RN.phl[41]";
+connectAttr "Bedsheet_nucleus1_planeOriginZ.o" "bedroom1RN.phl[42]";
+connectAttr "Bedsheet_nucleus1_planeNormalX.o" "bedroom1RN.phl[43]";
+connectAttr "Bedsheet_nucleus1_planeNormalY.o" "bedroom1RN.phl[44]";
+connectAttr "Bedsheet_nucleus1_planeNormalZ.o" "bedroom1RN.phl[45]";
+connectAttr "Bedsheet_nucleus1_planeBounce.o" "bedroom1RN.phl[46]";
+connectAttr "Bedsheet_nucleus1_planeFriction.o" "bedroom1RN.phl[47]";
+connectAttr "Bedsheet_nucleus1_planeStickiness.o" "bedroom1RN.phl[48]";
+connectAttr "Bedsheet_nucleus1_subSteps.o" "bedroom1RN.phl[49]";
+connectAttr "Bedsheet_nucleus1_maxCollisionIterations.o" "bedroom1RN.phl[50]";
+connectAttr "Bedsheet_nucleus1_timeScale.o" "bedroom1RN.phl[51]";
+connectAttr "Bedsheet_nucleus1_spaceScale.o" "bedroom1RN.phl[52]";
+connectAttr "Bedsheet_nCloth_visibility.o" "bedroom1RN.phl[53]";
+connectAttr "Bedsheet_nClothShape_lifespan.o" "bedroom1RN.phl[54]";
+connectAttr "Bedsheet_nClothShape_currentTime.o" "bedroom1RN.phl[55]";
+connectAttr "Bedsheet_nClothShape_isDynamic.o" "bedroom1RN.phl[56]";
+connectAttr "Bedsheet_nClothShape_playFromCache.o" "bedroom1RN.phl[57]";
+connectAttr "Bedsheet_nClothShape_thickness.o" "bedroom1RN.phl[58]";
+connectAttr "Bedsheet_nClothShape_bounce.o" "bedroom1RN.phl[59]";
+connectAttr "Bedsheet_nClothShape_friction.o" "bedroom1RN.phl[60]";
+connectAttr "Bedsheet_nClothShape_damp.o" "bedroom1RN.phl[61]";
+connectAttr "Bedsheet_nClothShape_stickiness.o" "bedroom1RN.phl[62]";
+connectAttr "Bedsheet_nClothShape_collideStrength.o" "bedroom1RN.phl[63]";
+connectAttr "Bedsheet_nClothShape_collisionFlag.o" "bedroom1RN.phl[64]";
+connectAttr "Bedsheet_nClothShape_selfCollisionFlag.o" "bedroom1RN.phl[65]";
+connectAttr "Bedsheet_nClothShape_maxSelfCollisionIterations.o" "bedroom1RN.phl[66]"
 		;
-connectAttr "Bedsheet_nClothShape_maxIterations.o" "bedroom1RN.phl[68]";
-connectAttr "Bedsheet_nClothShape_pointMass.o" "bedroom1RN.phl[69]";
-connectAttr "Bedsheet_nClothShape_restLengthScale.o" "bedroom1RN.phl[70]";
-connectAttr "Bedsheet_nClothShape_localForceX.o" "bedroom1RN.phl[71]";
-connectAttr "Bedsheet_nClothShape_localForceY.o" "bedroom1RN.phl[72]";
-connectAttr "Bedsheet_nClothShape_localForceZ.o" "bedroom1RN.phl[73]";
-connectAttr "Bedsheet_nClothShape_localWindX.o" "bedroom1RN.phl[74]";
-connectAttr "Bedsheet_nClothShape_localWindY.o" "bedroom1RN.phl[75]";
-connectAttr "Bedsheet_nClothShape_localWindZ.o" "bedroom1RN.phl[76]";
-connectAttr "Bedsheet_nClothShape_collide.o" "bedroom1RN.phl[77]";
-connectAttr "Bedsheet_nClothShape_selfCollide.o" "bedroom1RN.phl[78]";
-connectAttr "Bedsheet_nClothShape_collisionLayer.o" "bedroom1RN.phl[79]";
-connectAttr "Bedsheet_nClothShape_windShadowDiffusion.o" "bedroom1RN.phl[80]";
-connectAttr "Bedsheet_nClothShape_windShadowDistance.o" "bedroom1RN.phl[81]";
-connectAttr "Bedsheet_nClothShape_airPushDistance.o" "bedroom1RN.phl[82]";
-connectAttr "Bedsheet_nClothShape_airPushVorticity.o" "bedroom1RN.phl[83]";
-connectAttr "Bedsheet_nClothShape_pushOut.o" "bedroom1RN.phl[84]";
-connectAttr "Bedsheet_nClothShape_pushOutRadius.o" "bedroom1RN.phl[85]";
-connectAttr "Bedsheet_nClothShape_crossoverPush.o" "bedroom1RN.phl[86]";
-connectAttr "Bedsheet_nClothShape_trappedCheck.o" "bedroom1RN.phl[87]";
-connectAttr "Bedsheet_nClothShape_forceField.o" "bedroom1RN.phl[88]";
-connectAttr "Bedsheet_nClothShape_fieldMagnitude.o" "bedroom1RN.phl[89]";
-connectAttr "Bedsheet_nClothShape_fieldDistance.o" "bedroom1RN.phl[90]";
-connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Position.o" "bedroom1RN.phl[91]"
+connectAttr "Bedsheet_nClothShape_maxIterations.o" "bedroom1RN.phl[67]";
+connectAttr "Bedsheet_nClothShape_pointMass.o" "bedroom1RN.phl[68]";
+connectAttr "Bedsheet_nClothShape_restLengthScale.o" "bedroom1RN.phl[69]";
+connectAttr "Bedsheet_nClothShape_localForceX.o" "bedroom1RN.phl[70]";
+connectAttr "Bedsheet_nClothShape_localForceY.o" "bedroom1RN.phl[71]";
+connectAttr "Bedsheet_nClothShape_localForceZ.o" "bedroom1RN.phl[72]";
+connectAttr "Bedsheet_nClothShape_localWindX.o" "bedroom1RN.phl[73]";
+connectAttr "Bedsheet_nClothShape_localWindY.o" "bedroom1RN.phl[74]";
+connectAttr "Bedsheet_nClothShape_localWindZ.o" "bedroom1RN.phl[75]";
+connectAttr "Bedsheet_nClothShape_collide.o" "bedroom1RN.phl[76]";
+connectAttr "Bedsheet_nClothShape_selfCollide.o" "bedroom1RN.phl[77]";
+connectAttr "Bedsheet_nClothShape_collisionLayer.o" "bedroom1RN.phl[78]";
+connectAttr "Bedsheet_nClothShape_windShadowDiffusion.o" "bedroom1RN.phl[79]";
+connectAttr "Bedsheet_nClothShape_windShadowDistance.o" "bedroom1RN.phl[80]";
+connectAttr "Bedsheet_nClothShape_airPushDistance.o" "bedroom1RN.phl[81]";
+connectAttr "Bedsheet_nClothShape_airPushVorticity.o" "bedroom1RN.phl[82]";
+connectAttr "Bedsheet_nClothShape_pushOut.o" "bedroom1RN.phl[83]";
+connectAttr "Bedsheet_nClothShape_pushOutRadius.o" "bedroom1RN.phl[84]";
+connectAttr "Bedsheet_nClothShape_crossoverPush.o" "bedroom1RN.phl[85]";
+connectAttr "Bedsheet_nClothShape_trappedCheck.o" "bedroom1RN.phl[86]";
+connectAttr "Bedsheet_nClothShape_forceField.o" "bedroom1RN.phl[87]";
+connectAttr "Bedsheet_nClothShape_fieldMagnitude.o" "bedroom1RN.phl[88]";
+connectAttr "Bedsheet_nClothShape_fieldDistance.o" "bedroom1RN.phl[89]";
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Position.o" "bedroom1RN.phl[90]"
 		;
-connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_FloatValue.o" "bedroom1RN.phl[92]"
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_FloatValue.o" "bedroom1RN.phl[91]"
 		;
-connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Interp.o" "bedroom1RN.phl[93]"
+connectAttr "Bedsheet_nClothShape_fieldScale_0__fieldScale_Interp.o" "bedroom1RN.phl[92]"
 		;
-connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Position.o" "bedroom1RN.phl[94]"
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Position.o" "bedroom1RN.phl[93]"
 		;
-connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_FloatValue.o" "bedroom1RN.phl[95]"
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_FloatValue.o" "bedroom1RN.phl[94]"
 		;
-connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Interp.o" "bedroom1RN.phl[96]"
+connectAttr "Bedsheet_nClothShape_fieldScale_1__fieldScale_Interp.o" "bedroom1RN.phl[95]"
 		;
-connectAttr "Bedsheet_nClothShape_pointForceField.o" "bedroom1RN.phl[97]";
-connectAttr "Bedsheet_nClothShape_pointFieldMagnitude.o" "bedroom1RN.phl[98]";
-connectAttr "Bedsheet_nClothShape_selfAttract.o" "bedroom1RN.phl[99]";
-connectAttr "Bedsheet_nClothShape_pointFieldDistance.o" "bedroom1RN.phl[100]";
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Position.o" "bedroom1RN.phl[101]"
+connectAttr "Bedsheet_nClothShape_pointForceField.o" "bedroom1RN.phl[96]";
+connectAttr "Bedsheet_nClothShape_pointFieldMagnitude.o" "bedroom1RN.phl[97]";
+connectAttr "Bedsheet_nClothShape_selfAttract.o" "bedroom1RN.phl[98]";
+connectAttr "Bedsheet_nClothShape_pointFieldDistance.o" "bedroom1RN.phl[99]";
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Position.o" "bedroom1RN.phl[100]"
 		;
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[102]"
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[101]"
 		;
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Interp.o" "bedroom1RN.phl[103]"
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_0__pointFieldDropoff_Interp.o" "bedroom1RN.phl[102]"
 		;
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Position.o" "bedroom1RN.phl[104]"
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Position.o" "bedroom1RN.phl[103]"
 		;
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[105]"
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_FloatValue.o" "bedroom1RN.phl[104]"
 		;
-connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Interp.o" "bedroom1RN.phl[106]"
+connectAttr "Bedsheet_nClothShape_pointFieldDropoff_1__pointFieldDropoff_Interp.o" "bedroom1RN.phl[105]"
 		;
-connectAttr "Bedsheet_nClothShape_localSpaceOutput.o" "bedroom1RN.phl[107]";
-connectAttr "Bedsheet_nClothShape_displayColorR.o" "bedroom1RN.phl[108]";
-connectAttr "Bedsheet_nClothShape_displayColorG.o" "bedroom1RN.phl[109]";
-connectAttr "Bedsheet_nClothShape_displayColorB.o" "bedroom1RN.phl[110]";
-connectAttr "Bedsheet_nClothShape_stretchResistance.o" "bedroom1RN.phl[111]";
-connectAttr "Bedsheet_nClothShape_compressionResistance.o" "bedroom1RN.phl[112]"
+connectAttr "Bedsheet_nClothShape_localSpaceOutput.o" "bedroom1RN.phl[106]";
+connectAttr "Bedsheet_nClothShape_displayColorR.o" "bedroom1RN.phl[107]";
+connectAttr "Bedsheet_nClothShape_displayColorG.o" "bedroom1RN.phl[108]";
+connectAttr "Bedsheet_nClothShape_displayColorB.o" "bedroom1RN.phl[109]";
+connectAttr "Bedsheet_nClothShape_stretchResistance.o" "bedroom1RN.phl[110]";
+connectAttr "Bedsheet_nClothShape_compressionResistance.o" "bedroom1RN.phl[111]"
 		;
-connectAttr "Bedsheet_nClothShape_bendResistance.o" "bedroom1RN.phl[113]";
-connectAttr "Bedsheet_nClothShape_bendAngleDropoff.o" "bedroom1RN.phl[114]";
-connectAttr "Bedsheet_nClothShape_restitutionTension.o" "bedroom1RN.phl[115]";
-connectAttr "Bedsheet_nClothShape_restitutionAngle.o" "bedroom1RN.phl[116]";
-connectAttr "Bedsheet_nClothShape_shearResistance.o" "bedroom1RN.phl[117]";
-connectAttr "Bedsheet_nClothShape_rigidity.o" "bedroom1RN.phl[118]";
-connectAttr "Bedsheet_nClothShape_deformResistance.o" "bedroom1RN.phl[119]";
-connectAttr "Bedsheet_nClothShape_inputMeshAttract.o" "bedroom1RN.phl[120]";
-connectAttr "Bedsheet_nClothShape_collideLastThreshold.o" "bedroom1RN.phl[121]";
-connectAttr "Bedsheet_nClothShape_inputAttractDamp.o" "bedroom1RN.phl[122]";
-connectAttr "Bedsheet_nClothShape_inputMotionDrag.o" "bedroom1RN.phl[123]";
-connectAttr "Bedsheet_nClothShape_wrinkleMapScale.o" "bedroom1RN.phl[124]";
-connectAttr "Bedsheet_nClothShape_bendAngleScale.o" "bedroom1RN.phl[125]";
-connectAttr "Bedsheet_nClothShape_sortLinks.o" "bedroom1RN.phl[126]";
-connectAttr "Bedsheet_nClothShape_addCrossLinks.o" "bedroom1RN.phl[127]";
-connectAttr "Bedsheet_nClothShape_stretchDamp.o" "bedroom1RN.phl[128]";
-connectAttr "Bedsheet_nClothShape_minimalStretch.o" "bedroom1RN.phl[129]";
-connectAttr "Bedsheet_nClothShape_minimalBend.o" "bedroom1RN.phl[130]";
-connectAttr "Bedsheet_nClothShape_minimalShear.o" "bedroom1RN.phl[131]";
-connectAttr "Bedsheet_nClothShape_selfCollideWidthScale.o" "bedroom1RN.phl[132]"
+connectAttr "Bedsheet_nClothShape_bendResistance.o" "bedroom1RN.phl[112]";
+connectAttr "Bedsheet_nClothShape_bendAngleDropoff.o" "bedroom1RN.phl[113]";
+connectAttr "Bedsheet_nClothShape_restitutionTension.o" "bedroom1RN.phl[114]";
+connectAttr "Bedsheet_nClothShape_restitutionAngle.o" "bedroom1RN.phl[115]";
+connectAttr "Bedsheet_nClothShape_shearResistance.o" "bedroom1RN.phl[116]";
+connectAttr "Bedsheet_nClothShape_rigidity.o" "bedroom1RN.phl[117]";
+connectAttr "Bedsheet_nClothShape_deformResistance.o" "bedroom1RN.phl[118]";
+connectAttr "Bedsheet_nClothShape_inputMeshAttract.o" "bedroom1RN.phl[119]";
+connectAttr "Bedsheet_nClothShape_collideLastThreshold.o" "bedroom1RN.phl[120]";
+connectAttr "Bedsheet_nClothShape_inputAttractDamp.o" "bedroom1RN.phl[121]";
+connectAttr "Bedsheet_nClothShape_inputMotionDrag.o" "bedroom1RN.phl[122]";
+connectAttr "Bedsheet_nClothShape_wrinkleMapScale.o" "bedroom1RN.phl[123]";
+connectAttr "Bedsheet_nClothShape_bendAngleScale.o" "bedroom1RN.phl[124]";
+connectAttr "Bedsheet_nClothShape_sortLinks.o" "bedroom1RN.phl[125]";
+connectAttr "Bedsheet_nClothShape_addCrossLinks.o" "bedroom1RN.phl[126]";
+connectAttr "Bedsheet_nClothShape_stretchDamp.o" "bedroom1RN.phl[127]";
+connectAttr "Bedsheet_nClothShape_minimalStretch.o" "bedroom1RN.phl[128]";
+connectAttr "Bedsheet_nClothShape_minimalBend.o" "bedroom1RN.phl[129]";
+connectAttr "Bedsheet_nClothShape_minimalShear.o" "bedroom1RN.phl[130]";
+connectAttr "Bedsheet_nClothShape_selfCollideWidthScale.o" "bedroom1RN.phl[131]"
 		;
-connectAttr "Bedsheet_nClothShape_selfCollisionSoftness.o" "bedroom1RN.phl[133]"
+connectAttr "Bedsheet_nClothShape_selfCollisionSoftness.o" "bedroom1RN.phl[132]"
 		;
-connectAttr "Bedsheet_nClothShape_selfCrossoverPush.o" "bedroom1RN.phl[134]";
-connectAttr "Bedsheet_nClothShape_selfTrappedCheck.o" "bedroom1RN.phl[135]";
-connectAttr "Bedsheet_nClothShape_pressure.o" "bedroom1RN.phl[136]";
-connectAttr "Bedsheet_nClothShape_startPressure.o" "bedroom1RN.phl[137]";
-connectAttr "Bedsheet_nClothShape_incompressibility.o" "bedroom1RN.phl[138]";
-connectAttr "Bedsheet_nClothShape_pressureDamping.o" "bedroom1RN.phl[139]";
-connectAttr "Bedsheet_nClothShape_pumpRate.o" "bedroom1RN.phl[140]";
-connectAttr "Bedsheet_nClothShape_airTightness.o" "bedroom1RN.phl[141]";
-connectAttr "Bedsheet_nClothShape_sealHoles.o" "bedroom1RN.phl[142]";
-connectAttr "Bedsheet_nClothShape_ignoreSolverGravity.o" "bedroom1RN.phl[143]";
-connectAttr "Bedsheet_nClothShape_ignoreSolverWind.o" "bedroom1RN.phl[144]";
-connectAttr "Bedsheet_nClothShape_windSelfShadow.o" "bedroom1RN.phl[145]";
-connectAttr "Bedsheet_nClothShape_lift.o" "bedroom1RN.phl[146]";
-connectAttr "Bedsheet_nClothShape_drag.o" "bedroom1RN.phl[147]";
-connectAttr "Bedsheet_nClothShape_tangentialDrag.o" "bedroom1RN.phl[148]";
-connectAttr "textureDeformerHandle1_visibility.o" "bedroom1RN.phl[149]";
-connectAttr "textureDeformerHandle1_translateX.o" "bedroom1RN.phl[150]";
-connectAttr "textureDeformerHandle1_translateY.o" "bedroom1RN.phl[151]";
-connectAttr "textureDeformerHandle1_translateZ.o" "bedroom1RN.phl[152]";
-connectAttr "textureDeformerHandle1_rotateX.o" "bedroom1RN.phl[153]";
-connectAttr "textureDeformerHandle1_rotateY.o" "bedroom1RN.phl[154]";
-connectAttr "textureDeformerHandle1_rotateZ.o" "bedroom1RN.phl[155]";
-connectAttr "textureDeformerHandle1_scaleX.o" "bedroom1RN.phl[156]";
-connectAttr "textureDeformerHandle1_scaleY.o" "bedroom1RN.phl[157]";
-connectAttr "textureDeformerHandle1_scaleZ.o" "bedroom1RN.phl[158]";
+connectAttr "Bedsheet_nClothShape_selfCrossoverPush.o" "bedroom1RN.phl[133]";
+connectAttr "Bedsheet_nClothShape_selfTrappedCheck.o" "bedroom1RN.phl[134]";
+connectAttr "Bedsheet_nClothShape_pressure.o" "bedroom1RN.phl[135]";
+connectAttr "Bedsheet_nClothShape_startPressure.o" "bedroom1RN.phl[136]";
+connectAttr "Bedsheet_nClothShape_incompressibility.o" "bedroom1RN.phl[137]";
+connectAttr "Bedsheet_nClothShape_pressureDamping.o" "bedroom1RN.phl[138]";
+connectAttr "Bedsheet_nClothShape_pumpRate.o" "bedroom1RN.phl[139]";
+connectAttr "Bedsheet_nClothShape_airTightness.o" "bedroom1RN.phl[140]";
+connectAttr "Bedsheet_nClothShape_sealHoles.o" "bedroom1RN.phl[141]";
+connectAttr "Bedsheet_nClothShape_ignoreSolverGravity.o" "bedroom1RN.phl[142]";
+connectAttr "Bedsheet_nClothShape_ignoreSolverWind.o" "bedroom1RN.phl[143]";
+connectAttr "Bedsheet_nClothShape_windSelfShadow.o" "bedroom1RN.phl[144]";
+connectAttr "Bedsheet_nClothShape_lift.o" "bedroom1RN.phl[145]";
+connectAttr "Bedsheet_nClothShape_drag.o" "bedroom1RN.phl[146]";
+connectAttr "Bedsheet_nClothShape_tangentialDrag.o" "bedroom1RN.phl[147]";
+connectAttr "textureDeformerHandle1_visibility.o" "bedroom1RN.phl[148]";
+connectAttr "textureDeformerHandle1_translateX.o" "bedroom1RN.phl[149]";
+connectAttr "textureDeformerHandle1_translateY.o" "bedroom1RN.phl[150]";
+connectAttr "textureDeformerHandle1_translateZ.o" "bedroom1RN.phl[151]";
+connectAttr "textureDeformerHandle1_rotateX.o" "bedroom1RN.phl[152]";
+connectAttr "textureDeformerHandle1_rotateY.o" "bedroom1RN.phl[153]";
+connectAttr "textureDeformerHandle1_rotateZ.o" "bedroom1RN.phl[154]";
+connectAttr "textureDeformerHandle1_scaleX.o" "bedroom1RN.phl[155]";
+connectAttr "textureDeformerHandle1_scaleY.o" "bedroom1RN.phl[156]";
+connectAttr "textureDeformerHandle1_scaleZ.o" "bedroom1RN.phl[157]";
 connectAttr "bedroom1RN.phl[1]" "RMSGPSurface1SG.dsm" -na;
-connectAttr "bedroom1RN.phl[159]" "BlueLightSet.dsm" -na;
-connectAttr "bedroom1RN.phl[160]" "MoonLightSet.dsm" -na;
-connectAttr "bedroom1RN.phl[161]" "bedroom1RN.phl[162]";
+connectAttr "bedroom1RN.phl[158]" "BlueLightSet.dsm" -na;
+connectAttr "bedroom1RN.phl[159]" "MoonLightSet.dsm" -na;
+connectAttr "bedroom1RN.phl[160]" "bedroom1RN.phl[161]";
 connectAttr ":rmanFinalGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanPreviewGlobals.msg" ":renderManRISGlobals.p" -na;
 connectAttr ":rmanRerenderGlobals.msg" ":renderManRISGlobals.p" -na;
@@ -14172,6 +14215,7 @@ connectAttr ":rmanSBPtRenderGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":rmanSBRenderGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":rmanSBMakePtexGlobals.msg" ":renderManGlobals.p" -na;
 connectAttr ":defaultRenderGlobals.msg" "mtorPartition.rgcnx";
+connectAttr "sharedReferenceNode.sr" "bedroom1RN.sr";
 connectAttr "EmilyRimLightTrs.iog" "EmilyRimLightSet.dsm" -na;
 connectAttr "EmilyFillLightTrs.iog" "EmilyRimLightSet.dsm" -na;
 connectAttr "EmilySkinStandin.oc" "RMSGPSurface1SG.ss";
