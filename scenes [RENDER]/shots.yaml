@@ -76,6 +76,8 @@
   startFrame : 0
   endFrame   : 110
 
+# there's a 20 frame overlap between the crossfades
+
 - name       : "Crossfade Part 2"
   file       : "crossfade part2.ma"
   camera     : 'bedroom2:camera1'
