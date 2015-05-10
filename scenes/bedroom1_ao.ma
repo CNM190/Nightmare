@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: bedroom1_ao.ma
-//Last modified: Sun, May 10, 2015 02:46:37 PM
+//Last modified: Sun, May 10, 2015 03:10:54 PM
 //Codeset: UTF-8
 file -rdi 1 -ns "bedroom1" -rfn "bedroom1RN" -op "v=0;" "/home/tmp/cs198-re/Nightmare//scenes/bedroom1.ma";
 file -rdi 2 -ns "anim_ready_Emily" -rfn "bedroom1:anim_ready_EmilyRN" "/Users/oliver/Documents/maya/projects/Nightmare//assets/chars/Emily.ma";
@@ -807,7 +807,7 @@ createNode RenderMan -s -n "rmanFinalGlobals";
 	addAttr -ci true -h true -sn "rman__riopt__photon_lifetime" -ln "rman__riopt__photon_lifetime" 
 		-dt "string";
 	addAttr -ci true -k true -sn "rman__riopt__photon_emit" -ln "rman__riopt__photon_emit" 
-		-dv -1 -smn 0 -smx 100 -at "long";
+		-dv -1 -at "long";
 	addAttr -ci true -h true -sn "rman__riattr__photon_causticmap" -ln "rman__riattr__photon_causticmap" 
 		-dt "string";
 	addAttr -ci true -h true -sn "rman__riattr__photon_globalmap" -ln "rman__riattr__photon_globalmap" 
@@ -11850,8 +11850,8 @@ createNode reference -n "bedroom1RN";
 		"bedroom1RN"
 		"bedroom1:bedsheetRN" 0
 		"bedroom1:bedroom:LampRN" 0
-		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
 		"bedroom1:bedroom:deskRN" 0
+		"bedroom1:anim_ready_Emily:Dress_EmilyRN" 0
 		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 0
 		"bedroom1:anim_ready_EmilyRN" 0
 		"bedroom1:bedroomRN" 0
@@ -11927,7 +11927,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
-		"translate" " -type \"double3\" -0.00080305700000000003 0.011604400000000001 0.011920245564734063"
+		"translate" " -type \"double3\" -0.00080305700000000003 0.011604400000000001 -0.044087279852930428"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"translateX" " -av"
@@ -11936,7 +11936,8 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
-		"rotate" " -type \"double3\" -2.30550896014436102 0 -4.7711394226834587"
+		"rotate" " -type \"double3\" 15.57113737255767205 2.49866518315603425 -4.7711394226834587"
+		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
@@ -11944,7 +11945,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
-		"scale" " -type \"double3\" 1 1 1"
+		"scale" " -type \"double3\" 1.03 1.03 1.03"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"scaleX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
@@ -11952,7 +11953,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKOffsetRoot_M|bedroom1:anim_ready_Emily:FKExtraRoot_M|bedroom1:anim_ready_Emily:FKRoot_M|bedroom1:anim_ready_Emily:FKXOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupOffsetRoot_M|bedroom1:anim_ready_Emily:HipSwingerGroupRoot_M|bedroom1:anim_ready_Emily:FKXRoot_M|bedroom1:anim_ready_Emily:HipSwingerStabalizeRoot_M|bedroom1:anim_ready_Emily:FKOffsetSpine1_M|bedroom1:anim_ready_Emily:FKExtraSpine1_M|bedroom1:anim_ready_Emily:FKSpine1_M|bedroom1:anim_ready_Emily:FKXOffsetSpine1_M|bedroom1:anim_ready_Emily:FKXSpine1_M|bedroom1:anim_ready_Emily:FKOffsetChest_M|bedroom1:anim_ready_Emily:FKExtraChest_M|bedroom1:anim_ready_Emily:FKChest_M" 
 		"scaleZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
-		"translate" " -type \"double3\" -0.0047105999999999997 0.0052975400352608202 0"
+		"translate" " -type \"double3\" -0.0047105999999999997 0.0017216099999999999 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"translateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
@@ -11960,7 +11961,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
-		"rotate" " -type \"double3\" 3.81334645242737036 1.82354145080159147 -2.26255342514356617"
+		"rotate" " -type \"double3\" 3.81334645242737036 -0.29244334245689124 -2.26255342514356617"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"rotateX" " -av"
@@ -11969,12 +11970,12 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
-		"translate" " -type \"double3\" 0.016060872607997573 0.0057302100000000003 0.0228223"
+		"translate" " -type \"double3\" -0.0062538564235466209 0.0057302100000000003 0.0228223"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
 		"translateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
-		"rotate" " -type \"double3\" 4.98013902467543623 -6.34723207171525328 6.90099359842294646"
+		"rotate" " -type \"double3\" 37.82468302908432634 2.48445249388461376 13.2865117901387535"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
 		"rotateX" " -av"
@@ -11983,7 +11984,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetNeck_M|bedroom1:anim_ready_Emily:FKGlobalStaticNeck_M|bedroom1:anim_ready_Emily:FKGlobalNeck_M|bedroom1:anim_ready_Emily:FKExtraNeck_M|bedroom1:anim_ready_Emily:FKNeck_M|bedroom1:anim_ready_Emily:FKXOffsetNeck_M|bedroom1:anim_ready_Emily:FKXNeck_M|bedroom1:anim_ready_Emily:FKOffsetHead_M|bedroom1:anim_ready_Emily:FKGlobalStaticHead_M|bedroom1:anim_ready_Emily:FKGlobalHead_M|bedroom1:anim_ready_Emily:FKExtraHead_M|bedroom1:anim_ready_Emily:FKHead_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
-		"translate" " -type \"double3\" -0.00057325674434526681 0.014343329536342877 0.0064122804937803181"
+		"translate" " -type \"double3\" -0.011975268498599515 0.043331959418198861 0.0091864780335591291"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"translateX" " -av"
@@ -11992,7 +11993,8 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
-		"rotate" " -type \"double3\" -3.709074 -12.22664752713830261 16.812759"
+		"rotate" " -type \"double3\" -3.709074 -17.37648792787805263 16.81275900000002821"
+		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
@@ -12000,13 +12002,13 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_R|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_R|bedroom1:anim_ready_Emily:FKGlobalScapula_R|bedroom1:anim_ready_Emily:FKExtraScapula_R|bedroom1:anim_ready_Emily:FKScapula_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_L|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_L|bedroom1:anim_ready_Emily:FKGlobalScapula_L|bedroom1:anim_ready_Emily:FKExtraScapula_L|bedroom1:anim_ready_Emily:FKScapula_L" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0 0 -0.05450603590650898"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:FKSystem|bedroom1:anim_ready_Emily:FKParentConstraintToChest_M|bedroom1:anim_ready_Emily:FKOffsetScapula_L|bedroom1:anim_ready_Emily:FKGlobalStaticScapula_L|bedroom1:anim_ready_Emily:FKGlobalScapula_L|bedroom1:anim_ready_Emily:FKExtraScapula_L|bedroom1:anim_ready_Emily:FKScapula_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKSpineHandle_M" 
 		"translate" " -type \"double3\" 0 2.0752550980529767 -0.0010895726795263627"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
-		"translate" " -type \"double3\" 0.64275214193386554 -0.83829764879983704 -0.079419588595393054"
+		"translate" " -type \"double3\" 1.1089768757576739 -0.31327707736449534 0.34397289258713121"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
 		"translateX" " -av"
@@ -12015,7 +12017,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
-		"rotate" " -type \"double3\" 96.1713431740727458 92.13184471952882859 -8.51855631528103885"
+		"rotate" " -type \"double3\" 71.68637210935943926 208.85283925884132827 -6.88299061099692722"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
 		"rotateX" " -av"
@@ -12024,7 +12026,8 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:IKOffsetArm_R|bedroom1:anim_ready_Emily:IKExtraArm_R|bedroom1:anim_ready_Emily:IKArm_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:PoleOffsetArm_R|bedroom1:anim_ready_Emily:PoleExtraArm_R|bedroom1:anim_ready_Emily:PoleArm_R" 
-		"translate" " -type \"double3\" -0.081405000000000227 0 1.04806240617357638"
+		"translate" " -type \"double3\" 0.15806831753655887 -0.25287058632797854 1.16089280037769504"
+		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:PoleOffsetArm_R|bedroom1:anim_ready_Emily:PoleExtraArm_R|bedroom1:anim_ready_Emily:PoleArm_R" 
 		"translateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:Main|bedroom1:anim_ready_Emily:MotionSystem|bedroom1:anim_ready_Emily:IKSystem|bedroom1:anim_ready_Emily:IKHandle|bedroom1:anim_ready_Emily:PoleOffsetArm_R|bedroom1:anim_ready_Emily:PoleExtraArm_R|bedroom1:anim_ready_Emily:PoleArm_R" 
@@ -12044,7 +12047,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceFitSkeleton|bedroom1:anim_ready_Emily:FaceFitLip|bedroom1:anim_ready_Emily:FaceFitLipGeo|bedroom1:anim_ready_Emily:lowerLipCylinder|bedroom1:anim_ready_Emily:lowerLipCylinderShape" 
 		"instObjGroups.objectGroups[10].objectGrpColor" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
-		"translate" " -type \"double3\" 0.027948916507226185 0.085700006561599887 -0.0052191404228756526"
+		"translate" " -type \"double3\" 0.036658388303441203 0.10682181214810731 -0.0023926776972446784"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
 		"translateX" " -av"
@@ -12061,7 +12064,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_R|bedroom1:anim_ready_Emily:browInnerOffset_R|bedroom1:anim_ready_Emily:browInnerSubtract_R|bedroom1:anim_ready_Emily:browInner_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
-		"translate" " -type \"double3\" 0.028419588871659313 -0.012263671085708748 0.00360162576877142"
+		"translate" " -type \"double3\" 0.028419588871659313 -0.012263671085708748 0.0092766176097489033"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
 		"translateX" " -av"
@@ -12070,7 +12073,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_R|bedroom1:anim_ready_Emily:browOuterOffset_R|bedroom1:anim_ready_Emily:browOuterSubtract_R|bedroom1:anim_ready_Emily:browOuter_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
-		"translate" " -type \"double3\" -0.029914502407456817 0.076264258105515861 -0.015977102701988041"
+		"translate" " -type \"double3\" -0.021161802708552092 0.11664488736722685 -0.019601276837253535"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
 		"translateX" " -av"
@@ -12079,7 +12082,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browInnerAttach_L|bedroom1:anim_ready_Emily:browInnerOffset_L|bedroom1:anim_ready_Emily:browInnerSubtract_L|bedroom1:anim_ready_Emily:browInner_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L" 
-		"translate" " -type \"double3\" -0.023082484890970378 0.0042953106933357682 -0.0047813893072041489"
+		"translate" " -type \"double3\" -0.023082484890970378 0.0042953106933357682 -0.0070330045371779998"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L" 
 		"translateX" " -av"
@@ -12088,7 +12091,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:browOuterAttach_L|bedroom1:anim_ready_Emily:browOuterOffset_L|bedroom1:anim_ready_Emily:browOuterSubtract_L|bedroom1:anim_ready_Emily:browOuter_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
-		"translate" " -type \"double3\" 0.0072298983324698913 0.0050400988144961214 0.0057292541002523746"
+		"translate" " -type \"double3\" -0.0045508342042955372 0.0089143005967418157 -0.0013551998871782378"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
 		"translateX" " -av"
@@ -12105,7 +12108,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_R|bedroom1:anim_ready_Emily:Lip6Offset_R|bedroom1:anim_ready_Emily:Lip6Subtract_R|bedroom1:anim_ready_Emily:Lip6_R" 
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
-		"translate" " -type \"double3\" -0.0042173617503920274 -0.017368240540468517 0.002115940156158467"
+		"translate" " -type \"double3\" -0.0204431001710891 -0.014534450376613472 -0.0061174360691417101"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
 		"translateX" " -av"
@@ -12122,7 +12125,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:Lip6Attach_L|bedroom1:anim_ready_Emily:Lip6Offset_L|bedroom1:anim_ready_Emily:Lip6Subtract_L|bedroom1:anim_ready_Emily:Lip6_L" 
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
-		"translate" " -type \"double3\" -0.003252940462469362 -0.0046021950744288588 -0.011957374955484212"
+		"translate" " -type \"double3\" 0.00036310432519159669 0.00014223269549734456 -0.0094529852811432221"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"translateX" " -av"
@@ -12131,7 +12134,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
-		"rotate" " -type \"double3\" 0.058336028018906042 0 0"
+		"rotate" " -type \"double3\" 4.75340114227840349 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
@@ -12139,7 +12142,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip0Attach_M|bedroom1:anim_ready_Emily:upperLip0Offset_M|bedroom1:anim_ready_Emily:upperLip0Subtract_M|bedroom1:anim_ready_Emily:upperLip0_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
-		"translate" " -type \"double3\" 0.011640788709111024 0.0034780146115673243 0.0076652277043919286"
+		"translate" " -type \"double3\" 0.011994200460024512 -0.0011604792927992053 0.0081762673355811454"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"translateX" " -av"
@@ -12148,7 +12151,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 2.37491682720048392 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
@@ -12156,7 +12159,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_R|bedroom1:anim_ready_Emily:upperLip3Offset_R|bedroom1:anim_ready_Emily:upperLip3Subtract_R|bedroom1:anim_ready_Emily:upperLip3_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
-		"translate" " -type \"double3\" -0.0032034900407783952 0.0069084481475309226 -0.0015897617964204692"
+		"translate" " -type \"double3\" -0.0028500782898649062 0.0022699542431643929 -0.0010787221652312532"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"translateX" " -av"
@@ -12165,7 +12168,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
-		"rotate" " -type \"double3\" 0 0 0"
+		"rotate" " -type \"double3\" 3.65253608290048115 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
@@ -12173,7 +12176,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:upperLip3Attach_L|bedroom1:anim_ready_Emily:upperLip3Offset_L|bedroom1:anim_ready_Emily:upperLip3Subtract_L|bedroom1:anim_ready_Emily:upperLip3_L" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
-		"translate" " -type \"double3\" -0.0028681401849247976 0.02347092920322677 -0.0043971843519363275"
+		"translate" " -type \"double3\" 0.0029628847156652387 0.02318757409784953 6.7432184391753494e-05"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"translateX" " -av"
@@ -12182,7 +12185,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
-		"rotate" " -type \"double3\" 3.32773563809859674 0 0"
+		"rotate" " -type \"double3\" -12.79657578249192973 0 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip0Attach_M|bedroom1:anim_ready_Emily:lowerLip0Offset_M|bedroom1:anim_ready_Emily:lowerLip0Subtract_M|bedroom1:anim_ready_Emily:lowerLip0_M" 
 		"rotateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R" 
@@ -12195,7 +12198,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_R|bedroom1:anim_ready_Emily:lowerLip3Offset_R|bedroom1:anim_ready_Emily:lowerLip3Subtract_R|bedroom1:anim_ready_Emily:lowerLip3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
-		"translate" " -type \"double3\" -0.0065625307658374382 0.010848786699875514 0.001441715449958356"
+		"translate" " -type \"double3\" -0.0065625307658374382 0.02155341737908565 0.001441715449958356"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
 		"translateX" " -av"
@@ -12204,7 +12207,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Acontrols|bedroom1:anim_ready_Emily:lowerLip3Attach_L|bedroom1:anim_ready_Emily:lowerLip3Offset_L|bedroom1:anim_ready_Emily:lowerLip3Subtract_L|bedroom1:anim_ready_Emily:lowerLip3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R" 
-		"translate" " -type \"double3\" 0.00024489407659843132 0.0031084820777227762 -0.00023175735233332465"
+		"translate" " -type \"double3\" -0.00085092301144066218 0.0094961678801716489 -0.00068183855278524297"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_R|bedroom1:anim_ready_Emily:LidCorner1Offset_R|bedroom1:anim_ready_Emily:LidCorner1Subtract_R|bedroom1:anim_ready_Emily:LidCorner1_R" 
 		"translateX" " -av"
@@ -12229,7 +12232,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_R|bedroom1:anim_ready_Emily:LidCorner2Offset_R|bedroom1:anim_ready_Emily:LidCorner2Subtract_R|bedroom1:anim_ready_Emily:LidCorner2_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
-		"translate" " -type \"double3\" -0.0021657487162219766 0.0109712672786903 -0.0015071057004042276"
+		"translate" " -type \"double3\" -0.0050820796591890868 0.021145359677534677 -0.001723725499199628"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"translateX" " -av"
@@ -12254,7 +12257,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_R|bedroom1:anim_ready_Emily:upperLid1Offset_R|bedroom1:anim_ready_Emily:upperLid1Subtract_R|bedroom1:anim_ready_Emily:upperLid1_R" 
 		"scaleZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
-		"translate" " -type \"double3\" -0.0021657487162219766 0.0109712672786903 -0.0015071057004042276"
+		"translate" " -type \"double3\" -0.0050820796591890868 0.021145359677534677 -0.001723725499199628"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
 		"translateX" " -av"
@@ -12263,7 +12266,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_R|bedroom1:anim_ready_Emily:lowerLid1Offset_R|bedroom1:anim_ready_Emily:lowerLid1Subtract_R|bedroom1:anim_ready_Emily:lowerLid1_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L" 
-		"translate" " -type \"double3\" -0.0027514456516410674 0.0049929797191526444 -0.0010874746347234836"
+		"translate" " -type \"double3\" -0.0038678919967132931 0.011500916623455161 -0.0015460288192803496"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner1Attach_L|bedroom1:anim_ready_Emily:LidCorner1Offset_L|bedroom1:anim_ready_Emily:LidCorner1Subtract_L|bedroom1:anim_ready_Emily:LidCorner1_L" 
 		"translateX" " -av"
@@ -12280,7 +12283,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:LidCorner2Attach_L|bedroom1:anim_ready_Emily:LidCorner2Offset_L|bedroom1:anim_ready_Emily:LidCorner2Subtract_L|bedroom1:anim_ready_Emily:LidCorner2_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
-		"translate" " -type \"double3\" -0.003751684877405207 -0.0064100523601331016 -0.00026047540511481894"
+		"translate" " -type \"double3\" -0.0082870277679132649 0.0024789515473178443 -0.0012904461369921206"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
 		"translateX" " -av"
@@ -12289,7 +12292,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:upperLid1Attach_L|bedroom1:anim_ready_Emily:upperLid1Offset_L|bedroom1:anim_ready_Emily:upperLid1Subtract_L|bedroom1:anim_ready_Emily:upperLid1_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
-		"translate" " -type \"double3\" -0.003751684877405207 -0.0064100523601331016 -0.00026047540511481894"
+		"translate" " -type \"double3\" -0.0082870277679132649 0.0024789515473178443 -0.0012904461369921206"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
 		"translateX" " -av"
@@ -12298,7 +12301,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Bcontrols|bedroom1:anim_ready_Emily:lowerLid1Attach_L|bedroom1:anim_ready_Emily:lowerLid1Offset_L|bedroom1:anim_ready_Emily:lowerLid1Subtract_L|bedroom1:anim_ready_Emily:lowerLid1_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R" 
-		"translate" " -type \"double3\" 0.00024489407659843132 0.0031084820777227762 -0.00023175735233332465"
+		"translate" " -type \"double3\" -0.00085092301144066218 0.0094961678801716489 -0.00068183855278524297"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_R|bedroom1:anim_ready_Emily:upperLid2Offset_R|bedroom1:anim_ready_Emily:upperLid2Subtract_R|bedroom1:anim_ready_Emily:upperLid2_R" 
 		"translateX" " -av"
@@ -12315,7 +12318,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_R|bedroom1:anim_ready_Emily:upperLid3Offset_R|bedroom1:anim_ready_Emily:upperLid3Subtract_R|bedroom1:anim_ready_Emily:upperLid3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R" 
-		"translate" " -type \"double3\" 0.00024489407659843132 0.0031084820777227762 -0.00023175735233332465"
+		"translate" " -type \"double3\" -0.00085092301144066218 0.0094961678801716489 -0.00068183855278524297"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_R|bedroom1:anim_ready_Emily:lowerLid2Offset_R|bedroom1:anim_ready_Emily:lowerLid2Subtract_R|bedroom1:anim_ready_Emily:lowerLid2_R" 
 		"translateX" " -av"
@@ -12332,7 +12335,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_R|bedroom1:anim_ready_Emily:lowerLid3Offset_R|bedroom1:anim_ready_Emily:lowerLid3Subtract_R|bedroom1:anim_ready_Emily:lowerLid3_R" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
-		"translate" " -type \"double3\" -0.0027514456516410674 0.0049929797191526444 -0.0010874746347234836"
+		"translate" " -type \"double3\" -0.0038678919967132931 0.011500916623455161 -0.0015460288192803496"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid2Attach_L|bedroom1:anim_ready_Emily:upperLid2Offset_L|bedroom1:anim_ready_Emily:upperLid2Subtract_L|bedroom1:anim_ready_Emily:upperLid2_L" 
 		"translateX" " -av"
@@ -12357,7 +12360,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:upperLid3Attach_L|bedroom1:anim_ready_Emily:upperLid3Offset_L|bedroom1:anim_ready_Emily:upperLid3Subtract_L|bedroom1:anim_ready_Emily:upperLid3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
-		"translate" " -type \"double3\" -0.0027514456516410674 0.0049929797191526444 -0.0010874746347234836"
+		"translate" " -type \"double3\" -0.0038678919967132931 0.011500916623455161 -0.0015460288192803496"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
 		"translateX" " -av"
@@ -12374,7 +12377,8 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid2Attach_L|bedroom1:anim_ready_Emily:lowerLid2Offset_L|bedroom1:anim_ready_Emily:lowerLid2Subtract_L|bedroom1:anim_ready_Emily:lowerLid2_L" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" -0.0013330213590817977 0.0059938336389482611 -0.00023678760468683524"
+		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
 		"translateX" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
@@ -12382,7 +12386,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:lowerLid3Attach_L|bedroom1:anim_ready_Emily:lowerLid3Offset_L|bedroom1:anim_ready_Emily:lowerLid3Subtract_L|bedroom1:anim_ready_Emily:lowerLid3_L" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
-		"translate" " -type \"double3\" 0.032239161875002253 -0.057316956106894731 0.010492824580997944"
+		"translate" " -type \"double3\" 0.049246388469228929 -0.0080933527793232655 0.0053649017679892339"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"translateX" " -av"
@@ -12399,7 +12403,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_R|bedroom1:anim_ready_Emily:browHalfOffset_R|bedroom1:anim_ready_Emily:browHalfSubtract_R|bedroom1:anim_ready_Emily:browHalf_R" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
-		"translate" " -type \"double3\" -0.0071023514729523073 -0.075460246829382557 0.0031228269237762794"
+		"translate" " -type \"double3\" -0.022344212303620652 -0.025108319238275688 -0.0087345412497338275"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Ccontrols|bedroom1:anim_ready_Emily:browHalfAttach_L|bedroom1:anim_ready_Emily:browHalfOffset_L|bedroom1:anim_ready_Emily:browHalfSubtract_L|bedroom1:anim_ready_Emily:browHalf_L" 
 		"translateX" " -av"
@@ -12425,7 +12429,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"translateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
-		"rotate" " -type \"double3\" -68.97566291203830247 85.83423868959226866 2.50447847999391e-06"
+		"rotate" " -type \"double3\" -53.63518358377697126 64.61196165637308297 2.5044781439972635e-06"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ControlsSetup|bedroom1:anim_ready_Emily:Aimcontrols|bedroom1:anim_ready_Emily:AimEyeOffset_M|bedroom1:anim_ready_Emily:AimEyeFollow_M|bedroom1:anim_ready_Emily:AimEye_M" 
 		"rotateX" " -av -k 0"
@@ -12446,25 +12450,25 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxBrow_L|bedroom1:anim_ready_Emily:ctrlBrow_L" 
 		"translateY" " -av 0"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_R|bedroom1:anim_ready_Emily:ctrlCheek_R" 
-		"translateX" " -av 0.13035397516179814"
+		"translateX" " -av 0.40187296024089542"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_R|bedroom1:anim_ready_Emily:ctrlCheek_R" 
-		"translateY" " -av 0.99075825111217508"
+		"translateY" " -av 0.74041046417130996"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_L|bedroom1:anim_ready_Emily:ctrlCheek_L" 
-		"translateX" " -av 0.13035397516179814"
+		"translateX" " -av 0.40187296024089542"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxCheek_L|bedroom1:anim_ready_Emily:ctrlCheek_L" 
-		"translateY" " -av 0.99075825111217508"
+		"translateY" " -av 0.74041046417130996"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_R|bedroom1:anim_ready_Emily:ctrlNose_R" 
-		"translateX" " -av 0.95527864728935952"
+		"translateX" " -av 0.2345507751151395"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_R|bedroom1:anim_ready_Emily:ctrlNose_R" 
-		"translateY" " -av 0.46924494453377547"
+		"translateY" " -av 0.095112063730669605"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_L|bedroom1:anim_ready_Emily:ctrlNose_L" 
-		"translateX" " -av 0.95527864728935952"
+		"translateX" " -av 0.2345507751151395"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxNose_L|bedroom1:anim_ready_Emily:ctrlNose_L" 
-		"translateY" " -av 0.46924494453377547"
+		"translateY" " -av 0.095112063730669605"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouth_M|bedroom1:anim_ready_Emily:ctrlMouth_M" 
-		"translateX" " -av 0.053428305868819526"
+		"translateX" " -av 0.083440682393646159"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouth_M|bedroom1:anim_ready_Emily:ctrlMouth_M" 
-		"translateY" " -av -0.2488618530108172"
+		"translateY" " -av -0.23545924205241409"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_R|bedroom1:anim_ready_Emily:ctrlMouthCorner_R" 
 		"translateX" " -av -0.0260851"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_R|bedroom1:anim_ready_Emily:ctrlMouthCorner_R" 
@@ -12474,7 +12478,7 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:ctrlBoxOffset|bedroom1:anim_ready_Emily:ctrlBox|bedroom1:anim_ready_Emily:ctrlBoxMouthCorner_L|bedroom1:anim_ready_Emily:ctrlMouthCorner_L" 
 		"translateY" " -av -0.0770232"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
-		"rotate" " -type \"double3\" 0 0 -0.93381571057942181"
+		"rotate" " -type \"double3\" 0 0 -2.24479136111633215"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
 		"rotateZ" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
@@ -12482,10 +12486,10 @@ createNode reference -n "bedroom1RN";
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:JawSetup|bedroom1:anim_ready_Emily:JawSetupFollowHead|bedroom1:anim_ready_Emily:FKOffsetJaw_M|bedroom1:anim_ready_Emily:FKSDK1Jaw_M|bedroom1:anim_ready_Emily:FKSDK2Jaw_M|bedroom1:anim_ready_Emily:FKJaw_M" 
 		"rotateY" " -av"
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"translate" " -type \"double3\" 2.00258749251009505 2.41577882693574564 -4.32615762927856284"
+		"translate" " -type \"double3\" 1.97621892153016931 2.49792374546923002 -4.29302222217709684"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:Rig|bedroom1:anim_ready_Emily:FaceGroup|bedroom1:anim_ready_Emily:FaceMotionSystem|bedroom1:anim_ready_Emily:SquashSetup|bedroom1:anim_ready_Emily:squashIKHandle" 
-		"rotate" " -type \"double3\" 52.57053713472687662 80.63432453131501632 47.20729618108181569"
+		"rotate" " -type \"double3\" 138.22662303595308231 76.48730600035170824 100.69134431509894512"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:RightEye|bedroom1:anim_ready_Emily:RightEyeShapeDeformed" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
@@ -12598,17 +12602,17 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body2|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "EmilyFillLightSet.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:TopTeeth|bedroom1:anim_ready_Emily:TopTeethShapeDeformed.message" "EmilyRimLightSet.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BottomTeeth|bedroom1:anim_ready_Emily:BottomTeethShapeDeformed.message" "EmilyFillLightSet.message" 
 		0
@@ -12622,33 +12626,33 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:LeftBrow|bedroom1:anim_ready_Emily:LeftBrowShapeDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "EmilyFillLightSet.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body|bedroom1:anim_ready_Emily:BodyShapeDeformedDeformed.message" "EmilyRimLightSet.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "EmilyFillLightSet.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase1|bedroom1:anim_ready_Emily:BodyBase1ShapeDeformedDeformed.message" "EmilyRimLightSet.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "EmilyFillLightSet.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:BodyBase|bedroom1:anim_ready_Emily:BodyBaseShapeDeformedDeformed.message" "EmilyRimLightSet.message" 
 		0
-		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Emily_Main|bedroom1:anim_ready_Emily:geo_Emily|bedroom1:anim_ready_Emily:Body1|bedroom1:anim_ready_Emily:Body1ShapeDeformedDeformed.message" "EmilyFillLightSet.message" 
 		0
@@ -12838,7 +12842,7 @@ createNode reference -n "bedroom1RN";
 		0
 		"bedroom1:anim_ready_Emily:Hair_EmilyRN" 11
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
-		"translate" " -type \"double3\" 1.93044813306376195 -0.38278736053369755 -3.66858676749278922"
+		"translate" " -type \"double3\" 1.91555728491843813 -0.33448806949518151 -3.64833202426456049"
 		
 		2 "|bedroom1:anim_ready_Emily:Emily|bedroom1:anim_ready_Emily:Hair_Emily:Hair" 
 		"translateX" " -av"
@@ -12852,9 +12856,9 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:lambert2SG1.message" "EmilyRimLightSet.message" 
 		0
-		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
-		0
 		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyRimLightTrs|EmilyRimLight.message" 
+		0
+		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
 		7 "link" ":lightLinker1" 2 "bedroom1:anim_ready_Emily:Hair_Emily:modelPanel4ViewSelectedSet.message" "EmilyFillLightSet.message" 
 		0
@@ -12878,10 +12882,11 @@ createNode reference -n "bedroom1RN";
 		0
 		7 "ignore" ":lightLinker1" 2 "bedroom1:bedroom:RMSMatte1SG.message" "|EmilyFillLightTrs|EmilyFillLight.message" 
 		0
-		"bedroom1RN" 40
-		2 "|bedroom1:Full_Bedroom_shot" "translate" " -type \"double3\" -2.94782936974770937 2.98752132834351292 -2.79203564107337021"
+		"bedroom1RN" 41
+		2 "|bedroom1:Full_Bedroom_shot" "translate" " -type \"double3\" -2.87625378612206584 2.98667469043249145 -2.78552175258909829"
 		
 		2 "|bedroom1:Full_Bedroom_shot" "translateX" " -av"
+		2 "|bedroom1:Full_Bedroom_shot" "translateY" " -av"
 		2 "|bedroom1:Full_Bedroom_shot" "translateZ" " -av"
 		2 "|bedroom1:Full_Bedroom_shot|bedroom1:Full_Bedroom_shotShape" "renderable" 
 		" 0"
@@ -13719,8 +13724,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -k on ".o" 32;
-	setAttr -av ".unw" 32;
+	setAttr -k on ".o" 126;
+	setAttr -av ".unw" 126;
 select -ne :renderPartition;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
