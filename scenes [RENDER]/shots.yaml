@@ -27,7 +27,7 @@
 - name       : "Hallway Running"
   file       : "hallway_run.ma"
   camera     : 'camera2'
-  startFrame : 1
+  startFrame : 4
   endFrame   : 64
 
 - name       : "Enter Unicorn"
