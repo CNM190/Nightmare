@@ -46,7 +46,7 @@ def render(shots, frame=None, tractor=True):
         ]
 
         if tractor:
-            cmd += ["-spool", 'immediate rib, remote render']
+            cmd += ["-spool", 'remote rib, remote render']
 
         cmd += [scene]
 
